@@ -1,12 +1,7 @@
-# main links
 main:
-  #- title: "About Us"
-  #  url: /about/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  #- title: "Downloads"
-  #  url: /downloads/
-  #- title: "Contact Us"
-  #  url: /contact-us/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: "Categories"
+    url: /categories/
+  - title: "Tags"
+    url: /tags/
+  - title: "About me"
+    url: /about/

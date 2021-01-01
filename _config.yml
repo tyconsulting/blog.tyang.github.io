@@ -103,7 +103,7 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       # url: "mailto:your.name@email.com"
-    - label: "Website"
+    - label: "TY Consulting"
       icon: "fas fa-fw fa-link"
       url: "https://www.tyconsulting.com.au"
     - label: "Twitter"
@@ -137,6 +137,9 @@ footer:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin-in"
       url: "https://www.linkedin.com/in/tao-yang-988325a"
+    - label: "TY Consulting"
+      icon: "fas fa-fw fa-link"
+      url: "https://www.tyconsulting.com.au"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url: 
