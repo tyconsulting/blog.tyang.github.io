@@ -183,7 +183,7 @@ exclude:
   - /test # ignore Minimal Mistakes /test
   - /_posts/2010 # temp, remove later
   - /_posts/2011 # temp, remove later
-  - /_posts/2013 # temp, remove later
+  - /_posts/2012 # temp, remove later
   - /_posts/2014 # temp, remove later
   - /_posts/2015 # temp, remove later
   - /_posts/2016 # temp, remove later
