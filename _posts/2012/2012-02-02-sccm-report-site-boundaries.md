@@ -16,7 +16,7 @@ I wrote this simple report yesterday to list and search site boundaries:
 
 Report Name: SCCM Site Boundaries
 
-<strong>SQL Query:</strong>
+**SQL Query:**
 
 ```sql
 SELECT distinct
@@ -32,15 +32,11 @@ v_BoundaryInfo.SiteCode AS [Site Code]
 From v_BoundaryInfo WHERE DisplayName LIKE @BoundaryName
 ```
 
-&nbsp;
+**Prompts:**
 
-<strong>Prompts:</strong>
-
-Name: BoundaryName
-
-Prompt Text: Boundary Name
-
-Prompt SQL Statement:
+* Name: BoundaryName
+* Prompt Text: Boundary Name
+* Prompt SQL Statement:
 
 ```sql
 begin

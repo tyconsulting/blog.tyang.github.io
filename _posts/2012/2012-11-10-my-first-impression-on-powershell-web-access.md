@@ -62,7 +62,6 @@ I started testing by connecting to a SCOM management server and tried to retriev
 
 ```powershell
 Import-Module OperationsManager
-
 $a = Get-SCOMAgent
 ```
 
@@ -84,7 +83,6 @@ To further prove this error is actually caused by not having enough memory for t
 
 ```powershell
 Import-Module OperationsManager
-
 New-SCManagementGroupConnection OpsMgrMS03
 ```
 

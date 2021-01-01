@@ -30,9 +30,8 @@ I then showed George how to create a "Hello World" infinite loop in PowerShell:
 
 ```powershell
 Do {
-Write-Host "Hello World"
-}
-While ($George.Nationality –eq "Greek")
+  Write-Host "Hello World"
+} While ($George.Nationality –eq "Greek")
 ```
 
 

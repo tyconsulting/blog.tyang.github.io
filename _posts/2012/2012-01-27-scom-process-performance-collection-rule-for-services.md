@@ -37,16 +37,16 @@ To overcome this issue, I had to create some customized modules to collect the c
 
 1. I firstly created a probe action module to run a vbscript to collect ALL the counters I’m interested in via WMI. In the script:
 <ol>
-	<li>takes the service name and computer name from the input parameter, get the PID for the service from <strong>win32_service</strong> class (note, I had to pass computer name to the script so it can connect to remote computer’s WMI namespace, this is required for agentless monitoring)</li>
-	<li>retrieve the values of the performance counters from <strong>Win32_PerfFormattedData_PerfProc_Process</strong> class using query <strong>"Select * from Win32_PerfFormattedData_PerfProc_Process Where IDProcess = ProcessID"</strong> (ProcessID was retrieved from step 1)</li>
-	<li>For each performance counter, create a property bag and add the property bag to MOM.ScriptAPI object</li>
-	<li>Return all property bags.</li>
+    <li>takes the service name and computer name from the input parameter, get the PID for the service from <strong>win32_service</strong> class (note, I had to pass computer name to the script so it can connect to remote computer’s WMI namespace, this is required for agentless monitoring)</li>
+    <li>retrieve the values of the performance counters from <strong>Win32_PerfFormattedData_PerfProc_Process</strong> class using query <strong>"Select * from Win32_PerfFormattedData_PerfProc_Process Where IDProcess = ProcessID"</strong> (ProcessID was retrieved from step 1)</li>
+    <li>For each performance counter, create a property bag and add the property bag to MOM.ScriptAPI object</li>
+    <li>Return all property bags.</li>
 </ol>
 2. Create a Data Source module which contains 3 modules and the modules are executed on the following order:
 <ol>
-	<li>System.SimpleScheduler (runs according to a schedule)</li>
-	<li>Probe module created from step 1 (retrieve performance counters and return then via property bag)</li>
-	<li>System.Performance.DataGenericMapper (Map the property bag values to performance data)</li>
+    <li>System.SimpleScheduler (runs according to a schedule)</li>
+    <li>Probe module created from step 1 (retrieve performance counters and return then via property bag)</li>
+    <li>System.Performance.DataGenericMapper (Map the property bag values to performance data)</li>
 </ol>
 Now that I’ve created all the required modules, I can then create a SINGLE rule to collect all different counters that I defined in the probe action module. To do so:
 
@@ -68,8 +68,8 @@ Now that I’ve created all the required modules, I can then create a SINGLE rul
 
 4. Add 2 Actions module (don’t need to configure them):
 <ol>
-	<li>Microsoft.SystemCenter.CollectionPerformanceData (WriteToDB)</li>
-	<li>Microsoft.SystemCenter.DataWarehouse.PublishPerformanceData (WriteToDW)</li>
+    <li>Microsoft.SystemCenter.CollectionPerformanceData (WriteToDB)</li>
+    <li>Microsoft.SystemCenter.DataWarehouse.PublishPerformanceData (WriteToDW)</li>
 </ol>
 <a href="http://blog.tyang.org/wp-content/uploads/2012/01/image38.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb38.png" alt="image" width="580" height="455" border="0" /></a>
 
@@ -186,13 +186,13 @@ oAPI.ReturnItems
 
 As you can see, I’m collecting the following 7 counters in the script:
 <ol>
-	<li>Elapsed Time</li>
-	<li>% Processor Time</li>
-	<li>% User Time</li>
-	<li>Thread Count</li>
-	<li>Page Faults/sec</li>
-	<li>IO Read Bytes/sec</li>
-	<li>IO Write Bytes/sec</li>
+    <li>Elapsed Time</li>
+    <li>% Processor Time</li>
+    <li>% User Time</li>
+    <li>Thread Count</li>
+    <li>Page Faults/sec</li>
+    <li>IO Read Bytes/sec</li>
+    <li>IO Write Bytes/sec</li>
 </ol>
 You will need to modify the script if you are collecting different counters. for details of the counters you can collect, please refer to Win32_PerfFormattedData_PerfProc_Process class documentation here at MSDN: <a title="http://msdn.microsoft.com/en-us/library/windows/desktop/aa394277(v=vs.85).aspx" href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa394277(v=vs.85).aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/aa394277(v=vs.85).aspx</a>
 

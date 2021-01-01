@@ -35,14 +35,15 @@ Here’s the script:
 # group members are also placed into maint. mode.
 #===========================================================================================
 Param (
-[Parameter(Mandatory=$true)]
-[string]$RMS,
-[Parameter(Mandatory=$true)]
-[string]$GroupName,
-[Parameter(Mandatory=$true)]
-[int]$DurationInMinutes,
-[Parameter(Mandatory=$true)]
-[string]$Comments)
+  [Parameter(Mandatory=$true)]
+  [string]$RMS,
+  [Parameter(Mandatory=$true)]
+  [string]$GroupName,
+  [Parameter(Mandatory=$true)]
+  [int]$DurationInMinutes,
+  [Parameter(Mandatory=$true)]
+  [string]$Comments
+)
 
 #Region FunctionLibs
 function Load-SDK()
@@ -70,37 +71,35 @@ $GroupMonitoringClasses = $MG.GetMonitoringClasses($MonitoringClassCriteria)
 
 If ($GroupMOnitoringClasses)
 {
- Foreach ($Group in $GroupMonitoringClasses)
- {
- $StartTime = ([DateTime]::Now).ToUniversalTime()
- $EndTime = $StartTime.AddMinutes($DurationInMinutes)
- $MonitoringGUID = $Group.Id
- $MonitoringObject = $MG.GetMonitoringObject($MonitoringGUID)
- Write-Host "Monitoring Object GUID: $MonitoringGUID"
- Write-Host "Monitoring Object DisplayName: $($MonitoringObject.DisplayName)"
- If (!$MonitoringObject.InMaintenanceMode)
- {
- $Reason = "PlannedOther"
- Write-Host "Placing $($MonitoringObject.Displayname) into Maintenance Mode..." -ForegroundColor Green
- $MonitoringObject.ScheduleMaintenanceMode($StartTime, $EndTime, $Reason, $Comments, "Recursive")
-
- } else {
- $CurrentMaintWindow = $MonitoringObject.GetMaintenanceWindow()
- $CurrentEndTime = $CurrentMaintWindow.ScheduledEndTime
- $CurrentReason = $CurrentMaintWindow.Reason
- $CurrentComments = $CurrentMaintWindow.Comments
- If ($CurrentEndTime -lt $EndTime)
- {
- Write-Host "Updating existing maintenance mode for $($MonitoringObject.DisplayName)`..." -ForegroundColor Yellow
- $MonitoringObject.UpdateMaintenanceMode($EndTime, $CurrentReason, $CurrentComments)
- } else {
- Write-Host "The end time of the existing Maintenance mode on $($MonitoringObject.DisplayName) is later than specified end time. The existing maintenance mode will not be updated`!" -ForegroundColor Yellow
- }
-
- }
- }
+  Foreach ($Group in $GroupMonitoringClasses)
+  {
+    $StartTime = ([DateTime]::Now).ToUniversalTime()
+    $EndTime = $StartTime.AddMinutes($DurationInMinutes)
+    $MonitoringGUID = $Group.Id
+    $MonitoringObject = $MG.GetMonitoringObject($MonitoringGUID)
+    Write-Host "Monitoring Object GUID: $MonitoringGUID"
+    Write-Host "Monitoring Object DisplayName: $($MonitoringObject.DisplayName)"
+    If (!$MonitoringObject.InMaintenanceMode)
+    {
+      $Reason = "PlannedOther"
+      Write-Host "Placing $($MonitoringObject.Displayname) into Maintenance Mode..." -ForegroundColor Green
+      $MonitoringObject.ScheduleMaintenanceMode($StartTime, $EndTime, $Reason, $Comments, "Recursive")
+    } else {
+      $CurrentMaintWindow = $MonitoringObject.GetMaintenanceWindow()
+      $CurrentEndTime = $CurrentMaintWindow.ScheduledEndTime
+      $CurrentReason = $CurrentMaintWindow.Reason
+      $CurrentComments = $CurrentMaintWindow.Comments
+      If ($CurrentEndTime -lt $EndTime)
+      {
+        Write-Host "Updating existing maintenance mode for $($MonitoringObject.DisplayName)`..." -ForegroundColor Yellow
+        $MonitoringObject.UpdateMaintenanceMode($EndTime, $CurrentReason, $CurrentComments)
+      } else {
+        Write-Host "The end time of the existing Maintenance mode on $($MonitoringObject.DisplayName) is later than specified end time. The existing maintenance mode will not be updated`!" -ForegroundColor Yellow
+      }
+    }
+  }
 } else {
- Write-Host "Unable to find the monitoring object with the name `"$GroupName`"!" -ForegroundColor Red
+  Write-Host "Unable to find the monitoring object with the name `"$GroupName`"!" -ForegroundColor Red
 }
 ```
 

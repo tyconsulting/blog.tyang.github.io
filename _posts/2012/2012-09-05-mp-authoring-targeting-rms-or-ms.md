@@ -40,10 +40,10 @@ $regValue = Get-ItemProperty -path:$MachineRegKeyPath -name:$MachineRegValueName
 
 if ($regValue -ne $null)
 {
-$SDKServiceMachine = $regValue.DefaultSDKServiceMachine;
+  $SDKServiceMachine = $regValue.DefaultSDKServiceMachine;
 } else {
-#cannot determine which SDK to connect
-Exit
+  #cannot determine which SDK to connect
+  Exit
 }
 
 [System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager.Common") | Out-Null
@@ -57,4 +57,4 @@ Basically, the script now reads the default SDK service computer name from the r
 
 Of course, now that the script runs on multiple management servers, I had to rewrite the rest of it so it only interact with the agents on the local management server rather than the whole lot as if it’s running on the RMS.
 
-The only concern I have with 2007 is, because my workflow runs on a schedule, when all management servers run this workflow at the same time, it will consume a large number of concurrent SDK connections on the RMS, which could be an issue in a large environment. to work around the issue, I would make sure that I make the <strong>SyncTime</strong> parameter overridable for the scheduler data source module so I can then create overrides for each management servers to run the workflow on different time window.
+The only concern I have with 2007 is, because my workflow runs on a schedule, when all management servers run this workflow at the same time, it will consume a large number of concurrent SDK connections on the RMS, which could be an issue in a large environment. to work around the issue, I would make sure that I make the **SyncTime** parameter overridable for the scheduler data source module so I can then create overrides for each management servers to run the workflow on different time window.

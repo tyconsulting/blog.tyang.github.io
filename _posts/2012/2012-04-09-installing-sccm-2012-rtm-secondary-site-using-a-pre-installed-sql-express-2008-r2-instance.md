@@ -45,8 +45,8 @@ Additionally, I also found the following:
 <ul>
 	<li>On the primary site server, in the ConfigMgrSetup.log under System root, I get the following errors:</li>
 <ul>
-	<li><em>CSql Error: Cannot find type data, cannot get a connection.</em></li>
-	<li>*** [08001][17][Microsoft][ODBC SQL Server Driver][DBNETLIB]SQL Server does not exist or access denied.</li>
+	<li>CSql Error: Cannot find type data, cannot get a connection.</li>
+	<li>[08001][17][Microsoft][ODBC SQL Server Driver][DBNETLIB]SQL Server does not exist or access denied.</li>
 	<li>I could use the SQL management studio from Secondary site server to connect to the SQL express instance, but I couldn’t use the SQL management studio from a remote machine to connect to it:</li>
 </ul>
 </ul>

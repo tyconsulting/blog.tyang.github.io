@@ -18,19 +18,19 @@ I wrote this function as a part of a script that I'm working on. it searches AD
 ```powershell
 Function Get-MPFromAD ($SiteCode)
 {
-	$domains = Get-AllDomains
-	Foreach ($domain in $domains)
-	{
-		Try {
-			$ADSysMgmtContainer = [ADSI]("LDAP://CN=System Management,CN=System," + "$($Domain.Properties.ncname[0])")
-			$AdSearcher = [adsisearcher]"(&(Name=SMS-MP-$SiteCode-*)(objectClass=mSSMSManagementPoint))"
-			$AdSearcher.SearchRoot = $ADSysMgmtContainer
-			$ADManagementPoint = $AdSearcher.FindONE()
-			$MP = $ADManagementPoint.Properties.mssmsmpname[0]
-		} Catch {}
-	}
+  $domains = Get-AllDomains
+  Foreach ($domain in $domains)
+  {
+    Try {
+      $ADSysMgmtContainer = [ADSI]("LDAP://CN=System Management,CN=System," + "$($Domain.Properties.ncname[0])")
+      $AdSearcher = [adsisearcher]"(&(Name=SMS-MP-$SiteCode-*)(objectClass=mSSMSManagementPoint))"
+      $AdSearcher.SearchRoot = $ADSysMgmtContainer
+      $ADManagementPoint = $AdSearcher.FindONE()
+      $MP = $ADManagementPoint.Properties.mssmsmpname[0]
+    } Catch {}
+  }
 
-	Return $MP
+  Return $MP
 }
 ```
 

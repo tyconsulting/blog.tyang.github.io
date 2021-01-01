@@ -62,23 +62,22 @@ $Admin = $MG.GetAdministration()
 $Agents = $Admin.GetAllAgentManagedComputers()
 Foreach ($Agent in $Agents)
 {
-If (!($Agent.ProxyingEnabled.Value))
-{
-Write-Host "Enabling Agent Proxy for $($Agent.Name)`..."
-$Agent.ProxyingEnabled = $true
-$Agent.ApplyChanges()
-
-}
+	If (!($Agent.ProxyingEnabled.Value))
+	{
+    Write-Host "Enabling Agent Proxy for $($Agent.Name)`..."
+    $Agent.ProxyingEnabled = $true
+    $Agent.ApplyChanges()
+	}
 }
 ```
 
 Imagine in a large management group with few thousands agents or more and there are only couple of agents that don’t have Agent Proxy enabled. the script / cmdlet will take a long time and a lot of system resources to run because it needs to retrieve information of ALL agents first!
 
 So I wrote a PowerShell script to perform this task a bit differently:
-<ol>
-	<li>Firstly run a SQL query against SCOM operational database to retrieve a list of agents that do not have agent proxy enabled</li>
-	<li>connect to SCOM SDK and for each agent retrieved from the database, turn on agent proxy.</li>
-</ol>
+
+* Firstly run a SQL query against SCOM operational database to retrieve a list of agents that do not have agent proxy enabled
+* connect to SCOM SDK and for each agent retrieved from the database, turn on agent proxy.
+
 This is much more efficient as it only retrieves agents that do not have agent proxy enabled, not the whole lot!
 
 The script uses SCOM SDK, it works on both 2007 and 2012 environments.

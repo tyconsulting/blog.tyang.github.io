@@ -53,4 +53,4 @@ You can download everything you need (except Skype and SCOM itself of course) fr
 
 As always, feel free to contact me if you have questions or need help. However, I’ll try my best but I may not be able to get back to you straightaway.
 
-Have fun Skyping <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2012/08/wlEmoticon-smile.png" alt="Smile" />. Bye for now!
+Have fun Skyping :smiley:. Bye for now!
