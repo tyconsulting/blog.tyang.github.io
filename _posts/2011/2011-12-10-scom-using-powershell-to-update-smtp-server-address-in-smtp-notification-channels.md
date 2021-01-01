@@ -9,7 +9,7 @@ permalink: /2011/12/10/scom-using-powershell-to-update-smtp-server-address-in-sm
 categories:
   - SCOM
 tags:
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 I've been asked a question on how to bulk update SMTP server addresses in SMTP notification channels using PowerShell.

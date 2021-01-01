@@ -9,7 +9,7 @@ permalink: /2012/09/03/powershell-function-get-weekdayinmonth/
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
 ---
 Often, IT admins need to workout the first/second/third/fourth Mon/Tue/Wed/Thur/Fri/Sat/Sun of any given month. some good examples are:
 <ul>

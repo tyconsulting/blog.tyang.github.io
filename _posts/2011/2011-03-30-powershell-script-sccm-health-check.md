@@ -13,7 +13,7 @@ categories:
 tags:
   - Featured
   - Health Check
-  - Powershell
+  - PowerShell
   - SCCM
 ---
 <span style="color: #ff0000;"><strong>30/01/2012:</strong></span> This script has been updated to version 3.5. Details can be found <a title="SCCM Health Check Script v3.5" href="http://blog.tyang.org/2012/01/31/sccm-health-check-script-updated-version-3-5/">HERE</a>. The download link on this article has also been updated to version 3.5.

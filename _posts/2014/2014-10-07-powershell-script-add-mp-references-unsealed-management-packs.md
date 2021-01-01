@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SCOM
 tags:
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 <h3>Background</h3>

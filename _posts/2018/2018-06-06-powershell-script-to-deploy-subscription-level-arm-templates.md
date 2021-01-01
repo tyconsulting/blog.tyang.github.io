@@ -13,7 +13,7 @@ categories:
 tags:
   - ARM Template
   - Azure
-  - Powershell
+  - PowerShell
   - VSTS
 ---
 <h3>Introduction</h3>

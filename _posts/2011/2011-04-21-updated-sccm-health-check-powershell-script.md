@@ -11,7 +11,7 @@ categories:
   - SCCM
 tags:
   - Health Check
-  - Powershell
+  - PowerShell
   - SCCM
 ---
 <div>I have updated the SCCM Health Check Script that I have originally posted <a href="http://blog.tyang.org/2011/03/30/powershell-script-sccm-health-check/">here</a>.</div>

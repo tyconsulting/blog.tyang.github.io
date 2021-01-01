@@ -10,7 +10,7 @@ categories:
   - SCOM
 tags:
   - Dashboard
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 PowerShell Grid widget and PowerShell Web Browser Widget were released as part of OpsMgr 2012 SP1 UR6 and R2 UR2. To me, these two widgets have opened a window of opportunities, because by using PowerShell, it allows OpsMgr 2012 users to customise and present the data exactly the way they wanted on dashboards.

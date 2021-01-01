@@ -11,7 +11,7 @@ categories:
   - Windows
 tags:
   - 32 bit Powershell
-  - Powershell Execution Policy
+  - PowerShell Execution Policy
   - Windows Scheduled Tasks
 ---
 I came across a situation the other day that on a Windows Server 2008 R2 box, when I created a Scheduled Task to run a Powershell script, it runs OK using "C:\Windows\\**System32**\WindowsPowerShell\v1.0\Powershell.exe" (64 bit PowerShell).

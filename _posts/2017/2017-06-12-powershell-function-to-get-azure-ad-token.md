@@ -12,7 +12,7 @@ categories:
 tags:
   - Azure
   - Azure Resource Manager
-  - Powershell
+  - PowerShell
   - REST API
 ---
 When making Azure Resource Manager REST API calls, you will firstly need to obtain an Azure AD authorization token and use it to construct the authorization header for your HTTP requests.

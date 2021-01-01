@@ -11,7 +11,7 @@ categories:
   - SCOM
 tags:
   - Featured
-  - Powershell
+  - PowerShell
   - SCOM
   - Skype
 ---

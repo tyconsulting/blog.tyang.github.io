@@ -9,7 +9,7 @@ permalink: /2010/07/05/powershell-script-test-smtp/
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
   - SMTP
 ---
 I wrote <a href="http://blog.tyang.org/wp-content/uploads/2010/07/Test-SMTP.zip">this simple script</a> last week to test SMTP server by sending a testing email.

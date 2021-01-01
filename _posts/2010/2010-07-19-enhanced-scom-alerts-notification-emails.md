@@ -12,7 +12,7 @@ categories:
 tags:
   - Email Notifications
   - Featured
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 <strong><span style="color: #ff0000;">17/08/2012: The version 2 of this script has just been released: </span></strong><a href="http://blog.tyang.org/2012/08/16/scom-enhanced-email-notification-script-version-2/">http://blog.tyang.org/2012/08/16/scom-enhanced-email-notification-script-version-2/</a>

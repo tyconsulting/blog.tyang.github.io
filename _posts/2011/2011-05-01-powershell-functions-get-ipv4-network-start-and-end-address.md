@@ -11,7 +11,7 @@ categories:
 tags:
   - IP Address
   - Networking
-  - Powershell
+  - PowerShell
 ---
 I wrote 2 PowerShell functions today: **Get-IPV4NetworkStartIP** and **Get-IPV4NetworkEndIP**.
 **Input:** Network IP address in [CIDR notation Format](http://en.wikipedia.org/wiki/CIDR_notation)

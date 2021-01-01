@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SCCM
 tags:
-  - Powershell
+  - PowerShell
   - SCCM
   - Site Roles
 ---

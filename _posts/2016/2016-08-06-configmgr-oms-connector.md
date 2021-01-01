@@ -12,7 +12,7 @@ categories:
   - SCCM
 tags:
   - OMS
-  - Powershell
+  - PowerShell
   - SCCM
 ---
 Earlier this week, Microsoft has release a new feature  in System Center Configuration Manager 1606 called OMS Connector:

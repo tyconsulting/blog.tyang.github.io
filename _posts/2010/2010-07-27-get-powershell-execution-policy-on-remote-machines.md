@@ -9,7 +9,7 @@ permalink: /2010/07/27/get-powershell-execution-policy-on-remote-machines/
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
   - remote execution policy
 ---
 Today I've been asked how to inventory PowerShell execution policies on all servers in a domain. I originally thought I can ultilise RemoteIn as PowerShell V2 should be deployed on all servers. then I realised WSMan wasn't configured on the srevers so I couldn't use "New-PSSession" cmdlet...

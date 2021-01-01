@@ -12,7 +12,7 @@ categories:
 tags:
   - Alerts
   - Morning Check
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 One of my clients has a centralised SCOM management group for different segments of the business. The BAU team's support hours are 8am-6pm Monday - Friday. They are also required to perform a morning check Monday - Friday and manually log service desk calls based on the SCOM alerts generated after hours.

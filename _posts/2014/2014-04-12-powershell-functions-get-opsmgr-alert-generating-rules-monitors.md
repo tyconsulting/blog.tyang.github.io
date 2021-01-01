@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SCOM
 tags:
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 This is my second post today. Bad weather, both wife and daughter have got flu. So I’m sitting home catching up with blogs…

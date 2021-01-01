@@ -11,7 +11,7 @@ categories:
   - SCOM
 tags:
   - Email Notifications
-  - Powershell
+  - PowerShell
   - SCOM
   - Update
 ---

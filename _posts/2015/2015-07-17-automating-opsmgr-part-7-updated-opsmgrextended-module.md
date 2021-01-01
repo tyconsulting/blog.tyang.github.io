@@ -13,7 +13,7 @@ categories:
   - Uncategorized
 tags:
   - Automating OpsMgr
-  - Powershell
+  - PowerShell
   - SCOM
   - SMA
 ---

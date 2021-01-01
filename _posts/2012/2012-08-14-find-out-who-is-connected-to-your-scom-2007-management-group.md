@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SCOM
 tags:
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 As we all know, we can see how many concurrent SDK connections have been established on the RMS by looking at the Client Connections counter in OpsMgr SDK Service:

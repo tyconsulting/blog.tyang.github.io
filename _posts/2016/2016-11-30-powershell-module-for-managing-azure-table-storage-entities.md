@@ -13,7 +13,7 @@ tags:
   - Azure
   - Azure Storage
   - Azure Table
-  - Powershell
+  - PowerShell
 ---
 <h3><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Azure Storage - Table" src="http://blog.tyang.org/wp-content/uploads/2016/11/Azure-Storage-Table.png" alt="Azure Storage - Table" width="166" height="166" align="left" border="0" />Introduction</h3>
 Firstly, apologies for not being able to blog for 6 weeks. I have been really busy lately.  As part of a project that I’m working on, I have been dealing with Azure Table storage and its REST API over the last couple of weeks. I have written few Azure Function app in C# as well as some Azure Automation runbooks in PowerShell that involves inserting, querying and updating records (entities) in Azure tables. I was struggling a little bit during development of these function apps and runbooks because I couldn’t find too many good code examples and I personally believe this REST API is not well documented on Microsoft’s documentation site (<a title="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/table-service-rest-api" href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/table-service-rest-api">https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/table-service-rest-api</a>). Therefore I have spent the last two days developed a PowerShell module for managing the lifecycle of the Azure Table entities. This module can be used to perform CRUD (Create, Read, Update, Delete) operations for Azure Table entities.

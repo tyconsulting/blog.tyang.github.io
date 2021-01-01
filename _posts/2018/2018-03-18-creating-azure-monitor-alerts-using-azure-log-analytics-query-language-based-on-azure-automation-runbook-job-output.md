@@ -14,7 +14,7 @@ tags:
   - Azure
   - Azure Automation
   - OMS
-  - Powershell
+  - PowerShell
 ---
 Well, this post has such a long title – but I've tried my best. It is based on an idea I had – We all have many "Health Check" PowerShell scripts in our collections, why not use them in OMS without too much modification and generate meaningful alerts based on the outputs of these scripts? I have been meaning to write this post for at least 4 months, I finally found some spare time this weekend so I can work on this.
 

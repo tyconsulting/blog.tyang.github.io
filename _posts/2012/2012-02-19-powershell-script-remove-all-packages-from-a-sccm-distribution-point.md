@@ -11,7 +11,7 @@ categories:
   - SCCM
 tags:
   - Featured
-  - Powershell
+  - PowerShell
   - SCCM
 ---
 Often, SCCM administrators found packages still assigned to distribution points that no longer exist. There are scripts available to remove these "orphaned" package distributions via SMS Provider. i.e. This one called <strong>DPClean.vbs</strong> from TechNet Blog: <a href="http://blogs.msdn.com/b/rslaten/archive/2006/03/01/removing-a-retired-dp-from-all-your-packages.aspx">Removing a retired DP from all your packages</a>. It was written for SMS 2003.

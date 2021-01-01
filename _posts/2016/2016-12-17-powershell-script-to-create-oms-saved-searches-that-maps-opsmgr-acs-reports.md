@@ -11,7 +11,7 @@ categories:
   - PowerShell
 tags:
   - OMS
-  - Powershell
+  - PowerShell
 ---
 Microsoft’s PFE Wei Hao Lim has published an awesome blog post that maps OpsMgr ACS reports to OMS search queries (<a title="https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/25/mapping-acs-reports-to-oms-search-queries/" href="https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/25/mapping-acs-reports-to-oms-search-queries/">https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/25/mapping-acs-reports-to-oms-search-queries/</a>)
 

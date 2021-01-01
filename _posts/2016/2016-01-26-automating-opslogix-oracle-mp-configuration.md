@@ -11,7 +11,7 @@ categories:
   - SCOM
 tags:
   - OpsLogix
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 <h3>Introduction</h3>

@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SCOM
 tags:
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 if you search on how to enable SCOM agent proxy for all your SCOM agents using PowerShell, you’ll get lots of posts and scripts that shows you how to do it in SCOM 2007 or 2012. In fact, I have written few back in the days.

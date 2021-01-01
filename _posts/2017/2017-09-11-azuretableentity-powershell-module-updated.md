@@ -12,7 +12,7 @@ categories:
 tags:
   - Azure
   - Azure Table
-  - Powershell
+  - PowerShell
 ---
 I have updated the AzureTableEntity PowerShell module few days ago. The latest version is 1.0.3.0 and it is published at:
 

@@ -9,7 +9,7 @@ permalink: /2012/01/11/powershell-script-convert-to-local-time-from-utc/
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
 ---
 I wrote this function in the script from my previous post "<a href="http://blog.tyang.org/2012/01/05/scom-mp-authoring-example-generate-alerts-based-on-entries-from-sql-database-part-2-of-2/">SCOM MP Authoring Example: Generate alerts based on entries from SQL Database (Part 2 of 2)</a>". It comes handy sometimes so I thought I’ll blog it separately as well.
 

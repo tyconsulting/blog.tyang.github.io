@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - Windows
 tags:
-  - Powershell
+  - PowerShell
   - Windows
 ---
 As parts of the PowerShell project that I’m currently working on, with the help with other people’s contribution in various forums and blogs, I have produced few PowerShell functions around Windows security:

@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SCCM
 tags:
-  - Powershell
+  - PowerShell
   - SCCM
 ---
 <h3>Background</h3>

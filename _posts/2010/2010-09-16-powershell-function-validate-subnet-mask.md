@@ -10,7 +10,7 @@ image: /wp-content/uploads/2010/09/routeripicon1.jpg
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
   - TCP/IP
   - Validate Subnet Mask
 ---

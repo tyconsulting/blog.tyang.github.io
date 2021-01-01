@@ -11,7 +11,7 @@ categories:
   - PowerShell
 tags:
   - Azure
-  - Powershell
+  - PowerShell
 ---
 Recently in a project that I’m currently working on, myself and other colleagues have been spending a lot of time dealing with Azure AD oAuth tokens when developing code for Azure.
 

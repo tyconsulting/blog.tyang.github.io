@@ -11,7 +11,7 @@ categories:
 tags:
   - Azure DevOps
   - Azure Governance
-  - Powershell
+  - PowerShell
 ---
 Previously, I have published a 3-part blog series on deploying Azure Policy Definitions via Azure DevOps (<a href="https://blog.tyang.org/2019/05/19/deploying-azure-policy-definitions-via-azure-devops-part-1/">Part 1</a>, <a href="https://blog.tyang.org/2019/05/19/deploying-azure-policy-definitions-via-azure-devops-part-2/">Part 2</a>, <a href="https://blog.tyang.org/2019/05/19/deploying-azure-policy-definitions-via-azure-devops-part-3/">Part 3</a>). It covered one aspect of implementing Azure Governance using code and pipelines. There are at least 2 additional areas I haven’t covered:
 

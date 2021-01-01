@@ -12,7 +12,7 @@ categories:
 tags:
   - Azure
   - Log Analytics
-  - Powershell
+  - PowerShell
 ---
 I’ve just pushed a small update to my old OMSDataInection PowerShell module. This module is designed to send custom logs to a Log Analytics workspace via its HTTP Data Collector API. The last update was back in 2016, when it was still called OMS.
 

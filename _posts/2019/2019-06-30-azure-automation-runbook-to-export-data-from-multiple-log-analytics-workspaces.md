@@ -12,7 +12,7 @@ tags:
   - Azure
   - Azure Automation
   - Log Analytics
-  - Powershell
+  - PowerShell
 ---
 <p>I wrote a runbook a while back to export data from Azure Log Analytics workspaces using it’s search API <a href="https://dev.loganalytics.io/documentation/Using-the-API">https://dev.loganalytics.io/documentation/Using-the-API</a> because a customer had a requirement to ingest the logs and metrics from Azure Log Analytics to other 3rd party systems.</p>
 <p>Recently, I updated this runbook to support searching all workspaces from all subscriptions in one or more management groups. For example, you can use this runbook to extract data from all log analytics workspaces in your AAD tenant if you pass in the root management group name to the runbook.</p>

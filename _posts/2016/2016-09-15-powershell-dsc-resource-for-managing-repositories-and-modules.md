@@ -10,7 +10,7 @@ categories:
   - PowerShell
 tags:
   - DSC
-  - Powershell
+  - PowerShell
 ---
 <h3><a href="http://blog.tyang.org/wp-content/uploads/2016/09/256x256.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="256x256" src="http://blog.tyang.org/wp-content/uploads/2016/09/256x256_thumb.png" alt="256x256" width="151" height="151" align="left" border="0" /></a>Introduction</h3>
 PowerShell version 5 has introduced a new feature that allows you to install packages (such as PowerShell modules) from NuGet repositories. If you have used cmdlets such as Find-Module, Install-Module or Uninstall-Module, then you have already taken advantage of this awesome feature.

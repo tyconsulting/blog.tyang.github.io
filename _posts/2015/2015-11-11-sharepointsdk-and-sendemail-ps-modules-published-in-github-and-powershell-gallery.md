@@ -9,7 +9,7 @@ permalink: /2015/11/11/sharepointsdk-and-sendemail-ps-modules-published-in-githu
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
 ---
 I have recently published 2 PowerShell modules that I’ve written around a year ago on GitHub and PowerShell Gallery:
 <h4>SharePointSDK:</h4>

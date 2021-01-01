@@ -11,7 +11,7 @@ categories:
   - PowerShell
 tags:
   - OMS
-  - Powershell
+  - PowerShell
 ---
 I’ve updated the OMSDataInjection PowerShell module to version 1.1.1. I have added support for bulk insert into OMS.
 

@@ -10,7 +10,7 @@ categories:
   - PowerShell
 tags:
   - NTFS Permission
-  - Powershell
+  - PowerShell
 ---
 Today I wrote <a title="BulkSet-NTFSPermissions.zip" href="http://blog.tyang.org/wp-content/uploads/2010/07/BulkSet-NTFSPermissions.zip"><strong>this</strong></a> PowerShell script to apply a same set of NTFS permission for a particular user or group to a list of folders. It reads the list of folders from a file that is specified from a parameter, apply the permission which is also specified  from parameters. The useage is as follow:
 

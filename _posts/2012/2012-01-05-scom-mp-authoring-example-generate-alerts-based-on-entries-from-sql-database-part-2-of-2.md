@@ -10,7 +10,7 @@ categories:
   - SCOM
 tags:
   - MP Authoring
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 This is the 2nd part of the 2-part series.  Part 1 can be found <a title="SCOM MP Authoring Example: Generate alerts based on entries from SQL Database (Part 1 of 2)" href="http://blog.tyang.org/2012/01/04/scom-mp-authoring-example-generate-alerts-based-on-entries-from-sql-database-part-1-of-2/">here</a>.
@@ -167,10 +167,10 @@ $oBag
 {:start="4"}
 4. Add 2 member modules:
 
-Module ID | Role | Type | Next Module
---------- | ---- | ---- | -----------
-Schedule | Data Source | **System.SimpleScheduler** | Probe
-Probe | Probe Action | **Probe Action module you’ve just created** | Module Output
+| Module ID | Role         | Type                                        | Next Module   |
+| --------- | ------------ | ------------------------------------------- | ------------- |
+| Schedule  | Data Source  | **System.SimpleScheduler**                  | Probe         |
+| Probe     | Probe Action | **Probe Action module you’ve just created** | Module Output |
 
 ![10](http://blog.tyang.org/wp-content/uploads/2012/01/image10.png)
 

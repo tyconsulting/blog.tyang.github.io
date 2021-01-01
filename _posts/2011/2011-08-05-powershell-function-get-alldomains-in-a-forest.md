@@ -12,7 +12,7 @@ categories:
 tags:
   - Active Directory
   - ADSI
-  - Powershell
+  - PowerShell
 ---
 I wrote this Powershell function today as part of a script I’m working on. It is to get a list of Active Directory domains within an Active Directory forest using ADSI:
 ```powershell

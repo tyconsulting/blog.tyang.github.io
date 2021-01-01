@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SMA
 tags:
-  - Powershell
+  - PowerShell
   - SMA
 ---
 <h3>Background</h3>

@@ -12,7 +12,7 @@ categories:
 tags:
   - Automating OpsMgr
   - OpsMgrExtended
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 I developed the OpsMgrExnteded module back in 2015 and it was freely available from my company’s website. I also wrote a 18-post blog series on <a href="https://blog.tyang.org/tag/automating-opsmgr/" target="_blank" rel="noopener">Automating OpsMgr</a> using this module

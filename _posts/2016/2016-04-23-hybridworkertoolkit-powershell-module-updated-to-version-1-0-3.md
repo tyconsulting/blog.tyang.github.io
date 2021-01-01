@@ -13,7 +13,7 @@ categories:
 tags:
   - Azure Automation
   - OMS
-  - Powershell
+  - PowerShell
 ---
 Few days ago, I published a PowerShell Module to be used on Azure Automation Hybrid Workers called HybridWorkerToolkit. You can find my blog article <a href="http://blog.tyang.org/2016/04/20/new-powershell-module-hybridworkertoolkit/">HERE</a>.
 

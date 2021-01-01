@@ -10,9 +10,9 @@ image: /wp-content/uploads/2012/11/Web-Browse-Icons-1.png
 categories:
   - PowerShell
 tags:
-  - Powershell
-  - Powershell Remoting
-  - Powershell Web Access
+  - PowerShell
+  - PowerShell Remoting
+  - PowerShell Web Access
 ---
 I ran up an instance of Windows Server 2012 in my test lab last night so I can play with various new features such as IPAM and PowerShell Web Access, etc.
 

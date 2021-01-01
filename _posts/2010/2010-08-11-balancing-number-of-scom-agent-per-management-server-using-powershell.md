@@ -11,7 +11,7 @@ categories:
   - SCOM
 tags:
   - Failover Management Servers
-  - Powershell
+  - PowerShell
   - Primary Management Server
   - SCOM agent assignments
 ---

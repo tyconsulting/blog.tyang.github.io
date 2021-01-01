@@ -13,7 +13,7 @@ tags:
   - Azure
   - Azure Functions
   - Power BI
-  - Powershell
+  - PowerShell
 ---
 <h3>Background</h3>
 Few days ago my good friend and fellow CDM MVP Alex Verkinderen (<a href="https://twitter.com/AlexVerkinderen">@AlexVerkinderen</a>) had a requirement to produce a Power BI dashboard for Azure AD users. so Alex and I started discussing a way to produce such report in Power BI. After exploring various potential possibilities, we have decided to leverage Azure Functions to feed data into Power BI. You can check out the Power BI solution Alex has built on his blog here: <a href="http://www.mscloud.be/retrieve-azure-aad-user-information-with-azure-functions-and-publish-it-into-powerbi">http://www.mscloud.be/retrieve-azure-aad-user-information-with-azure-functions-and-publish-it-into-powerbi</a>

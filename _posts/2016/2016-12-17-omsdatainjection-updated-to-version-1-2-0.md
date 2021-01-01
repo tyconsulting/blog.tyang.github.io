@@ -11,7 +11,7 @@ categories:
   - PowerShell
 tags:
   - OMS
-  - Powershell
+  - PowerShell
 ---
 The OMSDataInjection module was only updated to v1.1.1  less than 2 weeks ago. I had to update it again to reflect the cater for the changes in the OMS HTTP Data Collector API.
 

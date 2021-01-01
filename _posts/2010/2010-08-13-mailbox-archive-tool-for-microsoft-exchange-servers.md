@@ -14,7 +14,7 @@ tags:
   - Exchange 2010
   - Export-Mailbox
   - Mailbox Archive
-  - Powershell
+  - PowerShell
 ---
 This is another GUI tool based on PowerShell I’ve written in the past.
 

@@ -10,7 +10,7 @@ categories:
   - PowerShell
 tags:
   - Emails
-  - Powershell
+  - PowerShell
   - SMTP
 ---
 Today a colleague asked me to write a script to send out a email to a large group of people but have the phrase "Dear &lt;person’s name"&gt;" in the beginning of email body.

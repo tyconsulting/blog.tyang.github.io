@@ -13,7 +13,7 @@ categories:
   - PowerShell
 tags:
   - Azure
-  - Powershell
+  - PowerShell
 ---
 I’m currently working on a Puppet Module for Windows Server. This module needs to detect which public cloud platform is the Windows server running on. More specifically, Azure, or GCP or AWS.
 

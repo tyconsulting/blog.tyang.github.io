@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SCOM
 tags:
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 Over the last couple of days, I have written few additional functions in the OpsMgrSDK PowerShell / SMA module that I’ve been working on over the last few months. Two of these functions are:

@@ -14,7 +14,7 @@ tags:
   - Azure
   - AzureDevOps
   - Pester
-  - Powershell
+  - PowerShell
   - VSTS
 ---
 <h3>Introduction</h3>

@@ -9,7 +9,7 @@ permalink: /2016/06/05/sharepointsdk-powershell-module-updated-to-version-2-1-0/
 categories:
   - Power BI
 tags:
-  - Powershell
+  - PowerShell
   - SharePoint
 ---
 OK, this blog has been very quiet recently. Due to some work related requirements, I had to pass few Microsoft exams. so I have spent most of my time over the last couple of months on study. Firstly, I passed the MCSE Private Cloud Re-Certification exam, then I passed the 2 Azure exams: <em>70-532 Developing Microsoft Azure Solutions</em> and <em>70-533 Implementing Microsoft Azure Infrastructure Solutions</em>. Other than studying and taking exams, I have also been working on a new version of the SharePointSDK PowerShell module during my spare time. I have finished everything on my to-do list for this release last night, and I’ve just published version 2.1.0 on PowerShell Gallery and GitHub:

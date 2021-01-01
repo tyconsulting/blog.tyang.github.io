@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SharePoint
 tags:
-  - Powershell
+  - PowerShell
   - SharePoint
 ---
 I’ve just released SharePointSDK module version 2.1.5 with a minor bug fix within the New-SPListDateTimeField function. In the old versions, the New-SPListDateTimeField function would fail if the parameter ‘UseTodayAsDefaultValue’ is set to $false. This bug is fixed in v2.1.5.

@@ -9,8 +9,8 @@ permalink: /2013/09/16/powershell-one-liners-check-winrm-settings-remote-machine
 categories:
   - PowerShell
 tags:
-  - Powershell
-  - Powershell Remoting
+  - PowerShell
+  - PowerShell Remoting
 ---
 To Check if WinRM has been enabled on a Remote machine:
 

@@ -9,8 +9,8 @@ permalink: /2014/04/12/remotely-powering-entire-home-lab/
 categories:
   - PowerShell
 tags:
-  - Powershell
-  - Powershell Web Access
+  - PowerShell
+  - PowerShell Web Access
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/RemoteControlicon.png"><img class="alignleft size-full wp-image-2493" alt="Remote" src="http://blog.tyang.org/wp-content/uploads/2014/04/RemoteControlicon.png" width="256" height="256" /></a>My home lab consists of 3 PCs running Hyper-V and a HP Proliant Microserver N54L running SCVMM. I have previously blogged the lab setup in a 2-part blog posts (<a href="http://blog.tyang.org/2012/10/04/my-home-test-lab-part-1/">Part 1</a>, <a href="http://blog.tyang.org/2012/10/05/my-home-test-lab-part-2/">Part 2</a>). These 2 blog articles was written back in October 2012, although there are few changes in the current setup (new hardware, etc), but the overall setup is pretty much the same.
 

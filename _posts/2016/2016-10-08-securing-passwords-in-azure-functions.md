@@ -12,7 +12,7 @@ categories:
 tags:
   - Azure
   - Azure Functions
-  - Powershell
+  - PowerShell
 ---
 <span style="background-color: #ffff00;"><strong>09/10/2016 - Note: This post has been updated as per David O’Brien’s suggestion</strong> .</span>
 

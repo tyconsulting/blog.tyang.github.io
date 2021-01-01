@@ -12,7 +12,7 @@ categories:
 tags:
   - Azure
   - Azure Key Vault
-  - Powershell
+  - PowerShell
 ---
 <img style="float: left; display: inline;" src="https://github.com/tyconsulting/AzureKeyVaultPasswordRepo-PSModule/raw/master/ModuleIcon.png" width="172" height="172" align="left" />
 

@@ -15,7 +15,7 @@ tags:
   - Automating OpsMgr
   - Azure Automation
   - OMS
-  - Powershell
+  - PowerShell
   - SCOM
   - SMA
 ---

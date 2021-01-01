@@ -9,7 +9,7 @@ permalink: /2016/12/16/dsc-resource-cpowershellpackagemanagement-module-updated-
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
 ---
 Back in September this year, I published a PowerShell DSC resource called cPowerSHellPackageManagement. This DSC resource allows you to manage PowerShell repositories and modules on any Windows machines running PowerShell version 5 and later. you can read more about this module from my previous post here: <a title="http://blog.tyang.org/2016/09/15/powershell-dsc-resource-for-managing-repositories-and-modules/" href="http://blog.tyang.org/2016/09/15/powershell-dsc-resource-for-managing-repositories-and-modules/">http://blog.tyang.org/2016/09/15/powershell-dsc-resource-for-managing-repositories-and-modules/</a>
 

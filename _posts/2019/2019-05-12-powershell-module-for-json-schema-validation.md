@@ -11,7 +11,7 @@ categories:
 tags:
   - JSON
   - Pester
-  - Powershell
+  - PowerShell
 ---
 <h2>Background</h2>
 

@@ -11,7 +11,7 @@ categories:
   - PowerShell
 tags:
   - Azure
-  - Powershell
+  - PowerShell
 ---
 Azure Resource Providers registration dictates what types of resources you allow users to provision within your Azure subscription. Although by default, some resource providers are automatically registered, the user must have required permission to register resource providers (<a title="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services" href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services">https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services</a>). I had to create a script to bulk-register resource providers for a subscription because normal users have not been given the permissions to do so.
 

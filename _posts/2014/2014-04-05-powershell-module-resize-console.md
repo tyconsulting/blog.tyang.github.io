@@ -9,8 +9,8 @@ permalink: /2014/04/05/powershell-module-resize-console/
 categories:
   - PowerShell
 tags:
-  - Powershell
-  - Powershell Web Access
+  - PowerShell
+  - PowerShell Web Access
 ---
 I’m currently working on a solution that relies on PowerShell Web Access (Hopefully I can finish tonight and blog it in next couple of days).
 

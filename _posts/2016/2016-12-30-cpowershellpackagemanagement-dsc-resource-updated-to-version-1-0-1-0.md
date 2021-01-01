@@ -9,7 +9,7 @@ permalink: /2016/12/30/cpowershellpackagemanagement-dsc-resource-updated-to-vers
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
   - PowerShell DSC
 ---
 Few days ago I found a bug in the cPowerShellPackageManagement DSC resource module that was caused by the previous update v1.0.0.1.

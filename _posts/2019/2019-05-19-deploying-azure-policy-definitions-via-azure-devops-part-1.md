@@ -12,7 +12,7 @@ tags:
   - Azure
   - Azure Policy
   - DevOpsAzurePolicySeries
-  - Powershell
+  - PowerShell
 ---
 <!-- wp:heading {"level":3} -->
 <h3>Introduction</h3>

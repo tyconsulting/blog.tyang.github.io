@@ -11,7 +11,7 @@ categories:
   - SCOM
 tags:
   - Featured
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2012/08/version-2-badge.png"><img class="alignleft size-full wp-image-1372" title="version-2-badge" src="http://blog.tyang.org/wp-content/uploads/2012/08/version-2-badge.png" alt="" width="128" height="128" /></a>Few years ago, I posted the <a href="http://blog.tyang.org/2010/07/19/enhanced-scom-alerts-notification-emails/">SCOM Enhanced Email Notification Script</a> in this blog and became well adopted by the community. Over the last week or so, I have spent most of my time at night re-writing this script and I have completed the new version (2.0) now.

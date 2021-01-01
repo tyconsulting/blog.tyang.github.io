@@ -11,7 +11,7 @@ categories:
 tags:
   - Azure
   - Azure Functions
-  - Powershell
+  - PowerShell
 ---
 Like many other fellow MVPs, I have started playing with Azure Functions over the last few weeks. Although Azure Functions are primarily designed for developers and supports languages such as C#, Node.JS, PHP, etc. PowerShell support is currently in preview. This opens a lot of opportunities for IT Pros. My friend and fellow CDM MVP David O’Brien has written some really good posts on PowerShell in Azure Functions (<a title="https://david-obrien.net/" href="https://david-obrien.net/">https://david-obrien.net/</a>). Although the PowerShell runtime in Azure Functions comes with a lot of Azure PowerShell modules by default (refer to David’s post <a href="https://david-obrien.net/2016/07/azure-functions-PowerShell/">here</a> for details), these modules are out-dated, and some times, we do need to leverage other custom modules that are not shipped by default.
 

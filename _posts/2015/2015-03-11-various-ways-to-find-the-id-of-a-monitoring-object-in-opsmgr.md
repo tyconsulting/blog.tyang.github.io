@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SCOM
 tags:
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 Often when working in OpsMgr, we need to find the ID of a monitoring object. For example, in the recent Squared Up Dashboard  version 2.0 Customer Preview webinar (<a title="https://www.youtube.com/watch?v=233oTAefrRM" href="https://www.youtube.com/watch?v=233oTAefrRM">https://www.youtube.com/watch?v=233oTAefrRM</a>), it was mentioned in the webinar that the monitoring object IDs must  be located when preparing the Visio diagram for the upcoming Visio plugin.

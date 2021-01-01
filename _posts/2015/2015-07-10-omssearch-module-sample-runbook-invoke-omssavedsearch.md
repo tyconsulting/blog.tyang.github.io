@@ -13,7 +13,7 @@ categories:
 tags:
   - Azure Automation
   - OMS
-  - Powershell
+  - PowerShell
   - SMA
 ---
 Over the last few days, I've been playing with the <a href="https://github.com/slavizh/OMSSearch" target="_blank">OMSSearch PowerShell / SMA / Azure Automation Module</a> my friend and fellow SCCDM MVP Stanislav Zhelyazkov has <a href="https://cloudadministrator.wordpress.com/2015/06/05/programmatically-search-operations-management-suite/" target="_blank">created</a>.

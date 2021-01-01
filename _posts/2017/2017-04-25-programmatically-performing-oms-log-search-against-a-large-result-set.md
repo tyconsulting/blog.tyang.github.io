@@ -11,7 +11,7 @@ categories:
   - PowerShell
 tags:
   - OMS
-  - Powershell
+  - PowerShell
 ---
 <span style="font-size: small;"><a href="http://blog.tyang.org/wp-content/uploads/2017/04/Operations-Management-Suite-OMS.png"><img class="alignleft wp-image-5960 size-thumbnail" src="http://blog.tyang.org/wp-content/uploads/2017/04/Operations-Management-Suite-OMS-150x150.png" alt="" width="150" height="150" /></a>When performing OMS log search programmatically, you will encounter an API limitation that will prevent you from getting all the logs from the result set. Currently, if the search does not include an aggregation command, the API call will return maxium 5000 records. This limitation applies to both the OMS PowerShell module (</span><a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.operationalinsights"><span style="font-size: small;">AzureRM.OperationalInsights</span></a><span style="font-size: small;">) and searching directly via the </span><a href="https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-api"><span style="font-size: small;">Log Search API</span></a><span style="font-size: small;">.</span>
 

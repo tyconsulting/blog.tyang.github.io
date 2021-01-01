@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SCSM
 tags:
-  - Powershell
+  - PowerShell
   - SCSM
 ---
 <h3>Background</h3>

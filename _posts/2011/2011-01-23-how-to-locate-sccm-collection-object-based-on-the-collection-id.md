@@ -11,7 +11,7 @@ categories:
   - SCCM
 tags:
   - Collections
-  - Powershell
+  - PowerShell
   - SCCM
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2011/01/path.jpg"><img class="alignleft size-thumbnail wp-image-368" title="path" src="http://blog.tyang.org/wp-content/uploads/2011/01/path-150x150.jpg" alt="" width="150" height="150" /></a>Often, I found it’s hard to locate the Collection object in the SCCM console if you only know the Collection ID. Couple of weeks ago I ran into a situation where I need to modify the settings of a bunch of collection objects and all I knew was the Collection ID.

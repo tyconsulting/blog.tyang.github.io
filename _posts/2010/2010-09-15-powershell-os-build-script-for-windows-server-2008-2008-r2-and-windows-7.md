@@ -14,7 +14,7 @@ categories:
   - Windows
 tags:
   - Featured
-  - Powershell
+  - PowerShell
   - Windows Build Script
 ---
 <strong>Background:</strong>

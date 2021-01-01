@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SCCM
 tags:
-  - Powershell
+  - PowerShell
   - SCCM
 ---
 A colleague came across a problem today. He could run a SCDPM PowerShell script from PowerShell console successfully but could not run it when packaged it in SCCM.

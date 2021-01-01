@@ -13,7 +13,7 @@ tags:
   - Azure DevOps
   - Azure Policy
   - DevOpsAzurePolicySeries
-  - Powershell
+  - PowerShell
 ---
 This is the 2nd installment of the 3-part blog series. You can find the other parts here:
 

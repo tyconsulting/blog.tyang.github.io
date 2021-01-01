@@ -11,7 +11,7 @@ categories:
   - PowerShell
 tags:
   - Azure Automation
-  - Powershell
+  - PowerShell
 ---
 There are few ways to add PowerShell modules to Azure Automation accounts:
 

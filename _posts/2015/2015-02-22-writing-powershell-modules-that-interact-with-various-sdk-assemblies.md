@@ -9,7 +9,7 @@ permalink: /2015/02/22/writing-powershell-modules-that-interact-with-various-sdk
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
 ---
 Over the last few months, there have been few occasions that I needed to develop PowerShell scripts needed to leverage SDK DLLs from various products such as OpsMgr 2012 R2, SCSM 2012 R2 and SharePoint Client Component SDK.
 

@@ -14,7 +14,7 @@ categories:
 tags:
   - Azure Automation
   - OMS
-  - Powershell
+  - PowerShell
   - SharePoint
   - SMA
 ---

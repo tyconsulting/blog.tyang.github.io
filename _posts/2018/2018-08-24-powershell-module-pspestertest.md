@@ -10,7 +10,7 @@ categories:
   - PowerShell
 tags:
   - Pester
-  - Powershell
+  - PowerShell
   - PSScriptAnalyzer
 ---
 Few weeks ago, the customer I was working for has a requirement that all the PowerShell scripts and in-house written modules must be validated against PSScriptAnalyzer as part of the build pipelines before it is implemented to their Azure environments in release pipelines. The validation must be performed using Pester so the test results can be easily consumed in the VSTS projects (i.e. dashboards).

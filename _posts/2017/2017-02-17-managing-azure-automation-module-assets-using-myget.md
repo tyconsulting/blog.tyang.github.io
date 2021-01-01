@@ -15,7 +15,7 @@ tags:
   - Azure Automation
   - MyGet
   - OMS
-  - Powershell
+  - PowerShell
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2017/02/SNAGHTML2756703.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; margin-left: 0px; display: inline; padding-right: 0px; margin-right: 0px; border: 0px;" title="SNAGHTML2756703" src="http://blog.tyang.org/wp-content/uploads/2017/02/SNAGHTML2756703_thumb.png" alt="SNAGHTML2756703" width="266" height="116" align="left" border="0" /></a>
 <h5>Background</h5>

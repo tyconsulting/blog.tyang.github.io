@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SCCM
 tags:
-  - Powershell
+  - PowerShell
   - SCCM
 ---
 There are many object types in SCCM that supports folders in the console. Even though the object can be easily located using the search function, often we need to find out which folder does a particular object (i.e. package, advertisement, etc) reside.  At work, we use folders to separate objects for different business units and differnet IT service providers. Therefore, there are many times I need to find out where exactly is the object located.

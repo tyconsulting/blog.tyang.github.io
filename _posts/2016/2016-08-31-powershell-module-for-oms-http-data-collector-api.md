@@ -11,7 +11,7 @@ categories:
   - PowerShell
 tags:
   - OMS
-  - Powershell
+  - PowerShell
 ---
 <h3>Background</h3>
 Earlier today, the OMS Product Group has released the OMS HTTP Data Collection API to public preview. If you haven’t read the announcement, you can read <a href="https://blogs.technet.microsoft.com/msoms/2016/08/30/http-data-collector-api-send-us-data-from-space-or-anywhere/">this blog post</a> written by the PM of this feature, Evan Hissey first.

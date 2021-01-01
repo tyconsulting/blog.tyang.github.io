@@ -14,7 +14,7 @@ tags:
   - Azure
   - Azure Automation
   - OMS
-  - Powershell
+  - PowerShell
 ---
 PowerShell Gallery has a very cool feature that allows you to import modules directly to your Azure Automation Account using the "Deploy to Azure Automation" button. However, if you want to automate the module deployment process, you most likely have to firstly download the module, zip it up and then upload to a place where the Azure Automation account can access via HTTP. This is very troublesome process.
 

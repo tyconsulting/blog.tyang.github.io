@@ -11,7 +11,7 @@ categories:
 tags:
   - Azure Automation
   - OMS
-  - Powershell
+  - PowerShell
 ---
 Over the last few days, I had an requirement injecting events from .evtx files into OMS Log Analytics. A typical .evtx file that I need to process contains over 140,000 events. Since the Azure Automation runbook have the maximum execution time of 3 hours, in order to make the runbook more efficient, I also had to update my OMSDataInjection PowerShell module to support bulk insert (<a title="http://blog.tyang.org/2016/12/05/omsdatainjection-powershell-module-updated/" href="http://blog.tyang.org/2016/12/05/omsdatainjection-powershell-module-updated/">http://blog.tyang.org/2016/12/05/omsdatainjection-powershell-module-updated/</a>).
 

@@ -12,7 +12,7 @@ categories:
 tags:
   - Azure
   - Azure Automation
-  - Powershell
+  - PowerShell
 ---
 In Azure Automation, you can create a webhook for a runbook and target it to a Hybrid Worker group (as opposed to run on Azure). In the Azure portal, it is pretty easy to configure this ‘RunOn’ property when you are creating the webhook.
 

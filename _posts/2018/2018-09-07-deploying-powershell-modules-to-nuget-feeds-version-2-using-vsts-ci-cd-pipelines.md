@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - VSTS
 tags:
-  - Powershell
+  - PowerShell
   - VSTS
 ---
 It’s been 2 weeks since my last post, I was half way through my list (of blogs to be written), then Melbourne was hit by a big cold wave, I got sick for over a week because of that, and with the recent outage of VSTS, I only got chance to finalise my code and demo for this post today.

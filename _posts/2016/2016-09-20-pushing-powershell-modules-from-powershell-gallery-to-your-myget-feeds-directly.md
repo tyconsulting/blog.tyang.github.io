@@ -9,7 +9,7 @@ permalink: /2016/09/20/pushing-powershell-modules-from-powershell-gallery-to-you
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2016/09/PSGallery-MyGet.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="PSGallery-MyGet" src="http://blog.tyang.org/wp-content/uploads/2016/09/PSGallery-MyGet_thumb.png" alt="PSGallery-MyGet" width="672" height="146" border="0" /></a>
 

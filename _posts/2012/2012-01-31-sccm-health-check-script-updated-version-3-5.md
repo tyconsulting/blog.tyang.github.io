@@ -10,7 +10,7 @@ categories:
   - SCCM
 tags:
   - Health Check
-  - Powershell
+  - PowerShell
   - SCCM
 ---
 I have just updated the <a title="SCCM Health Check Script" href="http://blog.tyang.org/2011/03/30/powershell-script-sccm-health-check/">SCCM Health Check Script </a>to from version 3.3 to 3.5

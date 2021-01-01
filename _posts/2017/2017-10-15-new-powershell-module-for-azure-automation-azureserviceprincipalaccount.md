@@ -12,7 +12,7 @@ categories:
 tags:
   - Azure
   - Azure Automation
-  - Powershell
+  - PowerShell
 ---
 I’m currently working on a project where there has been a lot of discussion on how to use Azure AD Service Principals in Azure Automation and other solutions that involves any automated processes (i.e. VSTS pipelines).
 

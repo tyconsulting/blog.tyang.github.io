@@ -9,7 +9,7 @@ permalink: /2012/02/09/powershell-script-calculate-first-and-last-ip-of-a-subnet
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
 ---
 I just wrote this script to calculate the first and last IP of a subnet based on any given IP (within the subnet) and it's subnet mask:
 

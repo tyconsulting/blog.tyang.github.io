@@ -9,8 +9,8 @@ permalink: /2014/04/08/powershell-module-resize-console-updated/
 categories:
   - PowerShell
 tags:
-  - Powershell
-  - Powershell Web Access
+  - PowerShell
+  - PowerShell Web Access
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/PSWAIcon.png"><img style="margin-left: 0px; display: inline; margin-right: 0px; border: 0px;" title="PSWAIcon" alt="PSWAIcon" src="http://blog.tyang.org/wp-content/uploads/2014/04/PSWAIcon_thumb.png" width="243" height="244" align="left" border="0" /></a> Few days ago I wrote a <a href="http://blog.tyang.org/2014/04/05/powershell-module-resize-console/">PowerShell module</a> that contains 1 cmdlet / function to resize the PowerShell console windows.
 

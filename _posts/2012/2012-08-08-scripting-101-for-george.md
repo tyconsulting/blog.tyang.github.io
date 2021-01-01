@@ -16,7 +16,7 @@ categories:
   - PowerShell
 tags:
   - Fun
-  - Powershell
+  - PowerShell
 ---
 Yesterday at work, we were having a chat with George, the team leader of our infrastructure 3rd level support team. George told me since he’s a team leader, he doesn’t have to be technical <strong>ANYMORE</strong>, all he needs to do is to delegate. Then the topic somehow shifted to scripting and George said to me all he can write is "Hello World".
 

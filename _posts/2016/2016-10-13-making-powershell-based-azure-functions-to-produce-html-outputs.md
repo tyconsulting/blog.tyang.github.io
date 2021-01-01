@@ -12,7 +12,7 @@ tags:
   - Azure
   - Azure Functions
   - 'C#'
-  - Powershell
+  - PowerShell
 ---
 Over the last few weeks, I’ve been working with my MVP buddy Alex Verkinderen (<a href="https://twitter.com/AlexVerkinderen">@AlexVerkinderen</a>) on some Azure Function related stuff. We have both written few PowerShell based functions that output a HTML page.
 

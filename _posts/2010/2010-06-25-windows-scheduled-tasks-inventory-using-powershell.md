@@ -10,7 +10,7 @@ categories:
   - PowerShell
 tags:
   - Inventory
-  - Powershell
+  - PowerShell
   - Windows Scheduled Tasks
 ---
 I originally posted this script <a href="http://powershell.com/cs/media/p/2611.aspx">here</a>. It is to audit and inventory all scheduled tasks created for all windows computers under a specific OU in AD.

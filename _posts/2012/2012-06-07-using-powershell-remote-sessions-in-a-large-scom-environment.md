@@ -10,8 +10,8 @@ categories:
   - PowerShell
   - SCOM
 tags:
-  - Powershell
-  - Powershell Remoting
+  - PowerShell
+  - PowerShell Remoting
   - SCOM
 ---
 I have previously blogged <a href="http://blog.tyang.org/2012/05/09/using-scom-powershell-snap-in-and-sdk-client-with-a-powershell-remote-session/">using SCOM PowerShell snap-in and SDK client in a PowerShell remote session</a> to avoid maintain a consistent SDK connection to RMS server.

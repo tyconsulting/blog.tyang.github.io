@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SCCM
 tags:
-  - Powershell
+  - PowerShell
   - SCCM
 ---
 I wrote this function as a part of a script that I'm working on. it searches AD for the management point server name for a particular SCCM site:

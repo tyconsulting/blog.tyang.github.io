@@ -12,7 +12,7 @@ categories:
 tags:
   - Azure
   - Azure AD
-  - Powershell
+  - PowerShell
 ---
 It has been a long time since my last post. I was very busy right until the Christmas eve, and it my to-be-blogged list is getting longer and longer. I had a very good break during the holiday period. My partner and I took our daughter to Sydney on the Christmas day and spent 5 days up there. When we were in Sydney, I visited Hard Rock Cafe for the first time in my life, and also spent 2 days with my buddy and MVP colleague Alex Verkinderen.
 

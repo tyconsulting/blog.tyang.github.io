@@ -9,7 +9,7 @@ permalink: /2014/04/19/programmatically-generating-opsmgr-2012-alert-update-conn
 categories:
   - SCOM
 tags:
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 <strong>Background</strong>

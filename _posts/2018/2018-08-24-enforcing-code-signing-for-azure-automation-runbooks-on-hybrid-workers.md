@@ -11,7 +11,7 @@ categories:
 tags:
   - Azure
   - Azure Automation
-  - Powershell
+  - PowerShell
 ---
 Towards the end of last year, in order to solve a specific issue, we were planning to introduce Azure Automation Hybrid Workers to the customer I was working for back then. We planned to place the Hybrid Workers inside the on-prem network and execute several runbooks that required to run on-prem. The security team had some concerns – what if the Automation Accounts or Azure subscriptions get compromised? Then the bad guys can run malicious runbooks targeting on-prem machines. long story short, in the end, we managed to get the Hybrid Worker pattern approved and implemented because we can configure Hybrid Workers to only execute runbooks that are signed by code-signing certs that you have picked. Since then, I have developed many runbooks targeting Hybrid Workers using this control and worked great. I wish I could blog this sooner, but I had to keep my mouth shut because of the MVP NDA. Now that Microsoft has finally announced this feature (well, it’s been few weeks, but I’ve been really busy): <a title="https://docs.microsoft.com/en-us/azure/automation/automation-hrw-run-runbooks#run-only-signed-runbooks" href="https://docs.microsoft.com/en-us/azure/automation/automation-hrw-run-runbooks#run-only-signed-runbooks">https://docs.microsoft.com/en-us/azure/automation/automation-hrw-run-runbooks#run-only-signed-runbooks</a>, I can now share my experience here.
 

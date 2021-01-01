@@ -13,7 +13,7 @@ categories:
 tags:
   - Azure Automation
   - OMS
-  - Powershell
+  - PowerShell
 ---
 <strong><a href="http://blog.tyang.org/wp-content/uploads/2016/04/HybridWorkerToolkit.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px none;" title="HybridWorkerToolkit" src="http://blog.tyang.org/wp-content/uploads/2016/04/HybridWorkerToolkit_thumb.png" alt="HybridWorkerToolkit" width="172" height="171" align="left" border="0" /></a><span style="color: #ff0000;">23/04/2016 Update:</span></strong> released version 1.0.3 to GitHub and PowerShell gallery. New additions documented in <a href="http://blog.tyang.org/2016/04/23/hybridworkertoolkit-powershell-module-updated-to-version-1-0-3/">this blog post</a>.
 

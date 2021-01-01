@@ -9,7 +9,7 @@ permalink: /2013/06/07/finding-opsmgr-management-group-installation-date-using-p
 categories:
   - SCOM
 tags:
-  - Powershell
+  - PowerShell
   - SCOM
 ---
 As part of what I’m working on at the moment, I need to find out when the OpsMgr 2012 management group was initially installed using PowerShell (the installation time of the first management server).

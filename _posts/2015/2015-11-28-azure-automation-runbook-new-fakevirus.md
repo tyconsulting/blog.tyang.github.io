@@ -12,7 +12,7 @@ categories:
 tags:
   - Azure Automation
   - OMS
-  - Powershell
+  - PowerShell
 ---
 Often when you are playing with security related products, you would need to create dummy/fake viruses on your computers. The most common way to do this is to create a EICAR test file (<a title="https://en.wikipedia.org/wiki/EICAR_test_file" href="https://en.wikipedia.org/wiki/EICAR_test_file">https://en.wikipedia.org/wiki/EICAR_test_file</a>).
 

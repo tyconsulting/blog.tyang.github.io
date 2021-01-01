@@ -11,7 +11,7 @@ categories:
   - VSTS
 tags:
   - DevOps
-  - Powershell
+  - PowerShell
   - VSTS
 ---
 <h2>Introduction</h2>

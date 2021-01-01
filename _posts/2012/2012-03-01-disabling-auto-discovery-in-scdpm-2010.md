@@ -9,7 +9,7 @@ permalink: /2012/03/01/disabling-auto-discovery-in-scdpm-2010/
 categories:
   - SCDPM
 tags:
-  - Powershell
+  - PowerShell
   - SCDPM
   - SQL
 ---

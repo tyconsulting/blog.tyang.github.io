@@ -14,7 +14,7 @@ tags:
   - Automating OpsMgr
   - Featured
   - OpsMgrExtended
-  - Powershell
+  - PowerShell
   - SCOM
   - SMA
 ---

@@ -11,7 +11,7 @@ categories:
   - PowerShell
 tags:
   - Azure
-  - Powershell
+  - PowerShell
 ---
 In my last post, I demonstrated <a href="https://blog.tyang.org/2018/02/04/generating-azure-ad-oauth-token-in-powershell/" target="_blank" rel="noopener">how to generate Azure AD oAuth tokens</a> using my <a href="https://www.powershellgallery.com/packages/AzureServicePrincipalAccount" target="_blank" rel="noopener">AzureServicePrincipalAccount</a> PowerShell module.
 

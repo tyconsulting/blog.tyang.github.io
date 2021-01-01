@@ -10,7 +10,7 @@ categories:
   - PowerShell
   - SMA
 tags:
-  - Powershell
+  - PowerShell
   - SharePoint
   - SMA
 ---

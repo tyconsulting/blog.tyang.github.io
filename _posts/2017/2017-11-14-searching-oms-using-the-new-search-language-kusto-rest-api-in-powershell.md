@@ -12,7 +12,7 @@ categories:
 tags:
   - Kusto
   - OMS
-  - Powershell
+  - PowerShell
 ---
 Currently Microsoft <a href="https://blogs.technet.microsoft.com/msoms/2017/10/17/azure-log-analytics-workspace-upgrades-in-progress/">is in the process of upgrading all OMS Log Analytics workspaces to the new query language</a> (named Kusto). Once your workspace has been upgraded, you will no longer able to invoke search queries using the <a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults">Get-AzureRmOperationalInsightsSearchResults</a> cmdlet from the <strong>AzureRM.OperationalInsights</strong> PowerShell module. Kusto comes with a new set of REST APIs, you can find the documentation site here: <a href="https://dev.int.loganalytics.io">https://dev.int.loganalytics.io</a>.
 

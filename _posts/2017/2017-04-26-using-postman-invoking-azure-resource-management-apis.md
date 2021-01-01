@@ -11,7 +11,7 @@ categories:
 tags:
   - Azure
   - OMS
-  - Powershell
+  - PowerShell
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/SNAGHTML21e56dff.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML21e56dff" src="http://blog.tyang.org/wp-content/uploads/2017/04/SNAGHTML21e56dff_thumb.png" alt="SNAGHTML21e56dff" width="168" height="168" align="left" border="0" /></a>When working with REST APIs, Postman (<a href="https://getpostman.com">https://getpostman.com</a>) is a popular tool that needs no further introductions. This week, I’ve been pretty busy working on the upcoming Inside OMS V2 book, and I’m currently focusing on the various OMS REST APIs for the Custom Solutions chapter. I want to use Postman to test and demonstrate how to use the OMS REST APIs. Since most of the ARM based APIs requires oAuth token in the authorization header, I needed to configure Postman to contact Microsoft Graph API in order to generate the token for the API calls.
 

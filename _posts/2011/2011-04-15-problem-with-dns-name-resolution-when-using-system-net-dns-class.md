@@ -11,7 +11,7 @@ categories:
   - PowerShell
 tags:
   - DNS
-  - Powershell
+  - PowerShell
   - System.Net.DNS
 ---
 I recently ran into a problem when writing a PowerShell script to perform DNS Name resolution using .NET class <strong>System.Net.DNS (<a href="http://msdn.microsoft.com/en-us/library/system.net.dns.aspx">http://msdn.microsoft.com/en-us/library/system.net.dns.aspx</a>)</strong>.

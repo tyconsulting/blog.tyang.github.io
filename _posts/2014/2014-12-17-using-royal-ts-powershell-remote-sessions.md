@@ -9,7 +9,7 @@ permalink: /2014/12/17/using-royal-ts-powershell-remote-sessions/
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
   - RoyalTS
 ---
 <h3>Background</h3>

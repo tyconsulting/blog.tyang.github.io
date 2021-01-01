@@ -9,7 +9,7 @@ permalink: /2012/05/16/powershell-prevent-users-to-view-and-change-input-or-conf
 categories:
   - PowerShell
 tags:
-  - Powershell
+  - PowerShell
 ---
 Often, I use .xml or .ini files to store settings that a PowerShell script uses. When I distribute my scripts to end users, sometimes, I want to make sure users cannot manually view or change the content of these config files.
 
