@@ -61,10 +61,7 @@ Below is a list of items that these scripts will configure for you (and where yo
 <td width="280"> </td>
 </tr>
 <tr>
-<td width="149">Startup &amp; Recovery Options
-Small Memory dump (256K)
-Automatically Restart
-Write an event to the system log</td>
+<td width="149">Startup &amp; Recovery Options Small Memory dump (256K) Automatically Restart Write an event to the system log</td>
 <td width="66">1_OSConfig.PS1</td>
 <td width="72" align="center">No</td>
 <td width="10"> </td>
@@ -176,10 +173,7 @@ Write an event to the system log</td>
 <td width="280"> </td>
 </tr>
 <tr>
-<td width="149">Configure Network Connections
-IP Address
-Subnet Mask
-Default Gateway</td>
+<td width="149">Configure Network Connections IP Address Subnet Mask Default Gateway</td>
 <td width="66">2_network.PS1</td>
 <td width="72" align="center">Yes</td>
 <td width="10">User Input</td>

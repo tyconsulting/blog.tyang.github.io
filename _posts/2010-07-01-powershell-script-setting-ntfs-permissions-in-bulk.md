@@ -16,7 +16,7 @@ Today I wrote <a title="BulkSet-NTFSPermissions.zip" href="http://blog.tyang.org
 
 <strong> .\BulkSet-NTFSPermissions.ps1 -FolderListFile x:\xxxx\xxxx.txt -SecIdentity "Domain\Group" -AccessRights "FullControl" -AccessControlType "Allow"</strong>
 <ul>
-	<li><strong>FolderListFile</strong>: a flat text file containing the list of path that need to apply the NTFS permission. It needs to list one folder per line. the path can be a absolute local path such as <strong>C:\temp</strong> or a UNC path such as <a href="file://\\computer\C$\temp"><strong>\\computer\C$\temp</strong></a>.</li>
+	<li><strong>FolderListFile</strong>: a flat text file containing the list of path that need to apply the NTFS permission. It needs to list one folder per line. the path can be a absolute local path such as <strong>C:\temp</strong> or a UNC path such as <strong>\\computer\C$\temp</strong>.</li>
 	<li><strong>SecIdentity</strong>: The security identity (such as a user account or a security group) the permission is applied for.</li>
 	<li><strong>AccessRights</strong>: type of access rights, such as FullControl, Read, ReadAndExecute, Modify, etc..</li>
 	<li><strong>AccessControlType</strong>: Allow or Deny</li>

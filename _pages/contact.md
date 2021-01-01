@@ -3,7 +3,6 @@ id: 36
 title: Contact
 date: 2010-06-25T14:45:22+10:00
 author: Tao Yang
-layout: page
 guid: http://blog.tyang.org
 ---
 I can be contacted via:

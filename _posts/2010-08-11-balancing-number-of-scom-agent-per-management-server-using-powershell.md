@@ -36,7 +36,9 @@ I wrote <a href="http://blog.tyang.org/wp-content/uploads/2010/08/Balance-Manage
 
 The script does so by doing the following:
 <ol>
-	<li>Work out total number of agents that are currently hanging off the management servers specified in the script (line 33-37):<a href="http://blog.tyang.org/wp-content/uploads/2010/08/image.png"><img style="border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/08/image_thumb.png" border="0" alt="image" width="580" height="62" /></a></li>
+	<li>Work out total number of agents that are currently hanging off the management servers specified in the script (line 33-37):</li>
+	<p />
+	<a href="http://blog.tyang.org/wp-content/uploads/2010/08/image.png"><img style="border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/08/image_thumb.png" border="0" alt="image" width="580" height="62" /></a>
 	<li>Work out which management servers are over average and which ones are below average</li>
 	<li>Go through each one that’s over the average, move agents to another random management server until it reaches the average number.</li>
 	<li>after each agent move, check the destination management server, make sure it is still under the average number, otherwise, remove it from the pool of under average management servers.</li>

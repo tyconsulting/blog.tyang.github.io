@@ -14,6 +14,6 @@ tags:
 ---
 Today I passed Microsoft exam "70-400 Microsoft System Center Operations Manager 2007, Configuring" with a score of 975/1000.
 
-The transcript indicated I answered one question wrong in relation to "Deploying and COnfiguring Management Packs". I'm wondering which one I answered wrong...
+The transcript indicated I answered one question wrong in relation to "Deploying and Configuring Management Packs". I'm wondering which one I answered wrong...
 
 Overall, pretty easy exam. What's next? Got spend some time to prepare SCCM exam!
