@@ -26,7 +26,7 @@ The bug is highlighted below:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image37.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb37.png" alt="image" width="580" height="400" border="0" /></a>
 
-The discovery is configured to be remotable, but when performing the WMI query for the service, it is always querying the local computer where the discovery script is running. This is why the Alert Update Connector service has been incorrectly discovered on agentless monitored computers. This is an easy fix. since the target computer name has already been passed to the script, in line 91, “strComputer” needs be changed to “TargetComputer”.
+The discovery is configured to be remotable, but when performing the WMI query for the service, it is always querying the local computer where the discovery script is running. This is why the Alert Update Connector service has been incorrectly discovered on agentless monitored computers. This is an easy fix. since the target computer name has already been passed to the script, in line 91, "strComputer" needs be changed to "TargetComputer".
 
 <strong>02. Updated the frequency for Alert Update Connector Discovery</strong>
 
@@ -44,7 +44,7 @@ This monitor also has 2 recovery tasks
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image40.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb40.png" alt="image" width="468" height="454" border="0" /></a>
 
-When there are no running instances, the recovery task “Start One Instance of Alert Update Connector Service” will try to start 1 instance of this service. When the number of running instances is greater than 1, the recovery task “Stop and Disable additional running instances” will stop and disable all but 1 running instances.
+When there are no running instances, the recovery task "Start One Instance of Alert Update Connector Service" will try to start 1 instance of this service. When the number of running instances is greater than 1, the recovery task "Stop and Disable additional running instances" will stop and disable all but 1 running instances.
 
 The script execution results can be viewed in Health Explorer:
 
@@ -67,7 +67,7 @@ I’ve created 2 additional groups:
 
 &nbsp;
 
-<strong>04. Additional Override: Disabled Alert Generation for the “Connector Service Status” monitor.</strong>
+<strong>04. Additional Override: Disabled Alert Generation for the "Connector Service Status" monitor.</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image45.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb45.png" alt="image" width="555" height="314" border="0" /></a>
 
@@ -75,7 +75,7 @@ I’ve created 2 additional groups:
 
 I’m just trying to reduce the noise. Since the newly created overall status monitor will be generating alerts as well, I don’t think we need another one.
 
-<strong>05. Removed the console task “Show Connector UI”</strong>
+<strong>05. Removed the console task "Show Connector UI"</strong>
 
 This task hardcoded the ConnectorConfiguration.exe to C:\AlertUpdateConnectorUI, and I’m not using this GUI tool in my environment (refer to my previous post). Therefore I have removed it from the MP.
 

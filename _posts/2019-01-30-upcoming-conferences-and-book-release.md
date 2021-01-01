@@ -14,7 +14,7 @@ tags:
 ---
 It’s been a while since my last post. Other than the 2-week holiday I had in China around Christmas and New Year period, I spent most of my December and January working on a new book called Inside Azure Management. This book is the successor of our best selling Inside OMS book.
 
-The band (5 authors listed on the cover) got together few months ago, and started working on a new version. Since OMS doesn’t exist anymore, we have renamed the book to “Inside Azure Management”, and covered additional topics such as Azure Governance, Application Insights, Azure Monitor, Azure Migration, Azure Security Center, etc..
+The band (5 authors listed on the cover) got together few months ago, and started working on a new version. Since OMS doesn’t exist anymore, we have renamed the book to "Inside Azure Management", and covered additional topics such as Azure Governance, Application Insights, Azure Monitor, Azure Migration, Azure Security Center, etc..
 
 <a href="https://blog.tyang.org/wp-content/uploads/2019/01/Low-Res-Cover.png"><img style="display: inline; background-image: none;" title="Low Res Cover" src="https://blog.tyang.org/wp-content/uploads/2019/01/Low-Res-Cover_thumb.png" alt="Low Res Cover" width="480" height="614" border="0"></a>
 

@@ -28,12 +28,12 @@ In my lab, when PowerShell Web Browser widgets opens a page, it enumerates IE 7.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML2364221a.png"><img style="border: 0px" title="SNAGHTML2364221a" src="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML2364221a_thumb.png" alt="SNAGHTML2364221a" width="580" height="263" border="0" /></a>
 
-[sourcecode language="Powershell"]
+```powershell
 $dataObject = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request")
-$dataObject["BaseUrl"]="&lt;a href="http://www.whatbrowser.org/intl/en/&amp;quot;"&gt;http://www.whatbrowser.org/intl/en/"&lt;/a&gt;
+$dataObject["BaseUrl"]="&lt;a href="http://www.whatbrowser.org/intl/en/&quot;"&gt;http://www.whatbrowser.org/intl/en/"&lt;/a&gt;
 
 $ScriptContext.ReturnCollection.Add($dataObject)
-[/sourcecode]
+```
 
 it simply launches the site <a href="http://www.whatbrowser.org/intl/en/">http://www.whatbrowser.org/intl/en/</a>
 

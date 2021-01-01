@@ -29,7 +29,7 @@ Prompt to create a new page:
 And here’s the script (I named it RedirectJs.txt):
 
 [sourcecode language="JavaScript"]
-&lt;script type=&quot;text/JavaScript&quot; unselectable=&quot;on&quot;&gt;
+&lt;script type="text/JavaScript" unselectable="on"&gt;
 
 // the path to the Enterprise Wiki Site in sharepoint
 var SiteUrl = 'http://Sharepoint/Sites/SCOMKB/';
@@ -48,7 +48,7 @@ if (executeMain)
 
 function querystring(key) {
     // helper function to access query strings
-    var re=new RegExp('(?:\\?|&amp;)'+key+'=(.*?)(?=&amp;|$)','gi');
+    var re=new RegExp('(?:\\?|&)'+key+'=(.*?)(?=&|$)','gi');
     var r=[], m;
     while ((m=re.exec(document.location.search)) != null) r.push(m[1]);
     return r;
@@ -69,20 +69,20 @@ function load_url(externallink)
 
 function main()
 {
-	// strip &quot; # % &amp; * : &lt; &gt; ? \ / { } ~ | from name
+	// strip " # % & * : &lt; &gt; ? \ / { } ~ | from name
 	var name = querystring('name');
 	name = unescape(name);
-	name = name.replace(&quot;\&quot;&quot;, '-');
+	name = name.replace("\"", '-');
 	name = name.replace('#', '-');
 	name = name.replace('%', '-');
-	name = name.replace('&amp;', '-');
+	name = name.replace('&', '-');
 	name = name.replace('*', '-');
 	name = name.replace(':', '-');
 	name = name.replace('&lt;', '-');
 	name = name.replace('&gt;', '-');
 	name = name.replace('?', '-');
 	name = name.replace('/', '-');
-	name = name.replace(&quot;\\&quot;, '-');
+	name = name.replace("\\", '-');
 	name = name.replace('{', '-');
 	name = name.replace('}', '-');
 	name = name.replace('~', '-');
@@ -90,7 +90,7 @@ function main()
 	// page url
 	var pageName = name + '.aspx';
 	var pageUrl = SiteUrl + '/Pages/' + pageName;
-	var CreatePageUrl = SiteUrl + '/_layouts/CreatePage.aspx?IsDlg=1&amp;Folder=RootFolder&amp;Name=' + name;
+	var CreatePageUrl = SiteUrl + '/_layouts/CreatePage.aspx?IsDlg=1&Folder=RootFolder&Name=' + name;
 	var pageExists = UrlExists(pageUrl);
 	if (pageExists) {
 		//open page
@@ -101,7 +101,7 @@ function main()
 	}
 }
 &lt;/script&gt;
-[/sourcecode]
+```
 
 When you use this script, please update the SiteUrl variable to represent the URL of your SharePoint wiki site.
 

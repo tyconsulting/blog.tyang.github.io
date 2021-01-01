@@ -21,7 +21,7 @@ I wanted to be able to synchronise the health state from a monitoring object man
 <h3>Introduction</h3>
 It is common to have multiple OpsMgr management groups in large organisations. When designing distributed application or creating custom dashboards, one of the limitations is that OpsMgr users can only select monitoring objects within the local management group to be a part of the Health Model. This becomes an issue when users want to design a Distributed Application or dashboard that include components monitored by different OpsMgr management groups.
 
-The <b>OpsMgr Health Synchronization Library</b> management pack is designed to provide a workaround to this limitation. This management pack provides a template that enables OpsMgr users to create monitoring objects named “<b>Health State Watcher</b>” hosted by All Management Servers Resource Pool. Health State Watcher objects have monitors configured to query health state of monitoring objects located in a remote management group using OpsMgr SDK.
+The <b>OpsMgr Health Synchronization Library</b> management pack is designed to provide a workaround to this limitation. This management pack provides a template that enables OpsMgr users to create monitoring objects named "<b>Health State Watcher</b>" hosted by All Management Servers Resource Pool. Health State Watcher objects have monitors configured to query health state of monitoring objects located in a remote management group using OpsMgr SDK.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/04/HealthStateSyncMPDiagram.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="HealthStateSyncMPDiagram" src="http://blog.tyang.org/wp-content/uploads/2015/04/HealthStateSyncMPDiagram_thumb.png" alt="HealthStateSyncMPDiagram" width="698" height="311" border="0" /></a>
 
@@ -46,11 +46,11 @@ The following information must be provided when creating an instance using the m
 </ul>
 Please follow the steps listed below to create a template instance.
 
-1. Click the “Add Monitoring Wizard” from the Authoring pane under “Management Pack Template”
+1. Click the "Add Monitoring Wizard" from the Authoring pane under "Management Pack Template"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/04/SNAGHTMLec2e084.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLec2e084" src="http://blog.tyang.org/wp-content/uploads/2015/04/SNAGHTMLec2e084_thumb.png" alt="SNAGHTMLec2e084" width="544" height="321" border="0" /></a>
 
-2. Choose “Cross Management Group Health State Monitoring” from the list
+2. Choose "Cross Management Group Health State Monitoring" from the list
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/04/SNAGHTMLec1c7a2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLec1c7a2" src="http://blog.tyang.org/wp-content/uploads/2015/04/SNAGHTMLec1c7a2_thumb.png" alt="SNAGHTMLec1c7a2" width="602" height="490" border="0" /></a>
 
@@ -84,7 +84,7 @@ Please follow the steps listed below to create a template instance.
 </ol>
 &nbsp;
 
-5. Confirm all information is correct in the Summary page, and click on “Create”.
+5. Confirm all information is correct in the Summary page, and click on "Create".
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/04/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/04/image_thumb3.png" alt="image" width="529" height="386" border="0" /></a>
 

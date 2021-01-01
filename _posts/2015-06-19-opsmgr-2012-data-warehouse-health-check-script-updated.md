@@ -27,7 +27,7 @@ I have addressed the following issues in this release:
 	<li>Additional pre-requisite check for PowerShell version. This script requires minimum version 3.0</li>
 	<li>Additional pre-requisite check to test WinRM and remote WMI connectivity to each management server</li>
 	<li>Fixed minor typos in the reports</li>
-	<li>Additional optional parameter “-OutputDir”. You can now specify the script to write reports to a folder of your choice. This folder must be previously created by you. If the specified folder is not valid or this parameter is not used, the script will write the report files to the script root folder.</li>
+	<li>Additional optional parameter "-OutputDir". You can now specify the script to write reports to a folder of your choice. This folder must be previously created by you. If the specified folder is not valid or this parameter is not used, the script will write the report files to the script root folder.</li>
 </ul>
 &nbsp;
 

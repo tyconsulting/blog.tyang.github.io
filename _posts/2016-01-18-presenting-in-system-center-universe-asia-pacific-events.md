@@ -16,7 +16,7 @@ tags:
 
 As you may have already heard, the biggest System Center community event System Center Universe (SCU) is coming to Melbourne this year. SCU APAC will host a 2-day event in KL, Malaysia followed by a 1-day event in Melbourne. The Malaysian event will be hosted on Tuesday and Wednesday 8th-9th March and the Melbourne event will be hosted on Friday 11th March at <a href="https://www.crownmelbourne.com.au/">Crown Casino</a>.
 
-There will be many Cloud &amp; Data Center MVPs, Hyper-V MVPs including many international speakers attending both events. The session information will be published soon, but let me assure you that attendees will not be disappointed based on what I already know. Additionally, I will co-present 2 sessions with my friends and CDM MVPs Alex Verkinderen (<a href="https://twitter.com/AlexVerkinderen">@AlexVerkinderen</a>) and Pete Zerger (<a href="https://twitter.com/pzerger">@pzerger</a>):
+There will be many Cloud & Data Center MVPs, Hyper-V MVPs including many international speakers attending both events. The session information will be published soon, but let me assure you that attendees will not be disappointed based on what I already know. Additionally, I will co-present 2 sessions with my friends and CDM MVPs Alex Verkinderen (<a href="https://twitter.com/AlexVerkinderen">@AlexVerkinderen</a>) and Pete Zerger (<a href="https://twitter.com/pzerger">@pzerger</a>):
 <ul>
 	<li>Be a hero and save the day with OMS and Power BI (co-Present with: Alex Verkinderen)</li>
 	<li>Modernizing Your Automation Strategy with Azure Automation and OMS (co-present with Pete Zerger)</li>

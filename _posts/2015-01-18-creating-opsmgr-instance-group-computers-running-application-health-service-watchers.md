@@ -37,20 +37,20 @@ i.e. Using SQL servers as an example, the group definition looks like this:
   &lt;TypeDefinitions&gt;
     &lt;EntityTypes&gt;
       &lt;ClassTypes&gt;
-        &lt;ClassType ID=&quot;TYANG.SQL.Server.Computer.And.Health.Service.Watcher.Group&quot; Accessibility=&quot;Public&quot; Abstract=&quot;false&quot; Base=&quot;MSIL!Microsoft.SystemCenter.InstanceGroup&quot; Hosted=&quot;false&quot; Singleton=&quot;true&quot; /&gt;
+        &lt;ClassType ID="TYANG.SQL.Server.Computer.And.Health.Service.Watcher.Group" Accessibility="Public" Abstract="false" Base="MSIL!Microsoft.SystemCenter.InstanceGroup" Hosted="false" Singleton="true" /&gt;
       &lt;/ClassTypes&gt;
     &lt;/EntityTypes&gt;
   &lt;/TypeDefinitions&gt;
 [/source]
 
-<strong>Note:</strong> the MP alias “MSIL” is referencing “Microsoft.SystemCenter.InstanceGroup.Library” management pack.
+<strong>Note:</strong> the MP alias "MSIL" is referencing "Microsoft.SystemCenter.InstanceGroup.Library" management pack.
 <h3>Step 2, Find the Root / Seed Class from the MP for the specific application</h3>
 Most likely, the application that you are working on (for instance, SQL server) is already defined and monitored by another set of management packs. Therefore, you do not have to define and discover these servers by yourself. The group discovery for the group you’ve just created need to include:
 <ul>
 	<li>All computers running any components of the application (in this instance, SQL Server).</li>
 	<li>And all Health Service Watcher objects for the computers listed above.</li>
 </ul>
-In any decent management packs, when multiple application components are defined and discovered, most likely, the management pack author would define a root (seed) class, representing a computer that runs any application components (in this instance, we refer this as the “SQL server”). Once an instance of this seed class is discovered on a computer, there will be subsequent discoveries targeting this seed class that discovers any other application components (using SQL as example again, these components would be DB Engine, SSRS, SSAS, SSIS, etc.).
+In any decent management packs, when multiple application components are defined and discovered, most likely, the management pack author would define a root (seed) class, representing a computer that runs any application components (in this instance, we refer this as the "SQL server"). Once an instance of this seed class is discovered on a computer, there will be subsequent discoveries targeting this seed class that discovers any other application components (using SQL as example again, these components would be DB Engine, SSRS, SSAS, SSIS, etc.).
 
 So in this step, we need to find the root / seed class for this application. Based on what I needed to do, the seed classes for the 4 applications I needed are listed below:
 <ul>
@@ -85,7 +85,7 @@ So in this step, we need to find the root / seed class for this application. Bas
 </ul>
 Tip: you can use MPViewer to easily check what classes are defined in a sealed MP. Use SQL as example again, in the Microsoft.SQLServer.Library:<a href="http://blog.tyang.org/wp-content/uploads/2015/01/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/01/image_thumb4.png" alt="image" width="843" height="424" border="0" /></a>
 
-You can easily identify that “SQL Role” is the seed class because it is based on Microsoft.Windows.ComputerRole and other classes use this class as the base class. You can get the actual name (not the display name) from the “Raw XML” tab.
+You can easily identify that "SQL Role" is the seed class because it is based on Microsoft.Windows.ComputerRole and other classes use this class as the base class. You can get the actual name (not the display name) from the "Raw XML" tab.
 <h3>Step 3 Create MP References</h3>
 Your MP will need to reference the instance group library, as well as the MP of which the application seed class is defined (i.e. SQL library):
 
@@ -102,33 +102,33 @@ As shown above, I’ve translated each membership rule to plain English. And the
 [source language="XML"]
   &lt;Monitoring&gt;
     &lt;Discoveries&gt;
-      &lt;Discovery ID=&quot;TYANG.SQL.Server.Computer.And.Health.Service.Watcher.Group.Discovery&quot; Enabled=&quot;true&quot; Target=&quot;TYANG.SQL.Server.Computer.And.Health.Service.Watcher.Group&quot; ConfirmDelivery=&quot;false&quot; Remotable=&quot;true&quot; Priority=&quot;Normal&quot;&gt;
+      &lt;Discovery ID="TYANG.SQL.Server.Computer.And.Health.Service.Watcher.Group.Discovery" Enabled="true" Target="TYANG.SQL.Server.Computer.And.Health.Service.Watcher.Group" ConfirmDelivery="false" Remotable="true" Priority="Normal"&gt;
         &lt;Category&gt;Discovery&lt;/Category&gt;
         &lt;DiscoveryTypes&gt;
-          &lt;DiscoveryRelationship TypeID=&quot;MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities&quot; /&gt;
+          &lt;DiscoveryRelationship TypeID="MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities" /&gt;
         &lt;/DiscoveryTypes&gt;
-        &lt;DataSource ID=&quot;DS&quot; TypeID=&quot;SC!Microsoft.SystemCenter.GroupPopulator&quot;&gt;
+        &lt;DataSource ID="DS" TypeID="SC!Microsoft.SystemCenter.GroupPopulator"&gt;
           &lt;RuleId&gt;$MPElement$&lt;/RuleId&gt;
-          &lt;GroupInstanceId&gt;$MPElement[Name=&quot;TYANG.SQL.Server.Computer.And.Health.Service.Watcher.Group&quot;]$&lt;/GroupInstanceId&gt;
+          &lt;GroupInstanceId&gt;$MPElement[Name="TYANG.SQL.Server.Computer.And.Health.Service.Watcher.Group"]$&lt;/GroupInstanceId&gt;
           &lt;MembershipRules&gt;
             &lt;MembershipRule&gt;
-              &lt;MonitoringClass&gt;$MPElement[Name=&quot;Windows!Microsoft.Windows.Computer&quot;]$&lt;/MonitoringClass&gt;
-              &lt;RelationshipClass&gt;$MPElement[Name=&quot;MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities&quot;]$&lt;/RelationshipClass&gt;
+              &lt;MonitoringClass&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]$&lt;/MonitoringClass&gt;
+              &lt;RelationshipClass&gt;$MPElement[Name="MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities"]$&lt;/RelationshipClass&gt;
               &lt;Expression&gt;
                 &lt;Contains&gt;
-                  &lt;MonitoringClass&gt;$MPElement[Name=&quot;SQL!Microsoft.SQLServer.ServerRole&quot;]$&lt;/MonitoringClass&gt;
+                  &lt;MonitoringClass&gt;$MPElement[Name="SQL!Microsoft.SQLServer.ServerRole"]$&lt;/MonitoringClass&gt;
                 &lt;/Contains&gt;
               &lt;/Expression&gt;
             &lt;/MembershipRule&gt;
             &lt;MembershipRule&gt;
-              &lt;MonitoringClass&gt;$MPElement[Name=&quot;SC!Microsoft.SystemCenter.HealthServiceWatcher&quot;]$&lt;/MonitoringClass&gt;
-              &lt;RelationshipClass&gt;$MPElement[Name=&quot;MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities&quot;]$&lt;/RelationshipClass&gt;
+              &lt;MonitoringClass&gt;$MPElement[Name="SC!Microsoft.SystemCenter.HealthServiceWatcher"]$&lt;/MonitoringClass&gt;
+              &lt;RelationshipClass&gt;$MPElement[Name="MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities"]$&lt;/RelationshipClass&gt;
               &lt;Expression&gt;
                 &lt;Contains&gt;
-                  &lt;MonitoringClass&gt;$MPElement[Name=&quot;SC!Microsoft.SystemCenter.HealthService&quot;]$&lt;/MonitoringClass&gt;
+                  &lt;MonitoringClass&gt;$MPElement[Name="SC!Microsoft.SystemCenter.HealthService"]$&lt;/MonitoringClass&gt;
                   &lt;Expression&gt;
                     &lt;Contained&gt;
-                      &lt;MonitoringClass&gt;$MPElement[Name=&quot;Windows!Microsoft.Windows.Computer&quot;]$&lt;/MonitoringClass&gt;
+                      &lt;MonitoringClass&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]$&lt;/MonitoringClass&gt;
                       &lt;Expression&gt;
                         &lt;Contained&gt;
                           &lt;MonitoringClass&gt;$Target/Id$&lt;/MonitoringClass&gt;

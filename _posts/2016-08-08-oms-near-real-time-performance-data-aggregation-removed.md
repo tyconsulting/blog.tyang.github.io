@@ -24,7 +24,7 @@ By removing the data aggregation and making the raw data searchable (and living 
 
 Another advantage this update brings is, it greatly simplified the process of authoring your own OpsMgr performance collection rules for OMS NRT Perf data. Before this change, the NRT perf rules come in pairs – each perf counter you want to collect must have 2 rules (with the identical data source module configurations). One rule is for collecting raw data and another is to collect the 30-minute aggregated data. This has been discussed in great details in Chapter 11 of our <em>Inside Microsoft Operations Management Suite</em> book (<a href="https://gallery.technet.microsoft.com/Inside-the-Operations-2928e342">TechNet</a>, <a href="https://www.amazon.com/Inside-Microsoft-Operations-Management-Hands--ebook/dp/B01CH1L9X6">Amazon</a>). Now, we no longer need to write 2 rules for each perf counter. We only need to write one rule – for the raw perf data.
 
-The sample OpsMgr management pack below collects the “Log Cache Hit Ratio” counter for SQL Databases. It is targeting the Microsoft.SQLServer.Database class, which is the seedclass for pre-SQL 2014 databases (2005, 2008 and 2012):
+The sample OpsMgr management pack below collects the "Log Cache Hit Ratio" counter for SQL Databases. It is targeting the Microsoft.SQLServer.Database class, which is the seedclass for pre-SQL 2014 databases (2005, 2008 and 2012):
 <pre class="" language="XML">
 <?xml version="1.0" encoding="utf-8"?>
 <ManagementPack SchemaVersion="2.0" ContentReadable="true" xmlns:xsd="http://www.w3.org/2001/XMLSchema">

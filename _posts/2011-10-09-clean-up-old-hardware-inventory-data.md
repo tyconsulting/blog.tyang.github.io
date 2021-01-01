@@ -25,25 +25,25 @@ I have tried the free <a href="http://www.sccmexpert.com/site_sweeper.aspx">Site
 Other than removing the data from site databases throughout the hierarchy, the WMI class which you defined in the configuration.mof still exists in the client. I didn’t bother to look further to find tools/utilities to delete WMI classes, but simple found a sample vbscript from MSDN to modify WMI classes, and modified a little bit:
 
 <strong>DeleteWMIClass.vbs:</strong>
-[sourcecode language="vbnet"]
+```vb
 wbemCimtypeString = 8             ' String datatype
-Set objSWbemService = GetObject(&quot;Winmgmts:root\cimv2&quot;)
+Set objSWbemService = GetObject("Winmgmts:root\cimv2")
 Set objClass = objSWbemService.Get()
-objClass.Path_.Class = &quot;&lt;name of WMI class you wish to delete&gt;&quot;
+objClass.Path_.Class = "name of WMI class you wish to delete"
 
 ' Remove the new class and instance from the repository
 objClass.Delete_()
-If Err &amp;lt;&amp;gt; 0 Then
-WScript.Echo Err.Number &amp;amp; &quot;    &quot; &amp;amp; Err.Description
+If Err <> 0 Then
+WScript.Echo Err.Number & "    " & Err.Description
 Else
-WScript.Echo &quot;Delete succeeded&quot;
+WScript.Echo "Delete succeeded"
 End If
 
 ' Release SwbemServices object
 Set objSWbemService = Nothing
-[/sourcecode]
+```
 To modify it, specify the WMI class you wish to delete on line 4. If the WMI class is not located in root\CIMV2 namespace, change line 2 as well.
 
 I created a package in SCCM and advertised it to all systems.
 
-<strong><span style="color: #ff0000;">Note</span></strong>: When you create the program, make sure you use the syntax “Cscript DeleteWMIClass.vbs” so the output is redirected to command prompt rather than a message box.
+<strong><span style="color: #ff0000;">Note</span></strong>: When you create the program, make sure you use the syntax "Cscript DeleteWMIClass.vbs" so the output is redirected to command prompt rather than a message box.

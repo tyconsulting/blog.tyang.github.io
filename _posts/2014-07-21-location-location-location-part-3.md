@@ -17,7 +17,7 @@ tags:
 
 I often see people post of Facebook or Twitter that he or she has checked in at &lt;some places&gt; on Foursquare. I haven’t used Foursquare before (and don’t intend to in the future), I’m not sure what is the purpose of it, but please think this as Four Square in OpsMgr for your tablets <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2014/07/wlEmoticon-smile3.png" alt="Smile" />. I will now go through the management pack elements I created to achieve this goal.
 <h3>Event Collection Rule: Collect Location Aware Device Coordinate Rule</h3>
-So, I firstly need to collect the location data periodically. Therefore, I created an event collection rule targeting the “Location Aware Windows Client Computer” class I created (explained in Part 2 of this series). This rule uses the same data source module as the “Location Aware Device Missing In Action Monitor” which I also explained in Part 2. I have configured this rule to pass the exact same data to the data source module as what the monitor does, – so we can utilise <a href="http://technet.microsoft.com/en-us/library/ff381335.aspx">Cook Down</a> (basically the data source only execute once and feed the output data to both the rule and the monitor).
+So, I firstly need to collect the location data periodically. Therefore, I created an event collection rule targeting the "Location Aware Windows Client Computer" class I created (explained in Part 2 of this series). This rule uses the same data source module as the "Location Aware Device Missing In Action Monitor" which I also explained in Part 2. I have configured this rule to pass the exact same data to the data source module as what the monitor does, – so we can utilise <a href="http://technet.microsoft.com/en-us/library/ff381335.aspx">Cook Down</a> (basically the data source only execute once and feed the output data to both the rule and the monitor).
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/07/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb17.png" alt="image" width="414" height="434" border="0" /></a>
 
@@ -49,20 +49,20 @@ Since this event was collected over 2 days ago, for demonstration purpose, I had
 
 The script below is what’s used in the bottom left PowerShell Grid widget:
 
-[sourcecode language="Powershell"]
+```powershell
 Param($globalSelectedItems)
 
 $i = 1
 foreach ($globalSelectedItem in $globalSelectedItems)
 {
-$MonitoringObjectID = $globalSelectedItem[&quot;Id&quot;]
+$MonitoringObjectID = $globalSelectedItem["Id"]
 $MG = Get-SCOMManagementGroup
 $globalSelectedItemInstance = Get-SCOMClassInstance -Id $MonitoringObjectID
 $Computername = $globalSelectedItemInstance.DisplayName
-$strInstnaceCriteria = &quot;FullName='Microsoft.Windows.Computer:$Computername'&quot;
+$strInstnaceCriteria = "FullName='Microsoft.Windows.Computer:$Computername'"
 $InstanceCriteria = New-Object Microsoft.EnterpriseManagement.Monitoring.MonitoringObjectGenericCriteria($strInstnaceCriteria)
 $Instance = $MG.GetMonitoringObjects($InstanceCriteria)[0]
-$Events = Get-SCOMEvent -instance $Instance -EventId 10001 -EventSource &quot;LocationMonitoring&quot; | Where-Object {$_.Parameters[1] -eq 4} |Sort-Object TimeAdded -Descending | Select -First 50
+$Events = Get-SCOMEvent -instance $Instance -EventId 10001 -EventSource "LocationMonitoring" | Where-Object {$_.Parameters[1] -eq 4} |Sort-Object TimeAdded -Descending | Select -First 50
 foreach ($Event in $Events)
 {
 $EventID = $Event.Id.Tostring()
@@ -71,35 +71,35 @@ $LocationStatus = $Event.Parameters[1]
 $Latitude = $Event.Parameters[2]
 $Longitude = $Event.Parameters[3]
 $Altitude = $Event.Parameters[4]
-$ErrorRadius = $Event.Parameters[5].trimend(&quot;.&quot;)
+$ErrorRadius = $Event.Parameters[5].trimend(".")
 
-$dataObject = $ScriptContext.CreateInstance(&quot;xsd://foo!bar/baz&quot;)
-$dataObject[&quot;Id&quot;]=$EventID
-$dataObject[&quot;No&quot;]=$i
-$dataObject[&quot;LocalTime&quot;]=$LocalTime
-$dataObject[&quot;Latitude&quot;]=$Latitude
-$dataObject[&quot;Longitude&quot;]=$Longitude
-$dataObject[&quot;Altitude&quot;]=$Altitude
-$dataObject[&quot;ErrorRadius (Metres)&quot;]=$ErrorRadius
+$dataObject = $ScriptContext.CreateInstance("xsd://foo!bar/baz")
+$dataObject["Id"]=$EventID
+$dataObject["No"]=$i
+$dataObject["LocalTime"]=$LocalTime
+$dataObject["Latitude"]=$Latitude
+$dataObject["Longitude"]=$Longitude
+$dataObject["Altitude"]=$Altitude
+$dataObject["ErrorRadius (Metres)"]=$ErrorRadius
 $ScriptContext.ReturnCollection.Add($dataObject)
 $i++
 }
 }
-[/sourcecode]
+```
 
 &nbsp;
 
 And here’s the script for the PowerShell Web Browser Widget:
 
-[sourcecode language="Powershell"]
+```powershell
 Param($globalSelectedItems)
 
-$dataObject = $ScriptContext.CreateInstance(&quot;xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request&quot;)
-$dataObject[&quot;BaseUrl&quot;]=&quot;&lt;a href=&quot;http://maps.google.com/maps&amp;quot;&quot;&gt;http://maps.google.com/maps&quot;&lt;/a&gt;
-$parameterCollection = $ScriptContext.CreateCollection(&quot;xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter[]&quot;)
+$dataObject = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request")
+$dataObject["BaseUrl"]="&lt;a href="http://maps.google.com/maps&quot;"&gt;http://maps.google.com/maps"&lt;/a&gt;
+$parameterCollection = $ScriptContext.CreateCollection("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter[]")
 foreach ($globalSelectedItem in $globalSelectedItems)
 {
-$EventID = $globalSelectedItem[&quot;Id&quot;]
+$EventID = $globalSelectedItem["Id"]
 $Event = Get-SCOMEvent -Id $EventID
 If ($Event)
 {
@@ -107,9 +107,9 @@ $bIsEvent = $true
 $Latitude = $Event.Parameters[2]
 $Longitude = $Event.Parameters[3]
 
-$parameter = $ScriptContext.CreateInstance(&quot;xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter&quot;)
-$parameter[&quot;Name&quot;] = &quot;q&quot;
-$parameter[&quot;Value&quot;] = &quot;loc:&quot; + $Latitude + &quot;+&quot; + $Longitude
+$parameter = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
+$parameter["Name"] = "q"
+$parameter["Value"] = "loc:" + $Latitude + "+" + $Longitude
 $parameterCollection.Add($parameter)
 } else {
 $bIsEvent = $false
@@ -117,10 +117,10 @@ $bIsEvent = $false
 }
 If ($bIsEvent)
 {
-$dataObject[&quot;Parameters&quot;]= $parameterCollection
+$dataObject["Parameters"]= $parameterCollection
 $ScriptContext.ReturnCollection.Add($dataObject)
 }
-[/sourcecode]
+```
 
 <h3>Conclusion</h3>
 This concludes the 3rd and the final part of the series. I know it is only a proof-of-concept. I’m not sure how practical it is if we are to implement this in a corporate environment. i.e. Since most of the current Windows tablets don’t have GPS receivers built-in, I’m not sure and haven’t been able to test how well does the Windows Location Provider calculate locations when a device is connected to a corporate Wi-Fi.

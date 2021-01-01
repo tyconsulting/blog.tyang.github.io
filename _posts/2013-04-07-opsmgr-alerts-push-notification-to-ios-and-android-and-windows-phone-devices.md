@@ -12,7 +12,7 @@ tags:
   - SCOM
   - SCOM Notifications
 ---
-Last week, I’ve posted a solution for <a href="http://blog.tyang.org/2013/03/30/opsmgr-alerts-push-notification-to-android-devices/">OpsMgr alerts push notification to Android devices</a>, which was inspired by Stefan Stranger’s post for push notification for Windows Phone devices. Few iPhone lovers at work asked me, “what about iphones?” My response was, “Do I really care?? Why would I spend my time polishing a turd?”
+Last week, I’ve posted a solution for <a href="http://blog.tyang.org/2013/03/30/opsmgr-alerts-push-notification-to-android-devices/">OpsMgr alerts push notification to Android devices</a>, which was inspired by Stefan Stranger’s post for push notification for Windows Phone devices. Few iPhone lovers at work asked me, "what about iphones?" My response was, "Do I really care?? Why would I spend my time polishing a turd?"
 
 But then I thought, I might as well do it, just to close the circle. Al though I hate any Apple products (except the old 160GB iPod Classic, which I still use), I’ve spent some time to work out how to do the same for iOS devices - Because iOS is still the most popular mobile devices out there…
 
@@ -24,7 +24,7 @@ Luckily my partner has a spare first generation iPad doing nothing because she�
 
 I’ll now go through the steps to setup Prowl first, the command notification channel is pretty much the same with my previous post (I’ll go through what’s changed).
 
-1. Firstly, buy and download Prowl from Apple App Store for $2.99: <a href="https://itunes.apple.com/us/app/prowl-growl-client/id320876271?mt=8&amp;ign-mpt=uo%3D4">https://itunes.apple.com/us/app/prowl-growl-client/id320876271?mt=8&amp;ign-mpt=uo%3D4</a>
+1. Firstly, buy and download Prowl from Apple App Store for $2.99: <a href="https://itunes.apple.com/us/app/prowl-growl-client/id320876271?mt=8&ign-mpt=uo%3D4">https://itunes.apple.com/us/app/prowl-growl-client/id320876271?mt=8&ign-mpt=uo%3D4</a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/04/IMG_0004.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="IMG_0004" alt="IMG_0004" src="http://blog.tyang.org/wp-content/uploads/2013/04/IMG_0004_thumb.jpg" width="391" height="294" border="0" /></a>
 
@@ -40,30 +40,30 @@ Now the the iOS device is configured.
 
 Below is the updated PowerShell script used for command notification channel:
 
-[sourcecode language="Powershell"]
+```powershell
 Param($os,$apikey,$alertname,$alertsource,$alertseverity,$alertTimeRaised,$alertdescription)
 
 # Enter the name of the application the notification originates from.
-$application = &quot;OM2012&quot;
+$application = "OM2012"
 
 # Enter The event that occured. Depending on your application, this might be a summary, subject or a brief explanation.
-$event = &quot;OM2012 Alert&quot;
+$event = "OM2012 Alert"
 
 Switch ($alertseverity)
 {
-&quot;2&quot; {$strSeverity = &quot;Critical&quot;}
-&quot;1&quot; {$strSeverity = &quot;Warning&quot;}
-&quot;0&quot; {$strSeverity = &quot;Information&quot;}
+"2" {$strSeverity = "Critical"}
+"1" {$strSeverity = "Warning"}
+"0" {$strSeverity = "Information"}
 }
 
 # The full body of the notification.
-$description = @&quot;
+$description = @"
 AlertName: $alertname
 Source: $alertsource
 Severity: $strSeverity
 TimeRaised: $alertTimeRaised
 Description: $alertDescription
-&quot;@
+"@
 
 #description maximum length is 10000, truncate it if it's over
 If ($description.length -gt 10000)
@@ -74,22 +74,22 @@ $description = $description.substring(0,10000)
 #write-eventlog -LogName Application -source MSIInstaller -EventId 999 -entrytype Information -Message $description
 
 # An optional value representing the priority of the notification.
-$priority = &quot;-2&quot;
+$priority = "-2"
 
 # Specifies the responsetype you want. You can currently choose between JSON or XML (default)
-$type = &quot;json&quot;
+$type = "json"
 $os = $os.tolower()
 Switch ($os)
 {
-    &quot;android&quot; {$uri = &quot;http://notifymyandroid.com/publicapi/notify?event=$event&amp;priority=$priority&amp;application=$application&amp;description=$description&amp;apikey=$apikey&amp;type=$type&quot;}
-    &quot;windows&quot; {$uri = &quot;http://notifymywindowsphone.com/publicapi/notify?event=$event&amp;priority=$priority&amp;application=$application&amp;description=$description&amp;apikey=$apikey&amp;type=$type&quot;}
-    &quot;ios&quot; {$uri = &quot;http://api.prowlapp.com/publicapi/add?event=$event&amp;priority=$priority&amp;application=$application&amp;description=$description&amp;apikey=$apikey&amp;type=$type&quot;}
+    "android" {$uri = "http://notifymyandroid.com/publicapi/notify?event=$event&priority=$priority&application=$application&description=$description&apikey=$apikey&type=$type"}
+    "windows" {$uri = "http://notifymywindowsphone.com/publicapi/notify?event=$event&priority=$priority&application=$application&description=$description&apikey=$apikey&type=$type"}
+    "ios" {$uri = "http://api.prowlapp.com/publicapi/add?event=$event&priority=$priority&application=$application&description=$description&apikey=$apikey&type=$type"}
 }
 
 #Invoke-WebRequest -Uri $uri
 $response = [System.Net.WebRequest]::Create($uri)
 $response.GetResponse()
-[/sourcecode]
+```
 
 The script can also be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2013/04/MobileDevicesPushNotifications.zip">here</a>.
 
@@ -97,13 +97,13 @@ I have made the following changes to the script:
 
 1. Windows PowerShell version 3 is no longer a requirement.
 
-As we all know, Microsoft has removed Windows Management Framework 3.0 update for operating systems earlier than Windows 8 &amp; Server 2012 from WSUS couple of months ago because it breaks many applications including SCCM, SharePoint, etc.. More Info can be found <a href="http://myitforum.com/myitforumwp/2012/12/19/troublesome-wmf-3-0-update-now-expired-for-all-platforms/">here</a>. I saw someone posted a question in System Center Central’s forum wanting to install WMF 3.0 on OpsMgr management servers just to run this script. So I replaced the PowerShell 3.0 cmdlet <strong>Invoke-WebRequest</strong> (which was inherited from Stefan’s original script) with a .NET method in <strong>System.Net.WebRequest</strong>.
+As we all know, Microsoft has removed Windows Management Framework 3.0 update for operating systems earlier than Windows 8 & Server 2012 from WSUS couple of months ago because it breaks many applications including SCCM, SharePoint, etc.. More Info can be found <a href="http://myitforum.com/myitforumwp/2012/12/19/troublesome-wmf-3-0-update-now-expired-for-all-platforms/">here</a>. I saw someone posted a question in System Center Central’s forum wanting to install WMF 3.0 on OpsMgr management servers just to run this script. So I replaced the PowerShell 3.0 cmdlet <strong>Invoke-WebRequest</strong> (which was inherited from Stefan’s original script) with a .NET method in <strong>System.Net.WebRequest</strong>.
 
 2. The original script was displaying alert severity as number (0 = information, 1 = warning, 2 = critical), I’ve updated it to display the actual severity in English rather than number.
 
-3. the $os parameter supports additional value of “ios”.
+3. the $os parameter supports additional value of "ios".
 
-The command notification setup is exactly the same as the previous version (except OS parameter now supports “ios”):
+The command notification setup is exactly the same as the previous version (except OS parameter now supports "ios"):
 
 In my lab, the script is located on <em><strong>D:\Scripts\MobileDevices-Notification</strong></em> on all my management servers, so the setup looks like:
 
@@ -123,7 +123,7 @@ D:\Scripts\MobileDevices-Notification
 
 The script takes the following parameters (in the correct order):
 
-1. <strong>OS</strong>: support either <span style="color: #ff0000; font-size: large;">“ios”,</span> “android” or “windows”
+1. <strong>OS</strong>: support either <span style="color: #ff0000; font-size: large;">"ios",</span> "android" or "windows"
 
 2. <strong>API key</strong>: generated from either Notify My Windows Phone or Notify My Android website
 

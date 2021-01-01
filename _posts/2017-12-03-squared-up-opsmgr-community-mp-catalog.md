@@ -12,7 +12,7 @@ tags:
   - Management Pack
   - SCOM
 ---
-One of the big challenges when working with OpsMgr is finding all the good community management packs. Although Microsoft has provided a “Partner Solutions” section in the OpsMgr console to publish 3rd party management packs, it was designed to advertise commercial MPs developed by partner ISVs. From what I learned, the bar is too high to get your MP listed there, and for my community MPs, I don’t see myself spending time and effort to try get my MPs listed there since they are free and I don’t make any $$$ from these MPs.
+One of the big challenges when working with OpsMgr is finding all the good community management packs. Although Microsoft has provided a "Partner Solutions" section in the OpsMgr console to publish 3rd party management packs, it was designed to advertise commercial MPs developed by partner ISVs. From what I learned, the bar is too high to get your MP listed there, and for my community MPs, I don’t see myself spending time and effort to try get my MPs listed there since they are free and I don’t make any $$$ from these MPs.
 
 Squared Up has recently released a Community MP Catalog – in the form of a Management Pack. This Community MP Catalog MP enables you to access all the well-known community MPs from OpsMgr console:
 

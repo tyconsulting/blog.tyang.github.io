@@ -75,7 +75,7 @@ tags:
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
-<p>The reason I’m placing everything under the “tenant-root-mg” folder is that all these definitions are going to the tenant root management group in each tenant, I am planning to add additional definitions targeting child management groups later. by placing them in different folders, I can set triggers in build-pipeline to filter on the file path.</p>
+<p>The reason I’m placing everything under the "tenant-root-mg" folder is that all these definitions are going to the tenant root management group in each tenant, I am planning to add additional definitions targeting child management groups later. by placing them in different folders, I can set triggers in build-pipeline to filter on the file path.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->
@@ -99,7 +99,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>I created a variable group called “common”, stored a variable called ArtifactsFeedName in it. As the name suggests, the value is the name of your Azure Artifacts feed name.</p>
+<p>I created a variable group called "common", stored a variable called ArtifactsFeedName in it. As the name suggests, the value is the name of your Azure Artifacts feed name.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"linkDestination":"custom"} -->
@@ -107,7 +107,7 @@ tags:
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
-<p>I also created a separate variable group for each stage, storing the target management group name in a variable called “MGName”:</p>
+<p>I also created a separate variable group for each stage, storing the target management group name in a variable called "MGName":</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"linkDestination":"custom"} -->
@@ -151,11 +151,11 @@ tags:
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
-<p><strong>4. Create an agent job called “Test Policy and Initiative Definitions”. </strong></p>
+<p><strong>4. Create an agent job called "Test Policy and Initiative Definitions". </strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Make sure “Allow scripts to access the OAuth token” is ticked</p>
+<p>Make sure "Allow scripts to access the OAuth token" is ticked</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"linkDestination":"custom"} -->
@@ -172,7 +172,7 @@ tags:
 
 <!-- wp:preformatted -->
 <pre class="wp-block-preformatted">pool:<br>&nbsp;&nbsp; name: Hosted Windows 2019 with VS2019
-<p>steps:<br>- powershell: |<br>&nbsp;&nbsp;&nbsp; $colURI = [uri]::New("$(System.TeamFoundationCollectionUri)")<br>&nbsp;&nbsp;&nbsp; if ("$(System.TeamFoundationCollectionUri)" -match "visualstudio.com")<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; $org = $colURI.Authority.split('.')[0]<br>&nbsp;&nbsp;&nbsp; $feedURI = "<a href="https://pkgs.dev.azure.com/">https://pkgs.dev.azure.com/</a>$org/_packaging/" + "$(ArtifactsFeedName)" + "/nuget/v2"<br>&nbsp;&nbsp;&nbsp; } else {<br>&nbsp;&nbsp;&nbsp; $pkgAuth = "pkgs.$($colURI.Authority)"<br>&nbsp;&nbsp;&nbsp; $feedURI = "<a href="https://$pkgAuth&quot;">https://$pkgAuth"</a> + "$($colURI.AbsolutePath)" + "_packaging/" + "$(ArtifactsFeedName)" + "/nuget/v2"<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; Write-output "Azure Artifacts Feed URI: $feedURI"<br>&nbsp;&nbsp;&nbsp; Write-Output ("##vso[task.setvariable variable=feedURI]$($feedURI)")<br>&nbsp;&nbsp; displayName: 'Get Azure Artifact Feed URI'</p>
+<p>steps:<br>- powershell: |<br>&nbsp;&nbsp;&nbsp; $colURI = [uri]::New("$(System.TeamFoundationCollectionUri)")<br>&nbsp;&nbsp;&nbsp; if ("$(System.TeamFoundationCollectionUri)" -match "visualstudio.com")<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; $org = $colURI.Authority.split('.')[0]<br>&nbsp;&nbsp;&nbsp; $feedURI = "<a href="https://pkgs.dev.azure.com/">https://pkgs.dev.azure.com/</a>$org/_packaging/" + "$(ArtifactsFeedName)" + "/nuget/v2"<br>&nbsp;&nbsp;&nbsp; } else {<br>&nbsp;&nbsp;&nbsp; $pkgAuth = "pkgs.$($colURI.Authority)"<br>&nbsp;&nbsp;&nbsp; $feedURI = "<a href="https://$pkgAuth"">https://$pkgAuth"</a> + "$($colURI.AbsolutePath)" + "_packaging/" + "$(ArtifactsFeedName)" + "/nuget/v2"<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; Write-output "Azure Artifacts Feed URI: $feedURI"<br>&nbsp;&nbsp;&nbsp; Write-Output ("##vso[task.setvariable variable=feedURI]$($feedURI)")<br>&nbsp;&nbsp; displayName: 'Get Azure Artifact Feed URI'</p>
 <p>- powershell: 'Register-PSRepository -Name "$(ArtifactsFeedName)" -SourceLocation "$(feedURI)" -PublishLocation "$(feedURI)" -InstallationPolicy Trusted'<br>&nbsp;&nbsp; displayName: 'Register PS repository for Azure Artifacts Feed'</p>
 <p>- powershell: |<br>&nbsp;&nbsp;&nbsp; $pw = ConvertTo-SecureString '$(System.AccessToken)' -AsPlainText -Force<br>&nbsp;&nbsp;&nbsp; $cred = New-Object System.Management.Automation.PSCredential 'abc', $pw<br>&nbsp;&nbsp;&nbsp; Install-Module Pester -Repository $(ArtifactsFeedName) -Credential $cred -force -scope CurrentUser<br>&nbsp;&nbsp;&nbsp; Install-Module AzPolicyTest -Repository $(ArtifactsFeedName) -Credential $cred -force -scope CurrentUser<br>&nbsp;&nbsp; displayName: 'Install required PowerShell modules'</p>
 <p>- powershell: |<br>&nbsp;&nbsp;&nbsp; Import-Module AzPolicyTest<br>&nbsp;&nbsp;&nbsp; Test-JSONContent -path $(Build.SourcesDirectory)\tenant-root-mg\policy-definitions -OutputFile $(Build.SourcesDirectory)\TEST-tenant-root-mg-Policy.JSCONContent.XML<br>&nbsp;&nbsp;&nbsp; Test-AzPolicyDefinition -Path $(Build.SourcesDirectory)\tenant-root-mg\policy-definitions -OutputFile $(Build.SourcesDirectory)\TEST-tenant-root-mg-PolicyDefinition.XML<br>&nbsp;&nbsp; errorActionPreference: continue<br>&nbsp;&nbsp; displayName: 'Pester Test Azure Policy Definitions'</p>
@@ -255,11 +255,11 @@ steps:
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
-<p><strong>4. In the stage, create an agent job called “Deploy Policy Definition”. </strong></p>
+<p><strong>4. In the stage, create an agent job called "Deploy Policy Definition". </strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>It contains a single step that uses Azure PowerShell task to bulk deploy policy definitions to the target management group (or subscription). Here’s the Yaml definition for the “Deploy Policy Definitions to MG” task:
+<p>It contains a single step that uses Azure PowerShell task to bulk deploy policy definitions to the target management group (or subscription). Here’s the Yaml definition for the "Deploy Policy Definitions to MG" task:
 </p>
 <!-- /wp:paragraph -->
 

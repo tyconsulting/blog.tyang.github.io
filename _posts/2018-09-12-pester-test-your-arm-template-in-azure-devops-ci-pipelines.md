@@ -143,7 +143,7 @@ To use this Pester test script in your VSTS pipeline, you can follow the steps l
 
 <strong>1. Include this script in your repository</strong>
 
-In my Git repo, I have created a folder called "tests” and placed this script inside a sub-folder of “tests”:
+In my Git repo, I have created a folder called "tests" and placed this script inside a sub-folder of "tests":
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-18.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-18.png" alt="image" width="724" height="370" border="0" /></a>
 
@@ -151,15 +151,15 @@ In my Git repo, I have created a folder called "tests” and placed this script 
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-19.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-19.png" alt="image" width="1002" height="395" border="0" /></a>
 
-In this demo, I name these variables “parameters”, “variables”, “functions”, “resources” and “outputs”. these variables can be arrays, you can separate each value using comma “,”.
+In this demo, I name these variables "parameters", "variables", "functions", "resources" and "outputs". these variables can be arrays, you can separate each value using comma ",".
 
-Please note that in addition to the template file path, only “resources” is the required parameter, if you don’t want to validate other template elements, you don’t need to create other variables here.
+Please note that in addition to the template file path, only "resources" is the required parameter, if you don’t want to validate other template elements, you don’t need to create other variables here.
 
 <strong>3. Link the variable group to the build pipeline</strong>
 
 Before the build pipeline can use these variables, you need to link the variable group to the build pipeline.
 
-<strong>4. In the build (CI) pipeline, add a “Pester Test Runner” task</strong>
+<strong>4. In the build (CI) pipeline, add a "Pester Test Runner" task</strong>
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-20.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-20.png" alt="image" width="714" height="105" border="0" /></a>
 
@@ -169,7 +169,7 @@ Although there are other Pester test tasks out there, this is my favourite one.
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-21.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-21.png" alt="image" width="864" height="498" border="0" /></a>
 
-Since the Pester test script requires input parameters, the “Script Folder or Script” field needs to be a hash table. In my demo, I’m leveraging the build-in variable $(System.DefaultWorkingDirectory) as well as my user-defined variables. It is set to:
+Since the Pester test script requires input parameters, the "Script Folder or Script" field needs to be a hash table. In my demo, I’m leveraging the build-in variable $(System.DefaultWorkingDirectory) as well as my user-defined variables. It is set to:
 
 <span style="background-color: #ffff00;">@{Path='$(System.DefaultWorkingDirectory)\ARMDeploymentDemo\SingleVMPatternDemo\tests\ARMTemplate\Test.ARMTemplate.ps1'; Parameters=@{TemplatePath ='$(System.DefaultWorkingDirectory)\ARMDeploymentDemo\SingleVMPatternDemo\azuredeploy.json'; parameters =$(parameters); variables = $(variables); functions = $(functions); resources = $(resources); outputs = $(outputs)}}</span>
 

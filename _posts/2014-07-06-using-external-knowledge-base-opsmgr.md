@@ -17,7 +17,7 @@ I’ve been wanting to write a post on this topic for a while. Using an external
 
 <strong><span style="color: #ff0000;">Please Note: </span></strong>this post is 100% based on my own experience working on a very large OpsMgr environment which involves a mixture of 2007 and 2012 management groups and many support teams.
 
-As I have been working for a “Customer” for the last 3 years instead of working for a solutions provider, who generally only spend a short period of time and move on to the next engagement, I am able to see the challenges within the organisation from a social and culture point of view. Hopefully you can pick up few points that also apply to your environment.
+As I have been working for a "Customer" for the last 3 years instead of working for a solutions provider, who generally only spend a short period of time and move on to the next engagement, I am able to see the challenges within the organisation from a social and culture point of view. Hopefully you can pick up few points that also apply to your environment.
 <h3>Knowledge Base Management in OpsMgr</h3>
 In OpsMgr, knowledge base (KB) articles can exist in 2 places: Product Knowledge and Company Knowledge.
 
@@ -29,9 +29,9 @@ Operators can access product knowledge from either the alert view or the propert
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/07/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb2.png" alt="image" width="358" height="413" border="0" /></a>
 
-<strong>Company Knowledge:</strong> Written my someone internally within your organisation. Consider it as an “Addendum” to the product knowledge. Generally OpsMgr operators use this functionality to store any organisation-specific information about the particular alert or workflow.
+<strong>Company Knowledge:</strong> Written my someone internally within your organisation. Consider it as an "Addendum" to the product knowledge. Generally OpsMgr operators use this functionality to store any organisation-specific information about the particular alert or workflow.
 
-Company Knowledge articles can be added into the OpsMgr management group from a computer which has Operations Console, Microsoft Visual Studio Runtime for Office, and 32-bit Microsoft Word 2010 installed. These articles are saved into unsealed management packs. They can be viewed same way as product knowledge”:
+Company Knowledge articles can be added into the OpsMgr management group from a computer which has Operations Console, Microsoft Visual Studio Runtime for Office, and 32-bit Microsoft Word 2010 installed. These articles are saved into unsealed management packs. They can be viewed same way as product knowledge":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/07/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb3.png" alt="image" width="580" height="323" border="0" /></a>
 
@@ -63,7 +63,7 @@ Sorry, you can’t attach a script / Word documents / Visio diagrams / Pictures 
 
 <strong>04. Users can only create one (1) company KB per OpsMgr workflow and each Company KB is associated to only one (1) workflow</strong>
 
-There’s a 1-to-1 relationship between KB articles and OpsMgr workflows (if the Company KB is created in the operations console). It is possible that you have many very similar monitors in your environments. i.e. In my environment, I have two (2) “Average Wait Time” monitors for SQL DB engines:
+There’s a 1-to-1 relationship between KB articles and OpsMgr workflows (if the Company KB is created in the operations console). It is possible that you have many very similar monitors in your environments. i.e. In my environment, I have two (2) "Average Wait Time" monitors for SQL DB engines:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/07/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb5.png" alt="image" width="580" height="285" border="0" /></a>
 
@@ -71,7 +71,7 @@ One of these monitor is targeting SQL 2008 and the other one is targeting SQL 20
 
 <strong>05. The KB article is only available WITHIN the OpsMgr management group Where it is created. There is no way to share it between multiple MG’s and it cannot be access outside of OpsMgr</strong>
 
-Often, when I introduce OpsMgr Company Knowledge to support teams, the response I get is “but we’ve already got all our KB’s in xxxxx (name of a system).” Why would they have to adopt a new system and spend the effort of migrating everything to OpsMgr? And after everything is migrated, you can only access these information when you have access in OpsMgr? Additionally, same as overrides, when you created an override in one management group, it will not automatically appear in another management group. In my employer’s environment, I’ve already lost count how many Test / Dev / Production, 2007 / 2012 management groups we have in total. to keep Company KB’s consistent among all these management groups is a nightmare!
+Often, when I introduce OpsMgr Company Knowledge to support teams, the response I get is "but we’ve already got all our KB’s in xxxxx (name of a system)." Why would they have to adopt a new system and spend the effort of migrating everything to OpsMgr? And after everything is migrated, you can only access these information when you have access in OpsMgr? Additionally, same as overrides, when you created an override in one management group, it will not automatically appear in another management group. In my employer’s environment, I’ve already lost count how many Test / Dev / Production, 2007 / 2012 management groups we have in total. to keep Company KB’s consistent among all these management groups is a nightmare!
 
 <strong>06. KB articles are not searchable.</strong>
 
@@ -91,13 +91,13 @@ To be able to create / edit Company KB’s, the computer requires the following 
 </ul>
 I always get confused on which version of Visual Studio Runtime for Office and MS Word is required for which version of OpsMgr. I had to google the requirements when every time I need to set one up. Currently, Word 2013 is not supported. So in my lab environment, I had to install Word 2010 on one machine where Office 2013 is installed everywhere else.
 <h3>Using an External Knowledge Base Solution</h3>
-There are many Knowledge sharing / Wiki solutions that you can choose from such as Microsoft SharePoint, WordPress or other Wiki applications. In fact, you may have already started using an external OpsMgr KB solution that you are not aware of - There is a very well-known community initiative called “<a href="http://www.systemcentercentral.com/researchthis/">ResearchThis!</a>”. Essetially, ResearchThis is a collection of OpsMgr KB articles hosted on a WordPress site (<a href="http://www.systemcentercentral.com">www.systemcentercentral.com</a>) and a MP which offers an alert task allowing OpsMgr operators to search support articles based on alert name. If you are using ResearchThis!, you have already adopted an external KB solution for your OpsMgr solution.
+There are many Knowledge sharing / Wiki solutions that you can choose from such as Microsoft SharePoint, WordPress or other Wiki applications. In fact, you may have already started using an external OpsMgr KB solution that you are not aware of - There is a very well-known community initiative called "<a href="http://www.systemcentercentral.com/researchthis/">ResearchThis!</a>". Essetially, ResearchThis is a collection of OpsMgr KB articles hosted on a WordPress site (<a href="http://www.systemcentercentral.com">www.systemcentercentral.com</a>) and a MP which offers an alert task allowing OpsMgr operators to search support articles based on alert name. If you are using ResearchThis!, you have already adopted an external KB solution for your OpsMgr solution.
 
-I believe by taking the Knowledge Base management out of OpsMgr and move to an external system that is designed for managing and sharing knowledge, we can overcome all the “Cons” I’ve listed above:
+I believe by taking the Knowledge Base management out of OpsMgr and move to an external system that is designed for managing and sharing knowledge, we can overcome all the "Cons" I’ve listed above:
 
 <strong>01. KB articles are not saved in management packs.</strong> less management packs = less maintenance effort.
 
-<strong>02. Access to the Knowledge Base is controlled outside of OpsMgr.</strong> i.e. if you are using MS SharePoint, you can grant different level of access to users Active Directory IDs / Groups. People no longer needs access to OpsMgr to be able to share their knowledge. Therefore, no more excuses like “I don’t have access in SCOM” when you ask why didn’t they add a solution in the Company KB”.
+<strong>02. Access to the Knowledge Base is controlled outside of OpsMgr.</strong> i.e. if you are using MS SharePoint, you can grant different level of access to users Active Directory IDs / Groups. People no longer needs access to OpsMgr to be able to share their knowledge. Therefore, no more excuses like "I don’t have access in SCOM" when you ask why didn’t they add a solution in the Company KB".
 
 <strong>03. Your KB articles are no longer text based.</strong> Depending on your external KB systems, you may add pictures, videos, attachments etc. to the article.
 
@@ -111,7 +111,7 @@ I believe by taking the Knowledge Base management out of OpsMgr and move to an e
 
 08. <strong>No additional configuration is required on OpsMgr operators PCs.</strong> Well, it is probably more complicated to setup a SharePoint Wiki than to install all required components on a PC to enable Company KB editing. but the good thing is, you only need to do it once.
 
-<strong>09. it is easy to extend your external KB solution to other OpsMgr management groups.</strong> i.e. If you would like to use “ResearchThis!”, all you have to do is to import the ResearchThis MP, which only contains few console tasks.
+<strong>09. it is easy to extend your external KB solution to other OpsMgr management groups.</strong> i.e. If you would like to use "ResearchThis!", all you have to do is to import the ResearchThis MP, which only contains few console tasks.
 <h3>How To Setup an External Knowledge Base</h3>
 Well, it depends on what type of system you’d like to implement. I don’t think anyone can write a single guide to cover it. Having said that, there are few examples out there we can refer to:
 
@@ -141,10 +141,10 @@ And I created same tasks that launches user’s default web browser:
 
 I have created this MP in VSAE and sealed it with a key. In a real life environment, I’d probably do the same and included this MP as a standard MP which should be imported into all the management groups within an organisation.
 
-<strong><span style="color: #ff0000;">Tip:</span></strong> If you’d like to use ResearchThis! MP, but you don’t want OpsMgr operators to accidentally post sensitive information to the ResearchThis! KB because of the security concerns, you can simply remove the “Share This” task from ResearchThis! MP since it is unsealed.
+<strong><span style="color: #ff0000;">Tip:</span></strong> If you’d like to use ResearchThis! MP, but you don’t want OpsMgr operators to accidentally post sensitive information to the ResearchThis! KB because of the security concerns, you can simply remove the "Share This" task from ResearchThis! MP since it is unsealed.
 
 Marnix Wolf has written an good article on how to create this type of console tasks a long time ago: <a title="http://thoughtsonopsmgr.blogspot.com.au/2010/09/scom-tasks-part-iv-lets-create-simple.html" href="http://thoughtsonopsmgr.blogspot.com.au/2010/09/scom-tasks-part-iv-lets-create-simple.html">http://thoughtsonopsmgr.blogspot.com.au/2010/09/scom-tasks-part-iv-lets-create-simple.html</a>. If you’d like to use your default browser instead of IE, please use the command line from Rikard Ronnkvist’s comment in this post (the first comment).
 
 <strong>Conclusion</strong>
 
-As I stated in the beginning, this post is not a “How-To” guide. The intention is to help people making design decisions when designing OpsMgr solutions. This post is 100% based on my own experience and opinion. Please feel free to contact me if you want to a further discussion on this topic.
+As I stated in the beginning, this post is not a "How-To" guide. The intention is to help people making design decisions when designing OpsMgr solutions. This post is 100% based on my own experience and opinion. Please feel free to contact me if you want to a further discussion on this topic.

@@ -16,11 +16,11 @@ Often, IT admins need to workout the first/second/third/fourth Mon/Tue/Wed/Thur/
 	<li>Prepare themselves for Microsoft’s patching Tuesday of each month</li>
 	<li>Planning for any admin tasks caused by Day Light Saving time change</li>
 </ul>
-So I wrote this simple function today to calculate the date for any given month &amp; year.
+So I wrote this simple function today to calculate the date for any given month & year.
 
 Here’s the function:
 
-[sourcecode language="PowerShell"]
+```powershell
 Function Get-WeekDayInMonth ([int]$Month, [int]$year, [int]$WeekNumber, [int]$WeekDay)
 {
 
@@ -48,7 +48,7 @@ $TheDay = $null
 }
 $TheDay
 }
-[/sourcecode]
+```
 
 
 the $weekday variable represents the week day you after:

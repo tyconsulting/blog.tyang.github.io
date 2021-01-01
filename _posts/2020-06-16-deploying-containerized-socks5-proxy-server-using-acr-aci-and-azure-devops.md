@@ -45,7 +45,7 @@ I’m using several Azure DevOps extensions in my pipelines. If you don’t want
 
 Firstly, I created a pipeline to deploy an container registry to host the docker image. The pattern is located in the <a href="https://github.com/tyconsulting/containers.patterns/tree/master/acr">acr folder</a> in the repo. The <a href="https://github.com/tyconsulting/containers.patterns/blob/master/acr/azure.pipelines.yaml">YAML pipeline</a> deploys an <a href="https://github.com/tyconsulting/containers.patterns/blob/master/acr/templates/azuredeploy.json">ARM template</a>, which contains an ACR and key vault (for storing ACR admin credential).
 
-This pipeline uses several service connections for connecting to my Azure subscriptions (one for Dev and one for Prod). I named these connections sub-workload-dev and sub-workload-prod. It also uses 2 variable groups called “variables – acr (dev)” and “variables – acr (prod)”. the following variables are stored in these variable groups:
+This pipeline uses several service connections for connecting to my Azure subscriptions (one for Dev and one for Prod). I named these connections sub-workload-dev and sub-workload-prod. It also uses 2 variable groups called "variables – acr (dev)" and "variables – acr (prod)". the following variables are stored in these variable groups:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/06/image.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2020/06/image_thumb.png" alt="image" width="485" height="590" border="0" /></a>
 
@@ -56,7 +56,7 @@ This pipeline uses several service connections for connecting to my Azure subscr
     <li>resourceGroup</li>
 </ul>
 
-I also created 2 environments called “dev” and “prod” in my project, which is required for the YAML pipeline:
+I also created 2 environments called "dev" and "prod" in my project, which is required for the YAML pipeline:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/06/image-1.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2020/06/image_thumb-1.png" alt="image" width="656" height="289" border="0" /></a>
 
@@ -123,7 +123,7 @@ The ACI pattern is located in the <a href="https://github.com/tyconsulting/conta
 <a href="https://blog.tyang.org/wp-content/uploads/2020/06/image-5.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2020/06/image_thumb-5.png" alt="image" width="439" height="325" border="0" /></a>
 
 <ul>
-    <li>secrets – acr (linked to the key vault created by previous pipeline and added the secrets acrUseName &amp; acrPassword as variables)</li>
+    <li>secrets – acr (linked to the key vault created by previous pipeline and added the secrets acrUseName & acrPassword as variables)</li>
 </ul>
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/06/image-6.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2020/06/image_thumb-6.png" alt="image" width="526" height="415" border="0" /></a>

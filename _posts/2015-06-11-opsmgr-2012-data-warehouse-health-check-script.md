@@ -54,7 +54,7 @@ As shown in this sample, the report consists of the following sections:
 </ul>
 <strong>SQL Service Account Configuration</strong>
 <ul>
-	<li>If the SQL Service account has “Perform volume maintenance tasks” and “Lock Pages in Memory” rights</li>
+	<li>If the SQL Service account has "Perform volume maintenance tasks" and "Lock Pages in Memory" rights</li>
 </ul>
 <strong>Data Warehouse Dataset Configuration</strong>
 <ul>
@@ -114,7 +114,7 @@ This script has the following pre-requisites:
 	<li>The OpsMgr SDK Assemblies must be available on the computer running the script:
 <ul>
 	<li>The script can be executed on a OpsMgr management server, web console server, or a computer that has OpsMgr operations console installed</li>
-	<li>OR, manually copy the 3 DLLs from “&lt;management server install dir&gt;\SDK Binary” folder to the folder where the script is located.</li>
+	<li>OR, manually copy the 3 DLLs from "&lt;management server install dir&gt;\SDK Binary" folder to the folder where the script is located.</li>
 </ul>
 </li>
 </ul>
@@ -124,13 +124,13 @@ The only required parameter is –SDK &lt;OpsMgr Management Server name&gt;, whe
 
 i.e.:
 
-<strong>.\SCOMDWHealthCheck.ps1 –SDK “OpsMgrMS01” -OutputDir C:\Temp\Reports\ –OpenReport –Verbose</strong>
+<strong>.\SCOMDWHealthCheck.ps1 –SDK "OpsMgrMS01" -OutputDir C:\Temp\Reports\ –OpenReport –Verbose</strong>
 
 Or if you need to specify alternative credential:
 
-<strong>$password = ConvertTo-SecureString –String “password12345” –AsPlainText –Force</strong>
+<strong>$password = ConvertTo-SecureString –String "password12345" –AsPlainText –Force</strong>
 
-<strong>.\SCOMDWHealthCheck.ps1 –SDK “OpsMgrMS01” –Username “domain\SCOM.Admin” –Password $Password –OpenReport –Verbose</strong>
+<strong>.\SCOMDWHealthCheck.ps1 –SDK "OpsMgrMS01" –Username "domain\SCOM.Admin" –Password $Password –OpenReport –Verbose</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML43ec987.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML43ec987" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML43ec987_thumb.png" alt="SNAGHTML43ec987" width="675" height="671" border="0" /></a>
 

@@ -85,7 +85,7 @@ Once the webhook is created, go to MyGet portal, go to your feed then go to the 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/02/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-5.png" alt="image" width="329" height="296" border="0" /></a>
 
-then enter a description and paste the runbook webhook URL. for the webhook trigger, only tick “Package Added”:
+then enter a description and paste the runbook webhook URL. for the webhook trigger, only tick "Package Added":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/02/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-6.png" alt="image" width="321" height="276" border="0" /></a>
 

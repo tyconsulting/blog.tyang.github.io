@@ -19,7 +19,7 @@ When new modules are released in PowerShell Gallery (i.e. all the Azure modules)
 
 Although I can use public-module cmdlet to upload the module located locally on my PC to MyGet feed, it can be really time consuming when the module sizes are big (i.e. some of the Azure modules). It only took me few minutes to figure out how do I push modules directly from PowerShell Gallery (or any NuGet feeds) to my MyGet feed.
 
-To configure it, Under the MyGet feed, go to “Package Sources”, and click “Add package source…”
+To configure it, Under the MyGet feed, go to "Package Sources", and click "Add package source…"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/09/SNAGHTML6b70b9f.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6b70b9f" src="http://blog.tyang.org/wp-content/uploads/2016/09/SNAGHTML6b70b9f_thumb.png" alt="SNAGHTML6b70b9f" width="420" height="309" border="0" /></a>
 

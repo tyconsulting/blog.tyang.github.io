@@ -14,7 +14,7 @@ tags:
 ---
 Don’t you hate it when you’ve just released a piece of work to public and you found an issue with it? Well, this is what happened to me today. Yesterday and released the <a href="http://blog.tyang.org/2013/03/03/opsmgr-self-maintenance-management-pack/">OpsMgr Self Maintenance MP</a>, and today, I found an issue with the 2012 version.
 
-After the MP is imported and the “OpsMgr 2012 Self Maintenance Operational Database LocalizedText Table Health Monitor” has been enabled via an override, you’ll soon get this alert from one of the management servers:
+After the MP is imported and the "OpsMgr 2012 Self Maintenance Operational Database LocalizedText Table Health Monitor" has been enabled via an override, you’ll soon get this alert from one of the management servers:
 
 <span style="color: #ff0000;"><em>The PowerShell script failed with below exception</em></span>
 

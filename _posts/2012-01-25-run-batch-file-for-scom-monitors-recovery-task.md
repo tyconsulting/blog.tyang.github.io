@@ -13,20 +13,12 @@ tags:
 ---
 This is how I configured recovery task to run a batch file:
 
-Actions Module Type: <strong>System.CommandExecuter</strong>
+Actions Module Type: **System.CommandExecuter**
 
 Module Configuration
 
-Application Name: C:\Windows\System32\cmd.exe
-
-Working Directory: C:\Windows\System32
-
-CommandLine: /c &lt;Path to Batch file&gt; (i.e. /c C:\Apps\DelFile.bat)
-
-TimeoutSeconds: &lt;i.e. 60&gt;
-
-RequiredOutput: true
-
-&nbsp;
-
-&nbsp;
+* Application Name: C:\Windows\System32\cmd.exe
+* Working Directory: C:\Windows\System32
+* CommandLine: /c <Path to Batch file>; (i.e. /c C:\Apps\DelFile.bat)
+* TimeoutSeconds: <i.e. 60>
+* RequiredOutput: true

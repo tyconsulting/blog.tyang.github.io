@@ -26,9 +26,9 @@ Now I can probably get away from using RDP most of the times since I’m pretty 
 
 2. Install PSWA web application using PowerShell:
 
-[sourcecode language="PowerShell"]
+```powershell
 Install-PswaWebApplication
-[/sourcecode]
+```
 
 3. Requested and installed a SSL certificate for the PSWA gateway machine from my Enterprise CA
 
@@ -38,9 +38,9 @@ Install-PswaWebApplication
 
 6. Create PSWA Authorization Rule:
 
-[sourcecode language="PowerShell"]
+```powershell
 Add-PSWAAuthorizationRule -UserGroupName Corp\PSWA_Users -Computername * -ConfigurationName *
-[/sourcecode]
+```
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/11/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/11/image_thumb.png" alt="image" width="580" height="52" border="0" /></a>
 
@@ -60,11 +60,11 @@ It’s great to see that Microsoft releases a web-based product that runs on bro
 
 I started testing by connecting to a SCOM management server and tried to retrieve all SCOM agents in my management group (Only 11 in total so I’d assume not huge amount of data is returned). I used:
 
-[sourcecode language="PowerShell"]
+```powershell
 Import-Module OperationsManager
 
 $a = Get-SCOMAgent
-[/sourcecode]
+```
 
 Interestingly, it failed and the connection to the management server was closed:
 
@@ -74,7 +74,7 @@ Error:
 
 <em><span style="color: #ff0000;">Processing data for a remote command failed with the following error message: The WSMan provider host process did not return a proper response. A provider in the host process may have behaved improperly.</span></em>
 
-This reminded me the default setting for “Maximum amount of memory in MB per Shell” for WinRM, which I blogged previously in this <a href="http://blog.tyang.org/2012/06/07/using-powershell-remote-sessions-in-a-large-scom-environment/">post</a>. The default setting on Windows Server 2008 R2 and Windows 7 is 150MB. This default setting has increased to 1024MB on Windows Server 2012 and Windows 8.
+This reminded me the default setting for "Maximum amount of memory in MB per Shell" for WinRM, which I blogged previously in this <a href="http://blog.tyang.org/2012/06/07/using-powershell-remote-sessions-in-a-large-scom-environment/">post</a>. The default setting on Windows Server 2008 R2 and Windows 7 is 150MB. This default setting has increased to 1024MB on Windows Server 2012 and Windows 8.
 
 So to test, since I have 3 management servers in the OM12 management group, I’ve increased this setting to 1024 on another management server. It fixed the error:
 
@@ -82,11 +82,11 @@ So to test, since I have 3 management servers in the OM12 management group, I’
 
 To further prove this error is actually caused by not having enough memory for the remote shell, I’ve connected PSWA to a Windows 8 machine, which has OM12 console and command shell installed. I used the following commands to connect to the OM12 management group:
 
-[sourcecode language="PowerShell"]
+```powershell
 Import-Module OperationsManager
 
 New-SCManagementGroupConnection OpsMgrMS03
-[/sourcecode]
+```
 
 It prompted an error saying I don’t have sufficient permission:
 
@@ -94,15 +94,15 @@ It prompted an error saying I don’t have sufficient permission:
 
 This is by design, when using second hop in CredSSP, the credential has to be explicitly specified. so I changed the command to:
 
-[sourcecode language="PowerShell"]
+```powershell
 New-SCManagementGroupConnection OpsMgrMS03 –Credential (Get-Credential domain\MyID)
-[/sourcecode]
+```
 
 after entering the password, I was successfully connected and I managed to retrieve all SCOM agents by using Get-SCOMAgent Cmdlet without issues.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/11/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/11/image_thumb6.png" alt="image" width="580" height="352" border="0" /></a>
 
-So to fix this issue once for all, I’ve modified the GPO I’ve just created and changed the “Maximum amount of memory in MB per Shell” setting to 1024.
+So to fix this issue once for all, I’ve modified the GPO I’ve just created and changed the "Maximum amount of memory in MB per Shell" setting to 1024.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/11/WinRM-Policy.htm">Click here</a> to see settings defined in my WinRM GPO.
 
@@ -126,7 +126,7 @@ by default, the console size is 120x35, which seems like a waste of space when I
 
 So I wrote a simple PowerShell script called <strong>Resize-Console.ps1</strong> to resize the window:
 
-[sourcecode language="PowerShell"]
+```powershell
 $bufferSize = $Host.UI.RawUI.BufferSize
 $buffersize.Width = 180
 $host.UI.RawUI.BufferSize = $buffersize
@@ -135,7 +135,7 @@ $WindowSize = $host.UI.RawUI.WindowSize
 $WindowSize.Width = 180
 $WindowSize.Height = 40
 $host.UI.RawUI.WindowSize = $WindowSize
-[/sourcecode]
+```
 
 After I ran this script, the console fits perfectly on my Galaxy tab (resolution 1280x800):
 

@@ -18,7 +18,7 @@ To reproduce the issue, I firstly created a dummy module with 3 files:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/09/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/09/image_thumb1.png" alt="image" width="394" height="113" border="0" /></a>
 
-The module .psm1 and the connection file .json (notice there’s a connection field named “ComputerName” in the .json file):
+The module .psm1 and the connection file .json (notice there’s a connection field named "ComputerName" in the .json file):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/09/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/09/image_thumb2.png" alt="image" width="563" height="276" border="0" /></a>
 

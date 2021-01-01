@@ -18,7 +18,7 @@ Report Name: SCCM Site Boundaries
 
 <strong>SQL Query:</strong>
 
-[sourcecode language="SQL"]
+```sql
 SELECT distinct
 v_BoundaryInfo.DisplayName AS [Boundary Name],
 Case v_BoundaryInfo.BoundaryType
@@ -30,7 +30,7 @@ End As 'Type',
 v_BoundaryInfo.Value AS [Value],
 v_BoundaryInfo.SiteCode AS [Site Code]
 From v_BoundaryInfo WHERE DisplayName LIKE @BoundaryName
-[/sourcecode]
+```
 
 &nbsp;
 
@@ -42,11 +42,11 @@ Prompt Text: Boundary Name
 
 Prompt SQL Statement:
 
-[sourcecode language="SQL"]
+```sql
 begin
 if (@__filterwildcard = '')
 Select DisplayName from v_BoundaryInfo order by DisplayName
 else
 Select DisplayName from v_BoundaryInfo where DisplayName LIKE @__filterwildcard order by DisplayName
 end
-[/sourcecode]
+```

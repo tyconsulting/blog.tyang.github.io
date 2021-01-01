@@ -32,4 +32,4 @@ it automatically generates mof extensions for you when you select the registry k
 
 <a href="http://blog.tyang.org/wp-content/uploads/2011/10/image11.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb11.png" alt="image" width="580" height="366" border="0" /></a>
 
-If you are planning to use this tool to generate the configuration.mof and sms_def.mof extensions, please make sure you tick “<strong>Enable 64bits (for Regkeys not written in Wow6432Node)</strong>” if you have 64-bit SCCM clients in your environment (nowadays, I can’t imagine that you don’t!). This is also what above mentioned KB article suggested.
+If you are planning to use this tool to generate the configuration.mof and sms_def.mof extensions, please make sure you tick "<strong>Enable 64bits (for Regkeys not written in Wow6432Node)</strong>" if you have 64-bit SCCM clients in your environment (nowadays, I can’t imagine that you don’t!). This is also what above mentioned KB article suggested.

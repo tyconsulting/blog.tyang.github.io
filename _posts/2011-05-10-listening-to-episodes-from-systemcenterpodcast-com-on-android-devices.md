@@ -23,7 +23,7 @@ Today I was playing with the new <a href="http://www.vodafone.com.au/personal/an
 
 This is done via an Android app called <a href="http://listen.googlelabs.com/">Google Listen</a>. Once Google Listen is installed on your android device, simply subscribe to the RSS feed inside of Google Listen. To do so:
 <ol>
-	<li>Click on “Add a subscription”</li>
+	<li>Click on "Add a subscription"</li>
 	<li>Enter the URL: <a href="http://systemcenterpodcast.libsyn.com/rss">http://systemcenterpodcast.libsyn.com/rss</a></li>
 </ol>
 You can stream podcasts or download the episodes and store them on your android device. You can also set Google listen to only download on WiFi connection.

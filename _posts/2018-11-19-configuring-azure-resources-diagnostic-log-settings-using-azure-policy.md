@@ -14,9 +14,9 @@ tags:
   - Azure Policy
   - Log Analytics
 ---
-In an Azure Policy definition, the “effect” section defines the behaviour of the policy if defined conditions are met. For example, the “Deny” effect will block the resource from being deployed in the first place, “Append” will add a set of properties to the resource you are deploying before being deployed by the ARM engine, and “DeployIfNotExists” deploys a resource if it does not already exist. In the old days, the biggest limitation I have faced was the use of “DeployIfNotExists” effect was only limited to built-in policies. In another word, If Microsoft hasn’t already created a policy for you, you can’t create one to suit your requirements.
+In an Azure Policy definition, the "effect" section defines the behaviour of the policy if defined conditions are met. For example, the "Deny" effect will block the resource from being deployed in the first place, "Append" will add a set of properties to the resource you are deploying before being deployed by the ARM engine, and "DeployIfNotExists" deploys a resource if it does not already exist. In the old days, the biggest limitation I have faced was the use of "DeployIfNotExists" effect was only limited to built-in policies. In another word, If Microsoft hasn’t already created a policy for you, you can’t create one to suit your requirements.
 
-At the 2018 North America Ignite, the Azure Governance team has announced that the Azure Policy effect “DeployIfNotExists” became available for custom policy definitions. This is a very exciting news for me, I have been waiting for this day for a long time, and it would have made my life a lot easier if it was available sooner.
+At the 2018 North America Ignite, the Azure Governance team has announced that the Azure Policy effect "DeployIfNotExists" became available for custom policy definitions. This is a very exciting news for me, I have been waiting for this day for a long time, and it would have made my life a lot easier if it was available sooner.
 
 A customer of mine had a requirement that all eligible resources should automatically forward all logs and metrics to an Azure Log Analytics workspace. i.e.
 
@@ -24,7 +24,7 @@ A customer of mine had a requirement that all eligible resources should automati
 
 At the time of my engagement, this was not possible using a native method. Although for me, it was not hard to develop a custom automation solution for this requirement, but the customer wanted something native, obviously they didn’t want to create a technology debt that ended up having someone to support a custom solution after I’m gone.
 
-Now since the “DeployIfNotExists” Azure Policy effect has been made available for general public, we are able to use custom Policy definitions to automatically configure applicable Azure resources to send logs and metrics to Log Analytics workspace.
+Now since the "DeployIfNotExists" Azure Policy effect has been made available for general public, we are able to use custom Policy definitions to automatically configure applicable Azure resources to send logs and metrics to Log Analytics workspace.
 
 Over the last few days, I have spent A LOT OF time developing an ARM template to deploy custom policy and initiative definitions for this purpose. Initially I thought there were only around 20 Azure resource types that are capable of sending diagnostic logs and metrics to Log Analytics. I was very wrong. I couldn’t find any documentation that has a COMPLETE list, and also couldn’t find a way to query what logs and metrics are available for each resources. In the end, the template I developed covered 47 resource types, by consolidating the following sources:
 
@@ -239,7 +239,7 @@ I’m almost certain this is not THE complete list to date, but it’s the best 
 
 <blockquote><del><strong>Note:</strong> I could not test and build the DDoS Protection resource type into my template, which is listed in one of the links above. This is because the starting price for DDoS protection is around USD $2950 per month and it is charged per month. I can’t afford to create this resource in my lab subscriptions. If anyone is using it, and happy to run some tests for me, please let me know and I can add it to my template.</del></blockquote>
 
-Since policy and initiative definitions are subscription-level resources, this ARM template is a subscription-level template. Unlike resource group level templates, to deploy subscription-level templates, you must use the “<a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermdeployment">New-azurermdeployment</a>” cmdlet instead. i.e.
+Since policy and initiative definitions are subscription-level resources, this ARM template is a subscription-level template. Unlike resource group level templates, to deploy subscription-level templates, you must use the "<a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermdeployment">New-azurermdeployment</a>" cmdlet instead. i.e.
 
 New-azurermdeployment -name 'diag-policies' –templatefile ‘C:\Temp\policy.definition.azuredeploy.json' -location 'australiasoutheast' –verbose
 
@@ -247,7 +247,7 @@ As shown below, the template deploys 47 policies and 1 initiative:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/11/image-1.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/11/image_thumb-1.png" alt="image" width="1002" height="561" border="0" /></a>
 
-When configuring policy assignments, in addition to creating the assignment itself, you may also need to configure permissions to the Log Analytics workspace of your choice. According to the <a href="https://docs.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources">Microsoft documentation</a> for policy remediations, a Managed Identity (MSI) is created for each policy assignment that contains DeployIfNotExists effects in the definitions. The required permission for the target assignment scope is managed automatically. However, if the remediation tasks need to interact with resources outside of the assignment scope, you will need to manually configure the required permissions. In our case, if the Log Analytics workspace you have specified in the assignment is located outside of the assignment scope (i.e. in another resource group, or another subscription in the same AAD tenant), you will need to manually configure the permission as documented in the doco. The required role for the assignment MSI is “Log Analytics Contributor”.
+When configuring policy assignments, in addition to creating the assignment itself, you may also need to configure permissions to the Log Analytics workspace of your choice. According to the <a href="https://docs.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources">Microsoft documentation</a> for policy remediations, a Managed Identity (MSI) is created for each policy assignment that contains DeployIfNotExists effects in the definitions. The required permission for the target assignment scope is managed automatically. However, if the remediation tasks need to interact with resources outside of the assignment scope, you will need to manually configure the required permissions. In our case, if the Log Analytics workspace you have specified in the assignment is located outside of the assignment scope (i.e. in another resource group, or another subscription in the same AAD tenant), you will need to manually configure the permission as documented in the doco. The required role for the assignment MSI is "Log Analytics Contributor".
 
 For example, in my lab, I assigned the initiative to a resource group, and the Log Analytics workspace is located in another resource group:
 
@@ -259,7 +259,7 @@ Log Analytics Resource Group IAM:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/11/image-3.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/11/image_thumb-3.png" alt="image" width="1002" height="491" border="0" /></a>
 
-Please keep in mind, for any resources deployed as the result of “DeployIfNotExists” effect, the Azure Policy engine waits approximately 10 minutes after the initial deployment. Therefore, you will not see the policy-triggered ARM deployments straightaway. This is by design.
+Please keep in mind, for any resources deployed as the result of "DeployIfNotExists" effect, the Azure Policy engine waits approximately 10 minutes after the initial deployment. Therefore, you will not see the policy-triggered ARM deployments straightaway. This is by design.
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/11/image-4.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/11/image_thumb-4.png" alt="image" width="973" height="375" border="0" /></a>
 

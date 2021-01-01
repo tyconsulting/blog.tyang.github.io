@@ -23,15 +23,15 @@ To do so,
 
 01. Firstly configure all required settings in the options window as shown above.
 
-02. Browse to <strong>“C:\Users\&lt;UserID&gt;\AppData\Local\Microsoft”,</strong> locate a folder with the name starts with <strong>“Scup2011.exe_StrongName”</strong>. i.e.
+02. Browse to <strong>"C:\Users\&lt;UserID&gt;\AppData\Local\Microsoft",</strong> locate a folder with the name starts with <strong>"Scup2011.exe_StrongName"</strong>. i.e.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/02/image1.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb1.png" width="552" height="301" border="0" /></a>
 
-03. Open above mentioned folder and it’s sub folder, you’ll see a “user.config” file:
+03. Open above mentioned folder and it’s sub folder, you’ll see a "user.config" file:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/02/image2.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb2.png" width="500" height="159" border="0" /></a>
 
-04. Open both the <strong>“user.config”</strong> file as mention above and <strong>“&lt;SCUP Install Dir&gt;\Scup2011.exe.config”</strong>
+04. Open both the <strong>"user.config"</strong> file as mention above and <strong>"&lt;SCUP Install Dir&gt;\Scup2011.exe.config"</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/02/image3.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb3.png" width="580" height="462" border="0" /></a>
 
@@ -39,7 +39,7 @@ To do so,
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/02/image4.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb4.png" width="580" height="306" border="0" /></a>
 
-06. Delete the “Scup2011.exe_StrongName_xxxxxxxxx” folder from your profile
+06. Delete the "Scup2011.exe_StrongName_xxxxxxxxx" folder from your profile
 
 07. Open SCUP console, make sure the options are still configured
 

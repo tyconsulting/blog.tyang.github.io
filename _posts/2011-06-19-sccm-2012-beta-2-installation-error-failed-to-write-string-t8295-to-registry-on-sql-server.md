@@ -1,6 +1,6 @@
 ---
 id: 563
-title: 'SCCM 2012 Beta 2 Installation error &quot;Failed to write string -T8295 to registry on SQL Server&quot;'
+title: 'SCCM 2012 Beta 2 Installation error "Failed to write string -T8295 to registry on SQL Server"'
 date: 2011-06-19T22:14:08+10:00
 author: Tao Yang
 #layout: post
@@ -11,7 +11,7 @@ categories:
 tags:
   - SCCM 2012 Beta 2 Installation
 ---
-Today I started installing SCCM 2012 Beta 2 in my test environment. while I was installing the Central Admin Site, the installation wizard got stuck at “<strong>Evaluating Setup Environmen</strong>t” step and the following errors were logged in C:\ConfigMgrSetup.log:
+Today I started installing SCCM 2012 Beta 2 in my test environment. while I was installing the Central Admin Site, the installation wizard got stuck at "<strong>Evaluating Setup Environmen</strong>t" step and the following errors were logged in C:\ConfigMgrSetup.log:
 
 <strong> ERROR: Failed to write string -T8295 to registry on SQL Server </strong>
 
@@ -21,4 +21,4 @@ Today I started installing SCCM 2012 Beta 2 in my test environment. while I was 
 
 This is because the SQL Server service is not running under Local System. After I changed the SQL Server service to run under Local System, restarted SQL Server service, the SCCM 2012 setup went successful!
 
-This is documented in “<a href="http://download.microsoft.com/download/5/4/5/54508737-EB00-4B65-8DB3-F0D810FA3A9F/Configuration%20Manager%202012%20Beta%202%20Supported%20Configuration.pdf">Configuration Manager 2012 Beta 2 Supported Configuration</a>”.
+This is documented in "<a href="http://download.microsoft.com/download/5/4/5/54508737-EB00-4B65-8DB3-F0D810FA3A9F/Configuration%20Manager%202012%20Beta%202%20Supported%20Configuration.pdf">Configuration Manager 2012 Beta 2 Supported Configuration</a>".

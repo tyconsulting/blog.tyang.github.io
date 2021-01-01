@@ -16,12 +16,12 @@ I've been asked a question on how to bulk update SMTP server addresses in SMTP 
 
 Here’s the script to run in OpsMgr Command Shell:
 
-[sourcecode language="powershell"]
-$newSMTP = &lt;name of your new SMTP server&gt;
-$SMTPChannels = Get-NotificationAction |Where-Object {$_.Name –imatch “smtp”}
+```powershell
+$newSMTP = "name of your new SMTP server";
+$SMTPChannels = Get-NotificationAction |Where-Object {$_.Name –imatch "smtp"}
 Foreach ($item in $SMTPChannels)
 {
-$item.Endpoint.PrimaryServer.Address = $newSMTP
-$item.Endpoint.update()
+  $item.Endpoint.PrimaryServer.Address = $newSMTP
+  $item.Endpoint.update()
 }
-[/sourcecode]
+```

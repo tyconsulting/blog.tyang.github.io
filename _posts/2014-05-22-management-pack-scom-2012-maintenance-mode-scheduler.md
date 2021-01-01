@@ -19,11 +19,11 @@ The purpose of this MP solution is to help this web-based maintenance mode sched
 
 <strong>Class definitions and discoveries for the SCOM 2012 Maintenance Mode Scheduler.</strong>
 
-The monitoring MP defines 2 classes. a Microsoft.Windows.ComputerRole based class called “SCOM 2012 Maintenance Mode Scheduler”, which has many properties defined representing various application settings.
+The monitoring MP defines 2 classes. a Microsoft.Windows.ComputerRole based class called "SCOM 2012 Maintenance Mode Scheduler", which has many properties defined representing various application settings.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image9.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb9.png" alt="image" width="415" height="302" border="0" /></a>
 
-There is also an unhosted class called “SCOM 2012 Maintenance Mode Scheduler Event Collector”. This class runs an event collection rule which collects the new schedule jobs creation events even when the Maintenance Mode Scheduler computer is in maintenance mode.
+There is also an unhosted class called "SCOM 2012 Maintenance Mode Scheduler Event Collector". This class runs an event collection rule which collects the new schedule jobs creation events even when the Maintenance Mode Scheduler computer is in maintenance mode.
 
 <strong>Automatically delete any finished maintenance mode schedules</strong>
 
@@ -81,7 +81,7 @@ I’d like to thank Tim McFadden for producing such a good maintenance mode tool
 
 <strong>Conclusion</strong>
 
-For me, while I was writing this MP, I’ve accomplished few of my “firsts”:
+For me, while I was writing this MP, I’ve accomplished few of my "firsts":
 <ul>
 	<li>First time writing scripts for IIS (as this is a web based application).</li>
 	<li>First time writing reports in VSAE (I have to say for me, it is much easier than using old Authoring console)</li>

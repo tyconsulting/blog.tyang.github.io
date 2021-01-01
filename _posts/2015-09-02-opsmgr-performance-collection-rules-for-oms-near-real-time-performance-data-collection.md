@@ -28,7 +28,7 @@ By default, OMS has 8 performance counters configured for near-real time perf co
 
 As explained in both the official blog post from the OMS product team as well as Stan’s blog, you can add additional perf counters on this page, and it will be pushed to the OpsMgr management groups that are connected to this OMS workspace. I am fairly certain, the sample interval range is <strong>between 10-1800 seconds</strong> (minimum 10 seconds, maximum 30 minutes).
 
-All the counters configured on this page are stored in an Unsealed management pack called “Microsoft System Center Advisor Log Management Collection” in your OpsMgr management group.
+All the counters configured on this page are stored in an Unsealed management pack called "Microsoft System Center Advisor Log Management Collection" in your OpsMgr management group.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6943086.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6943086" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6943086_thumb.png" alt="SNAGHTML6943086" width="624" height="301" border="0" /></a>
 
@@ -70,9 +70,9 @@ Now that we have discovered how are the near-real time perf data is collected in
 
 Based on my testing, I found in order to submit near-real time perf data to OMS, I must create both raw data and aggregation data collection rules (as shown above). I tried with only one rule for the raw data, after few hours, I still couldn’t see the data in OMS. I then created another rule for the aggregation data, imported the updated MP in OpsMgr, after about 30 minutes, the data became visible from the search result.
 
-<strong>02. Data source module “Microsoft.IntelligencePacks.Performance.DataProvider”</strong>
+<strong>02. Data source module "Microsoft.IntelligencePacks.Performance.DataProvider"</strong>
 
-The rule must use the data source module “Microsoft.IntelligencePacks.Performance.DataProvider”, which is defined in management pack “Microsoft System Center Advisor Types Library” (Microsoft.IntelligencePacks.Types). This data source module consists of 2 member modules:
+The rule must use the data source module "Microsoft.IntelligencePacks.Performance.DataProvider", which is defined in management pack "Microsoft System Center Advisor Types Library" (Microsoft.IntelligencePacks.Types). This data source module consists of 2 member modules:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb3.png" alt="image" width="689" height="447" border="0" /></a>
 <ul>
@@ -85,10 +85,10 @@ I have tried to use System.Performance.DataProvider module directly in both raw 
 
 <strong>03. The Rule target must be Windows Computer class (Microsoft.Windows.Computer).</strong>
 
-Initially I have written few rules targeting SQL DB Engine class, waited few hours and I could only see the 30-minute aggregated data in OMS (collected by the aggregation collection rules). The data insertion is every 30 minutes and the perf graph could not be displayed in OMS (showed “No Data”). When I changed the target for both rules from SQL DB Engine to Windows Computer class, the raw data started to appear.
+Initially I have written few rules targeting SQL DB Engine class, waited few hours and I could only see the 30-minute aggregated data in OMS (collected by the aggregation collection rules). The data insertion is every 30 minutes and the perf graph could not be displayed in OMS (showed "No Data"). When I changed the target for both rules from SQL DB Engine to Windows Computer class, the raw data started to appear.
 
 Having said that, I have also tried Windows Server Computer class (Microsoft.Windows.Server.Computer). This class is derived from Windows Computer class. This configuration also worked. So in my opinion, it is fair to guess the target class must be Windows Computer class or class that’s based on Windows Computer class.
-<h4>Demo Management Pack “OMS Performance Demo MP”</h4>
+<h4>Demo Management Pack "OMS Performance Demo MP"</h4>
 I have created a MP during my experiments today. In the end, I have deleted all the rules that are not working in this MP and kept two sets rules for demonstration purpose:
 <ul>
 	<li>Set #1:

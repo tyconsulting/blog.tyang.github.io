@@ -72,7 +72,7 @@ In order to export the information we need for the Visio dashboard, we only need
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/05/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/05/image_thumb6.png" alt="image" width="743" height="192" border="0" /></a>
 
-<strong><span style="color: #ff0000;">Note:</span></strong> As you can see, because I’m only going to display the top level objects in the dashboard, so I did not have to use recursive lookup, therefore, only 6 objects returned. If I run the script again with “-recursive $true” parameter, it will return all objects that are member of the DA (143 in total):
+<strong><span style="color: #ff0000;">Note:</span></strong> As you can see, because I’m only going to display the top level objects in the dashboard, so I did not have to use recursive lookup, therefore, only 6 objects returned. If I run the script again with "-recursive $true" parameter, it will return all objects that are member of the DA (143 in total):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/05/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/05/image_thumb7.png" alt="image" width="664" height="130" border="0" /></a>
 

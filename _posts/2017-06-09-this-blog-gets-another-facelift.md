@@ -19,7 +19,7 @@ I also had some very lengthy outages with my previous hoster, which caused my si
 
 Today, I have spent some time updating my blog, I have made the following changes:
 <ol>
- 	<li>The blog title has been changed to “Managing Cloud and Datacenter by Tao Yang”.</li>
+ 	<li>The blog title has been changed to "Managing Cloud and Datacenter by Tao Yang".</li>
  	<li>As you can see, a new simplistic theme! I hated the one I created 3 years ago, it looks especially bad when I browse it on a large high res monitor (i.e. my main monitor, which is a 28-inch 4K monitor).</li>
  	<li>I changed my RSS feed to display only a summary of the posts as opposed to the entire post. This is to help driving more traffic to my site, which helps me to collect the real site stats. I need this to be accurate. It helps me during my MVP renewal every year, as well as helping my blog sponsors to get more publicity.</li>
  	<li>I have added a SSL certificate to the blog and it is now enforcing HTTPS. If you have bookmarked my blog, the link should still work. HTTP requests are automatically redirected to HTTPS. I have been told some search engines returns my blog URL with HTTPS, which caused certificate error because the certificate loaded on the site was created by my hoster for the hosting server, which does not match my blog URL.</li>

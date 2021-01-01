@@ -31,7 +31,7 @@ To workaround this problem, I had to point the report server and the web console
 
 <strong><span style="font-size: large;">On the Report Server:</span></strong>
 
-1. Change the registry string value “<strong>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Reporting\DefaultSDKServiceMachine</strong>” from the NLB address to a management server FQDN.
+1. Change the registry string value "<strong>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Reporting\DefaultSDKServiceMachine</strong>" from the NLB address to a management server FQDN.
 
 2. Restart SQL Server Reporting Services
 
@@ -43,26 +43,26 @@ To workaround this problem, I had to point the report server and the web console
 
 <strong><span style="font-size: large;">On the Web Console Server:</span></strong>
 
-1. Change the registry string value “<strong>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\System Center Operations Manager\12\Setup\WebConsole\DEFAULT_SERVER</strong>” from the NLB address to a management server FQDN
+1. Change the registry string value "<strong>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\System Center Operations Manager\12\Setup\WebConsole\DEFAULT_SERVER</strong>" from the NLB address to a management server FQDN
 
 <span style="color: #ff0000;"><strong>Updated 27/01/2014:</strong></span>
 
-<span style="color: #ff0000;">2. Edit “&lt;SQL SSRS Install Dir&gt;\Reporting Services\ReportServer\rsreportserver.config” file, change the “ServerName” value under the &lt;Security&gt; and &lt;Authentication&gt; tags to the NLB address.</span>
+<span style="color: #ff0000;">2. Edit "&lt;SQL SSRS Install Dir&gt;\Reporting Services\ReportServer\rsreportserver.config" file, change the "ServerName" value under the &lt;Security&gt; and &lt;Authentication&gt; tags to the NLB address.</span>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/10/SSRS.jpg"><img class="alignnone size-full wp-image-2323" alt="SSRS" src="http://blog.tyang.org/wp-content/uploads/2013/10/SSRS.jpg" width="904" height="389" /></a>
 
-2. Edit “<strong><span style="color: #ff0000;">&lt;OpsMgr 2012 SP1 Install Dir&gt;</span>\WebConsole\WebHost\Web.Config”</strong> file, change the “managementserver name” value within the &lt;connection&gt; tag from the NLB address to a management server FQDN
+2. Edit "<strong><span style="color: #ff0000;">&lt;OpsMgr 2012 SP1 Install Dir&gt;</span>\WebConsole\WebHost\Web.Config"</strong> file, change the "managementserver name" value within the &lt;connection&gt; tag from the NLB address to a management server FQDN
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/10/image_thumb6.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image_thumb[6]" alt="image_thumb[6]" src="http://blog.tyang.org/wp-content/uploads/2013/10/image_thumb6_thumb.png" width="580" height="165" border="0" /></a>
 
-3. Open a command prompt as administrator and run “iisreset” to restart IIS.
+3. Open a command prompt as administrator and run "iisreset" to restart IIS.
 
 4. Run the upgrade
 
 5. Change the registry string value back to the NLB address.
 
-6. Edit “<strong><span style="color: #ff0000;">&lt;OpsMgr 2012 R2 Install Dir&gt;</span>\WebConsole\WebHost\Web.Config”</strong> file, change the “managementserver name” value within the &lt;connection&gt; tag from the  management server FQDN to the NLB address (<span style="color: #ff0000;">note the location of this file has changed after the upgrade</span>).
+6. Edit "<strong><span style="color: #ff0000;">&lt;OpsMgr 2012 R2 Install Dir&gt;</span>\WebConsole\WebHost\Web.Config"</strong> file, change the "managementserver name" value within the &lt;connection&gt; tag from the  management server FQDN to the NLB address (<span style="color: #ff0000;">note the location of this file has changed after the upgrade</span>).
 
-3. Open a command prompt as administrator and run “iisreset” to restart IIS again.
+3. Open a command prompt as administrator and run "iisreset" to restart IIS again.
 
 After the upgrade, I verified both reporting and web console is working by running a report and logging onto the web console.

@@ -14,7 +14,7 @@ tags:
   - Powershell
   - SCCM
 ---
-Often, SCCM administrators found packages still assigned to distribution points that no longer exist. There are scripts available to remove these “orphaned” package distributions via SMS Provider. i.e. This one called <strong>DPClean.vbs</strong> from TechNet Blog: <a href="http://blogs.msdn.com/b/rslaten/archive/2006/03/01/removing-a-retired-dp-from-all-your-packages.aspx">Removing a retired DP from all your packages</a>. It was written for SMS 2003.
+Often, SCCM administrators found packages still assigned to distribution points that no longer exist. There are scripts available to remove these "orphaned" package distributions via SMS Provider. i.e. This one called <strong>DPClean.vbs</strong> from TechNet Blog: <a href="http://blogs.msdn.com/b/rslaten/archive/2006/03/01/removing-a-retired-dp-from-all-your-packages.aspx">Removing a retired DP from all your packages</a>. It was written for SMS 2003.
 
 I’m not sure if SMS 2003 works differently when deleting package distribution via SMS Provider as I don’t have a SMS 2003 environment around that I can test. But, this script may not work in a multi-tiered SCCM environment (multiple primary sites below a central site). This script only tries to remove package distributions from the site where the user entered.
 
@@ -22,7 +22,7 @@ Use my test environment at home as an example to explain the issue with this scr
 
 I have a central site (Site Code: CEN, Site Server: ConfigMgr00), a primary site (Site Code: TAO, Site Server: ConfigMgr01) and a secondary site (Site Code: S01, Site Server; ConfigMgr02) reporting to the primary site TAO.
 
-I created a package called “Configure Windows Firewall Service” on my central site CEN. The Package ID is CEN00013:
+I created a package called "Configure Windows Firewall Service" on my central site CEN. The Package ID is CEN00013:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/02/image.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb.png" alt="image" width="580" height="254" border="0" /></a>
 
@@ -34,17 +34,17 @@ This package has been assigned to 2 distribution points:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/02/image1.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb1.png" alt="image" width="580" height="191" border="0" /></a>
 
-Notice that there is a pad lock symbol next to ConfigMgr01. If you right click <a href="//\\MGMT02\Packages$">\\MGMT02\Packages$</a>, there is a “Delete” option:
+Notice that there is a pad lock symbol next to ConfigMgr01. If you right click <a href="//\\MGMT02\Packages$">\\MGMT02\Packages$</a>, there is a "Delete" option:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/02/image2.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb2.png" alt="image" width="563" height="318" border="0" /></a>
 
-When right click CONFIGMGR01, “Delete” option is not available:
+When right click CONFIGMGR01, "Delete" option is not available:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/02/image3.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb3.png" alt="image" width="580" height="280" border="0" /></a>
 
 This is because even though the package was created on the central site CEN, but this package was assigned to the DP CONFIGMGR01 on the child primary site TAO.
 
-If I get to the package on Child Primary site TAO, there is no pad lock on CONFIGMGR01 and the “Delete” option is available:
+If I get to the package on Child Primary site TAO, there is no pad lock on CONFIGMGR01 and the "Delete" option is available:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/02/image4.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb4.png" alt="image" width="580" height="302" border="0" /></a>
 
@@ -52,11 +52,11 @@ If I use the same way as DPClean.vbs (only in PowerShell this time):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/02/image5.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb5.png" alt="image" width="580" height="388" border="0" /></a>
 
-I Firstly locate the package distribution from the central site CEN’s SMSProvider, then use delete() method to remove it, I get a “Generic failure” error.
+I Firstly locate the package distribution from the central site CEN’s SMSProvider, then use delete() method to remove it, I get a "Generic failure" error.
 
-Notice that the properties of the package distribution object, the SourceSite value is “TAO”. it means the package was assigned to the specific DP from site “TAO”.
+Notice that the properties of the package distribution object, the SourceSite value is "TAO". it means the package was assigned to the specific DP from site "TAO".
 
-Now, if I repeat above PowerShell commands on site “TAO”:
+Now, if I repeat above PowerShell commands on site "TAO":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/02/image6.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb6.png" alt="image" width="580" height="292" border="0" /></a>
 
@@ -103,7 +103,7 @@ Therefore I’ve re-written the script in PowerShell. The only parameter this sc
 
 While I was testing the script, I did find an issue (not sure if the issue is with the logics of the script or, with SCCM itself).
 
-I ran the script to delete all packages off a DP located on my secondary site S01. at that time, there were 3 “Install_Pending” packages against this DP. there were assigned to this DP from the central site CEN. The script ran successfully, deleted all packages on this DP from each package distribution’s source site, including these 3 “Install_Pending” packages (from CEN). However, when double check again, these 3 packages still exist in S01’s primary site TAO’s database. So, the deletions have not been replicated from central site CEN to child primary TAO.
+I ran the script to delete all packages off a DP located on my secondary site S01. at that time, there were 3 "Install_Pending" packages against this DP. there were assigned to this DP from the central site CEN. The script ran successfully, deleted all packages on this DP from each package distribution’s source site, including these 3 "Install_Pending" packages (from CEN). However, when double check again, these 3 packages still exist in S01’s primary site TAO’s database. So, the deletions have not been replicated from central site CEN to child primary TAO.
 
 This is why I configured the script to display instructions on how to remove them from site database (unsupported way).
 

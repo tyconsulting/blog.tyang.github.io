@@ -43,7 +43,7 @@ To create a connection to an individual server,
 
 <strong>Working Directory:</strong> C:\Windows\System32\WindowsPowerShell\v1.0
 
-On the icon button next to the display name, choose “Use Application Icon” if you want to.
+On the icon button next to the display name, choose "Use Application Icon" if you want to.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image26.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb26.png" alt="image" width="548" height="421" border="0" /></a>
 
@@ -53,7 +53,7 @@ On the icon button next to the display name, choose “Use Application Icon” i
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML1c5136c4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1c5136c4" src="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML1c5136c4_thumb.png" alt="SNAGHTML1c5136c4" width="408" height="208" border="0" /></a>
 
-If you choose to use an alternative credential,  you must also tick “<strong>Use Credentials</strong>” box under Advanced tab:
+If you choose to use an alternative credential,  you must also tick "<strong>Use Credentials</strong>" box under Advanced tab:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb28.png" alt="image" width="526" height="404" border="0" /></a>
 
@@ -91,7 +91,7 @@ If you like your console looks like the left one rather than one on the right, p
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image35.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb35.png" alt="image" width="444" height="171" border="0" /></a>
 
-02. Modify the “All Users Current Host” profile <strong><span style="color: #ff0000;">from a normal PowerShell window</span></strong> (NOT within PowerShell ISE). If you are not sure if this profile has been created, run the command below:
+02. Modify the "All Users Current Host" profile <strong><span style="color: #ff0000;">from a normal PowerShell window</span></strong> (NOT within PowerShell ISE). If you are not sure if this profile has been created, run the command below:
 <pre language="PowerShell">if (!(test-Path $profile.alluserscurrenthost)) {New-Item -type File -Path $Profile.alluserscurrenthost}
 </pre>
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image36.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb36.png" alt="image" width="611" height="115" border="0" /></a>
@@ -104,7 +104,7 @@ Resize -max
 
 After saving the changes, next time when you initiate a connection in Royal TS, the console will automatically maximise to use all the usable space.
 
-<strong><span style="color: #ff0000;">Note:</span></strong> Because most likely you will be using an alternative (privileged credential) for these PS remote sessions. therefore the resize console commands cannot be placed into the default profile (current user current host). It must be placed into an All users profile. And also because the resize command only works in a normal PowerShell console (not in PowerShell ISE), therefore the only profile that you can use is the “All Users Current Host” profile from the normal PowerShell console.
+<strong><span style="color: #ff0000;">Note:</span></strong> Because most likely you will be using an alternative (privileged credential) for these PS remote sessions. therefore the resize console commands cannot be placed into the default profile (current user current host). It must be placed into an All users profile. And also because the resize command only works in a normal PowerShell console (not in PowerShell ISE), therefore the only profile that you can use is the "All Users Current Host" profile from the normal PowerShell console.
 
 Alternatively, if you do not wish to make changes to the All Users Current host profile, you can also add the above mentioned lines into the Royal TS connection arguments field:
 

@@ -32,8 +32,8 @@ Once done, we need to update the user name and the encrypted password in the cod
 
 https://gist.github.com/tyconsulting/99f44feff3dbf1287ababa9d652b3064
 
-I have configured the function authorization level to “Function” which means I need to pass an API key when invoking the  function. I also need to pass the Azure subscription Id via the URL. To test, I’m using the Invoke-WebRequest cmdlet and see if I can retrieve the Azure VMs information:
-<pre language="PowerShell">$Request = (Invoke-WebRequest -Uri 'https://yourfunctionapp.azurewebsites.net/api/GetAzureVMs?code=xyzbe8da45lqedkh2fk31m4jep61aali&amp;subscriptionId=2699bb49-076d-4f94-987e-a6a41ef17c3f' -UseBasicParsing -Method Get).content
+I have configured the function authorization level to "Function" which means I need to pass an API key when invoking the  function. I also need to pass the Azure subscription Id via the URL. To test, I’m using the Invoke-WebRequest cmdlet and see if I can retrieve the Azure VMs information:
+<pre language="PowerShell">$Request = (Invoke-WebRequest -Uri 'https://yourfunctionapp.azurewebsites.net/api/GetAzureVMs?code=xyzbe8da45lqedkh2fk31m4jep61aali&subscriptionId=2699bb49-076d-4f94-987e-a6a41ef17c3f' -UseBasicParsing -Method Get).content
 $Request
 </pre>
 As you can see, the request body content contains a HTML output which contains a table for the Azure VM information
@@ -50,7 +50,7 @@ In Power BI Desktop, simply enter the URL with the basic setting:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-13.png" alt="image" width="411" height="148" border="0" /></a>
 
-and choose “Table 0”:
+and choose "Table 0":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-14.png" alt="image" width="675" height="267" border="0" /></a>
 

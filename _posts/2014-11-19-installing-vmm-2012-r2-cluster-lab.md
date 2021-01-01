@@ -94,7 +94,7 @@ I configured OpsMgr connection in VMM console:
 
 &nbsp;
 <h3>Conclusion</h3>
-The intention of this post is simply to dump all the screenshots that I’ve taken during the install, and document the “correct” way to install VMM cluster that worked in my lab after so many failed attempts.
+The intention of this post is simply to dump all the screenshots that I’ve taken during the install, and document the "correct" way to install VMM cluster that worked in my lab after so many failed attempts.
 
 The biggest hold up for me was without realising I need to create a separate computer account and allocate a separate IP address for the cluster role (HAVMM). I was using the cluster name (VMMCL01) and its IP address in the cluster configuration screen and the installation failed:
 

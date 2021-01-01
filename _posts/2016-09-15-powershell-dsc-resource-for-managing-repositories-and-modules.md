@@ -79,7 +79,7 @@ Name = [string]
 </pre>
 To register a feed, you will need to specify some basic information such as PublishLocation and SourceLocation. You can also set Ensure = Absent to unregister the feed with the name specified in the Name parameter.
 
-When not specified, the InstallationPolicy field default value is “Untrusted”. If you’d like to set the repository as a trusted repository, set this value to “Trusted”.
+When not specified, the InstallationPolicy field default value is "Untrusted". If you’d like to set the repository as a trusted repository, set this value to "Trusted".
 
 <strong><span style="color: #ff0000;">Note:</span></strong> since the repository registration is based on each user (as opposed to machine based settings) and DSC configuration is executed under LocalSystem context. you will not be able to see the repository added by this resource if you run Get-PSRepository cmdlet under your own user account. If you start PowerShell under LocalSystem by using PsExec (run psexec /i /s /d powershell.exe), you will be able to see the repository:
 

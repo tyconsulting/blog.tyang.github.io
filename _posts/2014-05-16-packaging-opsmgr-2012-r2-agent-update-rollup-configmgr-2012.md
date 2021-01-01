@@ -19,9 +19,9 @@ About 6 months ago, I wrote a 2-part blog series on deploying OpsMgr 2012 R2 age
 
 For me, and the project that I’m working on, this is a perfect timing, UR2 was release right before we production transitioning our newly built OpsMgr 2012 R2 management groups and we are just about to start piloting, so I have quickly patched all OpsMgr 2012 R2 management groups with UR2 and from agents point of view, UR2 would now become part of our baseline (for now).
 
-I have determined that the best way for me to incorporate UR2 agent updates to the current agent application in ConfigMgr is to somehow “Slipstream” the update into the agent install. This is due to the size, nature of the environments, and the release management and patch management policies that I can’t comment on.
+I have determined that the best way for me to incorporate UR2 agent updates to the current agent application in ConfigMgr is to somehow "Slipstream" the update into the agent install. This is due to the size, nature of the environments, and the release management and patch management policies that I can’t comment on.
 
-When I said “Slipstream”, OpsMgr 2012 agents UR updates can’t really be slipstreamed into the agent install msi. So what I have done is to create an application in ConfigMgr that will install the agent AS WELL AS the update.
+When I said "Slipstream", OpsMgr 2012 agents UR updates can’t really be slipstreamed into the agent install msi. So what I have done is to create an application in ConfigMgr that will install the agent AS WELL AS the update.
 
 I’ll now go through the steps I took to setup the ConfigMgr application object.
 
@@ -41,7 +41,7 @@ i386:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML40eb7d6a.png"><img style="display: inline; border: 0px;" title="SNAGHTML40eb7d6a" src="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML40eb7d6a_thumb.png" alt="SNAGHTML40eb7d6a" width="493" height="206" border="0" /></a>
 
-03. Place the newly created “<a href="http://blog.tyang.org/wp-content/uploads/2014/05/CM12_OM12AgentInstall.zip">CM12_OM12AgentInstall.vbs</a>” on the root folder:
+03. Place the newly created "<a href="http://blog.tyang.org/wp-content/uploads/2014/05/CM12_OM12AgentInstall.zip">CM12_OM12AgentInstall.vbs</a>" on the root folder:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML40f70b0e.png"><img style="display: inline; border: 0px;" title="SNAGHTML40f70b0e" src="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML40f70b0e_thumb.png" alt="SNAGHTML40f70b0e" width="509" height="244" border="0" /></a>
 
@@ -53,17 +53,17 @@ i386:
 
 03. Modify the deployment type for the 64 bit machines:
 
-Remove “<strong>\AMD64</strong>” from the end of the content location field.
+Remove "<strong>\AMD64</strong>" from the end of the content location field.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML40fea190.png"><img style="display: inline; border: 0px;" title="SNAGHTML40fea190" src="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML40fea190_thumb.png" alt="SNAGHTML40fea190" width="446" height="385" border="0" /></a>
 
-Change the installation program from the “msiexec /i ….” to <strong>Cscript /nologo CM12_OM12AgentInstall.vbs “64-bit”</strong>
+Change the installation program from the "msiexec /i …." to <strong>Cscript /nologo CM12_OM12AgentInstall.vbs "64-bit"</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image4.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb4.png" alt="image" width="489" height="416" border="0" /></a>
 
 04. Modify the 32 bit deployment type the same way as the 64 bit one:
 
-Remove “\i386” from the end of the content location field and change the installation program to <strong>Cscript /nologo CM12_OM12AgentInstall.vbs “32-bit”</strong>
+Remove "\i386" from the end of the content location field and change the installation program to <strong>Cscript /nologo CM12_OM12AgentInstall.vbs "32-bit"</strong>
 
 05. Distribute it to appropriate DP and <strong>test it!</strong>
 

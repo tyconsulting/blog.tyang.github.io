@@ -30,7 +30,7 @@ One of the limitation of using New-AzureRMAutomationModule cmdlet is, the module
 
 Tonight, I was writing a script and I wanted to see if I can deploy modules to my Automation Account directly from a package repository of my choice – other than PowerShell Gallery, I also have a private <a href="https://www.myget.org">MyGet</a> feed that I use for storing my PowerShell modules.
 
-It turned out to be really easy to do so, only took me few minutes to figure out how. I’ll use a module I wrote in the past called “SendEmail” as an example. It is published in both PowerShell Gallery, and my private MyGet feed.
+It turned out to be really easy to do so, only took me few minutes to figure out how. I’ll use a module I wrote in the past called "SendEmail" as an example. It is published in both PowerShell Gallery, and my private MyGet feed.
 <h3><strong>Importing from PowerShell Gallery</strong></h3>
 the URL for this module in PowerShell Gallery is: <a title="https://www.powershellgallery.com/packages/SendEmail/1.3" href="https://www.powershellgallery.com/packages/SendEmail/1.3">https://www.powershellgallery.com/packages/SendEmail/1.3</a>
 
@@ -38,7 +38,7 @@ The –ContentLink URI that we need to pass to the Add-AzureRmAutomationModule c
 
 <a href="https://www.powershellgallery.com/api/v2/package/SendEmail/1.3">https://www.powershellgallery.com/<strong><span style="color: #ff0000;">api/v2/</span></strong>package/SendEmail/1.3</a>.
 
-As you can see, all you need to do is to add “api/v2/” in the URI. The PowerShell command would be something like this:
+As you can see, all you need to do is to add "api/v2/" in the URI. The PowerShell command would be something like this:
 <pre language="PowerShell">New-AzureRmAutomationModule -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Name 'SendEmail' -ContentLink 'https://www.powershellgallery.com/api/v2/package/SendEmail/1.3'
 </pre>
 <h3><strong>Importing from a private MyGet feed</strong></h3>
@@ -46,7 +46,7 @@ For a private MyGet feed, you can access it by embedding the API key into the UR
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/09/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/09/image_thumb-4.png" alt="image" width="662" height="577" border="0" /></a>
 
-The URL for my module would be: “<strong>http://www.myget.org/F/<span style="color: #ff0000;">&lt;Your MyGet feed name&gt;</span>/auth/<span style="color: #ff0000;">&lt;MyGet API Key&gt;</span>/api/v2/package/<span style="color: #ff0000;">&lt;Module Name&gt;</span>/<span style="color: #ff0000;">&lt;Module Version&gt;</span></strong>”
+The URL for my module would be: "<strong>http://www.myget.org/F/<span style="color: #ff0000;">&lt;Your MyGet feed name&gt;</span>/auth/<span style="color: #ff0000;">&lt;MyGet API Key&gt;</span>/api/v2/package/<span style="color: #ff0000;">&lt;Module Name&gt;</span>/<span style="color: #ff0000;">&lt;Module Version&gt;</span></strong>"
 
 i.e. for my SendEmail module, the PowerShell command would be something like this:
 <pre class="" language="PowerShell">$MyGetFeedName = 'SampleMyGetFeed'
@@ -55,7 +55,7 @@ $PackageURI = "https://www.myget.org/F/$MyGetFeedName/auth/$MyGetAPIKey/api/v2/p
 New-AzureRmAutomationModule -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Name 'SendEmail' -ContentLink $PackageURI
 </pre>
 <h3><strong>Importing from a public MyGet feed</strong></h3>
-If the module is located in a public MyGet feed, then the API key is not required. the URI for the module would be very similar to PowerShell Gallery, you will just need to embed “<strong>api/v2/</strong>” in to the original URI:
+If the module is located in a public MyGet feed, then the API key is not required. the URI for the module would be very similar to PowerShell Gallery, you will just need to embed "<strong>api/v2/</strong>" in to the original URI:
 
 <strong>'https://www.myget.org/F/<span style="color: #ff0000;">&lt;MyGet Public Feed Name&gt;</span>/<span style="color: #ff0000;">api/v2/</span>package/<span style="color: #ff0000;">&lt;Module Name&gt;</span>/<span style="color: #ff0000;">&lt;Module Version&gt;</span>'</strong>
 

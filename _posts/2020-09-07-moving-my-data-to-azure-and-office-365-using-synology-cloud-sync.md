@@ -69,7 +69,7 @@ I can still modify the settings after the jobs are created. For example, I can c
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/09/image-9.png"><img width="397" height="421" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2020/09/image_thumb-9.png" border="0"></a>
 
-Depending on the size of the folder and your Internet link speed, the initial synchronisation can take a while. Once completed, you’ll see the status as “Up to date”
+Depending on the size of the folder and your Internet link speed, the initial synchronisation can take a while. Once completed, you’ll see the status as "Up to date"
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/09/image-10.png"><img width="644" height="335" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2020/09/image_thumb-10.png" border="0"></a>
 
@@ -79,9 +79,9 @@ At this stage, any changes on the NAS folder or the blob container will be repli
 
 <ol>
 <li>I copied a binary file (AzurePortalInstaller.exe) to the NAS folder, the synchronisation started straightaway, the file got uploaded to the Azure storage blob.</p></li>
-<li><p>I deleted some files and folders from the NAS folder (“iTunes”), synchronisation started straightaway, those files and folders got deleted from the storage blob.</p></li>
-<li><p>I deleted some files from the storage blob container (“Data Migration Assistant *”), it took few seconds for the NAS device to poll the changes, and the local copy was updated accordingly. – I’m guessing this is dictated by the Polling interval value you have configured earlier.</p></li>
-<li><p>I created a new text file (“new Text Document.txt”), then renamed it to “test.txt”, then added a line to it. each operations (new file, rename, update) triggered synchronisation instantaneously.</p></li>
+<li><p>I deleted some files and folders from the NAS folder ("iTunes"), synchronisation started straightaway, those files and folders got deleted from the storage blob.</p></li>
+<li><p>I deleted some files from the storage blob container ("Data Migration Assistant *"), it took few seconds for the NAS device to poll the changes, and the local copy was updated accordingly. – I’m guessing this is dictated by the Polling interval value you have configured earlier.</p></li>
+<li><p>I created a new text file ("new Text Document.txt"), then renamed it to "test.txt", then added a line to it. each operations (new file, rename, update) triggered synchronisation instantaneously.</p></li>
 </ol>
 
 <p>5.&nbsp; On the Azure Storage Account, I modified the test.txt file using Azure Storage Explorer, and saved the change directly to the storage account. Again, within few seconds, Synology NAS detected the change and downloaded the file from the storage account.

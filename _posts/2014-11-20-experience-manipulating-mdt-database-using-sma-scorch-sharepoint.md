@@ -57,7 +57,7 @@ Link:
 
 The link filters the list ID. ID must equal to 1 (first item in the list). This is to prevent users adding additional item to the list. They must always edit the first (and only) item on the list.
 
-Start SMA Runbook called “Update-MDTLocation”:
+Start SMA Runbook called "Update-MDTLocation":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/11/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb18.png" alt="image" width="448" height="307" border="0" /></a>
 
@@ -80,12 +80,12 @@ Connections:
 </ul>
 Credential:
 <ul>
-	<li>Windows Credential that has access to the MDT database (we have MDT DB located on the SCCM SQL server, so it only accepts Windows authentication). I named the credential “ProdMDTDB”</li>
+	<li>Windows Credential that has access to the MDT database (we have MDT DB located on the SCCM SQL server, so it only accepts Windows authentication). I named the credential "ProdMDTDB"</li>
 </ul>
 Variables:
 <ul>
-	<li>MDT Database SQL Server address. I named it “CM12SQLServer”</li>
-	<li>Gateway IP address. I named it “GatewayIP”</li>
+	<li>MDT Database SQL Server address. I named it "CM12SQLServer"</li>
+	<li>Gateway IP address. I named it "GatewayIP"</li>
 </ul>
 &nbsp;
 
@@ -147,7 +147,7 @@ Send-Email -SMTPSettings $SMTPSettings -To $Recipient.Email -Subject 'MDT Locati
 <h3>Putting Everything Together</h3>
 As demonstrated in the diagram in the beginning of this post, here’s how the whole workflow works:
 <ol>
-	<li>User login to the SharePoint site and update the only item in the list. He / She enters  the new location in the “New Gateway IP Location” field.</li>
+	<li>User login to the SharePoint site and update the only item in the list. He / She enters  the new location in the "New Gateway IP Location" field.</li>
 	<li>The Orchestrator runbook checks updated items in this SharePoint list every 15 seconds.</li>
 	<li>if the Orchestrator runbook detects the first (and only) item has been updated, it takes the new location value, start the SMA runbook and pass the new value to the SMA runbook.</li>
 	<li>SMA runbook runs a PowerShell script to update the gateway location directly from the MDT database.</li>

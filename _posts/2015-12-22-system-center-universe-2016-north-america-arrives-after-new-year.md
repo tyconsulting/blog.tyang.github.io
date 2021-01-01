@@ -15,7 +15,7 @@ tags:
 
 As the holiday season is fast approaching, 2015 has only around 10 days left. The first big System Center community event in 2016 would probably be System Center Universe North America, which is going to take place at Dallas, Taxes.
 
-As you may or may not know, System Center Universe was originally started by my friend and fellow CDM MVP Cameron Fuller few years ago. As Cameron is currently busy organising this event, he has asked us to help him spread the words. I’m more than happy to do so because in my opinion, the System Center Universe “franchise” would have to be THE biggest System Center community event globally, and it all started in Texas, by Cameron.
+As you may or may not know, System Center Universe was originally started by my friend and fellow CDM MVP Cameron Fuller few years ago. As Cameron is currently busy organising this event, he has asked us to help him spread the words. I’m more than happy to do so because in my opinion, the System Center Universe "franchise" would have to be THE biggest System Center community event globally, and it all started in Texas, by Cameron.
 
 Like 2015, SCU NA 2016 will also be hosted in various simulcast locations around the world. The sessions and speakers have already been announced, you can find everything you need to know from SCU NA’s website: <a title="http://www.systemcenteruniverse.com" href="http://www.systemcenteruniverse.com">http://www.systemcenteruniverse.com</a>
 

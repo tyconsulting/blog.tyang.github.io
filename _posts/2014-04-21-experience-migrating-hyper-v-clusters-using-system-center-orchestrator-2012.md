@@ -22,7 +22,7 @@ My employer is one of the biggest two supermarkets and retail chains in Australi
 
 Early last year, we have started a project to upgrade the entire System Center suite to System Center 2012 (later on decided to go to R2). A part of this project is also to upgrade 2008 R2 Hyper-V clusters in supermarkets to Windows Server 2012 (and later on decided to go straight to Windows Server 2012 R2).
 
-I have been in my current role for just over 2.5 years now, one thing that I learnt while managing a large retail environment is, that Automation is <strong>THE</strong> key to our success. No matter what solutions you are planning to rollout to the stores, if you can’t automate the rollout process, your plan is not going to fly. Therefore scripting is pretty much the essential requirement for everyone in my team. And in the office, you hear the phrase “cookie cutter” a lot. Automation standardise and simplifies implementation processes for new technologies. Our job is pretty much to design all kinds of cookie cutters and hand them over to other teams to cut cookies.
+I have been in my current role for just over 2.5 years now, one thing that I learnt while managing a large retail environment is, that Automation is <strong>THE</strong> key to our success. No matter what solutions you are planning to rollout to the stores, if you can’t automate the rollout process, your plan is not going to fly. Therefore scripting is pretty much the essential requirement for everyone in my team. And in the office, you hear the phrase "cookie cutter" a lot. Automation standardise and simplifies implementation processes for new technologies. Our job is pretty much to design all kinds of cookie cutters and hand them over to other teams to cut cookies.
 
 For the Hyper-V cluster upgrade, our end goal is that the implementers would enter a store number in the System Center Service Manager 2012 web portal and Service Manager would then kick off a series of Orchestrator runbooks to perform the upgrade. The upgrade would involve the following steps:
 <ol>
@@ -78,7 +78,7 @@ These runbooks require the following prerequisites:
 </ul>
 <strong>01. Data Gathering</strong>
 
-The purpose of the first runbook “Data Gathering” is to connect to both cluster nodes and gather few information for the subsequent runbooks. The only information that the operator needs to provide is the server names for both nodes.
+The purpose of the first runbook "Data Gathering" is to connect to both cluster nodes and gather few information for the subsequent runbooks. The only information that the operator needs to provide is the server names for both nodes.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML5dd4ff.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML5dd4ff" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML5dd4ff_thumb.png" alt="SNAGHTML5dd4ff" width="470" height="330" border="0" /></a>
 
@@ -96,7 +96,7 @@ This runbook performs the following checks:
 
 02. Cluster Validation – Make sure Windows Failover cluster role is installed on both nodes.
 
-03. Identify Source &amp; Destination Cluster – based on the Windows OS major version, the one with lower version is the source cluster, and the higher version one is the destination cluster.
+03. Identify Source & Destination Cluster – based on the Windows OS major version, the one with lower version is the source cluster, and the higher version one is the destination cluster.
 
 04. HyperV Validation – Make sure Hyper-V role is installed on both cluster nodes.
 
@@ -106,7 +106,7 @@ This runbook performs the following checks:
 
 If step 6 (Smig Feature Validation) failed, Step 7 to Step 10 are performed to configure Smig on both clusters:
 
-07. Create Smig Package on Destination Cluster – this step uses “smigdeploy.exe” on the destination cluster to create a smig package based on source cluster’s OS version.
+07. Create Smig Package on Destination Cluster – this step uses "smigdeploy.exe" on the destination cluster to create a smig package based on source cluster’s OS version.
 
 08. Copy Smig Package To Source Cluster – This step copies the package on the destination cluster created in step 7 to the source cluster
 
@@ -182,7 +182,7 @@ I handed the prototype to some other people and they have then spent few months 
 
 <strong>Summary</strong>
 
-The purpose of this post is to share my experience of designing this specific “cookie cutter” prototype. I hope this would help someone when performing similar kind of tasks.
+The purpose of this post is to share my experience of designing this specific "cookie cutter" prototype. I hope this would help someone when performing similar kind of tasks.
 
 Both versions of the runbooks can be downloaded from the links below:
 
@@ -192,7 +192,7 @@ Both versions of the runbooks can be downloaded from the links below:
 
 <strong><span style="color: #ff0000;">Note:</span></strong> I have removed all the email activities from the runbooks exports from the links above.
 
-Just another quick note about the runbooks – When I created these runbooks, I created a folder called “HYPER-WEE”, as a joke. After all the runbooks were finalised, I realised it’s too hard to rename this folder because it’s hardcoded in each Invoke Runbook activity:
+Just another quick note about the runbooks – When I created these runbooks, I created a folder called "HYPER-WEE", as a joke. After all the runbooks were finalised, I realised it’s too hard to rename this folder because it’s hardcoded in each Invoke Runbook activity:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image30.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb30.png" alt="image" width="450" height="313" border="0" /></a>
 

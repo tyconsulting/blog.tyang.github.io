@@ -103,7 +103,7 @@ Write-Error "Unable to create monitor `"$Monitorname`"."
 I have hardcoded the following parameters in the runbook:
 <ul>
 	<li>SMA OpsMgr connection object name (which you will need to change to suit your environment)</li>
-	<li>(Unsealed) MP (where the rule  is going to be saved to) – “TYANG.Test.Windows.Monitoring”</li>
+	<li>(Unsealed) MP (where the rule  is going to be saved to) – "TYANG.Test.Windows.Monitoring"</li>
 </ul>
 Additionally, this runbook will firstly try to retrieve the management pack from the management group, if the MP deosn’t exist, it will create it first.
 
@@ -112,7 +112,7 @@ This runbook takes the following input parameters:
 	<li><strong>ClassName</strong> – The name of the target monitoring class (i.e.Microsoft.Windows.Server.OperatingSystem)</li>
 	<li><strong>UnhealthyState</strong>– The unhealthy state of the monitor (either warning or error).</li>
 	<li><strong>ServiceName</strong>–The name of the Windows service (i.e. w32time)</li>
-	<li><strong>IgnoreStartupType</strong>– Set this Boolean parameter to True if you want the monitor to become unhealthy and generate alerts even when the service startup type is not set to “Automatic”. More details about this parameter can be found from Kevin Holman’s blog post <a href="http://blogs.technet.com/b/kevinholman/archive/2010/11/07/monitoring-windows-services-automatic-manual-and-disabled-using-checkstartuptype.aspx">Monitoring Windows Services – Automatic, Manual, and Disabled, using CheckStartupType</a></li>
+	<li><strong>IgnoreStartupType</strong>– Set this Boolean parameter to True if you want the monitor to become unhealthy and generate alerts even when the service startup type is not set to "Automatic". More details about this parameter can be found from Kevin Holman’s blog post <a href="http://blogs.technet.com/b/kevinholman/archive/2010/11/07/monitoring-windows-services-automatic-manual-and-disabled-using-checkstartuptype.aspx">Monitoring Windows Services – Automatic, Manual, and Disabled, using CheckStartupType</a></li>
 	<li><strong>UnhealthyWhenRunning – </strong>Set this Boolean parameter to True when you want the monitor to become unhealthy and generate alert when the service is running (instead of stopped)</li>
 	<li><strong>MonitorDisabled</strong>– Boolean, whether the event monitor should be disabled by default</li>
 	<li><strong>MonitorDisplayName</strong>– Display name of the unit monitor</li>

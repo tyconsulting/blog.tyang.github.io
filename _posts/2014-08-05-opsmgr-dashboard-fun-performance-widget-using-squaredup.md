@@ -14,7 +14,7 @@ tags:
   - SCOM
   - SquaredUp
 ---
-I’m a big fan of SquaredUp Dashboard. I have implemented it for my current “day-time” employer Coles over a year ago on their OpsMgr 2007 environments and we have also included SquaredUp in the newly built 2012 R2 management groups. In my opinion, it is more flexible than the native web console as it uses HTML 5 rather than Silverlight and it runs on any browsers as well as mobile devices.
+I’m a big fan of SquaredUp Dashboard. I have implemented it for my current "day-time" employer Coles over a year ago on their OpsMgr 2007 environments and we have also included SquaredUp in the newly built 2012 R2 management groups. In my opinion, it is more flexible than the native web console as it uses HTML 5 rather than Silverlight and it runs on any browsers as well as mobile devices.
 
 One of my favourite features is that SquaredUp has the capability to directly read data from the OpsMgr Data Warehouse DB. Traditionally, OpsMgr operators would have to run or schedule reports in order to access aged performance data. Based on my experience, I think in 9 out of 10 times, it’s a total waste of my time, people don’t even open those reports when they arrived in their inboxes. With SquaredUp, you can access the performance data for any given period as long as it’s within the retention period. – So I can direct users to access these data from SquaredUp whenever they want, without having me involved.
 

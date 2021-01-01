@@ -17,11 +17,11 @@ tags:
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2015/02/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb.png" alt="image" width="372" height="211" border="0" /></a>
 
-Last Friday, I presented in the Melbourne MVP Community Camp day, on the topic of “Automating SCOM Tasks Using SMA”.
+Last Friday, I presented in the Melbourne MVP Community Camp day, on the topic of "Automating SCOM Tasks Using SMA".
 
 I have uploaded the session recording to YouTube. You can either watch it here:
 <div id="scid:5737277B-5D6D-4f48-ABFC-DD9C333F4C5D:053c04d2-2824-464b-81e8-b08232e88995" class="wlWriterEditableSmartContent" style="float: none; margin: 0px; display: inline; padding: 0px;">
-<div><object width="694" height="390"><param name="movie" value="http://www.youtube.com/v/QW99bVFKg80?hl=en&amp;hd=1" /><embed src="http://www.youtube.com/v/QW99bVFKg80?hl=en&amp;hd=1" type="application/x-shockwave-flash" width="694" height="390" /></object></div>
+<div><object width="694" height="390"><param name="movie" value="http://www.youtube.com/v/QW99bVFKg80?hl=en&hd=1" /><embed src="http://www.youtube.com/v/QW99bVFKg80?hl=en&hd=1" type="application/x-shockwave-flash" width="694" height="390" /></object></div>
 <div style="width: 694px; clear: both; font-size: .8em;">If you’d like to watch it in full screen, please go to: https://www.youtube.com/watch?v=QW99bVFKg80</div>
 </div>
 &nbsp;

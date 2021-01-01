@@ -77,11 +77,11 @@ Above is roughly how everything hangs together at home. The original Visio diagr
 	<li>NIC: 2 Onboard Marvell GB NIC</li>
 </ul>
 <h2>Networking Equipment:</h2>
-<strong>ADSL Modem &amp; Router with WiFi AP and 4 port switch</strong>
+<strong>ADSL Modem & Router with WiFi AP and 4 port switch</strong>
 <ul>
 	<li><a href="http://www.billion.com/product/wireless/bipac7300n-wireless-draft-11n-ADSL2-broadband-router.html">Billion BiPAC 7300N</a></li>
 </ul>
-<strong>Home &amp; Lab Network 8-Port GB Switches</strong>
+<strong>Home & Lab Network 8-Port GB Switches</strong>
 <ul>
 	<li>2 x <a href="http://www2.netgear.com.au/au/Product/Switches/Unmanaged-Desktop-Sw/GS608">NetGear GS608</a></li>
 </ul>
@@ -99,7 +99,7 @@ Now that since I’ve mentioned my media centre PC is being managed by System Ce
 
 Anyways, now let me explain the setup in details.
 <h2>PC Hardware</h2>
-<strong>Motherboard &amp; Memory</strong>
+<strong>Motherboard & Memory</strong>
 
 The original 2 Hyper-V hosts were running on the ASUS P6X58D-E motherboard with 24GB (6x4GB) of RAM. I bought these 2 machines back in 2010 and 2011. Back then, I couldn’t find any PC motherboard that has more than 6 memory slots and the biggest PC memory stick I could get in the computer shops were 4GB sticks. Therefore the 2 PCs with this ASUS motherboard have 24GB each. In the ASUS website, it stated the maximum memory this board supports is 24GB. which is based on 6 slots x 4GB. I have actually tested 8GB sticks on this board and it worked just fine. so when I’m running out of capacity again in the future, I can upgrade the RAM on these board to 48GB (6x8GB).
 

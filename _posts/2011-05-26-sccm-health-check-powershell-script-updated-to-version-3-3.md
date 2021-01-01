@@ -32,4 +32,4 @@ The script now contains the following files:
 
 I’ve also been told the DNS check does not work well when SQL DB is on a cluster. I don’t have access to a SQL cluster where I can diagnose the problem. So please just be aware.
 
-The script can be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2011/05/SCCM-Health-Check-v3.3.zip"><strong>here</strong></a>. Please remember to customise the “Health-Check.XML” file before running it.
+The script can be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2011/05/SCCM-Health-Check-v3.3.zip"><strong>here</strong></a>. Please remember to customise the "Health-Check.XML" file before running it.

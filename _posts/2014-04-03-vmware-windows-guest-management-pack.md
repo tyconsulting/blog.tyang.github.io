@@ -49,7 +49,7 @@ So I spent some time this week and quickly wrote a very simple management pack t
 	<li>Target: VMware Guest Windows Computer Role</li>
 </ul>
 </li>
-	<li>Dependency monitors to rollup VMware Tools health to it’s hosting class “VMware Guest Windows Computer Role”.</li>
+	<li>Dependency monitors to rollup VMware Tools health to it’s hosting class "VMware Guest Windows Computer Role".</li>
 </ul>
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image2.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb2.png" width="580" height="290" border="0" /></a>
 

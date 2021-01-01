@@ -12,4 +12,4 @@ tags:
   - Azure Monitor
   - Azure Policy
 ---
-Recently, I have been asked to contribute to Microsoft’s ITOps Talk blog. My first article “How to Create Azure Monitor Alerts for Non-Compliant Azure Policies” have just been published. You can read it here: <a href="https://techcommunity.microsoft.com/t5/ITOps-Talk-Blog/How-to-Create-Azure-Monitor-Alerts-for-Non-Compliant-Azure/ba-p/713466">https://techcommunity.microsoft.com/t5/ITOps-Talk-Blog/How-to-Create-Azure-Monitor-Alerts-for-Non-Compliant-Azure/ba-p/713466</a>
+Recently, I have been asked to contribute to Microsoft’s ITOps Talk blog. My first article "How to Create Azure Monitor Alerts for Non-Compliant Azure Policies" have just been published. You can read it here: <a href="https://techcommunity.microsoft.com/t5/ITOps-Talk-Blog/How-to-Create-Azure-Monitor-Alerts-for-Non-Compliant-Azure/ba-p/713466">https://techcommunity.microsoft.com/t5/ITOps-Talk-Blog/How-to-Create-Azure-Monitor-Alerts-for-Non-Compliant-Azure/ba-p/713466</a>

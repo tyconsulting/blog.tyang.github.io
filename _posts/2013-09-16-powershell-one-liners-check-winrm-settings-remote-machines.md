@@ -14,22 +14,22 @@ tags:
 ---
 To Check if WinRM has been enabled on a Remote machine:
 
-[sourcecode language="PowerShell"]
-$RemoteMachine = “Remote Machine Name”
+```powershell
+$RemoteMachine = "Remote Machine Name"
 
-[system.convert]::ToBoolean(((winrm get winrm/config/winrs -r:$remotemachine | ?{$_ -imatch &quot;AllowRemoteShellAccess&quot;}).split(&quot;=&quot;))[1].trim())
-[/sourcecode]
+[system.convert]::ToBoolean(((winrm get winrm/config/winrs -r:$remotemachine | ?{$_ -imatch "AllowRemoteShellAccess"}).split("="))[1].trim())
+```
 
 To Check the Default HTTP listener port on a remote machine:
-[sourcecode language="PowerShell"]
-$RemoteMachine = “Remote Machine Name”
+```powershell
+$RemoteMachine = "Remote Machine Name"
 
-[System.Convert]:: ToInt32(((winrm get winrm/config/Service/DefaultPorts -r:$RemoteMachine | ?{$_ -imatch &quot;HTTP = &quot; }).split(&quot;=&quot;))[1].trim())
-[/sourcecode]
+[System.Convert]:: ToInt32(((winrm get winrm/config/Service/DefaultPorts -r:$RemoteMachine | ?{$_ -imatch "HTTP = " }).split("="))[1].trim())
+```
 To Check the Default HTTPS listener port on a remote machine:
-[sourcecode language="PowerShell"]
-$RemoteMachine = “Remote Machine Name”
+```powershell
+$RemoteMachine = "Remote Machine Name"
 
-[System.Convert]:: ToInt32(((winrm get winrm/config/Service/DefaultPorts -r:$RemoteMachine | ?{$_ -imatch &quot;HTTPS = &quot; }).split(&quot;=&quot;))[1].trim())
-[/sourcecode]
+[System.Convert]:: ToInt32(((winrm get winrm/config/Service/DefaultPorts -r:$RemoteMachine | ?{$_ -imatch "HTTPS = " }).split("="))[1].trim())
+```
 <a href="http://blog.tyang.org/wp-content/uploads/2013/09/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/09/image_thumb4.png" width="580" height="71" border="0" /></a>

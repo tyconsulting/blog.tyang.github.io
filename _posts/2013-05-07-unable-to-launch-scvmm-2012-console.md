@@ -17,13 +17,13 @@ When I tried to launch VMM using an account with Full Administrator rights, the 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/05/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/05/image_thumb.png" width="480" height="311" border="0" /></a>
 
-I also found out if I use an account which is a member of a Delegated Admin role that I’ve created called “Cloud Admin”, although it also got stuck on this screen, but the console would eventually load after 10-15 minutes.
+I also found out if I use an account which is a member of a Delegated Admin role that I’ve created called "Cloud Admin", although it also got stuck on this screen, but the console would eventually load after 10-15 minutes.
 
-Long story short, after spent my entire night troubleshooting, I noticed there were few job got stuck on “Running” state by querying the database using below query:
+Long story short, after spent my entire night troubleshooting, I noticed there were few job got stuck on "Running" state by querying the database using below query:
 
-[sourcecode language="SQL"]
+```sql
 SELECT * FROM [VirtualManagerDB].[dbo].[tbl_TR_TaskTrail] where TaskState = 'Running'
-[/sourcecode]
+```
 
 All of these running jobs were trying to run the VMM cmdlet <strong>Get-SCOpsMgrConnection</strong>. It seems each of this job is associated to a console connection attempt. I then tried to manually run this cmdlet from a PowerShell console, it also got stuck.
 
@@ -41,9 +41,9 @@ In order to get VMM consoles fixed as soon as possible, I’ve taken the followi
 
 4. Confirm the OpsMgr connection is removed from the database by running below SQL query:
 
-[sourcecode language="SQL"]
+```sql
 SELECT * FROM tbl_MOM_OMConnection
-[/sourcecode]
+```
 
 5. I restarted VMM service again just to be safe
 

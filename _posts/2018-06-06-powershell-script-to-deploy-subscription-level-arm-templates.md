@@ -79,7 +79,7 @@ Firstly, associate the variable group to the build:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/06/image-7.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/06/image_thumb-7.png" alt="image" width="717" height="322" border="0" /></a>
 
-The first Azure PowerShell task “Get Azure Subscription Details” retrieves the tenant and subscription Id from AzureRM context and store them as variables. here’s the inline script:
+The first Azure PowerShell task "Get Azure Subscription Details" retrieves the tenant and subscription Id from AzureRM context and store them as variables. here’s the inline script:
 <pre language="powershell">$Context = Get-AzureRMContext
 $TenantId = $Context.Tenant.Id
 $SubId = $Context.subscription.Id

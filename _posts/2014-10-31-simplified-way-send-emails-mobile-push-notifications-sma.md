@@ -58,7 +58,7 @@ This module defines a connection type where can be used to save all SMTP related
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1ba1992f.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1ba1992f" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1ba1992f_thumb.png" alt="SNAGHTML1ba1992f" width="475" height="301" border="0" /></a>
 
-This module also provides a PowerShell function called “Send-Email”. Since when retrieving an automation connection in SMA, a hash table is returned, Not only you can pass individual SMTP parameters into the Send-Email function, you can also simply pass the SMA connection object that you have retrieved using “Get-AutomationConnection” cmdlet. for more information, please refer to the help topic of this function, and the sample runbook below.
+This module also provides a PowerShell function called "Send-Email". Since when retrieving an automation connection in SMA, a hash table is returned, Not only you can pass individual SMTP parameters into the Send-Email function, you can also simply pass the SMA connection object that you have retrieved using "Get-AutomationConnection" cmdlet. for more information, please refer to the help topic of this function, and the sample runbook below.
 <h3>SendPushNotification Module</h3>
 This module provides a connection type called SMAAddressBook. It can be used like an address book to store recipient’s contact details:
 <ul>

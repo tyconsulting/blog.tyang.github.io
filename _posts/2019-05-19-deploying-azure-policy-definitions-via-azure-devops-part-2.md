@@ -46,8 +46,8 @@ The <strong>Test-AzPolicyDefinition</strong> performs the following tests agains
 <ul>
     <li>Top-level elements tests
 <ul>
-    <li>must contain element “name”</li>
-    <li>must contain element “properties”</li>
+    <li>must contain element "name"</li>
+    <li>must contain element "properties"</li>
 </ul>
 </li>
     <li>Definition elements value tests
@@ -59,26 +59,26 @@ The <strong>Test-AzPolicyDefinition</strong> performs the following tests agains
 </li>
     <li>Policy definition properties value test
 <ul>
-    <li>The properties element must contain “displayName” sub-element</li>
-    <li>The properties element must contain “description” sub-element</li>
-    <li>The properties element must contain “metadata” sub-element</li>
-    <li>The properties element must contain “parameters” sub-element</li>
-    <li>The properties element must contain “policyRule” sub-element</li>
+    <li>The properties element must contain "displayName" sub-element</li>
+    <li>The properties element must contain "description" sub-element</li>
+    <li>The properties element must contain "metadata" sub-element</li>
+    <li>The properties element must contain "parameters" sub-element</li>
+    <li>The properties element must contain "policyRule" sub-element</li>
     <li>displayname value must not be blank</li>
     <li>description value must not be blank</li>
-    <li>“Category” must be defined in metadata</li>
+    <li>"Category" must be defined in metadata</li>
 </ul>
 </li>
     <li>Policy rule test
 <ul>
-    <li>policy rule must contain “if” sub-element</li>
-    <li>policy rule must contain “then” sub-element</li>
+    <li>policy rule must contain "if" sub-element</li>
+    <li>policy rule must contain "then" sub-element</li>
     <li>policy rule must use a valid effect (‘deny’, ‘audit’, ‘append’, ‘auditIfNotExists’, ‘disabled’, ‘deployIfNotExists’)</li>
 </ul>
 </li>
     <li>DeployIfNotExists effect configuration test
 <ul>
-    <li>When ‘DeployIfNotExists” effect is used, it must contain ‘details’ sub-element under ‘then’ in policy rule</li>
+    <li>When ‘DeployIfNotExists" effect is used, it must contain ‘details’ sub-element under ‘then’ in policy rule</li>
     <li>DeployIfNotExists Policy rule must contain a embedded 'deployment' element</li>
     <li>Deployment mode for 'DeployIfNotExists' effect must be 'incremental'</li>
     <li>DeployIfNotExists' Policy rule must contain a 'roleDefinitionIds' element</li>
@@ -118,8 +118,8 @@ The <strong>Test-AzPolicySetDefinition</strong> performs the following tests aga
 <ul>
     <li>Top-level elements tests
 <ul>
-    <li>must contain element “name”</li>
-    <li>must contain element “properties”</li>
+    <li>must contain element "name"</li>
+    <li>must contain element "properties"</li>
 </ul>
 </li>
     <li style="list-style-type: none;">
@@ -169,15 +169,15 @@ The <strong>Test-AzPolicySetDefinition</strong> performs the following tests aga
 <ul>
     <li>Policy definition properties value test
 <ul>
-    <li>The properties element must contain “displayName” sub-element</li>
-    <li>The properties element must contain “description” sub-element</li>
-    <li>The properties element must contain “metadata” sub-element</li>
-    <li>The properties element must contain “parameters” sub-element</li>
-    <li>The properties element must contain “policyDefinitions” sub-element</li>
+    <li>The properties element must contain "displayName" sub-element</li>
+    <li>The properties element must contain "description" sub-element</li>
+    <li>The properties element must contain "metadata" sub-element</li>
+    <li>The properties element must contain "parameters" sub-element</li>
+    <li>The properties element must contain "policyDefinitions" sub-element</li>
     <li>policyDefinitions element must contain at least one item</li>
     <li>displayname value must not be blank</li>
     <li>description value must not be blank</li>
-    <li>“Category” must be defined in metadata</li>
+    <li>"Category" must be defined in metadata</li>
 </ul>
 </li>
     <li>Member policy test

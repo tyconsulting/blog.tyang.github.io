@@ -21,9 +21,9 @@ This is probably going to be a bit too long for one single blog post. I’ll sep
 
 Recently, I’ve been writing a SCOM management pack for a new application that my employer is implementing. This application logs any application related alarms into a SQL express database. One of the requirement for the MP is to catch these alarms from the database and generate alerts based on these alarms.
 
-In the database, I’m interested in any records that has the value of “Alarm triggered” in “EventTypeCaption” column.
+In the database, I’m interested in any records that has the value of "Alarm triggered" in "EventTypeCaption" column.
 
-The the record is added to the database, the application also adds the time stamp in UTC to the “EventDate” field.
+The the record is added to the database, the application also adds the time stamp in UTC to the "EventDate" field.
 
 Below is a snapshot of a subset of the database. I’ve highlighted the records that I’m interested in:
 
@@ -63,15 +63,15 @@ To explain the workflow in details:
 	<li>Execute the SQL query.</li>
 	<li>If returned any data:
 <ol>
-	<li>Property Bag value “GenerateAlert” = True</li>
+	<li>Property Bag value "GenerateAlert" = True</li>
 	<li>For each record, convert the EventDate from UTC time to local time.</li>
-	<li>combine all records from the record set to a multi line string that include converted event date and event description. return this string as Property Bag value “LogEntry”</li>
-	<li>return Property Bag Value “LogEntryCount”</li>
+	<li>combine all records from the record set to a multi line string that include converted event date and event description. return this string as Property Bag value "LogEntry"</li>
+	<li>return Property Bag Value "LogEntryCount"</li>
 </ol>
 </li>
 </ol>
 </li>
-	<li>Condition Detection module detects Property Bag value “GenerateAlert” = True</li>
+	<li>Condition Detection module detects Property Bag value "GenerateAlert" = True</li>
 	<li>If passed Condition Detection Module, the Write Action module generates alert with LogEntry and LogEntryCount in alert description field.</li>
 </ol>
 <strong><span style="color: #ff0000; font-size: medium;">Note:</span></strong> I’m using <strong>PowerShellPropertyTriggerOnlyProbe</strong> rather than VBscript because I found it’s easier to convert UTC and local time back and forth as I can simply use .NET class System.TimeZoneInfo and powershell datetime object ToUTC() method to do the conversion. if we are to use VBScript, there is no equivalent trigger only probe for VBScript. I’ll try to cover this in a separate blog post.

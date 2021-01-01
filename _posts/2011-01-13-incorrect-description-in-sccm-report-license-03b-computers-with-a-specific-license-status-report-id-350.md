@@ -13,7 +13,7 @@ tags:
   - SCCM
   - SCCM Reporting
 ---
-On the SCCM Report “<strong>License 03B – Computers with a specific license status</strong>” (Report ID 350, category Asset Intelligence), the description states there are 5 possible values for license status:
+On the SCCM Report "<strong>License 03B – Computers with a specific license status</strong>" (Report ID 350, category Asset Intelligence), the description states there are 5 possible values for license status:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2011/01/image.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/01/image_thumb.png" border="0" alt="image" width="562" height="286" /></a>
 

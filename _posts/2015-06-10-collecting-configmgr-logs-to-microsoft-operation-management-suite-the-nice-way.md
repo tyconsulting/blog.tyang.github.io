@@ -19,7 +19,7 @@ tags:
 <h3>Introduction</h3>
 I have been playing with Azure Operational Insights for a while now, and I am really excited about the capabilities and capacities it brings. I haven’t blogged anything about OpInsights until now, largely because all the wonderful articles that my MVP friends have already written. i.e. the OpInsights series from Stanislav Zheyazkov (at the moment, he’s written 18 parts so far!): <a title="https://cloudadministrator.wordpress.com/2015/04/30/microsoft-azure-operational-insights-preview-series-general-availability-part-18-2/" href="https://cloudadministrator.wordpress.com/2015/04/30/microsoft-azure-operational-insights-preview-series-general-availability-part-18-2/">https://cloudadministrator.wordpress.com/2015/04/30/microsoft-azure-operational-insights-preview-series-general-availability-part-18-2/</a>
 
-Back in my previous life, when I was working on ConfigMgr for living, THE one thing that I hate the most, is reading log files, not to mention all the log file names, locations, etc. that I have to memorise. I remember there was even a spreadsheet listing all the log files for ConfigMgr. Even until now, when I see a ConfigMgr person, I’d always ask “How many log files did you read today?” – as a joke. However, sometimes, when sh*t hits the fan, people won’t see the funny side of it. In my opinion, based on my experience working on ConfigMgr, I see the following challenges in ConfigMgr log files:
+Back in my previous life, when I was working on ConfigMgr for living, THE one thing that I hate the most, is reading log files, not to mention all the log file names, locations, etc. that I have to memorise. I remember there was even a spreadsheet listing all the log files for ConfigMgr. Even until now, when I see a ConfigMgr person, I’d always ask "How many log files did you read today?" – as a joke. However, sometimes, when sh*t hits the fan, people won’t see the funny side of it. In my opinion, based on my experience working on ConfigMgr, I see the following challenges in ConfigMgr log files:
 
 <strong>There are too many of them!</strong>
 
@@ -39,7 +39,7 @@ You need a special tool (CMTrace.exe) to read these log files. If you see someon
 
 <strong>Logs are not centralised</strong>
 
-In a large environment where you ConfigMgr hierarchy consists of hundreds of servers, it is a PAIN to read logs on all of these servers. i.e. When something bad happens with OSD and PXE, the results can be catastrophic (some of you guys may still remember what <a href="http://myitforum.com/myitforumwp/2012/08/06/sccm-task-sequence-blew-up-australias-commbank/">an incorrectly advertised OSD task sequence has done to a big Australian bank</a> few years back).  Based on my own experience, I have seen support team needs to check PXE DP’s SMSPXE.log on as many as few hundred PXE enabled distribution points, within a very short time window (before the logs get overwritten). People would have to connect to each individual DP  and read the log files one at a time. – In situation like this, if you go up to them and ask them “How many logs have you read today?”, I’m sure it wouldn’t go down too well.
+In a large environment where you ConfigMgr hierarchy consists of hundreds of servers, it is a PAIN to read logs on all of these servers. i.e. When something bad happens with OSD and PXE, the results can be catastrophic (some of you guys may still remember what <a href="http://myitforum.com/myitforumwp/2012/08/06/sccm-task-sequence-blew-up-australias-commbank/">an incorrectly advertised OSD task sequence has done to a big Australian bank</a> few years back).  Based on my own experience, I have seen support team needs to check PXE DP’s SMSPXE.log on as many as few hundred PXE enabled distribution points, within a very short time window (before the logs get overwritten). People would have to connect to each individual DP  and read the log files one at a time. – In situation like this, if you go up to them and ask them "How many logs have you read today?", I’m sure it wouldn’t go down too well.
 
 <strong>It would be nice if…</strong>
 
@@ -70,13 +70,13 @@ Since OMS is still very new, there aren’t many Solution Packs available (aka I
 
 <strong>OpsMgr Limitations</strong>
 
-As we all know, OpsMgr provides a “Generic Text Log” event collection rule. But unfortunately, this native event data source is not capable of accomplish what I am going to achieve here.
+As we all know, OpsMgr provides a "Generic Text Log" event collection rule. But unfortunately, this native event data source is not capable of accomplish what I am going to achieve here.
 <h3>NiCE Log File Management Pack</h3>
 NiCE is a company based in Germany. They offer a <a href="http://www.nice.de/log-file-monitoring-scom-nice-logfile-mp">free OpsMgr management pack for log file monitoring</a>. There are already many good blog articles written about this MP, I will not write an introduction here. If you have never heard or used it, please read the articles listed below, then come back to this post:
 
 <a href="http://stefanroth.net/2014/02/24/scom-2012-nice-log-file-library-mp-monitoring-robocopy-log-file/">SCOM 2012 – NiCE Log File Library MP Monitoring Robocopy Log File</a> – By Stefan Roth
 
-<span style="font-weight: normal;"><a href="http://thoughtsonopsmgr.blogspot.com.au/2015/05/nice-free-log-file-mp-regex-powershell.html">NiCE Free Log File MP &amp; Regex &amp; PowerShell: Enabling SCOM 2 Count LOB Crashes</a> – By Marnix Wolf</span>
+<span style="font-weight: normal;"><a href="http://thoughtsonopsmgr.blogspot.com.au/2015/05/nice-free-log-file-mp-regex-powershell.html">NiCE Free Log File MP & Regex & PowerShell: Enabling SCOM 2 Count LOB Crashes</a> – By Marnix Wolf</span>
 
 <span style="font-weight: normal;"><a href="http://kevingreeneitblog.blogspot.com.au/2015/06/scom-free-log-file-monitoring-mp-from.html">SCOM - Free Log File Monitoring MP from NiCE</a> –By Kevin Greene</span>
 
@@ -116,7 +116,7 @@ Now, I hope you get the bigger picture of what I want to achieve now. I want to 
 <h3>Management Pack</h3>
 Obviously, the NiCE Log File MP is required. You can download it from NiCE’s customer portal once registered. This MP must be firstly imported into your management group.
 
-Additionally, your OpsMgr management group must be configured to connect to a Operational Insights (or called “System Center Advisor” if you haven’t patched your management group in the last few months). However, what I’m about to show you is also able to store the data in your on-prem OpsMgr operational and data warehouse databases. So, even if you don’t use OMS (yet), you are still able to leverage this solution to store your ConfigMgr log data in OpsMgr databases.
+Additionally, your OpsMgr management group must be configured to connect to a Operational Insights (or called "System Center Advisor" if you haven’t patched your management group in the last few months). However, what I’m about to show you is also able to store the data in your on-prem OpsMgr operational and data warehouse databases. So, even if you don’t use OMS (yet), you are still able to leverage this solution to store your ConfigMgr log data in OpsMgr databases.
 
 <strong>Management Pack 101</strong>
 
@@ -165,7 +165,7 @@ What we can do is to take the same data source module from such an Alert rule (a
 	<li>Write to DW DB: ‘Microsoft.SystemCenter.DataWarehouse.PublishEventData’</li>
 	<li>Write to OMS (OpInsights): ‘Microsoft.SystemCenter.CollectCloudGenericEvent’</li>
 </ul>
-However, to go one step further, since there are so many input parameters we need to specify for the Data Source module, and I want to hide the complexity for the users (your System Center administrators), I have created my own data source modules, and “wrapped” the NiCE data source module ‘NiCE.LogFile.Library.Advanced.Filtered.LogFileProvider.DS’ inside my own data source module. By doing so, I am able to hardcode some common fields that are same among all the rules we are going to create (i.e. the regular expression, etc.). Because the regular expression for ConfigMgr client logs and server logs are different, I have created 2 generic data source modules, one for each type of log – that you can use when creating your event collection rules.
+However, to go one step further, since there are so many input parameters we need to specify for the Data Source module, and I want to hide the complexity for the users (your System Center administrators), I have created my own data source modules, and "wrapped" the NiCE data source module ‘NiCE.LogFile.Library.Advanced.Filtered.LogFileProvider.DS’ inside my own data source module. By doing so, I am able to hardcode some common fields that are same among all the rules we are going to create (i.e. the regular expression, etc.). Because the regular expression for ConfigMgr client logs and server logs are different, I have created 2 generic data source modules, one for each type of log – that you can use when creating your event collection rules.
 
 When creating your own event collecting rules, you will only need to provide the following information:
 <ul>
@@ -194,23 +194,23 @@ As I mentioned earlier, you will need to specify the log directory when creating
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/06/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb4.png" alt="image" width="618" height="390" border="0" /></a>
 
-To demonstrate how we can overcome this problem, I have created this management pack. In this management pack, I have defined a new class called “ConfigMgr 2012 Site Server Extended”, it is based on the existing class defined from the Microsoft ConfigMgr 2012 MP. I have defined and discovered an additional property called “Log Folder”:
+To demonstrate how we can overcome this problem, I have created this management pack. In this management pack, I have defined a new class called "ConfigMgr 2012 Site Server Extended", it is based on the existing class defined from the Microsoft ConfigMgr 2012 MP. I have defined and discovered an additional property called "Log Folder":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/06/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb5.png" alt="image" width="588" height="415" border="0" /></a>
 
-By doing so, we can variablise the “LogDirectory” parameter when creating the rules by passing the value of this property to the rule (I’ll demonstrate later).
+By doing so, we can variablise the "LogDirectory" parameter when creating the rules by passing the value of this property to the rule (I’ll demonstrate later).
 
-Again, as I mentioned earlier, this MP is optional, you do not have to use it. When creating the rule, you can hardcode the “LogDirectory’' parameter using a most common value in your environment, and using overrides to change this parameter for any servers that have different log directories.
+Again, as I mentioned earlier, this MP is optional, you do not have to use it. When creating the rule, you can hardcode the "LogDirectory’' parameter using a most common value in your environment, and using overrides to change this parameter for any servers that have different log directories.
 <h4>ConfigMgr Logs Collection Demo Management Pack (ConfigMgr.Log.Collection.Demo)</h4>
 In this unsealed demo management pack, I have created 2 event collection rules:
 
 <strong>Collect ConfigMgr Site Server Wsyncmgr.Log to OpsMgr Operational DB Data Warehouse DB and OMS rule</strong>
 
-This rule is targeting the “ConfigMgr 2012 Site Server Extended” class defined in the ‘ConfigMgr Log Collection ConfigMgr Site Server Log Directory Discovery’ MP, and collects Wsyncmgr.Log to all 3 destinations (Operational DB, Data Warehouse DB, and OMS).
+This rule is targeting the "ConfigMgr 2012 Site Server Extended" class defined in the ‘ConfigMgr Log Collection ConfigMgr Site Server Log Directory Discovery’ MP, and collects Wsyncmgr.Log to all 3 destinations (Operational DB, Data Warehouse DB, and OMS).
 
 <strong>Collect ConfigMgr Client ContentTransferManager.Log to OpsMgr Data Warehouse and OMS rule</strong>
 
-This rule targets the “System Center ConfigMgr 2012 Client” class which is defined in the <a href="http://blog.tyang.org/2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/">ConfigMgr 2012 (R2) Client Management Pack Version 1.2.0.0</a> (which is also developed by myself).
+This rule targets the "System Center ConfigMgr 2012 Client" class which is defined in the <a href="http://blog.tyang.org/2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/">ConfigMgr 2012 (R2) Client Management Pack Version 1.2.0.0</a> (which is also developed by myself).
 
 This rule collects the ContentTransferManager.log only to Data Warehouse DB and OMS.
 
@@ -250,7 +250,7 @@ By Daniele Muscetta:
 <h5><span style="font-weight: normal;"><a href="http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-search-how-to-part-ii-more-on-filtering-using-boolean-operators-and-the-time-dimension.aspx">Azure Operational Insights Search How To: Part II – More on Filtering, using Boolean Operators, the Time Dimension, Numbers and Ranges</a></span></h5>
 </li>
 	<li>
-<h5><span style="font-weight: normal;"><a href="http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-search-how-to-part-iii-manipulating-results-the-pipeline-and-search-commands.aspx">Azure Operational Insights Search How To: Part III – Manipulating Results: the pipeline “|” and Search Commands</a></span></h5>
+<h5><span style="font-weight: normal;"><a href="http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-search-how-to-part-iii-manipulating-results-the-pipeline-and-search-commands.aspx">Azure Operational Insights Search How To: Part III – Manipulating Results: the pipeline "|" and Search Commands</a></span></h5>
 </li>
 	<li>
 <h5><span style="font-weight: normal;"><a href="http://blogs.msdn.com/b/dmuscett/archive/2014/10/29/operational-insights-search-how-to-part-iv-introducing-the-measure-command.aspx">Azure Operational Insights Search How To: Part IV – Introducing the MEASURE command</a></span></h5>

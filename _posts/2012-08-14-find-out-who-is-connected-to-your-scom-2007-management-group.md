@@ -19,13 +19,13 @@ As we all know, we can see how many concurrent SDK connections have been establi
 
 To find out who are actually connected, you can use the SDK:
 
-[sourcecode language="PowerShell"]
-[System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager.Common&quot;) 
-[System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager&quot;)
-$RootMS = &quot;SCOM01&quot;
+```powershell
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager.Common") 
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager")
+$RootMS = "SCOM01"
 $MGConnSetting = New-Object Microsoft.EnterpriseManagement.ManagementGroupConnectionSettings($RootMS)
 $ManagementGroup = New-Object Microsoft.EnterpriseManagement.ManagementGroup($MGConnSetting)
 $ManagementGroup.GetConnectedUserNames()
-[/sourcecode]
+```
 
 <img src="http://blog.tyang.org/wp-content/uploads/2012/08/976C42E93C0BBC0844673E4D7235562E5684C405.png" alt="" width="486" height="170" border="0" />

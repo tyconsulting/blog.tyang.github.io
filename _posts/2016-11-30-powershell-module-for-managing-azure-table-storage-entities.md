@@ -48,19 +48,19 @@ This module offers the following 4 functions:
 <h4>Get-AzureTableEntity</h4>
 By default when performing query operation, the Azure Table REST API only returns up to 1000 entities or all entities returned from search within 5 seconds. This function has a parameter ‘-GetAll’ that can be used to return all search results from a large table. The default value of this parameter is set to $true.
 
-The search result returned by the search API is deserialised. As the result, complex data type such as datetime is returned as string. If you want any datetime fields from the search result returned as original datetime field, you can set the “-ConvertDateTimeFields” parameter to $true. Please note this would potentially increase the script execution time when dealing with a large set of search result.
+The search result returned by the search API is deserialised. As the result, complex data type such as datetime is returned as string. If you want any datetime fields from the search result returned as original datetime field, you can set the "-ConvertDateTimeFields" parameter to $true. Please note this would potentially increase the script execution time when dealing with a large set of search result.
 
 <span style="color: #ff0000;"><strong>Hint:</strong></span> You can easily build your search string using the <a href="http://storageexplorer.com/">Azure Storage Explorer</a>.
 <h4>New-AzureTableEntity</h4>
 This function can be used to insert a single entity or bulk insert up to 100 entities (and the total payload size is less than 4MB).
 
-Please make sure both “PartitionKey” and “RowKey” are included in the entity. The data type for these fields must be string.
+Please make sure both "PartitionKey" and "RowKey" are included in the entity. The data type for these fields must be string.
 
-i.e. Instead of setting RowKey = 1, you should set RowKey = <strong>“1” – </strong>because the value for both PartitionKey and RowKey must be a string.
+i.e. Instead of setting RowKey = 1, you should set RowKey = <strong>"1" – </strong>because the value for both PartitionKey and RowKey must be a string.
 <h4>Update-AzureTableEntity</h4>
 This function can be used to update a single entity or bulk update up to 100 entities (and the total payload size is less than 4MB).
 
-Please note when updating an entity, all fields (including the fields that do not need to be updated) must be specified. It is actually a merge operation. If you are modifying an existing entity returned from the search operation (Get-AzureTableEntity) and the entity contains datetime fields, please make sure you set “-ConvertDateTimeFields” parameter to $true when performing the search in the first place. Please also be aware that the built-in Timestamp field must not be included in the entity fields.
+Please note when updating an entity, all fields (including the fields that do not need to be updated) must be specified. It is actually a merge operation. If you are modifying an existing entity returned from the search operation (Get-AzureTableEntity) and the entity contains datetime fields, please make sure you set "-ConvertDateTimeFields" parameter to $true when performing the search in the first place. Please also be aware that the built-in Timestamp field must not be included in the entity fields.
 <h4>Remove-AzureTableEntity</h4>
 This function can be used to remove a single entity or bulk remove up to 100 entities (and the total payload size is less than 4MB).
 <h4>Support for Azure Automation and SMA</h4>

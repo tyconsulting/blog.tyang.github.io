@@ -70,7 +70,7 @@ Give the visual a title.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/12/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/12/image_thumb-6.png" alt="image" width="134" height="244" border="0" /></a>
 
-<strong>Note: DO NOT</strong> configure the “Legend” field for the line chart visual, otherwise the forecasting feature will be disabled.
+<strong>Note: DO NOT</strong> configure the "Legend" field for the line chart visual, otherwise the forecasting feature will be disabled.
 
 05. In the Analytics pane of the Line Chart visual, configure forecast based on your requirements
 

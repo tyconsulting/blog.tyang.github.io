@@ -53,7 +53,7 @@ After I enabled it, I was able to populate the tables in Database Browser:
 
 And within few minutes, the alerts were auto closed.
 
-While I was troubleshooting this issue, I came across a <a href="https://cloudadministrator.wordpress.com/2014/02/11/quick-look-at-system-center-service-management-automation-management-pack/">blog post</a> from Stanislav Zhelyazkov. In the blog post, Stan mentioned adding the DB instance name in the registry (where the discoveries are looking for). However, when I added “MSSQLSERVER” in the registry and forced re-discovery, the monitors became critical again and I received several 11852 event in Operations Manager event log:
+While I was troubleshooting this issue, I came across a <a href="https://cloudadministrator.wordpress.com/2014/02/11/quick-look-at-system-center-service-management-automation-management-pack/">blog post</a> from Stanislav Zhelyazkov. In the blog post, Stan mentioned adding the DB instance name in the registry (where the discoveries are looking for). However, when I added "MSSQLSERVER" in the registry and forced re-discovery, the monitors became critical again and I received several 11852 event in Operations Manager event log:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTMLc7e3526.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLc7e3526" src="http://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTMLc7e3526_thumb.png" alt="SNAGHTMLc7e3526" width="676" height="412" border="0" /></a>
 

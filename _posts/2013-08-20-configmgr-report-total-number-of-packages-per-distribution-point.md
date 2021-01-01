@@ -12,9 +12,9 @@ tags:
   - SCCM Reports
 ---
 Today I had to create a report in ConfigMgr to list total number of packages that have been assigned to each Distribution Point. The SQL query is rather simple, a one-liner. Here’s the query:
-[sourcecode language="SQL"]
+```sql
 select ServerNALPath, COUNT (PackageID) As PackageCount from v_DistributionPoint group by ServerNALPath order by PackageCount
-[/sourcecode]
+```
 This query works on both ConfigMgr 2007 and 2012.
 
 <strong>ConfigMgr 2007 Report:</strong>

@@ -99,7 +99,7 @@ Write-Error "Unable to create monitor `"$Monitorname`"."
 I have hardcoded the following parameters in the runbook:
 <ul>
 	<li>SMA OpsMgr connection object name (which you will need to change to suit your environment)</li>
-	<li>(Unsealed) MP (where the rule  is going to be saved to) – “TYANG.Test.Windows.Monitoring”</li>
+	<li>(Unsealed) MP (where the rule  is going to be saved to) – "TYANG.Test.Windows.Monitoring"</li>
 </ul>
 Additionally, this runbook will firstly try to retrieve the management pack from the management group, if the MP deosn’t exist, it will create it first.
 

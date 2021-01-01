@@ -20,9 +20,9 @@ I just found out there might be a potential issue when using this technique to r
 
 By default, the maximum amount of memory a PowerShell remote session can use is limited to 150MB. You can check this setting on your computer by using
 
-[sourcecode language="Powershell"]
+```powershell
 winrm get winrm/config
-[/sourcecode]
+```
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/06/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/06/image_thumb.png" alt="image" width="409" height="795" border="0" /></a>
 
@@ -32,14 +32,14 @@ For example, compare these 2 scripts:
 
 <strong>Sample #1:</strong>
 
-[sourcecode language="Powershell"]
+```powershell
 $me = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
 
-$RunAsCred = get-Credential &quot;&quot;
+$RunAsCred = get-Credential ""
 
-$RMS = &quot;&quot;
+$RMS = ""
 
-$AlertID = &quot;8a5e738c-53d5-4a04-91af-cb8bc2d2e5d3&quot;
+$AlertID = "8a5e738c-53d5-4a04-91af-cb8bc2d2e5d3"
 
 $NewSession = new-pssession -ComputerName $env:COMPUTERNAME -Authentication Credssp -Credential (Get-Credential $me)
 
@@ -51,7 +51,7 @@ Add-PSSnapin Microsoft.EnterpriseManagement.OperationsManager.Client
 
 New-PSDrive -Name:Monitoring -PSProvider:OperationsManagerMonitoring -Root:\
 
-Set-Location &quot;OperationsManagerMonitoring::&quot;
+Set-Location "OperationsManagerMonitoring::"
 
 new-managementGroupConnection -ConnectionString:$RMS -credential $RunAsCred | Out-Null
 
@@ -66,18 +66,18 @@ $Alert
 Remove-PSSession $NewSession
 
 $alert
-[/sourcecode]
+```
 
 <strong>Sample #2:</strong>
 
-[sourcecode language="Powershell"]
+```powershell
 $me = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
 
-$RunAsCred = get-Credential &quot;&quot;
+$RunAsCred = get-Credential ""
 
-$RMS =  &quot;&quot;
+$RMS =  ""
 
-$AlertID = &quot;8a5e738c-53d5-4a04-91af-cb8bc2d2e5d3&quot;
+$AlertID = "8a5e738c-53d5-4a04-91af-cb8bc2d2e5d3"
 
 $NewSession = new-pssession -ComputerName $env:COMPUTERNAME -Authentication Credssp -Credential (Get-Credential $me)
 
@@ -89,7 +89,7 @@ Add-PSSnapin Microsoft.EnterpriseManagement.OperationsManager.Client
 
 New-PSDrive -Name:Monitoring -PSProvider:OperationsManagerMonitoring -Root:\
 
-Set-Location &quot;OperationsManagerMonitoring::&quot;
+Set-Location "OperationsManagerMonitoring::"
 
 new-managementGroupConnection -ConnectionString:$RMS -credential $RunAsCred | Out-Null
 
@@ -104,7 +104,7 @@ $Alert
 Remove-PSSession $NewSession
 
 $alert
-[/sourcecode]
+```
 
 The difference between these 2 scripts is, when using Get-Alert cmdlet,  #1 uses client side filtering and #2 uses server side filtering:
 
@@ -136,14 +136,14 @@ So now we know that we should use server side filtering because it is more effic
 
 Below script is very similar to script #1, I’ve changed a little bit to retrieve information of a particular SCOM agent:
 
-[sourcecode language="Powershell"]
+```powershell
 $me = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
 
-$RunAsCred = get-Credential &quot;&quot;
+$RunAsCred = get-Credential ""
 
-$RMS = &quot;&quot;
+$RMS = ""
 
-$AgentName = &quot;&quot;
+$AgentName = ""
 
 $NewSession = new-pssession -ComputerName $env:COMPUTERNAME -Authentication Credssp -Credential (Get-Credential $me)
 
@@ -155,7 +155,7 @@ Add-PSSnapin Microsoft.EnterpriseManagement.OperationsManager.Client
 
 New-PSDrive -Name:Monitoring -PSProvider:OperationsManagerMonitoring -Root:\
 
-Set-Location &quot;OperationsManagerMonitoring::&quot;
+Set-Location "OperationsManagerMonitoring::"
 
 new-managementGroupConnection -ConnectionString:$RMS -credential $RunAsCred | Out-Null
 
@@ -170,7 +170,7 @@ $Agent
 Remove-PSSession $NewSession
 
 $agent
-[/sourcecode]
+```
 
 The management group I have connected to has around 5000 agents at the moment, so it’s a reasonable size. Below is what happened:
 
@@ -186,9 +186,9 @@ PowerShell threw an exception:
 
 To make the script run, I had to increase the maximum allowed memory for PowerShell Remote session. In this case, I increased from 150MB to 512MB. I used this command to increase it:
 
-[sourcecode language="Powershell"]
-winrm set winrm/config/winrs `@`{MaxMemoryPerShellMB=`&quot;512`&quot;`}
-[/sourcecode]
+```powershell
+winrm set winrm/config/winrs `@`{MaxMemoryPerShellMB=`"512`"`}
+```
 
 After the increase, my get-agent script ran successfully:
 
@@ -196,4 +196,4 @@ After the increase, my get-agent script ran successfully:
 
 <strong>Conclusion:</strong>
 
-When writing a script, we normally test it against a development or test environment. generally speaking, these environments are much much small than production environments. scripts may run perfectly in dev / test environments but because of the size of environments, we may run into situations like this. Depending on the size of the production environments, we will have to adjust the <strong>“MaxMemoryPerShellMB”</strong> setting for PowerShell remote sessions accordingly.
+When writing a script, we normally test it against a development or test environment. generally speaking, these environments are much much small than production environments. scripts may run perfectly in dev / test environments but because of the size of environments, we may run into situations like this. Depending on the size of the production environments, we will have to adjust the <strong>"MaxMemoryPerShellMB"</strong> setting for PowerShell remote sessions accordingly.

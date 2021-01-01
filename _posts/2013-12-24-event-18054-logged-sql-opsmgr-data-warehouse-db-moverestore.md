@@ -32,7 +32,7 @@ Basically, Marnix managed to find the SQL script from the installation media to 
 
 After only few minutes, I managed to find the section of the SQL script to create these SQL messages for the Data Warehouse DB from the OpsMgr 2012 R2 install media as well.
 
-the SQL script is located at: <strong>“&lt;Install media&gt;\setup\AMD64\Datawarehouse.Initial.Setup.sql</strong>”
+the SQL script is located at: <strong>"&lt;Install media&gt;\setup\AMD64\Datawarehouse.Initial.Setup.sql</strong>"
 
 the section I need to run is at the very end of this long SQL script (starting from line 17931 to the end of the script, which is line 18055)
 

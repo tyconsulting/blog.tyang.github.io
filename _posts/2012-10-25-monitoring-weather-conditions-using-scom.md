@@ -33,7 +33,7 @@ Now, I finally completed the first release of the management pack. And I’m goi
 
 <strong>Introduction</strong>
 
-The “TYANG Weather Monitoring” management pack provides ability to monitor weather conditions and collect real time weather information for configured cities and locations. It utilise Windows PowerShell v2.0 to retrieve weather information from <a href="http://www.webservicex.net">http://www.webservicex.net</a>
+The "TYANG Weather Monitoring" management pack provides ability to monitor weather conditions and collect real time weather information for configured cities and locations. It utilise Windows PowerShell v2.0 to retrieve weather information from <a href="http://www.webservicex.net">http://www.webservicex.net</a>
 
 This management pack provides:
 <ul>
@@ -93,7 +93,7 @@ New York City’s Wind Speed (in m/h) over the last 24 hours:
 
 One event collection rule to collect weather summary for each location as event data.
 
-The data is viewable via the built-in “Weahter Summary (Last 7 Days)” event view or via reports:
+The data is viewable via the built-in "Weahter Summary (Last 7 Days)" event view or via reports:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/10/image27.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb27.png" width="528" height="395" border="0" /></a>
 
@@ -103,7 +103,7 @@ One alert generating rule was created to run once a day and it detects a desired
 <ul>
 	<li>TYANG Weather WebServiceX Probe Good Weather Condition Detection Rule</li>
 </ul>
-i.e. The “Good Weather” alert generated for Brisbane, Australia:
+i.e. The "Good Weather" alert generated for Brisbane, Australia:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/10/image28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb28.png" width="580" height="266" border="0" /></a>
 
@@ -167,7 +167,7 @@ State View for all Probe Locations:
 
 <strong>Agent Task:</strong>
 
-An agent task called “<strong>Check Current Weather</strong>” is configured for <strong>WebServiceX Weather Probe Location</strong> class. You may run this manually to get the latest weather summary for a particular probe location:
+An agent task called "<strong>Check Current Weather</strong>" is configured for <strong>WebServiceX Weather Probe Location</strong> class. You may run this manually to get the latest weather summary for a particular probe location:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/10/image37.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb37.png" width="480" height="559" border="0" /></a>
 
@@ -183,9 +183,9 @@ The data source runs twice every 30 minutes (one for each country):
 
 Therefore, if you wish to change the schedule (i.e. configure SyncTime or increase/decrease how frequent a workflow runs), I recommend you to change the schedule for ALL the rules and monitors to fully utilise cook down.
 
-This shared data source module is called “TYANG Weather WebServiceX Probe Details by City and Country Data Source”, it has been made public and you can use this in other MPs.
+This shared data source module is called "TYANG Weather WebServiceX Probe Details by City and Country Data Source", it has been made public and you can use this in other MPs.
 
-<strong><span style="color: #ff0000;">Note:</span> </strong>Even though the “WeatherStation” input parameter for this data source is different for each probe location, this data source contains another data source member module which retrieves weather information for ALL configured weather locations of this country. The “WeatherStation” input parameter is used in a condition detection member module inside the data source to filter the data for this specific probe location.
+<strong><span style="color: #ff0000;">Note:</span> </strong>Even though the "WeatherStation" input parameter for this data source is different for each probe location, this data source contains another data source member module which retrieves weather information for ALL configured weather locations of this country. The "WeatherStation" input parameter is used in a condition detection member module inside the data source to filter the data for this specific probe location.
 
 <strong>Known Issues</strong>
 <ul>

@@ -23,20 +23,20 @@ It wasn’t too hard to figure out how to do this for OpsMgr MPs, all I had to d
 2. Add the below XML code into a MP fragment file (IDs and file names needs to be updated accordingly):
 [sourcecode language="XML"]
   &lt;Categories&gt;
-    &lt;Category ID=&quot;ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Diagram.Icon.Category&quot; Target=&quot;ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Diagram.Icon&quot; Value=&quot;System!System.Internal.ManagementPack.Images.DiagramIcon&quot; /&gt;
-    &lt;Category ID=&quot;ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Small.Icon.Category&quot; Target=&quot;ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Small.Icon&quot; Value=&quot;System!System.Internal.ManagementPack.Images.u16x16Icon&quot; /&gt;
+    &lt;Category ID="ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Diagram.Icon.Category" Target="ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Diagram.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" /&gt;
+    &lt;Category ID="ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Small.Icon.Category" Target="ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Small.Icon" Value="System!System.Internal.ManagementPack.Images.u16x16Icon" /&gt;
   &lt;/Categories&gt;
   &lt;Presentation&gt;
     &lt;ImageReferences&gt;
-      &lt;ImageReference ElementID=&quot;ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application&quot; ImageID=&quot;ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Diagram.Icon&quot;/&gt;
-      &lt;ImageReference ElementID=&quot;ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application&quot; ImageID=&quot;ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Small.Icon&quot;/&gt;
+      &lt;ImageReference ElementID="ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application" ImageID="ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Diagram.Icon"/&gt;
+      &lt;ImageReference ElementID="ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application" ImageID="ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Small.Icon"/&gt;
     &lt;/ImageReferences&gt;
   &lt;/Presentation&gt;
   &lt;Resources&gt;
-    &lt;Image ID=&quot;ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Diagram.Icon&quot; FileName=&quot;CMClientx80.png&quot; Accessibility=&quot;Public&quot; HasNullStream=&quot;false&quot; Comment=&quot;ConfigMgr 2012 Client Icon Diagram&quot; /&gt;
-    &lt;Image ID=&quot;ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Small.Icon&quot; FileName=&quot;CMClientx16.png&quot; Accessibility=&quot;Public&quot; HasNullStream=&quot;false&quot; Comment=&quot;ConfigMgr 2012 Client Icon Small&quot; /&gt;
+    &lt;Image ID="ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Diagram.Icon" FileName="CMClientx80.png" Accessibility="Public" HasNullStream="false" Comment="ConfigMgr 2012 Client Icon Diagram" /&gt;
+    &lt;Image ID="ConfigMgr.2012.Client.Library.ConfigMgr.2012.Client.Application.Small.Icon" FileName="CMClientx16.png" Accessibility="Public" HasNullStream="false" Comment="ConfigMgr 2012 Client Icon Small" /&gt;
   &lt;/Resources&gt;
-[/sourcecode]
+```
 <a href="http://blog.tyang.org/wp-content/uploads/2013/09/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/09/image_thumb1.png" width="580" height="143" border="0" /></a>
 
 So the difference between the OpsMgr MP and the Service Manager MP is that in OpsMgr MP, there’s an additional section &lt;Categories&gt; that defines the linkages between image references and the image resources.

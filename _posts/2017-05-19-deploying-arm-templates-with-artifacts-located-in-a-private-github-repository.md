@@ -26,7 +26,7 @@ Azure Automation runbook:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-2.png" alt="image" width="458" height="99" border="0" /></a>
 
-As you can see from the examples above, the template is referencing these artifacts as the raw file content in github (located in https://raw.githubusercontent.com). This method works well when your templates and artifacts are stored in a public GitHub repository, but it won’t work when they are stored in a private repository. For example, if I click on the “Raw” button for a file stored in a private repo like shown below:
+As you can see from the examples above, the template is referencing these artifacts as the raw file content in github (located in https://raw.githubusercontent.com). This method works well when your templates and artifacts are stored in a public GitHub repository, but it won’t work when they are stored in a private repository. For example, if I click on the "Raw" button for a file stored in a private repo like shown below:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-3.png" alt="image" width="341" height="194" border="0" /></a>
 
@@ -34,9 +34,9 @@ you will see a token was added to the raw file content URI:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-4.png" alt="image" width="660" height="242" border="0" /></a>
 
-This token was generated for your current session once you’ve logged in to GitHub. Although as most of you guys already know that you can generate Personal Access token in GitHub, you can not replace this token in the URL with the Personal Access Token you have generated. The personal access token must be added as part of the authorization header in the HTTP request, and you also need to add another header <em>“Accept”: “application/vnd.github.VERSION.raw”</em>. Obviously we cannot add HTTP headers in ARM templates, therefore we cannot reference artifacts located in a private GitHub repositories out of the box. Someone has already started a thread in the MSDN forum: <a title="https://social.msdn.microsoft.com/Forums/sqlserver/en-US/54876f00-4bf4-4d84-81af-e7a1128ac6f7/linking-arm-templates-in-private-github-repo?forum=windowsazurewebsitespreview" href="https://social.msdn.microsoft.com/Forums/sqlserver/en-US/54876f00-4bf4-4d84-81af-e7a1128ac6f7/linking-arm-templates-in-private-github-repo?forum=windowsazurewebsitespreview">https://social.msdn.microsoft.com/Forums/sqlserver/en-US/54876f00-4bf4-4d84-81af-e7a1128ac6f7/linking-arm-templates-in-private-github-repo?forum=windowsazurewebsitespreview</a>. the workaround they came up with was building a HTTP proxy server and add the required headers in the proxy server. This to me seems awfully complicated and it also brings limitations that you can only deploy the templates in the network that you can access such a proxy server.
+This token was generated for your current session once you’ve logged in to GitHub. Although as most of you guys already know that you can generate Personal Access token in GitHub, you can not replace this token in the URL with the Personal Access Token you have generated. The personal access token must be added as part of the authorization header in the HTTP request, and you also need to add another header <em>"Accept": "application/vnd.github.VERSION.raw"</em>. Obviously we cannot add HTTP headers in ARM templates, therefore we cannot reference artifacts located in a private GitHub repositories out of the box. Someone has already started a thread in the MSDN forum: <a title="https://social.msdn.microsoft.com/Forums/sqlserver/en-US/54876f00-4bf4-4d84-81af-e7a1128ac6f7/linking-arm-templates-in-private-github-repo?forum=windowsazurewebsitespreview" href="https://social.msdn.microsoft.com/Forums/sqlserver/en-US/54876f00-4bf4-4d84-81af-e7a1128ac6f7/linking-arm-templates-in-private-github-repo?forum=windowsazurewebsitespreview">https://social.msdn.microsoft.com/Forums/sqlserver/en-US/54876f00-4bf4-4d84-81af-e7a1128ac6f7/linking-arm-templates-in-private-github-repo?forum=windowsazurewebsitespreview</a>. the workaround they came up with was building a HTTP proxy server and add the required headers in the proxy server. This to me seems awfully complicated and it also brings limitations that you can only deploy the templates in the network that you can access such a proxy server.
 <h4>Solution</h4>
-I spent most of my day yesterday trying to figure out if there is a way to deploy artifacts located in a private GitHub repository and I couldn’t find a way to use the Personal Access Token as a parameter in the HTTP GET request. As I accepted the fact that I wouldn’t be able to do it and started removing all nested templates in my project, I had a light bulb moment when I was driving to the supermarket yesterday afternoon, and the idea I came up with is super simple:  since I cannot pass the personal access token in the URL, I can just write a very simple “proxy” Azure Function app that accept the GitHub personal access token from the URL parameter, then construct the HTTP header, make the request to GitHub, and return the HTTP response it received from GitHub. Once this function is written, we can use the URI to the function as the artifact location instead of the GitHub URI.
+I spent most of my day yesterday trying to figure out if there is a way to deploy artifacts located in a private GitHub repository and I couldn’t find a way to use the Personal Access Token as a parameter in the HTTP GET request. As I accepted the fact that I wouldn’t be able to do it and started removing all nested templates in my project, I had a light bulb moment when I was driving to the supermarket yesterday afternoon, and the idea I came up with is super simple:  since I cannot pass the personal access token in the URL, I can just write a very simple "proxy" Azure Function app that accept the GitHub personal access token from the URL parameter, then construct the HTTP header, make the request to GitHub, and return the HTTP response it received from GitHub. Once this function is written, we can use the URI to the function as the artifact location instead of the GitHub URI.
 <h5>GitHubPrivateRepoFileFetcher Azure Function</h5>
 I’ve written something similar before, so this HTTP Trigger C# Azure function app literally took me 10 minutes to write. I named this function GitHubPrivateRepoFileFetcher:
 
@@ -53,11 +53,11 @@ Since the function does not contain any sensitive information, and I’d like to
 
 To call this function, you need to construct the URL as the following:
 
-<strong>https://<span style="background-color: #ffff00;">&lt;Function App Name&gt;</span>.azurewebsites.net/api/GitHubPrivateRepoFileFecher?githuburi=https://raw.githubusercontent.com/<span style="background-color: #ffff00;">&lt;GitHub User Name&gt;</span>/<span style="background-color: #ffff00;">&lt;Repository&gt;</span>/<span style="background-color: #ffff00;">&lt;branch&gt;</span>/<span style="background-color: #ffff00;">&lt;path to the file&gt;</span>&amp;githubaccesstoken=<span style="background-color: #ffff00;">&lt;GitHub Person Access Token&gt;</span></strong>
+<strong>https://<span style="background-color: #ffff00;">&lt;Function App Name&gt;</span>.azurewebsites.net/api/GitHubPrivateRepoFileFecher?githuburi=https://raw.githubusercontent.com/<span style="background-color: #ffff00;">&lt;GitHub User Name&gt;</span>/<span style="background-color: #ffff00;">&lt;Repository&gt;</span>/<span style="background-color: #ffff00;">&lt;branch&gt;</span>/<span style="background-color: #ffff00;">&lt;path to the file&gt;</span>&githubaccesstoken=<span style="background-color: #ffff00;">&lt;GitHub Person Access Token&gt;</span></strong>
 
 i.e.
 
-<em>https://myfunctionapp.azurewebsites.net/api/GitHubPrivateRepoFileFecher?githuburi=https://raw.githubusercontent.com/tyconsulting/TestPrivateRepo/master/DemoNestedTemplates/azuredeploy.json&amp;githubaccesstoken=e82dc3df60b92147c81a9924042da8d7f0bc78c8</em>
+<em>https://myfunctionapp.azurewebsites.net/api/GitHubPrivateRepoFileFecher?githuburi=https://raw.githubusercontent.com/tyconsulting/TestPrivateRepo/master/DemoNestedTemplates/azuredeploy.json&githubaccesstoken=e82dc3df60b92147c81a9924042da8d7f0bc78c8</em>
 <h5>GitHub Personal Access Token</h5>
 Before start using the GitHubPrivateRepoFileFetcher function, you will firstly need to generate a GitHub personal access token if you don’t already have one. The token must have access to repo as shown below:
 
@@ -85,8 +85,8 @@ In the ARM templates, define the following parameters (and define the default va
 define the linked template URL in the variables section:
 <pre language="JSON">  "variables": {
     "nestedTemplates": {
-      "SQL": "[concat(parameters('GitHubFetcherWebServiceURI'), '?githuburi=', parameters('_GitHubLocation'), '/nestedtemplates/SQL.json', '&amp;githubaccesstoken=', parameters('_GitHubAccessToken'))]",
-      "AzureAutomation": "[concat(parameters('GitHubFetcherWebServiceURI'), '?githuburi=', parameters('_GitHubLocation'), '/nestedtemplates/AzureAutomation.json', '&amp;githubaccesstoken=', parameters('_GitHubAccessToken'))]"
+      "SQL": "[concat(parameters('GitHubFetcherWebServiceURI'), '?githuburi=', parameters('_GitHubLocation'), '/nestedtemplates/SQL.json', '&githubaccesstoken=', parameters('_GitHubAccessToken'))]",
+      "AzureAutomation": "[concat(parameters('GitHubFetcherWebServiceURI'), '?githuburi=', parameters('_GitHubLocation'), '/nestedtemplates/AzureAutomation.json', '&githubaccesstoken=', parameters('_GitHubAccessToken'))]"
     },
 },
 </pre>
@@ -98,7 +98,7 @@ For the Azure Automation runbook that I am planning to deploy, define the URI to
         "description": "Hello World Runbook",
         "type": "PowerShell",
         "Id": "",
-        "scriptUri": "[concat(parameters('GitHubFetcherWebServiceURI'), '?githuburi=', parameters('_GitHubLocation'), '/runbooks/helloworld.ps1', '&amp;githubaccesstoken=', parameters('_GitHubAccessToken'))]"
+        "scriptUri": "[concat(parameters('GitHubFetcherWebServiceURI'), '?githuburi=', parameters('_GitHubLocation'), '/runbooks/helloworld.ps1', '&githubaccesstoken=', parameters('_GitHubAccessToken'))]"
       }
 }
 </pre>
@@ -129,14 +129,14 @@ For the Azure Automation runbook resource, use the variable defined above in the
 ],
 </pre>
 <h5><strong>GitHub README.md</strong></h5>
-Most of the ARM template repositories contains the “Deploy to Azure” and “Visualize” buttons as shown below:
+Most of the ARM template repositories contains the "Deploy to Azure" and "Visualize" buttons as shown below:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-7.png" alt="image" width="329" height="164" border="0" /></a>
 
-To add the “Deploy to Azure” button to your README.md markdown file, you will need to add the following code to the markdown (modify the URL to suit your environment):
+To add the "Deploy to Azure" button to your README.md markdown file, you will need to add the following code to the markdown (modify the URL to suit your environment):
 <pre class="">[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmyfunctionapp.azurewebsites.net%2Fapi%2FGitHubPrivateRepoFileFetcher%3Fgithuburi%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Ftyconsulting%2FTestPrivateRepo%2Fmaster%2FDemoNestedTemplates%2Fazuredeploy.json%26githubaccesstoken%3De82dc3df60b92147c81a9924042da8d7f0bc78c8)
 </pre>
-For the “Visualize” button, add the following code in the markdown:
+For the "Visualize" button, add the following code in the markdown:
 
 <pre>
 <a href="http://armviz.io/#/?load=https%3A%2F%2Fmyfunctionapp.azurewebsites.net%2Fapi%2FGitHubPrivateRepoFileFetcher%3Fgithuburi%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Ftyconsulting%2FTestPrivateRepo%2Fmaster%2FDemoNestedTemplates%2Fazuredeploy.json%26githubaccesstoken%3De82dc3df60b92147c81a9924042da8d7f0bc78c8" target="_blank">
@@ -145,7 +145,7 @@ For the “Visualize” button, add the following code in the markdown:
 
 Basically, add the Azure Function URL with required parameters as the parameter to the azure custom deployment and armviz.io URIs. you will need to encode the function URI. you can use an an online encoder utility such as <a title="http://www.url-encode-decode.com/" href="http://www.url-encode-decode.com/">http://www.url-encode-decode.com/</a> to encode the original Azure Function URI.
 
-When you click the “Deploy to Azure” button, you will be redirected to the Azure portal:
+When you click the "Deploy to Azure" button, you will be redirected to the Azure portal:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-8.png" alt="image" width="306" height="518" border="0" /></a>
 
@@ -153,6 +153,6 @@ When the deployment is completed, the resources defined in the ARM templates are
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-9.png" alt="image" width="407" height="202" border="0" /></a>
 <h5>Conclusion</h5>
-By using the “proxy” Azure Function <em>GitHubPrivateRepoFileFetcher</em>, you can easily retrieve the content of a file in private GitHub repo without having to use custom headers in HTTP request. This “proxy” Azure Function is generic that you can use for any Azure subscriptions and any GitHub private repositories. If you regularly use GitHub private repositories for ARM templates, I strongly recommend you to create such a Azure function to assist you with your deployments.
+By using the "proxy" Azure Function <em>GitHubPrivateRepoFileFetcher</em>, you can easily retrieve the content of a file in private GitHub repo without having to use custom headers in HTTP request. This "proxy" Azure Function is generic that you can use for any Azure subscriptions and any GitHub private repositories. If you regularly use GitHub private repositories for ARM templates, I strongly recommend you to create such a Azure function to assist you with your deployments.
 
 If you have any questions or recommendations, please feel free to contact me.

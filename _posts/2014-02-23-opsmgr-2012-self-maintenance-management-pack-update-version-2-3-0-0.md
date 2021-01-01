@@ -19,7 +19,7 @@ What’s new?
 
 <strong>Updated the Close Aged Rule Generated Alerts Rule</strong>
 
-Awhile back, someone suggested me to add a comment to the alert when it’s being closed by this rule. I think it’s a good idea, so I’ve updated this rule. now any alerts closed by this rule will have a comment “Closed by OpsMgr 2012 Self Maintenance Management Pack”:
+Awhile back, someone suggested me to add a comment to the alert when it’s being closed by this rule. I think it’s a good idea, so I’ve updated this rule. now any alerts closed by this rule will have a comment "Closed by OpsMgr 2012 Self Maintenance Management Pack":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/02/image5.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb5.png" width="565" height="299" border="0" /></a>
 
@@ -29,7 +29,7 @@ This new task is targeting the agent class, it displays the management groups th
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/02/image6.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb6.png" width="397" height="483" border="0" /></a>
 
-<strong><span style="color: #ff0000;">Note:</span></strong> Since there is already a state view for agents built-in in OpsMgr 2012, I did not bother to create such a view in this management pack. You can find the “Agents By Version” state view under Operations Manager\Agent Details:
+<strong><span style="color: #ff0000;">Note:</span></strong> Since there is already a state view for agents built-in in OpsMgr 2012, I did not bother to create such a view in this management pack. You can find the "Agents By Version" state view under Operations Manager\Agent Details:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/02/image7.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb7.png" width="580" height="376" border="0" /></a>
 
@@ -41,7 +41,7 @@ By default in OpsMgr, there are 3 possible options for manually installed agents
 	<li>Automatically Approve all</li>
 	<li>Manually Approve by OpsMgr administrators</li>
 </ul>
-The “OpsMgr 2012 Self Maintenance Approve Manual Agents Rule” runs on a schedule and approve manually installed agents of which computer name and domain name match the configurable computer name and domain name regular expression. This rule presents 2 benefits:
+The "OpsMgr 2012 Self Maintenance Approve Manual Agents Rule" runs on a schedule and approve manually installed agents of which computer name and domain name match the configurable computer name and domain name regular expression. This rule presents 2 benefits:
 
 1. Allow OpsMgr to automatically approve agents based on preconfigured naming convention. It eliminates the needs for administrators to manually approve agents.
 
@@ -66,7 +66,7 @@ The list of approved agents is shown in Alert Context:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/02/image9.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb9.png" width="580" height="258" border="0" /></a>
 
-As shown in above alert, in my lab, I have configured the rule to approve any agents that have “CLIENT” as part of the computer name and the the domain name is exactly “corp.tyang.org”. It found 2 agents pending approval, since MaxToApprove value is set to 2, both agents are approved.
+As shown in above alert, in my lab, I have configured the rule to approve any agents that have "CLIENT" as part of the computer name and the the domain name is exactly "corp.tyang.org". It found 2 agents pending approval, since MaxToApprove value is set to 2, both agents are approved.
 
 <strong><span style="color: #ff0000;">Note:</span></strong> the rule uses case insensitive match (PowerShell –imatch operator). If you need help with building your regular expression, this article is a good starting point:
 
@@ -80,11 +80,11 @@ I would also use this rule in conjunction with the auto balancing management ser
 
 <strong>New Monitor: Detect if each individual management server is in maintenance mode</strong>
 
-This new monitor is called <strong>“OpsMgr 2012 Self Maintenance Local Management Server in Maintenance Mode Monitor”</strong>. Previously, I wrote another monitor in this MP called “OpsMgr 2012 Self Maintenance Management Servers in Maintenance Mode Monitor”.
+This new monitor is called <strong>"OpsMgr 2012 Self Maintenance Local Management Server in Maintenance Mode Monitor"</strong>. Previously, I wrote another monitor in this MP called "OpsMgr 2012 Self Maintenance Management Servers in Maintenance Mode Monitor".
 
-Writing a workflow to detecting if someone is in maintenance mode could be tricky in OpsMgr. because if you are in maintenance mode, you would unload all workflows and therefore it would not run the maintenance mode detection workflow. This is why when I wrote the original monitor, I targeted the monitor to run on “All Management Servers Resource Pool”. However, it has a limitation that it will only generate alerts when more than 50% of members of “All Management Servers Resource Pool” is healthy and not in maintenance mode.
+Writing a workflow to detecting if someone is in maintenance mode could be tricky in OpsMgr. because if you are in maintenance mode, you would unload all workflows and therefore it would not run the maintenance mode detection workflow. This is why when I wrote the original monitor, I targeted the monitor to run on "All Management Servers Resource Pool". However, it has a limitation that it will only generate alerts when more than 50% of members of "All Management Servers Resource Pool" is healthy and not in maintenance mode.
 
-With the new monitor, I was inspirited by Kevin Holman’s recent blog article <a href="http://blogs.technet.com/b/kevinholman/archive/2014/01/19/how-to-create-workflows-that-wont-go-into-maintenance-mode.aspx">How to create workflows that wont go into Maintenance Mode</a> (Thanks Kevin!). As Kevin explained in his blog article, in order to make this monitor to run on each individual management server and continues to run even when its Windows Computer object has been placed into maintenance mode, I have created an unhosted class called “OpsMgr 2012 Self Maintenance Management Server Maintenance Mode Watcher”. This object is discovered on each management server and it is not hosted by the Windows Computer. By doing so, this monitor will continue to run even when the management server’s Windows Computer object has been placed into maintenance mode.
+With the new monitor, I was inspirited by Kevin Holman’s recent blog article <a href="http://blogs.technet.com/b/kevinholman/archive/2014/01/19/how-to-create-workflows-that-wont-go-into-maintenance-mode.aspx">How to create workflows that wont go into Maintenance Mode</a> (Thanks Kevin!). As Kevin explained in his blog article, in order to make this monitor to run on each individual management server and continues to run even when its Windows Computer object has been placed into maintenance mode, I have created an unhosted class called "OpsMgr 2012 Self Maintenance Management Server Maintenance Mode Watcher". This object is discovered on each management server and it is not hosted by the Windows Computer. By doing so, this monitor will continue to run even when the management server’s Windows Computer object has been placed into maintenance mode.
 
 A recovery task is also associated to this monitor (disabled by default). When enabled, it will automatically end the maintenance mode for the management server.
 
@@ -118,7 +118,7 @@ An alert was generated for each management server:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/02/image15.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb15.png" width="580" height="177" border="0" /></a>
 
-From the screenshot above, you can see that other alerts were generated for various resource pools heartbeat failures because all management servers are in maintenance mode. In this scenario, the old monitor that targets the “All Management Servers Resource Pool” would not work.
+From the screenshot above, you can see that other alerts were generated for various resource pools heartbeat failures because all management servers are in maintenance mode. In this scenario, the old monitor that targets the "All Management Servers Resource Pool" would not work.
 
 When I enabled the recovery task, the management server has been taken out of maintenance mode automatically:
 

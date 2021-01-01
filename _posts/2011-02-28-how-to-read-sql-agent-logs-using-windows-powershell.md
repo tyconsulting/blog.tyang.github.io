@@ -12,18 +12,13 @@ categories:
 tags:
   - SQL Agent Logs
 ---
-Prerequisite: SQL Management Studio needs to be installed
-<div id="_mcePaste">[sourcecode language="powershell"]
+Prerequisite: SQL Management Studio needs to be installed.
+
+```powershell
 [System.Reflection.Assembly]::LoadWithPartialName('Microsoft.SqlServer.Smo') | Out-Null
-
-$Sql = New-Object ('Microsoft.SqlServer.Management.Smo.Server'&lt;strong&gt;)”&lt;SQL Instance Name&gt;”&lt;/strong&gt;
-
+$Sql = New-Object ('Microsoft.SqlServer.Management.Smo.Server')"SQL_Instance_Name"
 $SQLAgent = $Sql.JobServer
-
 $SQLAgent.ReadErrorLog() | format-list *
+```
 
-[/sourcecode]
-<a href="http://blog.tyang.org/wp-content/uploads/2011/03/image4.png"><img class="alignleft size-full wp-image-396" title="image4" src="http://blog.tyang.org/wp-content/uploads/2011/03/image4.png" alt="" width="459" height="480" /></a></pre>
-&nbsp;
-
-</div>
+![1](../../../../wp-content/uploads/2011/03/image4.png)

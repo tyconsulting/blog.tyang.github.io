@@ -17,10 +17,10 @@ Previously, I have published a 3-part blog series on deploying Azure Policy Defi
 
 <ol>
     <li>Configuring Management Group hierarchy</li>
-    <li>Policy &amp; Initiative assignments</li>
+    <li>Policy & Initiative assignments</li>
 </ol>
 
-In this post, I’ll cover how I managed to implement the management group hierarchy using Azure DevOps. I will cover policy &amp; initiative assignment in a future blog post.
+In this post, I’ll cover how I managed to implement the management group hierarchy using Azure DevOps. I will cover policy & initiative assignment in a future blog post.
 
 <h3>Problem Statement</h3>
 
@@ -121,13 +121,13 @@ Then I learned that this offer Id is not exposed in any of the REST APIs (or at 
 
 <a href="https://blog.tyang.org/wp-content/uploads/2019/09/image-2.png"><img width="898" height="418" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2019/09/image_thumb-2.png" border="0"></a>
 
-For example, I have few Azure Sponsorship subs, the quota Id for those subs is “<em>Sponsored_2016-01-01</em>”, and my MSDN sub is “<em>MSDN_2014-09-01</em>”. An EA sub is “<em>EnterpriseAgreement_2014-09-01</em>”, and an Enterprise MSDN Dev/Test sub is “<em>MSDNDevTest_2014-09-01</em>”.
+For example, I have few Azure Sponsorship subs, the quota Id for those subs is "<em>Sponsored_2016-01-01</em>", and my MSDN sub is "<em>MSDN_2014-09-01</em>". An EA sub is "<em>EnterpriseAgreement_2014-09-01</em>", and an Enterprise MSDN Dev/Test sub is "<em>MSDNDevTest_2014-09-01</em>".
 
-Once you get the the subscription quota Id, you are able to build the regular expression for it. for example, a valid regex for enterprise sub can be “<strong><em>^EnterpriseAgreement_<em></em></strong>”, and for sponsorship sub: “<strong><em>^Sponsored_</em></em></strong>”.
+Once you get the the subscription quota Id, you are able to build the regular expression for it. for example, a valid regex for enterprise sub can be "<strong><em>^EnterpriseAgreement_<em></em></strong>", and for sponsorship sub: "<strong><em>^Sponsored_</em></em></strong>".
 
 <h4>Subscription placement rules</h4>
 
-if your “management” subscriptions are created as EA subs and have a naming convention of “sub-mgmt-xxxx” and you wish to place these subs into a management group called “mg-mgmt-root”, the rule can be something like:
+if your "management" subscriptions are created as EA subs and have a naming convention of "sub-mgmt-xxxx" and you wish to place these subs into a management group called "mg-mgmt-root", the rule can be something like:
 
 <pre language="JSON">{
     "subNameRegex": "^sub-mgmt-*",
@@ -136,7 +136,7 @@ if your “management” subscriptions are created as EA subs and have a naming 
 }
 </pre>
 
-Or if you want to place all users MSDN subscriptions into a management group called “mg-msdn”, the rule can be something like:
+Or if you want to place all users MSDN subscriptions into a management group called "mg-msdn", the rule can be something like:
 
 <pre language="JSON">{
     "subNameRegex": "*",
@@ -145,7 +145,7 @@ Or if you want to place all users MSDN subscriptions into a management group cal
 }
 </pre>
 
-In order to be placed into the defined management group, the subscription must match <strong>both</strong> the name regex and quota Id regex. The script uses case insensitive match for the regex. so it doesn’t matter if you define your regex as “^msdn_<em>” or “^MSDN_</em>”.
+In order to be placed into the defined management group, the subscription must match <strong>both</strong> the name regex and quota Id regex. The script uses case insensitive match for the regex. so it doesn’t matter if you define your regex as "^msdn_<em>" or "^MSDN_</em>".
 
 <h3>Building the Pipelines</h3>
 
@@ -183,7 +183,7 @@ It performs the following tasks:
 
 <ol>
     <li>installing required PowerShell modules from PowerShell Gallery (since I’m using Microsoft-hosted Azure DevOps agents here)</li>
-    <li>Validate the schema of all input files located in the “config-files” folder.</li>
+    <li>Validate the schema of all input files located in the "config-files" folder.</li>
     <li>Publish test results</li>
     <li>Publish pattern (copying artifacts to build staging directory for release pipelines)</li>
 </ol>
@@ -204,7 +204,7 @@ For each stage in the release pipeline, I run 2 Azure PowerShell tasks:
 
 <ol>
     <li>The first task executes configure-managementGroups.ps1 with the –whatif switch to perform a dry run against the input file provided for the stage. It ensures there are no errors with the given input file before continuing to the next step.</li>
-    <li>If the first task completes successful, the second task performs the “real-run” to configure the hierarchy and placing subscriptions in management groups.</li>
+    <li>If the first task completes successful, the second task performs the "real-run" to configure the hierarchy and placing subscriptions in management groups.</li>
 </ol>
 
 <strong>Step 1: What-if Dry run:</strong>
@@ -213,17 +213,17 @@ For each stage in the release pipeline, I run 2 Azure PowerShell tasks:
 
 <ul>
     <li>Task Version: 4.* – make sure you choose 4 (or later) so the task supports the Az PowerShell module (instead of AzureRM)</li>
-    <li>Script Path: path to the config-managementGroups.ps1 script, which is copied to the build staging folder by the build pipeline. use the “…” button to browse to the file.</li>
+    <li>Script Path: path to the config-managementGroups.ps1 script, which is copied to the build staging folder by the build pipeline. use the "…" button to browse to the file.</li>
     <li>Script Arguments: –inputFile &lt;path to the input file for the stage&gt; <font style="background-color: rgb(255, 255, 0);">–silent –whatif</font></li>
     <li>ErrorActionPreference: Stop. So if the dry run fails, the pipeline will not move the next step</li>
     <li>Azure PowerShell Version: Latest installed version</li>
 </ul>
 
-<strong>Step 2: The “Real run”</strong>
+<strong>Step 2: The "Real run"</strong>
 
 <a href="https://blog.tyang.org/wp-content/uploads/2019/09/image-9.png"><img width="976" height="560" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2019/09/image_thumb-9.png" border="0"></a>
 
-This is pretty much the same as the first step, except the “-whatif” argument has been removed from the script arguments.
+This is pretty much the same as the first step, except the "-whatif" argument has been removed from the script arguments.
 
 <strong>NOTE:</strong> When this step runs, the scripts will skip any existing management groups that are defined in the input file, and skip any subscriptions that are already placed in the correct management group. The script will <strong>DO NOTHING</strong> to any existing management groups that are not defined in the input file.
 

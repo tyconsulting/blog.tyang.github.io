@@ -13,7 +13,7 @@ tags:
   - OMS
   - Speaking Events
 ---
-Last Saturday, I presented the topic of “What’s New in OMS” at the Global Azure Boot Camp 2016 Melbourne event. I have recorded it using Camtasia and uploaded to <a href="https://www.youtube.com/watch?v=VUhrbj4C_JM">YouTube</a>. You can watch it here:
+Last Saturday, I presented the topic of "What’s New in OMS" at the Global Azure Boot Camp 2016 Melbourne event. I have recorded it using Camtasia and uploaded to <a href="https://www.youtube.com/watch?v=VUhrbj4C_JM">YouTube</a>. You can watch it here:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VUhrbj4C_JM" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 

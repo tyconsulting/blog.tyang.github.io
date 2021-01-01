@@ -17,6 +17,6 @@ tags:
 ---
 Next week, I will attend the Microsoft Ignite the Tour in Sydney and present a session on Azure Monitor and Azure Pipelines with fellow Azure MVP Alex Verkinderen.
 
-Our Session is called <a href="https://sydney.myignitetour.techcommunity.microsoft.com/sessions/92316?source=sessions" target="_blank" rel="noopener noreferrer">“Azure Monitor – Design and Implement a Monitoring Solution for Your Azure Environment using ARM Templates and CI/CD Pipelines”</a>. This is a deep dive level 400 session on implementing monitoring solutions using Azure Pipelines based on real-world experience.
+Our Session is called <a href="https://sydney.myignitetour.techcommunity.microsoft.com/sessions/92316?source=sessions" target="_blank" rel="noopener noreferrer">"Azure Monitor – Design and Implement a Monitoring Solution for Your Azure Environment using ARM Templates and CI/CD Pipelines"</a>. This is a deep dive level 400 session on implementing monitoring solutions using Azure Pipelines based on real-world experience.
 
 If you are planning to attend Microsoft Ignite the Tour next week in Sydney, I encourage you to attend our session.

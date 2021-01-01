@@ -18,7 +18,7 @@ To explain it, let me firstly go through how to do this in SCOM console and then
 
 So, to add a new network device using SCOM console, it’s pretty easy:
 
-1. Launch Discovery Wizard and choose “Network Devices”
+1. Launch Discovery Wizard and choose "Network Devices"
 
 2. Enter the network device information
 
@@ -40,38 +40,50 @@ It lists all possible proxy agents. There are 3 management servers in my test en
 
 1. Get Network Device monitoring class
 
-[sourcecode language="powershell"]$networkdeviceclass = get-monitoringclass -name 'System.NetworkDevice'[/sourcecode]
+```powershell
+$networkdeviceclass = get-monitoringclass -name 'System.NetworkDevice'
+```
 
 2. Create a new DeviceDiscoveryConfiguration object
 
-[sourcecode language="powershell"]$dc = new-devicediscoveryconfiguration -monitoringclass $networkdeviceclass –fromipaddress “192.168.1.253” -toipaddress “192.168.1.253”[/sourcecode]
+```powershell
+$dc = new-devicediscoveryconfiguration -monitoringclass $networkdeviceclass –fromipaddress "192.168.1.253" -toipaddress "192.168.1.253"
+```
 
 3. Define SNMP community string
 
-[sourcecode language="powershell"]$encoding = new-object System.Text.UnicodeEncoding
-
-$encodedCommunityString = $encoding.GetBytes(&quot;tyang&quot;)
-
-$dc.ReadOnlyCommunity = [System.Convert]::ToBase64String($encodedCommunityString)[/sourcecode]
+```powershell
+$encoding = new-object System.Text.UnicodeEncoding
+$encodedCommunityString = $encoding.GetBytes("tyang")
+$dc.ReadOnlyCommunity = [System.Convert]::ToBase64String($encodedCommunityString)
+```
 
 4. Default SNMP version is 2, if the network device requires version 1, set the device discovery configuration to use SNMP version 1:
 
-[sourcecode language="powershell"]$dc.snmpversion = 1[/sourcecode]
+```powershell
+$dc.snmpversion = 1
+```
 
 5. Define the management server to be used in the discovery
 
-[sourcecode language="powershell"]$NWDeviceMS = Get-ManagementServer | Where-object {$_.displayname –ieq “SCOM02.corp.tyang.org”}[/sourcecode]
+```powershell
+$NWDeviceMS = Get-ManagementServer | Where-object {$_.displayname –ieq "SCOM02.corp.tyang.org"}
+```
 
 6. Start discovery using the management server defined in step 5
 
-[sourcecode language="powershell"]$DiscoveryResult = Start-Discovery -managementserver $NWDeviceMS -DeviceDiscoveryConfiguration $dc[/sourcecode]
+```powershell
+$DiscoveryResult = Start-Discovery -managementserver $NWDeviceMS -DeviceDiscoveryConfiguration $dc
+```
 
 7. If discovery is successful, add the device into SCOM.
 
-[sourcecode language="powershell"]if ($discoveryresult.monitoringtaskresults[0].status -ieq &quot;succeeded&quot;)
+```powershell
+if ($discoveryresult.monitoringtaskresults[0].status -ieq "succeeded")
 {
 #code to add the device into SCOM
-}[/sourcecode]
+}
+```
 
 Well, here’s the issue:
 
@@ -91,16 +103,18 @@ And if I use the management server in Add-RemotelyManagedDevice cmdlet, it will 
 
 Basically, object type mismatch...
 
-So, if we want to use a management server as the proxy agent for network devices, we <strong>CANNOT</strong> use Add-RemotelyManagedDevice cmdlet. It is a limitation in SCOM PowerShell snap-in. Instead, There is a method in the management server object called “<span style="color: #ff0000;"><strong>InsertRemotelymanagedDevices</strong></span>”:
+So, if we want to use a management server as the proxy agent for network devices, we <strong>CANNOT</strong> use Add-RemotelyManagedDevice cmdlet. It is a limitation in SCOM PowerShell snap-in. Instead, There is a method in the management server object called "<span style="color: #ff0000;"><strong>InsertRemotelymanagedDevices</strong></span>":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2011/10/image7.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb7.png" alt="image" width="450" height="565" border="0" /></a>
 
 we have to use this method to add network devices.  Therefore, the script for step 7 should be:
 
-[sourcecode language="powershell"]if ($discoveryresult.monitoringtaskresults[0].status -ieq &quot;succeeded&quot;)
+```powershell
+if ($discoveryresult.monitoringtaskresults[0].status -ieq "succeeded")
 {
 $NWDeviceMS.InsertRemotelyManagedDevices($DiscoveryResult.custommonitoringobjects)
-}[/sourcecode]
+}
+```
 
 8. Check result:
 

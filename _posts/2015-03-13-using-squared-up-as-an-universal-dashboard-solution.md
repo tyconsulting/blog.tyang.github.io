@@ -94,7 +94,7 @@ isscalar: false
 <h3>Active Alerts Dashboard for a foreign OpsMgr MG</h3>
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb28.png" alt="image" width="695" height="364" border="0" /></a>
 
-Similar to the previous sample, there are 2 parts on the top displaying scalar values. In this case, I’ve chosen to display the active alerts count for critical and warning alerts. Followed by the 2 big scalar numbers, I added 2 lists for active critical &amp; warning alerts.
+Similar to the previous sample, there are 2 parts on the top displaying scalar values. In this case, I’ve chosen to display the active alerts count for critical and warning alerts. Followed by the 2 big scalar numbers, I added 2 lists for active critical & warning alerts.
 
 <strong>SQL connection strings:</strong>
 

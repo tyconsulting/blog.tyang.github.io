@@ -90,7 +90,7 @@ I’ll now go through the entire process of setting up the pipeline in VSTS.
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/09/image-11.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/09/image_thumb-11.png" alt="image" width="722" height="593" border="0" /></a>
 
-12. Save the build definition to “\” folder
+12. Save the build definition to "\" folder
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/09/image-12.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/09/image_thumb-12.png" alt="image" width="562" height="204" border="0" /></a>
 <h3>Create Release Definition</h3>
@@ -100,7 +100,7 @@ I’ll now go through the entire process of setting up the pipeline in VSTS.
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/09/image-14.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/09/image_thumb-14.png" alt="image" width="726" height="497" border="0" /></a>
 
-14. I named the environment “MyGetFeed_&lt;feedname&gt;”
+14. I named the environment "MyGetFeed_&lt;feedname&gt;"
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/09/image-15.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/09/image_thumb-15.png" alt="image" width="692" height="478" border="0" /></a>
 

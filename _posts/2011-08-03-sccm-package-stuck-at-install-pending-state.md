@@ -12,7 +12,7 @@ tags:
   - Package Distribution
   - SCCM
 ---
-Last week, someone power cycled one of our secondary site server (also a DP) via the remote management card without shutting down the OS first. At that time, a software update deployment package (total size of 13MB) was being pushed to this site. As result, this particular update package got stuck at “Install Pending” even few days after the reboot.
+Last week, someone power cycled one of our secondary site server (also a DP) via the remote management card without shutting down the OS first. At that time, a software update deployment package (total size of 13MB) was being pushed to this site. As result, this particular update package got stuck at "Install Pending" even few days after the reboot.
 
 I noticed below error was logged in <strong>distmgr.log</strong> every few minutes:
 
@@ -26,7 +26,7 @@ In the end, I have taken a more brutal method to fix the problem:
 
 1. remove the DP from the package and wait couple of hours
 
-2. make sure the package distribution is not at “Install Pending” state
+2. make sure the package distribution is not at "Install Pending" state
 
 3. manually deleted the following files from secondary site server:
 

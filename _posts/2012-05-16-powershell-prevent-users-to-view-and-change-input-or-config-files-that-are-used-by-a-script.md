@@ -29,16 +29,16 @@ To compile the powershell script, I can use one of these tools:
 </ul>
 Below is a sample Powershell script (Zip-Test.PS1) I have written to read a xml file inside a renamed zip file:
 
-[sourcecode language="PowerShell"]
+```powershell
 param ([string]$FilePath)
-$ziplib = Join-Path $FilePath &quot;ICSharpCode.SharpZipLib.dll&quot;
-[System.Reflection.Assembly]::LoadFrom(&quot;$ziplib&quot;) | Out-Null
-$ZipName = &quot;Health-Check.bin&quot;
-$XmlName = &quot;Health-Check.xml&quot;
+$ziplib = Join-Path $FilePath "ICSharpCode.SharpZipLib.dll"
+[System.Reflection.Assembly]::LoadFrom("$ziplib") | Out-Null
+$ZipName = "Health-Check.bin"
+$XmlName = "Health-Check.xml"
 $xmlPath = Join-Path $FilePath $XmlName
 $ZipPath = Join-Path $FilePath $ZipName
 $objZip = New-Object ICSharpCode.SharpZipLib.Zip.FastZip
-$objZip.Password = &quot;password&quot;
+$objZip.Password = "password"
 $objzip.ExtractZip($ZipPath, $FilePath, $XmlName)
 if ((Test-Path $xmlPath))
 {
@@ -46,7 +46,7 @@ $xml = (get-content $xmlPath)
 Remove-Item $xmlPath -Force
 }
 $xml.configuration
-[/sourcecode]
+```
 
 
 The script extracts and reads the health-check.xml file and deletes health-check.xml straightaway, it happens so fast, it won’t be possible for end users to access the file. Below is the output from above sample code (content of my XML file):
@@ -55,10 +55,10 @@ The script extracts and reads the health-check.xml file and deletes health-check
 
 One thing to keep in mind: in most of my scripts, I use
 
-[sourcecode language="PowerShell"]
+```powershell
 $thisScript = Split-Path $myInvocation.MyCommand.Path -Leaf
 $scriptRoot = Split-Path (Resolve-Path $myInvocation.MyCommand.Path)
-[/sourcecode]
+```
 
 
 To determine the script name and location. $MyInvocation does not work anymore after I converted the Powershell script to EXE. Therefore, from my above example, I’m actually passing the directory location into the script as a parameter.

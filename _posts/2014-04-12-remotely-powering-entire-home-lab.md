@@ -16,21 +16,21 @@ tags:
 
 All 4 machines in my lab have been constantly running 24x7, except when we go on holidays or there’s a power outage (which doesn’t happen very often). This is largely because I just can’t be bothered to spend time start and shutdown all the physicals and virtuals every time I use the lab, not to mention I often access my lab when I’m in the office via RDP using my Surface Pro 2 with an external monitor. Because all of the computers are PC grade hardware, there are no out-of-band management cards (i.e. iLo, DRAC, etc.) on these boxes, I had no way to remotely start them when I was in the office.
 
-In order to reduce the “carbon footprint”, and more importantly, my electricity bill, I have been wanting to automate the the start and shutdown process of the entire lab for a while. Last weekend, I finally got around to it, and accomplished it by using only Wake On LAN (WOL) and PowerShell (with PowerShell Web Access, WinRM and CredSSP).
+In order to reduce the "carbon footprint", and more importantly, my electricity bill, I have been wanting to automate the the start and shutdown process of the entire lab for a while. Last weekend, I finally got around to it, and accomplished it by using only Wake On LAN (WOL) and PowerShell (with PowerShell Web Access, WinRM and CredSSP).
 
-Because one of the PCs in my lab is my main desktop (running Windows 8.1 with Hyper-V role enabled), this PC is always running. my solution is to use this desktop (called “Study”) to interact with other physical computers in the lab. I’ll now go through the steps I took to archive this goal:
+Because one of the PCs in my lab is my main desktop (running Windows 8.1 with Hyper-V role enabled), this PC is always running. my solution is to use this desktop (called "Study") to interact with other physical computers in the lab. I’ll now go through the steps I took to archive this goal:
 
 <strong>1. confirm / configure Wake-On-LAN on all physical computers in the lab.</strong>
 
-I installed a freeware called <a href="http://aquilawol.sourceforge.net/">AquilaWOL</a> on my “Study” PC, made sure I can WOL all other computers.
+I installed a freeware called <a href="http://aquilawol.sourceforge.net/">AquilaWOL</a> on my "Study" PC, made sure I can WOL all other computers.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image10.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb10.png" width="398" height="364" border="0" /></a>
 
 During my testing, the HP Microserver and one of the Hyper-V box (HyperV01, the one with the Intel motherboard) had no problem at all. However, the other HyperV box HyperV02, would not WOL. after some research, it seemed like a known issue with the motherboard that only be able to WOL when the computer is at sleep, not when it’s powered off. Luckily other than the on-board Marvell NIC, I also have a dual port Intel GB NIC and a single port Intel desktop GB NIC on this computer. the dual port NIC also wouldn’t work. but the desktop NIC worked :)
 
-<strong>2. Installed a Windows Server 2012 R2 virtual machine on my “Study” PC.</strong>
+<strong>2. Installed a Windows Server 2012 R2 virtual machine on my "Study" PC.</strong>
 
-I named this VM “JUMP01” because I intend to use this as a jump box. I connected this VM to the virtual switch  which is on the same subnet as all physical computers – so I don’t rely on switch/routers to relay WOL packets. I also need my AD environment to be available when running the script, but because I have a domain controller already running as a VM on my Study PC, no additional VM’s are required.
+I named this VM "JUMP01" because I intend to use this as a jump box. I connected this VM to the virtual switch  which is on the same subnet as all physical computers – so I don’t rely on switch/routers to relay WOL packets. I also need my AD environment to be available when running the script, but because I have a domain controller already running as a VM on my Study PC, no additional VM’s are required.
 
 <strong>3. Installed and configured PowerShell Web Access on the Jump server.</strong>
 
@@ -79,7 +79,7 @@ Stop-Lab.ps1:
 
 <strong>5. Created a simple PowerShell module to execute the 2 steps I wrote.</strong>
 
-On the jump server, I created a powershell module called “LabAdmin”, which contains 2 functions that simply execute the powershell script:
+On the jump server, I created a powershell module called "LabAdmin", which contains 2 functions that simply execute the powershell script:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image11.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb11.png" width="456" height="330" border="0" /></a>
 

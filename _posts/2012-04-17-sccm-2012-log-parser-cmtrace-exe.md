@@ -17,7 +17,7 @@ Speaking of my own experience, out of all the tools provided by the toolkit, tra
 
 Now with SCCM 2012, trace32.exe has been replaced by a new tool called <strong>cmtrace.exe</strong>.
 
-Unlike trace32.exe, cmtrace.exe is actually built-in in SCCM, there is no need to download separate toolkits for it. cmtrace.32 can be found on the SCCM site server, under “<strong>&lt;SCCM Install Dir&gt;\tools\</strong>” folder. Same as it’s predecessor trace32.exe, cmtrace.exe can be copied / redistributed to other locations / computers alone and use as a log parser.
+Unlike trace32.exe, cmtrace.exe is actually built-in in SCCM, there is no need to download separate toolkits for it. cmtrace.32 can be found on the SCCM site server, under "<strong>&lt;SCCM Install Dir&gt;\tools\</strong>" folder. Same as it’s predecessor trace32.exe, cmtrace.exe can be copied / redistributed to other locations / computers alone and use as a log parser.
 
 I have also found that trace32.exe actually does not correct parse SCCM 2012 logs. For example, I’m using both trace32.exe and cmtrace.exe to open execmgr.log from a SCCM 2012 client:
 

@@ -16,7 +16,7 @@ tags:
 <h3>Background</h3>
 Few months ago, I have written a <a href="http://blog.tyang.org/2014/06/24/powershell-script-remove-obsolete-references-unsealed-opsmgr-management-packs/">script</a> to remove obsolete MP references from unsealed management packs and have also built this into the OpsMgr Self Maintenance MP. Last week, I needed to write a script to do the opposite: creating obsolete MP references in unsealed MPs.
 
-In the past, some of the MPs I have released had issues with creating overrides in the OpsMgr operational console. i.e. the OpsMgr 2012 Self Maintenance MP and the ConfigMgr 2012 Client MP. Both of them have one thing in common: the phrase “2012” is a part of the MP namespace, and if someone tries to create an override for these MPs in the operational console, he / she will get an “Alias atribute is invalid” error:
+In the past, some of the MPs I have released had issues with creating overrides in the OpsMgr operational console. i.e. the OpsMgr 2012 Self Maintenance MP and the ConfigMgr 2012 Client MP. Both of them have one thing in common: the phrase "2012" is a part of the MP namespace, and if someone tries to create an override for these MPs in the operational console, he / she will get an "Alias atribute is invalid" error:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb6.png" alt="image" width="484" height="268" border="0" /></a>
 

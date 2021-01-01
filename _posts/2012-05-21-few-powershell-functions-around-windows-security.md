@@ -15,7 +15,7 @@ tags:
 ---
 As parts of the PowerShell project that I’m currently working on, with the help with other people’s contribution in various forums and blogs, I have produced few PowerShell functions around Windows security:
 <h1>Validate Credential</h1>
-[sourcecode language="PowerShell"]
+```powershell
 function Validate-Credential($Cred)
 {
 $UserName = $Cred.Username
@@ -30,46 +30,46 @@ $ValidCredential = $false
 }
 Return $ValidCredential
 }
-[/sourcecode]
+```
 
 <strong>Usage:</strong>
 
-[sourcecode language="PowerShell"]
+```powershell
 $MyCredential = Get-Credential
 
 $ValidCredential = Validate-Credential $MyCredential
-[/sourcecode]
+```
 <h1>Get Current User Name</h1>
-[sourcecode language="PowerShell"]
+```powershell
 function Get-CurrentUser
 {
 $me = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
 Return $me
 }
-[/sourcecode]
+```
 
 <strong>Usage:</strong>
 
-[sourcecode language="PowerShell"]
+```powershell
 $me = Get-CurrentUser
-[/sourcecode]
+```
 <h1>Check If Current User has Local Admin Rights</h1>
-[sourcecode language="PowerShell"]
+```powershell
 function AmI-LocalAdmin
 {
-return ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] &quot;Administrator&quot;)
+return ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
 }
-[/sourcecode]
+```
 
 <strong>Usage:</strong>
 
-[sourcecode language="PowerShell"]
+```powershell
 $IAmAdmin = AmI-LocalAdmin
 
 $IAmAdmin
-[/sourcecode]
+```
 <h1>Check if a user is a member of a group</h1>
-[sourcecode language="PowerShell"]
+```powershell
 function Check-GroupMembership ([System.Security.Principal.WindowsIdentity]$User, [string]$GroupName)
 {
 $WindowsPrincipal = New-Object System.Security.Principal.WindowsPrincipal($User)
@@ -82,46 +82,46 @@ $bIsMember = $false
 }
 return $bIsMember
 }
-[/sourcecode]
+```
 
 <strong>Usage:</strong>
 
-[sourcecode language="PowerShell"]
+```powershell
 #Current User:
 
 $me = [System.Security.Principal.WindowsIdentity]::GetCurrent()
 
-$group = “\domain admins”
+$group = "\domain admins"
 
 $IsMember = Check-GroupMembership $me $group
 
 #Another User (Using User Principal Name @):
 
-$user = new-object system.security.principal.windowsidentity(&quot;tyang@corp.tyang.org&quot;)
+$user = new-object system.security.principal.windowsidentity("tyang@corp.tyang.org")
 
-$group = “\domain admins”
+$group = "\domain admins"
 
 $IsMember = Check-GroupMembership $user $group
-[/sourcecode]
+```
 <h1>Get Local Machine’s SID</h1>
-[sourcecode language="PowerShell"]
+```powershell
 function Get-LocalMachineSID
 {
-$LocalAdmin = Get-WmiObject -query &quot;SELECT * FROM Win32_UserAccount WHERE domain='$env:computername' AND SID LIKE '%-500'&quot;
-$MachineSID = $localAdmin.SID.TrimEnd(&quot;-500&quot;)
+$LocalAdmin = Get-WmiObject -query "SELECT * FROM Win32_UserAccount WHERE domain='$env:computername' AND SID LIKE '%-500'"
+$MachineSID = $localAdmin.SID.TrimEnd("-500")
 Return $MachineSID
 }
-[/sourcecode]
+```
 
 <strong>Usage:</strong>
 
-[sourcecode language="PowerShell"]
+```powershell
 $LocalMachineSID = Get-LocalMachineSID
-[/sourcecode]
+```
 <h1>Check If an account is a domain account (as opposed to local account)</h1>
 <strong><span style="color: #ff0000;">Note:</span></strong> This function also requires the <strong>Get-LocalMachineSID</strong> function listed above
 
-[sourcecode language="PowerShell"]
+```powershell
 Function Is-DomainAccount ([System.Security.Principal.WindowsIdentity]$User)
 {
 $LocalMachineSID = Get-LocalMachineSID
@@ -133,11 +133,11 @@ $bIsDomainAccount = $false
 }
 $bIsDomainAccount
 }
-[/sourcecode]
+```
 
 <strong>Usage:</strong>
 
-[sourcecode language="PowerShell"]
+```powershell
 #Current User:
 
 $me = [System.Security.Principal.WindowsIdentity]::GetCurrent()
@@ -146,7 +146,7 @@ $IsDomainAccount = Is-DomainAccount $me
 
 #Another User (Using User Principal Name @):
 
-$user = new-object system.security.principal.windowsidentity(&lt;a href=&quot;mailto:tyang@corp.tyang.org&quot;&gt;tyang@corp.tyang.org&lt;/a&gt;)
+$user = new-object system.security.principal.windowsidentity(&lt;a href="mailto:tyang@corp.tyang.org"&gt;tyang@corp.tyang.org&lt;/a&gt;)
 
 $IsDomainAccount = Is-DomainAccount $user
-[/sourcecode]
+```

@@ -30,7 +30,7 @@ I have added both policy definitions into my Azure Policy GitHub repo:
  	<li>Restrict public storage accounts: <a title="https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/restrict-public-storageAccount" href="https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/restrict-public-storageAccount">https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/restrict-public-storageAccount</a></li>
  	<li>Restrict storage account firewall rules: <a title="https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/restrict-storageAccount-firewall-rules" href="https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/restrict-storageAccount-firewall-rules">https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/restrict-storageAccount-firewall-rules</a></li>
 </ul>
-You can simplify your effort by creating a Policy Initiative and include both policies. I created an initiative, and I must supply the list of allowed IP ranges during assignment (each item is separated by “;”, keep in mind do not have spaces after semicolons).
+You can simplify your effort by creating a Policy Initiative and include both policies. I created an initiative, and I must supply the list of allowed IP ranges during assignment (each item is separated by ";", keep in mind do not have spaces after semicolons).
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-36.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-36.png" alt="image" width="586" height="628" border="0" /></a>
 

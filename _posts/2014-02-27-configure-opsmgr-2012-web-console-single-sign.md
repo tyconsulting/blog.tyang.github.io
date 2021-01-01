@@ -38,11 +38,11 @@ i.e.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/02/image18.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb18.png" width="580" height="98" border="0" /></a>
 
-<strong><span style="color: #ff0000;">Note:</span></strong> I also configured autoSignOutInterval=”0” so the web console doesn’t time out.
+<strong><span style="color: #ff0000;">Note:</span></strong> I also configured autoSignOutInterval="0" so the web console doesn’t time out.
 
-further down in the web.config file, make sure authentication mode is set to “Windows”
+further down in the web.config file, make sure authentication mode is set to "Windows"
 
-<strong>&lt;authentication mode=”Windows” /&gt;</strong>
+<strong>&lt;authentication mode="Windows" /&gt;</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/02/image19.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb19.png" width="580" height="194" border="0" /></a>
 
@@ -60,7 +60,7 @@ I added the MSOMSdkSvc service for all management servers to the list as instruc
 
 Above screenshot was taken from the guide. However, it turned out it doesn’t seem like the guide is 100% correct for OpsMgr 2012 (I can’t confirm for 2007 as I don’t have a 2007 management group in my lab anymore).
 
-Instead of choosing “Use Kerberos Only”, we should choose the other option <strong>“Use any authentication protocol”</strong>. This is where I got stuck as before I called Microsoft, I did change the NLB address to a management server in the web.config but it didn’t make a difference. Otherwise it would have worked then.
+Instead of choosing "Use Kerberos Only", we should choose the other option <strong>"Use any authentication protocol"</strong>. This is where I got stuck as before I called Microsoft, I did change the NLB address to a management server in the web.config but it didn’t make a difference. Otherwise it would have worked then.
 
 I also had to add the NLB address to the list because my web console is configured to use NLB:
 

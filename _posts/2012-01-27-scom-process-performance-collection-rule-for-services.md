@@ -17,7 +17,7 @@ Setting up Performance Collection rules for a particular process is pretty strai
 
 Process performance collections rules are straightforward to setup, as long as there is ONLY ONE instance of the particular process running on the computers that your rule is targeting. Also, each rule can only collect ONE performance counter.
 
-The problem with that is, if I need to collect performance counters for a particular service, i.e. Server Service (lanmanserver) or a particular SQL server instance (when there are multiple SQL instances running on the same server) , I will not be able to do so using the default performance collection module “System.Performance.OptimizedDataProvider” because server service runs under the generic service host svchost.exe. Typically, there are many instances of svchost.exe running for various services:
+The problem with that is, if I need to collect performance counters for a particular service, i.e. Server Service (lanmanserver) or a particular SQL server instance (when there are multiple SQL instances running on the same server) , I will not be able to do so using the default performance collection module "System.Performance.OptimizedDataProvider" because server service runs under the generic service host svchost.exe. Typically, there are many instances of svchost.exe running for various services:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/01/image31.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb31.png" alt="image" width="580" height="756" border="0" /></a>
 
@@ -62,7 +62,7 @@ Now that I’ve created all the required modules, I can then create a SINGLE rul
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/01/image36.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb36.png" alt="image" width="580" height="534" border="0" /></a>
 
-<strong><span style="color: #ff0000; font-size: medium;">Note:</span></strong> The <strong>Computername</strong> variable from above example is “$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$”, this is correct because I’m targeting the rule to Windows Computer. You will have to change it if you are targeting other classes. The best way is to use the prompt and choose the host’s principal name. Below is an example if I target the rule to Windows Operating System:
+<strong><span style="color: #ff0000; font-size: medium;">Note:</span></strong> The <strong>Computername</strong> variable from above example is "$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$", this is correct because I’m targeting the rule to Windows Computer. You will have to change it if you are targeting other classes. The best way is to use the prompt and choose the host’s principal name. Below is an example if I target the rule to Windows Operating System:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/01/image37.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb37.png" alt="image" width="580" height="525" border="0" /></a>
 
@@ -81,7 +81,7 @@ Now, the rule is created, you can create a performance view for the rule and mak
 
 Below is the VBScript I’ve used in probe action module:
 
-[sourcecode language="vbnet"]
+```vb
 '=========================================================================
 ' AUTHOR:             Tao Yang
 ' Script Name:        ProcessPerfMonData.vbs
@@ -90,28 +90,28 @@ Below is the VBScript I’ve used in probe action module:
 ' COMMENT:            Script to collect perfmon data for specific service
 '=========================================================================
 Option Explicit
-SetLocale(&quot;en-us&quot;)
+SetLocale("en-us")
 Dim ServiceName, objWMIService,colService, objService, ComputerName
 Dim ProcessID, ProcessName, colProcess, objProcess, colPerfData, objPerfData
 Dim ElapsedTime, PercentProcessorTime, PercentUserTime, ThreadCount, PageFaultsPersec, IOReadBytesPersec, IOWriteBytesPersec
 Dim oAPI, oBag, oInst
 ServiceName = WScript.Arguments.Item(0)
 ComputerName = Wscript.Arguments.Item(1)
-Set oAPI = CreateObject(&quot;MOM.ScriptAPI&quot;)
+Set oAPI = CreateObject("MOM.ScriptAPI")
 
-Set objWMIService = GetObject(&quot;winmgmts:{impersonationLevel=impersonate}!\\&quot; &amp; ComputerName &amp;&quot;\root\cimv2&quot;)
-Set colService = objWMIService.ExecQuery(&quot;Select * from Win32_Service Where Name = '&quot; + ServiceName + &quot;'&quot;)
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\" & ComputerName &"\root\cimv2")
+Set colService = objWMIService.ExecQuery("Select * from Win32_Service Where Name = '" + ServiceName + "'")
 
 For Each objService in colService
 ProcessID = objService.ProcessID
 Next
 
 If ProcessID &lt;&gt; 0 THEN
-Set colProcess = objWMIService.ExecQuery(&quot;Select * from Win32_Process Where ProcessID = &quot; &amp; ProcessID)
+Set colProcess = objWMIService.ExecQuery("Select * from Win32_Process Where ProcessID = " & ProcessID)
 For Each objProcess in colProcess
 ProcessName = objProcess.Name
 Next
-Set colPerfData = objWMIService.ExecQuery(&quot;Select * from Win32_PerfFormattedData_PerfProc_Process Where IDProcess = &quot; &amp; ProcessID)
+Set colPerfData = objWMIService.ExecQuery("Select * from Win32_PerfFormattedData_PerfProc_Process Where IDProcess = " & ProcessID)
 For Each objPerfData in colPerfData
 ElapsedTime = objPerfData.ElapsedTime
 PercentProcessorTime = objPerfData.PercentProcessorTime
@@ -123,58 +123,58 @@ IOWriteBytesPersec = objPerfData.IOWriteBytesPersec
 Next
 'Elapsed Time
 Set oBag = oAPI.CreatePropertyBag()
-oBag.AddValue &quot;Object&quot;, &quot;Process&quot;
-oBag.AddValue &quot;Instance&quot;, ServiceName
-oBag.AddValue &quot;Counter&quot;, &quot;Elapsed Time&quot;
-oBag.AddValue &quot;Value&quot;, ElapsedTime
+oBag.AddValue "Object", "Process"
+oBag.AddValue "Instance", ServiceName
+oBag.AddValue "Counter", "Elapsed Time"
+oBag.AddValue "Value", ElapsedTime
 oAPI.AddItem(oBag)
 
 'Percent Processor Time
 Set oBag = oAPI.CreatePropertyBag()
-oBag.AddValue &quot;Object&quot;, &quot;Process&quot;
-oBag.AddValue &quot;Instance&quot;, ServiceName
-oBag.AddValue &quot;Counter&quot;, &quot;% Processor Time&quot;
-oBag.AddValue &quot;Value&quot;, PercentProcessorTime
+oBag.AddValue "Object", "Process"
+oBag.AddValue "Instance", ServiceName
+oBag.AddValue "Counter", "% Processor Time"
+oBag.AddValue "Value", PercentProcessorTime
 oAPI.AddItem(oBag)
 
 'Percent User Time
 Set oBag = oAPI.CreatePropertyBag()
-oBag.AddValue &quot;Object&quot;, &quot;Process&quot;
-oBag.AddValue &quot;Instance&quot;, ServiceName
-oBag.AddValue &quot;Counter&quot;, &quot;% User Time&quot;
-oBag.AddValue &quot;Value&quot;, PercentUserTime
+oBag.AddValue "Object", "Process"
+oBag.AddValue "Instance", ServiceName
+oBag.AddValue "Counter", "% User Time"
+oBag.AddValue "Value", PercentUserTime
 oAPI.AddItem(oBag)
 
 'Thread Count
 Set oBag = oAPI.CreatePropertyBag()
-oBag.AddValue &quot;Object&quot;, &quot;Process&quot;
-oBag.AddValue &quot;Instance&quot;, ServiceName
-oBag.AddValue &quot;Counter&quot;, &quot;Thread Count&quot;
-oBag.AddValue &quot;Value&quot;, ThreadCount
+oBag.AddValue "Object", "Process"
+oBag.AddValue "Instance", ServiceName
+oBag.AddValue "Counter", "Thread Count"
+oBag.AddValue "Value", ThreadCount
 oAPI.AddItem(oBag)
 
 'Page Faults/Sec
 Set oBag = oAPI.CreatePropertyBag()
-oBag.AddValue &quot;Object&quot;, &quot;Process&quot;
-oBag.AddValue &quot;Instance&quot;, ServiceName
-oBag.AddValue &quot;Counter&quot;, &quot;Page Faults/sec&quot;
-oBag.AddValue &quot;Value&quot;, PageFaultsPersec
+oBag.AddValue "Object", "Process"
+oBag.AddValue "Instance", ServiceName
+oBag.AddValue "Counter", "Page Faults/sec"
+oBag.AddValue "Value", PageFaultsPersec
 oAPI.AddItem(oBag)
 
 'IO Read Bytes/sec
 Set oBag = oAPI.CreatePropertyBag()
-oBag.AddValue &quot;Object&quot;, &quot;Process&quot;
-oBag.AddValue &quot;Instance&quot;, ServiceName
-oBag.AddValue &quot;Counter&quot;, &quot;IO Read Bytes/sec&quot;
-oBag.AddValue &quot;Value&quot;, IOReadBytesPersec
+oBag.AddValue "Object", "Process"
+oBag.AddValue "Instance", ServiceName
+oBag.AddValue "Counter", "IO Read Bytes/sec"
+oBag.AddValue "Value", IOReadBytesPersec
 oAPI.AddItem(oBag)
 
 'IO Write Bytes/sec
 Set oBag = oAPI.CreatePropertyBag()
-oBag.AddValue &quot;Object&quot;, &quot;Process&quot;
-oBag.AddValue &quot;Instance&quot;, ServiceName
-oBag.AddValue &quot;Counter&quot;, &quot;IO Write Bytes/sec&quot;
-oBag.AddValue &quot;Value&quot;, IOWriteBytesPersec
+oBag.AddValue "Object", "Process"
+oBag.AddValue "Instance", ServiceName
+oBag.AddValue "Counter", "IO Write Bytes/sec"
+oBag.AddValue "Value", IOWriteBytesPersec
 oAPI.AddItem(oBag)
 ELSE
 'Return an empty property bag
@@ -182,7 +182,7 @@ Set oBag = oAPI.CreatePropertyBag()
 oAPI.AddItem(oBag)
 END IF
 oAPI.ReturnItems
-[/sourcecode]
+```
 
 As you can see, I’m collecting the following 7 counters in the script:
 <ol>

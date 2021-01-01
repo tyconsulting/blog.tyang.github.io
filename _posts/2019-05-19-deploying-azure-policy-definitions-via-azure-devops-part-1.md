@@ -203,7 +203,7 @@ tags:
 <!-- /wp:list -->
 
 <!-- wp:paragraph -->
-<p>Following the same logic, the azurepolicyset.json contains everything, well almost everything! if you look at the sample initiatives, you’ll find some of the azurepolicyset.json files contain the “name” attribute, some don’t. A bit inconsistent there. The “name” is absolutely required when deploy the initiative definition. Similar to policy definitions, the New-PolicySetDefinition cmdlet from Azure PowerShell modules takes the definition and parameters from separate inputs, with some additional string inputs such as name, metadata, etc.</p>
+<p>Following the same logic, the azurepolicyset.json contains everything, well almost everything! if you look at the sample initiatives, you’ll find some of the azurepolicyset.json files contain the "name" attribute, some don’t. A bit inconsistent there. The "name" is absolutely required when deploy the initiative definition. Similar to policy definitions, the New-PolicySetDefinition cmdlet from Azure PowerShell modules takes the definition and parameters from separate inputs, with some additional string inputs such as name, metadata, etc.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->

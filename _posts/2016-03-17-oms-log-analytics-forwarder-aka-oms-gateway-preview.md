@@ -11,9 +11,9 @@ categories:
 tags:
   - OMS
 ---
-Over the last few days, I had the privilege to review and test a new component of the OMS family called “OMS Log Analytics Forwarder”. Since this component has now been released for public preview, I’d like to dedicate this post to my experience with OMS Log Analytics Forwarder so far.
+Over the last few days, I had the privilege to review and test a new component of the OMS family called "OMS Log Analytics Forwarder". Since this component has now been released for public preview, I’d like to dedicate this post to my experience with OMS Log Analytics Forwarder so far.
 <h3>Initial Configuration</h3>
-First of all, you can download the bits and documentation from Microsoft Download site here: <a title="https://www.microsoft.com/en-us/download/details.aspx?id=51603&amp;WT.mc" href="https://www.microsoft.com/en-us/download/details.aspx?id=51603&amp;WT.mc">https://www.microsoft.com/en-us/download/details.aspx?id=51603&amp;WT.mc</a>
+First of all, you can download the bits and documentation from Microsoft Download site here: <a title="https://www.microsoft.com/en-us/download/details.aspx?id=51603&WT.mc" href="https://www.microsoft.com/en-us/download/details.aspx?id=51603&WT.mc">https://www.microsoft.com/en-us/download/details.aspx?id=51603&WT.mc</a>
 
 In my lab, I have created a new VM running Windows Server 2016 TP4 Server Core. I firstly installed the OMS Direct MMA agent, then the OMS Log Analytics Forwarder using command:
 
@@ -24,7 +24,7 @@ msiexec /i "Microsoft OMS Log Analytics Forwarder.msi"
 Once installed, you will see the following components on the VM:
 <ul>
 <ul>
-	<li>“Microsoft OMS Log Analytics Forwarder” service</li>
+	<li>"Microsoft OMS Log Analytics Forwarder" service</li>
 </ul>
 </ul>
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-16.png" alt="image" width="244" height="101" border="0" /></a>
@@ -81,7 +81,7 @@ However, with the Linux agent, I get an error event (Event ID 105) right after E
 
 If you pay close attention to the Event ID 103 events for both Windows and Linux machines, you may notice they are trying to connect to different servers. The Windows machine is trying to connect to xxxxxx.oms.opinsights.azure.com:443 whereas Linux machine is trying to connect to scus-agentservice-prod-1.azure-automation.net
 
-To fix this issue for Linux machine, please go to the server where OMS Log Analytics Forwarder component is installed, open “C:\Program Files\Microsoft OMS Log Analytics Forwarder\allowedlist_server.txt”, and add “scus-agentservice-prod-1.azure-automation.net” to this text file.
+To fix this issue for Linux machine, please go to the server where OMS Log Analytics Forwarder component is installed, open "C:\Program Files\Microsoft OMS Log Analytics Forwarder\allowedlist_server.txt", and add "scus-agentservice-prod-1.azure-automation.net" to this text file.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-24.png" alt="image" width="452" height="114" border="0" /></a>
 

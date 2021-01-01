@@ -53,7 +53,7 @@ With this module, you can generate oAuth token for ARM REST API (default) or any
  	<li>Azure AD user – interactive login but restrict username and Tenant Id (prevent users from changing the user name)</li>
  	<li>Azure AD key-based service principal</li>
  	<li>Azure AD certificate-based service principal – by specifying the path to the pfx certificate file and password</li>
- 	<li>Azure AD certificate-based service principal – by specifying the certificate thumbprint when the certificate is installed in Local Computer’s ‘Personal” cert store.</li>
+ 	<li>Azure AD certificate-based service principal – by specifying the certificate thumbprint when the certificate is installed in Local Computer’s ‘Personal" cert store.</li>
  	<li>Azure AD service principal – within an Azure Automation runbook and the SP details are stored as a connection object in Azure Automation</li>
 </ul>
 So far, I have included 10 examples for the Get-AzureADToken function from this module, this should have all scenarios covered. You can simply read them all using command:

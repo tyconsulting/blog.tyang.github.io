@@ -39,4 +39,4 @@ Windows Admin Center offers many extensions that allows you to manage Event Logs
 
 Furthermore, since all Squared Up dashboards are customisable, you can add / remove other widgets to the page. You can also use additional Squared Up plug-ins to connect to other systems such as SQL databases (using SQL plug-in), Azure Log Analytics and App Insights (using OMS and Azure plug-ins), or ServiceNow (using Web API plug-in).
 
-You can find more about the Squared Up extension for Windows Admin Center at <a href="https://squaredup.com/product/honolulu/windows-admin-center-extension-customers/?utm_source=tao-yang&amp;utm_medium=public-relations&amp;utm_campaign=honolulu" target="_blank" rel="noopener">Squared Up’s website</a>.
+You can find more about the Squared Up extension for Windows Admin Center at <a href="https://squaredup.com/product/honolulu/windows-admin-center-extension-customers/?utm_source=tao-yang&utm_medium=public-relations&utm_campaign=honolulu" target="_blank" rel="noopener">Squared Up’s website</a>.

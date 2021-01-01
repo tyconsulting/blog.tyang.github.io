@@ -13,7 +13,7 @@ tags:
   - SCCM
   - SCOM
 ---
-In System Center Configuration Manager, there is an option “<em>Disable Operations manager alerts while this program runs</em>” in the program within a package:
+In System Center Configuration Manager, there is an option "<em>Disable Operations manager alerts while this program runs</em>" in the program within a package:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8938c7.png"><img style="display: inline; border: 0px;" title="SNAGHTMLb8938c7" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8938c7_thumb.png" alt="SNAGHTMLb8938c7" width="435" height="288" border="0" /></a>
 
@@ -37,7 +37,7 @@ I created a simple batch file to wait 15 minutes and does nothing:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image35.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb35.png" alt="image" width="355" height="207" border="0" /></a>
 
-I then created a package and a program in my lab’s ConfigMgr 2012 R2 site, distributed the package to all the distribution points, made sure the “Disable Operations Manager alerts while this program runs” is ticked.
+I then created a package and a program in my lab’s ConfigMgr 2012 R2 site, distributed the package to all the distribution points, made sure the "Disable Operations Manager alerts while this program runs" is ticked.
 
 I performed 4 series of the test by deploying this program to different management servers (or combination of management servers):
 

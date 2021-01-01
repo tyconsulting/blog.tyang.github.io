@@ -18,7 +18,7 @@ By default, for computer groups, the Health Rollup Policies for the Health Rollu
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/06/image2.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/06/image_thumb2.png" width="407" height="407" border="0" /></a>
 
-Yesterday, there was a requirement to change the health rollup policies for these groups from the “Worst state of any member” to a percentage value of 95% (option 2 from above figure). To do so, the “Percentage” and the “Rollup Algorithm” properties for the monitor needs to be modified via overrides.
+Yesterday, there was a requirement to change the health rollup policies for these groups from the "Worst state of any member" to a percentage value of 95% (option 2 from above figure). To do so, the "Percentage" and the "Rollup Algorithm" properties for the monitor needs to be modified via overrides.
 
 Therefore, I will need to create 2 overrides for each monitor:
 
@@ -61,28 +61,28 @@ I had to repeat this process 3 times because I have 3 sets of groups and the ove
 Below is the content of the snippet template:
 
 [sourcecode language="XML"]
-&lt;ManagementPackFragment SchemaVersion=&quot;1.0&quot;&gt;
+&lt;ManagementPackFragment SchemaVersion="1.0"&gt;
 &lt;Monitoring&gt;
 &lt;Overrides&gt;
-&lt;MonitorPropertyOverride ID=&quot;Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Algorithm.Override&quot; Context=&quot;ServerLib!Demo.Server.Library.All.Server.#text('State')#.Computer.Group&quot; Enforced=&quot;false&quot; Monitor=&quot;SC!Microsoft.SystemCenter.ComputerGroup.#text('Monitor')#Rollup&quot; Property=&quot;Algorithm&quot;&gt;
+&lt;MonitorPropertyOverride ID="Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Algorithm.Override" Context="ServerLib!Demo.Server.Library.All.Server.#text('State')#.Computer.Group" Enforced="false" Monitor="SC!Microsoft.SystemCenter.ComputerGroup.#text('Monitor')#Rollup" Property="Algorithm"&gt;
 &lt;Value&gt;Percentage&lt;/Value&gt;
 &lt;/MonitorPropertyOverride&gt;
-&lt;MonitorPropertyOverride ID=&quot;Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Percentage.Override&quot; Context=&quot;ServerLib!Demo.Server.Library.All.Server.#text('State')#.Computer.Group&quot; Enforced=&quot;false&quot; Monitor=&quot;SC!Microsoft.SystemCenter.ComputerGroup.#text('Monitor')#Rollup&quot; Property=&quot;AlgorithmPercentage&quot;&gt;
+&lt;MonitorPropertyOverride ID="Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Percentage.Override" Context="ServerLib!Demo.Server.Library.All.Server.#text('State')#.Computer.Group" Enforced="false" Monitor="SC!Microsoft.SystemCenter.ComputerGroup.#text('Monitor')#Rollup" Property="AlgorithmPercentage"&gt;
 &lt;Value&gt;95&lt;/Value&gt;
 &lt;/MonitorPropertyOverride&gt;
 &lt;/Overrides&gt;
 &lt;/Monitoring&gt;
 &lt;LanguagePacks&gt;
-&lt;LanguagePack ID=&quot;ENU&quot; IsDefault=&quot;true&quot;&gt;
+&lt;LanguagePack ID="ENU" IsDefault="true"&gt;
 &lt;DisplayStrings&gt;
-&lt;DisplayString ElementID=&quot;Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Algorithm.Override&quot;&gt;
+&lt;DisplayString ElementID="Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Algorithm.Override"&gt;
 &lt;Name&gt;All Server Computer #text('State')# Group #text('Monitor')# Dependency Monitor Health Algorithm Override&lt;/Name&gt;
 &lt;/DisplayString&gt;
-&lt;DisplayString ElementID=&quot;Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Percentage.Override&quot;&gt;
+&lt;DisplayString ElementID="Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Percentage.Override"&gt;
 &lt;Name&gt;All Server Computer #text('State')# Group #text('Monitor')# Dependency Monitor Health Percentage Override&lt;/Name&gt;
 &lt;/DisplayString&gt;
 &lt;/DisplayStrings&gt;
 &lt;/LanguagePack&gt;
 &lt;/LanguagePacks&gt;
 &lt;/ManagementPackFragment&gt;
-[/sourcecode]
+```

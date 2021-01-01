@@ -42,7 +42,7 @@ This rule is probably the only workflow that I have copied from the previous 200
 
 This monitor detects if there are any software updates that have passed the deadline for a period of time and still have not been installed (either waiting for service windows or failed to install).
 
-<strong>Monitors “SMS Agent Host” service on the ConfigMig 2012 Client</strong>
+<strong>Monitors "SMS Agent Host" service on the ConfigMig 2012 Client</strong>
 
 A basic service monitor was created for this service. it is disabled by default.
 
@@ -73,7 +73,7 @@ In large ConfigMgr environments, it is very common that there are more than one 
 
 <strong>Detect if client is able to communicate to a Management Point</strong>
 
-In the 2007 version of the MP, I wrote a monitor that sends a HTTP request to the management point every hour. I really didn’t like this monitor and regret that I wrote it this way. I believe it was a bad idea to get all ConfigMgr clients to send HTTP request to the management point, and it generates a lot of alerts (I should have written it as a consecutive samples monitor). Luckily in ConfigMgr 2012 client, there is a new WMI class called “<strong>SMS_ActiveMPCandidate</strong>” located under “<strong>Root\Ccm\LocationServices</strong>” namespace. I can simply query this WMI class to find out if the ConfigMgr 2012 client has lost connectivity to the management points. Therefore HTTP request over the network is no longer required.
+In the 2007 version of the MP, I wrote a monitor that sends a HTTP request to the management point every hour. I really didn’t like this monitor and regret that I wrote it this way. I believe it was a bad idea to get all ConfigMgr clients to send HTTP request to the management point, and it generates a lot of alerts (I should have written it as a consecutive samples monitor). Luckily in ConfigMgr 2012 client, there is a new WMI class called "<strong>SMS_ActiveMPCandidate</strong>" located under "<strong>Root\Ccm\LocationServices</strong>" namespace. I can simply query this WMI class to find out if the ConfigMgr 2012 client has lost connectivity to the management points. Therefore HTTP request over the network is no longer required.
 
 <strong>Detect if the builtin SCCM Client Health Evaluation (CcmEval) has not been executed according to the schedule.</strong>
 
@@ -83,7 +83,7 @@ The MP also provides various Agent Tasks that can be executed against ConfigMgr 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_4.png" width="494" height="319" border="0" /></a>
 
-By design, OpsMgr allows users to trigger an agent task on up to 10 managed objects at once. The figures below illustrates OpsMgr operators can multi-select up to 10 Software Update Agent objects from the state view and trigger the “Software Update Assignments Evaluation Cycle” agent task and task results for each selected node:
+By design, OpsMgr allows users to trigger an agent task on up to 10 managed objects at once. The figures below illustrates OpsMgr operators can multi-select up to 10 Software Update Agent objects from the state view and trigger the "Software Update Assignments Evaluation Cycle" agent task and task results for each selected node:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_5.png" width="286" height="376" border="0" /></a>
 
@@ -93,7 +93,7 @@ The ConfigMgr 2012 Client class is defined as a local application and each clien
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/ConfigMgr-2012-client-Class-Diagram.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="ConfigMgr 2012 client Class Diagram" alt="ConfigMgr 2012 client Class Diagram" src="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/ConfigMgr-2012-client-Class-Diagram_thumb.png" width="580" height="196" border="0" /></a>
 
-The health state of each client agent is rolled up to the parent class of “ConfigMgr 2012 Client”, as indicated below:
+The health state of each client agent is rolled up to the parent class of "ConfigMgr 2012 Client", as indicated below:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_6.png" width="211" height="369" border="0" /></a>
 
@@ -122,11 +122,11 @@ An error will occur when try to create an override to an unsealed management pac
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_7.png" width="323" height="179" border="0" /></a>
 
-The cause of this issue is the same as my recent OpsMgr Self Maintenance MP: OpsMgr doesn’t like “2012” as part of the ID of the management pack. The workaround is documented in the MP documentation.
+The cause of this issue is the same as my recent OpsMgr Self Maintenance MP: OpsMgr doesn’t like "2012" as part of the ID of the management pack. The workaround is documented in the MP documentation.
 
 <span style="font-size: large;"><strong>Feedback</strong></span>
 
-All the items provided by this MP are based on my best understanding of ConfigMgr 2012 and it’s clients. To be honest, I haven’t really been too “hands on” with ConfigMgr 2012 since it was released. Therefore I’m really keen to invite the broader System Center community to evaluate and test this MP before I change the version number to 1.0.0.0.
+All the items provided by this MP are based on my best understanding of ConfigMgr 2012 and it’s clients. To be honest, I haven’t really been too "hands on" with ConfigMgr 2012 since it was released. Therefore I’m really keen to invite the broader System Center community to evaluate and test this MP before I change the version number to 1.0.0.0.
 
 Please do not hesitate to contact me for any bugs and if you think any of the workflows are incorrectly written, or if you have suggestions for additional items. In return to the testing effort from the community, I will publish the finishing piece on this blog.
 

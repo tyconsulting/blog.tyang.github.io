@@ -16,7 +16,7 @@ tags:
 ---
 You can run the following on the site server to find out the servers holding each SCCM role:
 
-```PowerShell
+```powershell
 $SMSProvider = get-wmiobject sms_providerlocation -namespace root\sms -filter "ProviderForLocalSite = True"
 $SiteCode = $SMSProvider.SiteCode
 $ProviderMachine = $SMSProvider.Machine

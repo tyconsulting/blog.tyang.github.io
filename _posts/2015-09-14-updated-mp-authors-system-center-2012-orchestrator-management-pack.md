@@ -24,7 +24,7 @@ So in additional to creating Squared Up dashboards for the native System Center 
 
 However, if you have used (or tried to use) Brian’s Orchestrator Runbook MP, you’d probably know the PowerShell scripts in the MP is not compatible with Windows Server 2012 R2 or PowerShell version 3 and later. The issue is raised in the Q and A section (in a function, you can not use return in try-catch-finally statement).
 <h3>Updated MP</h3>
-I have tried to implement this MP a while back at my previous job. Not only I tried to update the PowerShell scripts, in my opinion, I did not want to create another “Runbook Host” class (by creating few registry keys and values) for hosting runbooks. Therefore, I’ve made another update to this MP: I’ve removed “Runbbook Host” class, and configured the “Orchestrator Runbooks” objects to be hosted by the Orchestrator Management Server:
+I have tried to implement this MP a while back at my previous job. Not only I tried to update the PowerShell scripts, in my opinion, I did not want to create another "Runbook Host" class (by creating few registry keys and values) for hosting runbooks. Therefore, I’ve made another update to this MP: I’ve removed "Runbbook Host" class, and configured the "Orchestrator Runbooks" objects to be hosted by the Orchestrator Management Server:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image7.png"><img style="padding-top: 0px;padding-left: 0px;padding-right: 0px;border: 0px" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb7.png" alt="image" width="396" height="321" border="0" /></a>
 
@@ -38,13 +38,13 @@ If you have already imported the original MP in your management group, I am afra
 <h3>Configuring the Management Pack</h3>
 From Brian’s original MP download, there is also a MP guide included. As stated in the original MP guide, you will need to create few registry keys and values for the Runbook Host as well as creating a Run As account that has access to the Orchestrator Web Service.
 
-When using this updated MP, it is obvious that you do not need to create those registry keys and values anymore because the “Runbook Host” class has been removed. But you will still need to create this Run As account and assign it to the “Orchestrator Web Service Account” Run As Profile:
+When using this updated MP, it is obvious that you do not need to create those registry keys and values anymore because the "Runbook Host" class has been removed. But you will still need to create this Run As account and assign it to the "Orchestrator Web Service Account" Run As Profile:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb7e815f.png"><img style="padding-top: 0px;padding-left: 0px;padding-right: 0px;border: 0px" title="SNAGHTMLb7e815f" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb7e815f_thumb.png" alt="SNAGHTMLb7e815f" width="460" height="359" border="0" /></a>
 
-However, since I have removed the “Runbook Host” class, instead of distributing this Run As account to the health service hosting the “Runbook Host” class instance, you will need to distribute it to your Orchestrator management servers instead.
+However, since I have removed the "Runbook Host" class, instead of distributing this Run As account to the health service hosting the "Runbook Host" class instance, you will need to distribute it to your Orchestrator management servers instead.
 
-You may also want to monitor the “Monitor runbooks”. If this is the case, you will need to enable the “Runbook Running” monitor for the “MPAuthor Monitor Runbooks” group:
+You may also want to monitor the "Monitor runbooks". If this is the case, you will need to enable the "Runbook Running" monitor for the "MPAuthor Monitor Runbooks" group:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb8fdd57.png"><img style="padding-top: 0px;padding-left: 0px;padding-right: 0px;border: 0px" title="SNAGHTMLb8fdd57" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb8fdd57_thumb.png" alt="SNAGHTMLb8fdd57" width="611" height="285" border="0" /></a>
 

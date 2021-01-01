@@ -15,7 +15,7 @@ tags:
   - Azure SQL DB
   - Power BI
 ---
-Back in April this year, Pete Zerger (<a href="https://twitter.com/pzerger">@pzerger</a>) and I delivered two sessions in Experts Live Australia. One of which is titled “Cloud Automation Overview”. During this session, we have showed off a pretty cool voting demo app that is made up with Azure Functions, Key Vault, Azure SQL DB and Power BI.
+Back in April this year, Pete Zerger (<a href="https://twitter.com/pzerger">@pzerger</a>) and I delivered two sessions in Experts Live Australia. One of which is titled "Cloud Automation Overview". During this session, we have showed off a pretty cool voting demo app that is made up with Azure Functions, Key Vault, Azure SQL DB and Power BI.
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/07/architecture.png"><img style="display: inline; background-image: none;" title="architecture" src="https://blog.tyang.org/wp-content/uploads/2017/07/architecture_thumb.png" alt="architecture" width="862" height="487" border="0" /></a>
 
@@ -47,7 +47,7 @@ When we were preparing our Experts Live sessions back in March / April this year
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/07/image-3.png"><img style="margin: 0px; display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/07/image_thumb-3.png" alt="image" width="244" height="226" border="0" /></a>
 
-Last Christmas, my wife and I found a “Happy Little Vegemite” (a famous Aussie kids song: <a title="https://www.youtube.com/watch?v=0yA98MujNeM" href="https://www.youtube.com/watch?v=0yA98MujNeM">https://www.youtube.com/watch?v=0yA98MujNeM</a>) top in the Australian pyjamas brand Peter Alexander shop and I bought one for myself.
+Last Christmas, my wife and I found a "Happy Little Vegemite" (a famous Aussie kids song: <a title="https://www.youtube.com/watch?v=0yA98MujNeM" href="https://www.youtube.com/watch?v=0yA98MujNeM">https://www.youtube.com/watch?v=0yA98MujNeM</a>) top in the Australian pyjamas brand Peter Alexander shop and I bought one for myself.
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/07/image-4.png"><img style="margin: 0px; display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/07/image_thumb-4.png" alt="image" width="190" height="244" border="0" /></a>
 

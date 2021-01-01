@@ -41,7 +41,7 @@ So firstly, I’ll need to create a key and store the content to a file:
 
 Set-Content C:\Temp\PassEncryptKey.key $AESKey
 </pre>
-I then uploaded the key to the Azure Functions folder – I’ve already uploaded the PowerShell modules to the “bin” folder, I created a sub-folder under “bin” called Keys:
+I then uploaded the key to the Azure Functions folder – I’ve already uploaded the PowerShell modules to the "bin" folder, I created a sub-folder under "bin" called Keys:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-8.png" alt="image" width="467" height="307" border="0" /></a>
 

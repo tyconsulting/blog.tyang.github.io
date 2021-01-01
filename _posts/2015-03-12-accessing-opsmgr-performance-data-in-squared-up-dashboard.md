@@ -30,11 +30,11 @@ Since all performance collection rules write performance data into both database
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb17.png" alt="image" width="657" height="205" border="0" /></a>
 
-As shown above, the default period is 12 hours, the data displayed is the raw performance data (not aggregated), if I change the period to last 30 days, notice the performance counter name is also updated with “(hourly)” at the end – this means this graph is now based on the hourly aggregate dataset:
+As shown above, the default period is 12 hours, the data displayed is the raw performance data (not aggregated), if I change the period to last 30 days, notice the performance counter name is also updated with "(hourly)" at the end – this means this graph is now based on the hourly aggregate dataset:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb18.png" alt="image" width="656" height="194" border="0" /></a>
 
-If I change the period again, this time, I select “all”, as shown below, it is showing about a year’s worth of data, and it has automatically switched to the daily aggregate dataset:
+If I change the period again, this time, I select "all", as shown below, it is showing about a year’s worth of data, and it has automatically switched to the daily aggregate dataset:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb19.png" alt="image" width="659" height="195" border="0" /></a>
 

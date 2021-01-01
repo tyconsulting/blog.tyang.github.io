@@ -44,7 +44,7 @@ Once it is installed and connected to your Power BI account, you will be able to
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-1.png" alt="image" width="325" height="247" border="0" /></a>
 
-And you can use “Add Data Source” to establish connection to a data base via the gateway:
+And you can use "Add Data Source" to establish connection to a data base via the gateway:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML8d5b281.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8d5b281" src="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML8d5b281_thumb.png" alt="SNAGHTML8d5b281" width="582" height="360" border="0" /></a>
 
@@ -70,11 +70,11 @@ Then, we will select all the tables and views that we are interested in. I won�
 
 Please make sure you have select ALL the tables and views that you need. Once we have uploaded this configuration to Power BI Site, we won’t be able to modify this dataset in Power BI Site.
 
-Once we have selected all required tables and views, click “Load”:
+Once we have selected all required tables and views, click "Load":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-5.png" alt="image" width="431" height="344" border="0" /></a>
 
-Please make sure you choose “DirectQuery” when prompted:
+Please make sure you choose "DirectQuery" when prompted:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-6.png" alt="image" width="406" height="237" border="0" /></a>
 
@@ -90,11 +90,11 @@ Now, we can save this empty Power BI report:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-9.png" alt="image" width="668" height="372" border="0" /></a>
 
-After it is saved, we can go back to the Power BI Site, and import the newly created report by clicking “Get Data”:
+After it is saved, we can go back to the Power BI Site, and import the newly created report by clicking "Get Data":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML8fb7716.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8fb7716" src="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML8fb7716_thumb.png" alt="SNAGHTML8fb7716" width="584" height="343" border="0" /></a>
 
-Then choose “Files:
+Then choose "Files:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-10.png" alt="image" width="500" height="293" border="0" /></a>
 
@@ -102,7 +102,7 @@ Select Local File, and choose the empty report we’ve just created in Power BI 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-11.png" alt="image" width="504" height="304" border="0" /></a>
 
-Then, you should be able to the new dataset appeared under “Datasets”:
+Then, you should be able to the new dataset appeared under "Datasets":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-12.png" alt="image" width="147" height="335" border="0" /></a>
 

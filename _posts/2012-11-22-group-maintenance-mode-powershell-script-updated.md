@@ -22,7 +22,7 @@ I’ve also made few other changes including change the duration from number of 
 
 Here’s the script:
 
-[sourcecode language="PowerShell"]
+```powershell
 #===========================================================================================
 # AUTHOR: Tao Yang
 # Script Name: GroupMaintenanceMode.ps1
@@ -47,8 +47,8 @@ Param (
 #Region FunctionLibs
 function Load-SDK()
 {
- [System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager.Common&quot;) | Out-Null
- [System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager&quot;) | Out-Null
+ [System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager.Common") | Out-Null
+ [System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager") | Out-Null
 }
 #EndRegion
 
@@ -56,7 +56,7 @@ function Load-SDK()
 #duration has to be between 5 minutes and 2 years
 IF ($DurationInMinutes -lt 5 -or $DurationInMinutes -gt 1051200)
 {
- Write-Host &quot;Invalid Duration entered. the duration has to be between 5 minutes and 2 years!&quot;
+ Write-Host "Invalid Duration entered. the duration has to be between 5 minutes and 2 years!"
  $host.setShouldExit(1)
 }
 
@@ -64,7 +64,7 @@ IF ($DurationInMinutes -lt 5 -or $DurationInMinutes -gt 1051200)
 Load-SDK
 $MGConnSetting = New-Object Microsoft.EnterpriseManagement.ManagementGroupConnectionSettings($RMS)
 $MG = New-Object Microsoft.EnterpriseManagement.ManagementGroup($MGConnSetting)
-$query = &quot;DisplayName= '$GroupName'&quot;
+$query = "DisplayName= '$GroupName'"
 $MonitoringClassCriteria = New-Object Microsoft.EnterpriseManagement.Configuration.MonitoringClassCriteria($query)
 $GroupMonitoringClasses = $MG.GetMonitoringClasses($MonitoringClassCriteria)
 
@@ -76,13 +76,13 @@ If ($GroupMOnitoringClasses)
  $EndTime = $StartTime.AddMinutes($DurationInMinutes)
  $MonitoringGUID = $Group.Id
  $MonitoringObject = $MG.GetMonitoringObject($MonitoringGUID)
- Write-Host &quot;Monitoring Object GUID: $MonitoringGUID&quot;
- Write-Host &quot;Monitoring Object DisplayName: $($MonitoringObject.DisplayName)&quot;
+ Write-Host "Monitoring Object GUID: $MonitoringGUID"
+ Write-Host "Monitoring Object DisplayName: $($MonitoringObject.DisplayName)"
  If (!$MonitoringObject.InMaintenanceMode)
  {
- $Reason = &quot;PlannedOther&quot;
- Write-Host &quot;Placing $($MonitoringObject.Displayname) into Maintenance Mode...&quot; -ForegroundColor Green
- $MonitoringObject.ScheduleMaintenanceMode($StartTime, $EndTime, $Reason, $Comments, &quot;Recursive&quot;)
+ $Reason = "PlannedOther"
+ Write-Host "Placing $($MonitoringObject.Displayname) into Maintenance Mode..." -ForegroundColor Green
+ $MonitoringObject.ScheduleMaintenanceMode($StartTime, $EndTime, $Reason, $Comments, "Recursive")
 
  } else {
  $CurrentMaintWindow = $MonitoringObject.GetMaintenanceWindow()
@@ -91,17 +91,17 @@ If ($GroupMOnitoringClasses)
  $CurrentComments = $CurrentMaintWindow.Comments
  If ($CurrentEndTime -lt $EndTime)
  {
- Write-Host &quot;Updating existing maintenance mode for $($MonitoringObject.DisplayName)`...&quot; -ForegroundColor Yellow
+ Write-Host "Updating existing maintenance mode for $($MonitoringObject.DisplayName)`..." -ForegroundColor Yellow
  $MonitoringObject.UpdateMaintenanceMode($EndTime, $CurrentReason, $CurrentComments)
  } else {
- Write-Host &quot;The end time of the existing Maintenance mode on $($MonitoringObject.DisplayName) is later than specified end time. The existing maintenance mode will not be updated`!&quot; -ForegroundColor Yellow
+ Write-Host "The end time of the existing Maintenance mode on $($MonitoringObject.DisplayName) is later than specified end time. The existing maintenance mode will not be updated`!" -ForegroundColor Yellow
  }
 
  }
  }
 } else {
- Write-Host &quot;Unable to find the monitoring object with the name `&quot;$GroupName`&quot;!&quot; -ForegroundColor Red
+ Write-Host "Unable to find the monitoring object with the name `"$GroupName`"!" -ForegroundColor Red
 }
-[/sourcecode]
+```
 
 Or download the script <a href="http://blog.tyang.org/wp-content/uploads/2012/12/GroupMaintenanceMode.zip">HERE</a>.

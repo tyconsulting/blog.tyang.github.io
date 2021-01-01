@@ -23,7 +23,7 @@ Squared Up’s OMS Plug-in is designed to enable customers display the data coll
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML2477479a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2477479a" src="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML2477479a_thumb.png" alt="SNAGHTML2477479a" width="554" height="435" border="0" /></a>
 
-As you can see, you can simply use the exact same query you’ve used in OMS and copy/paste to the OMS plug-in configuration. You can also use “|” (pipe) followed by the “Select” command to specify the fields that you are interested in displaying on the dashboard.
+As you can see, you can simply use the exact same query you’ve used in OMS and copy/paste to the OMS plug-in configuration. You can also use "|" (pipe) followed by the "Select" command to specify the fields that you are interested in displaying on the dashboard.
 
 Since OMS is collecting data that is not natively available in OpsMgr (such as Change Tracking data, Wired Data, etc.) , you can really extend your existing Squared Up investment with this plugin. For example, I have produced a dashboard using the OMS plug-in in my lab (as shown below):
 
@@ -62,10 +62,10 @@ In this dashboard, I have configured the following sections:
 </ul>
 </li>
 </ul>
-Without the OMS plugin, some of above listed data will not be available in Squared Up dashboards (such as change tracking data and wired data), some could be retrieved only via complex SQL queries (such as top OpsMgr offenders). Take Top OpsMgr offenders as example again, it is super easy to find out who are the OpsMgr top offenders in OMS, by using a very simple query: <strong>“Type=Alert AlertState=New TimeGenerated&gt;NOW-24HOURS | measure count() by SourceFullName”.</strong>
+Without the OMS plugin, some of above listed data will not be available in Squared Up dashboards (such as change tracking data and wired data), some could be retrieved only via complex SQL queries (such as top OpsMgr offenders). Take Top OpsMgr offenders as example again, it is super easy to find out who are the OpsMgr top offenders in OMS, by using a very simple query: <strong>"Type=Alert AlertState=New TimeGenerated&gt;NOW-24HOURS | measure count() by SourceFullName".</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image31.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb25.png" alt="image" width="533" height="284" border="0" /></a>
 <h3>Interested in the OMS Plug-in?</h3>
-Currently the version running in my lab environment is the “limited release technical preview”. This plug-in will also be demonstrated in the upcoming events such as MMS.
+Currently the version running in my lab environment is the "limited release technical preview". This plug-in will also be demonstrated in the upcoming events such as MMS.
 
 Are you also interested in trying the Squared Up Plug-in yourself? Although Squared Up has not confirmed the release date for this plug-in, they have asked me to let everyone know that if you’d like to test and provide feedback, please contact Squared Up directly. You can find their contact details from their website: <a title="https://squaredup.com/contact/" href="https://squaredup.com/contact/">https://squaredup.com/contact/</a>

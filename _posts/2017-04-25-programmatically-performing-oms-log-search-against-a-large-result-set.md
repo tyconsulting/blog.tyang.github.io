@@ -19,14 +19,14 @@ tags:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image.png"><span style="font-size: small;"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb.png" alt="image" width="603" height="229" border="0" /></span></a>
 
-<span style="font-size: small;">Last month, I was working on a solution where I needed to retrieve all results from search queries, so I reached out to the OMS product group and other CDM MVPs. My buddy and the fellow co-author of the Inside OMS book Stanislav Zhelyazkov provided a work around. Basically, the work around is to use the “skip” command in subsequent request calls until you have retrieved everything. For example, if you want to retrieve all agent heartbeat events using query “Type=Heartbeat”, you could perform multiple queries until you have retrieved all the log entries as shown below:</span>
+<span style="font-size: small;">Last month, I was working on a solution where I needed to retrieve all results from search queries, so I reached out to the OMS product group and other CDM MVPs. My buddy and the fellow co-author of the Inside OMS book Stanislav Zhelyazkov provided a work around. Basically, the work around is to use the "skip" command in subsequent request calls until you have retrieved everything. For example, if you want to retrieve all agent heartbeat events using query "Type=Heartbeat", you could perform multiple queries until you have retrieved all the log entries as shown below:</span>
 <ol>
- 	<li><span style="font-size: small;">1</span><sup><span style="font-size: small;">st</span></sup><span style="font-size: small;"> Query: “Type=Heartbeat | Top 5000”</span></li>
- 	<li><span style="font-size: small;">2</span><sup><span style="font-size: small;">nd</span></sup><span style="font-size: small;"> Query: “Type=Heartbeat | Skip 10000 | Top 5000”</span></li>
- 	<li><span style="font-size: small;">3</span><sup><span style="font-size: small;">rd</span></sup><span style="font-size: small;"> Query: “Type=Heartbeat | Skip 15000 | Top 5000”</span></li>
+ 	<li><span style="font-size: small;">1</span><sup><span style="font-size: small;">st</span></sup><span style="font-size: small;"> Query: "Type=Heartbeat | Top 5000"</span></li>
+ 	<li><span style="font-size: small;">2</span><sup><span style="font-size: small;">nd</span></sup><span style="font-size: small;"> Query: "Type=Heartbeat | Skip 10000 | Top 5000"</span></li>
+ 	<li><span style="font-size: small;">3</span><sup><span style="font-size: small;">rd</span></sup><span style="font-size: small;"> Query: "Type=Heartbeat | Skip 15000 | Top 5000"</span></li>
  	<li><span style="font-size: small;">… repeat until the search API call returns no results</span></li>
 </ol>
-I have written a sample script using the OMS PowerShell module to demonstrate how to use the “skip” command in subsequent queries. The sample script is listed below:
+I have written a sample script using the OMS PowerShell module to demonstrate how to use the "skip" command in subsequent queries. The sample script is listed below:
 https://gist.github.com/tyconsulting/5751fe6a364d989df2fc76138e55bb37
 
 Here’s the script output based on my lab environment:

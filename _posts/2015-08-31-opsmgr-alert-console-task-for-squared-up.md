@@ -34,7 +34,7 @@ the management pack containing these 2 tasks can be downloaded at the end of thi
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image41.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb41.png" alt="image" width="677" height="335" border="0" /></a>
 
-You need to open the unsealed MP (xml) in a text editor (such as Notepad++), and modify line 29 and 38 (as shown above). Please replace “http://Your-SquaredUp-URL” with the Squared Up URL in your environment. i.e.
+You need to open the unsealed MP (xml) in a text editor (such as Notepad++), and modify line 29 and 38 (as shown above). Please replace "http://Your-SquaredUp-URL" with the Squared Up URL in your environment. i.e.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image42.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb42.png" alt="image" width="661" height="327" border="0" /></a>
 

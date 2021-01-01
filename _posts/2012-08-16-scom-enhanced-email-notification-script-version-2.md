@@ -27,7 +27,7 @@ There are few reasons why I have decided to rewrite this script:
 <ul>
 	<li>Now the script uses SCOM SDK instead of SCOM PowerShell snap-in / module. And because of this, it works on both SCOM 2007 R2 and SCOM 2012. – so far, from my experience playing with the them, the SDK’s in SCOM 2007 and 2012 look pretty similar!</li>
 	<li>Also because of the use of SCOM SDK, I’m able to retrieve Company Knowledge articles.</li>
-	<li>In the original script, it would only retrieve knowledge articles when the language of the article is ENU (“en-US”). Therefore, any knowledge articles stored in other language packs (such as ENA) in the management pack would not be retrieved. The script now retrieve ALL knowledge articles AND ALL company knowledge articles and display ALL of them in the email (as shown in the sample below).</li>
+	<li>In the original script, it would only retrieve knowledge articles when the language of the article is ENU ("en-US"). Therefore, any knowledge articles stored in other language packs (such as ENA) in the management pack would not be retrieved. The script now retrieve ALL knowledge articles AND ALL company knowledge articles and display ALL of them in the email (as shown in the sample below).</li>
 	<li>I have moved all the customisations out of the script itself to a <strong>config.xml</strong> to store customised settings. No need to modify the PS1 script anymore. Simply make necessary changes in the config.xml and place it to the same folder as the script.</li>
 	<li>When setting up a native SCOM SMTP notification channel, there are only 2 authentication methods you can choose from: <strong>Anonymous</strong> and <strong>Windows Integrated</strong>. This script can be configured to use a separate user name and password to authenticate to SMTP so <strong>external SMTP servers such as gmail can be used.</strong> This eliminates the needs of having to use Exchange server for mail relay.</li>
 </ul>
@@ -55,7 +55,7 @@ It contains:
 	<li>The version 2 of the <strong>SCOMEnhancedEmailNotification.ps1</strong> script.</li>
 	<li><strong>config.xml</strong> that you will need to modify to suit your needs</li>
 	<li><strong>XML explaination.xlsx</strong> – explains each tag of the config.xml in details.</li>
-	<li><strong>Command Channel Setup.txt</strong> – what to enter when setting up command channel. (assuming the script is located at D:\Script). you can simply change the location of the script and email addresses, then copy &amp; paste each field.</li>
+	<li><strong>Command Channel Setup.txt</strong> – what to enter when setting up command channel. (assuming the script is located at D:\Script). you can simply change the location of the script and email addresses, then copy & paste each field.</li>
 	<li><strong>XML Sample</strong> – contains 3 config.xml samples. one for each SMTP authentication method (Anonymous, Integrated and Credential).</li>
 </ul>
 The notifications subscriber and subscriptions are setup exactly the same way as the original version of the script. you can simply refer to the <a href="http://blog.tyang.org/2010/07/19/enhanced-scom-alerts-notification-emails/">original blog post</a>.

@@ -19,7 +19,7 @@ Once the MP files are imported , you will be able to import the license from the
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1ef419e2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1ef419e2" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1ef419e2_thumb.png" alt="SNAGHTML1ef419e2" width="486" height="373" border="0" /></a>
 
-Once the license is imported, you can manually add the VMware vCenter server from the “VMWare IMP COnfiguration dashboard” located under OpsLogix\VMware folder:
+Once the license is imported, you can manually add the VMware vCenter server from the "VMWare IMP COnfiguration dashboard" located under OpsLogix\VMware folder:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1efa0d33.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1efa0d33" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1efa0d33_thumb.png" alt="SNAGHTML1efa0d33" width="482" height="371" border="0" /></a>
 

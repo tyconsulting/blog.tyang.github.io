@@ -26,7 +26,7 @@ Instagram: <a href="https://www.instagram.com/lemontaste_blog">@Lemontaste_blog<
 
 Please feel free to share the links with your friends and family, it will be much appreciated!
 
-For those who know me and my partner well on a personal level, hopefully you all agree that she is amazing when comes to cooking. Even my 4 year old daughter said to me that “Daddy is a cook, Mummy is a chef!” Together, we have already come up with over 20 recipes that she can blog about. However, given the time and effort required for each blog post, unlike my blog articles, she won’t be able to blog as fast as me. But I promise that I’ll keep reminding her and help her to get them published one at a time. At the end of the day, I really enjoy these blog posts too because I get to eat the leftover from her blog posts – after the photos been taken, then it’s all mine!
+For those who know me and my partner well on a personal level, hopefully you all agree that she is amazing when comes to cooking. Even my 4 year old daughter said to me that "Daddy is a cook, Mummy is a chef!" Together, we have already come up with over 20 recipes that she can blog about. However, given the time and effort required for each blog post, unlike my blog articles, she won’t be able to blog as fast as me. But I promise that I’ll keep reminding her and help her to get them published one at a time. At the end of the day, I really enjoy these blog posts too because I get to eat the leftover from her blog posts – after the photos been taken, then it’s all mine!
 
 Here are some of her most recent dishes (all photos were taken by herself), there are few more on her blog:
 

@@ -23,7 +23,7 @@ HP Proliant N54L:
 
 &nbsp;
 
-Yesterday, I was going through the labs for Microsoft exam <a href="http://www.microsoft.com/learning/en/us/exam.aspx?id=70-246">70-246: Minotoring and Operating a Private Cloud with System Center 2012</a><em></em> and I ran into issues that I could not create a VMM connector to connect to my new VMM server from Service Manager. I got a very simple error message: <em>“Cannot connect to VMM server &lt;vmm server name&gt;”</em>
+Yesterday, I was going through the labs for Microsoft exam <a href="http://www.microsoft.com/learning/en/us/exam.aspx?id=70-246">70-246: Minotoring and Operating a Private Cloud with System Center 2012</a><em></em> and I ran into issues that I could not create a VMM connector to connect to my new VMM server from Service Manager. I got a very simple error message: <em>"Cannot connect to VMM server &lt;vmm server name&gt;"</em>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/04/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb16.png" width="515" height="360" border="0" /></a>
 
@@ -33,7 +33,7 @@ While I was troubleshooting it, I realised 2 other issues:
 
 <em><strong>New-PSSession –ComputerName &lt;VMM server FQDN&gt; –Credential &lt;Service Manager VMM Connector Account&gt;</strong></em>
 
-2. After I have created a connection to the new VMM server in the Orchestrator VMM integration pack, I modified an existing test runbook called “Get Cloud” to use the new connection, and it also failed.
+2. After I have created a connection to the new VMM server in the Orchestrator VMM integration pack, I modified an existing test runbook called "Get Cloud" to use the new connection, and it also failed.
 
 All of these worked fine on the old VMM server, WinRM is configured exactly the same between old and new VMM severs because it configured in a domain GPO.
 
@@ -49,6 +49,6 @@ After few hours troubleshooting, I have found the problems:
 
 Luckily I found <a href="http://gokhanyildirim.wordpress.com/2012/05/01/the-type-or-name-syntax-of-the-registry-key-value-indigotcpport-under-softwaremicrosoftmicrosoft-system-center-virtual-machine-manager-administrator-consolesettings-is-incorrect/">this blog article</a>. In my VMM server’s registry, the value <strong>IndigoTcpPort</strong> under <em>HKLM\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Administrator Console\Settings</em> is a REG_SZ (string) with no value configured. After I deleted it and recreated a REG_DWORD with value 1fa4 (which is hexadecimal for 8100), everything started working. The Get-SCVMMServer cmdlet worked fine. Service Manager VMM Connector was successfully created and Orchestrator runbooks were able to run.
 
-So to summarise what I’ve done. I’ve reviewed and removed the SPN’s for http service which were originally created for SSRS, and corrected the “<strong>IndigoTcpPort</strong>” registry value.
+So to summarise what I’ve done. I’ve reviewed and removed the SPN’s for http service which were originally created for SSRS, and corrected the "<strong>IndigoTcpPort</strong>" registry value.
 
 It was not how I would like to spend my Saturday night, but I’m glad I’ve got it fixed so I can continue with my study.

@@ -44,18 +44,18 @@ Please refer to my <a href="http://blog.tyang.org/2011/10/09/clean-up-old-hardwa
 
 All OpsMgr agents in Management Group TYANG:
 
-[sourcecode language="SQL" light="true"]
+```sql
 select SMS_R_SYSTEM.ResourceID,SMS_R_SYSTEM.ResourceType,SMS_R_SYSTEM.Name,SMS_R_SYSTEM.SMSUniqueIdentifier,SMS_R_SYSTEM.ResourceDomainORWorkgroup,SMS_R_SYSTEM.Client from SMS_R_System inner join SMS_G_System_CUSTOM_OPSMGR_2007_AGENT_SETTING_2_0 on SMS_G_System_CUSTOM_OPSMGR_2007_AGENT_SETTING_2_0.ResourceId = SMS_R_System.ResourceId where SMS_G_System_CUSTOM_OPSMGR_2007_AGENT_SETTING_2_0.ManagementGroup = "TYANG"
-[/sourcecode]
+```
 
 All OpsMgr agents managed by OpsMgr Management Server SCOM02:
 
-[sourcecode language="SQL" light="true"]
+```sql
 select SMS_R_SYSTEM.ResourceID,SMS_R_SYSTEM.ResourceType,SMS_R_SYSTEM.Name,SMS_R_SYSTEM.SMSUniqueIdentifier,SMS_R_SYSTEM.ResourceDomainORWorkgroup,SMS_R_SYSTEM.Client from SMS_R_System inner join SMS_G_System_CUSTOM_OPSMGR_2007_AGENT_SETTING_2_0 on SMS_G_System_CUSTOM_OPSMGR_2007_AGENT_SETTING_2_0.ResourceId = SMS_R_System.ResourceId where SMS_G_System_CUSTOM_OPSMGR_2007_AGENT_SETTING_2_0.ManagementServer = "SCOM02.corp.tyang.org"
-[/sourcecode]
+```
 
 All OpsMgr Management Servers:
 
-[sourcecode language="SQL" light="true"]
+```sql
 select *  from  SMS_R_System inner join SMS_G_System_CUSTOM_OPSMGR_2007_SERVER_SETTING_2_0 on SMS_G_System_CUSTOM_OPSMGR_2007_SERVER_SETTING_2_0.ResourceId = SMS_R_System.ResourceId where SMS_G_System_CUSTOM_OPSMGR_2007_SERVER_SETTING_2_0.IsServer = 1
-[/sourcecode]
+```

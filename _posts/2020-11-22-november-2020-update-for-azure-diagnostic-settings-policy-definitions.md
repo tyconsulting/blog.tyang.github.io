@@ -52,7 +52,7 @@ Here’s a the change log:
 </ul>
     <li>Updated Diagnostic Setting policies that send data Log Analytics:</li>
 <ul>
-    <li>Added “<a href="https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#parameter-properties?WT.mc_id=DOP-MVP-5000997">assignPermission</a>” to log analytics workspaces</li>
+    <li>Added "<a href="https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#parameter-properties?WT.mc_id=DOP-MVP-5000997">assignPermission</a>" to log analytics workspaces</li>
     <li>Added Azure Diagnostics mode vs Resource-Specific mode selection for applicable resource types (explained in <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics?WT.mc_id=DOP-MVP-5000997">this article</a>)</li>
 </ul>
 </ul>

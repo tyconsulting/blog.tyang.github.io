@@ -28,4 +28,4 @@ You can now configure additional verbose tracing for graphical runbooks. Please 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/11/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/11/image_thumb5.png" alt="image" width="683" height="397" border="0" /></a>
 
-As you can see, once turned on, you can see a lot more verbose logging activities (starts with ‘GraphTrace”) for your runbook jobs.
+As you can see, once turned on, you can see a lot more verbose logging activities (starts with ‘GraphTrace") for your runbook jobs.

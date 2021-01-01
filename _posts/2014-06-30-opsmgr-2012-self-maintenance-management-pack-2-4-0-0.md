@@ -36,7 +36,7 @@ I often get emails from people who are having issues configuring workflows in th
 
 <strong>Additional Rule: OpsMgr 2012 Self Maintenance Obsolete Management Pack Alias Detection Rule</strong>
 
-As I mentioned in my previous post <a href="http://blog.tyang.org/2014/06/24/powershell-script-remove-obsolete-references-unsealed-opsmgr-management-packs/">PowerShell Script: Remove Obsolete References from Unsealed OpsMgr Management Packs</a>, I’ve created a rule that detects obsolete MP references in unsealed management packs. The difference between the stand alone script (from previous post) and this rule is, this rule would only detect obsolete MP references, it will not try to remove them. Operators can use the “Remove Obsolete MP References” agent task manually remove them (or using the standalone script I published earlier).
+As I mentioned in my previous post <a href="http://blog.tyang.org/2014/06/24/powershell-script-remove-obsolete-references-unsealed-opsmgr-management-packs/">PowerShell Script: Remove Obsolete References from Unsealed OpsMgr Management Packs</a>, I’ve created a rule that detects obsolete MP references in unsealed management packs. The difference between the stand alone script (from previous post) and this rule is, this rule would only detect obsolete MP references, it will not try to remove them. Operators can use the "Remove Obsolete MP References" agent task manually remove them (or using the standalone script I published earlier).
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/06/image9.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb9.png" alt="image" width="529" height="549" border="0" /></a>
 
@@ -46,7 +46,7 @@ This task targets All Management Servers Resource Pool and can be used in conjun
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/06/SNAGHTML5ed69f2.png"><img style="display: inline; border: 0px;" title="SNAGHTML5ed69f2" src="http://blog.tyang.org/wp-content/uploads/2014/06/SNAGHTML5ed69f2_thumb.png" alt="SNAGHTML5ed69f2" width="536" height="557" border="0" /></a>
 
-<strong>Additional Agent Tasks: “Get Workflow Name(ID)” and “Reset Monitor Health State”</strong>
+<strong>Additional Agent Tasks: "Get Workflow Name(ID)" and "Reset Monitor Health State"</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/06/image10.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb10.png" alt="image" width="242" height="292" border="0" /></a>
 
@@ -60,7 +60,7 @@ i.e.
 
 Therefore, when I was writing the script for the Reset Monitor Health State agent task, I used monitor name instead of display name. However, since the monitor name is actually not viewable in the Operations Console, I had to create another agent task to get the name of a workflow (monitors, rules and discoveries).
 
-i.e. let’s use the “Computer Browser Service Health” monitors as an example.
+i.e. let’s use the "Computer Browser Service Health" monitors as an example.
 
 Get the monitor(s) using SCOM PowerShell Module:
 
@@ -70,11 +70,11 @@ In my environment, there are 2 monitors that have the same display name. the act
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/06/image13.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb13.png" alt="image" width="580" height="225" border="0" /></a>
 
-So in order to use the “Reset Monitor Health State” task, operators firstly need to identify the monitor name (MP element ID), then paste it into an override field of the task. To make it easier, we can use the “Get Workflow Name(ID)” agent task to get the name:
+So in order to use the "Reset Monitor Health State" task, operators firstly need to identify the monitor name (MP element ID), then paste it into an override field of the task. To make it easier, we can use the "Get Workflow Name(ID)" agent task to get the name:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/06/image14.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb14.png" alt="image" width="580" height="573" border="0" /></a>
 
-Then copy and paste the monitor name into the “MonitorName” override parameter of the “Reset Monitor Health State”:
+Then copy and paste the monitor name into the "MonitorName" override parameter of the "Reset Monitor Health State":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/06/image15.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb15.png" alt="image" width="580" height="345" border="0" /></a>
 

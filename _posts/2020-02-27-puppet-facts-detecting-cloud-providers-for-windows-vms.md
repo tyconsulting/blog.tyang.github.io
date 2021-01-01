@@ -50,6 +50,6 @@ On the Puppet agent, when you apply the config using –debug flag, you will see
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/02/image-1.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2020/02/image_thumb-1.png" alt="image" width="583" height="115" border="0" /></a>
 
-So how does it work? for GCP and AWS, it’s pretty easy. All I needed to check is the VM serial number from the Win32_Bios WMI class. The AWS VM serial number starts with “ec2”, and the GCP VM starts with “GoogleCloud”.
+So how does it work? for GCP and AWS, it’s pretty easy. All I needed to check is the VM serial number from the Win32_Bios WMI class. The AWS VM serial number starts with "ec2", and the GCP VM starts with "GoogleCloud".
 
 Azure VM is a bit of complicated. You won’t be able to differentiate Hyper-V VM or Azure VM by querying WMI. However, Azure VMs are shipped with a built-in REST Endpoint called Azure Instance Metadata service (<a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/instance-metadata-service">https://docs.microsoft.com/en-us/azure/virtual-machines/linux/instance-metadata-service</a>). By using querying this local endpoint on an Azure VM, you can retrieve metadata of the VM, i.e. location, resource Id, resource Group, etc. So the Puppet facts I developed simply query this endpoint, if the HTTP response code is 200, then it’s an Azure VM.

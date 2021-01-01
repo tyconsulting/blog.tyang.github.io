@@ -28,7 +28,7 @@ Here’s what I’ve done:
 
 In my home lab, I have multiple VMs managed by an Azure Log Analytics workspace in one of my subscriptions. I have previously purchased a .cloud domain name from GoDaddy and created an Azure DNS zone using this domain name.
 
-My lab VMs are sending heartbeat logs to Azure Log Analytics workspace. In the Heartbeat logs, the “ComputerIP” field for all my lab VMs are identical – it is the public IP address dynamically assigned to my home broadband connection. This IP address changes from time to time because my home broadband gets disconnected every now and then.
+My lab VMs are sending heartbeat logs to Azure Log Analytics workspace. In the Heartbeat logs, the "ComputerIP" field for all my lab VMs are identical – it is the public IP address dynamically assigned to my home broadband connection. This IP address changes from time to time because my home broadband gets disconnected every now and then.
 
 Since the public IP address for my home broadband connection is stored in my Log Analytics workspace, and I have an Azure DNS zone, all I needed to build is an automation runbook that runs on a schedule, retrieve the most recent public IP from Log Analytics, and update the Azure DNS record set if it’s necessary.
 
@@ -58,7 +58,7 @@ I’d assume most of readers of my blog would have free Azure subscriptions that
 
 <strong>2. More flexible</strong>
 
-With those dynamic DNS providers, you’d have to use their DNS domain. This solution provides more flexibility. You can purchase a domain name that you actually like to use, something cool! And you get to pick what host name you want to use, and the TTL value. For me, I configured the TTY for my record to as low as 15 minutes and picked a host name “mancave.[my-domain-name]”.
+With those dynamic DNS providers, you’d have to use their DNS domain. This solution provides more flexibility. You can purchase a domain name that you actually like to use, something cool! And you get to pick what host name you want to use, and the TTL value. For me, I configured the TTY for my record to as low as 15 minutes and picked a host name "mancave.[my-domain-name]".
 
 <strong>3. No Requirements with networking devices</strong>
 
@@ -97,7 +97,7 @@ If you are interested to use my solution, and need to setup everything from scra
 The runbook takes the following input parameters, which you will need to specify when creating the schedule:
 
 <ul>
-    <li><strong>AzureConnectionName</strong> – (Optional) The name of the Azure RunAs connection. By default, if you created the Run As account via the portal, the name is “AzureRunAsConnection”. If you don’t specify it, the default name will be used.</li>
+    <li><strong>AzureConnectionName</strong> – (Optional) The name of the Azure RunAs connection. By default, if you created the Run As account via the portal, the name is "AzureRunAsConnection". If you don’t specify it, the default name will be used.</li>
     <li><strong>WorkspaceName</strong> - Azure Log Analytics workspace name</li>
     <li><strong>WorkspaceResourceGroup</strong> - Azure Log Analytics workspace resource group</li>
     <li><strong>DNSZone</strong> - name of the Azure DNZ zone</li>

@@ -31,7 +31,7 @@ Each section (left and right) uses an instance of Iframe plugin to display a par
 
 02. save the changes and copy the URL.
 
-03. Create a new page, split into multiple sections, and in one of the sections, choose “Web Content”, and copy the URL in the <strong>src</strong> field
+03. Create a new page, split into multiple sections, and in one of the sections, choose "Web Content", and copy the URL in the <strong>src</strong> field
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image32.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb32.png" alt="image" width="486" height="211" border="0" /></a>
 

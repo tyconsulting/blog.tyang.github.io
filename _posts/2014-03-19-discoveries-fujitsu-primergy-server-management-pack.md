@@ -42,15 +42,15 @@ According to Microsoft’s <a href="https://social.technet.microsoft.com/wiki/co
 
 In order to overcome these issues, I have created an additional addendum MP. Below is a list of what I’ve done in this addendum MP:
 
-1. Created a custom class called “Fujitsu Server Computer (Addendum MP)”.
+1. Created a custom class called "Fujitsu Server Computer (Addendum MP)".
 
-2. Create a registry based discovery for the “Fujitsu Server Computer (Addendum MP)”. This discovery is based on “<strong>HKLM\System\CurrentControlSet\Control\SystemInformation\SystemManufacturer</strong>” regkey value.
+2. Create a registry based discovery for the "Fujitsu Server Computer (Addendum MP)". This discovery is based on "<strong>HKLM\System\CurrentControlSet\Control\SystemInformation\SystemManufacturer</strong>" regkey value.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/03/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb6.png" width="580" height="244" border="0" /></a>
 
-3. Created a group for all instances of “Fujitsu Server Computer (Addendum MP)” class.
+3. Created a group for all instances of "Fujitsu Server Computer (Addendum MP)" class.
 
-4. Created an override to disable the original discovery from Fujitsu MP ( called “PRIMERGY Server Discovery Rule”).
+4. Created an override to disable the original discovery from Fujitsu MP ( called "PRIMERGY Server Discovery Rule").
 
 5. Created an override to enable the original discovery for the group I created in the previous step.
 

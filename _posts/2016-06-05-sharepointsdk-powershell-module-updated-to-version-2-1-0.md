@@ -19,7 +19,7 @@ OK, this blog has been very quiet recently. Due to some work related requirement
 </ul>
 This new release includes the following updates:
 
-<strong>01. Fixed the “format-default : The collection has not been initialized.” error when retrieving various SharePoint objects.</strong>
+<strong>01. Fixed the "format-default : The collection has not been initialized." error when retrieving various SharePoint objects.</strong>
 
 i.e. When retrieving the SharePoint list in previous versions using Get-SPList function, you will get this error:
 
@@ -41,7 +41,7 @@ When adding a lookup field in a SharePoint list, you can specify including one o
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/06/image-2.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/06/image_thumb-2.png" alt="image" width="378" height="270" border="0" /></a>
 
-The previous versions of this module did not support adding additional columns when creating a lookup field. In this version, you are able to add additional columns using the “-AdditionalSourceFields” parameter to achieve this goal.
+The previous versions of this module did not support adding additional columns when creating a lookup field. In this version, you are able to add additional columns using the "-AdditionalSourceFields" parameter to achieve this goal.
 
 <strong>04. Various minor bug fixes</strong>
 

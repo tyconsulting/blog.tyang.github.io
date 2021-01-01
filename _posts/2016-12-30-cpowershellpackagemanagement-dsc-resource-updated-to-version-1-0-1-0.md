@@ -16,7 +16,7 @@ Few days ago I found a bug in the cPowerShellPackageManagement DSC resource modu
 
 in version 1.0.0.1, I’ve added –AllowClobber switch to the Install-Module cmdlet, which was explained in my previous post: <a title="http://blog.tyang.org/2016/12/16/dsc-resource-cpowershellpackagemanagement-module-updated-to-version-1-0-0-1/" href="http://blog.tyang.org/2016/12/16/dsc-resource-cpowershellpackagemanagement-module-updated-to-version-1-0-0-1/">http://blog.tyang.org/2016/12/16/dsc-resource-cpowershellpackagemanagement-module-updated-to-version-1-0-0-1/</a>
 
-However, I only just noticed that despite the fact that the pre-installed version of the PowerShellGet module on Windows Server 2016 and in WMF 5.0 for Windows Server 202 R2, the install-module cmdlet is sightly different. The pre-installed version of PowerShellGet module is 1.0.0.1, and in Windows 10 and Windows Server 2106, Install-Module cmdlet has the “AllowClobber” switch:
+However, I only just noticed that despite the fact that the pre-installed version of the PowerShellGet module on Windows Server 2016 and in WMF 5.0 for Windows Server 202 R2, the install-module cmdlet is sightly different. The pre-installed version of PowerShellGet module is 1.0.0.1, and in Windows 10 and Windows Server 2106, Install-Module cmdlet has the "AllowClobber" switch:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/12/image-15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/12/image_thumb-15.png" alt="image" width="597" height="379" border="0" /></a>
 

@@ -27,7 +27,7 @@ You will need to specify the following parameters:
  	<li>OMSConnectionName – the name of the OMSWorkspace connection asset you have created previously. this connection is defined in the OMSDataInjection module</li>
  	<li>OMSLogTypeName – The OMS log type name that you wish to use for the injected events.</li>
  	<li>BatchLimit – the number of events been injected in a single bulk request. This is an optional parameter, the default value is 1000 if it is not specified.</li>
- 	<li>OMSTimeStampFieldName – For the OMS HTTP Data Collector API, you will need to tell the API which field in your log represent the timestamp. since all events extracted from .evtx files all have a “TimeCreated” field, the default value for this parameter is ‘TimeCreated’.</li>
+ 	<li>OMSTimeStampFieldName – For the OMS HTTP Data Collector API, you will need to tell the API which field in your log represent the timestamp. since all events extracted from .evtx files all have a "TimeCreated" field, the default value for this parameter is ‘TimeCreated’.</li>
 </ul>
 You can further customise the runbook and choose which fields from the evtx events that you wish to exclude. For the fields that you wish to exclude, you need to add them to the $arrSkippedProperties array variable (line 25 – 31). I have already pre-populated it with few obvious ones, you can add and remove them to suit your requirements.
 

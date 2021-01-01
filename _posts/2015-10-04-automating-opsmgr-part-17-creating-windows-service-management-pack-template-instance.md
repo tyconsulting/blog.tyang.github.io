@@ -35,7 +35,7 @@ tags:
 	<li><a href="http://blog.tyang.org/2015/09/25/automating-opsmgr-part-15-creating-2-state-event-monitors/">Automating OpsMgr Part 15: Creating 2-State Event Monitors</a></li>
 	<li><a href="http://blog.tyang.org/2015/10/02/automating-opsmgr-part-16-creating-windows-service-monitors/">Automating OpsMgr Part 16: Creating Windows Service Monitors</a></li>
 </ul>
-Now that I have demonstrated how to create basic Windows service monitors using New-OMServiceMonitor, in this post, I’ll demonstrate how to use the OpsMgrExtended module to create an instance of the “Windows Service” management pack template:
+Now that I have demonstrated how to create basic Windows service monitors using New-OMServiceMonitor, in this post, I’ll demonstrate how to use the OpsMgrExtended module to create an instance of the "Windows Service" management pack template:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb6.png" alt="image" width="244" height="218" border="0" /></a>
 
@@ -133,7 +133,7 @@ Write-Error "Unable to create the Windows Service monitoring template instance `
 I have hardcoded the following parameters in the runbook:
 <ul>
 	<li>SMA OpsMgr connection object name (which you will need to change to suit your environment)</li>
-	<li>(Unsealed) MP (where the rule  is going to be saved to) – “TYANG.Test.Windows.Monitoring”</li>
+	<li>(Unsealed) MP (where the rule  is going to be saved to) – "TYANG.Test.Windows.Monitoring"</li>
 </ul>
 Additionally, this runbook will firstly try to retrieve the management pack from the management group, if the MP deosn’t exist, it will create it first.
 
@@ -143,7 +143,7 @@ This runbook takes the following input parameters:
 	<li><strong>InstanceDescription</strong>– This is an optional parameter. The description of the template instance.</li>
 	<li><strong>TargetGroupName</strong>– The name of the target group</li>
 	<li><strong>ServiceName</strong>–The name of the Windows service (i.e. w32time)</li>
-	<li><strong>LocaleId– </strong>The 3-letter MP language pack locale ID. This is an optional parameter, if not specified, it will be set to “ENU”.</li>
+	<li><strong>LocaleId– </strong>The 3-letter MP language pack locale ID. This is an optional parameter, if not specified, it will be set to "ENU".</li>
 	<li><strong>CheckStartupType</strong>– Set this Boolean parameter to True if you only want to monitor automatic service. More details about this parameter can be found from Kevin Holman’s blog post <a href="http://blogs.technet.com/b/kevinholman/archive/2010/11/07/monitoring-windows-services-automatic-manual-and-disabled-using-checkstartuptype.aspx">Monitoring Windows Services – Automatic, Manual, and Disabled, using CheckStartupType</a></li>
 	<li><strong>CPUPercent</strong>– Specify the threshold for CPU Usage Percentage. This is an optional parameter, if not specifiied, the CPU Usage will not be monitored or collected.</li>
 	<li><strong>MemoryUsageMB</strong>– Specify the threshold for Memory Usage (MB). This is an optional parameter, if not specifiied, the Memory Usage will not be monitored or collected.</li>

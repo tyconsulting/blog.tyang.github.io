@@ -42,7 +42,7 @@ Based my situation, I have the following requirements:
 
 There are many good scripts for installing OpsMgr 2012 agents out there. i.e. this one <a href="http://www.systemcentercentral.com/opsmgr-2012-installing-opsmgr-2012-agents-from-the-command-line-sample-script/">here</a> in particular. I used this script as a starting point and made it more generic. I took out any hardcoded management group configuration (Management Group Name, management server, port) and made them as parameters that need to be passed in. I’ve also made the script to get a list of all management groups that agent is connected to and remove any that is not the new 2012 management group that I want the agent to connect.
 
-I tested the script using a command prompt running under LocalSystem account (this can be done using PsExec.exe, “PsExec.exe –s –d –i cmd”)
+I tested the script using a command prompt running under LocalSystem account (this can be done using PsExec.exe, "PsExec.exe –s –d –i cmd")
 
 This command opens a new command prompt window
 
@@ -60,14 +60,14 @@ Set objMSConfig = CreateObject("AgentConfigManager.MgmtSvcCfg")
 
 And this only happens in the more recent Windows OS versions.
 
-I suddenly realised because ConfigMgr 2007 is only 32-bit app, it may have problem calling the 64-bit “AgentConfigManager.MgmtSvcCfg” com object. To prove my guess, I simply created a vbscript with just 2 lines:
+I suddenly realised because ConfigMgr 2007 is only 32-bit app, it may have problem calling the 64-bit "AgentConfigManager.MgmtSvcCfg" com object. To prove my guess, I simply created a vbscript with just 2 lines:
 
 [sourcecode language="VB"]
-Set objMSConfig = CreateObject(&quot;AgentConfigManager.MgmtSvcCfg&quot;)
+Set objMSConfig = CreateObject("AgentConfigManager.MgmtSvcCfg")
 Wscript.Echo Err
-[/sourcecode]
+```
 
-I then ran it within a 32-bit command prompt window running under LocalSystem account (to simulate the runtime environment in ConfigMgr 2007 client). To do so, again, I used PsExec by using “Psexec.exe –s –d –i C:\Windows\SysWow64\cmd.exe”
+I then ran it within a 32-bit command prompt window running under LocalSystem account (to simulate the runtime environment in ConfigMgr 2007 client). To do so, again, I used PsExec by using "Psexec.exe –s –d –i C:\Windows\SysWow64\cmd.exe"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/11/image1.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb1.png" width="580" height="297" border="0" /></a>
 
@@ -83,7 +83,7 @@ If I run this script in 64-bit command window, there are no errors because Err v
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/11/image3.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb3.png" width="580" height="136" border="0" /></a>
 
-So now, I’ve identified the problem being the 64-bit “AgentConfigManager.MgmtSvcCfg” object cannot be called by 32-bit applications. the workaround is fairly simple: I split the original script into 2 scripts. the first script firstly detects the OS architecture and install the appropriate version of MOMAGENT.msi. It then calls the second script to configure the agent using “AgentConfigManager.MgmtSvcCfg” object. The first script detects if itself is running in a 32-bit shell on a 64-bit OS. if so, it would bypass the 32-bit redirection and call the native 64-bit scripting engine cscript.exe using the <strong>%Windir%\sysnative\Cscript.exe</strong> to execute the second script. So the second script would never be executed within the 32-bit redirection mode.
+So now, I’ve identified the problem being the 64-bit "AgentConfigManager.MgmtSvcCfg" object cannot be called by 32-bit applications. the workaround is fairly simple: I split the original script into 2 scripts. the first script firstly detects the OS architecture and install the appropriate version of MOMAGENT.msi. It then calls the second script to configure the agent using "AgentConfigManager.MgmtSvcCfg" object. The first script detects if itself is running in a 32-bit shell on a 64-bit OS. if so, it would bypass the 32-bit redirection and call the native 64-bit scripting engine cscript.exe using the <strong>%Windir%\sysnative\Cscript.exe</strong> to execute the second script. So the second script would never be executed within the 32-bit redirection mode.
 
 I’ve named the first script <strong>OM12AgentMigration.vbs</strong>:
 
@@ -112,7 +112,7 @@ Const ForWriting = 2
 Const ForAppending = 3
 
 'process arguments
-Set sh = Wscript.CreateObject(&quot;Wscript.Shell&quot;)
+Set sh = Wscript.CreateObject("Wscript.Shell")
 Set oArgs = Wscript.Arguments
 
 IF oArgs.Count &lt; 2 THEN
@@ -129,14 +129,14 @@ Else
 	Port = 5723
 End If
 
-Set objFSO = CreateObject(&quot;Scripting.FileSystemObject&quot;)
-TempDir = &quot;C:\Temp&quot;
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+TempDir = "C:\Temp"
 
 If objFSO.FolderExists(TempDir) = FALSE Then
 	objFSO.CreateFolder(TempDir)
 End If
 
-LogFilePath = TempDir &amp; &quot;\OM12AgentInstall.log&quot;
+LogFilePath = TempDir & "\OM12AgentInstall.log"
 Wscript.Echo LogFilePath
 'delete previous log file
 If objFSO.FileExists(LogFilePath) Then
@@ -146,28 +146,28 @@ End If
 'Create log file
 Set LogFile = objFSO.CreateTextFile(LogFilePath, True)
 
-LogFile.WriteLine &quot;OM12AgentMigration.vbs version: 1.0.0.1&quot;
+LogFile.WriteLine "OM12AgentMigration.vbs version: 1.0.0.1"
 
 'Set LogFile = objFSO.OpenTextFile(LogFilePath, ForWriting, True)
 
-strPWD = CreateObject(&quot;Scripting.FileSystemObject&quot;).GetAbsolutePathName(&quot;.&quot;)
+strPWD = CreateObject("Scripting.FileSystemObject").GetAbsolutePathName(".")
 
 'Function to determine OS architecture
 Function GetOSArch
-	Set objWMIService = GetObject(&quot;winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2&quot;)
+	Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 	Set col = objWMIService.ExecQuery _
-	(&quot;Select * from Win32_OperatingSystem&quot;)
+	("Select * from Win32_OperatingSystem")
 	For Each item in col
-		arrOSVersion = Split(item.Version,&quot;.&quot;)
+		arrOSVersion = Split(item.Version,".")
 		If arrOSVersion(0) &gt;= 6 Then
 			'OS is Vista / 2008 or higher
 			StrOSArch = item.OSArchitecture
 		Else
-			int64Bit = InStr(item.Caption,&quot;x64&quot;)
+			int64Bit = InStr(item.Caption,"x64")
 			If int64Bit &gt; 0 Then
-				strOSArch = &quot;64-bit&quot;
+				strOSArch = "64-bit"
 			Else
-				strOSArch = &quot;32-bit&quot;
+				strOSArch = "32-bit"
 			End If
 		End If
 	Next
@@ -176,43 +176,43 @@ End Function
 
 'Get OS architecture so we can determine which version of the agent to install
 OSArch = GetOSArch
-LogFile.WriteLine &quot;OS Architecture: &quot; &amp; OSArch
+LogFile.WriteLine "OS Architecture: " & OSArch
 'Prepare the agent install command
-IF OSArch = &quot;64-bit&quot; THEN
-	strInstallCmd = &quot;msiexec /i &quot; &amp; CHR(34) &amp; strPWD &amp; &quot;\AMD64\MOMAgent.msi&quot; &amp; CHR(34) &amp; &quot; /qn AcceptEndUserLicenseAgreement=1 /l*v &quot; &amp; TempDir &amp; &quot;\OM12AgentMSI.log&quot;
-	LogFile.WriteLine &quot;64 bit OS detected. Installing OM12 R2 agent using command: '&quot; &amp; strInstallCmd &amp; &quot;'&quot;
-ELSEIF OSArch = &quot;32-bit&quot; THEN
-	strInstallCmd = &quot;msiexec /i &quot; &amp; CHR(34) &amp; strPWD &amp; &quot;\i386\MOMAgent.msi&quot; &amp; CHR(34) &amp; &quot; /qn AcceptEndUserLicenseAgreement=1 /l*v &quot; &amp; TempDir &amp; &quot;\OM12AgentMSI.log&quot;
-	LogFile.WriteLine &quot;32 bit OS detected. Installing OM12 R2 agent using command: '&quot; &amp; strInstallCmd &amp; &quot;'&quot;
+IF OSArch = "64-bit" THEN
+	strInstallCmd = "msiexec /i " & CHR(34) & strPWD & "\AMD64\MOMAgent.msi" & CHR(34) & " /qn AcceptEndUserLicenseAgreement=1 /l*v " & TempDir & "\OM12AgentMSI.log"
+	LogFile.WriteLine "64 bit OS detected. Installing OM12 R2 agent using command: '" & strInstallCmd & "'"
+ELSEIF OSArch = "32-bit" THEN
+	strInstallCmd = "msiexec /i " & CHR(34) & strPWD & "\i386\MOMAgent.msi" & CHR(34) & " /qn AcceptEndUserLicenseAgreement=1 /l*v " & TempDir & "\OM12AgentMSI.log"
+	LogFile.WriteLine "32 bit OS detected. Installing OM12 R2 agent using command: '" & strInstallCmd & "'"
 END IF
 
 'Determine the command to execute the OM12AgentConfig.vbs script
-WinDir = sh.ExpandEnvironmentStrings( &quot;%WinDir%&quot; )
-SysnativeDir = WinDir &amp; &quot;\Sysnative&quot;
+WinDir = sh.ExpandEnvironmentStrings( "%WinDir%" )
+SysnativeDir = WinDir & "\Sysnative"
 
 If objFSO.FolderExists(SysnativeDir) = FALSE Then
-	strConfigCmd = WinDir &amp; &quot;\System32\Cscript.exe &quot; &amp; CHR(34) &amp; strPWD &amp; &quot;\OM12AgentConfig.vbs&quot; &amp; CHR(34) &amp; &quot; &quot; &amp; MGToAdd &amp; &quot; &quot; &amp; NewMgmtServer &amp; &quot; &quot; &amp; Port &amp; &quot; &quot; &amp; LogFilePath
+	strConfigCmd = WinDir & "\System32\Cscript.exe " & CHR(34) & strPWD & "\OM12AgentConfig.vbs" & CHR(34) & " " & MGToAdd & " " & NewMgmtServer & " " & Port & " " & LogFilePath
 Else
-	strConfigCmd = WinDir &amp; &quot;\Sysnative\Cscript.exe &quot; &amp; CHR(34) &amp; strPWD &amp; &quot;\OM12AgentConfig.vbs&quot; &amp; CHR(34) &amp; &quot; &quot; &amp; MGToAdd &amp; &quot; &quot; &amp; NewMgmtServer &amp; &quot; &quot; &amp; Port &amp; &quot; &quot; &amp; LogFilePath
+	strConfigCmd = WinDir & "\Sysnative\Cscript.exe " & CHR(34) & strPWD & "\OM12AgentConfig.vbs" & CHR(34) & " " & MGToAdd & " " & NewMgmtServer & " " & Port & " " & LogFilePath
 End If
 
 'Install agent
 Result = sh.run(strInstallCmd,0,True)
 If Result &lt;&gt; 0 Then
-	LogFile.WriteLine &quot;Failed to install OM12 R2 agent.&quot;
+	LogFile.WriteLine "Failed to install OM12 R2 agent."
 	LogFile.Close
 	Wscript.Quit -1
 Else
-	LogFile.WriteLine &quot;Successfully installed the OM12 R2 agent.&quot;
+	LogFile.WriteLine "Successfully installed the OM12 R2 agent."
 End if
 
-LogFile.WriteLine &quot;Start configuring the OM12 R2 agent.&quot;
-LogFile.WriteLine &quot;Calling OM12AgentConfig.vbs using command: &quot; &amp; strConfigCmd
+LogFile.WriteLine "Start configuring the OM12 R2 agent."
+LogFile.WriteLine "Calling OM12AgentConfig.vbs using command: " & strConfigCmd
 'Wscript.Echo strConfigCmd
 LogFile.Close
 Result = sh.run(strConfigCmd,0,True)
 
-[/sourcecode]
+```
 
 The second secript is named <strong>OM12AgentConfig.vbs</strong>:
 
@@ -230,7 +230,7 @@ Const ForWriting = 2
 Const ForAppending = 8
 
 'process arguments
-Set sh = Wscript.CreateObject(&quot;Wscript.Shell&quot;)
+Set sh = Wscript.CreateObject("Wscript.Shell")
 Set oArgs = Wscript.Arguments
 
 IF oArgs.Count &lt; 4 THEN
@@ -245,16 +245,16 @@ END IF
 
 'Create FSO
 Wscript.Echo LogFilePath
-set objFSO = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+set objFSO = CreateObject("Scripting.FileSystemObject")
 set LogFile = objFSO.OpenTextFile(LogFilePath, ForAppending, True)
 
-LogFile.WriteLine &quot;Start configuring the OM12 R2 agent.&quot;
+LogFile.WriteLine "Start configuring the OM12 R2 agent."
 'Configure OpsMgr 2012 agent
-LogFile.WriteLine &quot;Creating AgentConfigManager.MgmtSvcCfg object&quot;
-Set objMSConfig = CreateObject(&quot;AgentConfigManager.MgmtSvcCfg&quot;)
+LogFile.WriteLine "Creating AgentConfigManager.MgmtSvcCfg object"
+Set objMSConfig = CreateObject("AgentConfigManager.MgmtSvcCfg")
 
 'Get the current MG(s)
-LogFile.WriteLine &quot;Getting the configuration for the existing management group(s).&quot;
+LogFile.WriteLine "Getting the configuration for the existing management group(s)."
 bNewMGExists = FALSE
 
 Set arrCurrentMGs = objMSConfig.GetManagementGroups()
@@ -262,20 +262,20 @@ iCount = 0
 For each CurrentMG in arrCurrentMGs
 	MGName = CurrentMG.managementGroupName
 	IF MGName &lt;&gt; MGToAdd THEN
-		LogFile.WriteLine &quot;Removing Management Group: &quot; &amp; MGName
+		LogFile.WriteLine "Removing Management Group: " & MGName
 		objMSConfig.RemoveManagementGroup(MGName)
 		iCount = iCount + 1
 	Else
-		LogFile.WriteLine &quot;Skipping management group &quot; &amp; MGName &amp; &quot;, because it's the same as the MG that to be added.&quot;
+		LogFile.WriteLine "Skipping management group " & MGName & ", because it's the same as the MG that to be added."
 		bNewMGExists = TRUE
 	END IF
 Next
 
-LogFile.WriteLine &quot;Total number of Management Group(s) Removed: &quot; &amp; iCount
+LogFile.WriteLine "Total number of Management Group(s) Removed: " & iCount
 
 'Add New MG
 IF bNewMGExists = FALSE THEN
-	LogFile.WriteLine &quot;Adding new management group &quot; &amp; MGToAdd &amp; &quot;. Management server: &quot; &amp; NewMgmtServer &amp; &quot;. Port: &quot; &amp; Port
+	LogFile.WriteLine "Adding new management group " & MGToAdd & ". Management server: " & NewMgmtServer & ". Port: " & Port
 	Call objMSConfig.AddManagementGroup (MGToAdd, NewMgmtServer,Port)
 END IF
 
@@ -283,10 +283,10 @@ END IF
 objMSConfig.GetManagementGroup(MGToAdd)
 If Err= 0 Then
 	bNewMGAdded = TRUE
-	LogFile.WriteLine &quot;New MG &quot; &amp; MGToAdd &amp; &quot; added.&quot;
+	LogFile.WriteLine "New MG " & MGToAdd & " added."
 Else
 	bNewMGAdded = FALSE
-	LogFile.WriteLine &quot;New MG &quot; &amp; MGToAdd &amp; &quot; DID NOT get added.&quot;
+	LogFile.WriteLine "New MG " & MGToAdd & " DID NOT get added."
 End IF
 
 'Confirm if the newly added MG is the only MG configured on the agent
@@ -299,21 +299,21 @@ For each MG in arrMGs
 	END IF
 Next
 
-LogFile.WriteLine &quot;bNewMGAdded=&quot; &amp; bNewMGAdded
-LogFile.WriteLine &quot;bOldMGRemoved=&quot; &amp; bOldMGRemoved
+LogFile.WriteLine "bNewMGAdded=" & bNewMGAdded
+LogFile.WriteLine "bOldMGRemoved=" & bOldMGRemoved
 'exit
 IF (bNewMGAdded = TRUE AND bOldMGRemoved = TRUE) THEN
-	LogFile.WriteLine &quot;OM12 R2 agent installation and configuration successful. reloading the config...&quot;
+	LogFile.WriteLine "OM12 R2 agent installation and configuration successful. reloading the config..."
 	Call objMSConfig.ReloadConfiguration
-	LogFile.WriteLine &quot;Done.&quot;
+	LogFile.WriteLine "Done."
 	LogFile.Close
 	Wscript.Quit 0
 ELSE
-	LogFile.WriteLine &quot;Error installing / configuring OM12 R2 agent&quot;
+	LogFile.WriteLine "Error installing / configuring OM12 R2 agent"
 	LogFile.Close
 	Wscript.Quit -1
 END IF
-[/sourcecode]
+```
 
 When creating the package in ConfigMgr, These 2 scripts need to be copied to the OpsMgr 2012 R2 agent install root folder: <a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML22520a61.png"><img style="display: inline; border: 0px;" title="SNAGHTML22520a61" alt="SNAGHTML22520a61" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML22520a61_thumb.png" width="580" height="208" border="0" /></a> The syntax for OM12AgentMigration.vbs is:
 
@@ -336,26 +336,26 @@ The OM12AgentInstall.log looks like this: <a href="http://blog.tyang.org/wp-cont
 ' COMMENT: OpsMgr 2012 agent Uninstall script
 '=============================================
 
-MSIGUID64Bit = &quot;{786970C5-E6F6-4A41-B238-AE25D4B91EEA}&quot;
-MSIGUID32Bit = &quot;{B4A63055-7BB1-439E-862C-6844CB4897DA}&quot;
-Set sh = Wscript.CreateObject(&quot;Wscript.Shell&quot;)
+MSIGUID64Bit = "{786970C5-E6F6-4A41-B238-AE25D4B91EEA}"
+MSIGUID32Bit = "{B4A63055-7BB1-439E-862C-6844CB4897DA}"
+Set sh = Wscript.CreateObject("Wscript.Shell")
 
 'Function to determine OS architecture
 Function GetOSArch
-	Set objWMIService = GetObject(&quot;winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2&quot;)
+	Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 	Set col = objWMIService.ExecQuery _
-	(&quot;Select * from Win32_OperatingSystem&quot;)
+	("Select * from Win32_OperatingSystem")
 	For Each item in col
-		arrOSVersion = Split(item.Version,&quot;.&quot;)
+		arrOSVersion = Split(item.Version,".")
 		If arrOSVersion(0) &gt;= 6 Then
 			'OS is Vista / 2008 or higher
 			StrOSArch = item.OSArchitecture
 		Else
-			int64Bit = InStr(item.Caption,&quot;x64&quot;)
+			int64Bit = InStr(item.Caption,"x64")
 			If int64Bit &gt; 0 Then
-				strOSArch = &quot;64-bit&quot;
+				strOSArch = "64-bit"
 			Else
-				strOSArch = &quot;32-bit&quot;
+				strOSArch = "32-bit"
 			End If
 		End If
 	Next
@@ -365,22 +365,22 @@ End Function
 'Get OS architecture so we can determine which version of the agent to install
 OSArch = GetOSArch
 
-IF OSArch = &quot;64-bit&quot; THEN
-	strUninstallCmd = &quot;msiexec /x &quot; &amp; MSIGUID64Bit &amp; &quot; /qn&quot;
-ELSEIF OSArch = &quot;32-bit&quot; THEN
-	strUninstallCmd = &quot;msiexec /x &quot; &amp; MSIGUID32Bit &amp; &quot; /qn&quot;
+IF OSArch = "64-bit" THEN
+	strUninstallCmd = "msiexec /x " & MSIGUID64Bit & " /qn"
+ELSEIF OSArch = "32-bit" THEN
+	strUninstallCmd = "msiexec /x " & MSIGUID32Bit & " /qn"
 END IF
 
 'Install agent
-Wscript.Echo &quot;Uninstalling OM12 agent using command: &quot; &amp; strUninstallCmd
+Wscript.Echo "Uninstalling OM12 agent using command: " & strUninstallCmd
 Result = sh.run(strUninstallCmd,0,True)
 If Result &lt;&gt; 0 Then
 	Wscript.Quit -1
 Else
 	Wscript.Quit 0
-	Wscript.Echo &quot;Successfully uninstalled the OM12 R2 agent.&quot;
+	Wscript.Echo "Successfully uninstalled the OM12 R2 agent."
 End if
-[/sourcecode]
+```
 
 The syntax for the uninstall script is straightforward:
 

@@ -26,7 +26,7 @@ I think both of the features are pretty cool, so I have taken David’s MP, re-m
 
 If you (the OpsMgr administrators) are concerned about number of additional objects that are going to be discovered by this release (every DCM baseline on every ConfigMgr 2012 Client monitored by OpsMgr), the DCM Baselines discovery is disabled by default, I have taken an similar approach as configuring Business Critical Desktop monitoring, there is an additional unsealed MP in this release to allow you to cherry pick which endpoints to monitor in this regards.
 <h3>What’s New in Version 1.2.0.0</h3>
-Other than combining David’s SCCM Compliance MP, there are also few other updates included in this release. Here’s the full “What’s New” list:
+Other than combining David’s SCCM Compliance MP, there are also few other updates included in this release. Here’s the full "What’s New" list:
 
 <strong>Bug Fix: ConfigMgr 2012 Client Missing Client Health Evaluation (CCMEval) Execution Cycles Monitor alert parameter incorrect</strong>
 
@@ -99,11 +99,11 @@ There are several groups can be used for overriding the DCM Baseline discovery:
 </tr>
 <tr>
 <td valign="top" width="343"><b>Enable for a subset of group of computers</b></td>
-<td valign="top" width="343">Manually create an instance group and populate the membership based on the “ConfigMgr 2012 Client Desired Configuration Management Agent” class</td>
+<td valign="top" width="343">Manually create an instance group and populate the membership based on the "ConfigMgr 2012 Client Desired Configuration Management Agent" class</td>
 </tr>
 </tbody>
 </table>
-<strong><span style="font-size: medium;">Note:</span> </strong>Once the DCM Baseline discovery is enabled, please also disable the “ConfigMgr 2012 Client DCM Baselines Compliance Monitor” for the same targets as it has become redundant.
+<strong><span style="font-size: medium;">Note:</span> </strong>Once the DCM Baseline discovery is enabled, please also disable the "ConfigMgr 2012 Client DCM Baselines Compliance Monitor" for the same targets as it has become redundant.
 
 Once the DCM baselines are discovered, their compliance status is monitored individually:
 
@@ -111,23 +111,23 @@ Once the DCM baselines are discovered, their compliance status is monitored indi
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML44656c89.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML44656c89" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML44656c89_thumb.png" alt="SNAGHTML44656c89" width="694" height="366" border="0" /></a>
 
-Additionally, the DCM Baselines have an agent task called “Evaluate DCM Baseline”, which can be used to manually evaluate the baseline. This agent task performs the same action as the “Evaluate” button in the ConfigMgr 2012 client:
+Additionally, the DCM Baselines have an agent task called "Evaluate DCM Baseline", which can be used to manually evaluate the baseline. This agent task performs the same action as the "Evaluate" button in the ConfigMgr 2012 client:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML44665daf.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML44665daf" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML44665daf_thumb.png" alt="SNAGHTML44665daf" width="667" height="321" border="0" /></a>
 
 <a name="_Toc400202277"></a><strong><span style="color: #000000;">ConfigMgr 2012 Client Enhanced Compliance Monitoring Management Pack</span></strong>
 
-An additional unsealed management pack named “ConfigMgr 2012 Client Enhanced Compliance Monitoring” is also introduced. This management pack includes the following:
+An additional unsealed management pack named "ConfigMgr 2012 Client Enhanced Compliance Monitoring" is also introduced. This management pack includes the following:
 <ul>
-	<li>An override to enable DCM baseline discovery for “All ConfigMgr 2012 Client DCM Agents on Server OS” group.</li>
-	<li>An override to disable the legacy ConfigMgr 2012 Client DCM Baselines Compliance Monitor for “All ConfigMgr 2012 Client DCM Agents on Server OS” group.</li>
-	<li>A blank group discovery for the “All Business Critical ConfigMgr 2012 Client DCM Agents” group</li>
-	<li>An override to enable DCM baseline discovery for “All Business Critical ConfigMgr 2012 Client DCM Agents” group.</li>
-	<li>An override to disable the legacy ConfigMgr 2012 Client DCM Baselines Compliance Monitor for “All Business Critical ConfigMgr 2012 Client DCM Agents” group.</li>
+	<li>An override to enable DCM baseline discovery for "All ConfigMgr 2012 Client DCM Agents on Server OS" group.</li>
+	<li>An override to disable the legacy ConfigMgr 2012 Client DCM Baselines Compliance Monitor for "All ConfigMgr 2012 Client DCM Agents on Server OS" group.</li>
+	<li>A blank group discovery for the "All Business Critical ConfigMgr 2012 Client DCM Agents" group</li>
+	<li>An override to enable DCM baseline discovery for "All Business Critical ConfigMgr 2012 Client DCM Agents" group.</li>
+	<li>An override to disable the legacy ConfigMgr 2012 Client DCM Baselines Compliance Monitor for "All Business Critical ConfigMgr 2012 Client DCM Agents" group.</li>
 </ul>
 &nbsp;
 
-<em><span style="color: #ff0000;">In summary, this management pack enables DCM baseline discovery for all ConfigMgr 2012 client on server computers and switch from existing “overall” compliance baselines status monitor to the new more granular compliance baseline status monitor which targets individual baselines. This management pack also enables users to manually populate the new “All Business Critical ConfigMgr 2012 Client DCM Agents” group. Members in this group will also be monitored the same way as the server computers as previously mentioned.</span></em>
+<em><span style="color: #ff0000;">In summary, this management pack enables DCM baseline discovery for all ConfigMgr 2012 client on server computers and switch from existing "overall" compliance baselines status monitor to the new more granular compliance baseline status monitor which targets individual baselines. This management pack also enables users to manually populate the new "All Business Critical ConfigMgr 2012 Client DCM Agents" group. Members in this group will also be monitored the same way as the server computers as previously mentioned.</span></em>
 
 <b>Note:</b> Please only use this management pack when you prefer to enable enhanced compliance monitoring on all server computers, otherwise, please manually configure the groups and overrides as previously stated.
 
@@ -135,7 +135,7 @@ An additional unsealed management pack named “ConfigMgr 2012 Client Enhanced C
 <h3>New RunAs Profile for Low-Privilege Environments</h3>
 Since almost all of the workflows in the ConfigMgr 2012 Client management packs require local administrative access to access various WMI namespaces and registry, it will not work when the OpsMgr agent RunAs account does not have local administrator privilege.
 
-Separate RunAs accounts can be created and assigned to the “ConfigMgr 2012 Client Local Administrator RunAs Account” profile.
+Separate RunAs accounts can be created and assigned to the "ConfigMgr 2012 Client Local Administrator RunAs Account" profile.
 
 RunAs Account Example:
 
@@ -147,11 +147,11 @@ RunAs Profile:
 
 For More information about OpsMgr RunAs account and profile, please refer to: <a href="http://technet.microsoft.com/en-us/library/hh212714.aspx">http://technet.microsoft.com/en-us/library/hh212714.aspx</a>
 
-<b>Note:</b> When assigning a RunAs Account to the “ConfigMgr 2012 Client Local Administrator RunAs Account” profile, you will receive an error as below:
+<b>Note:</b> When assigning a RunAs Account to the "ConfigMgr 2012 Client Local Administrator RunAs Account" profile, you will receive an error as below:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb3.png" alt="image" width="500" height="407" border="0" /></a>
 
-Please refer to the MP documentation section “14.3 Error Received when Adding RunAs Account to the RunAs Profile” for instruction on fixing this error.
+Please refer to the MP documentation section "14.3 Error Received when Adding RunAs Account to the RunAs Profile" for instruction on fixing this error.
 <h3>New Rule: Missing Cache Content Removal Rule</h3>
 This rule runs every 4 hours by default and checks if any registered ConfigMgr 2012 Client cache content has been deleted from the file system. When obsolete cache content is detected, this rule will remove the cache content entry from ConfigMgr 2012 client via WMI and generates an informational alert with the details of the missing cache content:
 

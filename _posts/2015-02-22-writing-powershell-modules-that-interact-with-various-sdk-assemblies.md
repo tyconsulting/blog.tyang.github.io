@@ -20,15 +20,15 @@ In order to be able to leverage these SDK DLLs, it is obvious that prior to runn
 </ul>
 &nbsp;
 
-In order to be able to overcome these constraints, I have developed a little trick: developing a simple PowerShell module, placing the required DLLs in the PS module folder and use a function in the module to load the DLLs from the PS Module base folder. I’ll now explain how to develop such PS module. I’ll use the custom module I’ve created for the Service Manager 2012 R2 SDK last week as an example. In this example, I named my customised module “SMSDK”.
+In order to be able to overcome these constraints, I have developed a little trick: developing a simple PowerShell module, placing the required DLLs in the PS module folder and use a function in the module to load the DLLs from the PS Module base folder. I’ll now explain how to develop such PS module. I’ll use the custom module I’ve created for the Service Manager 2012 R2 SDK last week as an example. In this example, I named my customised module "SMSDK".
 
-01. Firstly, create a module folder and then create a new PowerShell module manifest using “New-ModuleManifest” cmdlet.
+01. Firstly, create a module folder and then create a new PowerShell module manifest using "New-ModuleManifest" cmdlet.
 
 02. Copy the  required SDK DLLs into the PowerShell Module Folder. The module folder would also contain the manifest file (.psd1) and a module script file (.psm1).
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/02/SNAGHTML12c34a9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML12c34a9" src="http://blog.tyang.org/wp-content/uploads/2015/02/SNAGHTML12c34a9_thumb.png" alt="SNAGHTML12c34a9" width="577" height="195" border="0" /></a>
 
-03. Create a function to load the DLLs. In the “SMSDK” module that I’ve written, the function looks like this:
+03. Create a function to load the DLLs. In the "SMSDK" module that I’ve written, the function looks like this:
 <pre language="PowerShell">Function Import-SMSDK
 {
 &lt;#
@@ -90,7 +90,7 @@ The key to this PS function is, you must firstly identify the assemblies version
 
 <strong><span style="color: #ff0000;">Note:</span></strong> although you can load the assemblies from the GAC without specifying the version number, in this scenario, you MUST specify the version to ensure the correct version is loaded. It happened to me before when I developed a script that uses OpsMgr SDK, it worked on most of the computers but one computer. It took me a while to find out because the computer had both OpsMgr and Service Manager SDKs loaded in the GAC, the wrong assembly was loaded because I didn’t not specify the version number in the script.
 
-Now, Once the Import SDK function is finalised, you may call it from scripts or other module functions. For example, in my “SMSDK” module, I’ve also created a function to establish connection to the Service Manager management group, called Connect-SMManagementGroup. This function calls the Import SDK (Import-SMSDK) function to load assemblies before connecting to the Service Manager management group:
+Now, Once the Import SDK function is finalised, you may call it from scripts or other module functions. For example, in my "SMSDK" module, I’ve also created a function to establish connection to the Service Manager management group, called Connect-SMManagementGroup. This function calls the Import SDK (Import-SMSDK) function to load assemblies before connecting to the Service Manager management group:
 <pre language="PowerShell">Function Connect-SMManagementGroup
 {
 &lt;#
@@ -157,4 +157,4 @@ For your reference, You can download the sample module (SMSDK) <strong><span sty
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/02/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb9.png" alt="image" width="521" height="122" border="0" /></a>
 
-Lastly, this blog is purely based on my recent experiences. Other than the Service Manager module that I’ve used in this post, I’ve also used this technique in few of my previous work, i.e. the “<a href="http://blog.tyang.org/2014/12/23/sma-integration-module-sharepoint-list-operations/">SharePointSDK” module</a> and the upcoming “OpsMgrExtended” module that will soon be published (You can check out the preview from <a href="http://blog.tyang.org/2015/01/23/microsoft-mvp-community-camp-2015-session-sma-integration-module-opsmgrextended/">HERE</a> and <a href="http://blog.tyang.org/2015/02/01/session-recording-presentation-microsoft-mvp-community-camp-melbourne-event/">HERE</a>). I’d like to hear your thoughts, so please feel free to email me if you’d like to discuss further.
+Lastly, this blog is purely based on my recent experiences. Other than the Service Manager module that I’ve used in this post, I’ve also used this technique in few of my previous work, i.e. the "<a href="http://blog.tyang.org/2014/12/23/sma-integration-module-sharepoint-list-operations/">SharePointSDK" module</a> and the upcoming "OpsMgrExtended" module that will soon be published (You can check out the preview from <a href="http://blog.tyang.org/2015/01/23/microsoft-mvp-community-camp-2015-session-sma-integration-module-opsmgrextended/">HERE</a> and <a href="http://blog.tyang.org/2015/02/01/session-recording-presentation-microsoft-mvp-community-camp-melbourne-event/">HERE</a>). I’d like to hear your thoughts, so please feel free to email me if you’d like to discuss further.

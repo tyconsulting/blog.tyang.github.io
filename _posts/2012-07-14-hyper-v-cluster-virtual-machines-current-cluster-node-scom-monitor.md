@@ -42,9 +42,9 @@ Basically, I have created a monitor targeting Hyper-V clusters to run daily at 1
 <ul>
 	<li>Script discovery. Any Windows Server Computers that meets following criteria:
 <ol>
-	<li>Windows Server Computer property “IsVirtualNode” = true (Windows cluster)</li>
-	<li>service “vmms” (Hyper-V Virtual Machine Management service) exists</li>
-	<li>The cluster contains “Virtual Machine” as a resource type.</li>
+	<li>Windows Server Computer property "IsVirtualNode" = true (Windows cluster)</li>
+	<li>service "vmms" (Hyper-V Virtual Machine Management service) exists</li>
+	<li>The cluster contains "Virtual Machine" as a resource type.</li>
 </ol>
 </li>
 </ul>

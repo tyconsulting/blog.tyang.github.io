@@ -45,7 +45,7 @@ This is now fixed. the correct member monitor is assigned to each dependency mon
 
 When I was working on the beta version, the development management group that I was using did not have any failover clusters. I didn’t realise the ConfigMgr 2012 Client object is being discovered on cluster instances (virtual nodes) until I imported the MPs into our proper test environment. So this is something that has been overlooked. It is fixed now, it will not discover ConfigMgr 2012 Client (and any client agents) on clusters.
 
-<strong>The “ConfigMgr 2012 Client All Programs Service Window Monitor” is now disabled by default.</strong>
+<strong>The "ConfigMgr 2012 Client All Programs Service Window Monitor" is now disabled by default.</strong>
 
 I’m not too sure how many environments will have a maintenance window (service window) created for all clients. Therefore I’ve disabled this monitor. this is to ensure it will not flood SCOM by generating an alert for each ConfigMgr client. If it is required for all or a subset of ConfigMgr clients, it can be enabled via overrides.
 

@@ -19,6 +19,6 @@ Once the SCOM agent was installed, I could not launch SharePoint Central Admin s
 
 This is caused by the known issue with SCOM 2016 agent APM component (Application Performance Monitoring). My good friend Kevin Greene has already blogged this: <a title="http://kevingreeneitblog.blogspot.com.au/2017/03/scom-2016-agent-crashing-legacy-iis.html" href="http://kevingreeneitblog.blogspot.com.au/2017/03/scom-2016-agent-crashing-legacy-iis.html">http://kevingreeneitblog.blogspot.com.au/2017/03/scom-2016-agent-crashing-legacy-iis.html</a>
 
-So to fix my issue, I followed Kevin’s instruction – reinstalled the SCOM agent using MOMAgent.msi with the “NOAPM=1” parameter.
+So to fix my issue, I followed Kevin’s instruction – reinstalled the SCOM agent using MOMAgent.msi with the "NOAPM=1" parameter.
 
 Until the SCOM product group fixes this issue, please keep in mind this can be a potential issue when rolling out SCOM agent to IIS servers.

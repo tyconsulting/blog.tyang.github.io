@@ -14,7 +14,7 @@ tags:
 ---
 Yesterday, I noticed I get this error when I tried to run some reports in the <a href="http://www.systemcentercentral.com/BlogDetails/tabid/143/IndexID/73350/Default.aspx">System Center Central Health Check Reports MP</a> in my home SCOM 2007 R2 environment:
 
-<span style="color: #ff0000;"><em>“Value of 01-Jan-01 12:00:00 AM” is not valid for ‘value’. ‘Value’ should be between ‘MinDate’ and ‘MaxDate’.</em></span>
+<span style="color: #ff0000;"><em>"Value of 01-Jan-01 12:00:00 AM" is not valid for ‘value’. ‘Value’ should be between ‘MinDate’ and ‘MaxDate’.</em></span>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/10/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb19.png" alt="image" width="580" height="383" border="0" /></a>
 

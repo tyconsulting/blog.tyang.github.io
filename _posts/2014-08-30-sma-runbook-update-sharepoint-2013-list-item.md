@@ -116,7 +116,7 @@ The runbook is expecting the following parameters:
 
 <strong>SavedCredentialName:</strong> name of the saved credential to connect to SharePoint site
 
-<strong>ListName:</strong> Name of the list. i.e. “Test List”
+<strong>ListName:</strong> Name of the list. i.e. "Test List"
 
 <strong>ListItemID:</strong> the ID for the list item that the runbook is going to update
 
@@ -143,10 +143,10 @@ Here’s the result:
 <h3>Using It Together With Orchestrator SharePoint IP</h3>
 Since this SMA runbook requires the List Item ID to locate the specific list item, when you design your solution, you will need to find a way to retrieve this parameter prior to calling this runbook.
 
-If you are also using SC Orchestrator and have deployed the SharePoint IP, you can use the “Monitor List Items” activity, and the List Item ID is published by this activity:
+If you are also using SC Orchestrator and have deployed the SharePoint IP, you can use the "Monitor List Items" activity, and the List Item ID is published by this activity:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/08/image_thumb10.png" alt="image" width="385" height="333" border="0" /></a>
 <h3>Conclusion</h3>
-Although I’m still a newbie when comes to SMA, it got me really excited. Before its time, when I design Orchestrator runbooks, I often ended up just write the entire solution in PowerShell and then chopped up my PowerShell scripts into many “Run .Net Script” activities. I thought, wouldn’t it be nice if there is an automation engine that only uses PowerShell? Well, looks like SMA is the solution. I wish I have started using it sooner.
+Although I’m still a newbie when comes to SMA, it got me really excited. Before its time, when I design Orchestrator runbooks, I often ended up just write the entire solution in PowerShell and then chopped up my PowerShell scripts into many "Run .Net Script" activities. I thought, wouldn’t it be nice if there is an automation engine that only uses PowerShell? Well, looks like SMA is the solution. I wish I have started using it sooner.
 
 If you are like me and want to learn more about this product, i <strong><span style="color: #ff0000;">highly</span></strong> recommend you to read the <a href="http://gallery.technet.microsoft.com/systemcenter/Service-Management-fcd75828">Service Management Automation Whitepaper</a> (currently version 1.0.4) from my fellow SCCDM MVP Michael Rueefli. I have read it page by page like a bible!

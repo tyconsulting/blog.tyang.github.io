@@ -27,29 +27,29 @@ I didn’t end up using these 2 functions in my script, but I thought they are t
 Function Get-AlertRules
 {
 PARAM (
-[Parameter(Mandatory=$true,HelpMessage=&quot;OpsMgr Management Group Connection&quot; )][Microsoft.EnterpriseManagement.ManagementGroup] $ManagementGroup,
-[Parameter(Mandatory=$false,HelpMessage=&quot;Monitoring Class Name&quot; )][string] $MonitoringClassName = $null
+[Parameter(Mandatory=$true,HelpMessage="OpsMgr Management Group Connection" )][Microsoft.EnterpriseManagement.ManagementGroup] $ManagementGroup,
+[Parameter(Mandatory=$false,HelpMessage="Monitoring Class Name" )][string] $MonitoringClassName = $null
 )
 $arrAlertRules = New-object System.Collections.ArrayList
 #Get GenerateAlert WriteAction module
-$HealthMPId = [guid]&quot;0abff86f-a35e-b08f-da0e-ff051ab2840c&quot; #this is unique
+$HealthMPId = [guid]"0abff86f-a35e-b08f-da0e-ff051ab2840c" #this is unique
 $HealthMP = $MG.GetManagementPack($HealthMPId)
-$AlertWA = $HealthMP.GetModuleType(&quot;System.Health.GenerateAlert&quot;)
+$AlertWA = $HealthMP.GetModuleType("System.Health.GenerateAlert")
 $AlertWAId = $AlertWA.Id
 #firstly get all monitoring classes
 #Populate Search criteria
 If ($MonitoringClassName)
 {
-$strClassCriteria = &quot;Name = '$MonitoringClassName'&quot;
+$strClassCriteria = "Name = '$MonitoringClassName'"
 } else {
-$strClassCriteria = &quot;Name LIKE '%'&quot;
+$strClassCriteria = "Name LIKE '%'"
 }
 $ClassCriteria = New-Object Microsoft.EnterpriseManagement.Configuration.MonitoringClassCriteria($strClassCriteria)
 $MonitoringClasses = $MG.GetMonitoringClasses($ClassCriteria)
 Foreach ($MC in $MonitoringClasses)
 {
 $MCId = $MC.Id
-$strRuleCriteria = &quot;TargetMonitoringClassId = '$MCId'&quot;
+$strRuleCriteria = "TargetMonitoringClassId = '$MCId'"
 $RuleCriteria = New-Object Microsoft.EnterpriseManagement.Configuration.MonitoringRuleCriteria($strRuleCriteria)
 $Rules = $MG.GetMonitoringRules($RuleCriteria)
 Foreach ($rule in $Rules)
@@ -97,24 +97,24 @@ if ($bAlertRule)
 Function Get-AlertMonitors
 {
 PARAM (
-[Parameter(Mandatory=$true,HelpMessage=&quot;OpsMgr Management Group Connection&quot; )][Microsoft.EnterpriseManagement.ManagementGroup] $ManagementGroup,
-[Parameter(Mandatory=$false,HelpMessage=&quot;Monitoring Class Name&quot; )][string] $MonitoringClassName = $null
+[Parameter(Mandatory=$true,HelpMessage="OpsMgr Management Group Connection" )][Microsoft.EnterpriseManagement.ManagementGroup] $ManagementGroup,
+[Parameter(Mandatory=$false,HelpMessage="Monitoring Class Name" )][string] $MonitoringClassName = $null
 )
 $arrAlertMonitors = New-object System.Collections.ArrayList
 #firstly get all monitoring classes
 #Populate Search criteria
 If ($MonitoringClassName)
 {
-$strClassCriteria = &quot;Name = '$MonitoringClassName'&quot;
+$strClassCriteria = "Name = '$MonitoringClassName'"
 } else {
-$strClassCriteria = &quot;Name LIKE '%'&quot;
+$strClassCriteria = "Name LIKE '%'"
 }
 $ClassCriteria = New-Object Microsoft.EnterpriseManagement.Configuration.MonitoringClassCriteria($strClassCriteria)
 $MonitoringClasses = $MG.GetMonitoringClasses($ClassCriteria)
 Foreach ($MC in $MonitoringClasses)
 {
 $MCId = $MC.Id
-$strMonitorCriteria = &quot;TargetMonitoringClassId = '$MCId' AND AlertOnState IS NOT NULL&quot;
+$strMonitorCriteria = "TargetMonitoringClassId = '$MCId' AND AlertOnState IS NOT NULL"
 $MonitorCriteria = New-Object Microsoft.EnterpriseManagement.Configuration.MonitorCriteria($strMonitorCriteria)
 $Monitors = $MG.getmonitors($MonitorCriteria)
 Foreach ($Monitor in $Monitors)
@@ -134,8 +134,8 @@ Both functions are expecting an OpsMgr management group connection and the name 
 [code language="PowerShell"]
 function Load-SDK()
 {
-[System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager.Common&quot;) | Out-Null
-[System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager&quot;) | Out-Null
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager.Common") | Out-Null
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager") | Out-Null
 }
 [/code]
 
@@ -145,11 +145,11 @@ function Load-SDK()
 Function Get-MonitoringClass
 {
 PARAM (
-[Parameter(Mandatory=$true,HelpMessage=&quot;OpsMgr Management Group Connection&quot; )][Microsoft.EnterpriseManagement.ManagementGroup] $ManagementGroup,
-[Parameter(Mandatory=$true,HelpMessage=&quot;Monitoring Class Display Name&quot; )][string] $MonitoringClassDisplayName
+[Parameter(Mandatory=$true,HelpMessage="OpsMgr Management Group Connection" )][Microsoft.EnterpriseManagement.ManagementGroup] $ManagementGroup,
+[Parameter(Mandatory=$true,HelpMessage="Monitoring Class Display Name" )][string] $MonitoringClassDisplayName
 )
 #Populate Search criteria
-$strClassCriteria = &quot;DisplayName = '$MonitoringClassDisplayName'&quot;
+$strClassCriteria = "DisplayName = '$MonitoringClassDisplayName'"
 $ClassCriteria = New-Object Microsoft.EnterpriseManagement.Configuration.MonitoringClassCriteria($strClassCriteria)
 #Search monitoring class
 $MonitoringClasses = $MG.GetMonitoringClasses($ClassCriteria)
@@ -167,12 +167,12 @@ Here’s an example of how to these functions:
 #Load SDK DLL's
 Load-SDK
 
-#Connect to the management group via management server &quot;OpsMgrMS01&quot;:
-$MGConnSetting = New-Object Microsoft.EnterpriseManagement.ManagementGroupConnectionSettings(&quot;OPSMGRMS01&quot;)
+#Connect to the management group via management server "OpsMgrMS01":
+$MGConnSetting = New-Object Microsoft.EnterpriseManagement.ManagementGroupConnectionSettings("OPSMGRMS01")
 $MG = New-Object Microsoft.EnterpriseManagement.ManagementGroup($MGConnSetting)
 
 #Get the monitoring class
-$MonitoringClassDisplayName = &quot;Data Access Service&quot;
+$MonitoringClassDisplayName = "Data Access Service"
 $MonitoringClass = Get-MonitoringClass $MG $MonitoringClassDisplayName
 $MonitoringClassName = $MonitoringClass.Name
 
@@ -198,12 +198,12 @@ $AlertMonitors.Count
 
 Get-AlertRules:
 
-Searching for rules either have the “System.Health.GenerateAlert” module from System.Health.Library MP as a Write Action member module, or one of the rule’s Write Action member modules has “System.Health.GenerateAlert” as its member.
+Searching for rules either have the "System.Health.GenerateAlert" module from System.Health.Library MP as a Write Action member module, or one of the rule’s Write Action member modules has "System.Health.GenerateAlert" as its member.
 
 Get-AlertMonitors:
 
-This function is much easier to write than Get-AlertRules. I’ simply search for monitors that “AlertOnState” property is not NULL. Please keep in mind this function does not only return unit monitors, but also aggregate and dependency monitors.
+This function is much easier to write than Get-AlertRules. I’ simply search for monitors that "AlertOnState" property is not NULL. Please keep in mind this function does not only return unit monitors, but also aggregate and dependency monitors.
 
-Both functions return a “System.Collections.ArrayList” containing the rules / monitors. Since I used the OpsMgr SDK directly, instead of it's PowerShell snapin or module. these functions should work in both 2007 and 2012. - And this is one of the reasons why I always just use SDK, hardly use the snapin or the module :)
+Both functions return a "System.Collections.ArrayList" containing the rules / monitors. Since I used the OpsMgr SDK directly, instead of it's PowerShell snapin or module. these functions should work in both 2007 and 2012. - And this is one of the reasons why I always just use SDK, hardly use the snapin or the module :)
 
 I've also zipped up all the code used in this article. You can download them <a href="http://blog.tyang.org/wp-content/uploads/2014/04/GetAlertRulesAndMonitors.zip"><strong>HERE</strong></a>. I know it's a bit hard to read the code in WordPress :)

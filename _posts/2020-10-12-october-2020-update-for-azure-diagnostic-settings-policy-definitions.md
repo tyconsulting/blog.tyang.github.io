@@ -40,7 +40,7 @@ In addition to the Diagnostics Settings policy updates, I have also created a se
 To enable SQL Server auditing for Log Analytics or Event Hub, there are 2 components needs to be configured:
 
 <ol>
-    <li>Enable SQL Server Auditing setting with the audit actions and groups of your choice (the audit actions and groups can only be defined using code, not available via the portal UI, you can find the full list on this article: <a href="https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions?view=sql-server-ver15&amp;&amp;WT.mc_id=DOP-MVP-5000997">SQL Server Audit Action Groups and Actions</a>).</li>
+    <li>Enable SQL Server Auditing setting with the audit actions and groups of your choice (the audit actions and groups can only be defined using code, not available via the portal UI, you can find the full list on this article: <a href="https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions?view=sql-server-ver15&&WT.mc_id=DOP-MVP-5000997">SQL Server Audit Action Groups and Actions</a>).</li>
     <li>Enable Diagnostics Settings on for the master database.</li>
 </ol>
 

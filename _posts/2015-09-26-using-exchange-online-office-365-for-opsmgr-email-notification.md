@@ -33,7 +33,7 @@ This user ID will be used to authenticate to Office 365 and email notifications 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image31.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb31.png" alt="image" width="370" height="340" border="0" /></a>
 
-03. Add the “SMTP Server” feature on one of my Windows Server 2012 R2 VMs:
+03. Add the "SMTP Server" feature on one of my Windows Server 2012 R2 VMs:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image32.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb32.png" alt="image" width="394" height="280" border="0" /></a>
 

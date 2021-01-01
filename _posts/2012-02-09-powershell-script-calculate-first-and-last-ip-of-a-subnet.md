@@ -13,7 +13,7 @@ tags:
 ---
 I just wrote this script to calculate the first and last IP of a subnet based on any given IP (within the subnet) and it's subnet mask:
 
-<strong>Syntax:</strong> .\Get-NetworkStartEndAddress.ps1 “IP address” “Subnet Mask”
+<strong>Syntax:</strong> .\Get-NetworkStartEndAddress.ps1 "IP address" "Subnet Mask"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/02/Get-NetworkStartEndingAddress.png"><img class="alignnone size-full wp-image-984" title="Get-NetworkStartEndingAddress" src="http://blog.tyang.org/wp-content/uploads/2012/02/Get-NetworkStartEndingAddress.png" alt="" width="661" height="296" /></a>
 

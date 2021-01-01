@@ -46,7 +46,7 @@ I called this module <strong>SharePointOnline</strong>, it consists of 5 files:
 <h4><span style="color: #ff0000;"><span style="font-size: medium;">Note:</span> </span></h4>
 The zip file you’ve downloaded from the link above <strong><em>DOES NOT</em></strong> contain the 2 DLL files. I am not sure if Microsoft is OK with 3rd party distributing their software / intellectual properties. So, just to cover myself, you will need to download the SDK (64-bit version) from Microsoft directly (<a title="https://www.microsoft.com/en-us/download/details.aspx?id=35585" href="https://www.microsoft.com/en-us/download/details.aspx?id=35585">https://www.microsoft.com/en-us/download/details.aspx?id=35585</a>), install it on a 64-bit computer, and copy above mentioned 2 DLLs into the SharePointOnline module folder.
 
-Once the SDK is installed, you can find these 2 files in <strong>“C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\”</strong> folder.
+Once the SDK is installed, you can find these 2 files in <strong>"C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\"</strong> folder.
 
 Once the DLLs are placed into the folder, zip the SharePointOnline folder to SharePointOnline.zip file again, and the integration module is ready.
 
@@ -97,7 +97,7 @@ This runbook is expecting 4 parameters:
 	<li><strong>SPOConnection:</strong> The <strong>name</strong> of the SharePointOnline connection that you’ve created earlier.</li>
 	<li><strong>ListName: </strong>The list name of your MP catalog list.</li>
 	<li><strong>NotifyByEmail:</strong> Specify if you’d like an email notification when new MPs have been added to the catalog.</li>
-	<li><strong>ContactName:</strong> If NotifyByEmail is set to “true”, specify the <a href="http://blog.tyang.org/2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/">SMAAddressBook</a> connection name for the email notification recipient.</li>
+	<li><strong>ContactName:</strong> If NotifyByEmail is set to "true", specify the <a href="http://blog.tyang.org/2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/">SMAAddressBook</a> connection name for the email notification recipient.</li>
 </ul>
 <strong><span style="color: #ff0000;">Note:</span></strong> If you’d like to receive email notifications, you also need to import and configure the <a href="http://blog.tyang.org/2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/">SendEmail and SendPushNotification modules</a> from my blog. Once the SMTP server connection and the Address book connection are created, please modify line 111 of the runbook with the name of your SMTP server connection:
 
@@ -119,7 +119,7 @@ Result:
 
 Same as the On-Prem version using SMA, you can create a schedule to run this on a regular basis to keep the catalog in sync with Microsoft. I won’t go through the schedule creation again.
 <h3>Azure Automation Fairshare</h3>
-Currently, Azure Automation has a “Fairshare” feature, where the maximum allowed execution time for a job is 30 minutes. Fortunately, based on my multiple test runs against multiple Office 365 SharePoint online sites, the first executions of this runbook always complete JUST under 30 minutes. However, if you found your job in Azure Automation is terminated after 30 minutes, you should be able to just run it again to top up the list. But any subsequent runs should only take few minutes.
+Currently, Azure Automation has a "Fairshare" feature, where the maximum allowed execution time for a job is 30 minutes. Fortunately, based on my multiple test runs against multiple Office 365 SharePoint online sites, the first executions of this runbook always complete JUST under 30 minutes. However, if you found your job in Azure Automation is terminated after 30 minutes, you should be able to just run it again to top up the list. But any subsequent runs should only take few minutes.
 <h3>Conclusion</h3>
 To me, this post completes the circle. I’m happy that I am able to provide solutions for people who wants to host the catalog On-Premise (by using SharePoint 2013 and SMA), as well as who’d like to hosted in on the cloud (Office 365 and Azure Automation).
 

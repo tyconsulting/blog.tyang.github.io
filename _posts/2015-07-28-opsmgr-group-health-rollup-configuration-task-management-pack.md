@@ -15,7 +15,7 @@ tags:
 <h3>Introduction</h3>
 In OpsMgr, groups are frequently used when designing service level monitoring and dashboards. The group members’ health rollup behaviours can be configured by creating various dependency monitors targeting against the group.
 
-When creating groups, only instance groups can be created within the OpsMgr console. Unlike computer groups, instance groups do not inherit any dependent monitors from their base class. Therefore when an instance group is created in the OpsMgr console, by default, the health state of the group is “Not monitored” (Uninitialized):
+When creating groups, only instance groups can be created within the OpsMgr console. Unlike computer groups, instance groups do not inherit any dependent monitors from their base class. Therefore when an instance group is created in the OpsMgr console, by default, the health state of the group is "Not monitored" (Uninitialized):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML6ecbad9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6ecbad9" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML6ecbad9_thumb.png" alt="SNAGHTML6ecbad9" width="608" height="193" border="0" /></a>
 
@@ -25,7 +25,7 @@ Squared Up has recognised this issue, and many of their customers have also aske
 
 Squared Up has engaged me and asked me to develop an agent task to configure group health rollup and make it available to the broader OpsMgr community.
 
-The “OpsMgr group health Rollup Configuration Task Management Pack” provides an agent task to create dependency monitors for the selected groups using OpsMgr SDK.
+The "OpsMgr group health Rollup Configuration Task Management Pack" provides an agent task to create dependency monitors for the selected groups using OpsMgr SDK.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image39.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb39.png" alt="image" width="644" height="290" border="0" /></a>
 <h3>Management Pack Overview</h3>

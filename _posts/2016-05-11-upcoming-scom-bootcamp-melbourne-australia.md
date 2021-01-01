@@ -57,9 +57,9 @@ Cost: <em><strong>$3,600 AUD + GST</strong></em> per student, includes course ma
 
 <strong>Session 12:</strong> Working in the Operations Manager Shell
 
-<strong>Session 13:</strong> Building Custom Monitoring Solutions &amp; Distributed Applications
+<strong>Session 13:</strong> Building Custom Monitoring Solutions & Distributed Applications
 
-<strong>Session 14:</strong> Reporting &amp; Dashboards
+<strong>Session 14:</strong> Reporting & Dashboards
 
 <strong>Session 15:</strong> Third Party Extensions
 <h4><span style="color: #f79646;">Registration Link:</span></h4>

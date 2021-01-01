@@ -28,12 +28,12 @@ I followed the <a href="http://technet.microsoft.com/en-us/library/hh278848.aspx
 <em><span style="color: #ff0000; font-size: small;">Server stack trace:
 at System.Runtime.Remoting.Channels.Ipc.IpcPort.Connect(String portName, Boolean secure, TokenImpersonationLevel impersonationLevel, Int32 timeout)
 at System.Runtime.Remoting.Channels.Ipc.ConnectionCache.GetConnection(String portName, Boolean secure, TokenImpersonationLevel level, Int32 timeout)
-at System.Runtime.Remoting.Channels.Ipc.IpcClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders&amp; responseHeaders, Stream&amp; responseStream)
+at System.Runtime.Remoting.Channels.Ipc.IpcClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
 at System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)</span></em>
 
 <em><span style="color: #ff0000; font-size: small;">Exception rethrown at [0]:
 at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
-at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)
+at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
 at Microsoft.EnterpriseManagement.Mom.Internal.IConfigService.OnStateSyncRequest(Guid source, UInt64 messageIdentifier, String cookie)</span></em>
 
 <strong>Event 29112:</strong>
@@ -66,12 +66,12 @@ at Microsoft.EnterpriseManagement.ManagementConfiguration.Engine.ConfigurationSt
 
 This particular management server did not get rebuilt to Windows 2012, all other management servers I have in the MG has been completely rebuilt so they did not have this issue.
 
-In the step 7 of the <a href="http://technet.microsoft.com/en-us/library/hh278848.aspx">guide from TechNet</a>, it mentioned updating the &lt;Category Name=”Cmdb”&gt; tag in the <strong>%ProgramFiles%\System Center 2012\Operations Manager\Server\ConfigService.config</strong> file.
+In the step 7 of the <a href="http://technet.microsoft.com/en-us/library/hh278848.aspx">guide from TechNet</a>, it mentioned updating the &lt;Category Name="Cmdb"&gt; tag in the <strong>%ProgramFiles%\System Center 2012\Operations Manager\Server\ConfigService.config</strong> file.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/01/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/01/image_thumb3.png" width="580" height="95" border="0" /></a>
 
-However, the old DB server name also exists in the <strong>&lt;Category Name=”ConfigStore”&gt;</strong> tag in the same file. this was not mentioned in the guide:
+However, the old DB server name also exists in the <strong>&lt;Category Name="ConfigStore"&gt;</strong> tag in the same file. this was not mentioned in the guide:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/01/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/01/image_thumb4.png" width="580" height="155" border="0" /></a>
 
-After I updated &lt;Category Name=”ConfigStore”&gt; section and restarted all the SCOM services on the management server, the error went away.
+After I updated &lt;Category Name="ConfigStore"&gt; section and restarted all the SCOM services on the management server, the error went away.

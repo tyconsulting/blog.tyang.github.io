@@ -25,13 +25,13 @@ Here are the steps:
 <a href="https://blog.tyang.org/wp-content/uploads/2019/03/image.png"><img width="834" height="371" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2019/03/image_thumb.png" border="0"></a>
 
 <ol>
-    <li>Right-click the icon from the left navigation pane and select “Inspect”</li>
+    <li>Right-click the icon from the left navigation pane and select "Inspect"</li>
 </ol>
 
 <a href="https://blog.tyang.org/wp-content/uploads/2019/03/image-1.png"><img width="555" height="461" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2019/03/image_thumb-1.png" border="0"></a>
 
 <ol>
-    <li>Expand the &lt;svg&gt; element until you see a &lt;svg&gt; element with the “viewBox” attribute, then select the &lt;svg&gt; element with viewbox attribute, and select copy—&gt;copy element</li>
+    <li>Expand the &lt;svg&gt; element until you see a &lt;svg&gt; element with the "viewBox" attribute, then select the &lt;svg&gt; element with viewbox attribute, and select copy—&gt;copy element</li>
 </ol>
 
 <a href="https://blog.tyang.org/wp-content/uploads/2019/03/image-2.png"><img width="1002" height="445" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2019/03/image_thumb-2.png" border="0"></a>
@@ -43,13 +43,13 @@ Here are the steps:
 <a href="https://blog.tyang.org/wp-content/uploads/2019/03/image-3.png"><img width="1002" height="308" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2019/03/image_thumb-3.png" border="0"></a>
 
 <ol>
-    <li>On the Chrome browser window, click on each of the drawing sub-element under &lt;g&gt; (in this case, the &lt;circle&gt; and &lt;path&gt; elements), go to “Computed” tab and copy the value in the “fill” property. The value can be either the HTML hex colour code (such as <strong>#FF0000</strong>), or the rgb colour code (such as <strong>rgb(255,0,0)</strong>).</li>
+    <li>On the Chrome browser window, click on each of the drawing sub-element under &lt;g&gt; (in this case, the &lt;circle&gt; and &lt;path&gt; elements), go to "Computed" tab and copy the value in the "fill" property. The value can be either the HTML hex colour code (such as <strong>#FF0000</strong>), or the rgb colour code (such as <strong>rgb(255,0,0)</strong>).</li>
 </ol>
 
 <a href="https://blog.tyang.org/wp-content/uploads/2019/03/image-4.png"><img width="778" height="533" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2019/03/image_thumb-4.png" border="0"></a>
 
 <ol>
-    <li>If the drawing sub-element has a “class” attribute, remove it, and add / update the “fill” attribute with the value you copied from the preview step.</li>
+    <li>If the drawing sub-element has a "class" attribute, remove it, and add / update the "fill" attribute with the value you copied from the preview step.</li>
     <li>In the top level &lt;svg&gt; element, remove all attributes except for the viewBox, and add <strong>xmlns=</strong><a href="http://www.w3.org/2000/svg"><strong>http://www.w3.org/2000/svg</strong></a>, then save the file with .svg as file extension</li>
 </ol>
 
@@ -68,11 +68,11 @@ Here are the steps:
 Few notes:
 
 <ul>
-    <li>the svg code for some icons may have the “fill-rule” attributes. if this is the case, replace it with “fill” attribute and the colour code from the “Computed” tab, and remove the “class” attribute. (for example, the new Log Analytics icon):</li>
+    <li>the svg code for some icons may have the "fill-rule" attributes. if this is the case, replace it with "fill" attribute and the colour code from the "Computed" tab, and remove the "class" attribute. (for example, the new Log Analytics icon):</li>
 </ul>
 
 <a href="https://blog.tyang.org/wp-content/uploads/2019/03/image-7.png"><img width="402" height="452" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2019/03/image_thumb-7.png" border="0"></a>
 
 <ul>
-    <li>You may also convert the rgb colour code to the hex colour code, and use the hex code in the “fill” attribute.</li>
+    <li>You may also convert the rgb colour code to the hex colour code, and use the hex code in the "fill" attribute.</li>
 </ul>

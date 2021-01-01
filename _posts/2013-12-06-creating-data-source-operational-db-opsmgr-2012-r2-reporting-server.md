@@ -14,17 +14,17 @@ tags:
 ---
 Creating a data source to for the OpsMgr Operational DB is a very common practice. This is required for many 3rd party OpsMgr reports. Kevin Holman blogged the instruction <a href="http://blogs.technet.com/b/kevinholman/archive/2008/06/27/creating-a-new-data-source-for-reporting-against-the-operational-database.aspx">here</a>.
 
-In my case, I’m creating a data source called <strong>OperationalDataBaseMain</strong> for my favourite report MP <a href="http://www.systemcentercentral.com/pack-catalog/scc-health-check-management-pack-version-2/">SCC Health Check Management Pack</a>. Other than the data source name difference between Kevin’s blog and what’s required for SCC Health Check MP, Kevin configured the data source with the option “Credentials are not required”, which is essentially using the SSRS service account (DW Reader account). In the SCC Health Check MP documentation, it suggests to use the option “Windows integrated security”. Back then when I configured this data source in OpsMgr 2007, both options worked.
+In my case, I’m creating a data source called <strong>OperationalDataBaseMain</strong> for my favourite report MP <a href="http://www.systemcentercentral.com/pack-catalog/scc-health-check-management-pack-version-2/">SCC Health Check Management Pack</a>. Other than the data source name difference between Kevin’s blog and what’s required for SCC Health Check MP, Kevin configured the data source with the option "Credentials are not required", which is essentially using the SSRS service account (DW Reader account). In the SCC Health Check MP documentation, it suggests to use the option "Windows integrated security". Back then when I configured this data source in OpsMgr 2007, both options worked.
 
 Today I was trying to configure this data source on our newly built OpsMgr 2012 R2 test management group where the Operational DB is hosted by SQL server, Data Warehouse and Reporting Server is hosted on SQL server B. Both SQL servers are running SQL 2012 SP1. I tried both authentication methods, none of them worked straightaway.
 
-<strong>“Windows integrated security” option</strong>
+<strong>"Windows integrated security" option</strong>
 
 When I chose this option, the test connection was successful, but when I tried to run a report that’s targeting the operational DB, I got this error (and my user ID is a member of the OpsMgr admin group):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/12/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/12/image_thumb.png" width="580" height="198" border="0" /></a>
 
-<strong>“Credentials are not required” option</strong>
+<strong>"Credentials are not required" option</strong>
 
 When I chose this option, the Test Connection was unsuccessful and I got this error:
 
@@ -38,13 +38,13 @@ Furthermore, an event was logged on the Operational DB SQL server’s security l
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/12/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/12/image_thumb2.png" width="424" height="370" border="0" /></a>
 
-This log entry indicates the DW reader account does not have “logon from network” (logon type 3) rights.
+This log entry indicates the DW reader account does not have "logon from network" (logon type 3) rights.
 
-Then I found out “Access this computer from the network” rights is restricted by a GPO to the following groups and the DW reader account is not a member of any of them:
+Then I found out "Access this computer from the network" rights is restricted by a GPO to the following groups and the DW reader account is not a member of any of them:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/12/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/12/image_thumb3.png" width="336" height="396" border="0" /></a>
 
-So I added the DW reader service account to the local “Users” group on the SQL server hosting operational DB, tried to establish the connection again in the data source, this time, I got another error:
+So I added the DW reader service account to the local "Users" group on the SQL server hosting operational DB, tried to establish the connection again in the data source, this time, I got another error:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/12/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/12/image_thumb4.png" width="373" height="454" border="0" /></a>
 
@@ -54,7 +54,7 @@ It’s different message, so I checked SQL security, the DW Reader account was n
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/12/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/12/image_thumb5.png" width="580" height="575" border="0" /></a>
 
-<span style="color: #ff0000;"><em>Cannot open database “OperationsManager” requested by the login. the login failed. Login failed for user &lt;DW Reader service account&gt;.</em></span>
+<span style="color: #ff0000;"><em>Cannot open database "OperationsManager" requested by the login. the login failed. Login failed for user &lt;DW Reader service account&gt;.</em></span>
 
 Also, I got a similar message in SQL log:
 
@@ -62,7 +62,7 @@ Also, I got a similar message in SQL log:
 
 <span style="color: #ff0000;"><em>Login failed for user ‘&lt;DW Reader account&gt;’. Reason: Failed to open the explicitly specified database ‘OperationsManager’. [CLIENT: &lt;SSRS Server’s IP address&gt;]</em></span>
 
-So I modified the user mapping for the DW reader account, given it “public” role for the OperationsManager DB
+So I modified the user mapping for the DW reader account, given it "public" role for the OperationsManager DB
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/12/image71.png"><img class="size-medium wp-image-2318 alignnone" alt="image7" src="http://blog.tyang.org/wp-content/uploads/2013/12/image71-300x272.png" width="300" height="272" /></a>
 
@@ -74,7 +74,7 @@ However, after I tried to run a report targeting the operational DB, I got anoth
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/12/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/12/image_thumb9.png" width="580" height="98" border="0" /></a>
 
-I then modified the permission for DW Reader account within the Operational DB again. this time I’ve given the “db_datareader” role:
+I then modified the permission for DW Reader account within the Operational DB again. this time I’ve given the "db_datareader" role:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/12/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/12/image_thumb10.png" width="513" height="464" border="0" /></a>
 
@@ -87,8 +87,8 @@ Finally, after this, the report successfully ran:
 To summarise, <strong>In my environment</strong>, the DW Reader account needs to be given the following rights on the remote SQL server hosting operational DB to be able to setup the data source in SCOM reporting server’s SSRS instance:
 <ul>
 	<li>Logon from the network rights</li>
-	<li>the “public” role for the SQL DB Engine</li>
-	<li>“public” and “db_datareader” role for the OpsMgr operational DB.</li>
+	<li>the "public" role for the SQL DB Engine</li>
+	<li>"public" and "db_datareader" role for the OpsMgr operational DB.</li>
 </ul>
 <strong><span style="color: #ff0000;">Note:</span></strong>
 

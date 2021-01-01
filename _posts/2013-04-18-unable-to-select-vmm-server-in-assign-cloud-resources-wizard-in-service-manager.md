@@ -16,7 +16,7 @@ tags:
 ---
 In the last few days, I’ve been going through the labs from Microsoft’s course <em>10750A: Monitoring and Operating a Private Cloud with System Center 2012</em>. As part of the lab, I installed the System Center 2012 SP1 version of the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=36497">Cloud Service Process Pack</a> (CSPP).
 
-Last night, I created a Cloud Resources Subscription Request, and then tried to assign the cloud resources to this request. While I was going through the “Assign Cloud Resources” wizard, I got stuck because my VMM server does not show up in the drop down list:
+Last night, I created a Cloud Resources Subscription Request, and then tried to assign the cloud resources to this request. While I was going through the "Assign Cloud Resources" wizard, I got stuck because my VMM server does not show up in the drop down list:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/04/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb17.png" width="580" height="407" border="0" /></a>
 

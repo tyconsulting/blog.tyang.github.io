@@ -26,7 +26,7 @@ We found when the BITS bandwidth throttling settings are configured for a SCCM p
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/05/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/05/image_thumb1.png" alt="image" width="580" height="448" border="0" /></a>
 
-As you can see, the SCCM site setting is identical to SCCM client’s local policy. SCCM 2007 Unleashed has explained the client BITS settings. You can read about it on Google Books <a href="http://books.google.com.au/books?id=dYYKG44dGHQC&amp;pg=PT414&amp;dq=sccm+client+BITS+setting&amp;hl=en&amp;sa=X&amp;ei=qd-jT8_ZCq7vmAWG0qWbCQ&amp;ved=0CDkQ6AEwAA#v=onepage&amp;q&amp;f=false">HERE</a>.
+As you can see, the SCCM site setting is identical to SCCM client’s local policy. SCCM 2007 Unleashed has explained the client BITS settings. You can read about it on Google Books <a href="http://books.google.com.au/books?id=dYYKG44dGHQC&pg=PT414&dq=sccm+client+BITS+setting&hl=en&sa=X&ei=qd-jT8_ZCq7vmAWG0qWbCQ&ved=0CDkQ6AEwAA#v=onepage&q&f=false">HERE</a>.
 
 The book did not state and explain the SCCM client actually WRITES the SCCM site’s BITS policy into SCCM client’s Windows local group policy object (GPO). So I did below tests <strong>IN ORDER</strong> in my home <strong>SCCM 2007 R3 AND SCCM 2012</strong> RTM test environments to work out the behaviours of SCCM client and compare SCCM Client’s BITS setting against the above mentioned setting in local policy:
 

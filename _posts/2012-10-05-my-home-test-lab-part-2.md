@@ -83,13 +83,13 @@ What does it mean in my lab Hyper-V 2008 R2 hosts in the past (Based on version 
 	<li><strong>After I reboot the Vyatta VM, all configurations were lost.</strong> It needed to be reconfigured again from scratch (that’s why I became so good at its commands). To work around this issue, I created a VM snapshot after it’s fully configured and I had to revert it back to the snapshot after every reboot.</li>
 	<li><strong>It does not support Hyper-V Synthetic NICs.</strong> This means I’m stuck with legacy NICs for Vyatta. Legacy NICs means 100mb/s instead of 10GB/s and I can only assign maximum 4 NICs to the Vyatta instance. This is why I’ve only got 4 virtual switches configured for each Hyper-V host in my lab.</li>
 	<li><strong>Vyatta is a cut down version of Linux, I could not install Linux Integration Service for Hyper-V.</strong> Otherwise, I might have already fixed the above mentioned 2 issues.</li>
-	<li>Besides myself, two of my colleagues also tried to “Install” Vyatta 6.4 on the VHD (as oppose to run the Live CD mode). All 3 of us had the same issue: it runs OK, but the <strong>network latency caused by Vyatta is unacceptable</strong>. The ping latency from subnet A to subnet B in the same Hyper-V host gets to 2-4 seconds (2000-4000ms).</li>
+	<li>Besides myself, two of my colleagues also tried to "Install" Vyatta 6.4 on the VHD (as oppose to run the Live CD mode). All 3 of us had the same issue: it runs OK, but the <strong>network latency caused by Vyatta is unacceptable</strong>. The ping latency from subnet A to subnet B in the same Hyper-V host gets to 2-4 seconds (2000-4000ms).</li>
 </ul>
 My colleague Matt McGowan spent sometime over a weekend and tried all versions of Vyatta after version 6 on a Hyper-V 2012 server, according to him, <strong>none of them could even boot up without disconnect all the legacy NICs first</strong>. This has become the last straw for me to give up on Vyatta. I had to find a better solution for my Hyper-V environment.
 
 At that time, I was seriously thinking about buying a layer 3 managed switch (<a href="http://h30094.www3.hp.com/product.asp?sku=10250372">HP 1910-16G</a>), which costs $400 AUD in my local computer shop.  In the end, I’m glad I didn’t. After spoken to my good friend Zheng Han who is a RHCE and VCP, he advised me to take a look at CentOS.
 
-So long story short, I’m hopeless when comes to Linux / Unix. I haven’t really done much with it ever since I graduated from uni. After a week or so playing with the latest version (CentOS 6.3) and learning how to use “vi”, with Zheng’s help, I got it working.
+So long story short, I’m hopeless when comes to Linux / Unix. I haven’t really done much with it ever since I graduated from uni. After a week or so playing with the latest version (CentOS 6.3) and learning how to use "vi", with Zheng’s help, I got it working.
 
 You’ve probably already seen the network diagram for my lab from Part 1. Here’s a logical diagram for the 3 Hyper-V hosts and the CentOS router in each host:
 
@@ -114,7 +114,7 @@ DC02: 192.168.2.10
 
 DC01 is also configured as a DHCP server serving multiple scopes in my lab. You’ll see the IP address of these 2 machines a lot in below steps.
 
-<span style="color: #ff0000;">*Note:</span> if you are going to use CentOS and you are like me, a Linux noob, before you start, please make sure you get familiar with “vi” editor because it is heavily used.
+<span style="color: #ff0000;">*Note:</span> if you are going to use CentOS and you are like me, a Linux noob, before you start, please make sure you get familiar with "vi" editor because it is heavily used.
 
 Now, let’s start…
 
@@ -139,7 +139,7 @@ Now, let’s start…
 
 <strong>3. Power on the VM to start installing CentOS</strong>
 <ul>
-	<li>Choose “Install system with basic video driver”</li>
+	<li>Choose "Install system with basic video driver"</li>
 </ul>
 <a href="http://blog.tyang.org/wp-content/uploads/2012/10/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb11.png" alt="image" width="525" height="396" border="0" /></a>
 
@@ -235,7 +235,7 @@ IPV6INIT=no</em></td>
 </table>
 <a href="http://blog.tyang.org/wp-content/uploads/2012/10/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb13.png" alt="image" width="398" height="380" border="0" /></a>
 
-<span style="color: #ff0000;">*Hint:</span> Configure the first NIC eth0, then you can use Putty to connect via SSH. once in Putty, you can copy &amp; paste commands.
+<span style="color: #ff0000;">*Hint:</span> Configure the first NIC eth0, then you can use Putty to connect via SSH. once in Putty, you can copy & paste commands.
 <ul>
 	<li><strong>eth1</strong></li>
 </ul>

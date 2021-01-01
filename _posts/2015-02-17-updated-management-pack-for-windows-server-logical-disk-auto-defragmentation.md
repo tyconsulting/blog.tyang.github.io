@@ -35,7 +35,7 @@ There are 3 identical diagnostic tasks (for Windows Server 2003, 2008 and 2012 l
 
 <strong>Group: Drives to Enable Fragmentation Monitoring</strong>
 
-This is an empty instance group. Users can place logical disks into this group to enable the “Logical Disk Fragmentation Level” monitors from the Microsoft Windows Server OS MPs.
+This is an empty instance group. Users can place logical disks into this group to enable the "Logical Disk Fragmentation Level" monitors from the Microsoft Windows Server OS MPs.
 
 You may add any instances of the following classes into this group:
 <ul>
@@ -61,11 +61,11 @@ You may add any instances of the following classes into this group:
 
 This is an empty instance group. Users can place logical disks into this group to enable the Windows Server Fragmentation Level Performance Collection Rule.
 
-<span style="color: #ff0000;">Note:</span> Since this performance collection rule is targeting the “Logical Disk (Server)” class, which is the parent class of OS specific logical disk classes, you can simply add any instances of the “Logical Disk (Server)” class into this group.
+<span style="color: #ff0000;">Note:</span> Since this performance collection rule is targeting the "Logical Disk (Server)" class, which is the parent class of OS specific logical disk classes, you can simply add any instances of the "Logical Disk (Server)" class into this group.
 
 <strong>Event Collection Rule: Collect autodefragmentation event information</strong>
 
-This rule collects the event logged by the “Log defragmentation to the Operations Manager Log” diagnostic tasks.
+This rule collects the event logged by the "Log defragmentation to the Operations Manager Log" diagnostic tasks.
 
 <strong>Reset Disk Fragmentation Health Rule</strong>
 
@@ -89,7 +89,7 @@ As shown in above figure, Number 1 indicates the monitor has just ran and the de
 
 <strong>Various views</strong>
 
-The MP also contains various views under the “Windows Server Logical Drive Auto Defragment” folder:
+The MP also contains various views under the "Windows Server Logical Drive Auto Defragment" folder:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/02/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb3.png" alt="image" width="332" height="142" border="0" /></a>
 <h3>What’s Changed from the Original AutoDefrag MP?</h3>
@@ -97,16 +97,16 @@ Comparing with Cameron’s original MP, I have made the following changes in the
 <ul>
 	<li>The MP is based on MP schema version 1, which works with OpsMgr 2007 (as well as OpsMgr 2012).</li>
 	<li>Changed the minimum version of all the referencing Windows Server MPs to 6.0.7230.0 (where the fragmentation monitors became disabled by default).</li>
-	<li>Sealed the Windows Server Auto Defragment MP. However, in order to allow users to manually populate groups, I have placed the group discoveries into an unsealed MP “Windows Server Auto Defragment Group Population”. By doing so, all MP elements are protected (in the sealed MP), but still allowing users to use the groups defined in the MP to manage auto defrag behaviours.</li>
+	<li>Sealed the Windows Server Auto Defragment MP. However, in order to allow users to manually populate groups, I have placed the group discoveries into an unsealed MP "Windows Server Auto Defragment Group Population". By doing so, all MP elements are protected (in the sealed MP), but still allowing users to use the groups defined in the MP to manage auto defrag behaviours.</li>
 	<li>Changed the monitor overrides from disabled to enabled because these monitors are now disabled by default. This means the users will now need to manually <strong><span style="text-decoration: underline;">INCLUDE</span></strong> the logical disks to be monitored rather than excluding the ones they don’t want.</li>
 	<li>Replaced the Linked Report with a report to list auto defrag events.</li>
-	<li>Additional performance collection rule to collect the File Percent Fragmentation counter via WMI. This rule is also disabled by default. It is enabled to a group called “Drives to Enable Fragmentation Level Performance Collection”</li>
+	<li>Additional performance collection rule to collect the File Percent Fragmentation counter via WMI. This rule is also disabled by default. It is enabled to a group called "Drives to Enable Fragmentation Level Performance Collection"</li>
 	<li>Updated the monitor reset script to use SDK directly. This change is necessary in order to make it work for both OpsMgr 2007 and 2012. The original script would reset the monitor on every instance, the updated script would only reset the monitors for the unhealthy instances. Additionally, the monitor reset results are written to the RMS / RMSE’s Operations Manager log.</li>
 	<li>Updated LogDefragmentation.vbs script for the diagnostic task to use MOM.ScriptAPI to log the event to Operations Manager log instead of the Application log.</li>
-	<li>Updated message in LogDefragmentation.vbs from “"Operations Manager has performed an automated defragmentation on this system” to “Operations Manager will perform an automated defragmentation for &lt;Drive Letter&gt; drive on &lt;Server Name&gt;” – Because this diagnostic task runs at the same time as the recovery task, so the defrag is just about to start, not finished yet, I don’t believe the message should use past tense.</li>
+	<li>Updated message in LogDefragmentation.vbs from ""Operations Manager has performed an automated defragmentation on this system" to "Operations Manager will perform an automated defragmentation for &lt;Drive Letter&gt; drive on &lt;Server Name&gt;" – Because this diagnostic task runs at the same time as the recovery task, so the defrag is just about to start, not finished yet, I don’t believe the message should use past tense.</li>
 	<li>Updated the diagnostic tasks to be disabled by default.</li>
-	<li>Created overrides to enable the diagnostics for the “Drives to Enable Auto Defrag” group (same group where the recovery tasks are enabled).</li>
-	<li>Updated the Data Source module of the event collection rule to use “Windows!Microsoft.Windows.ScriptGenerated.EventProvider” and it is only looking for event ID 4 generated by the specific script (LogDefragmentation.vbs). –by using this data source module, we can filter by the script name to give us more accurate detection.</li>
+	<li>Created overrides to enable the diagnostics for the "Drives to Enable Auto Defrag" group (same group where the recovery tasks are enabled).</li>
+	<li>Updated the Data Source module of the event collection rule to use "Windows!Microsoft.Windows.ScriptGenerated.EventProvider" and it is only looking for event ID 4 generated by the specific script (LogDefragmentation.vbs). –by using this data source module, we can filter by the script name to give us more accurate detection.</li>
 </ul>
 &nbsp;
 <h3>How do I configure the management pack?</h3>
@@ -114,7 +114,7 @@ Cameron suggested me to use the 5 common scenarios from his original post when e
 
 <em><strong>01. We do not want to automate defragmentation, but we want to be alerted to when drives are highly fragmented.</strong></em>
 
-In this case, you will need to place the drives that you want to monitor in the “<strong>Drives to Enable Fragmentation Monitoring</strong>” group.
+In this case, you will need to place the drives that you want to monitor in the "<strong>Drives to Enable Fragmentation Monitoring</strong>" group.
 
 <strong>02. We want to i<em>gnore disk fragmentation levels completely</em>.</strong>
 
@@ -129,7 +129,7 @@ In this case, you will need to place all the drives that you want to auto defrag
 </ul>
 <em><strong>04. We want to auto defragment all drives but disable monitoring for fragmentation on specific drives.</strong></em>
 
-Previously when Cameron released the original version, he needed to work on an exclusion logic because the fragmentation monitors were enabled by default. With the recent releases of Windows Server OS Management Packs, we need to work on a inclusion logic instead. So, in this case, you will need to add all drives that you want to monitor fragmentation level to the “Drives to Enable Fragmentation Monitoring” group, and put a subset of these drives to “Drives to Enable Auto Defrag” group.
+Previously when Cameron released the original version, he needed to work on an exclusion logic because the fragmentation monitors were enabled by default. With the recent releases of Windows Server OS Management Packs, we need to work on a inclusion logic instead. So, in this case, you will need to add all drives that you want to monitor fragmentation level to the "Drives to Enable Fragmentation Monitoring" group, and put a subset of these drives to "Drives to Enable Auto Defrag" group.
 
 <strong><em>05. We want to</em> a<em>uto defragment all drives but disable automated defragmentation on specific drives</em>.</strong>
 
@@ -142,7 +142,7 @@ In addition to these 5 scenarios, another scenario this MP is catered for is:
 
 <em><strong>06. We want to collect drive fragmentation level as performance data</strong></em>
 
-In this case, if you want to simply collect the fragmentation level as perf data (with or without fragmentation monitoring), you will need to add the drives that you are interested in into the “<strong>Drives to Enable Fragmentation Level Performance Collection</strong>” group.
+In this case, if you want to simply collect the fragmentation level as perf data (with or without fragmentation monitoring), you will need to add the drives that you are interested in into the "<strong>Drives to Enable Fragmentation Level Performance Collection</strong>" group.
 
 <strong>So, How do I configure these groups?</strong>
 
@@ -150,13 +150,13 @@ By default, I have configured these groups to have a discovery rule to discover 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/02/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb4.png" alt="image" width="601" height="266" border="0" /></a>
 
-As you can see, the default group discoveries are looking for any logical drives with the device name (drive letter) matches regular expression <strong>^$</strong>. “^$” represent blank / null value. Since all the discovered logical device would have a device name, these groups will be empty. You will need to modify the group memberships to suit your needs.
+As you can see, the default group discoveries are looking for any logical drives with the device name (drive letter) matches regular expression <strong>^$</strong>. "^$" represent blank / null value. Since all the discovered logical device would have a device name, these groups will be empty. You will need to modify the group memberships to suit your needs.
 
 For example, if you want to include C: drive of all the physical servers, the group membership could be something like this:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/02/grouppop.png"><img class="alignnone  wp-image-3718" src="http://blog.tyang.org/wp-content/uploads/2015/02/grouppop.png" alt="grouppop" width="602" height="590" /></a>
 <ul><!--EndFragment--></ul>
-<span style="color: #ff0000;">Note:</span> In SCOM, only Hyper-V VMs are discovered as virtual machines. if you are running other hypervisors, the “virtual machine” property probably wont work.
+<span style="color: #ff0000;">Note:</span> In SCOM, only Hyper-V VMs are discovered as virtual machines. if you are running other hypervisors, the "virtual machine" property probably wont work.
 <h3>MP Download</h3>
 There are 2 management pack files included in this solution. You can download them <a href="http://blog.tyang.org/wp-content/uploads/2015/02/Windows.Server.Auto_.Defrag.zip">HERE</a>.
 

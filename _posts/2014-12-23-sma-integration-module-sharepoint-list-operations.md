@@ -166,7 +166,7 @@ The module zip file should consist the following 5 files:
 <h4><span style="color: #ff0000;">Note:</span></h4>
 The zip file you’ve downloaded from the link above <strong><em>DOES NOT</em></strong> contain the 2 DLL files. I am not sure if Microsoft is OK with me distributing their software / intellectual properties. So, just to cover myself, you will need to download the SDK (64-bit version) from Microsoft directly (<a href="https://www.microsoft.com/en-us/download/details.aspx?id=35585">https://www.microsoft.com/en-us/download/details.aspx?id=35585</a>), install it on a 64-bit computer, and copy above mentioned 2 DLLs into the SharePointOnline module folder.
 
-Once the SDK is installed, you can find these 2 files in <strong>“C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\”</strong> folder.
+Once the SDK is installed, you can find these 2 files in <strong>"C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\"</strong> folder.
 
 Once the DLLs are placed into the folder, zip the SharePointSDK folder to SharePointSDK.zip file again, and the integration module is ready.
 
@@ -180,7 +180,7 @@ Once the DLLs are zipped into the module zip file, import the module into SMA by
 
 <strong>Create a Connection object to the SharePoint site</strong>
 
-After the module has been successfully, a connection to SharePoint Site must be created. The Connection type is “SharePointSDK”
+After the module has been successfully, a connection to SharePoint Site must be created. The Connection type is "SharePointSDK"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image42.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb42.png" alt="image" width="526" height="332" border="0" /></a>
 
@@ -216,7 +216,7 @@ This sample runbook creates a brand new dummy new users requests list on your Sh
 This runbook is expecting 2 input parameters:
 <ul>
 	<li>ListName: The Display Name that you’d like to name the new users requests list (i.e. New Users OnBoarding Requests).</li>
-	<li>SPConnection: The name of the SharePointSDK connection that you’ve created previously (i.e. Based on the connection I’ve created in my lab as shown previously, it is “RequestsSPSite”</li>
+	<li>SPConnection: The name of the SharePointSDK connection that you’ve created previously (i.e. Based on the connection I’ve created in my lab as shown previously, it is "RequestsSPSite"</li>
 </ul>
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image45.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb45.png" alt="image" width="454" height="302" border="0" /></a>
 
@@ -244,7 +244,7 @@ It is expecting the following inputs:
 	<li>AttachmentFileName (file name of the text based attachment)</li>
 	<li>TextAttachmentContent (content of the text file attachment)</li>
 	<li>NewUserListName (display name of the new users requests list. i.e. New Users OnBoarding Requests)</li>
-	<li>SPConnection (The name of the SharePointSDK connection that you’ve created previously (i.e. Based on the connection I’ve created in my lab as shown previously, it is “RequestsSPSite”)</li>
+	<li>SPConnection (The name of the SharePointSDK connection that you’ve created previously (i.e. Based on the connection I’ve created in my lab as shown previously, it is "RequestsSPSite")</li>
 </ul>
 i.e.
 

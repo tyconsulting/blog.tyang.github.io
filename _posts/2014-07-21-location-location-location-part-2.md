@@ -15,7 +15,7 @@ tags:
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2014/07/mia.jpg"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="mia" src="http://blog.tyang.org/wp-content/uploads/2014/07/mia_thumb.jpg" alt="mia" width="244" height="202" align="left" border="0" /></a>This is the 2nd part of the 3-part series. In this post, I will demonstrate how do I monitor the physical location of my location aware devices (Windows 8 tablets and laptops). To do so, I created a monitor which generates alerts when a device has gone beyond allowed distance from its home location. I will now go through each the component in the management pack that I created to achieve this goal.
 <h3>Custom Class: Location Aware Windows Client Computer</h3>
-I created a custom class based on “Windows Client 8 Computer” class. I needed to create this class instead of just using existing Windows Client 8 Computer class because I need to store 2 additional property values: “Home Latitude” and “Home Longitude”. Once been discovered, these 2 values will be passed to the monitor workflow so the script within the monitor can calculate the distance between current location and configured home location.
+I created a custom class based on "Windows Client 8 Computer" class. I needed to create this class instead of just using existing Windows Client 8 Computer class because I need to store 2 additional property values: "Home Latitude" and "Home Longitude". Once been discovered, these 2 values will be passed to the monitor workflow so the script within the monitor can calculate the distance between current location and configured home location.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/07/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb12.png" alt="image" width="507" height="406" border="0" /></a>
 
@@ -23,7 +23,7 @@ I created the following registry keys and values for this custom class:
 
 Key: <strong>HKLM\SOFTWARE\TYANG\MonitorLocation</strong>
 
-REG_SZ values: <strong>HomeLatitude</strong> &amp; <strong>HomeLongitude</strong>
+REG_SZ values: <strong>HomeLatitude</strong> & <strong>HomeLongitude</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/07/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb13.png" alt="image" width="522" height="274" border="0" /></a>
 <h3>Discovery</h3>

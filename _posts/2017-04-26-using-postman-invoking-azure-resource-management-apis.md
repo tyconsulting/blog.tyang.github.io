@@ -29,21 +29,21 @@ https://gist.github.com/tyconsulting/a42acbaea669d4aa4e696776a5a3b939
 
 <strong>Step 2: Grant ‘Postman’ application permission to the Windows Azure Service Management API.</strong>
 
-Note: steps demonstrated below MUST be completed in the Azure classical portal. Based on my experience, I was not able to give the Azure AD application permission to “Windows Azure Service Management API” from the new ARM portal.
+Note: steps demonstrated below MUST be completed in the Azure classical portal. Based on my experience, I was not able to give the Azure AD application permission to "Windows Azure Service Management API" from the new ARM portal.
 
-Once the ‘Postman’ Azure AD application is created, logon to the Azure classical portal (<a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a>), browse to Azure AD, select the directory of where the application is created, then go to Applications, show “Applications my company owns”, locate the “Postman” application.
+Once the ‘Postman’ Azure AD application is created, logon to the Azure classical portal (<a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a>), browse to Azure AD, select the directory of where the application is created, then go to Applications, show "Applications my company owns", locate the "Postman" application.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-3.png" alt="image" width="477" height="424" border="0" /></a>
 
-Click the “Postman” application, go to “Configure” tab, and click “Add Application”.
+Click the "Postman" application, go to "Configure" tab, and click "Add Application".
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-4.png" alt="image" width="402" height="243" border="0" /></a>
 
-Add “Windows Azure Service Management API”
+Add "Windows Azure Service Management API"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-5.png" alt="image" width="306" height="186" border="0" /></a>
 
-Tick “Access Azure Service Management as Organization users” under the “Delegated Permissions” drop down list and then click on “Save”.
+Tick "Access Azure Service Management as Organization users" under the "Delegated Permissions" drop down list and then click on "Save".
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-6.png" alt="image" width="369" height="197" border="0" /></a>
 
@@ -51,15 +51,15 @@ Tick “Access Azure Service Management as Organization users” under the “De
 
 In Postman, enter an URI for an ARM REST API call, in this example, I’ll use the OMS REST API to retrieve a list of workspaces. Here’s the URI I’m using: <strong>https://management.azure.com/subscriptions/<span style="background-color: #ffff00;">{subscription id}</span>/providers/microsoft.operationalinsights/workspaces?api-version=2015-03-20 </strong>
 
-Make sure the HTTP method is set to “GET”, and then click on Authorization. For the “Type” drop down list, select OAuth 2.0
+Make sure the HTTP method is set to "GET", and then click on Authorization. For the "Type" drop down list, select OAuth 2.0
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-7.png" alt="image" width="478" height="301" border="0" /></a>
 
-Click on “Get New Access Token”.
+Click on "Get New Access Token".
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-8.png" alt="image" width="306" height="134" border="0" /></a>
 
-Enter the following information in the “Get New Access Token” popup window:
+Enter the following information in the "Get New Access Token" popup window:
 
 Token Name: <strong><span style="background-color: #ffff00;">AAD Token</span></strong>
 
@@ -73,11 +73,11 @@ Client Secret: <strong><span style="background-color: #ffff00;">&lt;output from 
 
 Grant Type: <strong><span style="background-color: #ffff00;">Authorization Code</span></strong>
 
-Make sure “Request access token locally” checkbox is unchecked.
+Make sure "Request access token locally" checkbox is unchecked.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-9.png" alt="image" width="283" height="342" border="0" /></a>
 
-Click on “Request Token”, you will get the Azure AD sign-in page, enter the credential of an <strong>Organization account</strong>, – based on my experience, Microsoft accounts (i.e. @outlook.com) do not always work.
+Click on "Request Token", you will get the Azure AD sign-in page, enter the credential of an <strong>Organization account</strong>, – based on my experience, Microsoft accounts (i.e. @outlook.com) do not always work.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-10.png" alt="image" width="307" height="193" border="0" /></a>
 
@@ -85,7 +85,7 @@ If everything goes as planned, you will see a new token been generated. you need
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-11.png" alt="image" width="447" height="238" border="0" /></a>
 
-Now, go to the “Headers” tab, you should see the Authorization header:
+Now, go to the "Headers" tab, you should see the Authorization header:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-12.png" alt="image" width="444" height="130" border="0" /></a>
 

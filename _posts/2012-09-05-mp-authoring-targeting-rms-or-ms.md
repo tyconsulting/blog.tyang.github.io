@@ -16,13 +16,13 @@ I’m writing a write action module for a management pack that I’m currently w
 
 My initial PowerShell code in the write action module looked something like this:
 
-[sourcecode language="PowerShell"]
-[System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager.Common&quot;) | Out-Null
-[System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager&quot;) | Out-Null
+```powershell
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager.Common") | Out-Null
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager") | Out-Null
 
 $MGConnSetting = New-Object Microsoft.EnterpriseManagement.ManagementGroupConnectionSettings($Env:COMPUTERNAME)
 $MG = New-Object Microsoft.EnterpriseManagement.ManagementGroup($MGConnSetting)
-[/sourcecode]
+```
 
 As you can see, I wrote the script to connect to the SDK on the local machine.
 
@@ -32,10 +32,10 @@ Anyways, I had another thought tonight, it would be nice if I could target MS in
 
 So in order to make this script run on both 2007 and 2012, I changed the script to:
 
-[sourcecode language="PowerShell"]
+```powershell
 #Locate SDK service machine
-$MachineRegKeyPath = &quot;HKLM:\software\Microsoft\Microsoft Operations Manager\3.0\Machine Settings&quot;
-$MachineRegValueName = &quot;DefaultSDKServiceMachine&quot;
+$MachineRegKeyPath = "HKLM:\software\Microsoft\Microsoft Operations Manager\3.0\Machine Settings"
+$MachineRegValueName = "DefaultSDKServiceMachine"
 $regValue = Get-ItemProperty -path:$MachineRegKeyPath -name:$MachineRegValueName -ErrorAction:SilentlyContinue;
 
 if ($regValue -ne $null)
@@ -46,12 +46,12 @@ $SDKServiceMachine = $regValue.DefaultSDKServiceMachine;
 Exit
 }
 
-[System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager.Common&quot;) | Out-Null
-[System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager&quot;) | Out-Null
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager.Common") | Out-Null
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager") | Out-Null
 
 $MGConnSetting = New-Object Microsoft.EnterpriseManagement.ManagementGroupConnectionSettings($SDKServiceMachine)
 $MG = New-Object Microsoft.EnterpriseManagement.ManagementGroup($MGConnSetting)
-[/sourcecode]
+```
 
 Basically, the script now reads the default SDK service computer name from the registry of each management server and connect to this SDK machine instead of local computer. in 2007, this registry value points to RMS and in 2012, it points to the management server itself.
 

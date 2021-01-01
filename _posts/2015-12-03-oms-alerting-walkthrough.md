@@ -16,7 +16,7 @@ tags:
 <h3><a href="http://blog.tyang.org/wp-content/uploads/2015/12/image.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb.png" alt="image" width="172" height="172" align="left" border="0" /></a>Introduction</h3>
 Earlier today, the OMS product team has <a href="http://blogs.technet.com/b/momteam/archive/2015/12/02/announcing-the-oms-alerting-public-preview.aspx">announced the OMS Alerting feature has entered Public Preview</a>. This is indeed an exciting news and it is another good example that Microsoft is working very hard to close the gaps between OMS and the existing On-Prem monitoring solution - System Center Operations Manager. Alex Frankel from the OMS product team has already given a brief introduction on this feature from the announcement blog post. In this post, I will demonstrate how I used this feature to alert and auto-remediate an issue detected in my lab environment.
 <h3>Background</h3>
-Few months ago, I have lost my lab OpsMgr management group completely due to hardware failures. After I replaced faulty hardware and built a brand new management group, I re-configured all the servers in my lab reported to the new management group. However, I then started getting many “Failed to enable Advisor Connector on the computer” alerts in my OpsMgr environment:
+Few months ago, I have lost my lab OpsMgr management group completely due to hardware failures. After I replaced faulty hardware and built a brand new management group, I re-configured all the servers in my lab reported to the new management group. However, I then started getting many "Failed to enable Advisor Connector on the computer" alerts in my OpsMgr environment:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb1.png" alt="image" width="637" height="371" border="0" /></a>
 
@@ -167,7 +167,7 @@ Foreach ($item in $SearchResultsValue)
 Write-Output "Done."
 
 </pre>
-Now, let’s fast forward a little bit and explain what does the input parameter from OMS alert look like. When we have configured Alert remediation during the OMS alert creation, a webhook for the runbook is automatically created. OMS uses this webhook to start the runbook. It passes a parameter called “WEBHOOKDATA”, which is in JSON format into the runook. You can see the actual input by clicking on the INPUT tile in the runbook job execution history:
+Now, let’s fast forward a little bit and explain what does the input parameter from OMS alert look like. When we have configured Alert remediation during the OMS alert creation, a webhook for the runbook is automatically created. OMS uses this webhook to start the runbook. It passes a parameter called "WEBHOOKDATA", which is in JSON format into the runook. You can see the actual input by clicking on the INPUT tile in the runbook job execution history:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb2.png" alt="image" width="674" height="390" border="0" /></a>
 
@@ -175,13 +175,13 @@ If you copy and paste this input into a text editor such as Notepad++ and format
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb3.png" alt="image" width="701" height="548" border="0" /></a>
 
-As you can see, the “SearchResults” contains 3 elements:
+As you can see, the "SearchResults" contains 3 elements:
 <ul>
 	<li>id</li>
 	<li>__metadata</li>
 	<li>Value</li>
 </ul>
-The Value property is where you can retrieve the search result, and it is defined as an array. When I was writing the remediation runbook, I was able to get the offending OpsMgr agent computer name from the “SourceDisplayName” field of each item in the “Value array”.
+The Value property is where you can retrieve the search result, and it is defined as an array. When I was writing the remediation runbook, I was able to get the offending OpsMgr agent computer name from the "SourceDisplayName" field of each item in the "Value array".
 
 Now the runbook is created, make sure it is published before we heading back to the OMS portal start creating the alert. Please note that we will have to come back and revisit this runbook after the alert is created.
 <h3>Creating OMS Alert</h3>
@@ -215,7 +215,7 @@ In this example, because the runbook must be executed against a Hybrid Worker gr
 
 <strong><span style="color: #ff0000; font-size: medium;">Note:</span></strong>
 
-Please do not modify any other input parameters for the webhooks created by OMS alerts. If you do, the changes you've made won’t be saved in Azure Automation. Based on my experience, the only change you can modify for the webhook is the “Run on” parameter (Azure VS. Hybrid Worker).
+Please do not modify any other input parameters for the webhooks created by OMS alerts. If you do, the changes you've made won’t be saved in Azure Automation. Based on my experience, the only change you can modify for the webhook is the "Run on" parameter (Azure VS. Hybrid Worker).
 
 From now on, this alert will be executed every 15 minutes, and search for the result (based on the search query) created within the last 15 minutes. If the number of records returned from the search is greater than 0 (as we configured), you will get an email similar to this one:
 

@@ -18,7 +18,7 @@ Often when I’m working in my lab, I get frustrated because the code in PowerSh
 
 For example, I would like to achieve the following when I start any 64 bit PowerShell consoles on any computers in my lab under any user accounts:
 <ul>
-	<li>Append “- Tao Yang Test Lab” in the console title</li>
+	<li>Append "- Tao Yang Test Lab" in the console title</li>
 	<li>Change console’s background colour to black</li>
 	<li>Change the text colour to green</li>
 	<li>if I’m on the normal PowerShell command console, maximise the console window using the PSConsole module I have written in the past (<a title="http://blog.tyang.org/2014/04/08/powershell-module-resize-console-updated/" href="http://blog.tyang.org/2014/04/08/powershell-module-resize-console-updated/">http://blog.tyang.org/2014/04/08/powershell-module-resize-console-updated/</a>)</li>
@@ -50,24 +50,24 @@ The All Users All Hosts profile is located at <strong>$PsHome\profile.ps1</stron
 
 Here’s the code I’ve added to this profile:
 
-[sourcecode language="Powershell"]
+```powershell
 if (Get-module -name PSConsole -List)
 {
 Import-Module PSConsole
 }
 
-$host.UI.RawUI.BackgroundColor = &quot;Black&quot;
-$host.UI.RawUI.ForegroundColor = &quot;Green&quot;
-$host.UI.RawUI.WindowTitle = $host.UI.RawUI.WindowTitle + &quot;  - Tao Yang Test Lab&quot;
+$host.UI.RawUI.BackgroundColor = "Black"
+$host.UI.RawUI.ForegroundColor = "Green"
+$host.UI.RawUI.WindowTitle = $host.UI.RawUI.WindowTitle + "  - Tao Yang Test Lab"
 If ($psISE)
 {
-$psISE.Options.ConsolePaneBackgroundColor = &quot;Black&quot;
+$psISE.Options.ConsolePaneBackgroundColor = "Black"
 } else {
 Resize-Console -max -ErrorAction SilentlyContinue
 }
 set-location C:\
 Clear-Host
-[/sourcecode]
+```
 
 <strong><span style="color: #ff0000;">Note:</span></strong> The $psISE variable only exists in the PowerShell ISE environment, therefore I’m using it to identify which console am I currently in and used an IF… Else… statement to control what’s getting executed within PowerShell ISE and normal PowerShell console.
 
@@ -75,7 +75,7 @@ Clear-Host
 
 Next, I have created a PowerShell script to create the All Users All Hosts profile:
 
-[sourcecode language="Powershell"]
+```powershell
 #=====================================================================
 # Script Name:        CreateAllUsersAllHostsProfile.ps1
 # DATE:               03/08/2014
@@ -92,32 +92,32 @@ New-Item -Path $ProfilePath -ItemType file -Force
 }
 
 #content of the profile script
-$ProfileContent = @&quot;
+$ProfileContent = @"
 if (Get-module -name PSConsole -List)
 {
 Import-Module PSConsole
 }
 
-`$host.UI.RawUI.BackgroundColor = &quot;Black&quot;
-`$host.UI.RawUI.ForegroundColor = &quot;Green&quot;
-`$host.UI.RawUI.WindowTitle = `$host.UI.RawUI.WindowTitle + &quot;  - Tao Yang Test Lab&quot;
+`$host.UI.RawUI.BackgroundColor = "Black"
+`$host.UI.RawUI.ForegroundColor = "Green"
+`$host.UI.RawUI.WindowTitle = `$host.UI.RawUI.WindowTitle + "  - Tao Yang Test Lab"
 If (`$psISE)
 {
-`$psISE.Options.ConsolePaneBackgroundColor = &quot;Black&quot;
+`$psISE.Options.ConsolePaneBackgroundColor = "Black"
 } else {
 Resize-Console -max -ErrorAction SilentlyContinue
 }
 set-location C:\
 Clear-Host
-&quot;@
+"@
 #write contents to the profile
 if (test-path $ProfilePath)
 {
 Set-Content -Path $ProfilePath -Value $ProfileContent -Force
 } else {
-Write-Error &quot;All Users All Hosts PS Profile does not exist and this script failed to create it.&quot;
+Write-Error "All Users All Hosts PS Profile does not exist and this script failed to create it."
 }
-[/sourcecode]
+```
 
 As you can see, I have stored the content in a multi-line string variable. The only thing to pay attention to is that I have to add the PowerShell escape character backtick (`)  in front of each variable (dollar sign $).
 
@@ -131,7 +131,7 @@ In SCCM, I have created a Package with one program for this script:
 
 <strong>Command Line:</strong> %windir%\Sysnative\WindowsPowerShell\v1.0\Powershell.exe .\CreateAllUsersAllHostsProfile.ps1
 
-<strong><span style="color: #ff0000;">Note:</span></strong> I’m using ConfigMgr 2012 R2 in my lab, although the ConfigMgr client seems to be 64-bit, this command will still be executed under 32-bit environment. Therefore I have to use “<strong>Sysnative</strong>” instead of “System32” to overcome 32-bit redirection in 64-bit OS.
+<strong><span style="color: #ff0000;">Note:</span></strong> I’m using ConfigMgr 2012 R2 in my lab, although the ConfigMgr client seems to be 64-bit, this command will still be executed under 32-bit environment. Therefore I have to use "<strong>Sysnative</strong>" instead of "System32" to overcome 32-bit redirection in 64-bit OS.
 
 I created a re-occurring deployment for this program:
 
@@ -147,4 +147,4 @@ For example, on one of my computers, I have added one line to the default Curren
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/08/image_thumb4.png" alt="image" width="615" height="111" border="0" /></a>
 
-In the All Users All Hosts profile, I have set the location to C:\, but in the Current User Current Host profile, I’ve set the location to “C:\Scripts\Backup Script”. The result is, when I started the console, the location is set to “C:\Scripts\Backup Script”. Obviously the Current User Current Host profile was executed after the All Users All Hosts profile. Therefore we can use the All Users All Hosts profile as a baseline and using Current User Current Host profile as a delta <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2014/08/wlEmoticon-smile.png" alt="Smile" />.
+In the All Users All Hosts profile, I have set the location to C:\, but in the Current User Current Host profile, I’ve set the location to "C:\Scripts\Backup Script". The result is, when I started the console, the location is set to "C:\Scripts\Backup Script". Obviously the Current User Current Host profile was executed after the All Users All Hosts profile. Therefore we can use the All Users All Hosts profile as a baseline and using Current User Current Host profile as a delta <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2014/08/wlEmoticon-smile.png" alt="Smile" />.

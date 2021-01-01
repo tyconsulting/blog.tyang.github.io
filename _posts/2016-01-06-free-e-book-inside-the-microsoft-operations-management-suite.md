@@ -17,7 +17,7 @@ The book is titled <em><strong>Inside the Microsoft Operations Management Suite<
 
 We wanted to bring a learning resource for the MS Operations Management Suite to the community that is complete, comprehensive, concise…and free (as in beer). While we finish final editing passes over the next couple of weeks, we wanted to share an early copy of the book so you can start digging in while we finish our work!
 
-<strong>Description:</strong> This preview release of “Inside the Microsoft Operations Management Suite” is an end-to-end deep dive into the full range of Microsoft OMS features and functionality, complete with downloadable sample scripts (on <a href="https://github.com/insidemscloud/OMSBook">Github</a>). The chapter list in this edition is shown below:
+<strong>Description:</strong> This preview release of "Inside the Microsoft Operations Management Suite" is an end-to-end deep dive into the full range of Microsoft OMS features and functionality, complete with downloadable sample scripts (on <a href="https://github.com/insidemscloud/OMSBook">Github</a>). The chapter list in this edition is shown below:
 
 Chapter 1: Introduction and Onboarding
 Chapter 2: Searching and Presenting OMS Data

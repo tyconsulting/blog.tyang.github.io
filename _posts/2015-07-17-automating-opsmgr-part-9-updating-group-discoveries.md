@@ -65,7 +65,7 @@ $NewConfiguration = @'
 '@
 
 #Firstly add the MP reference for VMM Discovery MP
-$AddMPRef = New-OMManagementPackReference -SDK OpsMgrMS01 -ReferenceMPName "Microsoft.SystemCenter.VirtualMachineManager.2012.Discovery" -Alias "MSV2D" -UnsealedMPName “Group.Creation.Demo” -Verbose
+$AddMPRef = New-OMManagementPackReference -SDK OpsMgrMS01 -ReferenceMPName "Microsoft.SystemCenter.VirtualMachineManager.2012.Discovery" -Alias "MSV2D" -UnsealedMPName "Group.Creation.Demo" -Verbose
 
 #Updating the discovery DS using the Update-OMGroupDiscovery function
 $UpdateResult = Update-OMGroupDiscovery -SDK OpsMgrMS01 -GroupName $GroupName -NewConfiguration $NewConfiguration -IncreaseMPVersion $true -verbose

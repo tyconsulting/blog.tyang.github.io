@@ -61,7 +61,7 @@ Below is a list of items that these scripts will configure for you (and where yo
 <td width="280"> </td>
 </tr>
 <tr>
-<td width="149">Startup &amp; Recovery Options Small Memory dump (256K) Automatically Restart Write an event to the system log</td>
+<td width="149">Startup & Recovery Options Small Memory dump (256K) Automatically Restart Write an event to the system log</td>
 <td width="66">1_OSConfig.PS1</td>
 <td width="72" align="center">No</td>
 <td width="10"> </td>
@@ -208,7 +208,7 @@ Below is a list of items that these scripts will configure for you (and where yo
 <td width="280"> </td>
 </tr>
 <tr>
-<td width="149">Show Network Connection Icon in Sys Tray - Windows 6.0 (2008 &amp; Vista) only</td>
+<td width="149">Show Network Connection Icon in Sys Tray - Windows 6.0 (2008 & Vista) only</td>
 <td width="66">2_network.PS1</td>
 <td width="72" align="center">No</td>
 <td width="10"> </td>
@@ -271,7 +271,7 @@ Below is a list of items that these scripts will configure for you (and where yo
 <td width="280">SecPolicy.inf will be applied to the computer. Log file: security.log</td>
 </tr>
 <tr>
-<td width="149">Configuring Event Logs (System, Application &amp; Security)</td>
+<td width="149">Configuring Event Logs (System, Application & Security)</td>
 <td width="66">3_Security.PS1</td>
 <td width="72" align="center">Yes</td>
 <td width="10">SecPolicy.inf</td>

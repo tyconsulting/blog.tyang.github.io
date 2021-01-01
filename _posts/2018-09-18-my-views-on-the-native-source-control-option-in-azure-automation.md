@@ -17,11 +17,11 @@ tags:
 ---
 Few weeks ago, I saw a two separate discussions in different closed community channels regarding to the Source Control option in Azure Automation accounts, more specifically – when will the support for VSTS become available.
 
-In the Azure Portal, it has been showing “coming soon”.
+In the Azure Portal, it has been showing "coming soon".
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-27.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-27.png" alt="image" width="673" height="319" border="0" /></a>
 
-According to <a href="https://en.wikipedia.org/wiki/Microsoft_Visual_Studio#Azure_DevOps">Wikipedia</a>, “Visual Studio Online” has been renamed to Visual Studio Team Services (VSTS) in November 2015:
+According to <a href="https://en.wikipedia.org/wiki/Microsoft_Visual_Studio#Azure_DevOps">Wikipedia</a>, "Visual Studio Online" has been renamed to Visual Studio Team Services (VSTS) in November 2015:
 <blockquote>On 13 November 2013, Microsoft announced the release of a software as a service offering of Visual Studio on Microsoft Azure platform; at the time, Microsoft called it Visual Studio Online. Previously announced as Team Foundation Services, it expands over Team Foundation Server by making it available on the Internet and implementing a rolling release model.[179][180]Customers could use Azure portal to subscribe to Visual Studio Online. Subscribers receive a hosted Git-compatible version control system, a load-testing service, a telemetry service and an in-browser code editor codenamed "Monaco". <span style="background-color: #ffff00;">During the Connect(); 2015 developer event on 18 November 2015, Microsoft announced that the service was rebranded as "Visual Studio Team Services (VSTS)".</span> On 10 September 2018, Microsoft announced another rebranding of the service, this time to "Azure DevOps".</blockquote>
 This feature has been in the backlog for few years, nothing had been done, not even keeping up with the name changes. I guess since Ignite is only few days away, as always, we see many new capabilities been released in Ignite every year, when I checked again today, Microsoft has just released an update to this feature. This wasn’t there when I started writing this blog post few days ago:
 
@@ -49,7 +49,7 @@ If you have resource locks making the Automation Account read-only, you will not
 
 <strong>3 Protected Git branches</strong>
 
-Often in order to protect the integrity and uphold the quality of the code, many organisations configure restrictions on Git branches. This is ensure code has gone through different stages of thorough review and testing before the “golden copy” has been updated and released to production. In GitHub, you can create branch protection rules that restrict direct merge into the branch (instead, updates can only be made into the branch using Pull Requests):
+Often in order to protect the integrity and uphold the quality of the code, many organisations configure restrictions on Git branches. This is ensure code has gone through different stages of thorough review and testing before the "golden copy" has been updated and released to production. In GitHub, you can create branch protection rules that restrict direct merge into the branch (instead, updates can only be made into the branch using Pull Requests):
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-30.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-30.png" alt="image" width="688" height="528" border="0" /></a>
 
@@ -63,7 +63,7 @@ These restrictions would potentially prevent you from directly merging updates i
 
 What is stopping the crappy code from being released into your production? what if someone stored a secret or sensitive information in clear text in a runbook (I have seen it many many times in PowerShell scripts), and then checked into the Git repository via the Source Control integration in Azure Automation account? or vice versa, pushed the same crappy code from Git repo to your Automation account? If this happens, the consequences are serious - 1. being a source control system, once the secret has been committed, you can always retrieve it by going through the history even if you’ve corrected your code, removed the secret and updated the branches. 2. If a runbook contains a secret and has been executed at least once, you can always get the particular runbook jobs before the correction and view the snapshot of the source code been executed in the job. so even if you’ve corrected the crappy code, your secrets are still exposed in clear text regardless the direction of source code synchronization.
 
-This is why code review and tests are <span style="background-color: #ffff00;"><u>VERY IMPORTANT</u></span>. i.e. If you have implemented a test to run PS Script Analyzer against your runbooks as part of your build &amp; release process, it would most likely to pick up clear text passwords and therefore prevented the crappy code from being released into production.
+This is why code review and tests are <span style="background-color: #ffff00;"><u>VERY IMPORTANT</u></span>. i.e. If you have implemented a test to run PS Script Analyzer against your runbooks as part of your build & release process, it would most likely to pick up clear text passwords and therefore prevented the crappy code from being released into production.
 
 Since there is no test and review process in this Source Control feature. It can be potentially dangerous – we are all humans, we make mistakes. sometimes I have test parameters stored within the script so I can easily test my scripts during development phase. these test parameters may include clear text password, server names, IDs, etc. If I forgot to remove them before code commit, and without having a good branch policy in place, I could potentially have sensitive information stored in a Git repo that I cannot delete.
 

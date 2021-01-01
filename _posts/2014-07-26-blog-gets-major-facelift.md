@@ -11,7 +11,7 @@ categories:
 ---
 I have kept the same theme on this WordPress blog since day 1. It has been 4 years and I started getting sick of it. Especially that picture of an old iPhone on the top of the page. I finally got around to update the theme today.
 
-I’ve also changed the site title to a more suitable one: “Tao Yang’s System <strong>Center</strong> Blog”.
+I’ve also changed the site title to a more suitable one: "Tao Yang’s System <strong>Center</strong> Blog".
 
 Special thanks to my wife – The background picture was taken by her using her Nikon D90 in Fiji few years ago.
 

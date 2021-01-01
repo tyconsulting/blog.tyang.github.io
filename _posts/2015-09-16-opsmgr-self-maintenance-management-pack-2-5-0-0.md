@@ -21,22 +21,22 @@ tags:
 I can’t believe it has been 1 year and 3 month since the OpsMgr Self Maintenance MP was lastly updated. This is partially because over the last year or so, I have been spending a lot of time developing the OpsMgr PowerShell / SMA module OpsMgrExtended and am stilling working on the <a href="http://blog.tyang.org/tag/automating-opsmgr/">Automating OpsMgr blog series</a>.  But I think one of the main reasons is that I did not get too many new ideas for the next release. I have decided to start working on version 2.5 of the Self Maintenance MP few weeks ago, when I realised I have collected enough resources for a new release. So, after few weeks of development and testing, I’m pleased to announce the version 2.5 is ready for the general public.
 <h3>What’s new in version 2.5?</h3>
 <ul>
-	<li>Bug Fix: corrected “Collect All Management Server SDK Connection Count Rule” where incorrect value may be collected when there are gateway servers in the management group.</li>
+	<li>Bug Fix: corrected "Collect All Management Server SDK Connection Count Rule" where incorrect value may be collected when there are gateway servers in the management group.</li>
 	<li>Additional Performance Rules for Data Warehouse DB Staging Tables row count.</li>
 	<li>Additional 2-State performance monitors for Data Warehouse DB Staging Tables row count.</li>
 	<li>Additional Monitor: Check if all management servers are on the same patch level</li>
-	<li>Additional discovery to replace the built-in “Discovers the list of patches installed on Agents” discovery for health service. This additional discovery also discovers the patch list for OpsMgr management servers, gateway servers and SCSM servers.</li>
+	<li>Additional discovery to replace the built-in "Discovers the list of patches installed on Agents" discovery for health service. This additional discovery also discovers the patch list for OpsMgr management servers, gateway servers and SCSM servers.</li>
 	<li>Additional Agent Task: Display patch list (patches for management servers, gateway servers, agents and web console servers).</li>
 	<li>Additional Agent Task: Configure Group Health Rollup</li>
-	<li>Updated “OpsMgr 2012 Self Maintenance Detect Manually Closed Monitor Alerts Rule” to include an option to reset any manually closed monitor upon detection.</li>
-	<li>Additional Rule: “OpsMgr 2012 Self Maintenance Audit Agent Tasks Result Event Collection Rule”</li>
-	<li>Additional Management Pack: “OpsMgr Self Maintenance OMS Add-On Management Pack”</li>
+	<li>Updated "OpsMgr 2012 Self Maintenance Detect Manually Closed Monitor Alerts Rule" to include an option to reset any manually closed monitor upon detection.</li>
+	<li>Additional Rule: "OpsMgr 2012 Self Maintenance Audit Agent Tasks Result Event Collection Rule"</li>
+	<li>Additional Management Pack: "OpsMgr Self Maintenance OMS Add-On Management Pack"</li>
 </ul>
 <strong><span style="background-color: #ffff00;">To summarise, in my opinion, the 2 biggest features shipped in this release are the workflows built around managing OpsMgr Update Rollup patch level, and the extension to Microsoft Operations Management Suite (OMS) for the management groups that have already been connected to OMS via the new OpsMgr Self Maintenance OMS Add-On MP .</span></strong>
 
 I will now briefly go though each item from the list above. The detailed documentation can be found in the updated MP guide.
 <h4>Bug Fix: Total SDK Connection Count Perf Rule</h4>
-In previous version, the PowerShell script used by the “Collect All Management Server SDK Connection Count Rule” had a bug, where the incorrect count could be collected when there are gateway servers in the management group. i.e.
+In previous version, the PowerShell script used by the "Collect All Management Server SDK Connection Count Rule" had a bug, where the incorrect count could be collected when there are gateway servers in the management group. i.e.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb11.png" alt="image" width="493" height="214" border="0" /></a>
 
@@ -66,7 +66,7 @@ Any seasoned OpsMgr folks would know wait for Kevin Holman’s post for the upda
 <h5>OpsMgr management groups are partially updates due to the (mis)configuration of Windows Update (or other patching solutions such as ConfigMgr).</h5>
 I have heard situations where a subset of management servers were updated by Windows Update, and the patch level among management servers themselves, as well as between servers and agents are different. Ideally, all management servers should be patched together within a very short time window (together with updating SQL DBs and management packs), and agents should also be updated ASAP. Leaving management servers in different patch levels would cause many undesired issues.
 <h5>It is hard to identify the patch level for management servers</h5>
-Although OpsMgr administrators can verify the patch list for the agent by creating a state view for agents and select “Patch List” property, the patch list property for OpsMgr management servers and gateway servers are not populated in OpsMgr. This is because the object discovery of which is responsible for populating this property only checks the patch applied to the MSI of the OpsMgr agent. Additionally, after the update rollup has been installed on OpsMgr servers, it does not show up in the Program and Features in Windows Control Panel. Up to date, the most popular way to check the servers patch level is by checking the version of few DLLs and EXEs. Due to these difficulties, people may not even aware of the inconsistent patch level within the management group because it is not obvious and it's hard to find out.
+Although OpsMgr administrators can verify the patch list for the agent by creating a state view for agents and select "Patch List" property, the patch list property for OpsMgr management servers and gateway servers are not populated in OpsMgr. This is because the object discovery of which is responsible for populating this property only checks the patch applied to the MSI of the OpsMgr agent. Additionally, after the update rollup has been installed on OpsMgr servers, it does not show up in the Program and Features in Windows Control Panel. Up to date, the most popular way to check the servers patch level is by checking the version of few DLLs and EXEs. Due to these difficulties, people may not even aware of the inconsistent patch level within the management group because it is not obvious and it's hard to find out.
 
 In order to address some of these issues, and helping OpsMgr administrators to better manage the patch level and patching process, I have created the following items in this release of the Self Maintenance MP:
 <h5><b>State view for Health Service which also displays the patch list:</b></h5>
@@ -74,7 +74,7 @@ In order to address some of these issues, and helping OpsMgr administrators to b
 <h5>An agent task targeting Health Service to list OpsMgr components patch level:</h5>
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML49c996.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML49c996" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML49c996_thumb.png" alt="SNAGHTML49c996" width="672" height="372" border="0" /></a>
 
-Because the “Patch List” property is populated by an object discovery, which only runs infrequently, in order to check the up-to-date information(of the patch list), I have created a task called “Get Current Patch List”, which is targeting the Health Service class. This task will display the patch list for any of the following OpsMgr components installed on the selected health service:
+Because the "Patch List" property is populated by an object discovery, which only runs infrequently, in order to check the up-to-date information(of the patch list), I have created a task called "Get Current Patch List", which is targeting the Health Service class. This task will display the patch list for any of the following OpsMgr components installed on the selected health service:
 
 Management Servers | Gateway Servers:
 
@@ -84,17 +84,17 @@ Agents | Web Console (also has agent installed):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb14.png" alt="image" width="347" height="435" border="0" /></a><a href="http://blog.tyang.org/wp-content/uploads/2015/09/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb15.png" alt="image" width="331" height="433" border="0" /></a>
 <h5>Object Discovery: OpsMgr 2012 Self Maintenance Management Server and Agent Patch List Discovery</h5>
-Natively in OpsMgr, the agent patch list is discovered by an object discovery called “Discovers the list of patches installed on Agents”:
+Natively in OpsMgr, the agent patch list is discovered by an object discovery called "Discovers the list of patches installed on Agents":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb16.png" alt="image" width="412" height="409" border="0" /></a>
 
 As the name suggests, this discovery discovers the patch list for agents, and nothing else. It does not discover the patch list for OpsMgr management servers, gateway servers, and SCSM management servers (if they are also monitored by OpsMgr using the version of the Microsoft Monitoring Agent that is a part of the Service Manager 2012). On the other hand, this discovery provided by the OpsMgr 2012 Self Maintenance MP (Version 2.5.0.0) is designed to replace the native patch list discovery. Instead of only discovering agent patch list, it also discovers the patch list for OpsMgr management servers, gateway servers, SCSM management servers and SCSM Data Warehouse management servers.
 
-Same as all other workflows in the Self Maintenance MP, this discovery is disabled by default. In order to start using this discovery, please disable the built-in discovery “Discovers the list of patches installed on Agents” BEFORE enabling “OpsMgr 2012 Self Maintenance Management Server and Agent Patch List Discovery”:
+Same as all other workflows in the Self Maintenance MP, this discovery is disabled by default. In order to start using this discovery, please disable the built-in discovery "Discovers the list of patches installed on Agents" BEFORE enabling "OpsMgr 2012 Self Maintenance Management Server and Agent Patch List Discovery":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb17.png" alt="image" width="687" height="315" border="0" /></a>
 
-Shortly after the built-in discovery has been disabled and the “OpsMgr 2012 Self Maintenance Management Server and Agent Patch List Discovery” has been enabled for the Health Service class, the patch list for the OpsMgr management servers, gateway servers and SCSM management servers (including Data Warehouse management server) will be populated (as shown in the screenshot below):
+Shortly after the built-in discovery has been disabled and the "OpsMgr 2012 Self Maintenance Management Server and Agent Patch List Discovery" has been enabled for the Health Service class, the patch list for the OpsMgr management servers, gateway servers and SCSM management servers (including Data Warehouse management server) will be populated (as shown in the screenshot below):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML51edc1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML51edc1" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML51edc1_thumb.png" alt="SNAGHTML51edc1" width="668" height="374" border="0" /></a>
 
@@ -106,9 +106,9 @@ As shown above, the patch list for different flavors of Health Service is proper
 
 Please do not leave both discoveries enabled at the same time as it will cause config-churn in your OpsMgr environment.
 <h5>Monitor: OpsMgr 2012 Self Maintenance All Management Servers Patch List Consistency Consecutive Samples Monitor</h5>
-This consecutive sample monitor is targeting the “All Management Servers Resource Pool” and it is configured to run every 2 hours (7200 seconds) by default. It executes a PowerShell script which uses WinRM to remotely connect to each management server and checks if all the management servers are on the same UR patch level.
+This consecutive sample monitor is targeting the "All Management Servers Resource Pool" and it is configured to run every 2 hours (7200 seconds) by default. It executes a PowerShell script which uses WinRM to remotely connect to each management server and checks if all the management servers are on the same UR patch level.
 
-In order to utilise this monitor, WinRM must be enabled and configured to accept connections from other management servers. The quickest way to do so is to run “Winrm QuickConfig” on these servers. The account that is running the script in the monitor must also have OS administrator privilege on all management servers (by default, it is running under the management server’s default action account). If the default action account does not have Windows OS administrator privilege on all management servers, a Run-As profile can be configured for this monitor:
+In order to utilise this monitor, WinRM must be enabled and configured to accept connections from other management servers. The quickest way to do so is to run "Winrm QuickConfig" on these servers. The account that is running the script in the monitor must also have OS administrator privilege on all management servers (by default, it is running under the management server’s default action account). If the default action account does not have Windows OS administrator privilege on all management servers, a Run-As profile can be configured for this monitor:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML53a46a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML53a46a" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML53a46a_thumb.png" alt="SNAGHTML53a46a" width="671" height="423" border="0" /></a>
 
@@ -130,29 +130,29 @@ This task has been previously released in the <a href="http://blog.tyang.org/201
 
 Therefore, this agent task is now part of the Self Maintenance MP, kudos Squared Up <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/09/wlEmoticon-smile.png" alt="Smile" />.
 <h4>Auditing Agent Tasks Execution Status</h4>
-In OpsMgr, the task history is stored in the operational DB, which has a relatively short retention period. In this release, I have added a rule called “OpsMgr 2012 Self Maintenance Audit Agent Tasks Result Event Collection Rule”. it is designed to collect the agent task execution result and store it in both operational and Data Warehouse DB as event data. Because the data in the DW database generally has a much longer retention, the task execution results can be audited and reported.
+In OpsMgr, the task history is stored in the operational DB, which has a relatively short retention period. In this release, I have added a rule called "OpsMgr 2012 Self Maintenance Audit Agent Tasks Result Event Collection Rule". it is designed to collect the agent task execution result and store it in both operational and Data Warehouse DB as event data. Because the data in the DW database generally has a much longer retention, the task execution results can be audited and reported.
 
 <b><span style="background-color: #ffff00;">Note:</span></b>
 
 This rule was inspired by this blog post (although the script used in this rule is completely different than the script from this post): <a href="http://www.systemcentercentral.com/archiving-scom-console-task-status-history-to-the-data-warehouse/">http://www.systemcentercentral.com/archiving-scom-console-task-status-history-to-the-data-warehouse/</a>
 <h4>Resetting Health for Manually Closed Monitor Alerts</h4>
-Having ability to automatically reset health state for manually closed monitor alerts must be THE most popular suggestion I have received for the Self Maintenance MP. I get this suggestions all the time, from the community, and also from MVPs. Originally, my plan was to write a brand new rule for this purpose. I then realised I already have created a rule to detect any manually closed monitor alerts. So instead of creating something brand new, I have updated the existing rule “OpsMgr 2012 Self Maintenance Detect Manually Closed Monitor Alerts Rule”. In this release, this rule now has an additional overrideable parameter called “ResetUnitMonitors”. This parameter is set to “false” by default. But when it is set to “true” via overrides, the script used by this rule will also reset the health state of the monitor of which generated the alert if the monitor is a unit monitor and its’ current health state is either warning or error:
+Having ability to automatically reset health state for manually closed monitor alerts must be THE most popular suggestion I have received for the Self Maintenance MP. I get this suggestions all the time, from the community, and also from MVPs. Originally, my plan was to write a brand new rule for this purpose. I then realised I already have created a rule to detect any manually closed monitor alerts. So instead of creating something brand new, I have updated the existing rule "OpsMgr 2012 Self Maintenance Detect Manually Closed Monitor Alerts Rule". In this release, this rule now has an additional overrideable parameter called "ResetUnitMonitors". This parameter is set to "false" by default. But when it is set to "true" via overrides, the script used by this rule will also reset the health state of the monitor of which generated the alert if the monitor is a unit monitor and its’ current health state is either warning or error:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb20.png" alt="image" width="480" height="228" border="0" /></a>
 <h3>OpsMgr Self Maintenance OMS Add On MP</h3>
 OK, we all have to admit, OMS is such a hot topic at the moment. Hopefully you all have played and read about this solution (if not, you can learn more about this product from Mr Pete Zerger’s survival guide for OMS:<a title="http://social.technet.microsoft.com/wiki/contents/articles/31909.ms-operations-management-suite-survival-guide.aspx" href="http://social.technet.microsoft.com/wiki/contents/articles/31909.ms-operations-management-suite-survival-guide.aspx">http://social.technet.microsoft.com/wiki/contents/articles/31909.ms-operations-management-suite-survival-guide.aspx</a>)
 
-With the release of version 2.5.0.0, the new “OpsMgr Self Maintenance OMS Add-On Management Pack” has been introduced.
+With the release of version 2.5.0.0, the new "OpsMgr Self Maintenance OMS Add-On Management Pack" has been introduced.
 
 This management pack is designed to also send performance and event data generated by the OpsMgr 2012 Self Maintenance MP to the Microsoft Operations Management Suite (OMS) Workspace.
 
-In addition to the existing performance and event data, this management pack also provides 2 event rules that send periodic “heartbeat” events to OMS from configured health service and All Management Servers Resource Pool. These 2 event rules are designed to monitor the basic health of the OpsMgr management group from OMS (Monitor the monitor scenario).
+In addition to the existing performance and event data, this management pack also provides 2 event rules that send periodic "heartbeat" events to OMS from configured health service and All Management Servers Resource Pool. These 2 event rules are designed to monitor the basic health of the OpsMgr management group from OMS (Monitor the monitor scenario).
 
 <b><span style="background-color: #ffff00;">Note:</span></b>
 
 In order to use this management pack, the OpsMgr management must meet the minimum requirements for the OMS / Azure Operational Insights integration, and the connection to OMS must be configured prior to importing this management pack.
 <h5><a name="_Toc430181567"></a><span style="color: #000000;">Sending Heartbeat Events to OMS</span></h5>
-There have been many discussion and custom solutions on how to monitor the monitor? It is critical to be notified when the monitor - OpsMgr management group is “down”. With the recent release of Microsoft Operations Management Suite (OMS) and the ability to connect the on-premise OpsMgr management group to OMS workspace, the “OpsMgr Self Maintenance OMS Add-On Management Pack” provides the ability to send “heartbeat” events to OMS from
+There have been many discussion and custom solutions on how to monitor the monitor? It is critical to be notified when the monitor - OpsMgr management group is "down". With the recent release of Microsoft Operations Management Suite (OMS) and the ability to connect the on-premise OpsMgr management group to OMS workspace, the "OpsMgr Self Maintenance OMS Add-On Management Pack" provides the ability to send "heartbeat" events to OMS from
 <ul>
 	<li>All Management Servers Resource Pool (AMSRP)</li>
 	<li>Various Health Service

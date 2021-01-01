@@ -15,7 +15,7 @@ tags:
 ---
 if you search on how to enable SCOM agent proxy for all your SCOM agents using PowerShell, you’ll get lots of posts and scripts that shows you how to do it in SCOM 2007 or 2012. In fact, I have written few back in the days.
 
-However, no matter if the script uses SCOM 2007 PowerShell Snap-in, or SCOM 2012 PowerShell module, or even SCOM SDK, there is one limitation: the "ProxyingEnabled” property of the agent class is not one of the search criteria that you can use when retrieving the agent:
+However, no matter if the script uses SCOM 2007 PowerShell Snap-in, or SCOM 2012 PowerShell module, or even SCOM SDK, there is one limitation: the "ProxyingEnabled" property of the agent class is not one of the search criteria that you can use when retrieving the agent:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/09/image2.png"><img style="padding-left: 0px;padding-right: 0px;padding-top: 0px;border: 0px" src="http://blog.tyang.org/wp-content/uploads/2012/09/image_thumb2.png" alt="image" width="512" height="279" border="0" /></a>
 
@@ -34,23 +34,23 @@ i.e.
 
 <strong>Using SCOM 2007 PowerShell Snap-in:</strong>
 
-[sourcecode language="PowerShell"]
-Get-agent | where-object {$_.ProxyingEnabled -match &quot;false&quot;}| foreach {$_.ProxyingEnabled = $true; $_.applyChanges()}
-[/sourcecode]
+```powershell
+Get-agent | where-object {$_.ProxyingEnabled -match "false"}| foreach {$_.ProxyingEnabled = $true; $_.applyChanges()}
+```
 
 <strong>Using SCOM 2012 PowerShell Module:</strong>
 
-[sourcecode language="PowerShell"]
-Get-SCOMAgent | where-object {$_.ProxyingEnabled –match “false”} | Enable-SCOMAgentProxy
-[/sourcecode]
+```powershell
+Get-SCOMAgent | where-object {$_.ProxyingEnabled –match "false"} | Enable-SCOMAgentProxy
+```
 
 <strong>Using SCOM SDK in PowerShell:</strong>
 
-[sourcecode language="PowerShell"]
-[System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager.Common&quot;) | Out-Null
-[System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager&quot;) | Out-Null
+```powershell
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager.Common") | Out-Null
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager") | Out-Null
 
-$RMS = “RMS SERVER NAME”
+$RMS = "RMS SERVER NAME"
 
 $MGConnSetting = New-Object Microsoft.EnterpriseManagement.ManagementGroupConnectionSettings(RMS )
 $MG = New-Object Microsoft.EnterpriseManagement.ManagementGroup($MGConnSetting)
@@ -64,13 +64,13 @@ Foreach ($Agent in $Agents)
 {
 If (!($Agent.ProxyingEnabled.Value))
 {
-Write-Host &quot;Enabling Agent Proxy for $($Agent.Name)`...&quot;
+Write-Host "Enabling Agent Proxy for $($Agent.Name)`..."
 $Agent.ProxyingEnabled = $true
 $Agent.ApplyChanges()
 
 }
 }
-[/sourcecode]
+```
 
 Imagine in a large management group with few thousands agents or more and there are only couple of agents that don’t have Agent Proxy enabled. the script / cmdlet will take a long time and a lot of system resources to run because it needs to retrieve information of ALL agents first!
 
@@ -101,8 +101,8 @@ Additionally, the default SQL query timeout is set to 120 seconds, you can speci
 
 By the way, I also tried to run below SQL command to directly change the ProxyingEnabled attribute in the database (similar to <a href="http://blogs.technet.com/b/kevinholman/archive/2010/02/20/how-to-get-your-agents-back-to-remotely-manageable-in-opsmgr-2007-r2.aspx">Kevin Holman’s query to change all agents to remote manageable</a>):
 
-[sourcecode language="SQL"]
+```sql
 Update MT_HealthService Set ProxyingEnabled = 1 where ProxyingEnabled = 0
-[/sourcecode]
+```
 
 After I ran this SQL command, the agent proxy setting did get updated in the SCOM console, but I’m not sure if this is supported or not, thus I wrote this script instead.

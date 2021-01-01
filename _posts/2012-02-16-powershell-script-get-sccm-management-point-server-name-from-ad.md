@@ -15,15 +15,15 @@ tags:
 ---
 I wrote this function as a part of a script that I'm working on. it searches AD for the management point server name for a particular SCCM site:
 
-[sourcecode language="Powershell"]
+```powershell
 Function Get-MPFromAD ($SiteCode)
 {
 	$domains = Get-AllDomains
 	Foreach ($domain in $domains)
 	{
 		Try {
-			$ADSysMgmtContainer = [ADSI](&quot;LDAP://CN=System Management,CN=System,&quot; + &quot;$($Domain.Properties.ncname[0])&quot;)
-			$AdSearcher = [adsisearcher]&quot;(&amp;(Name=SMS-MP-$SiteCode-*)(objectClass=mSSMSManagementPoint))&quot;
+			$ADSysMgmtContainer = [ADSI]("LDAP://CN=System Management,CN=System," + "$($Domain.Properties.ncname[0])")
+			$AdSearcher = [adsisearcher]"(&(Name=SMS-MP-$SiteCode-*)(objectClass=mSSMSManagementPoint))"
 			$AdSearcher.SearchRoot = $ADSysMgmtContainer
 			$ADManagementPoint = $AdSearcher.FindONE()
 			$MP = $ADManagementPoint.Properties.mssmsmpname[0]
@@ -32,6 +32,6 @@ Function Get-MPFromAD ($SiteCode)
 
 	Return $MP
 }
-[/sourcecode]
+```
 
 Note: This function uses another function called Get-AllDomains, which I've blogged before here: <a href="http://blog.tyang.org/2011/08/05/powershell-function-get-alldomains-in-a-forest/">http://blog.tyang.org/2011/08/05/powershell-function-get-alldomains-in-a-forest/</a> So make sure you include BOTH functions in your script.

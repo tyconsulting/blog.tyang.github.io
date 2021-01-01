@@ -18,15 +18,15 @@ To do so, I can either use the OpsMgr SDK or the OperationsManager PowerShell mo
 
 <strong>Using SDK:</strong>
 
-[sourcecode language="PowerShell"]
+```powershell
 $MgmtServer = $Env:COMPUTERNAME
 #Connect to SCOM management group
-[System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager.Common&quot;) | Out-Null
-[System.Reflection.Assembly]::LoadWithPartialName(&quot;Microsoft.EnterpriseManagement.OperationsManager&quot;) | Out-Null
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager.Common") | Out-Null
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.EnterpriseManagement.OperationsManager") | Out-Null
 $MGConnSetting = New-Object Microsoft.EnterpriseManagement.ManagementGroupConnectionSettings($MgmtServer)
 $MG = New-Object Microsoft.EnterpriseManagement.ManagementGroup($MGConnSetting)
 $MG.GetManagementGroupMonitoringObject()
-[/sourcecode]
+```
 
 
 <strong>TimeAdded</strong> property indicates the MG initial installation date.
@@ -35,10 +35,10 @@ $MG.GetManagementGroupMonitoringObject()
 
 <strong>Using OperationsManager PowerShell module:</strong>
 
-[sourcecode language="PowerShell"]
+```powershell
 import-module OperationsManager
 $mg = Get-SCOMManagementGroup
 $mg.GetManagementGroupMonitoringObject() | format-list
-[/sourcecode]
+```
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/06/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/06/image_thumb1.png" width="580" height="359" border="0" /></a>

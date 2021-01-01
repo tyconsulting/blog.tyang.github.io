@@ -53,7 +53,7 @@ OK. if you want to try this out in your SCOM environment, please keep reading. L
 
 <a href="http://blog.tyang.org/wp-content/uploads/2010/09/image18.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2010/09/image_thumb18.png" alt="image" width="580" height="387" border="0" /></a>
 <ul>
-	<li><strong>$NotifiedResState</strong> – At the end of this script, after the email is sent, it changes the resolution state of the alert to “Notified”. I have manually created such resolution state using SCOM Operations Console with number 85. You can use other number if you wish, just make sure this variable represent the right number of the resolution state you want the script to set the alert to at the end.</li>
+	<li><strong>$NotifiedResState</strong> – At the end of this script, after the email is sent, it changes the resolution state of the alert to "Notified". I have manually created such resolution state using SCOM Operations Console with number 85. You can use other number if you wish, just make sure this variable represent the right number of the resolution state you want the script to set the alert to at the end.</li>
 	<li><strong>Function getResStateName</strong> - Modify function getResStateName to have ALL the resolution states for your SCOM environment.</li>
 	<li><strong>$strSMTP</strong> – The FQDN of your SMTP server</li>
 	<li><strong>$iPort</strong> – Port used for SMTP. default is 25. if your SMTP server is not use port 25, please change this variable accordingly.</li>
@@ -73,7 +73,7 @@ OK. if you want to try this out in your SCOM environment, please keep reading. L
 Settings:
 <ul>
 	<li><strong>Full path of the command file</strong>: C:\Windows\System32\WindowsPowerShell\v1.0\Powershell.exe</li>
-	<li><strong>Command line parameters:</strong> -Command "&amp; '"D:\Scripts\SCOMEnhancedEmailNotification.ps1"'" -alertID '$Data/Context/DataItem/AlertId$' -Recipients @(<span style="color: #ff0000;">'Tao Yang;Tao.Yang@xxxx.com’,John Smith;John.Smith@xxxx.com‘</span>)</li>
+	<li><strong>Command line parameters:</strong> -Command "& '"D:\Scripts\SCOMEnhancedEmailNotification.ps1"'" -alertID '$Data/Context/DataItem/AlertId$' -Recipients @(<span style="color: #ff0000;">'Tao Yang;Tao.Yang@xxxx.com’,John Smith;John.Smith@xxxx.com‘</span>)</li>
 	<li><em>Note</em>:
 <ol>
 	<li>Recipients are passed into the script as an array variable. make sure you use this format inside the (): <span style="color: #ff0000;">‘</span>Recipient 1 Name<span style="color: #ff0000;">;Email’,’</span>Recipient 2 Name<span style="color: #ff0000;">;</span>Email<span style="color: #ff0000;">’</span></li>

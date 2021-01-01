@@ -28,17 +28,17 @@ I’ve used the Microsoft.Windows.WmiEventProvider.EventProvider module as the d
 
 <strong>New Connection Rule:</strong>
 
-[sourcecode language="SQL"]
+```sql
 Select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'Win32_ServerConnection' and TargetInstance.ShareName !='IPC$'
-[/sourcecode]
+```
 
 &nbsp;
 
 <strong>Disconnection Rule:</strong>
 
-[sourcecode language="SQL"]
+```sql
 Select * from __InstanceDeletionEvent within 1 where TargetInstance ISA 'Win32_ServerConnection' and TargetInstance.ShareName !='IPC$'
-[/sourcecode]
+```
 
 
 Both rules are disabled by default, you will need to enable them via overrides:
@@ -47,6 +47,6 @@ Both rules are disabled by default, you will need to enable them via overrides:
 
 I left this running on my laptop at work. It was pretty funny yesterday a colleague of mine connected to my C$ to check few ConfigMgr client log files. I found out straightaway and forwarded the alert notification email that OpsMgr sent to me and asked him what was he looking for on my C drive. <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" alt="Smile" src="http://blog.tyang.org/wp-content/uploads/2013/08/wlEmoticon-smile.png" />
 
-<strong><span style="color: #ff0000;">Please be very cautious on which computers you are enabling these rules on. Please try not to enable them on servers like domain controllers, file &amp; print servers, ConfigMgr servers etc. if you are not prepared to deal with the large number of alerts these rules may generate!</span></strong>
+<strong><span style="color: #ff0000;">Please be very cautious on which computers you are enabling these rules on. Please try not to enable them on servers like domain controllers, file & print servers, ConfigMgr servers etc. if you are not prepared to deal with the large number of alerts these rules may generate!</span></strong>
 
 The unsealed MP can be downloaded <strong><a href="http://blog.tyang.org/wp-content/uploads/2013/08/SMB.Connection.Detection.zip">HERE</a></strong>.

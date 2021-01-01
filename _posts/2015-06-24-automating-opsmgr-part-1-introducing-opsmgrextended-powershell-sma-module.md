@@ -51,11 +51,11 @@ When SMA was released as part of System Center 2012 R2, it was shipped with an O
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLa03ddea.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLa03ddea" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLa03ddea_thumb.png" alt="SNAGHTMLa03ddea" width="361" height="430" border="0" /></a>
 
-The <a href="http://blogs.technet.com/b/orchestrator/archive/2013/11/04/service-management-automation-portable-modules-what-why-and-how.aspx" target="_blank">portable modules</a> are not real modules. They are like the middle man between your runbooks and the “real” Integration Modules. It takes your input parameters and call the activities from the real module for you. i.e.
+The <a href="http://blogs.technet.com/b/orchestrator/archive/2013/11/04/service-management-automation-portable-modules-what-why-and-how.aspx" target="_blank">portable modules</a> are not real modules. They are like the middle man between your runbooks and the "real" Integration Modules. It takes your input parameters and call the activities from the real module for you. i.e.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/06/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb11.png" alt="image" width="649" height="106" border="0" /></a>
 
-In order to use the OperationsManager-Portable module in SMA, you must firstly manually install the “real” OpsMgr 2012 PowerShell module on all the SMA runbook servers. One of the great feature that SMA offers is being able to automatically deploy Integration Modules to all runbook servers once been imported into SMA. But for the portable modules, this is not the case, as you must manually install the “real” modules by yourself. The other limitation is, it still only just offers whatever is available in the native OpsMgr 2012 PowerShell module.
+In order to use the OperationsManager-Portable module in SMA, you must firstly manually install the "real" OpsMgr 2012 PowerShell module on all the SMA runbook servers. One of the great feature that SMA offers is being able to automatically deploy Integration Modules to all runbook servers once been imported into SMA. But for the portable modules, this is not the case, as you must manually install the "real" modules by yourself. The other limitation is, it still only just offers whatever is available in the native OpsMgr 2012 PowerShell module.
 
 With all these limitations in mind, I have developed a brand new custom OpsMgr PowerShell / SMA Module OpsMgrExtended to fill some of these gaps.
 
@@ -67,7 +67,7 @@ The core component of all above mentioned native solutions is the OpsMgr SDK. Al
 
 To make OpsMgrExtended module TRULLY portable and independent, I have placed the 3 OpsMgr 2012 R2 SDK DLLs into the module base folder. The PowerShell code in the OpsMgrExtended module would try to load the SDK assemblies from the GAC, but if the assemblies are not located in the GAC, it would leverage the 3 SDK DLLs that are located in the module base folder. By doing so, there is NO requirement for installing ANY OpsMgr components before you can start using this module.
 <h4>Why Using OpsMgrExtended?</h4>
-“If you think you will do a task twice – <strong>automate it!</strong>”
+"If you think you will do a task twice – <strong>automate it!</strong>"
 
 When comes to automation, this is my favourite quote, from Joe Levy, a program manager in the System Center Orchestrator team. I have been managing large OpsMgr environments for many years. At my last job, I was pretty much the single point of contact for OpsMgr. Based on my own personal experience, there are a lot of repetitive tasks when managing OpsMgr infrastructures. This is why few years ago I spent few months of my spare time and developed the <a href="http://blog.tyang.org/2014/06/30/opsmgr-2012-self-maintenance-management-pack-2-4-0-0/" target="_blank">OpsMgr Self Maintenance MP</a>. This MP was targeting the administrative workflows which normally carried out by OpsMgr admins.
 
@@ -75,19 +75,19 @@ Other than the day-to-day tasks the Self Maintenance MP has already covered, I s
 
 <strong>MP development can get very hard, and there are not many good MP developers out there.</strong>
 
-Most of the SCOM administrators in your organisation would fall into the “IT Pro” category. MP development can get very complicated and definitely a skillset more suitable for developers  rather than IT Pro’s. There are simply not many MP developers out there. I’ve been heavily involved in the OpsMgr community for few years now, I can confidently state that if I don’t know ALL the good MP developers in the OpsMgr community, I think I know most of them. So trust me when I say there are not many around. Sometimes, I would imagine, world would be a better place if MP Development skills are as popular as ConfigMgr OSD skills (which pretty much every System Center specialist I know has got that written down on their CV’s).
+Most of the SCOM administrators in your organisation would fall into the "IT Pro" category. MP development can get very complicated and definitely a skillset more suitable for developers  rather than IT Pro’s. There are simply not many MP developers out there. I’ve been heavily involved in the OpsMgr community for few years now, I can confidently state that if I don’t know ALL the good MP developers in the OpsMgr community, I think I know most of them. So trust me when I say there are not many around. Sometimes, I would imagine, world would be a better place if MP Development skills are as popular as ConfigMgr OSD skills (which pretty much every System Center specialist I know has got that written down on their CV’s).
 
 <strong>It is hard to learn MP development</strong>
 
-I’m not saying this skill is very hard to learn. But I don’t believe there are enough good &amp; structured materials for people who wants to pick up this skill. When I started writing management packs, I was really struggling in the beginning. My friend and fellow Melbourne based MVP <a href="https://twitter.com/orinthomas" target="_blank">Orin Thomas</a> once said to me, that he believes if you want people to start using your products, you need to make sure you invest heavily in developing trainings. I think what Orin said was spot on. I believe this is one of the main reasons that there are not many good MP developers around.
+I’m not saying this skill is very hard to learn. But I don’t believe there are enough good & structured materials for people who wants to pick up this skill. When I started writing management packs, I was really struggling in the beginning. My friend and fellow Melbourne based MVP <a href="https://twitter.com/orinthomas" target="_blank">Orin Thomas</a> once said to me, that he believes if you want people to start using your products, you need to make sure you invest heavily in developing trainings. I think what Orin said was spot on. I believe this is one of the main reasons that there are not many good MP developers around.
 
 <strong>Too many toolsets</strong>
 
-For beginners, you can use the OpsMgr operational console to write some really basic management pack elements. Most of the OpsMgr specialist who claims they can write management packs probably would use either the OpsMgr 2007 R2 Authoring Console, or the 3rd party product Silect MPAuthor. They are user-friendly, GUI based authoring tools and there are relatively easy to learn. Then for seasoned MP developers, they would normally use Visual Studio Authoring Extension (VSAE) – which is just a extension in Visual Studio, no GUI, you need to REALLY understand the management pack XML schema to be able to use this tool. not to mention Visual Studio is not free (Using it to author MPs for commercial purpose or for large organisations does not qualify you for using the free Community edition). It is hard to explain when someone completely new in this area ask me “what tool do people use to write management packs?”
+For beginners, you can use the OpsMgr operational console to write some really basic management pack elements. Most of the OpsMgr specialist who claims they can write management packs probably would use either the OpsMgr 2007 R2 Authoring Console, or the 3rd party product Silect MPAuthor. They are user-friendly, GUI based authoring tools and there are relatively easy to learn. Then for seasoned MP developers, they would normally use Visual Studio Authoring Extension (VSAE) – which is just a extension in Visual Studio, no GUI, you need to REALLY understand the management pack XML schema to be able to use this tool. not to mention Visual Studio is not free (Using it to author MPs for commercial purpose or for large organisations does not qualify you for using the free Community edition). It is hard to explain when someone completely new in this area ask me "what tool do people use to write management packs?"
 
 <strong>How about PowerShell?</strong>
 
-Most IT Pros should by now already very familiar with Windows PowerShell. Wouldn’t it be nice if I can use PowerShell to create OpsMgr monitors and rules? For example, if I need to monitor a Windows service, how about use a cmdlet like “New-ServiceMonitor” to create this service monitor in my OpsMgr management group?
+Most IT Pros should by now already very familiar with Windows PowerShell. Wouldn’t it be nice if I can use PowerShell to create OpsMgr monitors and rules? For example, if I need to monitor a Windows service, how about use a cmdlet like "New-ServiceMonitor" to create this service monitor in my OpsMgr management group?
 
 Well, this is one of the areas I’m trying to cover in the OpsMgrExtended module.
 
@@ -98,7 +98,7 @@ Another good example would be, over a year ago, I was helping a colleague from a
 As I demonstrated in my 2015 Melbourne MVP Community Camp presentation (demo 2, start from 28:05, link provided above), I have designed a set of tasks for customers to request new monitors:
 <ol>
 	<li>New New blank unsealed MP</li>
-	<li>Create a unit monitor in a “Test” management group</li>
+	<li>Create a unit monitor in a "Test" management group</li>
 	<li>Created a SMA runbook that runs daily and populates the MP list of my Test MG onto a SharePoint List</li>
 	<li>When customers have tested the newly created monitor and happy with it, he / she can go to the SharePoint List, locate the specific MP where the monitor is stored, and use a drop-down box to copy the MP to the production environment.</li>
 </ol>
@@ -289,7 +289,7 @@ When you use New-OMTCPPortMonitoring function from this module, it creates the f
 	<li>4 Unit Monitors and a dependency monitor</li>
 	<li>Discovery Overrides</li>
 </ul>
-The monitors created by <strong>New-OMTCPPortMonitoring</strong> supports On-Demand detection (which can be triggered by clicking the “Recalculate Health” button in Health Explorer), and I have variablised the data source module type and monitor type, so they can be reused for other workflows.
+The monitors created by <strong>New-OMTCPPortMonitoring</strong> supports On-Demand detection (which can be triggered by clicking the "Recalculate Health" button in Health Explorer), and I have variablised the data source module type and monitor type, so they can be reused for other workflows.
 <h4>Establishing Connections to OpsMgr Management Groups</h4>
 <strong>Configuring SMA Integration Module</strong>
 
@@ -330,7 +330,7 @@ Once imported in SMA, you can also see the description for each function in the 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeb0d60c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLeb0d60c" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeb0d60c_thumb.png" alt="SNAGHTMLeb0d60c" width="443" height="340" border="0" /></a>
 <h3>Getting Started</h3>
-I have written many sample runbooks for this module. Initially, my plan was to release these sample runbooks together with the module. Then I had a second thought, I think instead of releasing these samples now, I will make this a blog series and continue writing posts explaining how to use this module for different scenarios. I believe by doing so, it will help readers better understand the capability this module brings. I will name this series “Automating OpsMgr” and consider this is Part 1 of this series.
+I have written many sample runbooks for this module. Initially, my plan was to release these sample runbooks together with the module. Then I had a second thought, I think instead of releasing these samples now, I will make this a blog series and continue writing posts explaining how to use this module for different scenarios. I believe by doing so, it will help readers better understand the capability this module brings. I will name this series "Automating OpsMgr" and consider this is Part 1 of this series.
 <h3>System Requirements</h3>
 The minimum PowerShell version required for this module is 3.0.
 

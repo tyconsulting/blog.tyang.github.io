@@ -48,7 +48,7 @@ If you have used Terraform before, the what-if API will probably remind you of <
 
 I’ve never liked Terraform. I’ve used it (because I had to) for AWS and GCP. In my opinion, terraform and its state files are such as PITA.
 
-When you deploy a terraform template, it stores the state of the deployment (tfstate) in a folder you specify. When you deploy an updated version of the template, or when you use “terraform destroy” command to delete previously deployed resources, terraform compares the request against the state file and figure out what exactly needs to be performed. This method only works well when working in a small project (that you are the only developer) and in a fairly static environment. In reality, there are many problems that are introduced by this terraform feature:
+When you deploy a terraform template, it stores the state of the deployment (tfstate) in a folder you specify. When you deploy an updated version of the template, or when you use "terraform destroy" command to delete previously deployed resources, terraform compares the request against the state file and figure out what exactly needs to be performed. This method only works well when working in a small project (that you are the only developer) and in a fairly static environment. In reality, there are many problems that are introduced by this terraform feature:
 
 <strong>1. Additional admin effort to create and maintain a shared location for terraform state when working with a team of developers.</strong>
 

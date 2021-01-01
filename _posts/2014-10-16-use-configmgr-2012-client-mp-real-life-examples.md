@@ -58,7 +58,7 @@ $DomainDN = $($DomainDN.TrimEnd(',')).TrimStart(',')
 $DomainDN = "LDAP://$DomainDN"
 $Searcher = New-Object -TypeName System.DirectoryServices.DirectorySearcher
 $Searcher.SearchRoot = $DomainDN
-$Searcher.Filter = "(&amp;(objectCategory=Computer)(name=$ComputerName))"
+$Searcher.Filter = "(&(objectCategory=Computer)(name=$ComputerName))"
 Try {
 FOREACH ($Computer in $($Searcher.FindAll()))
 {
@@ -93,7 +93,7 @@ $bDuplicateFound = $true
 }
 $bDuplicateFound
 </pre>
-In order for the CI to be compliant, the return value from the script needs to be “False” (no duplicate accounts found).
+In order for the CI to be compliant, the return value from the script needs to be "False" (no duplicate accounts found).
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb7.png" alt="image" width="431" height="447" border="0" /></a>
 
@@ -105,8 +105,8 @@ This baseline also only contain 1 CI. Since it contains application setting, I u
 
 The compliant condition for the CI is set to:
 <ul>
-	<li>Reg value “HKLM\SOFTWARE\Microsoft\SMS\DP\IsPXE” must exist and set to 1</li>
-	<li>Reg value “HKLM\SOFTWARE\Microsoft\SMS\DP\PXEInstalled” must exist and set to 1</li>
+	<li>Reg value "HKLM\SOFTWARE\Microsoft\SMS\DP\IsPXE" must exist and set to 1</li>
+	<li>Reg value "HKLM\SOFTWARE\Microsoft\SMS\DP\PXEInstalled" must exist and set to 1</li>
 </ul>
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e005e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML62e005e" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e005e_thumb.png" alt="SNAGHTML62e005e" width="498" height="235" border="0" /></a>
 

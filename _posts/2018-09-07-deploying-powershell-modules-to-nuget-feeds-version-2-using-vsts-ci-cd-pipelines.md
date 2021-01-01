@@ -25,9 +25,9 @@ In order to use this NuGet task (which leverages nuget.exe), I needed to provide
 
 As you can see, the .nuspec file is a XML file that contains the meta data of the NuGet package, just like the PowerShell module manifest (.psd1) file.
 
-When I was creating the pipelines for the customer, I was able to quickly creating the .nuspec files manually as part of the source code stored in the Git repo, then point the NuGet VSTS task to the specific nuspec file. This was quick and easy, since I didn’t have a lot of time to further automate the process, I left it there since it did the job. But I wanted to revisit this topic when I have a bit more time – I don’t really want to manually create / update the nuspec file every time, since it’s just copy &amp; paste information from the module manifest .psd1 file.
+When I was creating the pipelines for the customer, I was able to quickly creating the .nuspec files manually as part of the source code stored in the Git repo, then point the NuGet VSTS task to the specific nuspec file. This was quick and easy, since I didn’t have a lot of time to further automate the process, I left it there since it did the job. But I wanted to revisit this topic when I have a bit more time – I don’t really want to manually create / update the nuspec file every time, since it’s just copy & paste information from the module manifest .psd1 file.
 <h3>Automatically Generating NuGet Specification File</h3>
-Over the last couple of days, I have spent some time on this, and wanted to come up a way to automatically generate the nuspec file for PowerShell modules – since when we create PowerShell modules, we only need to create the manifest files, the nuspec files were automatically created by Microsoft’s <a href="https://www.powershellgallery.com/packages/PowerShellGet">PowerShellGet module</a>. Luckily, PowerShellGet is open sourced, published in <a href="https://github.com/PowerShell/PowerShellGet">GitHub</a>, and it’s MIT license allows me to re-use its source code. I was able to “borrow” some code from it, and came up with this script that generates .nuspec files from .psd1 - <strong>psd1-to-nuspec.ps1</strong>:
+Over the last couple of days, I have spent some time on this, and wanted to come up a way to automatically generate the nuspec file for PowerShell modules – since when we create PowerShell modules, we only need to create the manifest files, the nuspec files were automatically created by Microsoft’s <a href="https://www.powershellgallery.com/packages/PowerShellGet">PowerShellGet module</a>. Luckily, PowerShellGet is open sourced, published in <a href="https://github.com/PowerShell/PowerShellGet">GitHub</a>, and it’s MIT license allows me to re-use its source code. I was able to "borrow" some code from it, and came up with this script that generates .nuspec files from .psd1 - <strong>psd1-to-nuspec.ps1</strong>:
 
 https://gist.github.com/tyconsulting/c567e5cc66fc522d46743d744579be27
 
@@ -58,9 +58,9 @@ Firstly, since my code is located in a public GitHub repo, there’s no point to
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-3.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-3.png" alt="image" width="605" height="613" border="0" /></a>
 
-2. Create an agent phase called “Test Module Code” and leave the agent pool as default (inherit from pipeline).
+2. Create an agent phase called "Test Module Code" and leave the agent pool as default (inherit from pipeline).
 
-3. Create a PowerShell task called “Install required PowerShell module” in “Test Module Code” phase.
+3. Create a PowerShell task called "Install required PowerShell module" in "Test Module Code" phase.
 
 This task runs few lines of inline scripts to install required modules to the VSTS agent – since I’m using host agents and they are stateless, they are required to run my Pester tests defined in the PSPesterTest module:
 
@@ -70,7 +70,7 @@ Install-PackageProvider Nuget -Scope CurrentUser -Force
 Install-module PSScriptAnalyzer -force -Scope CurrentUser -Repository $FeedName
 Install-module PSPesterTest -force -Scope CurrentUser -Repository $FeedName
 </pre>
-4. Add another PowerShell task called “Pester Test PowerShell scripts”
+4. Add another PowerShell task called "Pester Test PowerShell scripts"
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-5.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-5.png" alt="image" width="877" height="466" border="0" /></a>
 <pre language="PowerShell">Import-Module PSPesterTest
@@ -81,11 +81,11 @@ This step runs the 2 Pester tests I have defined in the PesterTest module and ou
 
 5. Publish Test Results
 
-The last task for the “Test Module Code” job is publishing test result. Create a “Publish Test Results” task, and configure it as shown below:
+The last task for the "Test Module Code" job is publishing test result. Create a "Publish Test Results" task, and configure it as shown below:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-6.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-6.png" alt="image" width="646" height="376" border="0" /></a>
 
-6. Create the 2nd Agent job called “Package Module” as shown below:
+6. Create the 2nd Agent job called "Package Module" as shown below:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-7.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-7.png" alt="image" width="663" height="515" border="0" /></a>
 
@@ -95,15 +95,15 @@ It’s configured to run on hosted agent pool, and only starts if the previous j
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-8.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-8.png" alt="image" width="655" height="424" border="0" /></a>
 
-This task runs a script located in <span style="background-color: #ffff00;">build/psd1-to-nuspec.ps1</span> (you can browse to the file by clicking on the “…” button if you want to). the “Arguments” filed should be: <span style="background-color: #ffff00;">-ManifestPath $(Build.SourcesDirectory)\PSSouthPark\PSSouthPark.psd1</span>
+This task runs a script located in <span style="background-color: #ffff00;">build/psd1-to-nuspec.ps1</span> (you can browse to the file by clicking on the "…" button if you want to). the "Arguments" filed should be: <span style="background-color: #ffff00;">-ManifestPath $(Build.SourcesDirectory)\PSSouthPark\PSSouthPark.psd1</span>
 
-8. Add a NuGet task called “Create NuGet package” and configure it as shown below:
+8. Add a NuGet task called "Create NuGet package" and configure it as shown below:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-9.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-9.png" alt="image" width="824" height="527" border="0" /></a>
 
 <span style="color: #ff0000;">Note:</span> you won’t be able to browse to the nuspec file because it does not exist in the Git repo.
 
-9. Create a “Publish Build Artifacts” task and configure it as shown below:
+9. Create a "Publish Build Artifacts" task and configure it as shown below:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-10.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-10.png" alt="image" width="823" height="557" border="0" /></a>
 
@@ -113,7 +113,7 @@ Now, this is it for the build (CI) pipeline. save it, and move on to creating th
 
 1. Creating NuGet Service connections
 
-Before creating the Release pipeline, I need to create several service connections that link my VSTS project to the NuGet feeds that I wish to push packages to. To create these connections, go to Project settings, and under “Build and release” section, go to “Service connections”, and add new NuGet connections
+Before creating the Release pipeline, I need to create several service connections that link my VSTS project to the NuGet feeds that I wish to push packages to. To create these connections, go to Project settings, and under "Build and release" section, go to "Service connections", and add new NuGet connections
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-11.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-11.png" alt="image" width="597" height="330" border="0" /></a>
 
@@ -134,7 +134,7 @@ With MyGet feed, the feed URI is <strong>https://www.myget.org/F/&lt;FeedName&gt
 
 Depending on the NuGet feed provider, you need to obtain an API key that has permission to publish to the particular feed that you wish to push packages to.
 
-2. Create an environment, with one agent job called “Publish NuGet package”
+2. Create an environment, with one agent job called "Publish NuGet package"
 
 3. Add a NuGet task:
 

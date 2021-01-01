@@ -17,7 +17,7 @@ Often when working in OpsMgr, we need to find the ID of a monitoring object. For
 
 In this post, I’ll demonstrate 3 methods to retrieve the monitoring object ID from SCOM. These 3 methods are:
 <ul>
-	<li>Using OpsMgr built-in PowerShell Module “OperationsManager”</li>
+	<li>Using OpsMgr built-in PowerShell Module "OperationsManager"</li>
 	<li>Using OpsMgr SDK via Windows PowerShell</li>
 	<li>Using SCSM Entity Explorer</li>
 </ul>
@@ -52,7 +52,7 @@ New-SCOMManagementGroupConnection -ComputerName OPSMGRMS01
 <pre language="PowerShell">#Get the monitoring class based on the class display name
 $MonitoringClasses = Get-SCOMClass -DisplayName $ClassDisplayName
 </pre>
-However, in my management group, there are 2 classes with the same name “SQL Database”:
+However, in my management group, there are 2 classes with the same name "SQL Database":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb5.png" alt="image" width="565" height="88" border="0" /></a>
 
@@ -132,15 +132,15 @@ Although as the name suggested, it was developed for SCSM, it also works with Op
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb12.png" alt="image" width="612" height="390" border="0" /></a>
 
-As shown above, there are 2 classes returned when searching the display name “SQL Database”. You can find the correct one from the full name on the right.
+As shown above, there are 2 classes returned when searching the display name "SQL Database". You can find the correct one from the full name on the right.
 
 <strong>02. Load objects for the monitoring class:</strong>
 
-Go to the objects class and click on “Load Objects” button to load all instances.
+Go to the objects class and click on "Load Objects" button to load all instances.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb13.png" alt="image" width="678" height="378" border="0" /></a>
 
-Unfortunately, the we cannot modify what properties to be displayed on the objects list, and the display name does not contain the SQL server and DB instance name. In this scenario, the only way to find the correct instance is to open each one using the “View Details” button.
+Unfortunately, the we cannot modify what properties to be displayed on the objects list, and the display name does not contain the SQL server and DB instance name. In this scenario, the only way to find the correct instance is to open each one using the "View Details" button.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb14.png" alt="image" width="249" height="300" border="0" /></a>
 

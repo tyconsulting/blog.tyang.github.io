@@ -58,7 +58,7 @@ Unlike OMS Capacity Planning solution, the OpsLogix Capacity Report MP is not a 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML15da8eb9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML15da8eb9" src="http://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML15da8eb9_thumb.png" alt="SNAGHTML15da8eb9" width="651" height="422" border="0" /></a>
 
-As the names suggest, with the two absolute value reports, you can pick any performance collection rules for the language that you have selected (default to “English”).
+As the names suggest, with the two absolute value reports, you can pick any performance collection rules for the language that you have selected (default to "English").
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-7.png" alt="image" width="469" height="244" border="0" /></a>
 
@@ -72,7 +72,7 @@ The percentage value reports are designed for the performance collection rules t
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-9.png" alt="image" width="676" height="548" border="0" /></a>
 
-Or, if you only want to see the critical ones, you can use “Critical Only” reports.
+Or, if you only want to see the critical ones, you can use "Critical Only" reports.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-10.png" alt="image" width="573" height="198" border="0" /></a>
 <h3>Comparison</h3>

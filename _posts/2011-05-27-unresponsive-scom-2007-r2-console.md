@@ -35,15 +35,15 @@ Windows Filtering Platform is blocking SQL traffic from RMS to SQL server.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2011/05/image8.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/05/image_thumb8.png" border="0" alt="image" width="689" height="476" /></a>
 
-After googling around “Windows Filtering Platform”, I found this post: <a href="http://social.msdn.microsoft.com/Forums/en-US/wfp/thread/774026e6-a771-418a-b531-22183ef399f8/">http://social.msdn.microsoft.com/Forums/en-US/wfp/thread/774026e6-a771-418a-b531-22183ef399f8/</a>
+After googling around "Windows Filtering Platform", I found this post: <a href="http://social.msdn.microsoft.com/Forums/en-US/wfp/thread/774026e6-a771-418a-b531-22183ef399f8/">http://social.msdn.microsoft.com/Forums/en-US/wfp/thread/774026e6-a771-418a-b531-22183ef399f8/</a>
 
 There is one response in this post:
 
-<em>“If you decide to turn off the Windows Firewall, you need to make sure you disable it  in the proper manner, otherwise you will have persistent filters affecting your traffic.  In the Windows Firewall control panel (firewall.cpl), make sure you select 'Turn Windows Firewall on or off' and select 'Off (Not Recommended)'.  Alternatively you can use netsh.exe and run</em>
+<em>"If you decide to turn off the Windows Firewall, you need to make sure you disable it  in the proper manner, otherwise you will have persistent filters affecting your traffic.  In the Windows Firewall control panel (firewall.cpl), make sure you select 'Turn Windows Firewall on or off' and select 'Off (Not Recommended)'.  Alternatively you can use netsh.exe and run</em>
 
 <em>'Netsh.exe AdvFirewall Set CurrentProfile State Off'.</em>
 
-<em>MPSSvc is a required service for IPsec Policy to continue to function.  It also just happens to house Windows Firewall functionality as well.  If using IPsec, do<strong>not </strong>turn off this service.  Additionally if you do not turn off Windows Firewall, and just stop this service, you will be hit with Windows Firewall's persistent policy (hence the reason to disable the firewall as stated above).”</em>
+<em>MPSSvc is a required service for IPsec Policy to continue to function.  It also just happens to house Windows Firewall functionality as well.  If using IPsec, do<strong>not </strong>turn off this service.  Additionally if you do not turn off Windows Firewall, and just stop this service, you will be hit with Windows Firewall's persistent policy (hence the reason to disable the firewall as stated above)."</em>
 
 <em> </em>
 
@@ -56,6 +56,6 @@ My problem was that the Windows Firewall Service is disabled:
 <strong>This is what I did to fix the issue</strong>:
 <ol>
 	<li>Set Windows Firewall service to Auto start and start it up.</li>
-	<li>run “<strong>Netsh.exe AdvFirewall Set CurrentProfile State Off</strong>” command in an <strong>elevated</strong> command prompt to disable all firewalls.</li>
+	<li>run "<strong>Netsh.exe AdvFirewall Set CurrentProfile State Off</strong>" command in an <strong>elevated</strong> command prompt to disable all firewalls.</li>
 </ol>
 After that, the SCOM console is running smoothly like never before!

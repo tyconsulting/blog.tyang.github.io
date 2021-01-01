@@ -13,7 +13,7 @@ tags:
   - Powershell
   - SMTP
 ---
-Today a colleague asked me to write a script to send out a email to a large group of people but have the phrase “Dear &lt;person’s name"&gt;” in the beginning of email body.
+Today a colleague asked me to write a script to send out a email to a large group of people but have the phrase "Dear &lt;person’s name"&gt;" in the beginning of email body.
 
 I quickly wrote <a href="http://blog.tyang.org/wp-content/uploads/2010/07/Mass-Mailer.zip">this script</a>. Here are the steps you need to take before executing it:
 
@@ -21,7 +21,7 @@ I quickly wrote <a href="http://blog.tyang.org/wp-content/uploads/2010/07/Mass-M
 
 <a href="http://blog.tyang.org/wp-content/uploads/2010/07/image6.png"><img style="border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/image_thumb6.png" border="0" alt="image" width="281" height="162" /></a>
 
-2. in Mass-Mailer.ps1 file, modify the highlighted section ( and remove the “&lt;” and “&gt;”brackets):
+2. in Mass-Mailer.ps1 file, modify the highlighted section ( and remove the "&lt;" and "&gt;"brackets):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2010/07/image7.png"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/image_thumb7.png" border="0" alt="image" width="580" height="323" /></a>
 

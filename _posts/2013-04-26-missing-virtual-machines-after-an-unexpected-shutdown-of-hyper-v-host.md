@@ -35,7 +35,7 @@ Another KB, <a href="http://support.microsoft.com/kb/969556">http://support.micr
 
 KB961804(<a href="http://support.microsoft.com/kb/961804">http://support.microsoft.com/kb/961804</a>) reckons it’s caused by antivirus on access scan and exclusion list. I’m using SCEP (System Center Endpoint Protection) which comes with SCCM 2012. I previously configured exclusion using the Hyper-V antimalware policy template that comes with SCCM, and on top of what’s in the template, I’ve also added few file extensions to the policy (.VHD; .VHDX; .AVHD). However, I didn’t add .XML file type and the path to where VM’s are stored. I couldn’t go to SCCM and fix up the policy – because the Central and the primary site server where my Hyper-V is reporting to are among those 15 missing VM’s.
 
-I didn’t configure to allow users to override SCEP on-access scan settings and exclusion list. So there is no way I could configure SCEP. I’ve then uninstalled SCCM client using “ccmsetup /uninstall” and and uninstalled SCEP agent from Programs and Features in Control panel. I rebooted HYPERV01 after the uninstallation.
+I didn’t configure to allow users to override SCEP on-access scan settings and exclusion list. So there is no way I could configure SCEP. I’ve then uninstalled SCCM client using "ccmsetup /uninstall" and and uninstalled SCEP agent from Programs and Features in Control panel. I rebooted HYPERV01 after the uninstallation.
 
 After reboot, nothing’s changed. Still not fixed. I then spent next 5-6 hours tried many things including copying all VM’s out of a problematic drive and the reformatted the drive…
 
@@ -51,7 +51,7 @@ I tried to re-import the missing VM’s back, but I got this error:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/04/image24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb24.png" width="470" height="416" border="0" /></a>
 
-Finally, at 11:00pm, I managed to fix the issue. I uninstalled “Windows Firewall Configuration Provider” from Programs and Features
+Finally, at 11:00pm, I managed to fix the issue. I uninstalled "Windows Firewall Configuration Provider" from Programs and Features
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/04/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb25.png" width="580" height="263" border="0" /></a>
 

@@ -46,13 +46,13 @@ Reason: Does not perform PTR (reverse) lookup.
 
 <strong>DnDns.dll:</strong>
 
-Source &amp; Guide: <a href="http://securitythroughabsurdity.com/2008/02/dndns-net-dns-client-library-resolver.html">http://securitythroughabsurdity.com/2008/02/dndns-net-dns-client-library-resolver.html</a>
+Source & Guide: <a href="http://securitythroughabsurdity.com/2008/02/dndns-net-dns-client-library-resolver.html">http://securitythroughabsurdity.com/2008/02/dndns-net-dns-client-library-resolver.html</a>
 
 Reason: It does not perform what it claims to do. I.e. The DnsQueryRequest.Resolve method only takes 4 parameters, not 5 as what instruction says. Also, it does not resolve IP to name. (for example, it does not resolve 192.168.1.26, but it resolves 26.1.168.192.in-addr.arpa).
 
 <strong>DNSShell:</strong>
 
-Source &amp; Guide: <a href="http://dnsshell.codeplex.com/">http://dnsshell.codeplex.com/</a>
+Source & Guide: <a href="http://dnsshell.codeplex.com/">http://dnsshell.codeplex.com/</a>
 
 Reason: this works great and it’s easy to use. can perform reverse lookup using a single PowerShell Cmdlet <strong>Get-DNSRecord</strong>. However, I need to place the source to %PSModulePath% and import the module in PowerShell. I cannot do this to the production server which I use to run my script.
 
@@ -64,23 +64,23 @@ As shown above
 
 1. I first load the dll into Powershell
 
-[sourcecode language="powershell"]
-[System.Reflection.Assembly]::LoadFile(“&lt;path-to-DLL&gt;”)
-[/sourcecode]
+```powershell
+[System.Reflection.Assembly]::LoadFile("&lt;path-to-DLL&gt;")
+```
 
 2. nslookup, make sure the PTR record does not exist
 
 3. use the LookupReverse method from JHSoftware.DNSClient class the perform reverse lookup on 192.168.1.26 (JUMP01). it could not find it and an error was thrown.
 
-[sourcecode language="powershell"]
-[JHSoftware.DNSClient]::LookupReverse(“192.168.1.26”)
-[/sourcecode]
+```powershell
+[JHSoftware.DNSClient]::LookupReverse("192.168.1.26")
+```
 
 4. Modify the PowerShell command, used Try-Catch statement, produced more user friendly output.
 
-[sourcecode language="powershell"]
-Try {[JHSoftware.DNSClient]::LookupReverse(“192.168.1.26”)} Catch {“PTR Record not found!”}
-[/sourcecode]
+```powershell
+Try {[JHSoftware.DNSClient]::LookupReverse("192.168.1.26")} Catch {"PTR Record not found!"}
+```
 
 5. use same method (LookupReverse) to perform reverse lookup on one of my SCCM server, it successfully returned the FQDN.
 

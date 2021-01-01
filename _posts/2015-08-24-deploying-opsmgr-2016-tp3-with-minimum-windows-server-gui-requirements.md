@@ -115,7 +115,7 @@ I will now go through my experience of configuring each OpsMgr 2016 TP3 componen
 <h3>01. General OS Installation</h3>
 I did not use any image or template based deployment methods (i.e. via VMM or ConfigMgr). I simply manually created these VMs on a Windows Server 2012 R2 Hyper-V box and installed the OS using the Windows Server 2016 TP3 ISO that I’ve downloaded from my MSDN subscription. I chose Server Core during the install for all above mentioned virtual machines. After the OS install, I performed the following tasks on all servers:
 
-<strong>Using </strong><a href="https://technet.microsoft.com/en-us/library/ee441254%28v=ws.10%29.aspx?f=255&amp;MSPPError=-2147217396"><strong>sconfig.cmd</strong></a><strong> to configure the following:</strong>
+<strong>Using </strong><a href="https://technet.microsoft.com/en-us/library/ee441254%28v=ws.10%29.aspx?f=255&MSPPError=-2147217396"><strong>sconfig.cmd</strong></a><strong> to configure the following:</strong>
 <ul>
 	<li>Server name</li>
 	<li>IP address and DNS settings</li>
@@ -172,7 +172,7 @@ After few minutes, SQL server was successfully installed:
 
 As you can see, since this is on a Server Core machine, I did not install SQL Management Studio on this server, I performed all other required SQL configuration such as minimum and maximum memory config, temp DB config, maintenance plan creation, etc. from a remote machine. I will go through the steps I took to setup a machine for remote management towards the end of this post.
 
-<strong><span style="color: #ff0000;">Note:</span></strong> I found a good post on how to install SQL on Server Core: <a href="http://tenbulls.co.uk/2012/09/19/using-the-sql-server-installation-wizard-on-server-core/">http://tenbulls.co.uk/2012/09/19/using-the-sql-server-installation-wizard-on-server-core/</a>. However, when I initially launched the install wizard without “/Action=Install” switch, I was presented to the “SQL Server Installation Center” page, but when I clicked on any links on this page, nothing would happen. Luckily someone mentioned this switch in one of the comments and I was able to by pass this page:
+<strong><span style="color: #ff0000;">Note:</span></strong> I found a good post on how to install SQL on Server Core: <a href="http://tenbulls.co.uk/2012/09/19/using-the-sql-server-installation-wizard-on-server-core/">http://tenbulls.co.uk/2012/09/19/using-the-sql-server-installation-wizard-on-server-core/</a>. However, when I initially launched the install wizard without "/Action=Install" switch, I was presented to the "SQL Server Installation Center" page, but when I clicked on any links on this page, nothing would happen. Luckily someone mentioned this switch in one of the comments and I was able to by pass this page:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb12.png" alt="image" width="405" height="318" border="0" /></a>
 <h3>03. Configure the First Management Server (OMTP3MS01):</h3>
@@ -182,7 +182,7 @@ As documented on <a href="https://technet.microsoft.com/en-us/library/dn249696.a
 
 So, before installing the OpsMgr management server component, I need to firstly install these 2 components.
 
-<strong><span style="color: #ff0000;">Note:</span></strong> There’s a spelling mistake in the above highlighted section. The server feature is Server-Gui-Mgmt-In<strong><span style="color: #ff0000;">f</span></strong>ra, it’s “f”, not “t”.
+<strong><span style="color: #ff0000;">Note:</span></strong> There’s a spelling mistake in the above highlighted section. The server feature is Server-Gui-Mgmt-In<strong><span style="color: #ff0000;">f</span></strong>ra, it’s "f", not "t".
 
 <strong>Install Server-Gui-Mgmt-Infra via PowerShell:</strong>
 
@@ -306,7 +306,7 @@ Set-SCOMParentManagementServer -GatewayServer $GatewayServer -FailoverServer $Fa
 <ul>
 	<li>Since this is only a test and I do not have a real need for a gateway server for a untrusted boundary, I have configured this gateway server to join my AD domain. Therefore, I do not have to configure certificates for this gateway server.</li>
 	<li>Official documentation for gateway server unattended installation can be found here: <a title="https://technet.microsoft.com/en-us/library/hh456445.aspx" href="https://technet.microsoft.com/en-us/library/hh456445.aspx">https://technet.microsoft.com/en-us/library/hh456445.aspx</a></li>
-	<li>The official documentation has missed a required parameter “<strong>AcceptEndUserLicenseAgreement</strong>”. My friend and fellow SCCDM MVP Marnix Wolf has previously blogged about this error on his blog: <a title="http://thoughtsonopsmgr.blogspot.com.au/2014/06/installing-scom-2012x-gateway-server.html" href="http://thoughtsonopsmgr.blogspot.com.au/2014/06/installing-scom-2012x-gateway-server.html">http://thoughtsonopsmgr.blogspot.com.au/2014/06/installing-scom-2012x-gateway-server.html</a></li>
+	<li>The official documentation has missed a required parameter "<strong>AcceptEndUserLicenseAgreement</strong>". My friend and fellow SCCDM MVP Marnix Wolf has previously blogged about this error on his blog: <a title="http://thoughtsonopsmgr.blogspot.com.au/2014/06/installing-scom-2012x-gateway-server.html" href="http://thoughtsonopsmgr.blogspot.com.au/2014/06/installing-scom-2012x-gateway-server.html">http://thoughtsonopsmgr.blogspot.com.au/2014/06/installing-scom-2012x-gateway-server.html</a></li>
 </ul>
 <h3>06. Configure Web Console server (OMTP3WEB01)</h3>
 The web console server can be installed on a Server Core instance. However, we must firstly install all required IIS and .NET components.
@@ -395,7 +395,7 @@ As I mentioned, I also need to enable IIS remote management for the web console 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb24.png" alt="image" width="469" height="95" border="0" /></a>
 
-Remote Management can then be enabled via a registry value. The dword value “EnableRemoteManagement” in “HKEY_LOCAL_MACHINE\Software\Microsoft\WebManagement\Server” must be set to 1. You can do so using PowerShell, or using regedit from the remote machine (via Remote Registry service):
+Remote Management can then be enabled via a registry value. The dword value "EnableRemoteManagement" in "HKEY_LOCAL_MACHINE\Software\Microsoft\WebManagement\Server" must be set to 1. You can do so using PowerShell, or using regedit from the remote machine (via Remote Registry service):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb25.png" alt="image" width="486" height="251" border="0" /></a>
 

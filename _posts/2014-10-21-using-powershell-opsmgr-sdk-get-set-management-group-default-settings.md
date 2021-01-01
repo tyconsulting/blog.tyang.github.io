@@ -126,7 +126,7 @@ As you can see, this function retrieves ALL default settings of a management gro
 	<li><strong>Value:</strong> The current default value of the setting.</li>
 	<li><strong>AllowOverride:</strong> When it’s true, this value can be overridden to a particular instance (differ from the default value).</li>
 </ul>
-If you want to retrieve a particular setting, you can always use pipe (“|”) and where-object to filter to the particular setting:
+If you want to retrieve a particular setting, you can always use pipe ("|") and where-object to filter to the particular setting:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image10.png"><img class="" style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb10.png" alt="image" width="697" height="130" border="0" /></a>
 

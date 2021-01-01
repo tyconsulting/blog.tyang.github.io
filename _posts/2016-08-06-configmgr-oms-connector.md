@@ -34,7 +34,7 @@ When you launch the script, you will firstly be prompted to login to Azure:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/08/image-1.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-1.png" alt="image" width="520" height="376" border="0" /></a>
 
-Once you have logged in, you will be prompted to select the Azure Subscription and then specify a display name for the Azure AD application. If you don’t assign a name, the script will try to create the Azure AD application under the name “ConfigMgr-OMS-Connector”:
+Once you have logged in, you will be prompted to select the Azure Subscription and then specify a display name for the Azure AD application. If you don’t assign a name, the script will try to create the Azure AD application under the name "ConfigMgr-OMS-Connector":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/08/SNAGHTMLc560723.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="SNAGHTMLc560723" src="http://blog.tyang.org/wp-content/uploads/2016/08/SNAGHTMLc560723_thumb.png" alt="SNAGHTMLc560723" width="700" height="297" border="0" /></a>
 
@@ -50,7 +50,7 @@ At the end of the script, you will see the 3 pieces of information you need to c
 </ul>
 You can simply copy and paste these to the OMS connector configuration.
 
-Once you have configured the connector in ConfigMgr and enabled SCCM as a group source, you will soon start seeing the collection memberships being populated in OMS. You can search them in OMS using a search query such as <strong>“Type=ComputerGroup GroupSource=SCCM”:</strong>
+Once you have configured the connector in ConfigMgr and enabled SCCM as a group source, you will soon start seeing the collection memberships being populated in OMS. You can search them in OMS using a search query such as <strong>"Type=ComputerGroup GroupSource=SCCM":</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/08/image-3.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-3.png" alt="image" width="675" height="315" border="0" /></a>
 

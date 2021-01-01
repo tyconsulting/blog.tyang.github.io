@@ -38,7 +38,7 @@ The solution I produced for both scenarios are very similar. so I thought I’d 
 </ol>
 In this blog post, I’m not going to go through the steps of creating the custom data source module and the performance collection rule. They are pretty straightforward and the sample management pack can be downloaded <span style="font-size: small;"><a href="http://blog.tyang.org/wp-content/uploads/2012/04/Custom.Log_.Count_.zip">HERE</a></span>.
 
-I will however go through the steps to create the custom report for the data collected by this rule. I’m creating the report rather than using the built-in performance reports from the “Microsoft Generic Report Library” because none of the built-in performance reports support a table format. I don’t want any fancy charts with the report. All I want is a simple list of the raw perf counter values.
+I will however go through the steps to create the custom report for the data collected by this rule. I’m creating the report rather than using the built-in performance reports from the "Microsoft Generic Report Library" because none of the built-in performance reports support a table format. I don’t want any fancy charts with the report. All I want is a simple list of the raw perf counter values.
 
 Now, let’s briefly go through the data source module and the performance collection rule.
 
@@ -48,7 +48,7 @@ Now, let’s briefly go through the data source module and the performance colle
 
 The <strong>Microsoft.PowershellPropertyBagTriggerOnlyProbe</strong> contains a powershell script that counts event log entries and pass the count into a PropertyBag:
 
-[sourcecode language="PowerShell"]
+```powershell
 #===========================================================================================
 # AUTHOR:  Tao Yang
 # DATE:    30/01/2012
@@ -69,8 +69,8 @@ If ($Event -ne $null) {$iEventCount++}
 $iEventCount = 0
 }
 $ComputerName = (Get-WmiObject Win32_ComputerSystem).Caption
-$oAPI = New-Object -ComObject &quot;MOM.ScriptAPI&quot;
-$OAPI.LogScriptEvent(&quot;Event-Count.PS1&quot;,9999,0,&quot;Start EventID $EventID Perf Collection Rule. Collecting $EventID events since $starttime...&quot;)
+$oAPI = New-Object -ComObject "MOM.ScriptAPI"
+$OAPI.LogScriptEvent("Event-Count.PS1",9999,0,"Start EventID $EventID Perf Collection Rule. Collecting $EventID events since $starttime...")
 $oBag = $oAPI.CreatePropertyBag()
 $oBag.AddValue('ComputerName', $ComputerName)
 $oBag.AddValue('EventCount', $iEventCount)
@@ -79,7 +79,7 @@ $oBag.AddValue('LogName', $LogName)
 $oBag.AddValue('EventID', $EventID)
 $oBag.AddValue('EventSource', $EventSource)
 $oBag
-[/sourcecode]
+```
 
 <span style="font-size: small;"><strong>Performance Collection Rule</strong>:</span> This rule contains:
 
@@ -96,7 +96,7 @@ Actions: Write performance data to Operational and DW databases.
 Pre-requisites:
 <ul>
 	<li>Install the Performance Report Model in SCOM reporting SSRS. Here’s a detailed instruction (even though it was written for SCOM 2007 SP1, it’s also applies to SCOM 2007 R2): <a title="http://www.systemcentercentral.com/BlogDetails/tabid/143/IndexID/20269/Default.aspx" href="http://www.systemcentercentral.com/BlogDetails/tabid/143/IndexID/20269/Default.aspx">http://www.systemcentercentral.com/BlogDetails/tabid/143/IndexID/20269/Default.aspx</a></li>
-	<li>Please Note that in above article, it uses Event model as example. The report I’m going to create uses Performance model. so please make sure <strong>Performance.smdl</strong> is uploaded into SCOM Reporting SSRS and configured to use the “<strong>Data Warehouse Main</strong>” data source.</li>
+	<li>Please Note that in above article, it uses Event model as example. The report I’m going to create uses Performance model. so please make sure <strong>Performance.smdl</strong> is uploaded into SCOM Reporting SSRS and configured to use the "<strong>Data Warehouse Main</strong>" data source.</li>
 	<li>Import the half finished management pack (with the data source module and the perf collection rule) into a SCOM management group (preferably your development environment).</li>
 	<li>Create an override or simply change the schedule of the rule to run ASAP so the perf data is collected. this is very useful when testing the report later on.</li>
 	<li></li>
@@ -105,11 +105,11 @@ Pre-requisites:
 
 01.Browse to the SCOM Reporting SSRS reports <a href="http://&lt;servername&gt;/reports">http://&lt;servername&gt;/reports</a> URL
 
-02. Launch Report Builder and click “Run” if security warning pops up
+02. Launch Report Builder and click "Run" if security warning pops up
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image12.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb12.png" alt="image" width="580" height="201" border="0" /></a>
 
-03. In Report Builder, choose the following options in “Getting Started” pane to create a new report:
+03. In Report Builder, choose the following options in "Getting Started" pane to create a new report:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image13.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb13.png" alt="image" width="207" height="680" border="0" /></a>
 
@@ -117,17 +117,17 @@ Pre-requisites:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image14.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb14.png" alt="image" width="580" height="215" border="0" /></a>
 
-05. Drag “Performance Data Raw into the report
+05. Drag "Performance Data Raw into the report
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image15.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb15.png" alt="image" width="580" height="311" border="0" /></a>
 
-06. Under Performance Data Raw / Object, Drag the “Name” field to the report<a href="http://blog.tyang.org/wp-content/uploads/2012/04/image16.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb16.png" alt="image" width="580" height="462" border="0" /></a>
+06. Under Performance Data Raw / Object, Drag the "Name" field to the report<a href="http://blog.tyang.org/wp-content/uploads/2012/04/image16.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb16.png" alt="image" width="580" height="462" border="0" /></a>
 
 07. Rename the title of each row in the report table:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image17.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb17.png" alt="image" width="422" height="138" border="0" /></a>
 
-08. Right click the number under “Event Count”, select “Format…”, and change “Decimal places” to 0
+08. Right click the number under "Event Count", select "Format…", and change "Decimal places" to 0
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image18.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb18.png" alt="image" width="438" height="438" border="0" /></a>
 
@@ -135,23 +135,23 @@ Pre-requisites:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image19.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb19.png" alt="image" width="580" height="122" border="0" /></a>
 
-10. Under <strong>Performance Data Raw \ Performance Rule Instance \ Performance Rule</strong>, drag the “<strong>Rule System Name</strong>” Field to the right and choose the rule I created in the management pack from the list. (Note: the rule name appears on the list because the management pack is already imported into SCOM and this rule has already collected some performance data.)
+10. Under <strong>Performance Data Raw \ Performance Rule Instance \ Performance Rule</strong>, drag the "<strong>Rule System Name</strong>" Field to the right and choose the rule I created in the management pack from the list. (Note: the rule name appears on the list because the management pack is already imported into SCOM and this rule has already collected some performance data.)
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image20.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb20.png" alt="image" width="580" height="398" border="0" /></a>
 
-11. Click on <strong>Performance Data Raw</strong> and drag “<strong>Date Time</strong>” field to the right
+11. Click on <strong>Performance Data Raw</strong> and drag "<strong>Date Time</strong>" field to the right
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image21.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb21.png" alt="image" width="580" height="335" border="0" /></a>
 
-12. Click on “equals” next to “Date Time” and change it to “After”:
+12. Click on "equals" next to "Date Time" and change it to "After":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image22.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb22.png" alt="image" width="358" height="259" border="0" /></a>
 
-13. Choose “(n) days ago”
+13. Choose "(n) days ago"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image23.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb23.png" alt="image" width="258" height="351" border="0" /></a>
 
-14. Change “(n)” to “2”
+14. Change "(n)" to "2"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image24.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb24.png" alt="image" width="333" height="67" border="0" /></a>
 
@@ -161,7 +161,7 @@ Pre-requisites:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image25.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb25.png" alt="image" width="394" height="468" border="0" /></a>
 
-17. If you want to make the report prettier (i.e. changing the font colour to pink <img class="wlEmoticon wlEmoticon-smilewithtongueout" src="http://blog.tyang.org/wp-content/uploads/2012/04/wlEmoticon-smilewithtongueout.png" alt="Smile with tongue out" />) or adjust the column width, or adding a company logo, you can click on “Design Report” button and modify the report.
+17. If you want to make the report prettier (i.e. changing the font colour to pink <img class="wlEmoticon wlEmoticon-smilewithtongueout" src="http://blog.tyang.org/wp-content/uploads/2012/04/wlEmoticon-smilewithtongueout.png" alt="Smile with tongue out" />) or adjust the column width, or adding a company logo, you can click on "Design Report" button and modify the report.
 
 18. Once you are happy with the report, save it to a RDL (report definition) file:
 
@@ -175,11 +175,11 @@ Pre-requisites:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image28.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb28.png" alt="image" width="371" height="143" border="0" /></a>
 
-21. In the “General” tab, give the report a name and target it to “<strong>Microsoft.Windows.Computer</strong>” class
+21. In the "General" tab, give the report a name and target it to "<strong>Microsoft.Windows.Computer</strong>" class
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image29.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb29.png" alt="image" width="392" height="395" border="0" /></a>
 
-22. Go to “Definition” tab, click “Load content from file” and select the RDL file you’ve just created.
+22. Go to "Definition" tab, click "Load content from file" and select the RDL file you’ve just created.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image30.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb30.png" alt="image" width="447" height="155" border="0" /></a>
 
@@ -187,9 +187,9 @@ Pre-requisites:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image31.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb31.png" alt="image" width="471" height="477" border="0" /></a>
 
-24. Once the first line is removed, go to “Options” tab
+24. Once the first line is removed, go to "Options" tab
 
-25. Make sure “Visible” is set to “true” and “Accessibility” is set to “public”
+25. Make sure "Visible" is set to "true" and "Accessibility" is set to "public"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/04/image32.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb32.png" alt="image" width="411" height="416" border="0" /></a>
 

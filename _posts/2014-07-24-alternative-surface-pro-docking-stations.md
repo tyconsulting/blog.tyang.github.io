@@ -30,7 +30,7 @@ For me, a power keyboard is a nice-to-have, but I really want a docking station!
 
 Both of them have similar specs, The local retail price for the Toshiba one is around AUD $160 and Targus is around $180 (currently $1 AUD = $0.94 USD). I’ve decided to go for the Tagus one simply because the Toshiba dock is vertical with a stand, it will be harder to carry around (if I want to). The Targus dock seems to be more portable to me.
 
-So instead of buying it in a retail shop, I managed to find a seller on eBay U.S. who accepts “Best Price”. After bargaining the price back and forth few times, I managed to get a brand new one for $85 USD. with international shipping, in the end, I paid AUD $118, which I’m very happy about the price!
+So instead of buying it in a retail shop, I managed to find a seller on eBay U.S. who accepts "Best Price". After bargaining the price back and forth few times, I managed to get a brand new one for $85 USD. with international shipping, in the end, I paid AUD $118, which I’m very happy about the price!
 <h3>Targus Dock V.S. Surface Dock</h3>
 Here’s a specs comparison between the Targus dock and the Surface Pro 2 dock:
 <table border="0" width="580" cellspacing="0" cellpadding="2">

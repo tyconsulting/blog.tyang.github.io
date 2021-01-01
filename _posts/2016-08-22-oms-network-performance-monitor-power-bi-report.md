@@ -15,7 +15,7 @@ tags:
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2016/08/image-42.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-42.png" alt="image" width="151" height="143" align="left" border="0" /></a>I’ve been playing with the OMS Network Performance Monitor (NPM) today. Earlier today, I’ve released an OpsMgr MP that contains tasks to configure MMA agent for NPM. You can find the post here: <a title="http://blog.tyang.org/2016/08/22/opsmgr-agent-task-to-configure-oms-network-performance-monitor-agents/" href="http://blog.tyang.org/2016/08/22/opsmgr-agent-task-to-configure-oms-network-performance-monitor-agents/">http://blog.tyang.org/2016/08/22/opsmgr-agent-task-to-configure-oms-network-performance-monitor-agents/</a>
 
-The other thing I wanted to do is to create a Power BI dashboard for the data collected by OMS NPM solution. The data collected by NPM can be retrieved using OMS search query “<strong><em>Type=NetworkMonitoring</em></strong>”.
+The other thing I wanted to do is to create a Power BI dashboard for the data collected by OMS NPM solution. The data collected by NPM can be retrieved using OMS search query "<strong><em>Type=NetworkMonitoring</em></strong>".
 
 To begin my experiment, I created a Power BI schedule in OMS using above mentioned query and waited a while for the data to populate in Power BI
 
@@ -45,7 +45,7 @@ I will now explain the steps I’ve taken to create this Power BI report:
 
 01. Create a blank report based on the OMS NPM dataset (that you’ve created from the OMS portal earlier).
 
-02. Create a Page Level Filter based on the SubType Field, and only select “NetworkPath”.
+02. Create a Page Level Filter based on the SubType Field, and only select "NetworkPath".
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/08/image-47.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-47.png" alt="image" width="158" height="325" border="0" /></a>
 

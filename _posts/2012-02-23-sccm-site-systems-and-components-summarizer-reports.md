@@ -26,7 +26,7 @@ So I quickly wrote 3 reports:
 <h2><strong>Below are the SQL queries for each report:</strong></h2>
 <strong>Site Status Overview Report</strong>
 
-[sourcecode language="SQL"]
+```sql
 Select
 SiteStatus.SiteCode, SiteInfo.SiteName, SiteStatus.Updated 'Time Stamp',
 Case SiteStatus.Status
@@ -45,11 +45,11 @@ Else ' '
 END AS 'Site State'
 From V_SummarizerSiteStatus SiteStatus Join v_Site SiteInfo on SiteStatus.SiteCode = SiteInfo.SiteCode
 Order By SiteCode
-[/sourcecode]
+```
 
 <strong>Site System Status Report</strong>
 
-[sourcecode language="SQL"]
+```sql
 SELECT distinct
 Case v_SiteSystemSummarizer.Status
 When 0 Then 'OK'
@@ -58,9 +58,9 @@ When 2 Then 'Critical'
 Else ' '
 End As 'Status',
 SiteCode 'Site Code',
-SUBSTRING(SiteSystem, CHARINDEX('\\', SiteSystem) + 2, CHARINDEX('&quot;]', SiteSystem) - CHARINDEX('\\', SiteSystem) - 3 ) AS 'Site System',
+SUBSTRING(SiteSystem, CHARINDEX('\\', SiteSystem) + 2, CHARINDEX('"]', SiteSystem) - CHARINDEX('\\', SiteSystem) - 3 ) AS 'Site System',
 REPLACE(Role, 'SMS', 'ConfigMgr') 'Role',
-SUBSTRING(SiteObject, CHARINDEX('Display=', SiteObject) + 8, CHARINDEX('&quot;]', SiteObject) - CHARINDEX('Display=',SiteObject) - 9) AS 'Storage Object',
+SUBSTRING(SiteObject, CHARINDEX('Display=', SiteObject) + 8, CHARINDEX('"]', SiteObject) - CHARINDEX('Display=',SiteObject) - 9) AS 'Storage Object',
 Case ObjectType
 When 0 Then 'Directory'
 When 1 Then 'SQL Database'
@@ -76,11 +76,11 @@ ELSE CAST(PercentFree AS VARCHAR(49)) + '%'
 END AS '%Free'
 FROM v_SiteSystemSummarizer
 Order By 'Storage Object'
-[/sourcecode]
+```
 
 <strong>Site Component Status Since 12:00AM Report:</strong>
 
-[sourcecode language="SQL"]
+```sql
 SELECT distinct
 Case v_ComponentSummarizer.Status
 When 0 Then 'OK'
@@ -123,7 +123,7 @@ ComponentType 'Type'
 from v_ComponentSummarizer
 Where TallyInterval = '0001128000100008'
 Order By ComponentName
-[/sourcecode]
+```
 <h2>Report Sample Screenshots:</h2>
 <strong>Site Status Overview Report</strong>
 

@@ -78,7 +78,7 @@ I needed to figure out a way to enforce users to supply all required information
 
 The OM-Rule is expecting instances of these classes defined in OpsMgrExtended.Types.dll as input parameters. You will see how I used these classes in the sample runbooks.
 <h3>Sample PowerShell Runbook: New-WMIPerfCollectionRule</h3>
-OK, let’s start with a “simpler” one first. The <strong>New-WMIPerfCollectionRule</strong> runbook is a PowerShell runbook that can be used to create perf collection rules based on WMI queries. I think it’s simpler than the other one because it’s a PowerShell runbook (as opposed to PowerShell workflow) and we don’t have to worry about configuring alerts for the rules created by this runbook. The source code for this runbook is listed below:
+OK, let’s start with a "simpler" one first. The <strong>New-WMIPerfCollectionRule</strong> runbook is a PowerShell runbook that can be used to create perf collection rules based on WMI queries. I think it’s simpler than the other one because it’s a PowerShell runbook (as opposed to PowerShell workflow) and we don’t have to worry about configuring alerts for the rules created by this runbook. The source code for this runbook is listed below:
 <pre class="" language="PowerShell">
 Param(
 [Parameter(Mandatory=$true)][String]$RuleName,
@@ -166,16 +166,16 @@ As you can see, this runbook requires the following input parameters:
 <ul>
 	<li>RuleName – the internal name of the rule</li>
 	<li>RuleDisplayName – the display name of the rule. this is what people will see in OpsMgr console</li>
-	<li>ClassName – The internal name of the target class (i.e. “Microsoft.Windows.OperatingSystem”)</li>
-	<li>WMINameSpace – the WMI name space of where the WMI class you are going to query resides. This is optional. if not specified, the default value of “Root\CIMV2” will be used</li>
+	<li>ClassName – The internal name of the target class (i.e. "Microsoft.Windows.OperatingSystem")</li>
+	<li>WMINameSpace – the WMI name space of where the WMI class you are going to query resides. This is optional. if not specified, the default value of "Root\CIMV2" will be used</li>
 	<li>WMIQuery – the WMI query to retrieve the performance counter value</li>
 	<li>IntervalSeconds – the rule execution interval in seconds. this is optional, if not specified, the default value of 900 (15 minutes) will be used.</li>
 	<li>ObjectName – The object name for the performance data (i.e. Process, or LogicalDisk)</li>
 	<li>CounterName – the counter name for the performance data (i.e. ProcessCount, or FreeSpaceMB)</li>
-	<li>InstanceNameWMIProperty – the property returned from the WMI query which represent the performance data instance value (i.e. if you are collecting logical disk counters, the result of WMI query may contain a property that represent the drive letter, which can be used to identify the instance in perf data). This is optional, if not specified, the perf data instance name would be “_Total”.</li>
+	<li>InstanceNameWMIProperty – the property returned from the WMI query which represent the performance data instance value (i.e. if you are collecting logical disk counters, the result of WMI query may contain a property that represent the drive letter, which can be used to identify the instance in perf data). This is optional, if not specified, the perf data instance name would be "_Total".</li>
 	<li>ValueWMIProperty – the property returned from the WMI query that represent the perf value.</li>
 </ul>
-The first step of this runbook is to retrieve a connection object named “OpsMgrSDK_Home” from my Azure Automation account (or SMA). This connection object is pre-configured, which contains the computer name of one of my OpsMgr management servers, and the credential of a service account which has OpsMgr admin privilege in my management group.
+The first step of this runbook is to retrieve a connection object named "OpsMgrSDK_Home" from my Azure Automation account (or SMA). This connection object is pre-configured, which contains the computer name of one of my OpsMgr management servers, and the credential of a service account which has OpsMgr admin privilege in my management group.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLddea7c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLddea7c" src="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLddea7c_thumb.png" alt="SNAGHTMLddea7c" width="193" height="435" border="0" /></a>
 
@@ -203,7 +203,7 @@ Next, we must define the module configurations for each member module used by th
 </ul>
 To explain in English, the rules created by this runbook would periodically execute a WMI query (Data source module), then map the result from WMI query to OpsMgr performance data (Condition detection module), finally store the performance data in OpsMgr operational DB, data warehouse DB and also OMS workspace (3 write action modules).
 
-So we will need to use the <strong>New-OMModuleConfiguration</strong> function from the OpsMgrExtended PS module to create an instance of the “OpsMgrExtended.ModuleConfiguration” class. As explained earlier, the “OpsMgrExtended.ModuleConfiguration” class is defined in the OpsMgrExtended.Types.dll. Take the data source member module as an example:
+So we will need to use the <strong>New-OMModuleConfiguration</strong> function from the OpsMgrExtended PS module to create an instance of the "OpsMgrExtended.ModuleConfiguration" class. As explained earlier, the "OpsMgrExtended.ModuleConfiguration" class is defined in the OpsMgrExtended.Types.dll. Take the data source member module as an example:
 <pre language="PowerShell">
 $DAModuleTypeName = "Microsoft.Windows.WmiProvider"
 $DAConfiguration = @"
@@ -218,7 +218,7 @@ I have placed the module type name, module configuration and the member module n
 
 <strong>Note:</strong>
 
-You can use <strong>Get-Help New-OMModuleConfiguration</strong> to access the help file for this function. If you need to use an alternative OpsMgr RunAs profile to for any member modules, you can also specify the name of the RunAs profile you are going to use with the<strong> –RunAsMPName</strong> and the <strong>–RunAsName</strong> parameter. The RunAsMPName parameter is used to specify the internal name of the management pack that defined the RunAs profile, and the RunAsName parameter is used to specify the internal name of the RunAs profile (i.e. if you are creating rules for SQL related classes, you might need to use the default SQL RunAs Profile, in this case, the –RunAsMPName would be “Microsoft.SQLServer.Library” and –RunAsName would be “Microsoft.SQLServer.SQLDefaultAccount”.)
+You can use <strong>Get-Help New-OMModuleConfiguration</strong> to access the help file for this function. If you need to use an alternative OpsMgr RunAs profile to for any member modules, you can also specify the name of the RunAs profile you are going to use with the<strong> –RunAsMPName</strong> and the <strong>–RunAsName</strong> parameter. The RunAsMPName parameter is used to specify the internal name of the management pack that defined the RunAs profile, and the RunAsName parameter is used to specify the internal name of the RunAs profile (i.e. if you are creating rules for SQL related classes, you might need to use the default SQL RunAs Profile, in this case, the –RunAsMPName would be "Microsoft.SQLServer.Library" and –RunAsName would be "Microsoft.SQLServer.SQLDefaultAccount".)
 
 Since a rule can have multiple data source modules and multiple write action modules, the <strong>New-OMRule</strong> function is expecting the array type of input for data source modules and write action modules. This is why even there is only going to be one data source member module or write action member module, we still need to place them into separate arrays before passing into the OM-Rule function:
 
@@ -228,7 +228,7 @@ Since a rule can have multiple data source modules and multiple write action mod
 
 On the other hand, since the condition detection member module is optional, and you can only have maximum one condition detection member module, you do not need to place the module configuration object for the condition detection module into an array.
 
-Lastly, I have hardcoded the management pack name to be “Test.OpsMgrExtended” in this sample runbook. this MP must be created prior to running this runbook otherwise it would fail. However, if you have a look at the sample runbooks in previous posts, you can easily figure out a way to firstly detect the existence of this MP and use this runbook to create the MP if it does not exist in your management group.
+Lastly, I have hardcoded the management pack name to be "Test.OpsMgrExtended" in this sample runbook. this MP must be created prior to running this runbook otherwise it would fail. However, if you have a look at the sample runbooks in previous posts, you can easily figure out a way to firstly detect the existence of this MP and use this runbook to create the MP if it does not exist in your management group.
 
 Now, it’s time to take this runbook for a test run. I’m using the following parameters during the test run:
 <ul>
@@ -410,10 +410,10 @@ This runbook takes the following input parameters:
 <ul>
 	<li>RuleName – the internal name of the rule that you are creating</li>
 	<li>RuleDisplayName – the display name of the rule</li>
-	<li>ClassName – The internal name of the target class (i.e. “Microsoft.Windows.OperatingSystem”)</li>
-	<li>EventLog – the name of the event log (i.e. “System”)</li>
+	<li>ClassName – The internal name of the target class (i.e. "Microsoft.Windows.OperatingSystem")</li>
+	<li>EventLog – the name of the event log (i.e. "System")</li>
 	<li>EventID – the ID of the event that you are detecting</li>
-	<li>EventSource – is what you see as “source” in Windows event log</li>
+	<li>EventSource – is what you see as "source" in Windows event log</li>
 	<li>EventLevel – can be one of the following value:
 <ul>
 	<li>Success</li>
@@ -440,16 +440,16 @@ This runbook takes the following input parameters:
 </ul>
 </li>
 </ul>
-As you can see, firstly, other than the standard process of retrieving the connection object for my OpsMgr management group, I have used several “Switch” statements with inline scripts to translate the event level, alert priority and alert severity from English words (string) to numbers (integer), because when configuring member modules for OpsMgr rules, we must use the number (instead of names). Note I’ve also used “ValidateSet” to validate the input of these parameters, so only valid inputs are allowed.
+As you can see, firstly, other than the standard process of retrieving the connection object for my OpsMgr management group, I have used several "Switch" statements with inline scripts to translate the event level, alert priority and alert severity from English words (string) to numbers (integer), because when configuring member modules for OpsMgr rules, we must use the number (instead of names). Note I’ve also used "ValidateSet" to validate the input of these parameters, so only valid inputs are allowed.
 
 I am not going to explain the member module configurations again, because I’ve already covered it in the first sample. But please note because the rules created by this runbook will be generating alerts, we must configure alert settings. In OpsMgr, when a workflow is configured to generate alerts (either rules or monitors), other than the rule / monitor itself, we must also define a String Resource for the alert message ID, as well as defining the alert name and description in a preferred language pack (by default, ENU). Therefore, we are going to use another class defined in OpsMgrExtended.Types.dll for alert configuration. The class for alert configuration is called <strong>OpsMgrExtended.AlertConfiguration</strong>, and you can use <strong>New-OMAlertConfiguration</strong> function to create an instance of this class. Same as all other functions in the OpsMgrExtended PS module, you can use Get-Help cmdlet to access the help file for New-OMAlertConfiguration. You will need to specify the following input parameters for New-OMAlertConfiguration:
 <ul>
 	<li>AlertName – the name / title of the alert</li>
 	<li>AlertDescription – the alert description / detail</li>
-	<li>LanguagePackID – the 3-letter language pack code for the language pack that you wish to create the alert message under. this is an optional parameter, if not specified, the default value of “ENU’' will be used.</li>
+	<li>LanguagePackID – the 3-letter language pack code for the language pack that you wish to create the alert message under. this is an optional parameter, if not specified, the default value of "ENU’' will be used.</li>
 	<li>StringResource – the ID for the alert string resource</li>
 </ul>
-As you can see, since the write action member module for the rules created by this runbook would be “System.Health.GenerateAlert”, and we are defining &lt;AlertMessageId&gt; and &lt;AlertParameters&gt; in the write action member module configuration:
+As you can see, since the write action member module for the rules created by this runbook would be "System.Health.GenerateAlert", and we are defining &lt;AlertMessageId&gt; and &lt;AlertParameters&gt; in the write action member module configuration:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image38.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb32.png" alt="image" width="559" height="161" border="0" /></a>
 
@@ -457,7 +457,7 @@ The String Resource must match the AlertMessageId:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image39.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb33.png" alt="image" width="462" height="208" border="0" /></a>
 
-And if you have previously authored OpsMgr management packs, you’d probably already know how to define the &lt;AlertParameters&gt; section for the alert description. Basically, any variables you are using in the alert description must be defined in the &lt;AlertParameters&gt; section, then in the alert description, you’d reference them using “{}” and a number inside. &lt;AlertParameter1&gt; becomes {0}, &lt;AlertParameter2&gt; becomes {1}, and so on. You can up to define 10 alert parameters:
+And if you have previously authored OpsMgr management packs, you’d probably already know how to define the &lt;AlertParameters&gt; section for the alert description. Basically, any variables you are using in the alert description must be defined in the &lt;AlertParameters&gt; section, then in the alert description, you’d reference them using "{}" and a number inside. &lt;AlertParameter1&gt; becomes {0}, &lt;AlertParameter2&gt; becomes {1}, and so on. You can up to define 10 alert parameters:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image40.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb34.png" alt="image" width="527" height="187" border="0" /></a>
 
@@ -492,11 +492,11 @@ and the raw XML (once I’ve exported the MP):
 <h3>Hybrid Worker Configuration</h3>
 Since the samples in this post are all based on Azure Automation and Hybrid worker, I just want to point out this article if you need help setting it up: <a title="https://azure.microsoft.com/en-us/documentation/articles/automation-hybrid-runbook-worker/" href="https://azure.microsoft.com/en-us/documentation/articles/automation-hybrid-runbook-worker/">https://azure.microsoft.com/en-us/documentation/articles/automation-hybrid-runbook-worker/</a>
 
-Also as I mentioned earlier, you will need to deploy OpsMgrExtended module manually on to the hybrid workers by yourself. When copying the OpsMgrExtended module to your hybrid workers, make sure you copy to a folder that’s listed in the PSModulePath environment variable. During my testing with a PowerShell runbook, I initially placed it under “C:\Program Files\WindowsPowerShell\Modules” folder, as it was listed in the PSModulePath environment variable when I checked in a PowerShell console on the hybrid worker. However, I got error messages telling me the runbook could not find commands defined in the OpsMgrExtended module. To troubleshoot, I wrote a simple PowerShell runbook:
+Also as I mentioned earlier, you will need to deploy OpsMgrExtended module manually on to the hybrid workers by yourself. When copying the OpsMgrExtended module to your hybrid workers, make sure you copy to a folder that’s listed in the PSModulePath environment variable. During my testing with a PowerShell runbook, I initially placed it under "C:\Program Files\WindowsPowerShell\Modules" folder, as it was listed in the PSModulePath environment variable when I checked in a PowerShell console on the hybrid worker. However, I got error messages telling me the runbook could not find commands defined in the OpsMgrExtended module. To troubleshoot, I wrote a simple PowerShell runbook:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image45.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb39.png" alt="image" width="636" height="275" border="0" /></a>
 
-and based on the output, the folder in “C:\Program Files” is not listed!
+and based on the output, the folder in "C:\Program Files" is not listed!
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image46.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb40.png" alt="image" width="700" height="147" border="0" /></a>
 

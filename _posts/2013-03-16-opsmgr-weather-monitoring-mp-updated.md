@@ -34,7 +34,7 @@ I’ve updated below 4 temperature related performance views so they can display
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/03/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/03/image_thumb15.png" width="270" height="199" border="0" /></a>
 
-The Y-Axis range is set to –130 to 134 (degrees) for Imperial Unit (Fahrenheit) and –90 to 57 (degrees) for Metric Unit (Celsius). According to <a href="http://en.wikipedia.org/wiki/List_of_weather_records">Wikipedia</a>, these figures are the highest and lowest temperature ever recorded on this plant. They can be customised by right clicking the view and choose “Personalize view…”:
+The Y-Axis range is set to –130 to 134 (degrees) for Imperial Unit (Fahrenheit) and –90 to 57 (degrees) for Metric Unit (Celsius). According to <a href="http://en.wikipedia.org/wiki/List_of_weather_records">Wikipedia</a>, these figures are the highest and lowest temperature ever recorded on this plant. They can be customised by right clicking the view and choose "Personalize view…":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/03/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/03/image_thumb16.png" width="530" height="289" border="0" /></a>
 

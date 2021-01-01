@@ -50,7 +50,7 @@ I’ve quickly generated a XML using ConnectorConfiguration.exe as shown above. 
 
 In order to overcome these issues, and establish a process to maintain and update the configuration XML in the years to come, I have written a PowerShell script to generate the Alert Update Connector configuration XML based on a set of policies I have defined.
 
-This script (called “<strong>ConfigAlertUpdateConnector.ps1</strong>”) is expecting an input XML file called “<strong>ConfigAlertUpdateConnector.xml</strong>” from the same directory. The “ConfigAlertUpdateConnector.xml” stores all the policies that I have defined.
+This script (called "<strong>ConfigAlertUpdateConnector.ps1</strong>") is expecting an input XML file called "<strong>ConfigAlertUpdateConnector.xml</strong>" from the same directory. The "ConfigAlertUpdateConnector.xml" stores all the policies that I have defined.
 
 Let’s look at the finishing piece first. The output of this script looks like this:
 
@@ -76,7 +76,7 @@ Search in XML:
 
 In the script, I have also filtered out all rules and monitors that do not generate alerts so they won’t appear in the output XML.
 
-Now let’s take a look at the “ConfigAlertUpdateConnector.xml”:
+Now let’s take a look at the "ConfigAlertUpdateConnector.xml":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image16.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb16.png" alt="image" width="580" height="537" border="0" /></a>
 
@@ -92,14 +92,14 @@ The Display Name is what you see in the Operations Console.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1699fb1e.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML1699fb1e" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1699fb1e_thumb.png" alt="SNAGHTML1699fb1e" width="467" height="405" border="0" /></a>
 
-As you can see, normally, all classes defined in a particular MP will have the same prefix. in this case, with SCVMM 2012, the prefix is <em>“Microsoft.SystemCenter.VirtualMachineMananager.2012”.</em>
+As you can see, normally, all classes defined in a particular MP will have the same prefix. in this case, with SCVMM 2012, the prefix is <em>"Microsoft.SystemCenter.VirtualMachineMananager.2012".</em>
 
-all VMM 2008 classes will have <em>“Microsoft.SystemCenter.VirtualMachineMananager.2008”</em>. So if I want to update all the alerts generated from Microsoft’s VMM MPs regardless the version, I’d use <em>“Microsoft.SystemCenter.VirtualMachineMananager”</em> as the NAME search phrase.
+all VMM 2008 classes will have <em>"Microsoft.SystemCenter.VirtualMachineMananager.2008"</em>. So if I want to update all the alerts generated from Microsoft’s VMM MPs regardless the version, I’d use <em>"Microsoft.SystemCenter.VirtualMachineMananager"</em> as the NAME search phrase.
 
-Another example, if I want to update any alerts generated for any “disks” related classes defined in Windows ServerOS MPs, I’d use both Name and Display search phrase:
+Another example, if I want to update any alerts generated for any "disks" related classes defined in Windows ServerOS MPs, I’d use both Name and Display search phrase:
 <ul>
-	<li>DisplayName=”disk”</li>
-	<li>Name=”Microsoft.Windows.Server”</li>
+	<li>DisplayName="disk"</li>
+	<li>Name="Microsoft.Windows.Server"</li>
 </ul>
 This leads to another issue. I thought I had everything covered, until I configured Fujitsu PRIMERGY server MP (sorry to use Fujitsu as an example in my blog again :P).
 
@@ -113,26 +113,26 @@ But when I looked at the rules in this MP, all the ones related to the network c
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image19.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb19.png" alt="image" width="580" height="287" border="0" /></a>
 
-In fact, all the rules in this MP are targeting the Server class. I’m not sure how many MPs out there are targeting workflows in “less-appropriate” classes, so in order to work around this issue, I have coded my script to also process exceptions. This is why in my screenshot for “ConfigAlertConnector.xml” above, in the Fujitsu section, I have a lot of exceptions defined:
+In fact, all the rules in this MP are targeting the Server class. I’m not sure how many MPs out there are targeting workflows in "less-appropriate" classes, so in order to work around this issue, I have coded my script to also process exceptions. This is why in my screenshot for "ConfigAlertConnector.xml" above, in the Fujitsu section, I have a lot of exceptions defined:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image20.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb20.png" alt="image" width="579" height="687" border="0" /></a>
 
-As shown above, by default, any Fujitsu alerts will have CustomField1 updated to “FUJ_MISC”, which is the default value. However, if the <strong>workflow’s (rule / monitor) Display Name</strong> contains the phrase “network”, the value for CustomField1 will be set to “FUJ_NIC”. The other 2 default properties defined (ResolutionState and Owner”) will remain the same. In the output xml file, it looks like this:
+As shown above, by default, any Fujitsu alerts will have CustomField1 updated to "FUJ_MISC", which is the default value. However, if the <strong>workflow’s (rule / monitor) Display Name</strong> contains the phrase "network", the value for CustomField1 will be set to "FUJ_NIC". The other 2 default properties defined (ResolutionState and Owner") will remain the same. In the output xml file, it looks like this:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image21.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb21.png" alt="image" width="580" height="182" border="0" /></a>
 
-The first one have the “network” exception applied so the value has set to “FUJ_NIC”. the second one does not have any exceptions applied so it has the default value of “FUJ_MISC”.
+The first one have the "network" exception applied so the value has set to "FUJ_NIC". the second one does not have any exceptions applied so it has the default value of "FUJ_MISC".
 
 <strong><span style="color: #ff0000;">Note:</span></strong> When exceptions are specified in the policies, the script will only apply an exception if both property <strong>name</strong> and <strong>GroupIdFilter</strong> match the default value:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image22.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb22.png" alt="image" width="580" height="208" border="0" /></a>
 
-<strong>Executing “ConfigAlertUpdateConnector.ps1”</strong>
+<strong>Executing "ConfigAlertUpdateConnector.ps1"</strong>
 
-Once all the policies have been configured in “ConfigAlertUpdateConnector.xml”, and this XML file is placed at the same folder as the ps1 script, we can simply run the script without any parameters. If the output file already exists in the script directory, the script will append the output file name with the current time stamp and move it to a sub folder called “Archive”. In my work’s fully tuned test management group, this script took less than 2 minutes to run, and generated the config file containing just less than 3000 workflows for Alert Update Connector.
+Once all the policies have been configured in "ConfigAlertUpdateConnector.xml", and this XML file is placed at the same folder as the ps1 script, we can simply run the script without any parameters. If the output file already exists in the script directory, the script will append the output file name with the current time stamp and move it to a sub folder called "Archive". In my work’s fully tuned test management group, this script took less than 2 minutes to run, and generated the config file containing just less than 3000 workflows for Alert Update Connector.
 
-In future, when we add new management packs or update / delete existing management packs, we can simply make minor modifications to the existing policies in “ConfigAlertUpdateConnector.xml” and re-run this script to generate the config file for Alert Update Connector.
+In future, when we add new management packs or update / delete existing management packs, we can simply make minor modifications to the existing policies in "ConfigAlertUpdateConnector.xml" and re-run this script to generate the config file for Alert Update Connector.
 
-You can download the script, the sample “ConfigAlertUpdateConnector.xml” and the sample output file <a href="http://blog.tyang.org/wp-content/uploads/2014/06/ConfigAlertUpdateConnector.zip">HERE</a>.
+You can download the script, the sample "ConfigAlertUpdateConnector.xml" and the sample output file <a href="http://blog.tyang.org/wp-content/uploads/2014/06/ConfigAlertUpdateConnector.zip">HERE</a>.
 
-Lastly, I encourage anyone using the OpsMgr 2012 Alert Update Connector to try this script and any feedbacks are welcome. I believe I have covered everything in terms of how to configure the input xml (“ConfigAlertUpdateConnector.xml”). If I have missed anything, please feel free to drop me an email.
+Lastly, I encourage anyone using the OpsMgr 2012 Alert Update Connector to try this script and any feedbacks are welcome. I believe I have covered everything in terms of how to configure the input xml ("ConfigAlertUpdateConnector.xml"). If I have missed anything, please feel free to drop me an email.

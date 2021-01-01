@@ -33,7 +33,7 @@ And in alert history tab, you can see Service Manager updated the alert soon aft
 
 Looks like this issue has been identified for a long time. some one has already posted a thread in TechNet forum back in 2009: <a href="http://social.technet.microsoft.com/Forums/en-US/operationsmanagergeneral/thread/4d2f7f8f-c616-483e-a5af-8c77f5d20953/">http://social.technet.microsoft.com/Forums/en-US/operationsmanagergeneral/thread/4d2f7f8f-c616-483e-a5af-8c77f5d20953/</a>
 
-OpsMgr alerts get processed by notification subscriptions every time they are updated. i.e. If I take a critical alert with resolution state of “New” and set the resolution state to “New” again in the OpsMgr console, it will get processed again by subscriptions:
+OpsMgr alerts get processed by notification subscriptions every time they are updated. i.e. If I take a critical alert with resolution state of "New" and set the resolution state to "New" again in the OpsMgr console, it will get processed again by subscriptions:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/04/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb4.png" width="518" height="291" border="0" /></a>
 
@@ -45,7 +45,7 @@ I can think of 3 possible solutions:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/04/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb5.png" width="580" height="546" border="0" /></a>
 
-2. add another criteria to the alert subscription: with a “%” ticket ID – which means ticket ID must match a wildcard (%).
+2. add another criteria to the alert subscription: with a "%" ticket ID – which means ticket ID must match a wildcard (%).
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/04/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb6.png" width="490" height="302" border="0" /></a>
 
@@ -57,23 +57,23 @@ Option 1 would wait Service Manager 3 minutes so it can process the alert first.
 
 Option 2 would only pick up alerts that have already been processed by Service Manager. This adds a unnecessary dependency. If for some reasons Service Manager is down, Ticket ID field in the OpsMgr alert will not get updated, therefore alert subscription will not pick up the alert.
 
-To me, Option 3 makes most of the sense. The subscription should only pick up the “brand new” new critical alerts, before Service Manager updates the Ticket ID. – But, it’s not that easy to configure. Why? because I cannot specify conditions like “<strong>and with a NULL ticket ID</strong>” via the OpsMgr Console. As you can see below, I can only specify a wildcard match to ticket ID:
+To me, Option 3 makes most of the sense. The subscription should only pick up the "brand new" new critical alerts, before Service Manager updates the Ticket ID. – But, it’s not that easy to configure. Why? because I cannot specify conditions like "<strong>and with a NULL ticket ID</strong>" via the OpsMgr Console. As you can see below, I can only specify a wildcard match to ticket ID:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/04/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb7.png" width="495" height="213" border="0" /></a>
 
-Luckily I can do this outside of the console, by directly modifying the OpsMgr “Notification Internal Library” MP. Kevin Holman has an excellent blog post on this topic: <a href="http://blogs.technet.com/b/kevinholman/archive/2008/10/12/creating-granular-alert-notifications-rule-by-rule-monitor-by-monitor.aspx">Creating granular alert notifications - rule by rule, monitor by monitor</a>.
+Luckily I can do this outside of the console, by directly modifying the OpsMgr "Notification Internal Library" MP. Kevin Holman has an excellent blog post on this topic: <a href="http://blogs.technet.com/b/kevinholman/archive/2008/10/12/creating-granular-alert-notifications-rule-by-rule-monitor-by-monitor.aspx">Creating granular alert notifications - rule by rule, monitor by monitor</a>.
 
 So I’ve decided that I’m going to go for option 3. I’ll now go through the steps I took to modify the existing alert subscription.
 
-1. Export <strong>AND BACKUP</strong> the “Notification Internal Library” MP from the OpsMgr console (Microsoft.SystemCenter.Notifications.Internal.xml)
+1. Export <strong>AND BACKUP</strong> the "Notification Internal Library" MP from the OpsMgr console (Microsoft.SystemCenter.Notifications.Internal.xml)
 
 2. Open Microsoft.SystemCenter.Notifications.Internal.xml with a text editor (i.e. <a href="http://notepad-plus-plus.org/">Notepad++</a>).
 
-3. Towards the end of the file, in the &lt;LanguagePack&gt; section, find the &lt;DisplayString&gt; associated to the subscription. Make sure the Name in &lt;Name&gt; tag matches the subscription name in the OpsMgr console, and ElementID starts with “subscription”
+3. Towards the end of the file, in the &lt;LanguagePack&gt; section, find the &lt;DisplayString&gt; associated to the subscription. Make sure the Name in &lt;Name&gt; tag matches the subscription name in the OpsMgr console, and ElementID starts with "subscription"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/04/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb8.png" width="508" height="296" border="0" /></a>
 
-4. Change the name in &lt;Name&gt; tag, add “-Do Not Change In UI” at the end (As shown above). this is to remind anyone not to change this subscription in the Operations console after it’s imported back.
+4. Change the name in &lt;Name&gt; tag, add "-Do Not Change In UI" at the end (As shown above). this is to remind anyone not to change this subscription in the Operations console after it’s imported back.
 
 5. Find the Rule with the same ID as the ElementID for the &lt;DisplayString&gt; taken from step 3. The rule should be under &lt;Monitoring&gt;&lt;Rules&gt; tags.
 

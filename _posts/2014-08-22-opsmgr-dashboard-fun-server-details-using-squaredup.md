@@ -14,7 +14,7 @@ tags:
   - SCOM
   - SquaredUp
 ---
-After my <a href="http://blog.tyang.org/2014/08/05/opsmgr-dashboard-fun-performance-widget-using-squaredup/">previous post</a> on how to create a performance view using SquaredUp, the founder of SquaredUp, Richard Benwell told me that I can also use “&amp;embed=true” parameter in the URL to get rid of the headers. I also managed to create another widget to display server details. Combined with the performance view, I create a dashboard like this:
+After my <a href="http://blog.tyang.org/2014/08/05/opsmgr-dashboard-fun-performance-widget-using-squaredup/">previous post</a> on how to create a performance view using SquaredUp, the founder of SquaredUp, Richard Benwell told me that I can also use "&embed=true" parameter in the URL to get rid of the headers. I also managed to create another widget to display server details. Combined with the performance view, I create a dashboard like this:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/08/image_thumb7.png" alt="image" width="696" height="445" border="0" /></a>
 
@@ -57,7 +57,7 @@ $dataObject["Parameters"]= $parameterCollection
 $ScriptContext.ReturnCollection.Add($dataObject)
 }
 </pre>
-And here’s the script for the improved performance view (with “&amp;embed=true” parameter):
+And here’s the script for the improved performance view (with "&embed=true" parameter):
 <pre lang="powershell">Param($globalSelectedItems)
 $dataObject = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request")
 $dataObject["BaseUrl"]=<a href="http://&lt;Your Squaredup Web Server&gt;/SquaredUp/performance/objectoverview">http://Your Squaredup Web Server/SquaredUp/performance/objectoverview</a>

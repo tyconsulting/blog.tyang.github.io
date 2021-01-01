@@ -43,7 +43,7 @@ When working on any kind of command prompts (cmd or PowerShell), I really don’
 
 <strong>Resize-Console –max switch</strong>
 
-Or “rsc –m” if use aliases. The –max switch will move the window to the top left corner of the PRIMARY monitor and maximize the window size. It also set the buffer height to the maximum value of 9999. - This is equivalent to maximizing a normal window.
+Or "rsc –m" if use aliases. The –max switch will move the window to the top left corner of the PRIMARY monitor and maximize the window size. It also set the buffer height to the maximum value of 9999. - This is equivalent to maximizing a normal window.
 
 Every time I get on to a box (most likely via RDP) for the first time, I always had to manually set the PowerShell console size to suit my needs. then next time I RDP in from another computer with different display resolutions, I often had to set it again.
 
@@ -65,13 +65,13 @@ i.e. the screenshot below is taken from my mobile phone (Samsung Note3):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image8.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb8.png" width="569" height="322" border="0" /></a>
 
-when I applied the profile “Note3”, the PSWA console fits perfectly on the screen.
+when I applied the profile "Note3", the PSWA console fits perfectly on the screen.
 
 Or, on my 10.1 inch tablet Samsung Galaxy Tab2:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image9.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb9.png" width="580" height="364" border="0" /></a>
 
-I used aliases, applied the “tab2” profile to fit the screen.
+I used aliases, applied the "tab2" profile to fit the screen.
 
 With the introduction to the –profile functions, this module now includes these functions for CRUD operations:
 <ul>
@@ -86,7 +86,7 @@ For details of each functions, You can refer to the help information (get-help)
 
 <strong>Get-CurrentConsoleSize</strong>
 
-This one simply display the current window size and buffer size on screen. it’s reading the properties of “$host.ui.rawui”
+This one simply display the current window size and buffer size on screen. it’s reading the properties of "$host.ui.rawui"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1ad77daf4.png"><img style="display: inline; border: 0px;" title="SNAGHTML1ad77daf[4]" alt="SNAGHTML1ad77daf[4]" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1ad77daf4_thumb.png" width="374" height="195" border="0" /></a>
 

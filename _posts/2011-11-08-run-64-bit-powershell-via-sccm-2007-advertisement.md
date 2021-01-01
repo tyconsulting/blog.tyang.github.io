@@ -19,6 +19,6 @@ We soon found out it’s because SCCM 2007 is a 32-bit app and DPM PowerShell sn
 
 When a 32-bit application tries to access %WinDir%\system32, Windows redirects it to %WinDir%\SysWOW64. In order for the 32-bit app to access %WinDir%\System32 folder, we have to use <strong>%Windir%\sysnative</strong>.
 
-So, we set the command line of the program in SCCM package to <strong>“%WinDir%\Sysnative\WindowsPowerShell\V1.0\Powershell.exe” –noprofile .\PowerShellScript.ps1</strong> as that’s where the 64-bit version of PowerShell is and the SCCM advertisement ran successfully on the client.
+So, we set the command line of the program in SCCM package to <strong>"%WinDir%\Sysnative\WindowsPowerShell\V1.0\Powershell.exe" –noprofile .\PowerShellScript.ps1</strong> as that’s where the 64-bit version of PowerShell is and the SCCM advertisement ran successfully on the client.
 
 More reading regarding to file system redirection here: <a title="http://support.microsoft.com/kb/942589" href="http://support.microsoft.com/kb/942589">http://support.microsoft.com/kb/942589</a>

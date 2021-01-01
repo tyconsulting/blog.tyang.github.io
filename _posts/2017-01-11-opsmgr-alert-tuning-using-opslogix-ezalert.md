@@ -14,7 +14,7 @@ tags:
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2017/01/EZAlert.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="EZAlert" src="http://blog.tyang.org/wp-content/uploads/2017/01/EZAlert_thumb.png" alt="EZAlert" width="427" height="106" border="0" /></a>
 
-OpsLogix has recently released a new product to the market called “EZalert”. It learns the operator’s alert handling behaviour and then it is able to automatically update Alert resolution states based on its learning outcome. You can find more information about this product here: <a title="http://www.opslogix.com/ezalert/" href="http://www.opslogix.com/ezalert/">http://www.opslogix.com/ezalert/</a>. I was given a trail license for evaluation and review. Today I installed it on a dedicated VM and connected it to my lab OpsMgr management group.
+OpsLogix has recently released a new product to the market called "EZalert". It learns the operator’s alert handling behaviour and then it is able to automatically update Alert resolution states based on its learning outcome. You can find more information about this product here: <a title="http://www.opslogix.com/ezalert/" href="http://www.opslogix.com/ezalert/">http://www.opslogix.com/ezalert/</a>. I was given a trail license for evaluation and review. Today I installed it on a dedicated VM and connected it to my lab OpsMgr management group.
 <h3>EZalert Walkthrough</h3>
 Once installed, I could see a new dashboard view added in the monitoring pane, and this is where we tune all the alerts:
 
@@ -80,7 +80,7 @@ If you are training EZalert to automatically close an alert when it’s generate
 
 <strong>2. Training Monitor generated alerts</strong>
 
-As we all know, we shouldn’t manually close monitor generated alerts. So when you are training monitor alerts, make sure you don’t train EZalert to update the resolution state to “Closed”. consider using other states such as “Resolved”.
+As we all know, we shouldn’t manually close monitor generated alerts. So when you are training monitor alerts, make sure you don’t train EZalert to update the resolution state to "Closed". consider using other states such as "Resolved".
 
 <strong>3. Create Scoped roles for normal operators in order to hide the EZalert dashboard view</strong>
 

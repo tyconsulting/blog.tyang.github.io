@@ -19,7 +19,7 @@ Tim and I updated the original management packs to cater for this release. The D
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/06/image6.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb6.png" alt="image" width="580" height="590" border="0" /></a>
 
-The new MPs are included in the msi. they are located in “C:\Program Files\SCOM 2012 Maintenance Mode Scheduler\Management Packs” folder once the msi is installed.
+The new MPs are included in the msi. they are located in "C:\Program Files\SCOM 2012 Maintenance Mode Scheduler\Management Packs" folder once the msi is installed.
 
 <strong>My Upgrade Experience</strong>
 
@@ -37,7 +37,7 @@ Therefore, to avoid unnecessary downtime, I’d recommend you to have all these 
 
 <strong>Tricks</strong>
 
-Because we have multiple management groups at work, I have manually edited the WebHeader.png and WebHeader2.png files in “<strong>C:\inetpub\wwwroot\MMWeb\Content</strong>” and added a custom title on these image files so users can easily identify different instances for different management groups:
+Because we have multiple management groups at work, I have manually edited the WebHeader.png and WebHeader2.png files in "<strong>C:\inetpub\wwwroot\MMWeb\Content</strong>" and added a custom title on these image files so users can easily identify different instances for different management groups:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/06/SNAGHTML9f3c96.png"><img style="display: inline; border: 0px;" title="SNAGHTML9f3c96" src="http://blog.tyang.org/wp-content/uploads/2014/06/SNAGHTML9f3c96_thumb.png" alt="SNAGHTML9f3c96" width="532" height="288" border="0" /></a>
 

@@ -21,7 +21,7 @@ Since I have <a title="Skype" href="http://www.skype.com">Skype</a> installed on
 
 It turned out to be relatively easy, with the help from the Skype API <a title="Skype4COM" href="http://developer.skype.com/accessories/skype4com">Skype4COM</a>, <a title="PsExec.exe" href="http://technet.microsoft.com/en-us/sysinternals/bb897553.aspx">PsExec.exe</a> and some PowerShell scripting, it only took me few hours to achieve this goal.
 
-In a nutshell, I installed SCOM Command Console and Skype on a computer (I’ve tried both 64-bit Windows 7 and Windows Server 2008 R2). I’ll call this computer “Skype Node” in this post. I have also copied and registered the Skype4COM.dll on the Skype Node. I also wrote a PowerShell script that runs on the Skype Node computer to retrieve alert details and send out Skype messages. I then setup SCOM command notification to execute another script on the SCOM 2007 RMS / SCOM 2012 MS, this script will use PsExec.exe to remotely execute the script on Skype Node.
+In a nutshell, I installed SCOM Command Console and Skype on a computer (I’ve tried both 64-bit Windows 7 and Windows Server 2008 R2). I’ll call this computer "Skype Node" in this post. I have also copied and registered the Skype4COM.dll on the Skype Node. I also wrote a PowerShell script that runs on the Skype Node computer to retrieve alert details and send out Skype messages. I then setup SCOM command notification to execute another script on the SCOM 2007 RMS / SCOM 2012 MS, this script will use PsExec.exe to remotely execute the script on Skype Node.
 
 I managed to get this working on both SCOM 2007 R2 and SCOM 2012. The scripts and requirements are very similar, but SCOM 2007 R2 environments requires few additional configurations.
 

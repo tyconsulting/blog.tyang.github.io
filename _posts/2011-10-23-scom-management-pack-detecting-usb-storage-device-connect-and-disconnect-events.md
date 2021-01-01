@@ -28,7 +28,7 @@ I have also created a dynamic group called Virtual Windows Computers in the MP s
 
 <a href="http://blog.tyang.org/wp-content/uploads/2011/10/image17.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb17.png" alt="image" width="580" height="256" border="0" /></a>
 
-Please note this Virtual Machine discovery only detects virtual machines running on Microsoft’s virtual host platform. If you open System Center Internal Library MP in MPViewer and check the Raw XML for discovery “<strong>Discover if Windows Computer is a Virtual Machine</strong>”, you’ll see it the WQL:
+Please note this Virtual Machine discovery only detects virtual machines running on Microsoft’s virtual host platform. If you open System Center Internal Library MP in MPViewer and check the Raw XML for discovery "<strong>Discover if Windows Computer is a Virtual Machine</strong>", you’ll see it the WQL:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2011/10/image18.png"><img style="border: 0px currentColor; padding-top: 0px; padding-right: 0px; padding-left: 0px; display: inline; background-image: none;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb18.png" alt="image" width="740" height="519" border="0" /></a>
 

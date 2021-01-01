@@ -29,7 +29,7 @@ tags:
 <ol>
 <li>An Azure AD application and service principal. the service principal must have a key based secret (not certificate). Assign the service principal contributor role to the Log Analytics workspace you wish to invoke the search query, or at the management group level if you wish to search multiple workspaces.<p></p>
 </li>
-<li>Once the PowerShell modules are installed in the Automation account, create a “Key Based AzureServicePrincipal” connection object using the service principal created in the previous step:<p></p>
+<li>Once the PowerShell modules are installed in the Automation account, create a "Key Based AzureServicePrincipal" connection object using the service principal created in the previous step:<p></p>
 </li>
 </ol>
 <p><a href="https://blog.tyang.org/wp-content/uploads/2019/06/image-5.png"><img class="" style="margin: 0px;background-image: none" title="image" src="https://blog.tyang.org/wp-content/uploads/2019/06/image_thumb-5.png" alt="image" width="300" height="302" border="0"></a></p>
@@ -39,7 +39,7 @@ tags:
 <ul>
 <li><strong>AzureConnectionName</strong> – the name of the key based service principal connection you created earlier</li>
 <li><strong>WorkspaceId</strong> – the workspace Id of the log analytics workspace. The search API requires you to provide a workspace Id even when you are targeting your search to multiple workspaces.</li>
-<li><strong>managementGroupName</strong> – optional, specify one or more management group names to search Log Analytics workspaces from. You need to specify the names in square brackets. i.e. <span style="background-color: #ffff00">[“mg-name”]</span>, or <span style="background-color: #ffff00">[“mg-name-1”, “mg-name-2”]</span></li>
+<li><strong>managementGroupName</strong> – optional, specify one or more management group names to search Log Analytics workspaces from. You need to specify the names in square brackets. i.e. <span style="background-color: #ffff00">["mg-name"]</span>, or <span style="background-color: #ffff00">["mg-name-1", "mg-name-2"]</span></li>
 <li><strong>SearchQuery</strong> – the Kusto search query you wish to invoke</li>
 <li><strong>LogFriendlyName</strong> – a friendly name for the log returned from the search. this will be part of the output file names.</li>
 <li><strong>IntervalMinute</strong> – how often the runbook runs. valid inputs: 5,10,15,20,30,60</li>
@@ -48,7 +48,7 @@ tags:
 <li><strong>Timeout</strong> – optional, default value 180 (seconds). This is the log search REST API timeout setting</li>
 <li><strong>OutputDir</strong> – the place you where you store the search results. use an UNC path instead of local path.</li>
 <li><strong>OutputFormat</strong> – optional, default is ‘JSON’. you can choose ‘JSON’ or ‘CSV’. I recommend you to use JSON because CSV has a flat structure. Use JSON to ensure data integrity because you don’t have to flatten the log entries.</li>
-<li><strong>Encoding</strong> – optional, default value set to “ASCII”. This is the encoding for the output file. possible values are: 'Unknown', 'String', 'Unicode', 'BigEndianUnicode', 'UTF8', 'UTF7', 'UTF32', 'ASCII', 'Default', 'OEM'</li>
+<li><strong>Encoding</strong> – optional, default value set to "ASCII". This is the encoding for the output file. possible values are: 'Unknown', 'String', 'Unicode', 'BigEndianUnicode', 'UTF8', 'UTF7', 'UTF32', 'ASCII', 'Default', 'OEM'</li>
 <li><strong>MaximumRowPerFile</strong> – optional, default value is 5000. Use this parameter to define maximum log entries stored in a file (to keep output files in reasonable sizes). The value must be between 1,000 and 10,000</li>
 <li><strong>Zip</strong> – optional, Boolean value. default is $false. Use this parameter if you wish to zip output files (to keep the sizes down).</li>
 </ul>

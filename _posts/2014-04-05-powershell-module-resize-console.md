@@ -34,10 +34,10 @@ Function Resize-Console
 
 [CmdletBinding()]
 PARAM (
-[Parameter(Mandatory=$false,HelpMessage=&quot;Increase Width and Height by 10&quot;)][Switch] $Bigger,
-[Parameter(Mandatory=$false,HelpMessage=&quot;Reduce Width and Height by 10&quot;)][Switch] $Smaller,
-[Parameter(Mandatory=$false,HelpMessage=&quot;Increase / Reduce Width&quot; )][Int32] $Width,
-[Parameter(Mandatory=$false,HelpMessage=&quot;Increase / Reduce Height&quot; )][Int32] $Height
+[Parameter(Mandatory=$false,HelpMessage="Increase Width and Height by 10")][Switch] $Bigger,
+[Parameter(Mandatory=$false,HelpMessage="Reduce Width and Height by 10")][Switch] $Smaller,
+[Parameter(Mandatory=$false,HelpMessage="Increase / Reduce Width" )][Int32] $Width,
+[Parameter(Mandatory=$false,HelpMessage="Increase / Reduce Height" )][Int32] $Height
 )
 
 #Get Current Buffer Size and Window Size
@@ -45,7 +45,7 @@ $bufferSize = $Host.UI.RawUI.BufferSize
 $WindowSize = $host.UI.RawUI.WindowSize
 If ($Bigger -and $Smaller)
 {
-Write-Error &quot;Please make up your mind, you can't go bigger and smaller at the same time!&quot;
+Write-Error "Please make up your mind, you can't go bigger and smaller at the same time!"
 } else {
 if ($Bigger)
 {

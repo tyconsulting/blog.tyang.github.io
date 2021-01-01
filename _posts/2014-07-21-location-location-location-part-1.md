@@ -61,7 +61,7 @@ I created a fairly simply dashboard in OpsMgr to pinpoint the current location o
 
 (Sorry guys, I pixelated the map as I don’t really want to post my home location on the Internet <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2014/07/wlEmoticon-smile2.png" alt="Smile" />).
 
-As you can see, this dashboard only contains 2 widgets. the left widget is a state widget targeting “<strong>Windows Client 8 Computer</strong>” class:
+As you can see, this dashboard only contains 2 widgets. the left widget is a state widget targeting "<strong>Windows Client 8 Computer</strong>" class:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTMLa1bd8f3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="SNAGHTMLa1bd8f3" src="http://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTMLa1bd8f3_thumb.png" alt="SNAGHTMLa1bd8f3" width="405" height="296" border="0" /></a>
 
@@ -73,15 +73,15 @@ As you can see, this dashboard only contains 2 widgets. the left widget is a sta
 
 The widget on the right is a PowerShell Web Browser widget (shipped with SP1 UR6 and R2 UR2). This widget runs the script below:
 
-[sourcecode language="Powershell"]
+```powershell
 Param($globalSelectedItems)
-$dataObject = $ScriptContext.CreateInstance(&quot;xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request&quot;)
-$dataObject[&quot;BaseUrl&quot;]=&quot;&lt;a href=&quot;http://maps.google.com/maps&amp;quot;&quot;&gt;http://maps.google.com/maps&quot;&lt;/a&gt;
-$parameterCollection = $ScriptContext.CreateCollection(&quot;xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter[]&quot;)
+$dataObject = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request")
+$dataObject["BaseUrl"]="&lt;a href="http://maps.google.com/maps&quot;"&gt;http://maps.google.com/maps"&lt;/a&gt;
+$parameterCollection = $ScriptContext.CreateCollection("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter[]")
 foreach ($globalSelectedItem in $globalSelectedItems)
 {
-$globalSelectedItemInstance = Get-SCOMClassInstance -Id $globalSelectedItem[&quot;Id&quot;]
-$DNSNameProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match &quot;^DNSName$&quot;}
+$globalSelectedItemInstance = Get-SCOMClassInstance -Id $globalSelectedItem["Id"]
+$DNSNameProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "^DNSName$"}
 $DNSName = $globalSelectedItemInstance.GetMonitoringPropertyValue($DNSNameProperty)
 
 #Get Coordinates via WinRM
@@ -106,7 +106,7 @@ $mylocationstatus = $mylocation.status
 }
 If ($mylocationstatus -eq 4)
 {
-# Windows Location Status returns 4, so we're &quot;Running&quot;
+# Windows Location Status returns 4, so we're "Running"
 # Get Latitude and Longitude from LatlongReport property
 $latitude = $mylocation.LatLongReport.Latitude
 $longitude = $mylocation.LatLongReport.Longitude
@@ -124,26 +124,26 @@ $bValidLoc = $true
 
 #Return Data
 $objLoc = New-Object psobject
-Add-Member -InputObject $objLoc -membertype noteproperty -name &quot;ValidLocation&quot; -value $bValidLoc
-Add-Member -InputObject $objLoc -membertype noteproperty -name &quot;LocationStatus&quot; -value $mylocationstatus
-Add-Member -InputObject $objLoc -membertype noteproperty -name &quot;latitude&quot; -value $latitude
-Add-Member -InputObject $objLoc -membertype noteproperty -name &quot;longitude&quot; -value $longitude
-Add-Member -InputObject $objLoc -membertype noteproperty -name &quot;altitude&quot; -value $altitude
-Add-Member -InputObject $objLoc -membertype noteproperty -name &quot;errorRadius&quot; -value $errorRadius
+Add-Member -InputObject $objLoc -membertype noteproperty -name "ValidLocation" -value $bValidLoc
+Add-Member -InputObject $objLoc -membertype noteproperty -name "LocationStatus" -value $mylocationstatus
+Add-Member -InputObject $objLoc -membertype noteproperty -name "latitude" -value $latitude
+Add-Member -InputObject $objLoc -membertype noteproperty -name "longitude" -value $longitude
+Add-Member -InputObject $objLoc -membertype noteproperty -name "altitude" -value $altitude
+Add-Member -InputObject $objLoc -membertype noteproperty -name "errorRadius" -value $errorRadius
 $objLoc
 } -Session $RemoteSession
 $latitude = $objRemoteLoc | select -ExpandProperty latitude
 $longitude = $objRemoteLoc | select -ExpandProperty longitude
 $ValidLocation = $objRemoteLoc | select -ExpandProperty ValidLocation
-$parameter = $ScriptContext.CreateInstance(&quot;xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter&quot;)
-$parameter[&quot;Name&quot;] = &quot;q&quot;
-$parameter[&quot;Value&quot;] = &quot;loc:&quot; + $latitude + &quot;+&quot; + $longitude
+$parameter = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
+$parameter["Name"] = "q"
+$parameter["Value"] = "loc:" + $latitude + "+" + $longitude
 $parameterCollection.Add($parameter)
 Remove-PSSession $RemoteSession
 }
-$dataObject[&quot;Parameters&quot;]= $parameterCollection
+$dataObject["Parameters"]= $parameterCollection
 $ScriptContext.ReturnCollection.Add($dataObject)
-[/sourcecode]
+```
 
 This script establishes a PS Remote session (WinRM) and retrieve computer’s coordinates using <strong>LocationDisp.LatLongReportFactory</strong> COM object. the coordinates then get passed back to the local PS session and then got pinned on Google Map based on the latitude and longitude data.
 

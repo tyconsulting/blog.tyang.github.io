@@ -22,8 +22,8 @@ For those who don’t know me, I work for an Australian retailer which has 3 bra
 
 This dashboard contains:
 <ul>
-	<li>Top Left: State widget for a customized class called “TYANG Remote Computer”, which is based on Windows Computer class.</li>
-	<li>Bottom Left: Contextual PowerShell Grid widget displays health state of all related objects for “TYANG Remote Computers”</li>
+	<li>Top Left: State widget for a customized class called "TYANG Remote Computer", which is based on Windows Computer class.</li>
+	<li>Bottom Left: Contextual PowerShell Grid widget displays health state of all related objects for "TYANG Remote Computers"</li>
 	<li>Right: Contextual PowerShell Web Browser widget that pin-points the computer location on Google Maps.</li>
 </ul>
 In Action:
@@ -36,7 +36,7 @@ I’ll now go through the steps I took to make this dashboard work. the manageme
 
 <strong>Step 01. Create a management pack to define and discover the custom Windows Computer class.</strong>
 
-I Named this management pack “Demo.Remote.Computers”. I basically created a customized Windows Computer class with 4 additional properties:
+I Named this management pack "Demo.Remote.Computers". I basically created a customized Windows Computer class with 4 additional properties:
 <ul>
 	<li>Street</li>
 	<li>City (aka Suburb as what we call in Australia)</li>
@@ -51,13 +51,13 @@ I then created a registry key and stored these property values in the key:
 
 After creating the registry key on few machines, I then created a filtered registry discovery workflow in the MP. It targets Windows Computer class and it is looking for this key. It also maps the 4 reg key values I created to the class properties.
 
-Lastly, before I sealed the MP, I also created a folder and a state view for this custom class. The Accessibility of the folder is set to “Public” – so later on I can place the dashboard under this folder from a separate MP.
+Lastly, before I sealed the MP, I also created a folder and a state view for this custom class. The Accessibility of the folder is set to "Public" – so later on I can place the dashboard under this folder from a separate MP.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image18.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb18.png" alt="image" width="580" height="62" border="0" /></a>
 
 <strong>Step 02. Create the dashboard</strong>
 
-Now that the class is defined and discovered, I can move on to the dashboard. To create the dashboard, firstly, I created a brand new MP from the Operations console, and called it “Demo Remote Computer Dashboard” with the ID “Demo.Remote.Computer.Dashboard”. When the unsealed MP is created in the operations console, a folder is automatically created with the MP. I will place the dashboard under this folder (for now):
+Now that the class is defined and discovered, I can move on to the dashboard. To create the dashboard, firstly, I created a brand new MP from the Operations console, and called it "Demo Remote Computer Dashboard" with the ID "Demo.Remote.Computer.Dashboard". When the unsealed MP is created in the operations console, a folder is automatically created with the MP. I will place the dashboard under this folder (for now):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image19.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb19.png" alt="image" width="286" height="46" border="0" /></a>
 
@@ -69,7 +69,7 @@ I added a state widget for the top left pane
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22e4fb14.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML22e4fb14" src="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22e4fb14_thumb.png" alt="SNAGHTML22e4fb14" width="364" height="270" border="0" /></a>
 
-Gave it a name: “Remote Computers”
+Gave it a name: "Remote Computers"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22e5ef28.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML22e5ef28" src="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22e5ef28_thumb.png" alt="SNAGHTML22e5ef28" width="298" height="187" border="0" /></a>
 
@@ -91,11 +91,11 @@ Then click Next and Create to create the widget.
 
 Next, I’ll create a PowerShell Grid contextual widget in the bottom right section to display the health of each related components.
 
-Choose “PowerShell Grid Widget”
+Choose "PowerShell Grid Widget"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22ed3e40.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML22ed3e40" src="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22ed3e40_thumb.png" alt="SNAGHTML22ed3e40" width="432" height="312" border="0" /></a>
 
-Name: “Components”
+Name: "Components"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22ee6098.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML22ee6098" src="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22ee6098_thumb.png" alt="SNAGHTML22ee6098" width="482" height="221" border="0" /></a>
 
@@ -107,12 +107,12 @@ Add the script below to the script section:
 Param($globalSelectedItems)
 foreach ($globalSelectedItem in $globalSelectedItems)
 {
-$globalSelectedItemInstance = Get-SCOMClassInstance -Id $globalSelectedItem[&quot;Id&quot;]
+$globalSelectedItemInstance = Get-SCOMClassInstance -Id $globalSelectedItem["Id"]
 foreach ($relatedItem in $globalSelectedItemInstance.GetRelatedMonitoringObjects())
 {
 $ClassName = $relatedItem.GetMonitoringclasses()[0].DisplayName
-$dataObject = $ScriptContext.CreateFromObject($relatedItem, &quot;Id=Id,State=HealthState,DisplayName=DisplayName,FullName=FullName&quot;, $null)
-$dataObject[&quot;ParentRelatedObject&quot;] = $globalSelectedItemInstance.DisplayName
+$dataObject = $ScriptContext.CreateFromObject($relatedItem, "Id=Id,State=HealthState,DisplayName=DisplayName,FullName=FullName", $null)
+$dataObject["ParentRelatedObject"] = $globalSelectedItemInstance.DisplayName
 $ScriptContext.ReturnCollection.Add($dataObject)
 }
 }
@@ -128,7 +128,7 @@ Choose PowerShell Web Browser Widget
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22f274d8.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML22f274d8" src="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22f274d8_thumb.png" alt="SNAGHTML22f274d8" width="532" height="398" border="0" /></a>
 
-Name it “Map”
+Name it "Map"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22f3613c.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML22f3613c" src="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22f3613c_thumb.png" alt="SNAGHTML22f3613c" width="340" height="172" border="0" /></a>
 
@@ -138,26 +138,26 @@ Copy the script below to the script section:
 
 [source language="Powershell"]
 Param($globalSelectedItems)
-$dataObject = $ScriptContext.CreateInstance(&quot;xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request&quot;)
-$dataObject[&quot;BaseUrl&quot;]=&quot;http://maps.google.com/maps&quot;
-$parameterCollection = $ScriptContext.CreateCollection(&quot;xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter[]&quot;)
+$dataObject = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request")
+$dataObject["BaseUrl"]="http://maps.google.com/maps"
+$parameterCollection = $ScriptContext.CreateCollection("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter[]")
 foreach ($globalSelectedItem in $globalSelectedItems)
 {
-$globalSelectedItemInstance = Get-SCOMClassInstance -Id $globalSelectedItem[&quot;Id&quot;]
-$StreetProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match &quot;Street&quot;}
-$CityProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match &quot;City&quot;}
-$StateProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match &quot;State&quot;}
-$CountryProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match &quot;Country&quot;}
+$globalSelectedItemInstance = Get-SCOMClassInstance -Id $globalSelectedItem["Id"]
+$StreetProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "Street"}
+$CityProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "City"}
+$StateProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "State"}
+$CountryProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "Country"}
 $Street = $globalSelectedItemInstance.GetMonitoringPropertyValue($StreetProperty)
 $City = $globalSelectedItemInstance.GetMonitoringPropertyValue($CityProperty)
 $State = $globalSelectedItemInstance.GetMonitoringPropertyValue($StateProperty)
 $Country = $globalSelectedItemInstance.GetMonitoringPropertyValue($CountryProperty)
-$parameter = $ScriptContext.CreateInstance(&quot;xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter&quot;)
-$parameter[&quot;Name&quot;] = &quot;q&quot;
-$parameter[&quot;Value&quot;] = &quot;$street $City $state $Country&quot;
+$parameter = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
+$parameter["Name"] = "q"
+$parameter["Value"] = "$street $City $state $Country"
 $parameterCollection.Add($parameter)
 }
-$dataObject[&quot;Parameters&quot;]= $parameterCollection
+$dataObject["Parameters"]= $parameterCollection
 $ScriptContext.ReturnCollection.Add($dataObject)
 [/source]
 
@@ -173,11 +173,11 @@ Step 03: Generalizing the Dashboard MP
 
 Firstly, export the dashboard MP, but do not delete it from the management group after export.
 
-Run the GTMTool.exe against the exported MP. When asked if I want to create a task pane dashboard, answer “Y” and enter the name of the MP I created in step 01 (“Demo.Remote.Computers”).
+Run the GTMTool.exe against the exported MP. When asked if I want to create a task pane dashboard, answer "Y" and enter the name of the MP I created in step 01 ("Demo.Remote.Computers").
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image23.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb23.png" alt="image" width="580" height="119" border="0" /></a>
 
-Although it’s not required, but I also opened the MP generated by the GTMTool.exe, replaced all the “UIGenerated” strings with something meaningful.
+Although it’s not required, but I also opened the MP generated by the GTMTool.exe, replaced all the "UIGenerated" strings with something meaningful.
 
 Before:
 
@@ -231,13 +231,13 @@ After spending some time googling this error, I learned Google does not work wel
 
 03. Google Maps left pane
 
-I tried to find a way to disable it, but in many online forums, people said there is no way to disable it unless use it in an iframe with the parameter “out=embed” in the URL.
+I tried to find a way to disable it, but in many online forums, people said there is no way to disable it unless use it in an iframe with the parameter "out=embed" in the URL.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image32.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb32.png" alt="image" width="244" height="204" border="0" /></a>
 
 I’m not a web developer, but I’m guessing if I develop a web page on a web server to host such an iframe, I should be able to remove it? it’s just a thought, I haven’t looked into it.
 
-Anyways, after playing with it for a while, I don’t really mind clicking the arrow to minimise the left pane every time, having the left pane there can be handy sometimes as I can also use the “Get Directions” function as I demonstrated in the video.
+Anyways, after playing with it for a while, I don’t really mind clicking the arrow to minimise the left pane every time, having the left pane there can be handy sometimes as I can also use the "Get Directions" function as I demonstrated in the video.
 
 <strong>Conclusion</strong>
 

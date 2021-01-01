@@ -23,45 +23,45 @@ Stefan Stranger has written a 2-part blog post on how to use Windows Phone push 
 
 I got so excited about this idea, but I’m a big fan for Android when comes to mobile devices. I am currently using a Samsung Galaxy Nexus phone and a Samsung Galaxy Tab 2 10.1 tablet – both of them are Android devices. So I’ve spent some time to see if I can do the same for Android devices.
 
-It turned out, there is also an app for Android devices, called “<a href="https://www.notifymyandroid.com/">Notify My Android</a>” <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" alt="Smile" src="http://blog.tyang.org/wp-content/uploads/2013/03/wlEmoticon-smile1.png" />. And the API’s for both apps are the same.
+It turned out, there is also an app for Android devices, called "<a href="https://www.notifymyandroid.com/">Notify My Android</a>" <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" alt="Smile" src="http://blog.tyang.org/wp-content/uploads/2013/03/wlEmoticon-smile1.png" />. And the API’s for both apps are the same.
 <h2>Setup Instructions</h2>
 It’s pretty much the same way to get this setup for Android devices. I’ll now go through the steps to configure push notification for Android devices (and also for Windows Phones):
 
-1. Install <em>“Notify My Android”</em> on Android devices via <a href="https://play.google.com/store/apps/details?id=com.usk.app.notifymyandroid">Google Play</a>
+1. Install <em>"Notify My Android"</em> on Android devices via <a href="https://play.google.com/store/apps/details?id=com.usk.app.notifymyandroid">Google Play</a>
 
 2. Sign up – either from android device or from <a href="https://notifiymyandroid.com">https://notifiymyandroid.com</a>
 
-3. Generate an API key from <a href="https://notifymyandroid.com">https://notifymyandroid.com</a>, under “My Account”
+3. Generate an API key from <a href="https://notifymyandroid.com">https://notifymyandroid.com</a>, under "My Account"
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/03/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/03/image_thumb17.png" width="580" height="381" border="0" /></a>
 
 <span style="color: #ff0000;"><strong>Note:</strong></span>
 
-<em>Stefan mentioned the “Notify My Windows Phone” app costs $1.99. “Notify My Android” app is actually free from Google Play, HOWEVER, after you’ve signed up, your account is only a trail account. the limitation for the trail accounts is that you only get 5 push notifications per day. Premium account has removed this limit It costs one-off payment of $4.99 to upgrade to premium account. the upgrade payment can either be made via Google Play on your android devices or using PayPal via the website. I upgraded my account via Google Play (as I thought it’s easier than using PayPal).</em>
+<em>Stefan mentioned the "Notify My Windows Phone" app costs $1.99. "Notify My Android" app is actually free from Google Play, HOWEVER, after you’ve signed up, your account is only a trail account. the limitation for the trail accounts is that you only get 5 push notifications per day. Premium account has removed this limit It costs one-off payment of $4.99 to upgrade to premium account. the upgrade payment can either be made via Google Play on your android devices or using PayPal via the website. I upgraded my account via Google Play (as I thought it’s easier than using PayPal).</em>
 
 <em>As I have 2 Android devices, I don’t need to create multiple accounts or generate multiple API keys. Once I’ve logged in on both devices using my premium account, the push notifications get delivered to both devices at the same time.</em>
 
 4. copy <a href="http://blog.tyang.org/wp-content/uploads/2013/03/MobileDevicesPushNotifications.zip">this script</a> to a unique location on all OpsMgr management servers in the Notifications Resource Pool (by default, this resource pool contains all management servers). In my lab, I have copied the script to <em><strong>D:\Scripts\MobileDevices-Notification</strong></em> on all my management servers. Below is what my updated script look like:
 
-[sourcecode language="powershell"]
+```powershell
 #Requires -Version 3
 
 Param($os,$apikey,$alertname,$alertsource,$alertseverity,$alertTimeRaised,$alertdescription)
 
 # Enter the name of the application the notification originates from.
-$application = &quot;OM2012&quot;
+$application = "OM2012"
 
 # Enter The event that occured. Depending on your application, this might be a summary, subject or a brief explanation.
-$event = &quot;OM2012 Alert&quot;
+$event = "OM2012 Alert"
 
 # The full body of the notification.
-$description = @&quot;
+$description = @"
 AlertName: $alertname
 Source: $alertsource
 Severity: $alertseverity
 TimeRaised: $alertTimeRaised
 Description: $alertDescription
-&quot;@
+"@
 
 #description maximum length is 10000, truncate it if it's over
 If ($description.length -gt 10000)
@@ -72,23 +72,23 @@ $description = $description.substring(0,10000)
 #write-eventlog -LogName Application -source MSIInstaller -EventId 999 -entrytype Information -Message $description
 
 # An optional value representing the priority of the notification.
-$priority = &quot;-2&quot;
+$priority = "-2"
 
 # Specifies the responsetype you want. You can currently choose between JSON or XML (default)
-$type = &quot;json&quot;
+$type = "json"
 $os = $os.tolower()
 Switch ($os)
 {
-&quot;android&quot; {$uri = &quot;http://notifymyandroid.com/publicapi/notify?event=$event&amp;priority=$priority&amp;application=$application&amp;description=$description&amp;apikey=$apikey&amp;type=$type&quot;}
-&quot;windows&quot; {$uri = &quot;http://notifymywindowsphone.com/publicapi/notify?event=$event&amp;priority=$priority&amp;application=$application&amp;description=$description&amp;apikey=$apikey&amp;type=$type&quot;}
+"android" {$uri = "http://notifymyandroid.com/publicapi/notify?event=$event&priority=$priority&application=$application&description=$description&apikey=$apikey&type=$type"}
+"windows" {$uri = "http://notifymywindowsphone.com/publicapi/notify?event=$event&priority=$priority&application=$application&description=$description&apikey=$apikey&type=$type"}
 }
 
 Invoke-WebRequest -Uri $uri
-[/sourcecode]
+```
 
 I’ve modified Stefan’s script (used in OpsMgr command notification channel) a little bit. Below is a list of what’s changed in my version of the script:
 <ul>
-	<li>supports both Windows Phone’s “Notify My Windows Phone” app and Android’s “Notify My Android” app.</li>
+	<li>supports both Windows Phone’s "Notify My Windows Phone" app and Android’s "Notify My Android" app.</li>
 	<li>Script is more generic as the API key is not hardcoded in the script, instead, it’s passed into the the script as a parameter.</li>
 	<li>Push notification messages contain additional alert information – alert source, alert description. – As both app’s API’s supports maximum 10,000 characters in notification description, the script will truncate the message to 10,000 characters if it’s over the limit.</li>
 	<li>Additional parameters are required to be passed into the script. – therefore the OpsMgr command channel is different than Stefan’s version.</li>
@@ -111,7 +111,7 @@ D:\Scripts\MobileDevices-Notification
 
 The script takes the following parameters (in the correct order):
 
-1. <strong>OS</strong>: support either “android” or “windows”
+1. <strong>OS</strong>: support either "android" or "windows"
 
 2. <strong>API key</strong>: generated from either Notify My Windows Phone or Notify My Android website
 

@@ -19,9 +19,9 @@ Recently, Kristian Nese from Microsoft published a sample subscription level ARM
 </ul>
 I ended up created a separate PowerShell script that can be used in VSTS to deploy subscription-level ARM templates by calling the ARM REST API directly. I will cover this script in my next post.
 
-The policy definition in Kristian’s example does not require any input parameters. To explain the challenges, I will use the “Allowed Role Definitions” sample definition from Azure Policy’s official GitHub repo: <a title="https://github.com/Azure/azure-policy/blob/master/samples/Authorization/allowed-role-definitions/azurepolicy.json" href="https://github.com/Azure/azure-policy/blob/master/samples/Authorization/allowed-role-definitions/azurepolicy.json">https://github.com/Azure/azure-policy/blob/master/samples/Authorization/allowed-role-definitions/azurepolicy.json</a>
+The policy definition in Kristian’s example does not require any input parameters. To explain the challenges, I will use the "Allowed Role Definitions" sample definition from Azure Policy’s official GitHub repo: <a title="https://github.com/Azure/azure-policy/blob/master/samples/Authorization/allowed-role-definitions/azurepolicy.json" href="https://github.com/Azure/azure-policy/blob/master/samples/Authorization/allowed-role-definitions/azurepolicy.json">https://github.com/Azure/azure-policy/blob/master/samples/Authorization/allowed-role-definitions/azurepolicy.json</a>
 
-In the policy definition, input parameter is defined in the <strong>parameters</strong> section and are referenced in the policy rule as <strong>“[parameters(‘parametername’)]”</strong>:
+In the policy definition, input parameter is defined in the <strong>parameters</strong> section and are referenced in the policy rule as <strong>"[parameters(‘parametername’)]"</strong>:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/06/image.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/06/image_thumb.png" alt="image" width="732" height="777" border="0" /></a>
 
