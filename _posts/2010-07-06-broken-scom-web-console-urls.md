@@ -3,7 +3,7 @@ id: 85
 title: Broken SCOM Web Console URLs?
 date: 2010-07-06T15:57:13+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=85
 permalink: /2010/07/06/broken-scom-web-console-urls/
 categories:

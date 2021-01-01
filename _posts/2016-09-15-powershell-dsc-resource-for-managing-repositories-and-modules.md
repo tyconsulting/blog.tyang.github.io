@@ -3,7 +3,7 @@ id: 5621
 title: PowerShell DSC Resource for Managing Repositories and Modules
 date: 2016-09-15T19:59:42+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5621
 permalink: /2016/09/15/powershell-dsc-resource-for-managing-repositories-and-modules/
 categories:

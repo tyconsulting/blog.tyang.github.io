@@ -3,7 +3,7 @@ id: 2892
 title: OpsMgr 2012 Self Maintenance Management Pack 2.4.0.0
 date: 2014-06-30T15:37:33+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2892
 permalink: /2014/06/30/opsmgr-2012-self-maintenance-management-pack-2-4-0-0/
 categories:

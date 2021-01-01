@@ -3,7 +3,7 @@ id: 6176
 title: Inside OMS Book V2 Released
 date: 2017-09-02T23:08:27+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6176
 permalink: /2017/09/02/inside-oms-book-v2-released/
 categories:

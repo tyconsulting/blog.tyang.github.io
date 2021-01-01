@@ -3,7 +3,7 @@ id: 4225
 title: 'Automating OpsMgr Part 7: Updated OpsMgrExtended Module'
 date: 2015-07-17T15:11:31+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4225
 permalink: /2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/
 categories:

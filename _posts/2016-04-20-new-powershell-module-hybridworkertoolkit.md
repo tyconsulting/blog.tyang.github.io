@@ -3,7 +3,7 @@ id: 5346
 title: New PowerShell Module HybridWorkerToolkit
 date: 2016-04-20T20:39:07+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5346
 permalink: /2016/04/20/new-powershell-module-hybridworkertoolkit/
 categories:

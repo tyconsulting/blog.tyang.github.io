@@ -3,7 +3,7 @@ id: 4411
 title: Squared Up Dashboard Community Initiative
 date: 2015-08-24T15:51:08+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4411
 permalink: /2015/08/24/squared-up-dashboard-community-initiative/
 categories:

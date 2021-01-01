@@ -4,7 +4,7 @@ title: Morning Check SCOM Alerts – Automated using PowerShell Script
 date: 2010-06-25T11:47:18+10:00
 author: Tao Yang
 excerpt: A Powershell script to assist server BAU team to perform morning check using SCOM...
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=12
 permalink: '/2010/06/25/morning-check-scom-alerts-%e2%80%93-automated-using-powershell-script/'
 categories:

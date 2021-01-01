@@ -3,7 +3,7 @@ id: 7176
 title: SCOM Self Maintenance Management Pack for SCOM 2019 now available
 date: 2019-09-24T23:30:31+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7176
 permalink: /2019/09/24/scom-self-maintenance-management-pack-for-scom-2019-now-available/
 categories:

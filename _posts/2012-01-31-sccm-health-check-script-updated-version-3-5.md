@@ -3,7 +3,7 @@ id: 973
 title: 'SCCM Health Check Script Updated: Version 3.5'
 date: 2012-01-31T19:55:11+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=973
 permalink: /2012/01/31/sccm-health-check-script-updated-version-3-5/
 categories:

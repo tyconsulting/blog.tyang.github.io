@@ -3,7 +3,7 @@ id: 6582
 title: Deploying PowerShell Modules to NuGet Feeds (Version 2) Using VSTS CI/CD Pipelines
 date: 2018-09-07T00:02:37+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6582
 permalink: /2018/09/07/deploying-powershell-modules-to-nuget-feeds-version-2-using-vsts-ci-cd-pipelines/
 categories:

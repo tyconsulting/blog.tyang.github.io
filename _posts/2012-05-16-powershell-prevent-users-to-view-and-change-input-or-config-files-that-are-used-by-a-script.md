@@ -3,7 +3,7 @@ id: 1230
 title: 'Powershell: Prevent Users To View and Change Input or Config Files That Are Used by a Script'
 date: 2012-05-16T22:07:10+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1230
 permalink: /2012/05/16/powershell-prevent-users-to-view-and-change-input-or-config-files-that-are-used-by-a-script/
 categories:

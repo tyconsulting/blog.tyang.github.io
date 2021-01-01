@@ -3,7 +3,7 @@ id: 3225
 title: Updated ConfigMgr 2012 (R2) Client Management Pack Version 1.2.0.0
 date: 2014-10-04T18:41:56+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3225
 permalink: /2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/
 categories:

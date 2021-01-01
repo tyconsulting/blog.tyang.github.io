@@ -3,7 +3,7 @@ id: 2436
 title: Discovery for MS Clusters of Any Kind
 date: 2014-03-29T23:32:42+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2436
 permalink: /2014/03/29/discovery-ms-clusters-kind/
 categories:

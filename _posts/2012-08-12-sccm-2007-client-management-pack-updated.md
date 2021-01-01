@@ -3,7 +3,7 @@ id: 1341
 title: SCCM 2007 Client Management Pack Updated
 date: 2012-08-12T14:29:19+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1341
 permalink: /2012/08/12/sccm-2007-client-management-pack-updated/
 categories:

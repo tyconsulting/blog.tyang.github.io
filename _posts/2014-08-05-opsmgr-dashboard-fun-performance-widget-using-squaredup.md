@@ -3,7 +3,7 @@ id: 3106
 title: 'OpsMgr Dashboard Fun: Performance Widget Using SquaredUp'
 date: 2014-08-05T22:45:22+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3106
 permalink: /2014/08/05/opsmgr-dashboard-fun-performance-widget-using-squaredup/
 categories:

@@ -3,7 +3,7 @@ id: 1015
 title: 'PowerShell Script: Remove All Packages From A SCCM Distribution Point'
 date: 2012-02-19T19:19:58+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1015
 permalink: /2012/02/19/powershell-script-remove-all-packages-from-a-sccm-distribution-point/
 categories:

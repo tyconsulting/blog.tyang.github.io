@@ -3,7 +3,7 @@ id: 4009
 title: OpsMgr 2012 Data Warehouse Health Check Script Updated
 date: 2015-06-19T21:43:04+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4009
 permalink: /2015/06/19/opsmgr-2012-data-warehouse-health-check-script-updated/
 categories:

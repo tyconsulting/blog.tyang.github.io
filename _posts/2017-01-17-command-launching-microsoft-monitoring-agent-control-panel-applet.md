@@ -3,7 +3,7 @@ id: 5870
 title: Command Launching Microsoft Monitoring Agent Control Panel Applet
 date: 2017-01-17T20:56:54+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5870
 permalink: /2017/01/17/command-launching-microsoft-monitoring-agent-control-panel-applet/
 categories:

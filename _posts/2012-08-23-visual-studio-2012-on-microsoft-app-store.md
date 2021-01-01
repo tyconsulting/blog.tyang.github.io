@@ -3,7 +3,7 @@ id: 1382
 title: Visual Studio 2012 on Microsoft App Store
 date: 2012-08-23T11:43:35+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1382
 permalink: /2012/08/23/visual-studio-2012-on-microsoft-app-store/
 categories:

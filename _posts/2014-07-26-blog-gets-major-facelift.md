@@ -3,7 +3,7 @@ id: 3062
 title: This Blog Gets A Major Facelift
 date: 2014-07-26T17:31:00+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3062
 permalink: /2014/07/26/blog-gets-major-facelift/
 categories:

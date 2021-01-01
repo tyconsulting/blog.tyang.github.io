@@ -3,7 +3,7 @@ id: 1309
 title: 'SCOM Alert Notification&ndash;Using Skype'
 date: 2012-08-07T20:17:49+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1309
 permalink: /2012/08/07/scom-alert-notificationusing-skype/
 categories:

@@ -3,7 +3,7 @@ id: 80
 title: SCOM Console Crashes
 date: 2010-07-06T11:28:10+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/2010/07/06/scom-console-crashes/
 permalink: /2010/07/06/scom-console-crashes/
 categories:

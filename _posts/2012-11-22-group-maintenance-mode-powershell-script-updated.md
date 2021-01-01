@@ -3,7 +3,7 @@ id: 1652
 title: Group Maintenance Mode PowerShell Script Updated
 date: 2012-11-22T13:41:47+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1652
 permalink: /2012/11/22/group-maintenance-mode-powershell-script-updated/
 categories:

@@ -3,7 +3,7 @@ id: 4733
 title: 'Automating OpsMgr Part 18: Second Update to the OpsMgrExtended Module (v1.2)'
 date: 2015-10-14T17:17:03+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4733
 permalink: /2015/10/14/automating-opsmgr-part-18-second-update-to-the-opsmgrextended-module-v1-2/
 categories:

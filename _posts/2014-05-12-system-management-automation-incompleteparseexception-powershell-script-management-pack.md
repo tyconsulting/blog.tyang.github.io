@@ -3,7 +3,7 @@ id: 2639
 title: System.Management.Automation.IncompleteParseException for a PowerShell script from my Management Pack
 date: 2014-05-12T19:22:05+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2639
 permalink: /2014/05/12/system-management-automation-incompleteparseexception-powershell-script-management-pack/
 categories:

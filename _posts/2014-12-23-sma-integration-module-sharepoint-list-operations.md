@@ -3,7 +3,7 @@ id: 3611
 title: A SMA Integration Module For SharePoint List Operations
 date: 2014-12-23T14:38:49+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3611
 permalink: /2014/12/23/sma-integration-module-sharepoint-list-operations/
 categories:

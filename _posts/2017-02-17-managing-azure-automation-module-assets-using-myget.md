@@ -3,7 +3,7 @@ id: 5906
 title: Managing Azure Automation Module Assets Using MyGet
 date: 2017-02-17T16:29:48+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5906
 permalink: /2017/02/17/managing-azure-automation-module-assets-using-myget/
 categories:

@@ -3,7 +3,7 @@ id: 7113
 title: Azure Automation Runbook to Export Data From Multiple Log Analytics Workspaces
 date: 2019-06-30T02:42:32+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7113
 permalink: /2019/06/30/azure-automation-runbook-to-export-data-from-multiple-log-analytics-workspaces/
 categories:

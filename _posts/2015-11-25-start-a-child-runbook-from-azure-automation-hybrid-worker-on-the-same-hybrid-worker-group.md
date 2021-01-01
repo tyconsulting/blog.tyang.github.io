@@ -3,7 +3,7 @@ id: 4880
 title: Start A Child Runbook From Azure Automation Hybrid Worker on the Same Hybrid Worker Group
 date: 2015-11-25T15:03:15+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4880
 permalink: /2015/11/25/start-a-child-runbook-from-azure-automation-hybrid-worker-on-the-same-hybrid-worker-group/
 categories:

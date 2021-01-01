@@ -3,7 +3,7 @@ id: 4119
 title: 'Automating OpsMgr Part 4: Create New Empty Groups'
 date: 2015-07-02T22:29:18+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4119
 permalink: /2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/
 categories:

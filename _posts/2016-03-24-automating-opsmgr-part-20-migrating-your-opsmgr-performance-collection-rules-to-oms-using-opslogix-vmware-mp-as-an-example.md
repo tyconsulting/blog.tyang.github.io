@@ -3,7 +3,7 @@ id: 5306
 title: 'Automating OpsMgr Part 20: Migrating Your OpsMgr Performance Collection Rules to OMS (Using OpsLogix VMware MP as an Example)'
 date: 2016-03-24T14:54:34+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5306
 permalink: /2016/03/24/automating-opsmgr-part-20-migrating-your-opsmgr-performance-collection-rules-to-oms-using-opslogix-vmware-mp-as-an-example/
 categories:

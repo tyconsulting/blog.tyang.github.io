@@ -3,7 +3,7 @@ id: 1851
 title: 'Duplicate OpsMgr Alert Notifications Caused by Service Manager&rsquo;s OpsMgr Alert Connector And Ways Around It.'
 date: 2013-04-06T13:26:44+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1851
 permalink: /2013/04/06/duplicate-opsmgr-alert-notifications-caused-by-service-managers-opsmgr-alert-connector-and-ways-around-it/
 categories:

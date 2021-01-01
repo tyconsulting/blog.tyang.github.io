@@ -3,7 +3,7 @@ id: 850
 title: 'PowerShell Script: Convert To Local Time From UTC'
 date: 2012-01-11T17:20:59+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=850
 permalink: /2012/01/11/powershell-script-convert-to-local-time-from-utc/
 categories:

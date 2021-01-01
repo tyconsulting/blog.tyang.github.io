@@ -3,7 +3,7 @@ id: 3714
 title: Updated Management Pack for Windows Server Logical Disk Auto Defragmentation
 date: 2015-02-17T21:38:11+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3714
 permalink: /2015/02/17/updated-management-pack-for-windows-server-logical-disk-auto-defragmentation/
 categories:

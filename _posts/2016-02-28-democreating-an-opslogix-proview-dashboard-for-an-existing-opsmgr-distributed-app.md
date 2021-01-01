@@ -3,7 +3,7 @@ id: 5206
 title: 'Demo &#8211; Creating an OpsLogix ProView Dashboard for an Existing OpsMgr Distributed App'
 date: 2016-02-28T15:45:56+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5206
 permalink: /2016/02/28/democreating-an-opslogix-proview-dashboard-for-an-existing-opsmgr-distributed-app/
 categories:

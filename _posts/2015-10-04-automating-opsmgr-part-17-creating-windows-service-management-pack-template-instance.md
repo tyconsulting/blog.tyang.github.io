@@ -3,7 +3,7 @@ id: 4709
 title: 'Automating OpsMgr Part 17: Creating Windows Service Management Pack Template Instance'
 date: 2015-10-04T16:35:18+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4709
 permalink: /2015/10/04/automating-opsmgr-part-17-creating-windows-service-management-pack-template-instance/
 categories:

@@ -3,7 +3,7 @@ id: 730
 title: Extend ConfigMgr Hardware Inventory to capture OpsMgr configurations
 date: 2011-10-12T18:40:52+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=730
 permalink: /2011/10/12/extend-configmgr-hardware-inventory-to-capture-opsmgr-configurations/
 categories:

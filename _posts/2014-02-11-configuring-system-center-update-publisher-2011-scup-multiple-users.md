@@ -3,7 +3,7 @@ id: 2335
 title: Configuring System Center Update Publisher 2011 (SCUP) for Multiple Users
 date: 2014-02-11T21:23:21+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2335
 permalink: /2014/02/11/configuring-system-center-update-publisher-2011-scup-multiple-users/
 categories:

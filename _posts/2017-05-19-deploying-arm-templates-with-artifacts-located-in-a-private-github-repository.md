@@ -3,7 +3,7 @@ id: 6025
 title: Deploying ARM Templates with Artifacts Located in a Private GitHub Repository
 date: 2017-05-19T16:59:59+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=6025
 permalink: /2017/05/19/deploying-arm-templates-with-artifacts-located-in-a-private-github-repository/
 categories:

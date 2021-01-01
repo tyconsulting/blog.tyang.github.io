@@ -3,7 +3,7 @@ id: 715
 title: Error 80041001 in InventoryAgent.log after mof files modifications
 date: 2011-10-09T16:39:23+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=715
 permalink: /2011/10/09/error-80041001-in-inventoryagent-log-after-mof-files-modifications/
 categories:

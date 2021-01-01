@@ -3,7 +3,7 @@ id: 547
 title: Unresponsive SCOM 2007 R2 Console
 date: 2011-05-27T19:18:25+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=547
 permalink: /2011/05/27/unresponsive-scom-2007-r2-console/
 categories:

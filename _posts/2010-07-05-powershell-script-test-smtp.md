@@ -3,7 +3,7 @@ id: 75
 title: 'PowerShell Script: Test-SMTP'
 date: 2010-07-05T13:46:34+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/2010/07/05/powershell-script-test-smtp/
 permalink: /2010/07/05/powershell-script-test-smtp/
 categories:

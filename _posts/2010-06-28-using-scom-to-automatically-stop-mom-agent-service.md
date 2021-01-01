@@ -3,7 +3,7 @@ id: 39
 title: Using SCOM to Automatically Stop MOM Agent Service
 date: 2010-06-28T05:55:47+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=39
 permalink: /2010/06/28/using-scom-to-automatically-stop-mom-agent-service/
 categories:

@@ -3,7 +3,7 @@ id: 6486
 title: PowerShell Script to Deploy Subscription Level ARM Templates
 date: 2018-06-06T23:10:31+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6486
 permalink: /2018/06/06/powershell-script-to-deploy-subscription-level-arm-templates/
 categories:

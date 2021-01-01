@@ -3,7 +3,7 @@ id: 1197
 title: My Observation on SCCM Clients BITS Settings
 date: 2012-05-05T00:41:49+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1197
 permalink: /2012/05/05/my-observation-on-sccm-clients-bits-settings/
 categories:

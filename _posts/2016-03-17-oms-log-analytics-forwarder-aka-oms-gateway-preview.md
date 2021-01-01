@@ -3,7 +3,7 @@ id: 5281
 title: OMS Log Analytics Forwarder (aka OMS Gateway) Preview
 date: 2016-03-17T18:13:39+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5281
 permalink: /2016/03/17/oms-log-analytics-forwarder-aka-oms-gateway-preview/
 categories:

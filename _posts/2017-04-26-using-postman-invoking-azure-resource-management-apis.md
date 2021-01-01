@@ -3,7 +3,7 @@ id: 5992
 title: Using Postman Invoking Azure Resource Management APIs
 date: 2017-04-26T22:09:49+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5992
 permalink: /2017/04/26/using-postman-invoking-azure-resource-management-apis/
 categories:

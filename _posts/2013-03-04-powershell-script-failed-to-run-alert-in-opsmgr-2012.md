@@ -3,7 +3,7 @@ id: 1745
 title: '&ldquo;PowerShell Script failed to run&rdquo; alert in OpsMgr 2012'
 date: 2013-03-04T14:43:24+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1745
 permalink: /2013/03/04/powershell-script-failed-to-run-alert-in-opsmgr-2012/
 categories:

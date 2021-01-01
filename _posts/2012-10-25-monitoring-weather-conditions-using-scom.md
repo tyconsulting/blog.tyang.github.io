@@ -3,7 +3,7 @@ id: 1596
 title: 'Monitoring Weather Conditions &ndash; Using SCOM'
 date: 2012-10-25T22:36:38+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1596
 permalink: /2012/10/25/monitoring-weather-conditions-using-scom/
 categories:

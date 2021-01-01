@@ -3,7 +3,7 @@ id: 1506
 title: 'My Home Test Lab &#8211; Part 2'
 date: 2012-10-05T22:41:35+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1506
 permalink: /2012/10/05/my-home-test-lab-part-2/
 categories:

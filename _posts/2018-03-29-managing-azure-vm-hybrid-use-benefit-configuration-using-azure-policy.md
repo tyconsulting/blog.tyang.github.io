@@ -3,7 +3,7 @@ id: 6404
 title: Managing Azure VM Hybrid Use Benefit Configuration Using Azure Policy
 date: 2018-03-29T00:20:32+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6404
 permalink: /2018/03/29/managing-azure-vm-hybrid-use-benefit-configuration-using-azure-policy/
 categories:

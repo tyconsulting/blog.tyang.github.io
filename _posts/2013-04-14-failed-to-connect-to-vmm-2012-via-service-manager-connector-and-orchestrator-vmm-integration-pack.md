@@ -3,7 +3,7 @@ id: 1887
 title: Failed to Connect to VMM 2012 via Service Manager Connector and Orchestrator VMM Integration Pack
 date: 2013-04-14T12:48:11+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1887
 permalink: /2013/04/14/failed-to-connect-to-vmm-2012-via-service-manager-connector-and-orchestrator-vmm-integration-pack/
 categories:

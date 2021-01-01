@@ -3,7 +3,7 @@ id: 2647
 title: System Center 2012 R2 Icons
 date: 2014-05-15T20:34:13+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2647
 permalink: /2014/05/15/system-center-2012-r2-icons/
 categories:

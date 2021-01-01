@@ -3,7 +3,7 @@ id: 4136
 title: World and Country Maps for Squared Up Visio Dashboard
 date: 2015-07-03T15:44:11+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4136
 permalink: /2015/07/03/world-and-country-maps-for-squared-up-visio-dashboard/
 categories:

@@ -3,7 +3,7 @@ id: 7205
 title: 100 Days of Infrastructure as Code in Azure
 date: 2019-11-12T21:37:03+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7205
 permalink: /2019/11/12/100-days-of-infrastructure-as-code-in-azure/
 categories:

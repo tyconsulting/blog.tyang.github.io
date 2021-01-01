@@ -3,7 +3,7 @@ id: 5316
 title: 'Upcoming Webinar: OpsLogix VMware Management Pack Overview'
 date: 2016-03-26T09:49:56+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5316
 permalink: /2016/03/26/upcoming-webinar-opslogix-vmware-management-pack-overview/
 categories:

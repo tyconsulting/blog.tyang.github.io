@@ -3,7 +3,7 @@ id: 3473
 title: Using SMA to Building Your Own Microsoft OpsMgr Management Pack Catalog On SharePoint 2013
 date: 2014-12-09T11:04:48+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3473
 permalink: /2014/12/09/using-sma-building-microsoft-opsmgr-management-pack-catalog-sharepoint-2013/
 categories:

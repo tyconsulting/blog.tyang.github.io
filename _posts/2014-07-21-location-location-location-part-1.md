@@ -3,7 +3,7 @@ id: 2961
 title: Location, Location, Location. Part 1
 date: 2014-07-21T01:45:00+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2961
 permalink: /2014/07/21/location-location-location-part-1/
 categories:

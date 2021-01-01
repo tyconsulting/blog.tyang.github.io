@@ -3,7 +3,7 @@ id: 4088
 title: 'Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation'
 date: 2015-06-30T16:39:05+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4088
 permalink: /2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/
 categories:

@@ -3,7 +3,7 @@ id: 2555
 title: Programmatically Generating the OpsMgr 2012 Alert Update Connector Configuration XML
 date: 2014-04-19T22:55:17+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2555
 permalink: /2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/
 categories:

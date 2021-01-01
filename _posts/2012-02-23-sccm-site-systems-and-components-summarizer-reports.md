@@ -3,7 +3,7 @@ id: 1035
 title: SCCM Site Systems and Components Summarizer Reports
 date: 2012-02-23T14:18:47+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1035
 permalink: /2012/02/23/sccm-site-systems-and-components-summarizer-reports/
 categories:

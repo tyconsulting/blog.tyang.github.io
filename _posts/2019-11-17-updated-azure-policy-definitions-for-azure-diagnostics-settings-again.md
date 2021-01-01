@@ -3,7 +3,7 @@ id: 7210
 title: Updated Azure Policy Definitions for Azure Diagnostics Settings Again
 date: 2019-11-17T20:41:41+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7210
 permalink: /2019/11/17/updated-azure-policy-definitions-for-azure-diagnostics-settings-again/
 spay_email:

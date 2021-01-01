@@ -3,7 +3,7 @@ id: 4315
 title: Squared Up Online Demo Lab Updated
 date: 2015-08-01T14:00:41+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4315
 permalink: /2015/08/01/squared-up-online-demo-lab-updated/
 categories:

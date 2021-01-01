@@ -3,7 +3,7 @@ id: 2849
 title: 'PowerShell Script: Remove Obsolete References from Unsealed OpsMgr Management Packs'
 date: 2014-06-24T16:45:04+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2849
 permalink: /2014/06/24/powershell-script-remove-obsolete-references-unsealed-opsmgr-management-packs/
 categories:

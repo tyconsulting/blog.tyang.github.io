@@ -3,7 +3,7 @@ id: 6336
 title: Generating Unique GUIDs in Azure Resource Manager Templates
 date: 2018-01-09T14:58:27+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6336
 permalink: /2018/01/09/generating-unique-guids-in-azure-resource-manager-templates/
 categories:

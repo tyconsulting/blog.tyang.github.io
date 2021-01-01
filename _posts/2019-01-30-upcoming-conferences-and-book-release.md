@@ -3,7 +3,7 @@ id: 6916
 title: Upcoming Conferences and Book Release
 date: 2019-01-30T16:49:35+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6916
 permalink: /2019/01/30/upcoming-conferences-and-book-release/
 categories:

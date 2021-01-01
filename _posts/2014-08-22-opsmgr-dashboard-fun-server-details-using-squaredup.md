@@ -3,7 +3,7 @@ id: 3117
 title: 'OpsMgr Dashboard Fun: Server Details Using SquaredUp'
 date: 2014-08-22T20:06:11+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3117
 permalink: /2014/08/22/opsmgr-dashboard-fun-server-details-using-squaredup/
 categories:

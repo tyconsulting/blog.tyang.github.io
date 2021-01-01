@@ -3,7 +3,7 @@ id: 4676
 title: Squared Up Dashboards Community
 date: 2015-10-01T19:04:27+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4676
 permalink: /2015/10/01/squared-up-dashboards-community/
 categories:

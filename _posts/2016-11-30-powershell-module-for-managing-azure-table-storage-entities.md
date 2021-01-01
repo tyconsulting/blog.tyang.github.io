@@ -3,7 +3,7 @@ id: 5751
 title: PowerShell Module for Managing Azure Table Storage Entities
 date: 2016-11-30T12:32:15+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5751
 permalink: /2016/11/30/powershell-module-for-managing-azure-table-storage-entities/
 categories:

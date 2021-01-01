@@ -3,7 +3,7 @@ id: 5479
 title: OMS Near Real Time Performance Data Aggregation Removed
 date: 2016-08-08T21:47:44+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5479
 permalink: /2016/08/08/oms-near-real-time-performance-data-aggregation-removed/
 categories:

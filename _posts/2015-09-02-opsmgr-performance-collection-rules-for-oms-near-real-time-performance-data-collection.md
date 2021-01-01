@@ -3,7 +3,7 @@ id: 4500
 title: OpsMgr Performance Collection Rules for OMS Near Real-Time Performance Data Collection
 date: 2015-09-02T23:31:16+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4500
 permalink: /2015/09/02/opsmgr-performance-collection-rules-for-oms-near-real-time-performance-data-collection/
 categories:

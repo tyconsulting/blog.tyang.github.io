@@ -3,7 +3,7 @@ id: 1761
 title: OpsMgr 2012 App Advisor Web Console Failed To Run Reports After DW Database Move
 date: 2013-03-12T20:12:14+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1761
 permalink: /2013/03/12/opsmgr-2012-app-advisor-web-console-failed-to-run-reports-after-dw-database-move/
 categories:

@@ -3,7 +3,7 @@ id: 5324
 title: My Global Azure Boot Camp 2016 Presentation Recording
 date: 2016-04-18T10:00:20+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5324
 permalink: /2016/04/18/my-global-azure-boot-camp-2016-presentation-recording/
 categories:

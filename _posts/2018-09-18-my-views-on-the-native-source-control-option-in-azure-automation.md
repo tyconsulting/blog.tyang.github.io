@@ -3,7 +3,7 @@ id: 6635
 title: My Views on the Native Source Control Option in Azure Automation
 date: 2018-09-18T18:02:45+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6635
 permalink: /2018/09/18/my-views-on-the-native-source-control-option-in-azure-automation/
 categories:

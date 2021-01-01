@@ -3,7 +3,7 @@ id: 6741
 title: My Journey to a Smarter Home (Part 1)
 date: 2018-09-22T02:21:16+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6741
 permalink: /2018/09/22/my-journey-to-a-smarter-home-part-1/
 categories:

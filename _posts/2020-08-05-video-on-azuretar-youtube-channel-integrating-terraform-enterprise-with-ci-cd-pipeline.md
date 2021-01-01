@@ -3,7 +3,7 @@ id: 7441
 title: 'Video on AzureTar YouTube Channel: Integrating Terraform Enterprise with CI/CD Pipeline'
 date: 2020-08-05T18:53:23+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7441
 permalink: /2020/08/05/video-on-azuretar-youtube-channel-integrating-terraform-enterprise-with-ci-cd-pipeline/
 spay_email:

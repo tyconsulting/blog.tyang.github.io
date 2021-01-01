@@ -3,7 +3,7 @@ id: 4322
 title: Spend Your Money Wisely
 date: 2015-08-07T22:48:04+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4322
 permalink: /2015/08/07/spend-your-money-wisely/
 categories:

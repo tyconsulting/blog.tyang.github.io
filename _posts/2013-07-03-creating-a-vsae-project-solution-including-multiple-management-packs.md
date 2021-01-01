@@ -3,7 +3,7 @@ id: 2000
 title: Creating a VSAE Project (Solution) Including Multiple Management Packs
 date: 2013-07-03T16:41:55+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2000
 permalink: /2013/07/03/creating-a-vsae-project-solution-including-multiple-management-packs/
 categories:

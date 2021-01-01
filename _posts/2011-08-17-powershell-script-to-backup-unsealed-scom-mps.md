@@ -3,7 +3,7 @@ id: 668
 title: PowerShell script to backup unsealed SCOM MPs
 date: 2011-08-17T09:40:49+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=668
 permalink: /2011/08/17/powershell-script-to-backup-unsealed-scom-mps/
 categories:

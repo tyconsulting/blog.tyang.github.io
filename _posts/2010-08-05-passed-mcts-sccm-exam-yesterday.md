@@ -3,7 +3,7 @@ id: 160
 title: Passed MCTS SCCM exam yesterday
 date: 2010-08-05T18:45:44+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=160
 permalink: /2010/08/05/passed-mcts-sccm-exam-yesterday/
 categories:

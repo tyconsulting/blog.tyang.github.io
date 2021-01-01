@@ -3,7 +3,7 @@ id: 2487
 title: 'PowerShell Module to resize console &ndash; Updated'
 date: 2014-04-08T22:01:28+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2487
 permalink: /2014/04/08/powershell-module-resize-console-updated/
 categories:

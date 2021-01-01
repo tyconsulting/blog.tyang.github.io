@@ -3,7 +3,7 @@ id: 7402
 title: Deploying Containerized Socks5 Proxy Server Using ACR, ACI and Azure DevOps
 date: 2020-06-16T21:02:21+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7402
 permalink: /2020/06/16/deploying-containerized-socks5-proxy-server-using-acr-aci-and-azure-devops/
 spay_email:

@@ -3,7 +3,7 @@ id: 4737
 title: Top Community Resources for SCOM and OMS Webinar
 date: 2015-10-16T10:12:39+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4737
 permalink: /2015/10/16/top-community-resources-for-scom-and-oms-webinar/
 categories:

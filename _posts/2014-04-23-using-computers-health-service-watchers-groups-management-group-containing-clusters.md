@@ -3,7 +3,7 @@ id: 2598
 title: Using Computers And Health Service Watchers Groups in a Management Group containing Clusters
 date: 2014-04-23T00:50:37+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2598
 permalink: /2014/04/23/using-computers-health-service-watchers-groups-management-group-containing-clusters/
 categories:

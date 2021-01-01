@@ -3,7 +3,7 @@ id: 4650
 title: 'Automating OpsMgr Part 15: Creating 2-State Event Monitors'
 date: 2015-09-25T21:06:03+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4650
 permalink: /2015/09/25/automating-opsmgr-part-15-creating-2-state-event-monitors/
 categories:

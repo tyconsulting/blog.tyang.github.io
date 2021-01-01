@@ -3,7 +3,7 @@ id: 3880
 title: Next Step in My Career
 date: 2015-04-19T14:11:13+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3880
 permalink: /2015/04/19/next-step-in-my-career/
 categories:

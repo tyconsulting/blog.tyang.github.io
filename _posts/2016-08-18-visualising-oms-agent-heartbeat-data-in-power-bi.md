@@ -3,7 +3,7 @@ id: 5554
 title: Visualising OMS Agent Heartbeat Data in Power BI
 date: 2016-08-18T22:49:51+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5554
 permalink: /2016/08/18/visualising-oms-agent-heartbeat-data-in-power-bi/
 categories:

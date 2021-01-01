@@ -3,7 +3,7 @@ id: 507
 title: 'Creating a collection in SCCM for &#8220;all SCOM 2007 R2 agents without Cumulative Update 4 installed&#8221;'
 date: 2011-05-12T17:59:27+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=507
 permalink: /2011/05/12/creating-a-collection-in-sccm-for-all-scom-2007-r2-agents-without-cumulative-update-4-installed/
 categories:

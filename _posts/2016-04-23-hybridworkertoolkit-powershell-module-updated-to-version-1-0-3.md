@@ -3,7 +3,7 @@ id: 5378
 title: HybridWorkerToolkit PowerShell Module Updated to Version 1.0.3
 date: 2016-04-23T22:40:31+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5378
 permalink: /2016/04/23/hybridworkertoolkit-powershell-module-updated-to-version-1-0-3/
 categories:

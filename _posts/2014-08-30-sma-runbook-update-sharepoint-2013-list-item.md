@@ -3,7 +3,7 @@ id: 3138
 title: 'SMA Runbook: Update A SharePoint 2013 List Item'
 date: 2014-08-30T21:48:44+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3138
 permalink: /2014/08/30/sma-runbook-update-sharepoint-2013-list-item/
 categories:

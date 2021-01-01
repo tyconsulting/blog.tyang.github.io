@@ -3,7 +3,7 @@ id: 720
 title: Clean Up Old Hardware Inventory Data
 date: 2011-10-09T18:42:30+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=720
 permalink: /2011/10/09/clean-up-old-hardware-inventory-data/
 categories:

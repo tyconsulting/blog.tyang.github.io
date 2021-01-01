@@ -3,7 +3,7 @@ id: 2466
 title: 'PowerShell Module: Resize-Console'
 date: 2014-04-05T21:55:35+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2466
 permalink: /2014/04/05/powershell-module-resize-console/
 categories:

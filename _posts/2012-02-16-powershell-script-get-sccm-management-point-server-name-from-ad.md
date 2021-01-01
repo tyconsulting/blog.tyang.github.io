@@ -3,7 +3,7 @@ id: 990
 title: 'PowerShell Script: Get SCCM Management Point server name from AD'
 date: 2012-02-16T10:23:05+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=990
 permalink: /2012/02/16/powershell-script-get-sccm-management-point-server-name-from-ad/
 categories:

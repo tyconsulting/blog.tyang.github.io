@@ -3,7 +3,7 @@ id: 7357
 title: Using Raspberry Pi for Displaying Ubiquiti CCTV Cameras in Kiosk Mode
 date: 2020-05-10T21:00:06+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7357
 permalink: /2020/05/10/using-raspberry-pi-for-displaying-ubiquiti-cctv-cameras-in-kiosk-mode/
 spay_email:

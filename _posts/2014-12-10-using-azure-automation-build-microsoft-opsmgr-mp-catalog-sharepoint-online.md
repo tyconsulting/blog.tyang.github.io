@@ -3,7 +3,7 @@ id: 3509
 title: Using Azure Automation to Build Your Own Microsoft OpsMgr MP Catalog on SharePoint Online
 date: 2014-12-10T21:45:00+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3509
 permalink: /2014/12/10/using-azure-automation-build-microsoft-opsmgr-mp-catalog-sharepoint-online/
 categories:

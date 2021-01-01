@@ -3,7 +3,7 @@ id: 4940
 title: Squared Up Released version 2.3
 date: 2015-12-06T18:19:29+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4940
 permalink: /2015/12/06/squared-up-released-version-2-3/
 categories:

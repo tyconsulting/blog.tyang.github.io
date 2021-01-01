@@ -3,7 +3,7 @@ id: 3864
 title: Consolidate Multiple Squared Up Instances into Single Dashboard
 date: 2015-03-25T19:01:44+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3864
 permalink: /2015/03/25/consolidate-multiple-squared-up-instances-into-single-dashboard/
 categories:

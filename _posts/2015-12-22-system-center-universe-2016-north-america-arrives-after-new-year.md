@@ -3,7 +3,7 @@ id: 5001
 title: System Center Universe 2016 North America Arrives After New Year
 date: 2015-12-22T21:59:13+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5001
 permalink: /2015/12/22/system-center-universe-2016-north-america-arrives-after-new-year/
 categories:

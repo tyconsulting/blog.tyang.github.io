@@ -3,7 +3,7 @@ id: 6836
 title: Sneak Peak of Azure Blueprints
 date: 2018-10-26T13:43:54+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6836
 permalink: /2018/10/26/sneak-peak-of-azure-blueprints/
 categories:

@@ -3,7 +3,7 @@ id: 3912
 title: 'New MP: OpsMgr Health State Synchronization Library'
 date: 2015-04-19T17:29:36+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3912
 permalink: /2015/04/19/new-mp-opsmgr-health-state-synchronization-library/
 categories:

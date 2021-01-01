@@ -3,7 +3,7 @@ id: 4979
 title: Extending Your OpsMgr Power BI Dashboards to Power BI Sites
 date: 2015-12-14T17:30:11+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4979
 permalink: /2015/12/14/extending-your-opsmgr-power-bi-dashboards-to-power-bi-sites/
 categories:

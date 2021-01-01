@@ -3,7 +3,7 @@ id: 324
 title: Failed to run PowerShell script via Task Scheduler on a 64 bit Windows
 date: 2010-11-28T11:19:05+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=324
 permalink: /2010/11/28/failed-to-run-powershell-script-via-task-scheduler-on-a-64-bit-windows/
 categories:

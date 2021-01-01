@@ -3,7 +3,7 @@ id: 5153
 title: Automating OpsLogix Oracle MP Configuration
 date: 2016-01-26T10:09:51+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5153
 permalink: /2016/01/26/automating-opslogix-oracle-mp-configuration/
 categories:

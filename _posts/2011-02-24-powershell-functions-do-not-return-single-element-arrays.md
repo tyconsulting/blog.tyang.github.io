@@ -3,7 +3,7 @@ id: 379
 title: Powershell Functions do not return single element arrays
 date: 2011-02-24T16:51:00+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=379
 permalink: /2011/02/24/powershell-functions-do-not-return-single-element-arrays/
 categories:

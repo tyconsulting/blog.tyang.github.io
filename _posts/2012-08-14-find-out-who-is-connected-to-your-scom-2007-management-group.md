@@ -3,7 +3,7 @@ id: 1354
 title: Find out who is connected to your SCOM 2007 management group
 date: 2012-08-14T23:02:34+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1354
 permalink: /2012/08/14/find-out-who-is-connected-to-your-scom-2007-management-group/
 categories:

@@ -3,7 +3,7 @@ id: 2702
 title: Management Pack for the SCOM 2012 Maintenance Mode Scheduler
 date: 2014-05-22T19:15:58+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2702
 permalink: /2014/05/22/management-pack-scom-2012-maintenance-mode-scheduler/
 categories:

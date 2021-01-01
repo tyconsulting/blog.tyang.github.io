@@ -3,7 +3,7 @@ id: 2503
 title: Remotely Powering On and Off My Entire Home Lab
 date: 2014-04-12T17:45:16+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2503
 permalink: /2014/04/12/remotely-powering-entire-home-lab/
 categories:

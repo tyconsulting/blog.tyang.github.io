@@ -3,7 +3,7 @@ id: 3847
 title: Using Squared Up As an Universal Dashboard Solution
 date: 2015-03-13T18:19:17+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3847
 permalink: /2015/03/13/using-squared-up-as-an-universal-dashboard-solution/
 categories:

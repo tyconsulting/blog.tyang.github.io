@@ -3,7 +3,7 @@ id: 983
 title: 'PowerShell Script: Calculate First and Last IP of a Subnet'
 date: 2012-02-09T09:29:20+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=983
 permalink: /2012/02/09/powershell-script-calculate-first-and-last-ip-of-a-subnet/
 categories:

@@ -3,7 +3,7 @@ id: 6241
 title: AzureTableEntity PowerShell Module Updated
 date: 2017-09-11T21:25:15+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6241
 permalink: /2017/09/11/azuretableentity-powershell-module-updated/
 categories:

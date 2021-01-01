@@ -3,7 +3,7 @@ id: 6456
 title: Using ARM Templates to Deploying Azure Policy Definitions That Requires Input Parameters
 date: 2018-06-06T20:56:38+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6456
 permalink: /2018/06/06/using-arm-templates-to-deploying-azure-policy-definitions-that-requires-input-parameters/
 categories:

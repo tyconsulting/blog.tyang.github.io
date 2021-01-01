@@ -3,7 +3,7 @@ id: 1635
 title: My First Impression on PowerShell Web Access
 date: 2012-11-10T11:28:05+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1635
 permalink: /2012/11/10/my-first-impression-on-powershell-web-access/
 image: /wp-content/uploads/2012/11/Web-Browse-Icons-1.png

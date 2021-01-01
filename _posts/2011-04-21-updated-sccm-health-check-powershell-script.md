@@ -3,7 +3,7 @@ id: 449
 title: 'Updated: SCCM Health Check PowerShell Script'
 date: 2011-04-21T20:55:17+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=449
 permalink: /2011/04/21/updated-sccm-health-check-powershell-script/
 categories:

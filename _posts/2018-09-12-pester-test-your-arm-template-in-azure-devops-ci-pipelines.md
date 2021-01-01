@@ -3,7 +3,7 @@ id: 6613
 title: Pester Test Your ARM Template in Azure DevOps CI Pipelines
 date: 2018-09-12T21:44:34+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6613
 permalink: /2018/09/12/pester-test-your-arm-template-in-azure-devops-ci-pipelines/
 categories:

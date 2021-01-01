@@ -3,7 +3,7 @@ id: 5119
 title: Upcoming Community Speaking Events for January 2016
 date: 2016-01-07T10:15:31+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5119
 permalink: /2016/01/07/upcoming-community-speaking-events-for-january-2016/
 categories:

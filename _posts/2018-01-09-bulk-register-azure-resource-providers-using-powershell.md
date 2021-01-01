@@ -3,7 +3,7 @@ id: 6340
 title: Bulk Register Azure Resource Providers Using PowerShell
 date: 2018-01-09T22:50:34+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6340
 permalink: /2018/01/09/bulk-register-azure-resource-providers-using-powershell/
 categories:

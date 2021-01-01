@@ -3,7 +3,7 @@ id: 3683
 title: 'Microsoft MVP Community Camp 2015 and My Session for SMA Integration Module: OpsMgrExtended'
 date: 2015-01-23T21:15:53+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3683
 permalink: /2015/01/23/microsoft-mvp-community-camp-2015-session-sma-integration-module-opsmgrextended/
 categories:

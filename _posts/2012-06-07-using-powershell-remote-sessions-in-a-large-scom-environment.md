@@ -3,7 +3,7 @@ id: 1262
 title: Using PowerShell Remote Sessions in a large SCOM environment
 date: 2012-06-07T20:18:44+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1262
 permalink: /2012/06/07/using-powershell-remote-sessions-in-a-large-scom-environment/
 categories:

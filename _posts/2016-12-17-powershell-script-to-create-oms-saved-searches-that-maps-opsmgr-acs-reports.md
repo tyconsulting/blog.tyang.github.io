@@ -3,7 +3,7 @@ id: 5812
 title: PowerShell Script to Create OMS Saved Searches that Maps OpsMgr ACS Reports
 date: 2016-12-17T20:16:15+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5812
 permalink: /2016/12/17/powershell-script-to-create-oms-saved-searches-that-maps-opsmgr-acs-reports/
 categories:

@@ -3,7 +3,7 @@ id: 7493
 title: October 2020 Update for Azure Diagnostic Settings Policy Definitions
 date: 2020-10-12T22:09:55+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7493
 permalink: /2020/10/12/october-2020-update-for-azure-diagnostic-settings-policy-definitions/
 spay_email:

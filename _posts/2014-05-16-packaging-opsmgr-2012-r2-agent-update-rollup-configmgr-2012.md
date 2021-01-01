@@ -3,7 +3,7 @@ id: 2671
 title: Packaging OpsMgr 2012 R2 Agent WITH Update Rollup in ConfigMgr 2012
 date: 2014-05-16T00:20:00+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2671
 permalink: /2014/05/16/packaging-opsmgr-2012-r2-agent-update-rollup-configmgr-2012/
 categories:

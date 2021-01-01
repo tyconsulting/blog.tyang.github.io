@@ -3,7 +3,7 @@ id: 517
 title: PowerShell Script to locate SCCM objects in SCCM console
 date: 2011-05-20T16:24:44+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=517
 permalink: /2011/05/20/powershell-script-to-locate-sccm-objects-in-sccm-console/
 categories:

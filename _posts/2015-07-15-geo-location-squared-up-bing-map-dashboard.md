@@ -3,7 +3,7 @@ id: 4201
 title: Geo-Location Squared Up Bing Map Dashboard
 date: 2015-07-15T21:52:54+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4201
 permalink: /2015/07/15/geo-location-squared-up-bing-map-dashboard/
 categories:

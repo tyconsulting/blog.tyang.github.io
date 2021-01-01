@@ -2,8 +2,8 @@
 id: 7406
 title: OMSDataInjection PowerShell Module Updated
 date: 2020-06-24T21:23:49+10:00
-author: Tao Yang Admin
-layout: post
+author: Tao Yang
+#layout: post
 guid: https://blog.tyang.org/?p=7406
 permalink: /2020/06/24/omsdatainjection-powershell-module-updated-2/
 categories:

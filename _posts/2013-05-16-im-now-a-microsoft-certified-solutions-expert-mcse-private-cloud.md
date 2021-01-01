@@ -3,7 +3,7 @@ id: 1941
 title: 'I&rsquo;m Now a Microsoft Certified Solutions Expert (MCSE): Private Cloud'
 date: 2013-05-16T21:44:19+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1941
 permalink: /2013/05/16/im-now-a-microsoft-certified-solutions-expert-mcse-private-cloud/
 categories:

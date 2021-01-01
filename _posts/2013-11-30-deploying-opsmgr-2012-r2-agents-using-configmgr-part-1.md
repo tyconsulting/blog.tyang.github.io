@@ -3,7 +3,7 @@ id: 2194
 title: 'Deploying OpsMgr 2012 R2 Agents Using ConfigMgr &#8211; Part 1'
 date: 2013-11-30T10:33:19+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2194
 permalink: /2013/11/30/deploying-opsmgr-2012-r2-agents-using-configmgr-part-1/
 categories:

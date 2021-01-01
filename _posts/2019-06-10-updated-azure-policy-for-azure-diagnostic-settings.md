@@ -3,7 +3,7 @@ id: 7089
 title: Updated Azure Policy for Azure Diagnostic Settings
 date: 2019-06-10T16:16:46+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7089
 permalink: /2019/06/10/updated-azure-policy-for-azure-diagnostic-settings/
 categories:

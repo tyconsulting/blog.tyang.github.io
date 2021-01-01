@@ -3,7 +3,7 @@ id: 1955
 title: Finding OpsMgr Management Group Installation Date Using PowerShell
 date: 2013-06-07T14:47:29+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1955
 permalink: /2013/06/07/finding-opsmgr-management-group-installation-date-using-powershell/
 categories:

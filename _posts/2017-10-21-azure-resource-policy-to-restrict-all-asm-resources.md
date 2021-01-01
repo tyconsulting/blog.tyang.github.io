@@ -3,7 +3,7 @@ id: 6265
 title: Azure Resource Policy to Restrict ALL ASM Resources
 date: 2017-10-21T23:16:44+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6265
 permalink: /2017/10/21/azure-resource-policy-to-restrict-all-asm-resources/
 categories:

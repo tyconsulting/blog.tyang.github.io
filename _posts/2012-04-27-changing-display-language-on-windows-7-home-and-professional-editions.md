@@ -3,7 +3,7 @@ id: 1119
 title: Changing Display Language on Windows 7 Home and Professional Editions
 date: 2012-04-27T19:00:14+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1119
 permalink: /2012/04/27/changing-display-language-on-windows-7-home-and-professional-editions/
 categories:

@@ -3,7 +3,7 @@ id: 2819
 title: Updated OpsMgr 2012 Alert Update Connector Management Pack
 date: 2014-05-31T11:09:46+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2819
 permalink: /2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/
 categories:

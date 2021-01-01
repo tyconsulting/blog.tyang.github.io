@@ -3,7 +3,7 @@ id: 2833
 title: Controlling OpsMgr 2012 PowerShell Contextual Script Widgets Behaviour
 date: 2014-06-05T22:15:56+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2833
 permalink: /2014/06/05/controlling-opsmgr-2012-powershell-contextual-script-widgets-behaviour/
 categories:

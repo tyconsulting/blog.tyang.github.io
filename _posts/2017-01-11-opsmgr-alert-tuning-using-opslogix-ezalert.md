@@ -3,7 +3,7 @@ id: 5861
 title: OpsMgr Alert Tuning using OpsLogix EZalert
 date: 2017-01-11T11:50:28+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5861
 permalink: /2017/01/11/opsmgr-alert-tuning-using-opslogix-ezalert/
 categories:

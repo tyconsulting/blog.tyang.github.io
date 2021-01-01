@@ -3,7 +3,7 @@ id: 3306
 title: Visual Studio 2013 Community Edition
 date: 2014-11-17T13:53:57+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3306
 permalink: /2014/11/17/visual-studio-2013-community-edition/
 categories:

@@ -3,7 +3,7 @@ id: 6296
 title: SCOM Webinar for Office 365 Monitoring and Dashboards
 date: 2017-12-06T18:52:12+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6296
 permalink: /2017/12/06/scom-webinar-for-office-365-monitoring-and-dashboards/
 categories:

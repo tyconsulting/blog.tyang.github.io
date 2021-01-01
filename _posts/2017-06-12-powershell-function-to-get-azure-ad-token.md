@@ -3,7 +3,7 @@ id: 6101
 title: PowerShell Function to Get Azure AD Token
 date: 2017-06-12T18:46:54+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6101
 permalink: /2017/06/12/powershell-function-to-get-azure-ad-token/
 categories:

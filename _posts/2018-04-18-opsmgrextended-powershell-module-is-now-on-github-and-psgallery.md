@@ -3,7 +3,7 @@ id: 6414
 title: OpsMgrExtended PowerShell module is now on GitHub and PSGallery
 date: 2018-04-18T00:13:36+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6414
 permalink: /2018/04/18/opsmgrextended-powershell-module-is-now-on-github-and-psgallery/
 categories:

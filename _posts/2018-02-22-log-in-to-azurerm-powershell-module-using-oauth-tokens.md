@@ -3,7 +3,7 @@ id: 6363
 title: Log-In to AzureRM PowerShell module using oAuth Tokens
 date: 2018-02-22T21:52:46+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6363
 permalink: /2018/02/22/log-in-to-azurerm-powershell-module-using-oauth-tokens/
 categories:

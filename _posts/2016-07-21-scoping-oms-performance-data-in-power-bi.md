@@ -3,7 +3,7 @@ id: 5455
 title: Scoping OMS Performance Data in Power BI
 date: 2016-07-21T01:13:58+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5455
 permalink: /2016/07/21/scoping-oms-performance-data-in-power-bi/
 categories:

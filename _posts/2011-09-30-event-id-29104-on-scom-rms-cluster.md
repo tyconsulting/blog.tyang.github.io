@@ -3,7 +3,7 @@ id: 678
 title: Event ID 29104 on SCOM RMS cluster
 date: 2011-09-30T21:59:20+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=678
 permalink: /2011/09/30/event-id-29104-on-scom-rms-cluster/
 categories:

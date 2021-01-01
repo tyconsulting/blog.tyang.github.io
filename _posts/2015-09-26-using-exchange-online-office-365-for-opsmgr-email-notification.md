@@ -3,7 +3,7 @@ id: 4670
 title: Using Exchange Online (Office 365) For OpsMgr Email Notification
 date: 2015-09-26T14:02:23+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4670
 permalink: /2015/09/26/using-exchange-online-office-365-for-opsmgr-email-notification/
 categories:

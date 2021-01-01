@@ -3,7 +3,7 @@ id: 3802
 title: Various Ways to Find the ID of a Monitoring Object in OpsMgr
 date: 2015-03-11T20:02:36+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3802
 permalink: /2015/03/11/various-ways-to-find-the-id-of-a-monitoring-object-in-opsmgr/
 categories:

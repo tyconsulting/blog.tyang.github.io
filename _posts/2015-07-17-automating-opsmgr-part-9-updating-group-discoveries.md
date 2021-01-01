@@ -3,7 +3,7 @@ id: 4257
 title: 'Automating OpsMgr Part 9: Updating Group Discoveries'
 date: 2015-07-17T22:54:10+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4257
 permalink: /2015/07/17/automating-opsmgr-part-9-updating-group-discoveries/
 categories:

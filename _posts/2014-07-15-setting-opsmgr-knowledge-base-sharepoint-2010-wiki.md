@@ -3,7 +3,7 @@ id: 2934
 title: Setting up OpsMgr Knowledge Base on SharePoint 2010 Wiki
 date: 2014-07-15T21:29:33+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2934
 permalink: /2014/07/15/setting-opsmgr-knowledge-base-sharepoint-2010-wiki/
 categories:

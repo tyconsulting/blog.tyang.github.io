@@ -3,7 +3,7 @@ id: 5634
 title: Scripting Azure Automation Module Imports Directly from MyGet or PowerShell Gallery
 date: 2016-09-18T21:23:15+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5634
 permalink: /2016/09/18/scripting-azure-automation-module-imports-directly-from-myget-or-powershell-gallery/
 categories:

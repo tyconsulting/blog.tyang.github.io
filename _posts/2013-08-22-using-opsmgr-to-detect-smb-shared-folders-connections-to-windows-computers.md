@@ -3,7 +3,7 @@ id: 2092
 title: Using OpsMgr to Detect SMB (Shared Folders) Connections to Windows Computers
 date: 2013-08-22T21:10:33+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2092
 permalink: /2013/08/22/using-opsmgr-to-detect-smb-shared-folders-connections-to-windows-computers/
 categories:

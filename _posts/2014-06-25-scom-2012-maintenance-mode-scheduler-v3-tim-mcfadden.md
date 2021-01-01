@@ -3,7 +3,7 @@ id: 2859
 title: SCOM 2012 Maintenance Mode Scheduler V3 from Tim McFadden
 date: 2014-06-25T20:36:01+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2859
 permalink: /2014/06/25/scom-2012-maintenance-mode-scheduler-v3-tim-mcfadden/
 categories:

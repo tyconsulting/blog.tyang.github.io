@@ -3,7 +3,7 @@ id: 5126
 title: The Recording for My WMUG NL Webinar on OMS Alerting is Available Online
 date: 2016-01-16T20:20:34+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5126
 permalink: /2016/01/16/the-recording-for-my-wmug-nl-webinar-on-oms-alerting-is-available-online/
 categories:

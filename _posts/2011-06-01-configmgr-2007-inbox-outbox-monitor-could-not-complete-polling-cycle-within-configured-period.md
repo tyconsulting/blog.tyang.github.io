@@ -3,7 +3,7 @@ id: 557
 title: 'ConfigMgr 2007 Inbox (Outbox) Monitor: Could not complete polling cycle within configured period'
 date: 2011-06-01T13:57:11+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=557
 permalink: /2011/06/01/configmgr-2007-inbox-outbox-monitor-could-not-complete-polling-cycle-within-configured-period/
 categories:

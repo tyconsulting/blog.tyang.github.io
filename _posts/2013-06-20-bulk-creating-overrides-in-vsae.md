@@ -3,7 +3,7 @@ id: 1978
 title: Bulk Creating Overrides in VSAE
 date: 2013-06-20T12:07:19+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1978
 permalink: /2013/06/20/bulk-creating-overrides-in-vsae/
 categories:

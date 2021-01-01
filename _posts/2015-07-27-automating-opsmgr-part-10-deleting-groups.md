@@ -3,7 +3,7 @@ id: 4272
 title: 'Automating OpsMgr Part 10: Deleting Groups'
 date: 2015-07-27T16:02:54+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4272
 permalink: /2015/07/27/automating-opsmgr-part-10-deleting-groups/
 categories:

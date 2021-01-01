@@ -3,7 +3,7 @@ id: 6293
 title: Squared Up OpsMgr Community MP Catalog
 date: 2017-12-03T15:27:29+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6293
 permalink: /2017/12/03/squared-up-opsmgr-community-mp-catalog/
 categories:

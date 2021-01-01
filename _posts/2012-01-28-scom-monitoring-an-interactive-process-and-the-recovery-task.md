@@ -3,7 +3,7 @@ id: 946
 title: 'SCOM: Monitoring an Interactive Process and The Recovery Task'
 date: 2012-01-28T08:37:52+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=946
 permalink: /2012/01/28/scom-monitoring-an-interactive-process-and-the-recovery-task/
 categories:

@@ -3,7 +3,7 @@ id: 3084
 title: How to Create a PowerShell Console Profile Baseline for the Entire Environment
 date: 2014-08-03T16:48:24+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3084
 permalink: /2014/08/03/create-powershell-console-profile-baseline-entire-environment/
 categories:

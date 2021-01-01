@@ -3,7 +3,7 @@ id: 1898
 title: Unable to Select VMM Server in Assign Cloud Resources Wizard in Service Manager
 date: 2013-04-18T22:16:08+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1898
 permalink: /2013/04/18/unable-to-select-vmm-server-in-assign-cloud-resources-wizard-in-service-manager/
 categories:

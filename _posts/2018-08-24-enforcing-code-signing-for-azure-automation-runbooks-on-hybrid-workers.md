@@ -3,7 +3,7 @@ id: 6544
 title: Enforcing Code Signing for Azure Automation Runbooks on Hybrid Workers
 date: 2018-08-24T23:42:10+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6544
 permalink: /2018/08/24/enforcing-code-signing-for-azure-automation-runbooks-on-hybrid-workers/
 categories:

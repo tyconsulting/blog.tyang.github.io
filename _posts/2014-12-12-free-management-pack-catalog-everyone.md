@@ -3,7 +3,7 @@ id: 3516
 title: A Free Management Pack Catalog for Everyone
 date: 2014-12-12T19:17:20+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3516
 permalink: /2014/12/12/free-management-pack-catalog-everyone/
 categories:

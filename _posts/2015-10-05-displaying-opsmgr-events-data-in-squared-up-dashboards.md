@@ -3,7 +3,7 @@ id: 4721
 title: Displaying OpsMgr Events Data in Squared Up Dashboards
 date: 2015-10-05T15:02:22+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4721
 permalink: /2015/10/05/displaying-opsmgr-events-data-in-squared-up-dashboards/
 categories:

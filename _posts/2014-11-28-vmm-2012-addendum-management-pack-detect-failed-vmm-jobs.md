@@ -3,7 +3,7 @@ id: 3402
 title: 'VMM 2012 Addendum Management Pack: Detect Failed VMM Jobs'
 date: 2014-11-28T21:23:13+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3402
 permalink: /2014/11/28/vmm-2012-addendum-management-pack-detect-failed-vmm-jobs/
 categories:

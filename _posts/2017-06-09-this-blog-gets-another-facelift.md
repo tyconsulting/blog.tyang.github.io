@@ -3,7 +3,7 @@ id: 6092
 title: This Blog Gets another Facelift
 date: 2017-06-09T23:25:28+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6092
 permalink: /2017/06/09/this-blog-gets-another-facelift/
 categories:

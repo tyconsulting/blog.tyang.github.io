@@ -3,7 +3,7 @@ id: 1114
 title: 'SCCM 2012 Log Parser: cmtrace.exe'
 date: 2012-04-17T19:35:19+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1114
 permalink: /2012/04/17/sccm-2012-log-parser-cmtrace-exe/
 categories:

@@ -3,7 +3,7 @@ id: 762
 title: Run 64-bit PowerShell via SCCM 2007 Advertisement
 date: 2011-11-08T20:16:53+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=762
 permalink: /2011/11/08/run-64-bit-powershell-via-sccm-2007-advertisement/
 categories:

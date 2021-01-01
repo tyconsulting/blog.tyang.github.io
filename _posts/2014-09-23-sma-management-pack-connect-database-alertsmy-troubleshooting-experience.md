@@ -3,7 +3,7 @@ id: 3175
 title: 'SMA Management Pack Could Not Connect To Database Alerts &#8211; My Troubleshooting Experience'
 date: 2014-09-23T21:15:26+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3175
 permalink: /2014/09/23/sma-management-pack-connect-database-alertsmy-troubleshooting-experience/
 categories:

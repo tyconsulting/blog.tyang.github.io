@@ -3,7 +3,7 @@ id: 4403
 title: Deploying OpsMgr 2016 TP3 with Minimum Windows Server GUI requirements
 date: 2015-08-24T02:38:06+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4403
 permalink: /2015/08/24/deploying-opsmgr-2016-tp3-with-minimum-windows-server-gui-requirements/
 categories:

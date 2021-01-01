@@ -3,7 +3,7 @@ id: 1078
 title: Reports not updated in SCOM SQL Reporting Service When the Management Pack was Updated
 date: 2012-03-28T17:49:13+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1078
 permalink: /2012/03/28/reports-not-updated-in-scom-sql-reporting-service-when-the-management-pack-was-updated/
 categories:

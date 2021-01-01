@@ -3,7 +3,7 @@ id: 3665
 title: Creating OpsMgr Instance Group for All Computers Running an Application and Their Health Service Watchers
 date: 2015-01-18T19:09:07+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3665
 permalink: /2015/01/18/creating-opsmgr-instance-group-computers-running-application-health-service-watchers/
 categories:

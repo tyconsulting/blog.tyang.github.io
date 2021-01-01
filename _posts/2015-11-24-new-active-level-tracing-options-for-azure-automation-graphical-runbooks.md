@@ -3,7 +3,7 @@ id: 4875
 title: New Activity-Level Tracing Options for Azure Automation Graphical Runbooks
 date: 2015-11-24T15:55:14+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4875
 permalink: /2015/11/24/new-active-level-tracing-options-for-azure-automation-graphical-runbooks/
 categories:

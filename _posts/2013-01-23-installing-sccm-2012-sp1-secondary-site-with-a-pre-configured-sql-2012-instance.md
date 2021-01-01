@@ -3,7 +3,7 @@ id: 1694
 title: Installing SCCM 2012 SP1 Secondary Site with a Pre-Configured SQL 2012 Instance
 date: 2013-01-23T11:09:01+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1694
 permalink: /2013/01/23/installing-sccm-2012-sp1-secondary-site-with-a-pre-configured-sql-2012-instance/
 categories:

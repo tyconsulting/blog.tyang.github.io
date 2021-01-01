@@ -3,7 +3,7 @@ id: 7264
 title: Managing Azure Resource Tags using Azure Policy Modify Effect
 date: 2020-03-09T18:09:32+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7264
 permalink: /2020/03/09/managing-azure-resource-tags-using-azure-policy-modify-effect/
 spay_email:

@@ -3,7 +3,7 @@ id: 4472
 title: 'Automating OpsMgr Part 14: Creating Event Collection Rules'
 date: 2015-08-31T19:50:34+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4472
 permalink: /2015/08/31/automating-opsmgr-part-14-creating-event-collection-rules/
 categories:

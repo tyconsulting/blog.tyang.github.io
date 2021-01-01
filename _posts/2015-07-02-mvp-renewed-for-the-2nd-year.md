@@ -3,7 +3,7 @@ id: 4094
 title: MVP Renewed For the 2nd Year
 date: 2015-07-02T10:49:12+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4094
 permalink: /2015/07/02/mvp-renewed-for-the-2nd-year/
 categories:

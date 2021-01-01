@@ -3,7 +3,7 @@ id: 3346
 title: Installing VMM 2012 R2 Cluster in My Lab
 date: 2014-11-19T21:45:50+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3346
 permalink: /2014/11/19/installing-vmm-2012-r2-cluster-lab/
 categories:

@@ -3,7 +3,7 @@ id: 7333
 title: Inside Azure Management Book v4 Is Being Released for Preview
 date: 2020-03-25T23:08:50+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7333
 permalink: /2020/03/25/inside-azure-management-book-v4-is-being-released-for-preview/
 spay_email:

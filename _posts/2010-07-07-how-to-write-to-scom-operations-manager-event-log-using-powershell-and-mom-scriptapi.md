@@ -3,7 +3,7 @@ id: 94
 title: How To Write to SCOM Operations Manager Event Log Using PowerShell and MOM.ScriptAPI
 date: 2010-07-07T10:38:03+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/2010/07/07/how-to-write-to-scom-operations-manager-event-log-using-powershell-and-mom-scriptapi/
 permalink: /2010/07/07/how-to-write-to-scom-operations-manager-event-log-using-powershell-and-mom-scriptapi/
 categories:

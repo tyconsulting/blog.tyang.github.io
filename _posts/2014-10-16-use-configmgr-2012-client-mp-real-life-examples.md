@@ -3,7 +3,7 @@ id: 3258
 title: 'Use of ConfigMgr 2012 Client MP: Real Life Examples'
 date: 2014-10-16T13:53:51+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3258
 permalink: /2014/10/16/use-configmgr-2012-client-mp-real-life-examples/
 categories:

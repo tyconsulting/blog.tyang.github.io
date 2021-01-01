@@ -3,7 +3,7 @@ id: 618
 title: 'SCCM Package stuck at &ldquo;Install Pending&rdquo; state'
 date: 2011-08-03T10:02:10+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=618
 permalink: /2011/08/03/sccm-package-stuck-at-install-pending-state/
 categories:

@@ -3,7 +3,7 @@ id: 6117
 title: Programmatically Creating Azure Automation Runbook Webhooks Targeting Hybrid Worker Groups
 date: 2017-06-14T11:25:25+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6117
 permalink: /2017/06/14/programmatically-creating-azure-automation-runbook-webhooks-targeting-hybrid-worker-groups/
 categories:

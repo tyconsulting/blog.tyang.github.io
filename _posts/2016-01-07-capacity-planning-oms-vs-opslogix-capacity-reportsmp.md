@@ -3,7 +3,7 @@ id: 5116
 title: 'Capacity Planning &#8211; OMS Vs. OpsLogix Capacity Reports MP'
 date: 2016-01-07T19:08:14+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5116
 permalink: /2016/01/07/capacity-planning-oms-vs-opslogix-capacity-reportsmp/
 categories:

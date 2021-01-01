@@ -3,7 +3,7 @@ id: 277
 title: 'Updated: Enhanced SCOM Alerts Notification Emails script'
 date: 2010-09-30T17:24:46+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=277
 permalink: /2010/09/30/updated-enhanced-scom-alerts-notification-emails-script/
 categories:

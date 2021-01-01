@@ -3,7 +3,7 @@ id: 5651
 title: Pushing PowerShell Modules From PowerShell Gallery to Your MyGet Feeds Directly
 date: 2016-09-20T22:59:14+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5651
 permalink: /2016/09/20/pushing-powershell-modules-from-powershell-gallery-to-your-myget-feeds-directly/
 categories:

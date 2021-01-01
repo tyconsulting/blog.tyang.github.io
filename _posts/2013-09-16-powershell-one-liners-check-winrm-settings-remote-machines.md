@@ -3,7 +3,7 @@ id: 2149
 title: Few PowerShell One-Liners To Check WinRM Settings on Remote Machines
 date: 2013-09-16T22:26:21+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2149
 permalink: /2013/09/16/powershell-one-liners-check-winrm-settings-remote-machines/
 categories:

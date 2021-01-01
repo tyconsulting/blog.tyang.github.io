@@ -3,7 +3,7 @@ id: 2161
 title: Issues with OpsMgr 2012 R2 Upgrade When Management Servers are Load-Balanced
 date: 2013-10-30T15:44:43+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2161
 permalink: /2013/10/30/issues-opsmgr-2012-r2-upgrade-management-servers-load-balanced/
 categories:

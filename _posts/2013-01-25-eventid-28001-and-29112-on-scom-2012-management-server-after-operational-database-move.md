@@ -3,7 +3,7 @@ id: 1708
 title: EventID 28001 and 29112 on SCOM 2012 Management Server after Operational Database Move
 date: 2013-01-25T21:58:57+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1708
 permalink: /2013/01/25/eventid-28001-and-29112-on-scom-2012-management-server-after-operational-database-move/
 categories:

@@ -3,7 +3,7 @@ id: 7424
 title: Inside Azure Management book V4 and Free Online Summit
 date: 2020-06-28T18:50:07+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7424
 permalink: /2020/06/28/inside-azure-management-book-v4-and-free-online-summit/
 spay_email:

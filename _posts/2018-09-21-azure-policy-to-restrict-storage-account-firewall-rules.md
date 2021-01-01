@@ -3,7 +3,7 @@ id: 6646
 title: Azure Policy to Restrict Storage Account Firewall Rules
 date: 2018-09-21T00:32:53+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6646
 permalink: /2018/09/21/azure-policy-to-restrict-storage-account-firewall-rules/
 categories:

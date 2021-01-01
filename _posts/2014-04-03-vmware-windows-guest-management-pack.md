@@ -3,7 +3,7 @@ id: 2447
 title: VMware Windows Guest Management Pack
 date: 2014-04-03T12:50:05+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2447
 permalink: /2014/04/03/vmware-windows-guest-management-pack/
 categories:

@@ -3,7 +3,7 @@ id: 5679
 title: Using Custom PowerShell Modules in Azure Functions
 date: 2016-10-07T15:31:46+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5679
 permalink: /2016/10/07/using-custom-powershell-modules-in-azure-functions/
 categories:

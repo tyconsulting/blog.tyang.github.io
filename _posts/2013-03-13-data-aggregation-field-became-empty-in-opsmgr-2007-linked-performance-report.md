@@ -3,7 +3,7 @@ id: 1779
 title: '&ldquo;Data Aggregation&rdquo; field became empty in OpsMgr 2007 linked Performance Report'
 date: 2013-03-13T22:15:10+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1779
 permalink: /2013/03/13/data-aggregation-field-became-empty-in-opsmgr-2007-linked-performance-report/
 categories:

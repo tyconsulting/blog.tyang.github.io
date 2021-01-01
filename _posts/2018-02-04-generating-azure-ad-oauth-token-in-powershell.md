@@ -3,7 +3,7 @@ id: 6354
 title: Generating Azure AD oAuth Token in PowerShell
 date: 2018-02-04T21:19:09+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6354
 permalink: /2018/02/04/generating-azure-ad-oauth-token-in-powershell/
 categories:

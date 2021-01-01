@@ -3,7 +3,7 @@ id: 6980
 title: 'New SCOM Management Pack: Easy Tune from Cookdown'
 date: 2019-04-07T14:22:26+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6980
 permalink: /2019/04/07/new-scom-management-pack-easy-tune-from-cookdown/
 categories:

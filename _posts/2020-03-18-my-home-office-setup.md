@@ -3,7 +3,7 @@ id: 7323
 title: My Home Office Setup
 date: 2020-03-18T22:11:05+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7323
 permalink: /2020/03/18/my-home-office-setup/
 spay_email:

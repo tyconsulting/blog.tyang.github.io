@@ -3,7 +3,7 @@ id: 5252
 title: OpsLogix Capacity Report Management Pack Overview
 date: 2016-03-17T13:15:58+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5252
 permalink: /2016/03/17/opslogix-capacity-report-management-pack-overview/
 categories:

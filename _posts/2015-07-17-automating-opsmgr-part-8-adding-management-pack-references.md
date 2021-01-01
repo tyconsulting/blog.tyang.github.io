@@ -3,7 +3,7 @@ id: 4241
 title: 'Automating OpsMgr Part 8: Adding Management Pack References'
 date: 2015-07-17T19:25:49+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4241
 permalink: /2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/
 categories:

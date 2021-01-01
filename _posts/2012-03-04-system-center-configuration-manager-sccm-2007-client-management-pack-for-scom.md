@@ -3,7 +3,7 @@ id: 1057
 title: System Center Configuration Manager (SCCM) 2007 Client Management Pack for SCOM
 date: 2012-03-04T20:58:44+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1057
 permalink: /2012/03/04/system-center-configuration-manager-sccm-2007-client-management-pack-for-scom/
 categories:

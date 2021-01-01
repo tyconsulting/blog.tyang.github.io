@@ -3,7 +3,7 @@ id: 2517
 title: 'PowerShell Functions: Get OpsMgr Alert Generating Rules and Monitors'
 date: 2014-04-12T23:35:37+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2517
 permalink: /2014/04/12/powershell-functions-get-opsmgr-alert-generating-rules-monitors/
 categories:

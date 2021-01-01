@@ -3,7 +3,7 @@ id: 6934
 title: NiCE Active Office 365 Management Pack for SCOM
 date: 2019-02-18T16:19:55+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6934
 permalink: /2019/02/18/nice-active-office-365-management-pack-for-scom/
 categories:

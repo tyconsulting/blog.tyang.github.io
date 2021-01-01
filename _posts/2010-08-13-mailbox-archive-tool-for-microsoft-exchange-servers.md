@@ -3,7 +3,7 @@ id: 188
 title: Mailbox Archive Tool for Microsoft Exchange Servers
 date: 2010-08-13T07:45:18+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=188
 permalink: /2010/08/13/mailbox-archive-tool-for-microsoft-exchange-servers/
 categories:

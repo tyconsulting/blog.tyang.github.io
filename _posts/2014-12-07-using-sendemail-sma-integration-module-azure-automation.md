@@ -3,7 +3,7 @@ id: 3425
 title: Using the SendEmail SMA Integration Module in Azure Automation
 date: 2014-12-07T11:38:48+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3425
 permalink: /2014/12/07/using-sendemail-sma-integration-module-azure-automation/
 categories:

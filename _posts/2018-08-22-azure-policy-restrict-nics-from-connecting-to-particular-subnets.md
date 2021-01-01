@@ -3,7 +3,7 @@ id: 6522
 title: 'Azure Policy&ndash;Restrict NICs From Connecting to Particular Subnets'
 date: 2018-08-22T23:33:28+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6522
 permalink: /2018/08/22/azure-policy-restrict-nics-from-connecting-to-particular-subnets/
 categories:

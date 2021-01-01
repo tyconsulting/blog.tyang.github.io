@@ -3,7 +3,7 @@ id: 7438
 title: Recording for Inside Azure Management Virtual Summit Now Available
 date: 2020-07-25T23:02:18+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7438
 permalink: /2020/07/25/recording-for-inside-azure-management-virtual-summit-now-available/
 spay_email:

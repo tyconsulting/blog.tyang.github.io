@@ -3,7 +3,7 @@ id: 7171
 title: Configuring Azure Management Group Hierarchy Using Azure DevOps
 date: 2019-09-08T18:08:12+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7171
 permalink: /2019/09/08/configuring-azure-management-group-hierarchy-using-azure-devops/
 categories:

@@ -3,7 +3,7 @@ id: 5132
 title: Presenting in System Center Universe Asia Pacific Events
 date: 2016-01-18T11:00:15+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5132
 permalink: /2016/01/18/presenting-in-system-center-universe-asia-pacific-events/
 categories:

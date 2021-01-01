@@ -3,7 +3,7 @@ id: 4578
 title: 'Updated MP Author&#8217;s System Center 2012 Orchestrator Management Pack'
 date: 2015-09-14T16:05:50+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4578
 permalink: /2015/09/14/updated-mp-authors-system-center-2012-orchestrator-management-pack/
 categories:

@@ -3,7 +3,7 @@ id: 5010
 title: 'Free E-book: Inside the Microsoft Operations Management Suite'
 date: 2016-01-06T08:47:38+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5010
 permalink: /2016/01/06/free-e-book-inside-the-microsoft-operations-management-suite/
 categories:

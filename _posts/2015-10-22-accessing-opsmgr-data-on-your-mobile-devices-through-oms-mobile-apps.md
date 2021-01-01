@@ -3,7 +3,7 @@ id: 4776
 title: Accessing OpsMgr Data on Your Mobile Devices through OMS Mobile Apps
 date: 2015-10-22T16:17:37+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4776
 permalink: /2015/10/22/accessing-opsmgr-data-on-your-mobile-devices-through-oms-mobile-apps/
 categories:

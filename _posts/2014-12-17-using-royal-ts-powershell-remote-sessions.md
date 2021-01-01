@@ -3,7 +3,7 @@ id: 3562
 title: Using Royal TS for PowerShell Remote Sessions
 date: 2014-12-17T20:44:11+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3562
 permalink: /2014/12/17/using-royal-ts-powershell-remote-sessions/
 categories:

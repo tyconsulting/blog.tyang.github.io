@@ -3,7 +3,7 @@ id: 867
 title: 'SCOM: Powershell Property Bag Trigger Only Probe VS Windows Script Property Bag Probe'
 date: 2012-01-27T09:44:56+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=867
 permalink: /2012/01/27/scom-powershell-property-bag-trigger-only-probe-vs-windows-script-property-bag-probe/
 categories:

@@ -3,7 +3,7 @@ id: 5740
 title: 'My Meetup Recording&ndash;Developing Your OWN OMS Solutions'
 date: 2016-10-14T14:46:03+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5740
 permalink: /2016/10/14/my-meetup-recording-developing-your-own-oms-solutions/
 categories:

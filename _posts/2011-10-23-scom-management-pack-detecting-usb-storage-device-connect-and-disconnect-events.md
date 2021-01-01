@@ -3,7 +3,7 @@ id: 756
 title: 'SCOM Management Pack: Detecting USB Storage Device Connect and Disconnect Events'
 date: 2011-10-23T19:56:07+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=756
 permalink: /2011/10/23/scom-management-pack-detecting-usb-storage-device-connect-and-disconnect-events/
 categories:

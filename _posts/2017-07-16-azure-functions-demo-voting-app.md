@@ -3,7 +3,7 @@ id: 6144
 title: 'Azure Functions Demo: Voting App'
 date: 2017-07-16T15:17:28+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6144
 permalink: /2017/07/16/azure-functions-demo-voting-app/
 categories:

@@ -3,7 +3,7 @@ id: 7096
 title: A Simple Dynamic DNS Solution Based on Azure PaaS Services
 date: 2019-06-15T19:51:10+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7096
 permalink: /2019/06/15/a-simple-dynamic-dns-solution-based-on-azure-paas-services/
 categories:

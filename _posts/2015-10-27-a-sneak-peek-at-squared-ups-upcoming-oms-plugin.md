@@ -3,7 +3,7 @@ id: 4795
 title: 'A Sneak Peek at Squared Up&rsquo;s Upcoming OMS Plugin'
 date: 2015-10-27T18:12:21+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4795
 permalink: /2015/10/27/a-sneak-peek-at-squared-ups-upcoming-oms-plugin/
 categories:

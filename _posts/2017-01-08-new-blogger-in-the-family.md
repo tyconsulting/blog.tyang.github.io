@@ -3,7 +3,7 @@ id: 5838
 title: New Blogger in the Family
 date: 2017-01-08T22:51:49+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5838
 permalink: /2017/01/08/new-blogger-in-the-family/
 categories:

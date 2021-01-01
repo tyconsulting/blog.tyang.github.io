@@ -3,7 +3,7 @@ id: 2311
 title: Event 18054 Logged by SQL After OpsMgr Data Warehouse DB Move/Restore
 date: 2013-12-24T10:39:36+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2311
 permalink: /2013/12/24/event-18054-logged-sql-opsmgr-data-warehouse-db-moverestore/
 categories:

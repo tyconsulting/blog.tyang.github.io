@@ -3,7 +3,7 @@ id: 4990
 title: 'Azure Automation Runbook: Test-OMSAlertRemediation'
 date: 2015-12-15T18:15:30+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4990
 permalink: /2015/12/15/azure-automation-runbook-test-omsalertremediation/
 categories:

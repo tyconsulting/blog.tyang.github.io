@@ -3,7 +3,7 @@ id: 4866
 title: Our Azure Automation Session Recording at Microsoft Ignite Australia
 date: 2015-11-23T17:13:44+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4866
 permalink: /2015/11/23/our-azure-automation-session-recording-at-microsoft-ignite-australia/
 categories:

@@ -3,7 +3,7 @@ id: 351
 title: 'Incorrect description in SCCM Report License 03B &#8211; Computers with a specific license status (Report ID 350)'
 date: 2011-01-13T13:51:52+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=351
 permalink: /2011/01/13/incorrect-description-in-sccm-report-license-03b-computers-with-a-specific-license-status-report-id-350/
 categories:

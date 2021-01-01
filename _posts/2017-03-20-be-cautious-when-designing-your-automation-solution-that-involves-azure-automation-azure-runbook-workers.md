@@ -3,7 +3,7 @@ id: 5938
 title: Be Cautious When Designing Your Automation Solution that Involves Azure Automation Azure Runbook Workers
 date: 2017-03-20T12:40:57+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5938
 permalink: /2017/03/20/be-cautious-when-designing-your-automation-solution-that-involves-azure-automation-azure-runbook-workers/
 categories:

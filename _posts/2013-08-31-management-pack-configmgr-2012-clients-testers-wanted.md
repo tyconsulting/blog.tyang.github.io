@@ -3,7 +3,7 @@ id: 2122
 title: 'Management Pack for ConfigMgr 2012 Clients &#8211; Testers Wanted!!'
 date: 2013-08-31T01:13:16+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2122
 permalink: /2013/08/31/management-pack-configmgr-2012-clients-testers-wanted/
 categories:

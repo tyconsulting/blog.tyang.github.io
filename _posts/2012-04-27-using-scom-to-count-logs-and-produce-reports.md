@@ -3,7 +3,7 @@ id: 1180
 title: Using SCOM To Count Logs and Produce Reports
 date: 2012-04-27T23:40:54+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1180
 permalink: /2012/04/27/using-scom-to-count-logs-and-produce-reports/
 categories:

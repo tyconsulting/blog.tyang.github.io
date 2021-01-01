@@ -3,7 +3,7 @@ id: 2771
 title: 'OpsMgr Dashboard Fun: Google Maps'
 date: 2014-05-24T16:20:32+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2771
 permalink: /2014/05/24/opsmgr-dashboard-fun-google-maps/
 categories:

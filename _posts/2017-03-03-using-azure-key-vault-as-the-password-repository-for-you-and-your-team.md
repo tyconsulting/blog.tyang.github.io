@@ -3,7 +3,7 @@ id: 5930
 title: Using Azure Key Vault as the Password Repository For You and Your Team
 date: 2017-03-03T19:16:36+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5930
 permalink: /2017/03/03/using-azure-key-vault-as-the-password-repository-for-you-and-your-team/
 categories:

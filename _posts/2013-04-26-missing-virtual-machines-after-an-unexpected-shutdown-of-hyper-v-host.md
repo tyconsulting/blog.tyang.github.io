@@ -3,7 +3,7 @@ id: 1916
 title: Missing Virtual Machines After An Unexpected Shutdown of Hyper-V Host
 date: 2013-04-26T00:14:16+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1916
 permalink: /2013/04/26/missing-virtual-machines-after-an-unexpected-shutdown-of-hyper-v-host/
 categories:

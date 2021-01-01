@@ -3,7 +3,7 @@ id: 4193
 title: 'Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups'
 date: 2015-07-13T18:13:07+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4193
 permalink: /2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/
 categories:

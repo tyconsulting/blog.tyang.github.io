@@ -3,7 +3,7 @@ id: 563
 title: 'SCCM 2012 Beta 2 Installation error &quot;Failed to write string -T8295 to registry on SQL Server&quot;'
 date: 2011-06-19T22:14:08+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=563
 permalink: /2011/06/19/sccm-2012-beta-2-installation-error-failed-to-write-string-t8295-to-registry-on-sql-server/
 categories:

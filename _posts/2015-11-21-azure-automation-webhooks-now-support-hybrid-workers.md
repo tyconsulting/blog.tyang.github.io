@@ -3,7 +3,7 @@ id: 4857
 title: Azure Automation Webhooks Now Support Hybrid Workers
 date: 2015-11-21T17:00:09+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4857
 permalink: /2015/11/21/azure-automation-webhooks-now-support-hybrid-workers/
 categories:

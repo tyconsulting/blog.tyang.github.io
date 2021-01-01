@@ -3,7 +3,7 @@ id: 32
 title: 'Windows Scheduled Tasks inventory &#8211; Using PowerShell'
 date: 2010-06-25T14:28:07+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=32
 permalink: /2010/06/25/windows-scheduled-tasks-inventory-using-powershell/
 categories:

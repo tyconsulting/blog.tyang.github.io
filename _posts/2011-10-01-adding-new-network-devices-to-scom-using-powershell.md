@@ -3,7 +3,7 @@ id: 704
 title: Adding New Network Devices to SCOM Using PowerShell
 date: 2011-10-01T23:16:18+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=704
 permalink: /2011/10/01/adding-new-network-devices-to-scom-using-powershell/
 categories:

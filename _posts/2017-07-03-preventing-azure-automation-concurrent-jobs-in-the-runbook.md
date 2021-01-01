@@ -3,7 +3,7 @@ id: 6124
 title: Preventing Azure Automation Concurrent Jobs In the Runbook
 date: 2017-07-03T13:39:52+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6124
 permalink: /2017/07/03/preventing-azure-automation-concurrent-jobs-in-the-runbook/
 categories:

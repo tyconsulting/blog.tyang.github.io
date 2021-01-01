@@ -3,7 +3,7 @@ id: 3638
 title: This Concludes My Year 2014
 date: 2014-12-23T20:07:17+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3638
 permalink: /2014/12/23/concludes-year-2014/
 categories:

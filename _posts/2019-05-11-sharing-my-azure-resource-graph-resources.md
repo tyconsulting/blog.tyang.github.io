@@ -3,7 +3,7 @@ id: 6993
 title: Sharing My Azure Resource Graph Resources
 date: 2019-05-11T17:27:16+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6993
 permalink: /2019/05/11/sharing-my-azure-resource-graph-resources/
 categories:

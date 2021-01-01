@@ -3,7 +3,7 @@ id: 6955
 title: Extracting High Resolution Icons from the Azure Portal
 date: 2019-03-08T00:34:31+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6955
 permalink: /2019/03/08/extracting-high-resolution-icons-from-the-azure-portal/
 categories:

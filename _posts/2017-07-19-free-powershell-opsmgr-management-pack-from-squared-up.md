@@ -3,7 +3,7 @@ id: 6158
 title: Free PowerShell OpsMgr Management Pack from Squared Up
 date: 2017-07-19T16:06:58+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6158
 permalink: /2017/07/19/free-powershell-opsmgr-management-pack-from-squared-up/
 categories:

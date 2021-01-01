@@ -3,7 +3,7 @@ id: 1552
 title: '&ldquo;Cannot initialize report&rdquo; Error When Running SCOM Reports'
 date: 2012-10-24T19:52:05+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1552
 permalink: /2012/10/24/cannot-initialize-report-error-when-running-scom-reports/
 categories:

@@ -3,7 +3,7 @@ id: 108
 title: 'PowerShell Script: Mass-Mailer'
 date: 2010-07-08T16:41:40+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/2010/07/08/powershell-script-mass-mailer/
 permalink: /2010/07/08/powershell-script-mass-mailer/
 categories:

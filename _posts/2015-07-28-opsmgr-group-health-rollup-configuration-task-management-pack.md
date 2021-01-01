@@ -3,7 +3,7 @@ id: 4291
 title: OpsMgr Group Health Rollup Configuration Task Management Pack
 date: 2015-07-28T20:11:15+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4291
 permalink: /2015/07/28/opsmgr-group-health-rollup-configuration-task-management-pack/
 categories:

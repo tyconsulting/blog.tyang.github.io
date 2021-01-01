@@ -3,7 +3,7 @@ id: 5793
 title: Injecting Event Log Export from .evtx Files to OMS Log Analytics
 date: 2016-12-05T19:51:30+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5793
 permalink: /2016/12/05/injecting-event-log-export-from-evtx-files-to-oms-log-analytics/
 categories:

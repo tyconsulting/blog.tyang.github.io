@@ -3,7 +3,7 @@ id: 4336
 title: 'Automating OpsMgr Part 12: Creating Performance Collection Rules'
 date: 2015-08-08T13:13:00+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4336
 permalink: /2015/08/08/automating-opsmgr-part-12-creating-performance-collection-rules/
 categories:

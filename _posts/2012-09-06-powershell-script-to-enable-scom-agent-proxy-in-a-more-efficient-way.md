@@ -3,7 +3,7 @@ id: 1412
 title: PowerShell Script To Enable SCOM Agent Proxy in a More Efficient Way
 date: 2012-09-06T23:56:57+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1412
 permalink: /2012/09/06/powershell-script-to-enable-scom-agent-proxy-in-a-more-efficient-way/
 categories:

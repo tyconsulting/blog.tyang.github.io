@@ -3,7 +3,7 @@ id: 174
 title: Balancing Number of SCOM Agent Per Management Server using PowerShell
 date: 2010-08-11T17:54:24+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=174
 permalink: /2010/08/11/balancing-number-of-scom-agent-per-management-server-using-powershell/
 categories:

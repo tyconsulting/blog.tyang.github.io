@@ -3,7 +3,7 @@ id: 6878
 title: Configuring Azure Resources Diagnostic Log Settings Using Azure Policy
 date: 2018-11-19T23:38:10+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6878
 permalink: /2018/11/19/configuring-azure-resources-diagnostic-log-settings-using-azure-policy/
 categories:

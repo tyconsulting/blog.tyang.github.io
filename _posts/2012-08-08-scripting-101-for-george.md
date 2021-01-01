@@ -3,7 +3,7 @@ id: 1325
 title: Scripting 101 For George
 date: 2012-08-08T23:49:18+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1325
 permalink: /2012/08/08/scripting-101-for-george/
 enclosure:

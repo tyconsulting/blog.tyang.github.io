@@ -3,7 +3,7 @@ id: 4630
 title: Small Bug Fix in OpsMgr Self Maintenance MP V2.5.0.0
 date: 2015-09-18T10:48:08+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4630
 permalink: /2015/09/18/small-bug-fix-in-opsmgr-self-maintenance-mp-v2-5-0-0/
 categories:

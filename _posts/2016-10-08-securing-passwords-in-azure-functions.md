@@ -3,7 +3,7 @@ id: 5690
 title: Securing Passwords in Azure Functions
 date: 2016-10-08T00:08:09+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5690
 permalink: /2016/10/08/securing-passwords-in-azure-functions/
 categories:

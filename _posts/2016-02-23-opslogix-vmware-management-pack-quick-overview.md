@@ -3,7 +3,7 @@ id: 5200
 title: OpsLogix VMware Management Pack Quick Overview
 date: 2016-02-23T10:05:35+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5200
 permalink: /2016/02/23/opslogix-vmware-management-pack-quick-overview/
 categories:

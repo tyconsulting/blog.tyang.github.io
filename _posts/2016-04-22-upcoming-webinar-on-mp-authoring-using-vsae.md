@@ -3,7 +3,7 @@ id: 5351
 title: Upcoming Webinar on MP Authoring Using VSAE
 date: 2016-04-22T16:13:04+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5351
 permalink: /2016/04/22/upcoming-webinar-on-mp-authoring-using-vsae/
 categories:

@@ -3,7 +3,7 @@ id: 1931
 title: Unable to Launch SCVMM 2012 Console
 date: 2013-05-07T00:34:03+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1931
 permalink: /2013/05/07/unable-to-launch-scvmm-2012-console/
 categories:

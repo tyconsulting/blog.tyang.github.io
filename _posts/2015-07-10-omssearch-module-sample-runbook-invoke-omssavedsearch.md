@@ -3,7 +3,7 @@ id: 4173
 title: 'OMSSearch Module Sample Runbook: Invoke-OMSSavedSearch'
 date: 2015-07-10T22:38:00+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4173
 permalink: /2015/07/10/omssearch-module-sample-runbook-invoke-omssavedsearch/
 categories:

@@ -3,7 +3,7 @@ id: 1816
 title: OpsMgr Alerts Push Notification to Android Devices
 date: 2013-03-30T23:56:13+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1816
 permalink: /2013/03/30/opsmgr-alerts-push-notification-to-android-devices/
 categories:

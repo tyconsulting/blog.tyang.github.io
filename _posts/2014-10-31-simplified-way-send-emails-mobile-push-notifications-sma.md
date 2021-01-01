@@ -3,7 +3,7 @@ id: 3293
 title: A Simplified Way to Send Emails and Mobile Push Notifications in SMA
 date: 2014-10-31T22:38:03+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3293
 permalink: /2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/
 categories:

@@ -3,7 +3,7 @@ id: 2918
 title: Using an External Knowledge Base for OpsMgr
 date: 2014-07-06T22:28:44+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2918
 permalink: /2014/07/06/using-external-knowledge-base-opsmgr/
 categories:

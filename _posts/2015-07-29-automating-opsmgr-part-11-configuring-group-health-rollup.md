@@ -3,7 +3,7 @@ id: 4305
 title: 'Automating OpsMgr Part 11: Configuring Group Health Rollup'
 date: 2015-07-29T14:07:45+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4305
 permalink: /2015/07/29/automating-opsmgr-part-11-configuring-group-health-rollup/
 categories:

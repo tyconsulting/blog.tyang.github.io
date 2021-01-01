@@ -3,7 +3,7 @@ id: 5292
 title: Inside the Microsoft Operations Management Suite Book Landed on Amazon
 date: 2016-03-18T16:10:58+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5292
 permalink: /2016/03/18/inside-the-microsoft-operations-management-suite-book-landed-on-amazon/
 categories:

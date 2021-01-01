@@ -3,7 +3,7 @@ id: 435
 title: Problem with DNS name resolution when using System.Net.DNS class
 date: 2011-04-15T22:51:00+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=435
 permalink: /2011/04/15/problem-with-dns-name-resolution-when-using-system-net-dns-class/
 categories:

@@ -3,7 +3,7 @@ id: 4693
 title: 'Automating OpsMgr Part 16: Creating Windows Service Monitors'
 date: 2015-10-02T13:35:53+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4693
 permalink: /2015/10/02/automating-opsmgr-part-16-creating-windows-service-monitors/
 categories:

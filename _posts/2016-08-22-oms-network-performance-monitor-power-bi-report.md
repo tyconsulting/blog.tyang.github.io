@@ -3,7 +3,7 @@ id: 5599
 title: OMS Network Performance Monitor Power BI Report
 date: 2016-08-22T23:27:45+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5599
 permalink: /2016/08/22/oms-network-performance-monitor-power-bi-report/
 categories:

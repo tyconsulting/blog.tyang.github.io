@@ -3,7 +3,7 @@ id: 7421
 title: Use GitHub Super Linter in Azure Pipelines
 date: 2020-06-27T00:33:22+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7421
 permalink: /2020/06/27/use-github-super-linter-in-azure-pipelines/
 spay_email:

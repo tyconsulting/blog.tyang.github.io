@@ -3,7 +3,7 @@ id: 1669
 title: Bug Fixes for the Group Maintenance Mode Script
 date: 2012-12-07T21:32:59+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1669
 permalink: /2012/12/07/bug-fixes-for-the-group-maintenance-mode-script/
 categories:

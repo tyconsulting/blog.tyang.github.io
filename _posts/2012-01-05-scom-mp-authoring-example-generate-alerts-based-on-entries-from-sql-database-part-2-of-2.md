@@ -3,7 +3,7 @@ id: 833
 title: 'SCOM MP Authoring Example: Generate alerts based on entries from SQL Database (Part 2 of 2)'
 date: 2012-01-05T18:41:11+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=833
 permalink: /2012/01/05/scom-mp-authoring-example-generate-alerts-based-on-entries-from-sql-database-part-2-of-2/
 categories:

@@ -3,7 +3,7 @@ id: 5395
 title: Upcoming SCOM Bootcamp-Melbourne Australia
 date: 2016-05-11T19:37:36+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5395
 permalink: /2016/05/11/upcoming-scom-bootcamp-melbourne-australia/
 categories:

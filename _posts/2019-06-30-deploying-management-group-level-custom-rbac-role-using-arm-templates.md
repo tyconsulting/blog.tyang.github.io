@@ -3,7 +3,7 @@ id: 7119
 title: Deploying Management Group Level Custom RBAC Role Using ARM Templates
 date: 2019-06-30T17:23:01+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7119
 permalink: /2019/06/30/deploying-management-group-level-custom-rbac-role-using-arm-templates/
 categories:

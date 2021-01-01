@@ -3,7 +3,7 @@ id: 3038
 title: An Alternative for Surface Pro Docking Stations
 date: 2014-07-24T21:38:00+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3038
 permalink: /2014/07/24/alternative-surface-pro-docking-stations/
 categories:

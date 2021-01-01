@@ -3,7 +3,7 @@ id: 3149
 title: What Have I Been Up To
 date: 2014-09-17T19:58:02+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3149
 permalink: /2014/09/17/what-have-i-been-up-to/
 categories:

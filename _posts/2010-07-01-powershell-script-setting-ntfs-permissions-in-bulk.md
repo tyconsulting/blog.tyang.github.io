@@ -3,7 +3,7 @@ id: 64
 title: 'PowerShell Script: Setting NTFS Permissions in Bulk'
 date: 2010-07-01T20:39:37+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=64
 permalink: /2010/07/01/powershell-script-setting-ntfs-permissions-in-bulk/
 categories:

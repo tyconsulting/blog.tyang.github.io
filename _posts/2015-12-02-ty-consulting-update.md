@@ -3,7 +3,7 @@ id: 4905
 title: TY Consulting Update
 date: 2015-12-02T06:58:32+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4905
 permalink: /2015/12/02/ty-consulting-update/
 categories:

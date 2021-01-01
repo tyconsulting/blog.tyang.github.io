@@ -3,7 +3,7 @@ id: 6315
 title: Getting Azure AD Tenant Common Configuration Such as Tenant ID Using PowerShell
 date: 2018-01-07T23:48:12+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6315
 permalink: /2018/01/07/getting-azure-ad-tenant-common-configuration-such-as-tenant-id-using-powershell/
 categories:

@@ -3,7 +3,7 @@ id: 5418
 title: Calculating SQL Database DTU for Azure SQL DB Using PowerShell
 date: 2016-07-17T18:58:50+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5418
 permalink: /2016/07/17/calculating-sql-database-dtu-for-azure-sql-db-using-powershell/
 categories:

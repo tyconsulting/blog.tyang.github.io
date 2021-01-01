@@ -3,7 +3,7 @@ id: 5735
 title: Making PowerShell Based Azure Functions to Produce HTML Outputs
 date: 2016-10-13T20:53:52+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5735
 permalink: /2016/10/13/making-powershell-based-azure-functions-to-produce-html-outputs/
 categories:

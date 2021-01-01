@@ -3,7 +3,7 @@ id: 4834
 title: 'Automating OpsMgr Part 19: Creating Any Types of Generic Rules'
 date: 2015-10-28T23:04:12+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4834
 permalink: /2015/10/28/automating-opsmgr-part-19-creating-any-types-of-generic-rules/
 categories:

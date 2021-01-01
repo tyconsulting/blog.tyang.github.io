@@ -3,7 +3,7 @@ id: 389
 title: How to read SQL Agent logs using Windows PowerShell
 date: 2011-02-28T13:53:47+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=389
 permalink: /2011/02/28/how-to-read-sql-agent-logs-using-windows-powershell/
 categories:

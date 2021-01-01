@@ -3,7 +3,7 @@ id: 580
 title: 'SCOM Management Pack: Daylight Saving Time Change Detection'
 date: 2011-07-02T18:29:07+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=580
 permalink: /2011/07/02/scom-management-pack-daylight-saving-time-change-detection/
 image: /wp-content/uploads/2011/07/DST.jpg

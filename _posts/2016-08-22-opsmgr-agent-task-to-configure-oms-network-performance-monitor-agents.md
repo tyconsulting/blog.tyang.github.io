@@ -3,7 +3,7 @@ id: 5573
 title: OpsMgr Agent Task to Configure OMS Network Performance Monitor Agents
 date: 2016-08-22T17:41:30+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5573
 permalink: /2016/08/22/opsmgr-agent-task-to-configure-oms-network-performance-monitor-agents/
 categories:

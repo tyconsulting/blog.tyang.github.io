@@ -3,7 +3,7 @@ id: 1792
 title: OpsMgr Weather Monitoring MP Updated
 date: 2013-03-16T21:06:33+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1792
 permalink: /2013/03/16/opsmgr-weather-monitoring-mp-updated/
 categories:

@@ -3,7 +3,7 @@ id: 2006
 title: My 2 Cents to the TechNet Subscription
 date: 2013-07-10T23:19:01+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2006
 permalink: /2013/07/10/my-2-cents-to-the-technet-subscription/
 categories:

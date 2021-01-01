@@ -3,7 +3,7 @@ id: 5171
 title: A Major Update for the SharePointSDK PS Module
 date: 2016-02-19T12:42:42+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5171
 permalink: /2016/02/19/a-major-update-for-the-sharepointsdk-ps-module/
 categories:

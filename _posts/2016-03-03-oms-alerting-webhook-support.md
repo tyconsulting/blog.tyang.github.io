@@ -3,7 +3,7 @@ id: 5222
 title: OMS Alerting Webhook Support
 date: 2016-03-03T14:32:58+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5222
 permalink: /2016/03/03/oms-alerting-webhook-support/
 categories:

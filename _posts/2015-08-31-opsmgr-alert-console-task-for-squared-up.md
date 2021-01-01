@@ -3,7 +3,7 @@ id: 4448
 title: OpsMgr Alert Console Task For Squared Up
 date: 2015-08-31T13:33:43+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4448
 permalink: /2015/08/31/opsmgr-alert-console-task-for-squared-up/
 categories:

@@ -3,7 +3,7 @@ id: 7081
 title: 'New Azure Policy Definition: Deploy VM Shutdown Schedule'
 date: 2019-06-02T17:36:29+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7081
 permalink: /2019/06/02/new-azure-policy-definition-deploy-vm-shutdown-schedule/
 categories:

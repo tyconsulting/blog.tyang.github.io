@@ -3,7 +3,7 @@ id: 7350
 title: Validating ARM Templates with ARM What-if Operations
 date: 2020-04-26T21:48:53+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7350
 permalink: /2020/04/26/validating-arm-templates-with-arm-what-if-operations/
 spay_email:

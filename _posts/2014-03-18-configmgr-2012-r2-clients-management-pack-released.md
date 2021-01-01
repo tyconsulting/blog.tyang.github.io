@@ -3,7 +3,7 @@ id: 2400
 title: ConfigMgr 2012 (R2) Clients Management Pack Released
 date: 2014-03-18T21:42:20+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2400
 permalink: /2014/03/18/configmgr-2012-r2-clients-management-pack-released/
 categories:

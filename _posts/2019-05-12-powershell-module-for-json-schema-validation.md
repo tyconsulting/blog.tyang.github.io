@@ -3,7 +3,7 @@ id: 6998
 title: PowerShell Module For JSON Schema Validation
 date: 2019-05-12T12:51:52+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6998
 permalink: /2019/05/12/powershell-module-for-json-schema-validation/
 categories:

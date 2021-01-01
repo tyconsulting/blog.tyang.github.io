@@ -3,7 +3,7 @@ id: 2413
 title: Discoveries in Fujitsu PRIMERGY Server Management Pack
 date: 2014-03-19T13:38:28+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2413
 permalink: /2014/03/19/discoveries-fujitsu-primergy-server-management-pack/
 categories:

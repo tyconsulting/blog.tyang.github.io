@@ -3,7 +3,7 @@ id: 5370
 title: 'Gadget Show Off: My Presentation and Recording Equipment for Surface Pro 4'
 date: 2016-04-22T21:03:14+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5370
 permalink: /2016/04/22/gadget-show-off-my-presentation-and-recording-equipment-for-surface-pro-4/
 categories:

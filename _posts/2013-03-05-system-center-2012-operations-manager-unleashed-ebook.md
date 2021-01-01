@@ -3,7 +3,7 @@ id: 1752
 title: System Center 2012 Operations Manager Unleashed ebook
 date: 2013-03-05T23:09:13+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1752
 permalink: /2013/03/05/system-center-2012-operations-manager-unleashed-ebook/
 categories:

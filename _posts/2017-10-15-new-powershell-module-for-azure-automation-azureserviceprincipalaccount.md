@@ -3,7 +3,7 @@ id: 6252
 title: 'New PowerShell Module For Azure Automation: AzureServicePrincipalAccount'
 date: 2017-10-15T16:54:02+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6252
 permalink: /2017/10/15/new-powershell-module-for-azure-automation-azureserviceprincipalaccount/
 categories:

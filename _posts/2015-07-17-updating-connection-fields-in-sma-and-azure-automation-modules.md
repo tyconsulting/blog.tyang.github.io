@@ -3,7 +3,7 @@ id: 4220
 title: Updating Connection Fields in SMA and Azure Automation Modules
 date: 2015-07-17T11:21:23+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4220
 permalink: /2015/07/17/updating-connection-fields-in-sma-and-azure-automation-modules/
 categories:

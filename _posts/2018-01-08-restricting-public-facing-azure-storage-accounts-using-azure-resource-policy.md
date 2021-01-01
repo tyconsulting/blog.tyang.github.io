@@ -3,7 +3,7 @@ id: 6332
 title: Restricting Public-Facing Azure Storage Accounts Using Azure Resource Policy
 date: 2018-01-08T23:17:28+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6332
 permalink: /2018/01/08/restricting-public-facing-azure-storage-accounts-using-azure-resource-policy/
 categories:

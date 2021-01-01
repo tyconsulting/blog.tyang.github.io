@@ -3,7 +3,7 @@ id: 7021
 title: Deploying Azure Policy Definitions via Azure DevOps (Part 2)
 date: 2019-05-19T23:05:32+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7021
 permalink: /2019/05/19/deploying-azure-policy-definitions-via-azure-devops-part-2/
 categories:

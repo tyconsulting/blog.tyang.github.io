@@ -3,7 +3,7 @@ id: 4625
 title: OpsMgr Self Maintenance Management Pack 2.5.0.0
 date: 2015-09-16T22:15:32+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4625
 permalink: /2015/09/16/opsmgr-self-maintenance-management-pack-2-5-0-0/
 categories:

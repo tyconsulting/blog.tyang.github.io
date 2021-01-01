@@ -3,7 +3,7 @@ id: 3010
 title: New OpsMgr 2012 Dashboards Repository in TechNet Gallery
 date: 2014-07-23T16:42:14+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3010
 permalink: /2014/07/23/new-opsmgr-2012-dashboards-repository-technet-gallery/
 categories:

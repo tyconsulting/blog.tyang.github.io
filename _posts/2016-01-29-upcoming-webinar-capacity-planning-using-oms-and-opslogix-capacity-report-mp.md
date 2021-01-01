@@ -3,7 +3,7 @@ id: 5160
 title: 'Upcoming Webinar &#8211; Capacity Planning using OMS and OpsLogix Capacity Report MP'
 date: 2016-01-29T14:54:59+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5160
 permalink: /2016/01/29/upcoming-webinar-capacity-planning-using-oms-and-opslogix-capacity-report-mp/
 categories:

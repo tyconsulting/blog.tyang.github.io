@@ -3,7 +3,7 @@ id: 2041
 title: OpsMgr Self Maintenance Management Pack Version 2.0.0.0
 date: 2013-08-04T16:04:09+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2041
 permalink: /2013/08/04/opsmgr-self-maintenance-management-pack-version-2-0-0-0/
 categories:

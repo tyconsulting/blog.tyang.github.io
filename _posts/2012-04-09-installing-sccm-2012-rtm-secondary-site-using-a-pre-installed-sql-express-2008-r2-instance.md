@@ -3,7 +3,7 @@ id: 1100
 title: Installing SCCM 2012 RTM Secondary Site using A Pre-Installed SQL Express 2008 R2 Instance
 date: 2012-04-09T00:15:46+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1100
 permalink: /2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/
 categories:

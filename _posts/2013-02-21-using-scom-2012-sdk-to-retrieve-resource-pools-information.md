@@ -3,7 +3,7 @@ id: 1720
 title: Using SCOM 2012 SDK to Retrieve Resource Pools Information
 date: 2013-02-21T20:12:49+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1720
 permalink: /2013/02/21/using-scom-2012-sdk-to-retrieve-resource-pools-information/
 categories:

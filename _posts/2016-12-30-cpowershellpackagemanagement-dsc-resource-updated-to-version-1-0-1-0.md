@@ -3,7 +3,7 @@ id: 5822
 title: cPowerShellPackageManagement DSC Resource Updated to Version 1.0.1.0
 date: 2016-12-30T12:39:04+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5822
 permalink: /2016/12/30/cpowershellpackagemanagement-dsc-resource-updated-to-version-1-0-1-0/
 categories:

@@ -3,7 +3,7 @@ id: 3693
 title: Session Recording for My Presentation in Microsoft MVP Community Camp Melbourne Event
 date: 2015-02-01T19:44:18+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3693
 permalink: /2015/02/01/session-recording-presentation-microsoft-mvp-community-camp-melbourne-event/
 categories:

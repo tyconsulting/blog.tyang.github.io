@@ -3,7 +3,7 @@ id: 3755
 title: My Experience of Using Silect MP Studio During Management Pack Update Process
 date: 2015-02-25T21:33:32+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3755
 permalink: /2015/02/25/my-experience-of-using-silect-mp-studio-during-management-pack-update-process/
 categories:

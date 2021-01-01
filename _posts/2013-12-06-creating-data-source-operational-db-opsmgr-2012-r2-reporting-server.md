@@ -3,7 +3,7 @@ id: 2299
 title: Creating a Data Source for the Operational DB on OpsMgr 2012 R2 Reporting Server
 date: 2013-12-06T13:10:59+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2299
 permalink: /2013/12/06/creating-data-source-operational-db-opsmgr-2012-r2-reporting-server/
 categories:

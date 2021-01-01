@@ -3,7 +3,7 @@ id: 6034
 title: Upcoming Webinar on OpsMgr and OMS
 date: 2017-06-09T13:45:15+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=6034
 permalink: /2017/06/09/upcoming-webinar-on-opsmgr-and-oms/
 categories:

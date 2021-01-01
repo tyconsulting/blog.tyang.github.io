@@ -3,7 +3,7 @@ id: 5942
 title: Inside OMS book v2 Preview Chapters Release
 date: 2017-03-28T07:32:58+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5942
 permalink: /2017/03/28/inside-oms-book-v2-preview-chapters-release/
 categories:

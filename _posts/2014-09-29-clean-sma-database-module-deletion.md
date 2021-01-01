@@ -3,7 +3,7 @@ id: 3196
 title: Clean Up SMA Database After a Module Deletion
 date: 2014-09-29T17:55:38+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3196
 permalink: /2014/09/29/clean-sma-database-module-deletion/
 categories:

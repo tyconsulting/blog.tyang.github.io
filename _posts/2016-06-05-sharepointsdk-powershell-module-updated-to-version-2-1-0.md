@@ -3,7 +3,7 @@ id: 5408
 title: SharePointSDK PowerShell Module Updated to Version 2.1.0
 date: 2016-06-05T19:33:56+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5408
 permalink: /2016/06/05/sharepointsdk-powershell-module-updated-to-version-2-1-0/
 categories:

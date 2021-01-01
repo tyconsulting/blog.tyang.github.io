@@ -3,7 +3,7 @@ id: 6002
 title: SharePointSDK Module Updated to v2.1.5
 date: 2017-05-15T11:36:55+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=6002
 permalink: /2017/05/15/sharepointsdk-module-updated-to-v2-1-5/
 categories:

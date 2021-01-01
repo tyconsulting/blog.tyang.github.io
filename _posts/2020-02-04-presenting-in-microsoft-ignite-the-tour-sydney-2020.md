@@ -3,7 +3,7 @@ id: 7230
 title: Presenting in Microsoft Ignite the Tour Sydney 2020
 date: 2020-02-04T20:45:42+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7230
 permalink: /2020/02/04/presenting-in-microsoft-ignite-the-tour-sydney-2020/
 spay_email:

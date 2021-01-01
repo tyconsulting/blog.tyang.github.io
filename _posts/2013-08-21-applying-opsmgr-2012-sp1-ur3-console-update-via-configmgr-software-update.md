@@ -3,7 +3,7 @@ id: 2081
 title: Applying OpsMgr 2012 SP1 UR3 Console Update via ConfigMgr Software Update
 date: 2013-08-21T23:00:29+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2081
 permalink: /2013/08/21/applying-opsmgr-2012-sp1-ur3-console-update-via-configmgr-software-update/
 categories:

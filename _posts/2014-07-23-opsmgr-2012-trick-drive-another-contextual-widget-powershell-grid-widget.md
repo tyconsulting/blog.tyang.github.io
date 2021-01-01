@@ -3,7 +3,7 @@ id: 3022
 title: 'OpsMgr 2012: A Trick to Drive Another Contextual Widget From PowerShell Grid Widget'
 date: 2014-07-23T22:17:07+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3022
 permalink: /2014/07/23/opsmgr-2012-trick-drive-another-contextual-widget-powershell-grid-widget/
 categories:

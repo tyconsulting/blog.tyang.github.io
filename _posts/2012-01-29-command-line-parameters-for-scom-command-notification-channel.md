@@ -3,7 +3,7 @@ id: 962
 title: Command Line Parameters for SCOM Command Notification Channel
 date: 2012-01-29T16:53:17+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=962
 permalink: /2012/01/29/command-line-parameters-for-scom-command-notification-channel/
 categories:

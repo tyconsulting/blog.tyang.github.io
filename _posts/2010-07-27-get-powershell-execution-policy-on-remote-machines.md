@@ -3,7 +3,7 @@ id: 153
 title: Get Powershell Execution Policy on remote machines
 date: 2010-07-27T12:58:53+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=153
 permalink: /2010/07/27/get-powershell-execution-policy-on-remote-machines/
 categories:

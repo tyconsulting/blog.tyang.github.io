@@ -3,7 +3,7 @@ id: 477
 title: Setting SMS_INSTALL_DIR_PATH Environment variable on SCCM site servers for SCOM SCCM management pack
 date: 2011-05-05T18:25:36+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=477
 permalink: /2011/05/05/setting-sms_install_dir_path-environment-variable-on-sccm-site-servers-for-scom-sccm-management-pack/
 categories:

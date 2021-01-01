@@ -3,7 +3,7 @@ id: 4212
 title: MVP Calling for Help From the Community
 date: 2015-07-16T20:29:47+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4212
 permalink: /2015/07/16/mvp-calling-for-help-from-the-community/
 categories:

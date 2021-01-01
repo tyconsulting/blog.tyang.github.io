@@ -3,7 +3,7 @@ id: 3235
 title: PowerShell Script to Add MP References to Unsealed Management Packs
 date: 2014-10-07T09:54:00+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3235
 permalink: /2014/10/07/powershell-script-add-mp-references-unsealed-management-packs/
 categories:

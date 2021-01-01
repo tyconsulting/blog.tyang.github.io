@@ -3,7 +3,7 @@ id: 651
 title: '&ldquo;Orphaned&rdquo; Maintenance Windows for SCCM clients'
 date: 2011-08-16T11:53:41+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=651
 permalink: /2011/08/16/orphaned-maintenance-windows-for-sccm-clients/
 categories:

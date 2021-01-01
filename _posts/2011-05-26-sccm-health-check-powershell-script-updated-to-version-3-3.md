@@ -3,7 +3,7 @@ id: 524
 title: SCCM Health Check PowerShell Script Updated to Version 3.3
 date: 2011-05-26T16:40:40+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=524
 permalink: /2011/05/26/sccm-health-check-powershell-script-updated-to-version-3-3/
 categories:

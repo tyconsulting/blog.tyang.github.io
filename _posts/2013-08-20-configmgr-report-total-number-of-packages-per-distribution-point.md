@@ -3,7 +3,7 @@ id: 2064
 title: 'ConfigMgr Report: Total Number of Packages Per Distribution Point'
 date: 2013-08-20T14:36:07+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2064
 permalink: /2013/08/20/configmgr-report-total-number-of-packages-per-distribution-point/
 categories:

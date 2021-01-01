@@ -3,7 +3,7 @@ id: 367
 title: How to locate SCCM Collection Object based on the Collection ID
 date: 2011-01-23T21:07:45+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=367
 permalink: /2011/01/23/how-to-locate-sccm-collection-object-based-on-the-collection-id/
 categories:

@@ -3,7 +3,7 @@ id: 6970
 title: 'New Book Release: Inside Azure Management'
 date: 2019-03-31T14:45:02+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6970
 permalink: /2019/03/31/new-book-release-inside-azure-management/
 categories:

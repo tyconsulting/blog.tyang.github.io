@@ -3,7 +3,7 @@ id: 3384
 title: My Experience Manipulating MDT Database Using SMA, SCORCH and SharePoint
 date: 2014-11-20T20:30:55+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3384
 permalink: /2014/11/20/experience-manipulating-mdt-database-using-sma-scorch-sharepoint/
 categories:

@@ -3,7 +3,7 @@ id: 5830
 title: Speaking at ExpertsLive Australia in April
 date: 2017-01-06T16:11:51+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5830
 permalink: /2017/01/06/speaking-at-expertslive-australia-in-april/
 categories:

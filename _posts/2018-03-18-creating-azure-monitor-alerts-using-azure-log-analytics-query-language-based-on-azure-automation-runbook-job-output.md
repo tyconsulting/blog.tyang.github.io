@@ -3,7 +3,7 @@ id: 6388
 title: Creating Azure Monitor Alerts using Azure Log Analytics Query Language Based On Azure Automation Runbook Job Output
 date: 2018-03-18T21:55:34+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6388
 permalink: /2018/03/18/creating-azure-monitor-alerts-using-azure-log-analytics-query-language-based-on-azure-automation-runbook-job-output/
 categories:

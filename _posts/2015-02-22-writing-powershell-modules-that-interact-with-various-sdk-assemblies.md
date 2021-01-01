@@ -3,7 +3,7 @@ id: 3730
 title: Writing PowerShell Modules That Interact With Various SDK Assemblies
 date: 2015-02-22T21:27:20+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3730
 permalink: /2015/02/22/writing-powershell-modules-that-interact-with-various-sdk-assemblies/
 categories:

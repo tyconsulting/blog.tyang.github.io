@@ -3,7 +3,7 @@ id: 2680
 title: Microsoft Surface Has Been Discovered as Virtual Machine in OpsMgr
 date: 2014-05-17T20:21:08+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2680
 permalink: /2014/05/17/microsoft-surface-discovered-virtual-machine-opsmgr/
 categories:

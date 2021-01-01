@@ -3,7 +3,7 @@ id: 4900
 title: 'Azure Automation Runbook: New-FakeVirus'
 date: 2015-11-28T21:12:24+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4900
 permalink: /2015/11/28/azure-automation-runbook-new-fakevirus/
 categories:

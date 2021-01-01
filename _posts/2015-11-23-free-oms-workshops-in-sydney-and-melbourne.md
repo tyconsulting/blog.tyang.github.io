@@ -3,7 +3,7 @@ id: 4863
 title: Free OMS Workshops in Sydney and Melbourne
 date: 2015-11-23T16:53:13+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4863
 permalink: /2015/11/23/free-oms-workshops-in-sydney-and-melbourne/
 categories:

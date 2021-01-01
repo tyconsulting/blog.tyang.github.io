@@ -3,7 +3,7 @@ id: 3269
 title: Using PowerShell and OpsMgr SDK to Get and Set Management Group Default settings
 date: 2014-10-21T14:44:46+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3269
 permalink: /2014/10/21/using-powershell-opsmgr-sdk-get-set-management-group-default-settings/
 categories:

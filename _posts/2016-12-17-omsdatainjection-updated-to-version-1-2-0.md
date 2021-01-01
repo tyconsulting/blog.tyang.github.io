@@ -3,7 +3,7 @@ id: 5809
 title: OMSDataInjection Updated to Version 1.2.0
 date: 2016-12-17T13:41:45+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5809
 permalink: /2016/12/17/omsdatainjection-updated-to-version-1-2-0/
 categories:

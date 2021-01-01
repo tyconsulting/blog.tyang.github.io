@@ -3,7 +3,7 @@ id: 4934
 title: OMS Alerting Walkthrough
 date: 2015-12-03T22:52:16+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4934
 permalink: /2015/12/03/oms-alerting-walkthrough/
 categories:

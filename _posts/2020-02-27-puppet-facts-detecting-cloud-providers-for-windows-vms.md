@@ -3,7 +3,7 @@ id: 7254
 title: Puppet Facts Detecting Cloud Providers for Windows VMs
 date: 2020-02-27T16:48:07+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7254
 permalink: /2020/02/27/puppet-facts-detecting-cloud-providers-for-windows-vms/
 spay_email:

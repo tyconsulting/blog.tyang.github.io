@@ -3,7 +3,7 @@ id: 360
 title: 'Hyper-V virtual machines with &#8220;Missing&#8221; status'
 date: 2011-01-19T21:10:05+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=360
 permalink: /2011/01/19/hyper-v-virtual-machine-missing-status/
 categories:

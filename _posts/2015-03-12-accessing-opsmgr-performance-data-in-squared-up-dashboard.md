@@ -3,7 +3,7 @@ id: 3826
 title: Accessing OpsMgr Performance Data in Squared Up Dashboard
 date: 2015-03-12T20:46:47+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3826
 permalink: /2015/03/12/accessing-opsmgr-performance-data-in-squared-up-dashboard/
 categories:

@@ -3,7 +3,7 @@ id: 495
 title: Listening to episodes from SystemCenterPodcast.com on Android devices
 date: 2011-05-10T17:28:49+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=495
 permalink: /2011/05/10/listening-to-episodes-from-systemcenterpodcast-com-on-android-devices/
 categories:

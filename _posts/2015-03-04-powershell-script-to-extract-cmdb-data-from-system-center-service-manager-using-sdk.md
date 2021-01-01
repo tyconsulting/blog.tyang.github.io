@@ -3,7 +3,7 @@ id: 3770
 title: PowerShell Script to Extract CMDB Data From System Center Service Manager Using SDK
 date: 2015-03-04T20:48:46+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3770
 permalink: /2015/03/04/powershell-script-to-extract-cmdb-data-from-system-center-service-manager-using-sdk/
 categories:

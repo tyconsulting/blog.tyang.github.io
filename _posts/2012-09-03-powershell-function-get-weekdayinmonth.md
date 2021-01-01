@@ -3,7 +3,7 @@ id: 1392
 title: 'PowerShell Function: Get-WeekDayInMonth'
 date: 2012-09-03T22:37:11+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1392
 permalink: /2012/09/03/powershell-function-get-weekdayinmonth/
 categories:

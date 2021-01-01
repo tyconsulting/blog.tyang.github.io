@@ -3,7 +3,7 @@ id: 7131
 title: 'Cross-Blog: How to Create Azure Monitor Alerts for Non-Compliant Azure Policies'
 date: 2019-07-02T23:40:45+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7131
 permalink: /2019/07/02/cross-blog-how-to-create-azure-monitor-alerts-for-non-compliant-azure-policies/
 categories:

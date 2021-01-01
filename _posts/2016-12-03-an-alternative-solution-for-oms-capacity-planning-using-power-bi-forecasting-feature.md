@@ -3,7 +3,7 @@ id: 5782
 title: An Alternative Solution for OMS Capacity Planning Using Power BI Forecasting Feature
 date: 2016-12-03T12:26:10+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5782
 permalink: /2016/12/03/an-alternative-solution-for-oms-capacity-planning-using-power-bi-forecasting-feature/
 categories:

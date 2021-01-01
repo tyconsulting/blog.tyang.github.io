@@ -3,7 +3,7 @@ id: 2386
 title: How To Configure OpsMgr 2012 Web Console Single Sign-On
 date: 2014-02-27T21:07:12+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2386
 permalink: /2014/02/27/configure-opsmgr-2012-web-console-single-sign/
 categories:

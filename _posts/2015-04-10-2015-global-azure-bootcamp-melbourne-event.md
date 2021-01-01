@@ -3,7 +3,7 @@ id: 3871
 title: '2015 Global Azure Bootcamp &#8211; Melbourne Event'
 date: 2015-04-10T10:12:48+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3871
 permalink: /2015/04/10/2015-global-azure-bootcamp-melbourne-event/
 image: /wp-content/uploads/2015/04/2015AzureBootCamp.jpg

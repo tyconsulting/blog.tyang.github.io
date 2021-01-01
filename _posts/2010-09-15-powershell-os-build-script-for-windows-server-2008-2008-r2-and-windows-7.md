@@ -3,7 +3,7 @@ id: 193
 title: 'PowerShell: OS Build Script for Windows Server 2008, 2008 R2 and Windows 7'
 date: 2010-09-15T17:32:02+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=193
 permalink: /2010/09/15/powershell-os-build-script-for-windows-server-2008-2008-r2-and-windows-7/
 Featured:

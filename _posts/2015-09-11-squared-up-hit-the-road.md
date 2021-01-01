@@ -3,7 +3,7 @@ id: 4561
 title: Squared Up Hit The Road
 date: 2015-09-11T09:04:42+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4561
 permalink: /2015/09/11/squared-up-hit-the-road/
 categories:

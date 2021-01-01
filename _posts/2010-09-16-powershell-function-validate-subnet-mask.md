@@ -3,7 +3,7 @@ id: 251
 title: 'PowerShell Function: Validate Subnet Mask'
 date: 2010-09-16T07:12:01+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=251
 permalink: /2010/09/16/powershell-function-validate-subnet-mask/
 image: /wp-content/uploads/2010/09/routeripicon1.jpg

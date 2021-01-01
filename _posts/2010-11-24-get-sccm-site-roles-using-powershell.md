@@ -3,7 +3,7 @@ id: 304
 title: Get SCCM site roles using Powershell
 date: 2010-11-24T15:33:21+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/2010/11/24/get-sccm-site-roles-using-powershell/
 permalink: /2010/11/24/get-sccm-site-roles-using-powershell/
 categories:

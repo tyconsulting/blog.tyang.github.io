@@ -3,7 +3,7 @@ id: 1073
 title: 'This Blog Has Been Hacked! But Should Be OK Now&#8230;'
 date: 2012-03-26T19:10:04+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1073
 permalink: /2012/03/26/this-blog-has-been-hacked-but-should-be-ok-now/
 categories:

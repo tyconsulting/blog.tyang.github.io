@@ -3,7 +3,7 @@ id: 1726
 title: OpsMgr Self Maintenance Management Pack
 date: 2013-03-03T22:12:53+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1726
 permalink: /2013/03/03/opsmgr-self-maintenance-management-pack/
 image: /wp-content/uploads/2013/03/maintenance_image.jpg

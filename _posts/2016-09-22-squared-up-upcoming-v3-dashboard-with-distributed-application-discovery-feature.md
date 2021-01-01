@@ -3,7 +3,7 @@ id: 5660
 title: Squared Up Upcoming V3 Dashboard with Distributed Application Discovery Feature
 date: 2016-09-22T15:14:48+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5660
 permalink: /2016/09/22/squared-up-upcoming-v3-dashboard-with-distributed-application-discovery-feature/
 categories:

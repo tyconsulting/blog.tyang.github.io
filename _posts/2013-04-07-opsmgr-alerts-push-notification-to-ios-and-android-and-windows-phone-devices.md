@@ -3,7 +3,7 @@ id: 1869
 title: OpsMgr Alerts Push Notification to iOS (And Android, And Windows Phone) Devices
 date: 2013-04-07T00:11:26+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1869
 permalink: /2013/04/07/opsmgr-alerts-push-notification-to-ios-and-android-and-windows-phone-devices/
 categories:

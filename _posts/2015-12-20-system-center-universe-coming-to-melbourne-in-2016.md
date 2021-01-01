@@ -3,7 +3,7 @@ id: 4996
 title: System Center Universe Coming to Melbourne in 2016
 date: 2015-12-20T16:03:48+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4996
 permalink: /2015/12/20/system-center-universe-coming-to-melbourne-in-2016/
 categories:

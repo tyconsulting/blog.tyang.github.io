@@ -3,7 +3,7 @@ id: 3652
 title: Detecting Windows License Activation Status Using ConfigMgr DCM and OpsMgr
 date: 2015-01-08T10:04:21+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3652
 permalink: /2015/01/08/detecting-windows-license-activation-status-using-configmgr-dcm-opsmgr/
 categories:

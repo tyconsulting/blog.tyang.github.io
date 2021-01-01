@@ -3,7 +3,7 @@ id: 2788
 title: Lookout for the IE Version in the OpsMgr PowerShell Web Browser Widget
 date: 2014-05-24T17:01:30+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2788
 permalink: /2014/05/24/lookout-ie-version-opsmgr-powershell-web-browser-widget/
 categories:

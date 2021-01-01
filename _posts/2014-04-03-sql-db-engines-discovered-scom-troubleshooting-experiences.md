@@ -3,7 +3,7 @@ id: 2456
 title: SQL DB Engines Not Discovered in SCOM and My Troubleshooting Experiences
 date: 2014-04-03T15:24:02+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2456
 permalink: /2014/04/03/sql-db-engines-discovered-scom-troubleshooting-experiences/
 categories:

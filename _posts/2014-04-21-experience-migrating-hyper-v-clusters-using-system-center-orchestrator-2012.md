@@ -3,7 +3,7 @@ id: 2580
 title: My Experience Migrating Hyper-V Clusters Using System Center Orchestrator 2012
 date: 2014-04-21T23:58:07+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2580
 permalink: /2014/04/21/experience-migrating-hyper-v-clusters-using-system-center-orchestrator-2012/
 categories:

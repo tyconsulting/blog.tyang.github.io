@@ -3,7 +3,7 @@ id: 1043
 title: Disabling Auto Discovery in SCDPM 2010
 date: 2012-03-01T19:28:34+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1043
 permalink: /2012/03/01/disabling-auto-discovery-in-scdpm-2010/
 categories:

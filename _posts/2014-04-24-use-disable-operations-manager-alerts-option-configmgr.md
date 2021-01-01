@@ -3,7 +3,7 @@ id: 2621
 title: Use of Disable Operations Manager alerts option in ConfigMgr
 date: 2014-04-24T02:00:40+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2621
 permalink: /2014/04/24/use-disable-operations-manager-alerts-option-configmgr/
 categories:

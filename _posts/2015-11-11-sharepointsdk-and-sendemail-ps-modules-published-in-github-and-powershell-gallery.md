@@ -3,7 +3,7 @@ id: 4849
 title: SharePointSDK and SendEmail PS Modules Published in GitHub and PowerShell Gallery
 date: 2015-11-11T13:44:38+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4849
 permalink: /2015/11/11/sharepointsdk-and-sendemail-ps-modules-published-in-github-and-powershell-gallery/
 categories:

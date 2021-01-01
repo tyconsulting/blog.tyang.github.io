@@ -3,7 +3,7 @@ id: 888
 title: 'SCOM: Process Performance Collection Rule for Services'
 date: 2012-01-27T12:28:08+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=888
 permalink: /2012/01/27/scom-process-performance-collection-rule-for-services/
 categories:

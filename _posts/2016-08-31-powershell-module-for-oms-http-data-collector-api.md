@@ -3,7 +3,7 @@ id: 5610
 title: PowerShell Module for OMS HTTP Data Collector API
 date: 2016-08-31T23:45:18+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5610
 permalink: /2016/08/31/powershell-module-for-oms-http-data-collector-api/
 categories:

@@ -3,7 +3,7 @@ id: 5706
 title: Feeding Your Power BI Reports from Azure Functions
 date: 2016-10-14T07:35:33+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5706
 permalink: /2016/10/14/feeding-your-power-bi-reports-from-azure-functions/
 categories:

@@ -3,7 +3,7 @@ id: 4156
 title: 'Automating OpsMgr Part 5: Adding Computers to Computer Groups'
 date: 2015-07-06T13:28:54+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4156
 permalink: /2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/
 categories:

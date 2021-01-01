@@ -3,7 +3,7 @@ id: 132
 title: ENHANCED SCOM Alerts Notification Emails!
 date: 2010-07-19T17:32:00+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=132
 permalink: /2010/07/19/enhanced-scom-alerts-notification-emails/
 categories:

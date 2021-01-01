@@ -3,7 +3,7 @@ id: 1370
 title: SCOM Enhanced Email Notification Script Version 2
 date: 2012-08-16T23:01:13+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1370
 permalink: /2012/08/16/scom-enhanced-email-notification-script-version-2/
 categories:

@@ -3,7 +3,7 @@ id: 6429
 title: When Squared Up meets Windows Admin Center
 date: 2018-05-04T09:44:14+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6429
 permalink: /2018/05/04/when-squared-up-meets-windows-admin-center/
 categories:

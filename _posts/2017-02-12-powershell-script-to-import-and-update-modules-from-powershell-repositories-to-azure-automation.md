@@ -3,7 +3,7 @@ id: 5878
 title: PowerShell Script to Import and Update Modules from PowerShell Repositories to Azure Automation
 date: 2017-02-12T20:46:42+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5878
 permalink: /2017/02/12/powershell-script-to-import-and-update-modules-from-powershell-repositories-to-azure-automation/
 categories:

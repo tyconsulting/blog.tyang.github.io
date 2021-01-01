@@ -3,7 +3,7 @@ id: 3955
 title: How to Create a Squared Up Visio Dashboard for an Existing Distributed Application
 date: 2015-05-28T23:02:22+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3955
 permalink: /2015/05/28/how-to-create-a-squared-up-visio-dashboard-for-an-existing-distributed-application/
 categories:

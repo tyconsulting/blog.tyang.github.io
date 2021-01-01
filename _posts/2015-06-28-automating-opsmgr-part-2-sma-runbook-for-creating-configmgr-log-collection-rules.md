@@ -3,7 +3,7 @@ id: 4062
 title: 'Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules'
 date: 2015-06-28T19:03:02+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4062
 permalink: /2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/
 categories:

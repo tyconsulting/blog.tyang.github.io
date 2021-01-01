@@ -3,7 +3,7 @@ id: 1219
 title: Using SCOM PowerShell Snap-in and SDK client with a PowerShell Remote Session
 date: 2012-05-09T22:11:10+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1219
 permalink: /2012/05/09/using-scom-powershell-snap-in-and-sdk-client-with-a-powershell-remote-session/
 categories:

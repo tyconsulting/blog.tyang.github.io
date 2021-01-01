@@ -3,7 +3,7 @@ id: 2025
 title: Creating a VBScript file Within a VSAE Project
 date: 2013-07-12T23:34:48+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2025
 permalink: /2013/07/12/creating-a-vbscript-file-within-a-vsae-project/
 categories:

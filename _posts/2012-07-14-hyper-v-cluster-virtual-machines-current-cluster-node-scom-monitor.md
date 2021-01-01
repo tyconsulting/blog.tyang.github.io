@@ -3,7 +3,7 @@ id: 1278
 title: Hyper-V Cluster Virtual Machines Current Cluster Node SCOM Monitor
 date: 2012-07-14T13:35:41+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1278
 permalink: /2012/07/14/hyper-v-cluster-virtual-machines-current-cluster-node-scom-monitor/
 categories:

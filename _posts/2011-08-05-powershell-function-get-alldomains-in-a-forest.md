@@ -3,7 +3,7 @@ id: 625
 title: 'Powershell Function: Get-AllDomains (in a forest)'
 date: 2011-08-05T15:47:42+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=625
 permalink: /2011/08/05/powershell-function-get-alldomains-in-a-forest/
 categories:

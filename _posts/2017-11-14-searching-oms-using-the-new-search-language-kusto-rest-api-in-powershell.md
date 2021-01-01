@@ -3,7 +3,7 @@ id: 6275
 title: Searching OMS Using the New Search Language (Kusto) REST API in PowerShell
 date: 2017-11-14T22:37:47+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6275
 permalink: /2017/11/14/searching-oms-using-the-new-search-language-kusto-rest-api-in-powershell/
 categories:

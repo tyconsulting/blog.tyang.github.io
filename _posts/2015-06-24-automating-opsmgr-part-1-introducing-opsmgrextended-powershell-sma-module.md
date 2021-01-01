@@ -3,7 +3,7 @@ id: 4036
 title: 'Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module'
 date: 2015-06-24T20:39:12+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4036
 permalink: /2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/
 categories:

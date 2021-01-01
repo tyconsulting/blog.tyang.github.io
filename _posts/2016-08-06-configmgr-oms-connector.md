@@ -3,7 +3,7 @@ id: 5475
 title: ConfigMgr OMS Connector
 date: 2016-08-06T21:37:39+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5475
 permalink: /2016/08/06/configmgr-oms-connector/
 categories:

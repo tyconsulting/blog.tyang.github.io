@@ -3,7 +3,7 @@ id: 6507
 title: 'Azure Policy Definition &ndash; Restricting Public IP for NIC'
 date: 2018-08-22T14:45:32+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6507
 permalink: /2018/08/22/azure-policy-definition-restricting-public-ip-for-nic/
 categories:

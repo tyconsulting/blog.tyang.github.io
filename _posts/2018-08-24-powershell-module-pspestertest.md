@@ -3,7 +3,7 @@ id: 6532
 title: 'PowerShell Module: PSPesterTest'
 date: 2018-08-24T00:04:00+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6532
 permalink: /2018/08/24/powershell-module-pspestertest/
 categories:

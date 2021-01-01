@@ -3,7 +3,7 @@ id: 6230
 title: Deploying PowerShell Module from GitHub to a MyGet Feed using VSTS CI/CD Pipeline
 date: 2017-09-03T21:01:11+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6230
 permalink: /2017/09/03/deploying-powershell-module-from-github-to-a-myget-feed-using-vsts-cicd-pipeline/
 categories:

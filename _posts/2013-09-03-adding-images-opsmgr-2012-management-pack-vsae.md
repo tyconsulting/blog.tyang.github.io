@@ -3,7 +3,7 @@ id: 2138
 title: Adding Images to OpsMgr 2012 Management Packs in VSAE
 date: 2013-09-03T22:41:17+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=2138
 permalink: /2013/09/03/adding-images-opsmgr-2012-management-pack-vsae/
 categories:

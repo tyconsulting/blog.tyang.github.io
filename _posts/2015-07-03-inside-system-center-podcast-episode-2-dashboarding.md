@@ -3,7 +3,7 @@ id: 4123
 title: 'Inside System Center Podcast Episode 2: Dashboarding'
 date: 2015-07-03T14:54:37+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4123
 permalink: /2015/07/03/inside-system-center-podcast-episode-2-dashboarding/
 categories:

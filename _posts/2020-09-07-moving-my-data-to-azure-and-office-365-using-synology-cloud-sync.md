@@ -3,7 +3,7 @@ id: 7478
 title: Moving My Data to Azure and Office 365 Using Synology Cloud Sync
 date: 2020-09-07T23:49:48+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=7478
 permalink: /2020/09/07/moving-my-data-to-azure-and-office-365-using-synology-cloud-sync/
 spay_email:

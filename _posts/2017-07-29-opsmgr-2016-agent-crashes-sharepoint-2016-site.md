@@ -3,7 +3,7 @@ id: 6166
 title: OpsMgr 2016 Agent Crashes SharePoint 2016 Site
 date: 2017-07-29T22:58:04+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: https://blog.tyang.org/?p=6166
 permalink: /2017/07/29/opsmgr-2016-agent-crashes-sharepoint-2016-site/
 categories:

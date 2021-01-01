@@ -3,7 +3,7 @@ id: 3979
 title: 'Collecting ConfigMgr Logs To Microsoft Operation Management Suite &#8211; The NiCE way'
 date: 2015-06-10T01:25:25+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=3979
 permalink: /2015/06/10/collecting-configmgr-logs-to-microsoft-operation-management-suite-the-nice-way/
 categories:

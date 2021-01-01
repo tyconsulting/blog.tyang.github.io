@@ -3,7 +3,7 @@ id: 4431
 title: 'Automating OpsMgr Part 13: Creating 2-State Performance Monitors'
 date: 2015-08-24T21:56:23+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=4431
 permalink: /2015/08/24/automating-opsmgr-part-13-creating-2-state-performance-monitors/
 categories:

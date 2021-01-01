@@ -3,7 +3,7 @@ id: 5957
 title: Programmatically Performing OMS Log Search Against a Large Result Set
 date: 2017-04-25T00:44:54+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=5957
 permalink: /2017/04/25/programmatically-performing-oms-log-search-against-a-large-result-set/
 categories:

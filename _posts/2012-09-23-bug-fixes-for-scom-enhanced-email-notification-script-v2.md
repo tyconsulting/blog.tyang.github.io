@@ -3,7 +3,7 @@ id: 1432
 title: Bug Fixes for SCOM Enhanced Email Notification Script V2
 date: 2012-09-23T17:23:44+10:00
 author: Tao Yang
-layout: post
+#layout: post
 guid: http://blog.tyang.org/?p=1432
 permalink: /2012/09/23/bug-fixes-for-scom-enhanced-email-notification-script-v2/
 categories:
