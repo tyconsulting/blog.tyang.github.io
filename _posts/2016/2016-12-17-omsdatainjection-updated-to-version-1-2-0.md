@@ -20,10 +20,10 @@ I only found out last night after been made aware people started getting errors 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/12/image-14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/12/image_thumb-14.png" alt="image" width="712" height="376" border="0" /></a>
 
 This is what’s been updated in this release:
-<ul>
- 	<li>Updated injection result error handling to reflect the change of the OMS HTTP Data Collector API response code for successful injection.</li>
- 	<li>Changed the UTCTimeGenerated input parameter from mandatory to optional. When it is not specified, the injection time will be used for the TimeGenerated field in OMS log entry.</li>
-</ul>
+
+* Updated injection result error handling to reflect the change of the OMS HTTP Data Collector API response code for successful injection.
+* Changed the UTCTimeGenerated input parameter from mandatory to optional. When it is not specified, the injection time will be used for the TimeGenerated field in OMS log entry.
+
 If you are using the OMSDataInjection module, I strongly recommend you to update to this release.
 
 PowerShell Gallery: <a title="https://www.powershellgallery.com/packages/OMSDataInjection" href="https://www.powershellgallery.com/packages/OMSDataInjection">https://www.powershellgallery.com/packages/OMSDataInjection</a>

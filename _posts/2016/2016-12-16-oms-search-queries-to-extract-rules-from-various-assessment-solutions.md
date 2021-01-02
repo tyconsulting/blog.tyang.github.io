@@ -12,25 +12,30 @@ tags:
   - OMS
 ---
 Currently in OMS, there are 3 assessment solutions for various Microsoft products. They are:
-<ul>
- 	<li>Active Directory Assessment Solution</li>
- 	<li>SQL Server Assessment Solution</li>
- 	<li>SCOM Assessment Solution</li>
-</ul>
+
+ * Active Directory Assessment Solution
+ * SQL Server Assessment Solution
+ * SCOM Assessment Solution
+
 Few days ago, I needed to export the assessment rules from each solution and handover to a customer (so they know exactly what areas are being assessed). So I developed the following queries to extract the details of the assessment rules:
 
-<strong>AD Assessment Solution query:</strong>
+**AD Assessment Solution query:**
 
-<span style="background-color: #ffff00;">Type=ADAssessmentRecommendation | Dedup Recommendation | select FocusArea,AffectedObjectType,Recommendation,Description | Sort FocusArea</span>
+```text
+Type=ADAssessmentRecommendation | Dedup Recommendation | select FocusArea,AffectedObjectType,Recommendation,Description | Sort FocusArea
+```
 
-<strong>SQL Server Assessment Solution query:</strong>
+**SQL Server Assessment Solution query:**
 
-<span style="background-color: #ffff00;">Type=SQLAssessmentRecommendation | Dedup Recommendation | select FocusArea,AffectedObjectType,Recommendation,Description | Sort FocusArea</span>
+```text
+Type=SQLAssessmentRecommendation | Dedup Recommendation | select FocusArea,AffectedObjectType,Recommendation,Description | Sort FocusArea
+```
 
-<strong>SCOM Assessment Solution query:</strong>
+**SCOM Assessment Solution query:**
 
-<span style="background-color: #ffff00;">Type=SCOMAssessmentRecommendation | Dedup Recommendation | select FocusArea,AffectedObjectType,Recommendation,Description | Sort FocusArea</span>
-
+```text
+Type=SCOMAssessmentRecommendation | Dedup Recommendation | select FocusArea,AffectedObjectType,Recommendation,Description | Sort FocusArea
+```
 In order to use these queries, you need to make sure these solutions are enabled and already collecting data. You may also need to change the search time window to at least last 7 days because by default, assessment solutions only run once a week.
 
 Once you get the result in the OMS portal, you can easily export it to CSV file by hitting the Export button.

@@ -50,7 +50,9 @@ I called this module **SharePointOnline**, it consists of 5 files:
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb16.png" alt="image" width="633" height="187" border="0" /></a>
 
 **<a href="http://blog.tyang.org/wp-content/uploads/2014/12/SharePointOnline.zip">Download SharePointOnline Module</a>**
-<h4><span style="color: #ff0000;"><span style="font-size: medium;">Note:</span> </span></h4>
+
+### <span style="color: #ff0000;"><span style="font-size: medium;">Note:</span> </span>
+
 The zip file you’ve downloaded from the link above **DOES NOT** contain the 2 DLL files. I am not sure if Microsoft is OK with 3rd party distributing their software / intellectual properties. So, just to cover myself, you will need to download the SDK (64-bit version) from Microsoft directly (<a title="https://www.microsoft.com/en-us/download/details.aspx?id=35585" href="https://www.microsoft.com/en-us/download/details.aspx?id=35585">https://www.microsoft.com/en-us/download/details.aspx?id=35585</a>), install it on a 64-bit computer, and copy above mentioned 2 DLLs into the SharePointOnline module folder.
 
 Once the SDK is installed, you can find these 2 files in **"C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\"** folder.

@@ -33,7 +33,9 @@ If you are running PowerShell version 5 and later, you can install this module u
 <em><span style="background-color: #ffff00;">Install-Module AzureKeyVaultPasswordRepo</span></em>
 
 Once it is installed, you can launch the app either using the full name <strong>Invoke-AzureKeyVaultPasswordRepository</strong>, or use one of the 2 shorter aliases (<strong>ipr</strong> and <strong>Start-PasswordRepo</strong>).
-<h4>Initial Setup</h4>
+
+### Initial Setup
+
 This module requires AzureRm.Profile, AzureRm.Resources and AzureRm.KeyVault modules, which you can also find from the PowerShell Gallery.
 
 When it is launched, it will detect if you are currently Signed in to Azure and ask you if you want to keep using the same account if you are currently signed in.
@@ -57,7 +59,9 @@ Once the permission is assigned, everything is ready to go. you will be presente
 <a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-3.png" alt="image" width="602" height="228" border="0" /></a>
 
 <strong><span style="color: #ff0000;">Note:</span></strong> It is by design that this app does not use any existing key vaults that you may already have in your subscription. You have to create a new one. Any existing key vaults that are not created by this app will not appear on the list for you to choose.
-<h4>Creating Profile to store settings</h4>
+
+### Creating Profile to store settings
+
 In order to make you access this key vault as fast as possible in the future, the first thing I’d suggest you to do is to select option 4 and save the Azure subscription Id and Key Vault name in your profile. this profile is stored in Windows Registry under HKEY_CURRENT_USER\SOFTWARE\TYConsulting\AzureKeyVaultPasswordRepo\Profiles\&lt;your Azure account name&gt;.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-4.png" alt="image" width="547" height="361" border="0" /></a>
@@ -67,13 +71,17 @@ In order to make you access this key vault as fast as possible in the future, th
 Once the profile is saved, when you launch this app next time, it will automatically use the Azure subscription and the Key Vault that’s stored in the profile.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/03/SNAGHTML6c6b2b3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6c6b2b3" src="http://blog.tyang.org/wp-content/uploads/2017/03/SNAGHTML6c6b2b3_thumb.png" alt="SNAGHTML6c6b2b3" width="523" height="125" border="0" /></a>
-<h4>Creating Credentials</h4>
+
+### Creating Credentials
+
 From the main menu, you have the option to:
 
 1. Create new credential (user name and password). you also have the option to generate random password by not entering a password. if you choose to use this app to generate a random password, the password will be copied to the computer’s clipboard once the credential is created (so you can use Ctrl-V to paste it to wherever you need to).
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-6.png" alt="image" width="553" height="208" border="0" /></a>
-<h4>List, Retrieve, Update and Delete Credentials</h4>
+
+### List, Retrieve, Update and Delete Credentials
+
 You can use Option 2 to list, retrieve, update and delete existing credentials. When option 2 is selected, the app will list all credentials stored in the key vault, and from there, you can choose the credential from the list that you are interested in. Once the credential is selected, you have the option to:
 <ol>
  	<li>Copy user name to clipboard</li>
@@ -82,11 +90,17 @@ You can use Option 2 to list, retrieve, update and delete existing credentials. 
  	<li>Delete Credential</li>
 </ol>
 <a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-7.png" alt="image" width="640" height="431" border="0" /></a>
-<h4>Search Credential</h4>
+
+### Search Credential
+
 Instead of selecting a credential to manage from the list, you can also search credentials (based on credential name) using option 3.
-<h4>Save / Delete Profile</h4>
+
+### Save / Delete Profile
+
 As shown previously, for faster access, you can use option 4 to store the Azure subscription Id and the Key Vault Name in the registry. if you decide to delete the profile (i.e. when you decide to use another subscription or key vault), you can use option 5 to delete the existing profile from registry.
-<h4>Managing Key Vault Access</h4>
+
+### Managing Key Vault Access
+
 You can use option 6 to grant full access to the key vault to other Azure AD accounts, or use option 7 to remove access.
 
 ## Conclusion

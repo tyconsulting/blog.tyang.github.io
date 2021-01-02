@@ -94,7 +94,9 @@ I have tried to use System.Performance.DataProvider module directly in both raw 
 Initially I have written few rules targeting SQL DB Engine class, waited few hours and I could only see the 30-minute aggregated data in OMS (collected by the aggregation collection rules). The data insertion is every 30 minutes and the perf graph could not be displayed in OMS (showed "No Data"). When I changed the target for both rules from SQL DB Engine to Windows Computer class, the raw data started to appear.
 
 Having said that, I have also tried Windows Server Computer class (Microsoft.Windows.Server.Computer). This class is derived from Windows Computer class. This configuration also worked. So in my opinion, it is fair to guess the target class must be Windows Computer class or class that’s based on Windows Computer class.
-<h4>Demo Management Pack "OMS Performance Demo MP"</h4>
+
+### Demo Management Pack "OMS Performance Demo MP"
+
 I have created a MP during my experiments today. In the end, I have deleted all the rules that are not working in this MP and kept two sets rules for demonstration purpose:
 
 * Set #1:

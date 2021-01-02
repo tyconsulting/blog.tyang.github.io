@@ -55,7 +55,8 @@ The management group hierarchy and subscription placement rules are defined in a
 
 Here’s a sample definition file:
 
-<pre language="JSON">{
+```json
+{
     "tenantRootDisplayName": "Tao Yang Lab Root",
     "managementGroups":[
         {
@@ -116,7 +117,9 @@ the definition file contains the following sections:
     <li>Default Management group: defines which management group should the subscription be placed under if it does not match any of the subscription placement rules.</li>
 </ul>
 
-<h4>Subscription Quota Id</h4>
+
+### Subscription Quota Id
+
 
 Initially, I wanted to use the subscription Offer Id to identify the type of subscription (as shown below):
 
@@ -130,11 +133,14 @@ For example, I have few Azure Sponsorship subs, the quota Id for those subs is "
 
 Once you get the the subscription quota Id, you are able to build the regular expression for it. for example, a valid regex for enterprise sub can be "<strong><em>^EnterpriseAgreement_<em></em></strong>", and for sponsorship sub: "<strong><em>^Sponsored_</em></em></strong>".
 
-<h4>Subscription placement rules</h4>
+
+### Subscription placement rules
+
 
 if your "management" subscriptions are created as EA subs and have a naming convention of "sub-mgmt-xxxx" and you wish to place these subs into a management group called "mg-mgmt-root", the rule can be something like:
 
-<pre language="JSON">{
+```json
+{
     "subNameRegex": "^sub-mgmt-*",
     "subQuotaIdRegex": "^EnterpriseAgreement_*",
     "managementGroup": "mg-mgmt-root"
@@ -144,7 +150,8 @@ if your "management" subscriptions are created as EA subs and have a naming conv
 
 Or if you want to place all users MSDN subscriptions into a management group called "mg-msdn", the rule can be something like:
 
-<pre language="JSON">{
+```json
+{
     "subNameRegex": "*",
     "subQuotaIdRegex": "^msdn_*",
     "managementGroup": "mg-msdn"
@@ -160,7 +167,9 @@ In order to be placed into the defined management group, the subscription must m
 
 Before building the pipelines, there are some pre-requisites need to be taken care of first.
 
-<h4>Pre-requisites</h4>
+
+### Pre-requisites
+
 
 <strong>Azure AD App and Service Principal</strong>
 
@@ -184,7 +193,9 @@ Once the service principal is created, you will need to create a service connect
 
 <a href="https://blog.tyang.org/wp-content/uploads/2019/09/image-3.png"><img width="418" height="489" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2019/09/image_thumb-3.png" border="0"></a>
 
-<h4>Build Pipeline</h4>
+
+### Build Pipeline
+
 
 The build (CI) pipeline is defined in the <a href="https://github.com/tyconsulting/Azure.ManagementGroup.Hierarchy.Config/blob/master/pipelines/build-pipeline.yaml">pipelines/build-pipeline.yaml</a> file in the GitHub repo. you can simply import it, it should work without any modifications.
 
@@ -199,7 +210,9 @@ It performs the following tasks:
     <li>Publish pattern (copying artifacts to build staging directory for release pipelines)</li>
 </ol>
 
-<h4>Release Pipelines</h4>
+
+### Release Pipelines
+
 
 Since subscriptions gets added to the tenant all the time, this script needs to run on a schedule (via Azure Pipelines). With the recent introduction of <a href="https://devblogs.microsoft.com/devops/whats-new-with-azure-pipelines/">multi-stage YAML pipeline</a> in Azure DevOps, we are able to combine build and releases in one YAML pipeline. However, because I am planning to schedule the release pipeline to run twice daily with the same build artifacts, there is no point creating a new build each time the pipeline runs. Therefore, I have separated the release pipeline from the build YAML pipeline, and used the classic pipeline instead, so I can only run the release pipeline on a schedule, using the same build artifacts.
 

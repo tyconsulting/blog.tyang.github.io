@@ -20,7 +20,8 @@ Last week, I needed to deploy a custom role for enabling referencing key vault d
 
 I managed to deploy the role and make it available on the tenant root MG using the following ARM template:
 
-<pre language="JSON">{
+```json
+{
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},

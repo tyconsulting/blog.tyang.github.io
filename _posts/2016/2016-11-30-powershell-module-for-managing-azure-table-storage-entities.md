@@ -16,67 +16,191 @@ tags:
   - PowerShell
 ---
 
-## <img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Azure Storage - Table" src="http://blog.tyang.org/wp-content/uploads/2016/11/Azure-Storage-Table.png" alt="Azure Storage - Table" width="166" height="166" align="left" border="0" />Introduction
+## Introduction
 
 Firstly, apologies for not being able to blog for 6 weeks. I have been really busy lately.  As part of a project that I’m working on, I have been dealing with Azure Table storage and its REST API over the last couple of weeks. I have written few Azure Function app in C# as well as some Azure Automation runbooks in PowerShell that involves inserting, querying and updating records (entities) in Azure tables. I was struggling a little bit during development of these function apps and runbooks because I couldn’t find too many good code examples and I personally believe this REST API is not well documented on Microsoft’s documentation site (<a title="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/table-service-rest-api" href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/table-service-rest-api">https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/table-service-rest-api</a>). Therefore I have spent the last two days developed a PowerShell module for managing the lifecycle of the Azure Table entities. This module can be used to perform CRUD (Create, Read, Update, Delete) operations for Azure Table entities.
 
 ## AzureTableEntity PowerShell Module
 
 This PowerShell module is named as AzureTableEntity, it can be located in both GitHub and PowerShell Gallery:
-<ul>
- 	<li>GitHub: <a title="https://github.com/tyconsulting/AzureTableEntity-PowerShell-Module" href="https://github.com/tyconsulting/AzureTableEntity-PowerShell-Module">https://github.com/tyconsulting/AzureTableEntity-PowerShell-Module</a></li>
- 	<li>PowerShell Gallery: <a title="https://www.powershellgallery.com/packages/AzureTableEntity" href="https://www.powershellgallery.com/packages/AzureTableEntity">https://www.powershellgallery.com/packages/AzureTableEntity</a></li>
-</ul>
+
+ * GitHub: <a title="https://github.com/tyconsulting/AzureTableEntity-PowerShell-Module" href="https://github.com/tyconsulting/AzureTableEntity-PowerShell-Module">https://github.com/tyconsulting/AzureTableEntity-PowerShell-Module</a>
+ * PowerShell Gallery: <a title="https://www.powershellgallery.com/packages/AzureTableEntity" href="https://www.powershellgallery.com/packages/AzureTableEntity">https://www.powershellgallery.com/packages/AzureTableEntity</a>
+
 This module offers the following 4 functions:
-<table style="color: #000000;" border="1" width="693" cellspacing="0" cellpadding="2">
-<tbody>
-<tr>
-<td valign="top" width="405"><strong>Get-AzureTableEntity</strong></td>
-<td valign="top" width="286">Search Azure Table entities by specifying a search string.</td>
-</tr>
-<tr>
-<td valign="top" width="417"><strong>New-AzureTableEntity</strong></td>
-<td valign="top" width="293">Insert one or more entities to Azure table storage.</td>
-</tr>
-<tr>
-<td valign="top" width="419"><strong>Update-AzureTableEntity</strong></td>
-<td valign="top" width="295">Update one or more entities to Azure table storage.</td>
-</tr>
-<tr>
-<td valign="top" width="418"><strong>Remove-AzureTableEntity</strong></td>
-<td valign="top" width="297">Remove one or more entities to Azure table storage.</td>
-</tr>
-</tbody>
-</table>
-<span style="color: #ff0000;"><strong>Note:</strong> </span>All functions have been properly documented in the help file. you can use Get-Help cmdlet to access the help file.
-<h4>Get-AzureTableEntity</h4>
+
+* **Get-AzureTableEntity**: Search Azure Table entities by specifying a search string.
+* **New-AzureTableEntity**: Insert one or more entities to Azure table storage.
+* **Update-AzureTableEntity**: Update one or more entities to Azure table storage.
+* **Remove-AzureTableEntity**: Remove one or more entities to Azure table storage.
+
+>**Note:** All functions have been properly documented in the help file. you can use Get-Help cmdlet to access the help file.
+
+### Get-AzureTableEntity
+
 By default when performing query operation, the Azure Table REST API only returns up to 1000 entities or all entities returned from search within 5 seconds. This function has a parameter ‘-GetAll’ that can be used to return all search results from a large table. The default value of this parameter is set to $true.
 
 The search result returned by the search API is deserialised. As the result, complex data type such as datetime is returned as string. If you want any datetime fields from the search result returned as original datetime field, you can set the "-ConvertDateTimeFields" parameter to $true. Please note this would potentially increase the script execution time when dealing with a large set of search result.
 
-<span style="color: #ff0000;"><strong>Hint:</strong></span> You can easily build your search string using the <a href="http://storageexplorer.com/">Azure Storage Explorer</a>.
-<h4>New-AzureTableEntity</h4>
+>**Hint:** You can easily build your search string using the <a href="http://storageexplorer.com/">Azure Storage Explorer</a>.
+
+### New-AzureTableEntity
+
 This function can be used to insert a single entity or bulk insert up to 100 entities (and the total payload size is less than 4MB).
 
 Please make sure both "PartitionKey" and "RowKey" are included in the entity. The data type for these fields must be string.
 
-i.e. Instead of setting RowKey = 1, you should set RowKey = <strong>"1" – </strong>because the value for both PartitionKey and RowKey must be a string.
-<h4>Update-AzureTableEntity</h4>
+i.e. Instead of setting RowKey = 1, you should set RowKey = **"1"** – because the value for both PartitionKey and RowKey must be a string.
+
+### Update-AzureTableEntity
+
 This function can be used to update a single entity or bulk update up to 100 entities (and the total payload size is less than 4MB).
 
 Please note when updating an entity, all fields (including the fields that do not need to be updated) must be specified. It is actually a merge operation. If you are modifying an existing entity returned from the search operation (Get-AzureTableEntity) and the entity contains datetime fields, please make sure you set "-ConvertDateTimeFields" parameter to $true when performing the search in the first place. Please also be aware that the built-in Timestamp field must not be included in the entity fields.
-<h4>Remove-AzureTableEntity</h4>
+
+### Remove-AzureTableEntity
+
 This function can be used to remove a single entity or bulk remove up to 100 entities (and the total payload size is less than 4MB).
-<h4>Support for Azure Automation and SMA</h4>
+
+### Support for Azure Automation and SMA
+
 To simply leveraging this module in Azure Automation or SMA, I have included a connection object in the module:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/11/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/11/image_thumb.png" alt="image" width="206" height="307" border="0" /></a>
 
 Once you have created the connection objects, instead of specifying storage account, table name and storage account access key, you can simply specify the connection object using ‘-TableConnection’ parameter for all four functions.
-<h4>Sample Code</h4>
-I have published some sample code I wrote when developing this module to GitHub Gist:
 
-https://gist.github.com/tyconsulting/1ff706181d8e476528c86b8f7ac8af23
+### Sample Code
+
+I have published some sample code I wrote when developing this module to [GitHub Gist](https://gist.github.com/tyconsulting/1ff706181d8e476528c86b8f7ac8af23):
+
+```powershell
+<#
+================================================================================
+AUTHOR:  Tao Yang 
+DATE:    30/11/2016
+Version: 1.0
+Comment: Sample code for using AzureTableEntity PowerShell module
+Project Repo: https://github.com/tyconsulting/AzureTableEntity-PowerShell-Module
+================================================================================
+#>
+
+$StorageAccountName = '<Enter your storage account name>'
+$TableName = '<Enter your Azure table name>'
+$StorageAccountAccessKey = '<Enter your storage account access key>'
+
+## Insert entities ##
+#Bulk insert
+$Entities = @()
+$pro1 = @{
+  PartitionKey = 'test1'
+  RowKey = '1'
+  CustomerName = 'Eric Cartman'
+  dtDate = [datetime]::UtcNow
+  Age = 9
+  Alive = $true
+}
+$entity1 = New-Object psobject -Property $pro1
+
+$pro2 = @{
+  PartitionKey = 'test1'
+  RowKey = '2'
+  CustomerName = 'Bart Simpson'
+  dtDate = [datetime]::UtcNow
+  Age = 10
+  Alive = $true
+}
+$entity2 = New-Object psobject -Property $pro2
+$Entities += $entity1
+$Entities += $entity2
+$BulkInsert = New-AzureTableEntity -StorageAccountName $StorageAccountName -StorageAccountAccessKey $StorageAccountAccessKey -TableName $TableName -Entities $Entities -Verbose
+
+#single insert
+$pro3 = @{
+  PartitionKey = 'test2'
+  RowKey = '1'
+  CustomerName = 'Bart'
+  HourlyRate = 9.99
+  today = [datetime]::UtcNow
+}
+
+$entity3 = New-Object psobject -Property $pro3
+$SingleInsert = New-AzureTableEntity -StorageAccountName $StorageAccountName -StorageAccountAccessKey $StorageAccountAccessKey -TableName $TableName -Entities $Entity3 -Verbose
+
+## search entity ##
+#return up to 1000 entities
+$StartUTCDate = Get-Date -year 2016 -Month 11 -day 27 -Hour 11 -Minute 0 -Second 0 -Millisecond 0
+$strStartUTCDate = $StartUTCDate.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
+$QueryString = "(today ge datetime'$strStartUTCDate') and (PartitionKey eq 'test2')"
+$SearchResult = Get-AzureTableEntity -StorageAccountName $StorageAccountName -StorageAccountAccessKey $StorageAccountAccessKey -TableName $TableName -QueryString $QueryString -GetAll $false -Verbose
+
+#return all entities, and convert datetime fields
+$StartUTCDate = Get-Date -year 2016 -Month 11 -day 27 -Hour 11 -Minute 0 -Second 0 -Millisecond 0
+$strStartUTCDate = $StartUTCDate.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
+$QueryString = "(dtDate ge datetime'$strStartUTCDate') and (PartitionKey eq 'test2')"
+$SearchResult = Get-AzureTableEntity -StorageAccountName $StorageAccountName -StorageAccountAccessKey $StorageAccountAccessKey -TableName $TableName -QueryString $QueryString -ConvertDateTimeFields $true -GetAll $true -Verbose
+
+## update entities ##
+#updating single entity
+$pro3 = @{
+  PartitionKey = 'test2'
+  RowKey = '1'
+  CustomerName = 'Bart Simpson'
+  today = [datetime]::UtcNow
+}
+
+$entity3 = New-Object psobject -Property $pro3
+$SingleInsert = Update-AzureTableEntity -StorageAccountName $StorageAccountName -StorageAccountAccessKey $StorageAccountAccessKey -TableName $TableName -Entities $Entity3 -Verbose
+
+#updating multiple entities
+$Entities = @()
+$pro1 = @{
+  PartitionKey = 'test1'
+  RowKey = '1'
+  CustomerName = 'Hello Kitty'
+  dtDate = [datetime]::UtcNow
+}
+$entity1 = New-Object psobject -Property $pro1
+
+$pro2 = @{
+  PartitionKey = 'test1'
+  RowKey = '2'
+  CustomerName = 'Homer Simpson'
+  dtDate = [datetime]::UtcNow
+}
+$entity2 = New-Object psobject -Property $pro2
+$Entities += $entity1
+$Entities += $entity2
+$BulkUpdate = Update-AzureTableEntity -StorageAccountName $StorageAccountName -StorageAccountAccessKey $StorageAccountAccessKey -TableName $TableName -Entities $Entities -Verbose
+
+
+## Remove entities ##
+#removing single entity
+$pro3 = @{
+  PartitionKey = 'test2'
+  RowKey = '1'
+}
+
+$entity3 = New-Object psobject -Property $pro3
+$SingleRemoval = Remove-AzureTableEntity -StorageAccountName $StorageAccountName -StorageAccountAccessKey $StorageAccountAccessKey -TableName $TableName -Entities $Entity3 -Verbose
+
+#Removing multiple entities
+$Entities = @()
+$pro1 = @{
+  PartitionKey = 'test1'
+  RowKey = '1'
+}
+$entity1 = New-Object psobject -Property $pro1
+
+$pro2 = @{
+  PartitionKey = 'test1'
+  RowKey = '2'
+}
+$entity2 = New-Object psobject -Property $pro2
+$Entities += $entity1
+$Entities += $entity2
+$BulkRemoval = Remove-AzureTableEntity -StorageAccountName $StorageAccountName -StorageAccountAccessKey $StorageAccountAccessKey -TableName $TableName -Entities $Entities -Verbose
+```
 
 ## Summary
 

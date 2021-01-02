@@ -24,23 +24,16 @@ msiexec /i "Microsoft OMS Log Analytics Forwarder.msi"
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-15.png" alt="image" width="490" height="77" border="0" /></a>
 
 Once installed, you will see the following components on the VM:
-<ul>
-<ul>
-	<li>"Microsoft OMS Log Analytics Forwarder" service</li>
-</ul>
-</ul>
+* "Microsoft OMS Log Analytics Forwarder" service
+
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-16.png" alt="image" width="244" height="101" border="0" /></a>
-<ul>
-<ul>
-	<li>OMS Log Analytics Forwarder Log</li>
-</ul>
-</ul>
+
+* OMS Log Analytics Forwarder Log
+
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-17.png" alt="image" width="244" height="160" border="0" /></a>
-<ul>
-<ul>
-	<li>Various performance counters:</li>
-</ul>
-</ul>
+
+* Various performance counters:
+
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-18.png" alt="image" width="244" height="183" border="0" /></a>
 
 Since I already have OMS MMA agent installed and this gateway box is directly connected to one of my OMS workspace, I have configured my OMS workspace to collect these OMS Log Analytics Forwarder counters
@@ -51,9 +44,9 @@ and I also configured my OMS workspace to collect the OMS Log Analytics Forwarde
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-20.png" alt="image" width="379" height="148" border="0" /></a>
 
-The <strong>Active Client Connection</strong> counter represents the number of TCP connections clients established to the OMS Log Analytics Forwarder service. This is not a true representation of number of active clients connected to the forwarder.
+The **Active Client Connection** counter represents the number of TCP connections clients established to the OMS Log Analytics Forwarder service. This is not a true representation of number of active clients connected to the forwarder.
 
-The <strong>Connected Client counter</strong> represent the number of clients connected (both Windows and Linux). However, if I stop the MMA agent on an agent connected to this  forwarder, the counter value will not decrease straightaway. This is because in this release, the counter only resets once a day. So you may need to wait for up to 24 hours before you see the value decreases.
+The **Connected Client counter** represent the number of clients connected (both Windows and Linux). However, if I stop the MMA agent on an agent connected to this  forwarder, the counter value will not decrease straightaway. This is because in this release, the counter only resets once a day. So you may need to wait for up to 24 hours before you see the value decreases.
 
 ## Agent Configuration
 
@@ -65,7 +58,7 @@ On the Direct-Attached Windows agent, I simply added it under the Proxy Settings
 
 On the Linux agent, we can reconfigure the agent to use the proxy server using the following command (assuming the latest version of the OMS agent is installed):
 
-sudo sh ./omsagent-1.1.0-28.universal.x86.sh --upgrade -p http://&lt;proxy user&gt;:&lt;proxy password&gt;@&lt;proxy address&gt;:&lt;proxy port&gt; –w &lt;workspaceid&gt; -s &lt;shared key&gt;
+sudo sh ./omsagent-1.1.0-28.universal.x86.sh --upgrade -p http://<proxy user>:&lt;proxy password&gt;@&lt;proxy address&gt;:&lt;proxy port&gt; –w &lt;workspaceid&gt; -s &lt;shared key&gt;
 
 This is documented on here: <a title="https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#configuring-the-agent-for-use-with-an-http-proxy-server" href="https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#configuring-the-agent-for-use-with-an-http-proxy-server">https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#configuring-the-agent-for-use-with-an-http-proxy-server</a>
 

@@ -15,4 +15,4 @@ As a follow up to my recent blog post <a href="http://blog.tyang.org/2016/01/07/
 
 The webinar is going to take place on Wednesday 3rd February, 21:00 UTC. You can find more details about this webinar on OpsLogix’s webiste: <a title="http://www.opslogix.com/capacity-planning-webcast/" href="http://www.opslogix.com/capacity-planning-webcast/">http://www.opslogix.com/capacity-planning-webcast/</a>
 
-This is a free webinar, only limited spots available. If you are interested in the topic, please join us next week <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2016/01/wlEmoticon-smile-2.png" alt="Smile" />.
+This is a free webinar, only limited spots available. If you are interested in the topic, please join us next week :smiley:.

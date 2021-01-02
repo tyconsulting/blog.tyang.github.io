@@ -254,4 +254,4 @@ So for now, if you’d like to give this module a try, you can find it from both
 
 Lastly, if you have any feedback, or suggestions for future releases, please feel free to drop me an email.
 
-This is all I have to share for today, until next time, happy automating <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2016/02/wlEmoticon-smile.png" alt="Smile" />.
+This is all I have to share for today, until next time, happy automating :smiley:.

@@ -38,10 +38,10 @@ As we all know, OMS has the ability to send collected data to Power BI, therefor
 <a href="http://blog.tyang.org/wp-content/uploads/2016/07/image-6.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/07/image_thumb-6.png" alt="image" width="683" height="488" border="0" /></a>
 
 As you can see, with the Power BI Line Chart visual, we can even add a trend line (the black dotted line), which is very nice in my opinion. However, by using native visuals, there are few limitations with displaying performance data in Power BI:
-<ul>
- 	<li>The time frame cannot be easily scoped</li>
- 	<li>The computer and performance counters cannot be easily scoped</li>
-</ul>
+
+ * The time frame cannot be easily scoped
+ * The computer and performance counters cannot be easily scoped
+
 What I mean is, you can absolutely create a filters on either visual level, or page level or even the report level to create desired scopes – just like what I did in the example above:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/07/image-7.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/07/image_thumb-7.png" alt="image" width="178" height="332" border="0" /></a>
@@ -50,7 +50,7 @@ But these filters are rather static. You won’t be able to alter them once you�
 
 So, how do we make these Power BI reports more interactive? there are few options:
 
-<strong>1. Use a Slicer to filter the computers OR the counters</strong>
+**1. Use a Slicer to filter the computers OR the counters**
 
 In Power BI, you can add a slicer to your page. Slicers makes the report more interactive. users can choose one or more items from the slicer and other visuals on the page will be updated automatically based on users selection.
 
@@ -60,9 +60,9 @@ In the above example, I’ve used page level filter to only display the ‘Avail
 
 This solution is easy to implement, it may satisfy the requirements if you are only interested in a specific counter from a long term trend point of view – since we are not filtering the time windows, it will display the entire period that is available in Power BI.
 
-<strong>2. Use the Custom Visual ‘Hierarchy Slicer’ to filter the computers AND the counters</strong>
+**2. Use the Custom Visual ‘Hierarchy Slicer’ to filter the computers AND the counters**
 
-For Power BI, you can download <strong>custom visuals</strong> from <a title="https://app.powerbi.com/visuals/?WT.mc_id=Blog_CustomVisuals" href="https://app.powerbi.com/visuals/?WT.mc_id=Blog_CustomVisuals">https://app.powerbi.com/visuals/?WT.mc_id=Blog_CustomVisuals</a> and then import into your reports.
+For Power BI, you can download **custom visuals** from <a title="https://app.powerbi.com/visuals/?WT.mc_id=Blog_CustomVisuals" href="https://app.powerbi.com/visuals/?WT.mc_id=Blog_CustomVisuals">https://app.powerbi.com/visuals/?WT.mc_id=Blog_CustomVisuals</a> and then import into your reports.
 
 One of the custom visual you can download is called Hierarchy Slicer:
 
@@ -74,7 +74,7 @@ As the name suggests, comparing to the original built-in slicer, this visual all
 
 As you can see, I’ve added Computer name as the top level filter in the hierarchy slicer, followed by the counter name as the second level in the slicer. As the result, I don’t have to use the filters for this page. Users can simply click on a counter (2nd level)  to view the graph for the counter on that specific computer, or select a computer (1st level) to see all the perf data for that particular computer. Obviously, you can make the counter name as the top of the hierarchy and place the computer name as the second level if that suits your needs better.
 
-<strong>Note: </strong>As per <a href="https://vimeo.com/168689159">introduction video</a> for this visual, you can enable multi-select by configuring the visual and turn off the ‘Single Select’ option:
+**Note: **As per <a href="https://vimeo.com/168689159">introduction video</a> for this visual, you can enable multi-select by configuring the visual and turn off the ‘Single Select’ option:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/07/image-11.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/07/image_thumb-11.png" alt="image" width="427" height="267" border="0" /></a>
 
@@ -84,7 +84,7 @@ However, based on my experience, this option is only available when you are usin
 
 Therefore we won’t be able to use multi-select for the OMS injected data because we cannot use Power BI Desktop with OMS data.
 
-<strong>3. Use the Brush Chart custom visual to scope the time frame</strong>
+**3. Use the Brush Chart custom visual to scope the time frame**
 
 Another cool custom visual is called Brush Chart, it is also called ‘Advanced Time Slicer’ on the download page:
 
@@ -96,7 +96,7 @@ I am using this together with the hierarchy slicer, so I can scope both computer
 
 As you can see, there are 2 graphs on this visual. I can use mouse (or other pointing devices) to select a time window from the bottom graph, and the top graph will be automatically zoomed into the selected time period.
 
-<strong>4. Use the Time Brush Custom Visual to scope the time frame</strong>
+**4. Use the Time Brush Custom Visual to scope the time frame**
 
 The Time Brush custom visual is very similar to the Brush Chart (aka Advanced Time Slicer).
 
@@ -108,13 +108,13 @@ It cannot be used by itself, it acts as the control for other visuals. in the ex
 
 As you can see, when I select a period from the Time Brush visual, the line chart got updated automatically.
 
-<strong>5. use other custom visuals</strong>
+**5. use other custom visuals**
 
 There are a lot of other custom visuals that you can download. for example, there’s another time slicer called TimeLine that allows you specify a precise,  specific time frame.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/07/image-17.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/07/image_thumb-17.png" alt="image" width="473" height="252" border="0" /></a>
 
-<strong>Conclusion</strong>
+**Conclusion**
 
 By using the combination of various slicers, we can produce more interactive and user friendly reports in Power BI. In the examples listed above, I can quickly produce a single report for ALL the OMS performance data, and users can simply choose the computer, counter and the time frame from the report itself. There is no need to create separate reports for different counters or computers.
 

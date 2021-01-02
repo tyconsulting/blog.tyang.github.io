@@ -39,6 +39,8 @@ The module provides a function called <strong>Test-JsonSchema</strong>, it Peste
 
 You can use Get-Help to read the detailed help file of this function.
 
-<h4><font color="#ff0000">Important Note:</font></h4>
+
+### <font color="#ff0000">Important Note:</font>
+
 
 This module is <strong>NOT</strong> designed to validate Azure Resource Manager (ARM) templates. The ARM templates support features that are not natively defined the the JSON specifications (such as single-line and multi-line comments). If your goal is to pester test your ARM templates, the ARM product group in Microsoft has provided an awesome solution, you can find it from the Azure Quickstart Templates repo: <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/test/template-tests">https://github.com/Azure/azure-quickstart-templates/tree/master/test/template-tests</a>

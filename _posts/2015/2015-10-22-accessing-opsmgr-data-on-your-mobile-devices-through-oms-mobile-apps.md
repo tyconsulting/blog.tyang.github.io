@@ -40,7 +40,9 @@ These built-in dashboards covered top level overview of alert data, perf data, e
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb17.png" alt="image" width="154" height="305" border="0" /></a>
 
 I also managed to produced the following Saved Searches and then pined them on the dashboard:
-<h4>OpsMgr Management Server Heartbeat Event For the Last 15 Minutes</h4>
+
+### OpsMgr Management Server Heartbeat Event For the Last 15 Minutes
+
 Using the OMS Add-On MP from version 2.5 of the <a href="http://blog.tyang.org/2015/09/16/opsmgr-self-maintenance-management-pack-2-5-0-0/">OpsMgr Self Maintenance MP</a>, I configured management servers to send heartbeat events to OMS every 5 minutes. The search query for this dashboard tile is:
 
 <strong><em>Type=Event Source=OMSHeartbeat Computer=OMMS01 TimeGenerated&gt;NOW-15MINUTE | measure count() by TimeGenerated</em></strong>
@@ -52,7 +54,9 @@ I also configured a threshold that would hightlight when the value is under 3:
 As you can see, this dashboard tile has also changed colour in the OMS Android app just like the full blown web console:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLa66124b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLa66124b" src="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLa66124b_thumb.png" alt="SNAGHTMLa66124b" width="154" height="304" border="0" /></a>
-<h4>Top 3 OpsMgr Offenders for the Last 24 Hours</h4>
+
+### Top 3 OpsMgr Offenders for the Last 24 Hours
+
 In OpsMgr, we would often interested in finding out which monitoring objects has generated the most of the alerts. This can be easily achieved using a very simple search query in OMS:
 
 <strong><em>Type=Alert AlertState=New TimeGenerated&gt;NOW-24HOURS | measure count() by SourceFullName | Top 3</em></strong>
@@ -60,7 +64,9 @@ In OpsMgr, we would often interested in finding out which monitoring objects has
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLa690c51.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLa690c51" src="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLa690c51_thumb.png" alt="SNAGHTMLa690c51" width="160" height="316" border="0" /></a>
 
 From this tile, I can see that most of the alerts generated in my management groups are Office 365 related.
-<h4>Error Events from the "Operations Manager" Event Log for the Last 24 Hours</h4>
+
+### Error Events from the "Operations Manager" Event Log for the Last 24 Hours
+
 If I want to see how many error events have been generated in the "Operations Manager" log on all the computers managed by OMS, I can use a query like this one:
 
 <strong><em>Type=Event EventLevelName=error EventLog="Operations Manager" TimeGenerated&gt;NOW-24HOURS</em></strong>
@@ -76,7 +82,9 @@ From this tile, I can then drill down by tapping the dashboard tile
 from this tile, you may have noticed there are only few bars for the recent time frames. this is because I have specified the query only return the events generated from the last 24 hours and the default time range for the OMS app is the last 7 days:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image27.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb21.png" alt="image" width="142" height="279" border="0" /></a>
-<h4>Hyper-V Hosts Available Memory</h4>
+
+### Hyper-V Hosts Available Memory
+
 Once you have configured the pre-requisites and enabled the Capacity Planning solution in OMS, this solution will start collecting various performance counters from your VMM managed Hyper-V hosts. The performance data collected by this solution is stored as hourly aggregated perf data (Type=PerfHourly). Therefore, we are able to get some common perf counters such as Memory Availability MBytes using a simple query like this:
 
 <strong><em>Type=PerfHourly CounterName="Available MBytes" |Measure Avg(SampleValue) AS AVGMemory by Computer | sort AVGMemory</em></strong>
@@ -90,9 +98,13 @@ And you can drill down from this tile:
 From here, I can see in my lab, a Hyper-V host running on an Intel NUC has the least amount of available memory.
 
 In my opinion, using the OMS mobile app has the following advantages comparing to the various mobile apps for OpsMgr:
-<h4>Support for multiple management groups and stand alone agents</h4>
+
+### Support for multiple management groups and stand alone agents
+
 Since you can connect multiple OpsMgr management groups into a single OMS workspace, and you are also able to connect standalone computers directly to OMS, the data returned from your search queries are consolidated among all data sources, not just one single management group.
-<h4>Cloud Based Solution</h4>
+
+### Cloud Based Solution
+
 Since OpsMgr is primarily designed to monitor your on-prem infrastructure, generally your OpsMgr infrastructure would be place somewhere in you on-prem data centre. Therefore in order to access your OpsMgr data via a mobile app remotely, you’d either need to connect to your corporate network via VPN, or your network team would need to create some kind of reverse proxy tunnel for you to access your OpsMgr web based portal (such as Squared Up) from the internet. This adds additional complexity in your solution. By using the OMS mobile apps, since the data is hosted on Azure, you do not need any kind of connectivity between your mobile device and your on-prem data centres.
 
 My fellow CDM MVP Steve Buchanan has also written an awesome overview for the Android app few days ago, you can read Steve’s post here: <a title="http://www.buchatech.com/2015/10/unpacking-the-operations-management-suite-android-app/" href="http://www.buchatech.com/2015/10/unpacking-the-operations-management-suite-android-app/">http://www.buchatech.com/2015/10/unpacking-the-operations-management-suite-android-app/</a>

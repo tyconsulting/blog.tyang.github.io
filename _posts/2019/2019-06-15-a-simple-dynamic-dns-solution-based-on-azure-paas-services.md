@@ -14,7 +14,9 @@ tags:
   - Azure DNS
   - Log Analytics
 ---
-<h4>Background</h4>
+
+### Background
+
 
 Many of us have used some kind of dynamic DNS services in the past. It is particularly useful for home network since it is very rare that ISPs provide static IP addresses free of charge nowadays.
 
@@ -22,7 +24,9 @@ Most of the home broadband modem and routers support some kind of dynamic DNS se
 
 I’ve changed my ISP few months ago. Currently, this new ISP charges $10 per month for a static IP. Right now a piece of work I’m working on requires me to connect back to my home lab when I’m not home. I don’t want sign up for another dynamic DNS service and nor do I want to pay $10 per month for a static IP. So I came up with a solution leveraging the existing resources I have setup in Azure, and build a very simple dynamic DNS service in my Azure subscription. It only took me couple of hours.
 
-<h4>Solution</h4>
+
+### Solution
+
 
 Here’s what I’ve done:
 
@@ -64,7 +68,9 @@ With those dynamic DNS providers, you’d have to use their DNS domain. This sol
 
 In the past, whenever I get a new modem / router, I needed to make sure it supports the particular dynamic DNS provider that I was using. Currently I’m using Ubiquiti Unifi equipment at home. Before I started coding, my fellow MVP and friend Dieter Wijckmans pointed me to a forum post for configuring Ubiquiti Unifi Security Gateway working with Duck DNS. I simply couldn’t be bothered to use another service provider, and having to maintain a dependency with my network equipment moving forward.
 
-<h4>Setup Instruction</h4>
+
+### Setup Instruction
+
 
 If you are interested to use my solution, and need to setup everything from scratch, here’s the high-level instruction:
 

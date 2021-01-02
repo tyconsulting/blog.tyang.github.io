@@ -28,36 +28,40 @@ Other than the capacity report MP itself (OpsLogix.IMP.Capacity_v1.0.2.24.mpb), 
 ## Reports
 
 This MP offers the following reports:
-<ul>
-	<li>Absolute value Report – Single instance</li>
-	<li>Absolute value Report – Multi instance</li>
-	<li>Percentage value Report – Single Instance</li>
-	<li>Percentage value Report – Multi instance</li>
-	<li>Percentage value Report – Multi instance Critical Only</li>
-	<li>Percentage value Report – Single instance Critical Only</li>
-</ul>
+
+* Absolute value Report – Single instance
+* Absolute value Report – Multi instance
+* Percentage value Report – Single Instance
+* Percentage value Report – Multi instance
+* Percentage value Report – Multi instance Critical Only
+* Percentage value Report – Single instance Critical Only
+
 I will now go through these reports.
-<h4>Absolute value Report – Single instance</h4>
+
+### Absolute value Report – Single instance
+
 This report allows you to run a forecast report over any performance counters stored in the OpsMgr data warehouse DB. This report requires the following parameters:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-6.png" alt="image" width="639" height="147" border="0" /></a>
-<ul>
-	<li><strong>From:</strong> The start date for the forecast analysis. The default value is Today – 30 days</li>
-	<li><strong>To:</strong> the number of forecast days. default value is 30 days from today</li>
-	<li><strong>Time zone:</strong> choose the time zone of your choice</li>
-	<li><strong>Available Rule Languages:</strong> The default value is English, when choosing another language, the performance rules that have display strings defined in that particular language (defined in &lt;LanguagePacks&gt; section in management packs) will appear in the "Performance Rule" drop down list.</li>
-	<li><strong>Performance Rule:</strong> this drop down list contains all the performance rules available for the language that you have chosen.</li>
-	<li><strong>Counter:</strong>  this drop down list contains the counters collected by the performance rule that you have selected. As the best practice, a perf collection rule should only collect one counter, so hopefully you should only see one counter on this drop down list.</li>
-	<li><strong>Object:</strong> this drop down list contains the object associated to the performance rule and counter</li>
-	<li><strong>Instance:</strong> this drop down list contains a list of available instances for the performance rule and counter.</li>
-	<li><strong>Managed Entity:</strong> this drop down list contains a list of managed entities associated to the performance counter instances.</li>
-</ul>
+
+* **From:** The start date for the forecast analysis. The default value is Today – 30 days
+* **To:** the number of forecast days. default value is 30 days from today
+* **Time zone:** choose the time zone of your choice
+* **Available Rule Languages:** The default value is English, when choosing another language, the performance rules that have display strings defined in that particular language (defined in <LanguagePacks> section in management packs) will appear in the "Performance Rule" drop down list.
+* **Performance Rule:** this drop down list contains all the performance rules available for the language that you have chosen.
+* **Counter:**  this drop down list contains the counters collected by the performance rule that you have selected. As the best practice, a perf collection rule should only collect one counter, so hopefully you should only see one counter on this drop down list.
+* **Object:** this drop down list contains the object associated to the performance rule and counter
+* **Instance:** this drop down list contains a list of available instances for the performance rule and counter.
+* **Managed Entity:** this drop down list contains a list of managed entities associated to the performance counter instances.
+
 The report looks something like this:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-7.png" alt="image" width="643" height="310" border="0" /></a>
 
 as shown in the screenshot above, the light blue line indicates forecasted future trending for the particular counter that you have chosen. The report also shows the forecasted change and value for the perf counter.
-<h4>Absolute value Report – Multi instance</h4>
+
+### Absolute value Report – Multi instance
+
 This report is very similar to the "Absolute value Report – Single instance" report. the only difference is, we can choose multiple instances in this report:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-8.png" alt="image" width="626" height="144" border="0" /></a>
@@ -65,26 +69,28 @@ This report is very similar to the "Absolute value Report – Single instance" r
 As shown in the screenshot above, we are able to choose multiple instances in the "Instance" section (whereas in the single instance report, we can only choose one from the drop down list). The report output displays all instances that you have selected:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-9.png" alt="image" width="595" height="437" border="0" /></a>
-<h4>Percentage value Report – Single Instance</h4>
+
+### Percentage value Report – Single Instance
+
 When performance counters are being collected by OpsMgr, some counter values are absolute values (such as logical disk free space in MB). However, some the counter values are percentage based (i.e. % logical disk free space).the percentage value based reports are designed for the percentage based performance counters. Let’s take a look at the "Percentage value Report – Single Instance" report first. This report requires the following parameters:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-10.png" alt="image" width="598" height="160" border="0" /></a>
-<ul>
-<ul>
-	<li><strong>From:</strong> The start date for the forecast analysis. The default value is Today – 30 days</li>
-	<li><strong>To:</strong> the number of forecast days. default value is 30 days from today</li>
-	<li><strong>Time zone:</strong> choose the time zone of your choice</li>
-	<li><strong>Number of days for Warning level:</strong> choose the warning threshold. – if the forecasted value reaches 100% (or 0% if reverse forecast direction is set to true) within the value specified in this field, the forecasted capacity state will be warning. The default value is 60 days.</li>
-	<li><strong>Number of days for Critical level:</strong> choose the critical threshold. – if the forecasted value reaches 100% (or 0% if reverse forecast direction is set to true) within the value specified in this field, the forecasted capacity state will be critical. The default value is 30 days.</li>
-	<li><strong>Reverse forecast direction:</strong> by default, the forecasted capacity state is changed when the forecasted value reaches 100%. But in some cases, we are more interested when the value reaches 0% (i.e. free disk space). In these scenarios, you can specify Reverse forecast direction to "true".</li>
-	<li><strong>Available Rule Languages:</strong> The default value is English, when choosing another language, the performance rules that have display strings defined in that particular language (defined in management packs) will appear in the "Performance Rule" drop down list.</li>
-	<li><strong>Performance Rule:</strong> this drop down list contains all the performance rules available for the language that you have chosen.</li>
-	<li><strong>Counter:</strong>  this drop down list contains the counters collected by the performance rule that you have selected. As the best practice, a perf collection rule should only collect one counter, so hopefully you should only see one counter on this drop down list.</li>
-	<li><strong>Object:</strong> this drop down list contains the object associated to the performance rule and counter</li>
-	<li><strong>Instance:</strong> this drop down list contains a list of available instances for the performance rule and counter.</li>
-	<li><strong>Managed Entity:</strong> this drop down list contains a list of managed entities associated to the performance counter instances.</li>
-</ul>
-</ul>
+
+
+* **From:** The start date for the forecast analysis. The default value is Today – 30 days
+* **To:** the number of forecast days. default value is 30 days from today
+* **Time zone:** choose the time zone of your choice
+* **Number of days for Warning level:** choose the warning threshold. – if the forecasted value reaches 100% (or 0% if reverse forecast direction is set to true) within the value specified in this field, the forecasted capacity state will be warning. The default value is 60 days.
+* **Number of days for Critical level:** choose the critical threshold. – if the forecasted value reaches 100% (or 0% if reverse forecast direction is set to true) within the value specified in this field, the forecasted capacity state will be critical. The default value is 30 days.
+* **Reverse forecast direction:** by default, the forecasted capacity state is changed when the forecasted value reaches 100%. But in some cases, we are more interested when the value reaches 0% (i.e. free disk space). In these scenarios, you can specify Reverse forecast direction to "true".
+* **Available Rule Languages:** The default value is English, when choosing another language, the performance rules that have display strings defined in that particular language (defined in management packs) will appear in the "Performance Rule" drop down list.
+* **Performance Rule:** this drop down list contains all the performance rules available for the language that you have chosen.
+* **Counter:**  this drop down list contains the counters collected by the performance rule that you have selected. As the best practice, a perf collection rule should only collect one counter, so hopefully you should only see one counter on this drop down list.
+* **Object:** this drop down list contains the object associated to the performance rule and counter
+* **Instance:** this drop down list contains a list of available instances for the performance rule and counter.
+* **Managed Entity:** this drop down list contains a list of managed entities associated to the performance counter instances.
+
+
 <!--EndFragment-->
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-11.png" alt="image" width="610" height="491" border="0" /></a>
@@ -94,7 +100,9 @@ As you can see from the screenshot above, I have chosen a perf collection rule t
 For the third item on the report indicates according to the forecast, it will run out of space in 206.29 days. Since the warning threshold is configured as 400 days and critical is 200 days. The value 206.29 falls in between the warning and critical threshold, therefore the forecasted capacity state is warning.
 
 For the last item (the 4th) on the report, the forecast indicates it will run out of capacity in 109.46 days, which is less than the configured critical threshold of 200 days, therefore, the forecasted capacity state is critical in this case.
-<h4>Percentage value Report – Multi Instance</h4>
+
+### Percentage value Report – Multi Instance
+
 This report is similar to the "Percentage value Report – Single Instance", but it allows you to select multiple instances for the perf counter you have chosen:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-12.png" alt="image" width="640" height="171" border="0" /></a>
@@ -102,7 +110,9 @@ This report is similar to the "Percentage value Report – Single Instance", but
 In the example above, I have chosen the "% Logical Disk Free Space Windows Server 2012" perf collection rule, which collects the % Free Space counter for Logical disks on Windows Server 2012 computers. In this case, the instance represents each logical disk’s drive letter (as highlighted). Comparing with the single instance report, we are not only able to choose a specific drive (such as C: drive), but also any other drives (as shown below).
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-13.png" alt="image" width="592" height="489" border="0" /></a>
-<h4>Percentage value Report – Multi / Single instance Critical Only Reports</h4>
+
+### Percentage value Report – Multi / Single instance Critical Only Reports
+
 The last two reports from this MP are the "Percentage value Report – Multi instance Critical Only" and "Percentage value Report – Single instance Critical Only" reports. The only differences with these two reports comparing to the previously mentioned percentage value reports is, they filter out any items with healthy and warning forecasted capacity state, and only list the critical items:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-14.png" alt="image" width="611" height="535" border="0" /></a>

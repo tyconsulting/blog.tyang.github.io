@@ -238,9 +238,13 @@ The OMS alert will also kick off the remediation runbook via the webhook. Becaus
 
 ## Additional Resources
 
-<h4>Test-OMSAlertRemediation Runbook</h4>
+
+### Test-OMSAlertRemediation Runbook
+
 I have also written a test runbook called Test-OMSAlertRemediation that you can use for any OMS alerts. This extracts information from the JSON input and send to you via email. It should be very helpful for you when you are authoring real remediation runbooks (so you know what kind of input data you can play with). I will publish it in the next blog post as it’s getting closer to mid night now.
-<h4>New OMS Ebook – Inside the MS Operations Management Suite</h4>
+
+### New OMS Ebook – Inside the MS Operations Management Suite
+
 Over the last few months, I have been working with Pete Zerger, Stanislav Zhelyazkov and Anders Bengtsson on a free ebook for OMS. OMS Alerting is also explained in more details in this book. It will be released very soon, so stay tuned!
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/OMS_Book_Anncmt.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="OMS_Book_Anncmt" src="http://blog.tyang.org/wp-content/uploads/2015/12/OMS_Book_Anncmt_thumb.png" alt="OMS_Book_Anncmt" width="676" height="383" border="0" /></a>

@@ -17,9 +17,10 @@ over the last few weeks, I have been working on a project related to Azure SQL D
 
 Since the DTU concept is Microsoft’s proprietary IP, the actual formula for the DTU calculation has not been released to the public. Luckily, Microsoft’s Justin Henriksen has developed an online <a href="http://dtucalculator.azurewebsites.net/">Azure SQL DB DTU Calculator</a>, you can also Justin’s blog <a href="https://justinhenriksen.wordpress.com/2015/05/15/introducing-the-azure-sql-database-dtu-calculator/">here</a>. I was able to use the web service Justin has developed for the online DTU Calculator, and I developed 2 PowerShell functions to perform the calculation by invoking the web service. The first function is called <a href="https://github.com/tyconsulting/BlogPosts/blob/master/Azure/Get-AzureSQLDBDTU.ps1">Get-AzureSQLDBDTU</a>, which can be used to calculate DTU for individual databases, the second function is called <a href="https://github.com/tyconsulting/BlogPosts/blob/master/Azure/Get-AzureSQLDBElasticPoolDTU.ps1">Get-AzureSQLDBElasticPoolDTU</a>, which can be used to calculate DTU for Azure SQL Elastic Pools.
 
-Obviously, since we are invoking a web service, the computer where you are running the script from requires Internet connection. Here’s a sample script to invoke the <strong>Get-AzureSQLDBDTU</strong> function:
+Obviously, since we are invoking a web service, the computer where you are running the script from requires Internet connection. Here’s a sample script to invoke the **Get-AzureSQLDBDTU** function:
 
-<strong>Note:</strong> you will need to change the variables in the ‘variables’ region, the $LogicalDriveLetter is the drive letter for the SQL DB data file drive.
+>**Note:** you will need to change the variables in the ‘variables’ region, the $LogicalDriveLetter is the drive letter for the SQL DB data file drive.
+
 ```powershell
 #region variables
 $SampleInterval = 1
@@ -34,7 +35,7 @@ $processors = get-wmiobject -query 'select * from win32_processor' -ComputerName
 $Cores = 0
 Foreach ($processor in $Processors)
 {
-$Cores = $numberOfCores + $processor.NumberOfCores
+  $Cores = $numberOfCores + $processor.NumberOfCores
 }
 
 #region collect perf counters
@@ -44,18 +45,18 @@ $arrRawPerfValues = Get-Counter -Counter $counters -SampleInterval $SampleInterv
 $arrPerfValues = @()
 Foreach ($item in $arrRawPerfValues)
 {
-$processorTime =$item.CounterSamples[0].CookedValue
-$diskReads = $item.CounterSamples[1].CookedValue
-$diskWrites = $item.CounterSamples[2].CookedValue
-$logBytesFlushed = $item.CounterSamples[3].CookedValue
-$properties = @{
-diskReads       = $diskReads
-diskWrites      = $diskWrites
-logBytesFlushed = $logBytesFlushed
-processorTime   = $processorTime
-}
-$objPerf = New-Object -TypeName psobject -Property $properties
-$arrPerfValues += $objPerf
+  $processorTime =$item.CounterSamples[0].CookedValue
+  $diskReads = $item.CounterSamples[1].CookedValue
+  $diskWrites = $item.CounterSamples[2].CookedValue
+  $logBytesFlushed = $item.CounterSamples[3].CookedValue
+  $properties = @{
+  diskReads       = $diskReads
+  diskWrites      = $diskWrites
+  logBytesFlushed = $logBytesFlushed
+  processorTime   = $processorTime
+  }
+  $objPerf = New-Object -TypeName psobject -Property $properties
+  $arrPerfValues += $objPerf
 }
 #endregion
 
@@ -66,13 +67,13 @@ $apiPerformanceItems = ConvertTo-Json -InputObject $arrPerfValues
 #Invoke the web API to calculate DUT
 $DTUCalculationResult = Get-AzureSQLDBDTU -Core $Cores -apiPerformanceItems $apiPerformanceItems
 #endregion
-
 ```
-The recommended Azure SQL DB service tier and coverage % can be retrieved in the <strong>‘Recommendations’</strong> property of the result:
+
+The recommended Azure SQL DB service tier and coverage % can be retrieved in the **‘Recommendations’** property of the result:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/07/image.png"><img style="padding-top: 0px; padding-left: 0px; margin: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/07/image_thumb.png" alt="image" width="244" height="90" border="0" /></a>
 
-the raw reading for each perf sample can be retrieved in the <strong>‘SelectedServiceTiers’</strong> property of the result:
+the raw reading for each perf sample can be retrieved in the **‘SelectedServiceTiers’** property of the result:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/07/image-1.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/07/image_thumb-1.png" alt="image" width="689" height="164" border="0" /></a>
 

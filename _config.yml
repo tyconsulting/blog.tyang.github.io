@@ -192,10 +192,10 @@ exclude:
   - /wp-content/uploads/2013 # temp, remove later
   - /_posts/2014 # temp, remove later
   - /wp-content/uploads/2014 # temp, remove later
+  - /_posts/2015 # temp, remove later
+  - /wp-content/uploads/2015 # temp, remove later
   - /_posts/2016 # temp, remove later
   - /wp-content/uploads/2016 # temp, remove later
-  - /_posts/2017 # temp, remove later
-  - /wp-content/uploads/2017 # temp, remove later
   - /_posts/2018 # temp, remove later
   - /wp-content/uploads/2018 # temp, remove later
   - /_posts/2019 # temp, remove later

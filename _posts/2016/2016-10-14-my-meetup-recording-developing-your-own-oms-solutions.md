@@ -16,6 +16,6 @@ Last month, I presented at the Melbourne Microsoft Cloud and Datacenter Meetup o
 
 If you are interested, you can watch the recording here (<a href="https://www.youtube.com/watch?v=zUzI31iIcTk">https://www.youtube.com/watch?v=zUzI31iIcTk</a>):
 
-https://www.youtube.com/watch?v=zUzI31iIcTk
+<iframe src="//www.youtube.com/embed/zUzI31iIcTk" height="375" width="640" allowfullscreen="" frameborder="0"></iframe>
 
 And you can also download the slide deck<a href="http://blog.tyang.org/wp-content/uploads/2016/10/2016-Sept-MEL-CDM-Developing-Your-Own-OMS-Solutions.pdf"> HERE</a>.

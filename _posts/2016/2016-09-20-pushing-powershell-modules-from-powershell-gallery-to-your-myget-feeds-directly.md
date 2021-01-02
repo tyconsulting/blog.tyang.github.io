@@ -4,6 +4,10 @@ title: Pushing PowerShell Modules From PowerShell Gallery to Your MyGet Feeds Di
 date: 2016-09-20T22:59:14+10:00
 author: Tao Yang
 #layout: post
+excerpt: ""
+header:
+  overlay_image: /wp-content/uploads/2016/09/PSGallery-MyGet.png
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 guid: http://blog.tyang.org/?p=5651
 permalink: /2016/09/20/pushing-powershell-modules-from-powershell-gallery-to-your-myget-feeds-directly/
 categories:
@@ -11,8 +15,6 @@ categories:
 tags:
   - PowerShell
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2016/09/PSGallery-MyGet.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="PSGallery-MyGet" src="http://blog.tyang.org/wp-content/uploads/2016/09/PSGallery-MyGet_thumb.png" alt="PSGallery-MyGet" width="672" height="146" border="0" /></a>
-
 Recently I have started using a private MyGet feed and my <a href="http://blog.tyang.org/2016/09/15/powershell-dsc-resource-for-managing-repositories-and-modules/">cPowerShellPackageManagement</a> DSC Resource module to manage PowerShell modules on my lab servers.
 
 When new modules are released in PowerShell Gallery (i.e. all the Azure modules), I’d normally use Install-Module to install on test machines, then publish the tested modules to my MyGet feed and then my servers would pick up the new modules.
@@ -25,9 +27,9 @@ To configure it, Under the MyGet feed, go to "Package Sources", and click "Add p
 
 Then choose NuGet feed, fill out name and source
 
-Name: <strong>PowerShellGallery</strong>
+Name: **PowerShellGallery**
 
-Source: <a title="https://www.powershellgallery.com/api/v2/" href="https://www.powershellgallery.com/api/v2/"><strong>https://www.powershellgallery.com/api/v2/</strong></a>
+Source: <a title="https://www.powershellgallery.com/api/v2/" href="https://www.powershellgallery.com/api/v2/">**https://www.powershellgallery.com/api/v2/**</a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/09/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/09/image_thumb-5.png" alt="image" width="418" height="280" border="0" /></a>
 

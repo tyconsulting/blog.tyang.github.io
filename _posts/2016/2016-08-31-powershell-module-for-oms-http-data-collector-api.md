@@ -26,24 +26,28 @@ Since most of us wouldn’t like having to deal with HTTP headers, bodies, autho
 
 This module was developed about 2 months ago, I was waiting for the API to become public so I can release this module. So now the wait is over, I can finally release it.
 
-This module contains only one public function: <strong>New-OMSDataInjection</strong>. This function is well documented in a proper help file. you can access it via <em><strong>Get-Help New-OMSDataInjection –Full</strong>. </em>I have added 2 examples in the help file too:
+This module contains only one public function: **New-OMSDataInjection**. This function is well documented in a proper help file. you can access it via **Get-Help New-OMSDataInjection –Full**. I have added 2 examples in the help file too:
 
-<span style="color: #3366ff;"><em>-------------------------- EXAMPLE 1 --------------------------</em></span>
+**EXAMPLE 1:**
 
-<span style="color: #3366ff;">PS C:\&gt;$PrimaryKey = Read-Host -Prompt 'Enter the primary key'</span>
-<span style="color: #3366ff;"> $ObjProperties = @{</span>
-<span style="color: #3366ff;"> Computer = $env:COMPUTERNAME</span>
-<span style="color: #3366ff;"> Username = $env:USERNAME</span>
-<span style="color: #3366ff;"> Message  = 'This is a test message injected by the OMSDataInjection module. Input data type: PSObject'</span>
-<span style="color: #3366ff;"> LogTime  = [Datetime]::UtcNow</span>
-<span style="color: #3366ff;"> }</span>
-<span style="color: #3366ff;"> $OMSDataObject = New-Object -TypeName PSObject -Property $ObjProperties</span>
-<span style="color: #3366ff;"> $InjectData = New-OMSDataInjection -OMSWorkSpaceId '8eb61d08-133c-401a-a45b-0e611194779f' -PrimaryKey $PrimaryKey -LogType 'OMSTestData' -UTCTimeStampField 'LogTime' -OMSDataObject $OMSDataObject</span>
+```powershell
+PS C:\>$PrimaryKey = Read-Host -Prompt 'Enter the primary key'
+ $ObjProperties = @{
+ Computer = $env:COMPUTERNAME
+ Username = $env:USERNAME
+ Message  = 'This is a test message injected by the OMSDataInjection module. Input data type: PSObject'
+ LogTime  = [Datetime]::UtcNow
+ }
+ $OMSDataObject = New-Object -TypeName PSObject -Property $ObjProperties
+ $InjectData = New-OMSDataInjection -OMSWorkSpaceId '8eb61d08-133c-401a-a45b-0e611194779f' -PrimaryKey $PrimaryKey -LogType 'OMSTestData' -UTCTimeStampField 'LogTime' -OMSDataObject $OMSDataObject
 
-<span style="color: #3366ff;"><em>Injecting data using a PS object by specifying the OMS workspace Id and primary key
--------------------------- EXAMPLE 2 --------------------------</em></span>
+Injecting data using a PS object by specifying the OMS workspace Id and primary key
+```
 
-<span style="color: #3366ff;"><em>PS C:\&gt;$OMSConnection = Get-AutomationConnection 'OMSConnection'
+**EXAMPLE 2:**
+
+```powershell
+PS C:\>$OMSConnection = Get-AutomationConnection 'OMSConnection'
 $OMSDataJSON = @"
 {
 "Username":  "administrator",
@@ -52,13 +56,14 @@ $OMSDataJSON = @"
 "Computer":  "SERVER01"
 }
 "@
-$InjectData = New-OMSDataInjection -OMSConnection $OMSConnection -LogType 'OMSTestData' -UTCTimeStampField 'LogTime' -OMSDataJSON $OMSDataJSON</em></span>
+$InjectData = New-OMSDataInjection -OMSConnection $OMSConnection -LogType 'OMSTestData' -UTCTimeStampField 'LogTime' -OMSDataJSON $OMSDataJSON
+```
 
-<span style="color: #3366ff;"><em>Injecting data using JSON formatted string by specifying the OMSWorkspace Azure Automation / SMA connection object (to be used in a runbook)</em></span>
+Injecting data using JSON formatted string by specifying the OMSWorkspace Azure Automation / SMA connection object (to be used in a runbook)
 
 This PS module comes with the following features:
 
-<strong>01. A Connection object for using this module in Azure Automation and SMA.</strong>
+**01. A Connection object for using this module in Azure Automation and SMA.**
 
 Once imported into your Azure Automation account (or SMA for the ‘old skool’ folks), you will be able to create connection objects that contains your OMS workspace Id, primary key and secondary key (optional):
 
@@ -66,11 +71,11 @@ Once imported into your Azure Automation account (or SMA for the ‘old skool’
 
 And as shown in Example 2 listed above, in your runbook, you can retrieve this connection object and use it when calling the New-OMSDataInjection function.
 
-<strong>02. Fall back to the secondary key if the primary key has failed</strong>
+**02. Fall back to the secondary key if the primary key has failed**
 
 When the optional secondary key is specified, if the web request using the primary key fails, the module will fall back to the secondary key and try the web request again using the secondary key. This is to ensure your script / automation runbooks will not be interrupted when you are in the process of  following the best practice and cycling through your keys.
 
-<strong>03. Supports two types of input: JSON and PSObject</strong>
+**03. Supports two types of input: JSON and PSObject**
 
 As you can see from Evan’s post, this API is expecting a JSON object as the HTTP body which contains the data to be injected into OMS. When I started testing this API few months ago, my good friend and fellow MVP Stanislav Zhelyazkov (<a href="https://twitter.com/StanZhelyazkov">@StanZhelyazkov</a>) suggested me instead of writing plain JSON format, it’s better to put everything into a PSObject then convert it to JSON in PowerShell so we don’t mess with the format and type of each field. I think it was a good idea, so I have coded the module to take either JSON format, or a PSObject that contains the data to be injected into OMS.
 
@@ -78,7 +83,8 @@ As you can see from Evan’s post, this API is expecting a JSON object as the HT
 
 I’ve created a sample script and a runbook to help you get started. They are also included in the Github repository for this module (link at the bottom of this article):
 
-<strong> Sample Script: Test-OMSDataInjection.ps1</strong>
+**Sample Script: Test-OMSDataInjection.ps1**
+
 ```powershell
 #requires -Version 3 -Modules OMSDataInjection
 $LogName = 'OMSTestData'
@@ -91,10 +97,10 @@ $PrimaryKey = Read-Host -Prompt 'Enter the primary key'
 
 #region Test PS object input
 $ObjProperties = @{
-Computer = $env:COMPUTERNAME
-Username = $env:USERNAME
-Message  = 'This is a test message injected by the OMSDataInjection module. Input data type: PSObject'
-LogTime  = $Now
+  Computer = $env:COMPUTERNAME
+  Username = $env:USERNAME
+  Message  = 'This is a test message injected by the OMSDataInjection module. Input data type: PSObject'
+  LogTime  = $Now
 }
 $OMSDataObject = New-Object -TypeName PSObject -Property $ObjProperties
 
@@ -106,8 +112,8 @@ $InjectData = New-OMSDataInjection -OMSWorkSpaceId $OMSWorkSpaceId -PrimaryKey $
 #region test JSON input
 #Placing the OMS Workspace ID and primary key into a hashtable
 $OMSConnection = @{
-OMSWorkSpaceId = $OMSWorkSpaceId
-PrimaryKey = $PrimaryKey
+  OMSWorkSpaceId = $OMSWorkSpaceId
+  PrimaryKey = $PrimaryKey
 }
 $OMSDataJSON = @"
 {
@@ -120,9 +126,10 @@ $OMSDataJSON = @"
 Write-Output "Injecting JSON data into OMS"
 $InjectData = New-OMSDataInjection -OMSConnection $OMSConnection -LogType $LogName -UTCTimeStampField 'LogTime' -OMSDataJSON $OMSDataJSON -verbose
 #endregion
-
 ```
-<strong>Sample Runbook: Test-OMSDataInjectionRunbook</strong>
+
+**Sample Runbook: Test-OMSDataInjectionRunbook**
+
 ```powershell
 #requires -Version 3 -Modules OMSDataInjection
 $LogName = 'OMSTestData'
@@ -135,10 +142,10 @@ $OMSConnection = Get-AutomationConnection -Name $OMSConnectionName
 
 #region Test PS object input
 $ObjProperties = @{
-Computer = $env:COMPUTERNAME
-Username = $env:USERNAME
-Message  = 'This is a test message injected by the OMSDataInjection module via an Azure Automation runbook. Input data type: PSObject'
-LogTime  = $Now
+  Computer = $env:COMPUTERNAME
+  Username = $env:USERNAME
+  Message  = 'This is a test message injected by the OMSDataInjection module via an Azure Automation runbook. Input data type: PSObject'
+  LogTime  = $Now
 }
 $OMSDataObject = New-Object -TypeName PSObject -Property $ObjProperties
 
@@ -159,7 +166,6 @@ $OMSDataJSON = @"
 Write-Output "Injecting JSON data into OMS"
 $InjectData = New-OMSDataInjection -OMSConnection $OMSConnection -LogType $LogName -UTCTimeStampField 'LogTime' -OMSDataJSON $OMSDataJSON -verbose
 #endregion
-
 ```
 
 ## Exploring Data in OMS
@@ -178,7 +184,7 @@ Please keep in mind, since the Custom Fields feature is still at the preview pha
 
 ## Where to Download This Module?
 
-I have published this module in PowerShell Gallery: <a title="https://www.powershellgallery.com/packages/OMSDataInjection" href="https://www.powershellgallery.com/packages/OMSDataInjection">https://www.powershellgallery.com/packages/OMSDataInjection</a>, if you are using PowerShell version 5 and above, you can install it directly from it: <strong>Install-Module –Name OMSDataInjection –Repository PSGallery</strong>
+I have published this module in PowerShell Gallery: <a title="https://www.powershellgallery.com/packages/OMSDataInjection" href="https://www.powershellgallery.com/packages/OMSDataInjection">https://www.powershellgallery.com/packages/OMSDataInjection</a>, if you are using PowerShell version 5 and above, you can install it directly from it: **Install-Module –Name OMSDataInjection –Repository PSGallery**
 
 You can also download it from it’s GitHub repo: <a title="https://github.com/tyconsulting/OMSDataInjection-PSModule/releases" href="https://github.com/tyconsulting/OMSDataInjection-PSModule/releases">https://github.com/tyconsulting/OMSDataInjection-PSModule/releases</a>
 

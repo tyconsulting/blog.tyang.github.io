@@ -114,7 +114,9 @@ Arguments are passed to the script as a <em>single string</em>, so if you need t
 The Monitor, Alert Rule, Performance Collection, and Event collection rules all have samples already configured in the UI that, whilst not useful in production, do illustrate how the workflow works and provide enough boilerplate to get started.
 
 They are also looking for your help:
-<h4>How can you help?</h4>
+
+### How can you help?
+
 <blockquote><b>Bugs</b> – if you find any, please let us know asap!
 
 <b>1. Feature Requests</b> – if you have any requests for additional functionality you think others would find valuable, please do let us know. We can’t promise to incorporate these into the initial or indeed any future release, but we’ll certainly take the suggestions onboard and look to incorporate them if possible / appropriate.  Of course, the MP will shortly be available, open source on GitHub, so at that point you’ll be able to make any personal modifications to it that way, should you prefer.

@@ -27,7 +27,7 @@ Once the license is imported, you can manually add the VMware vCenter server fro
 
 I have create a service account in AD and give it admin rights in vCenter. I used this account to connect to vCenter on this dashboard.
 
-<strong><span style="color: #ff0000;">Note:</span></strong> Please do not use an account with administrative privilege in your production environment. a normal user with top level read-only access will suffice.
+**<span style="color: #ff0000;">Note:</span>** Please do not use an account with administrative privilege in your production environment. a normal user with top level read-only access will suffice.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f02320a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1f02320a" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f02320a_thumb.png" alt="SNAGHTML1f02320a" width="525" height="212" border="0" /></a>
 
@@ -42,16 +42,16 @@ Alternatively, you can also pick another existing resource pool (or even create 
 ## Discovered Objects
 
 This MP discovers and monitors the following components:
-<ul>
-	<li>vCenter servers</li>
-	<li>Datacenters</li>
-	<li>Clusters</li>
-	<li>Datastores</li>
-	<li>ESX hosts</li>
-	<li>Virtual Machines</li>
-	<li>VM Networks</li>
-	<li>Various hardware components</li>
-</ul>
+
+* vCenter servers
+* Datacenters
+* Clusters
+* Datastores
+* ESX hosts
+* Virtual Machines
+* VM Networks
+* Various hardware components
+
 Here’s the sample diagram view from my lab environment:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2f09d40.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2f09d40" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2f09d40_thumb.png" alt="SNAGHTML2f09d40" width="678" height="338" border="0" /></a>
@@ -71,17 +71,17 @@ This MP does not require any additional servers to monitor the VMware infrastruc
 ## Hardware Monitoring
 
 As mentioned previously, this MP also monitors the hardware components in your VMware environments. In particular, the following components are discovered and monitored:
-<ul>
-	<li>Battery</li>
-	<li>Fan</li>
-	<li>Memory</li>
-	<li>Network cards</li>
-	<li>Power Supply</li>
-	<li>Processor</li>
-	<li>Storage</li>
-	<li>Temperature</li>
-	<li>Voltage</li>
-</ul>
+
+* Battery
+* Fan
+* Memory
+* Network cards
+* Power Supply
+* Processor
+* Storage
+* Temperature
+* Voltage
+
 This covers all the essential fabric components (Compute, Network and Storage), as well as the other hardware components such as PSU, battery, and physical environments such as temperature and voltage. the screenshots below are some sample state views taken from a demo environment:
 
 Temperature
