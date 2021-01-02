@@ -91,7 +91,8 @@ The sample OpsMgr management pack below collects the "Log Cache Hit Ratio" count
     </LanguagePack>
   </LanguagePacks>
 </ManagementPack>
-</pre>
+
+```
 As you can see from the above sample MP, the rule that collects aggregated data is no longer required.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/08/image-6.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-6.png" alt="image" width="658" height="332" border="0" /></a>

@@ -19,7 +19,8 @@ Couple of weeks ago, I published a post titled <a href="http://blog.tyang.org/20
 Once you have created this rnbook in your Azure Automation account, you can use it as the remediation runbook for any OMS alerts.
 
 <strong>Source code:</strong>
-<pre language="PowerShell">param ([object]$WebHookData)
+```powershell
+param ([object]$WebHookData)
 #Process inputs from webhook data
 Write-Verbose "Processing inputs from webhook data."
 $WebhookName    =   $WebhookData.WebhookName
@@ -54,7 +55,8 @@ Send-Email `
 -SMTPSettings $SMTPConnection `
 -Subject $Subject `
 -To your@email.address
-</pre>
+
+```
 <strong>Requirements</strong>
 
 This runbooks uses the SendEmail module for sending emails. You can install it to your automation account directly from PowerShell gallery(<a title="https://www.powershellgallery.com/packages/SendEmail/" href="https://www.powershellgallery.com/packages/SendEmail/">https://www.powershellgallery.com/packages/SendEmail/</a>), or download the source code from GitHub(<a title="https://github.com/tyconsulting/SendEmail_PowerShellModule" href="https://github.com/tyconsulting/SendEmail_PowerShellModule">https://github.com/tyconsulting/SendEmail_PowerShellModule</a>). Once the module is deployed to your Automation Account, you will then need to create a connection with type "<strong>SMTPServerConnection</strong>" with the name "<strong>SMTPNotification</strong>":

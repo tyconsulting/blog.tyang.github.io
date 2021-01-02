@@ -33,7 +33,8 @@ For example, if I want to retrieve the common configuration for Microsoft’s ow
 <a href="https://blog.tyang.org/wp-content/uploads/2018/01/image.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/01/image_thumb.png" alt="image" width="982" height="722" border="0" /></a>
 
 The AAD tenant ID is part of several endpoint URIs returned from your request (i.e. in token_endpoint URI as shown above). you can easily retrieve it in PowerShell. i.e.
-<pre class="lang:ps decode:true ">(Get-AADTenantConfiguration -TenantName microsoft.onmicrosoft.com).token_endpoint.split('/')[3]</pre>
+<pre class="lang:ps decode:true ">(Get-AADTenantConfiguration -TenantName microsoft.onmicrosoft.com).token_endpoint.split('/')[3]
+```
 &nbsp;
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/01/image-1.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/01/image_thumb-1.png" alt="image" width="971" height="72" border="0" /></a>

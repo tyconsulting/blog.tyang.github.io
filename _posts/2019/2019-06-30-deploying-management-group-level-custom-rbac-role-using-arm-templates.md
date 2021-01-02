@@ -54,7 +54,8 @@ I managed to deploy the role and make it available on the tenant root MG using t
     }
   ]
 }
-</pre>
+
+```
 
 Few things to note here:
 

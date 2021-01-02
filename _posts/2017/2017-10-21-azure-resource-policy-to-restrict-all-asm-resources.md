@@ -27,7 +27,8 @@ $definition = New-AzureRmPolicyDefinition -Name "restrict-all-asm-resources" -Di
 $definition
 $assignment = New-AzureRMPolicyAssignment -Name 'Restrict All ASM Resources' -PolicyDefinition $definition -Scope "/subscriptions/$subscriptionId"
 $assignment
-</pre>
+
+```
 i.e. when I tried to create a classic VNet, I could not pass the validation:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/10/image-3.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/10/image_thumb-3.png" alt="image" width="1002" height="528" border="0" /></a>

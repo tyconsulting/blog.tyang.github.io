@@ -37,4 +37,4 @@ The alert description contains a list of users who has closed monitor-generated 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/08/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/08/image_thumb8.png" width="579" height="311" border="0" /></a>
 
-This version of the MP and the documentation can be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2013/08/OpsMgr-Self-Maintenance-MP-2.1.0.0.zip"><strong>HERE</strong></a>.
+This version of the MP and the documentation can be downloaded [HERE](https://cookdown.com/scom-essentials/self-maintenance).

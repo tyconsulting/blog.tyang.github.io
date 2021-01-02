@@ -20,7 +20,8 @@ I have used this method in the past when testing the Microsoft Forefront Endpoin
 
 <strong><span style="color: #ff0000;">CAUTION:</span></strong> Use it at your own risk! And obviously, this runbook is designed to run on hybrid workers <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/11/wlEmoticon-smile1.png" alt="Smile" />.
 <h3>Runbook: New-FakeVirus</h3>
-<pre language="PowerShell">#=========================================================
+```powershell
+#=========================================================
 # AUTHOR:  Tao Yang 
 # DATE:    28/11/2015
 # SCRIPT:  New-FakeVirus.ps1
@@ -53,7 +54,8 @@ If ($ReturnValue -eq 0)
     Write-Error "failed to write EICAR test virus file '$FilePath' on computer '$ComputerName'. The return code is $ReturnCode."
 }
 
-</pre>
+
+```
 You will need to specify 3 optional input parameters:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/11/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/11/image_thumb6.png" alt="image" width="211" height="342" border="0" /></a>

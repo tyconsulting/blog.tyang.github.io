@@ -57,5 +57,6 @@ With this module, you can generate oAuth token for ARM REST API (default) or any
  	<li>Azure AD service principal – within an Azure Automation runbook and the SP details are stored as a connection object in Azure Automation</li>
 </ul>
 So far, I have included 10 examples for the Get-AzureADToken function from this module, this should have all scenarios covered. You can simply read them all using command:
-<pre class="lang:ps decode:true ">Get-Help Get-AzureADToken –Full</pre>
+<pre class="lang:ps decode:true ">Get-Help Get-AzureADToken –Full
+```
 I hope you will find this module useful when dealing with Azure AD oAuth tokens in PowerShell. Feel free to drop me a note or fork the GitHub repo if you want to see any improvements.

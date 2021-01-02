@@ -66,7 +66,8 @@ tags:
 <pre class="wp-block-preformatted">sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
-</pre>
+
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -74,7 +75,8 @@ sudo apt-get dist-upgrade
 <!-- /wp:paragraph -->
 
 <!-- wp:preformatted -->
-<pre class="wp-block-preformatted">sudo apt -y install xrdp xdotool unclutter sed rpi-chromium-mods</pre>
+<pre class="wp-block-preformatted">sudo apt -y install xrdp xdotool unclutter sed rpi-chromium-mods
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -82,7 +84,8 @@ sudo apt-get dist-upgrade
 <!-- /wp:paragraph -->
 
 <!-- wp:preformatted -->
-<pre class="wp-block-preformatted">nano ~/chromium-signin.sh</pre>
+<pre class="wp-block-preformatted">nano ~/chromium-signin.sh
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -99,7 +102,8 @@ xdotool key Return
 sleep 10
 xdotool key Tab
 xdotool key Return
-</pre>
+
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -115,7 +119,8 @@ xdotool key Return
 <!-- /wp:paragraph -->
 
 <!-- wp:preformatted -->
-<pre class="wp-block-preformatted">sudo nano /etc/xdg/lxsession/LXDE-pi/autostart</pre>
+<pre class="wp-block-preformatted">sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -131,7 +136,8 @@ xdotool key Return
 @xset s noblank
 @chromium-browser --noerrdialogs --ignore-certificate-errors&nbsp; --disable-infobars --kiosk&nbsp; https://&lt;nvr url&gt;:7443/live-view
 @/home/pi/chromium-signin.sh
-</pre>
+
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -139,7 +145,8 @@ xdotool key Return
 <!-- /wp:paragraph -->
 
 <!-- wp:preformatted -->
-<pre class="wp-block-preformatted">sudo nano /etc/chromium-browser/customizations/01-disable-update-check</pre>
+<pre class="wp-block-preformatted">sudo nano /etc/chromium-browser/customizations/01-disable-update-check
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -147,7 +154,8 @@ xdotool key Return
 <!-- /wp:paragraph -->
 
 <!-- wp:preformatted -->
-<pre class="wp-block-preformatted">CHROMIUM_FLAGS="${CHROMIUM_FLAGS} --check-for-update-interval=31536000"</pre>
+<pre class="wp-block-preformatted">CHROMIUM_FLAGS="${CHROMIUM_FLAGS} --check-for-update-interval=31536000"
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -163,7 +171,8 @@ xdotool key Return
 <!-- /wp:paragraph -->
 
 <!-- wp:preformatted -->
-<pre class="wp-block-preformatted">crontab –e</pre>
+<pre class="wp-block-preformatted">crontab –e
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -173,7 +182,8 @@ xdotool key Return
 <!-- wp:preformatted -->
 <pre class="wp-block-preformatted"># Daily reboot (22:00/10:00pm) 0 22 * * * root /home/pi/reboot.sh
 # Daily reboot (07:00/07:00am) 0 7 * * * root /home/pi/reboot.sh
-</pre>
+
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->

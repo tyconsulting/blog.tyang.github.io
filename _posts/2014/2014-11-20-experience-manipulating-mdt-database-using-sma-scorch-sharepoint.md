@@ -143,7 +143,8 @@ $Recipient = Get-AutomationConnection -Name '[email recipient’s connection nam
 Write-Verbose "Emailing result to $Recipient.Email"
 Send-Email -SMTPSettings $SMTPSettings -To $Recipient.Email -Subject 'MDT Location Gateway address update result' -Body $EmailMessage -HTMLBody $False
 }
-</pre>
+
+```
 <h3>Putting Everything Together</h3>
 As demonstrated in the diagram in the beginning of this post, here’s how the whole workflow works:
 <ol>

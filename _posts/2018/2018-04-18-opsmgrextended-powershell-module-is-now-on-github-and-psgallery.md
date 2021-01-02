@@ -28,5 +28,6 @@ I was also aware of a bug in the New-OMOverride function in the module since 201
 In addition to these updates, I have made the <a href="https://github.com/tyconsulting/OpsMgrExtended-PS-Module" target="_blank" rel="noopener">GitHub repo</a> for this module public and published it to <a href="https://www.powershellgallery.com/packages/OpsMgrExtended" target="_blank" rel="noopener">PowerShell Gallery</a>. Now if you are running PowerShell v5+, you can install this module by simply running:
 <pre language='PowerShell'>
 Install-Module OpsMgrExtended –Repository PSGallery –Force
-</pre>
+
+```
 Please feel free to fork the repo, submit pull requests, or provide feedback.

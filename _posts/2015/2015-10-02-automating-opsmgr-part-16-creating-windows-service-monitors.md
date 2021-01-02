@@ -43,7 +43,8 @@ You can access the help document for this function using the Get-Help cmdlet:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLb42d9c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLb42d9c" src="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLb42d9c_thumb.png" alt="SNAGHTMLb42d9c" width="387" height="320" border="0" /></a>
 <h3>Sample Runbook: New-ServiceMonitor</h3>
-<pre language="PowerShell">Workflow New-ServiceMonitor
+```powershell
+Workflow New-ServiceMonitor
 {
 Param(
 [Parameter(Mandatory=$true)][String]$MonitorName,
@@ -99,7 +100,8 @@ Write-Error "Unable to create monitor `"$Monitorname`"."
 }
 
 }
-</pre>
+
+```
 I have hardcoded the following parameters in the runbook:
 <ul>
 	<li>SMA OpsMgr connection object name (which you will need to change to suit your environment)</li>

@@ -280,7 +280,8 @@ Workflow Add-ObjectToInstanceGroup
 		exit
 	}
 }
-</pre>
+
+```
 In order for you to use this runbook, you will need to modify line 9 with the name of the SMA connection you've created in your environment.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML325a4b96.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML325a4b96" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML325a4b96_thumb.png" alt="SNAGHTML325a4b96" width="458" height="329" border="0" /></a>

@@ -1,6 +1,6 @@
 ---
 id: 2262
-title: 'Deploying OpsMgr 2012 R2 Agents Using ConfigMgr &#8211; Part 2'
+title: 'Deploying OpsMgr 2012 R2 Agents Using ConfigMgr - Part 2'
 date: 2013-11-30T20:53:58+10:00
 author: Tao Yang
 #layout: post
@@ -53,27 +53,28 @@ As the name suggests, the "OS Architecture" Global condition detects the OS arch
 
 Here’s the script (so you can copy and paste):
 
-[sourcecode language="VB"]
+```vb
 Function GetOSArch
-Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
-Set col = objWMIService.ExecQuery _
-("Select * from Win32_OperatingSystem")
-For Each item in col
-arrOSVersion = Split(item.Version,".")
-If arrOSVersion(0) &gt;= 6 Then
-'OS is Vista / 2008 or higher
-StrOSArch = item.OSArchitecture
-Else
-int64Bit = InStr(item.Caption,"x64")
-If int64Bit &gt; 0 Then
-strOSArch = "64-bit"
-Else
-strOSArch = "32-bit"
-End If
-End If
-Next
-GetOSArch = strOSArch
+  Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+  Set col = objWMIService.ExecQuery _
+  ("Select * from Win32_OperatingSystem")
+  For Each item in col
+    arrOSVersion = Split(item.Version,".")
+    If arrOSVersion(0) >= 6 Then
+      'OS is Vista / 2008 or higher
+      StrOSArch = item.OSArchitecture
+    Else
+      int64Bit = InStr(item.Caption,"x64")
+      If int64Bit > 0 Then
+        strOSArch = "64-bit"
+      Else
+        strOSArch = "32-bit"
+      End If
+    End If
+  Next
+  GetOSArch = strOSArch
 End Function
+
 OSArch = GetOSArch
 Wscript.Echo OSArch
 ```
@@ -140,7 +141,7 @@ Next, for the application detection method, I use a VBScript to detect if the he
 
 Here’s the script (OM12AgentAppCIDetect.vbs):
 
-[sourcecode language="VB"]
+```vb
 '=========================================
 ' NAME:    OM12AgentAppCIDetect.vbs
 ' AUTHOR:  Tao Yang
@@ -153,14 +154,14 @@ bHSFound = FALSE
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colItems = objWMIService.ExecQuery("Select * from Win32_Service Where name = 'healthservice'")
 For Each objItem in colItems
-bHSFound = TRUE
+  bHSFound = TRUE
 Next
 
 'Process Result
 If bHSFound THEN
-Wscript.Echo "Health Service found."
+  Wscript.Echo "Health Service found."
 Else
-Wscript.quit
+  Wscript.quit
 End If
 ```
 
@@ -186,7 +187,7 @@ Discovery Script (OM12AgentCIDiscovery):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/11/image14.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb14.png" alt="image" width="484" height="490" border="0" /></a>
 
-[sourcecode language="VB"]
+```vb
 '==============================================
 ' NAME:    OM12AgentCIDiscovery.vbs
 ' AUTHOR:  Tao Yang
@@ -199,19 +200,19 @@ Discovery Script (OM12AgentCIDiscovery):
 AgentMGRegKey= "&lt;Your MG Name&gt;"
 
 function ReadRegistry (strRegistryKey, strDefault )
-Dim WSHShell, value
+  Dim WSHShell, value
 
-On Error Resume Next
-Set WSHShell = CreateObject("WScript.Shell")
-value = WSHShell.RegRead( strRegistryKey )
+  On Error Resume Next
+  Set WSHShell = CreateObject("WScript.Shell")
+  value = WSHShell.RegRead( strRegistryKey )
 
-if err.number &lt;&gt; 0 then
-ReadRegistry= strDefault
-else
-ReadRegistry=value
-end if
+  if err.number &lt;&gt; 0 then
+    ReadRegistry= strDefault
+  else
+    ReadRegistry=value
+  end if
 
-set WSHShell = nothing
+  set WSHShell = nothing
 end function
 
 Const HKEY_LOCAL_MACHINE = &H80000002
@@ -222,57 +223,57 @@ Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\roo
 Set colItems = objWMIService.ExecQuery("Select * from Win32_Service Where name = 'healthservice'")
 bMgmtServer = FALSE
 For Each objItem in colItems
-'Health Service found. Check if this machine is an OpsMgr or Service Manager management server.
-Set oReg=GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\default:StdRegProv")
-ServerMGRegKey= "Server Management Groups"
-strKeyPath = "SOFTWARE\Microsoft\Microsoft Operations Manager\3.0"
-oReg.EnumKey HKEY_LOCAL_MACHINE, strKeyPath, arrSubKeys
-For Each subkey In arrSubKeys
-bFound = (subkey = ServerMGRegKey)
-if bFound then exit for
-Next
-IF bFound THEN
-'OpsMgr or Service Manager management server detected
-'Wscript.Echo "OpsMgr or SCSM management server detected."
-bMgmtServer = TRUE
-END IF
+  'Health Service found. Check if this machine is an OpsMgr or Service Manager management server.
+  Set oReg=GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\default:StdRegProv")
+  ServerMGRegKey= "Server Management Groups"
+  strKeyPath = "SOFTWARE\Microsoft\Microsoft Operations Manager\3.0"
+  oReg.EnumKey HKEY_LOCAL_MACHINE, strKeyPath, arrSubKeys
+  For Each subkey In arrSubKeys
+    bFound = (subkey = ServerMGRegKey)
+    if bFound then exit for
+  Next
+  IF bFound THEN
+    'OpsMgr or Service Manager management server detected
+    'Wscript.Echo "OpsMgr or SCSM management server detected."
+    bMgmtServer = TRUE
+  END IF
 Next
 
 'Wscript.Echo "bMgmtServer: " & bMgmtServer
 
 '02. Check if the agent is connected to the correct management group
 If bMgmtServer = False Then
-'Wscript.Echo "Check Agent's MG config"
-Set oReg=GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\default:StdRegProv")
-strKeyPath = "SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Agent Management Groups"
-oReg.EnumKey HKEY_LOCAL_MACHINE, strKeyPath, arrSubKeys
-bIncorrectMG= FALSE
-If Not IsNull(arrSubKeys) Then
-For Each subkey In arrSubKeys
-bFound = (lcase(subkey) = lcase(AgentMGRegKey))
-IF bFound = FALSE THEN
-'Wscript.Echo "Incorrect management group found. Current Management Group: " & subkey
-bIncorrectMG = TRUE
-END IF
-Next
-ELSE
-bIncorrectMG = TRUE
-End IF
+  'Wscript.Echo "Check Agent's MG config"
+  Set oReg=GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\default:StdRegProv")
+  strKeyPath = "SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Agent Management Groups"
+  oReg.EnumKey HKEY_LOCAL_MACHINE, strKeyPath, arrSubKeys
+  bIncorrectMG= FALSE
+  If Not IsNull(arrSubKeys) Then
+    For Each subkey In arrSubKeys
+      bFound = (lcase(subkey) = lcase(AgentMGRegKey))
+      IF bFound = FALSE THEN
+      'Wscript.Echo "Incorrect management group found. Current Management Group: " & subkey
+      bIncorrectMG = TRUE
+      END IF
+    Next
+  ELSE
+    bIncorrectMG = TRUE
+  End IF
 End If
 'Wscript.Echo "bIncorrectMG: " & bIncorrectMG
 
 'Process Result
 bConfigRequired = FALSE
 IF bMgmtServer = FALSE THEN
-IF bIncorrectMG = TRUE THEN
-bConfigRequired = TRUE
-END IF
+  IF bIncorrectMG = TRUE THEN
+    bConfigRequired = TRUE
+  END IF
 END IF
 'Wscript.Echo "bConfigRequired: " & bConfigRequired
 If bConfigRequired = FALSE Then
-Wscript.Echo "Compliant"
+  Wscript.Echo "Compliant"
 Else
-Wscript.Echo "Non-Compliant"
+  Wscript.Echo "Non-Compliant"
 End If
 ```
 
@@ -282,7 +283,7 @@ Remediation Script (OM12AgentRemediate.vbs):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/11/image15.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb15.png" alt="image" width="506" height="510" border="0" /></a>
 
-[sourcecode language="VB"]
+```vb
 '=============================================
 ' NAME:    OM12AgentRemediate.vbs
 ' AUTHOR:  Tao Yang
@@ -311,13 +312,13 @@ bNewMGExists = FALSE
 Set arrCurrentMGs = objMSConfig.GetManagementGroups()
 'Set arrMGToRemove = CreateObject( "System.Collections.ArrayList" )
 For each CurrentMG in arrCurrentMGs
-MGName = CurrentMG.managementGroupName
-IF MGName &lt;&gt; MGToAdd THEN
-objMSConfig.RemoveManagementGroup(MGName)
-arrMGToRemove.Add MGName
-Else
-bNewMGExists = TRUE
-END IF
+  MGName = CurrentMG.managementGroupName
+  IF MGName &lt;&gt; MGToAdd THEN
+    objMSConfig.RemoveManagementGroup(MGName)
+    arrMGToRemove.Add MGName
+  Else
+    bNewMGExists = TRUE
+  END IF
 Next
 'iMGToRemoveCount = arrMGToRemove.count
 
@@ -329,33 +330,33 @@ Next
 
 'Add New MG
 IF bNewMGExists = FALSE THEN
-Call objMSConfig.AddManagementGroup (MGToAdd, NewMgmtServer,Port)
+  Call objMSConfig.AddManagementGroup (MGToAdd, NewMgmtServer,Port)
 END IF
 
 'Confirm the new MG has been added
 objMSConfig.GetManagementGroup(MGToAdd)
 If Err= 0 Then
-bNewMGAdded = TRUE
+  bNewMGAdded = TRUE
 Else
-bNewMGAdded = FALSE
+  bNewMGAdded = FALSE
 End IF
 
 'Confirm if the newly added MG is the only MG configured on the agent
 bOldMGRemoved = TRUE
 Set arrMGs = objMSConfig.GetManagementGroups()
 For each MG in arrMGs
-MGName = MG.managementGroupName
-IF MGName &lt;&gt; MGToAdd THEN
-bOldMGRemoved = FALSE
-END IF
+  MGName = MG.managementGroupName
+  IF MGName &lt;&gt; MGToAdd THEN
+    bOldMGRemoved = FALSE
+  END IF
 Next
 
 'exit
 IF (bNewMGAdded = TRUE AND bOldMGRemoved = TRUE) THEN
-Call objMSConfig.ReloadConfiguration
-Wscript.Quit 0
+  Call objMSConfig.ReloadConfiguration
+  Wscript.Quit 0
 ELSE
-Wscript.Quit -1
+  Wscript.Quit -1
 END IF
 ```
 

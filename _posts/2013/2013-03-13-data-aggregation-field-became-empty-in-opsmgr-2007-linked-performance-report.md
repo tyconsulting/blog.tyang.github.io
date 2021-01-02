@@ -42,22 +42,23 @@ $MG.Id
 
 If RMS is clustered, replace "<em><strong>$env:computername</strong></em>" to the RMS cluster name in the first line.
 
+{:start="2"}
 2. export the management pack (assuming the linked report is stored in a unsealed MP), open the unsealed MP in a text editor
 
 3. Go to
 
-&lt;Reporting&gt;
-
-&lt;LinkedReports&gt;
-
-&lt;LinkedReport ID= (where ID is the Id of the problematic report)
-
-&lt;Parameters&gt;
+```xml
+<Reporting>
+  <LinkedReports>
+    <LinkedReport ID= (where ID is the Id of the problematic report)>
+      <Parameters>
+```
 
 Find the ManagementGroupId parameter and delete the incorrect value
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/03/image12.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/03/image_thumb11.png" width="578" height="272" border="0" /></a>
 
+{:start="4"}
 4. Save the XML and import the unsealed MP back to the management group.
 
 After importing the MP back, the "Data Aggregation" field is populated:

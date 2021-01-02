@@ -42,7 +42,8 @@ notify{"cloud provider: ${cloud_provider}":}
 $cloud_provider_1 = $::cloud_provider,
 
 notify{"cloud provider PS: ${cloud_provider_1}":}
-</pre>
+
+```
 
 On the Puppet agent, when you apply the config using –debug flag, you will see it in the output:
 

@@ -77,7 +77,8 @@ Write-Output "Rule `"$RuleName`" created."
 Throw "Unable to create rule `"$RuleName`"."
 }
 }
-</pre>
+
+```
 In order to use this runbook, you firstly need to modify line 14 with the name of the SMA connection to your OpsMgr management group:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb.png" alt="image" width="585" height="79" border="0" /></a>

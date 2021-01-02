@@ -42,7 +42,8 @@ Like all other functions in this module, it has been fully documented, with few 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb9099e1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLb9099e1" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb9099e1_thumb.png" alt="SNAGHTMLb9099e1" width="364" height="266" border="0" /></a>
 <h3>Runbook: New-2StateEventMonitor</h3>
-<pre language="PowerShell">Workflow New-2StateEventMonitor
+```powershell
+Workflow New-2StateEventMonitor
 {
 Param(
 [Parameter(Mandatory=$true)][String]$MonitorName,
@@ -95,7 +96,8 @@ Write-Output "Monitor `"$MonitorName`" created."
 Write-Error "Unable to create monitor `"$Monitorname`"."
 }
 }
-</pre>
+
+```
 I have hardcoded the following parameters in the runbook:
 <ul>
 	<li>SMA OpsMgr connection object name (which you will need to change to suit your environment)</li>

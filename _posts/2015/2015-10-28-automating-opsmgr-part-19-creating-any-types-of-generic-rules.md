@@ -161,7 +161,8 @@ If ($RuleCreated)
 } else {
 	Write-Error "Unable to create Rule `"$RuleName`"."
 }
-</pre>
+
+```
 As you can see, this runbook requires the following input parameters:
 <ul>
 	<li>RuleName – the internal name of the rule</li>
@@ -204,7 +205,8 @@ Next, we must define the module configurations for each member module used by th
 To explain in English, the rules created by this runbook would periodically execute a WMI query (Data source module), then map the result from WMI query to OpsMgr performance data (Condition detection module), finally store the performance data in OpsMgr operational DB, data warehouse DB and also OMS workspace (3 write action modules).
 
 So we will need to use the <strong>New-OMModuleConfiguration</strong> function from the OpsMgrExtended PS module to create an instance of the "OpsMgrExtended.ModuleConfiguration" class. As explained earlier, the "OpsMgrExtended.ModuleConfiguration" class is defined in the OpsMgrExtended.Types.dll. Take the data source member module as an example:
-<pre language="PowerShell">
+```powershell
+
 $DAModuleTypeName = "Microsoft.Windows.WmiProvider"
 $DAConfiguration = @"
 <NameSpace>$WMINamespace</NameSpace>
@@ -213,7 +215,8 @@ $DAConfiguration = @"
 "@
 $DAMemberModuleName = "DS"
 $DataSourceConfiguration = New-OMModuleConfiguration -ModuleTypeName $DAModuleTypeName -Configuration $DAConfiguration -MemberModuleName $DAMemberModuleName
-</pre>
+
+```
 I have placed the module type name, module configuration and the member module name into separate variables and passed them to the New-OMModuleConfiguration function and created a module configuration object for the data source module.
 
 <strong>Note:</strong>
@@ -405,7 +408,8 @@ Event Description: {1}
 		Write-Error "Unable to create Rule `"$RuleName`"."
 	}
 }
-</pre>
+
+```
 This runbook takes the following input parameters:
 <ul>
 	<li>RuleName – the internal name of the rule that you are creating</li>

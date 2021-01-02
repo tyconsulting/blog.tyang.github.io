@@ -96,16 +96,19 @@ This function also has an optional Boolean parameter called ‘-LogHybridWorkerC
 </ul>
 <h3>Sample Runbooks</h3>
 <strong>Sample PowerShell Runbook:</strong>
-<pre language="PowerShell">Get-HybridWorkerConfiguration  | out-file C:\temp\HybridWorkerConfiguration.txt
+```powershell
+Get-HybridWorkerConfiguration  | out-file C:\temp\HybridWorkerConfiguration.txt
 
 Get-HybridWorkerJobRuntimeInfo | out-file C:\temp\HybridWorkerJobRuntimeInfo.txt
 
 New-HybridWorkerRunbookLogEntry -Id 886 -Message "This is the first test message logged from hybrid worker within a PowerShell runbook."
 
 New-HybridWorkerRunbookLogEntry -Id 887 -Message "This is the second test message logged from hybrid worker within a PowerShell runbook." -Level Error -LogHybridWorkerConfig $true
-</pre>
+
+```
 <strong>Sample PowerShell Workflow Runbook</strong>
-<pre language="PowerShell">workflow Test-HybridWorkerOutput-PSW
+```powershell
+workflow Test-HybridWorkerOutput-PSW
 {
 #Write-Output "Exporting Hybrid Worker config"
 Get-HybridWorkerConfiguration  | out-file C:\temp\HybridWorkerConfiguration.txt
@@ -119,7 +122,8 @@ New-HybridWorkerRunbookLogEntry -Id 888 -Message "This is the first test message
 #Write-Output "Logging second event log entry."
 New-HybridWorkerRunbookLogEntry -Id 889 -Message "This is the second test message logged from hybrid worker within a PowerShell Workflow runbook." -Level Warning -LogHybridWorkerConfig $true
 }
-</pre>
+
+```
 As you can see, the way to call these functions between PowerShell and PowerShell Workflow runbooks are exactly the same.
 
 Hybrid Worker Configuration output:

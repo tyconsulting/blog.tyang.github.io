@@ -112,7 +112,8 @@ Write-Error $Result
 }
 }
 
-</pre>
+
+```
 <h3>Usage Example:</h3>
 Add-MPRef -ReferenceMPName "ConfigMgr.2012.Client.Library" -Alias "C2CL" -UnsealedMPName "Microsoft.SystemCenter.SecureReferenceOverride" –Verbose
 <h3>Conclusion</h3>

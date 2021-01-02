@@ -45,7 +45,8 @@ A side note here, Last week, I received an email asked me if the OpsMgrExtended 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image43.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb43.png" alt="image" width="674" height="520" border="0" /></a>
 <h3>Runbook: New-EventCollectionRule</h3>
-<pre language="PowerShell">Workflow New-EventCollectionRule
+```powershell
+Workflow New-EventCollectionRule
 {
 Param(
 [Parameter(Mandatory=$true)][String]$RuleName,
@@ -98,7 +99,8 @@ Write-Output "Rule `"$RuleName`" created."
 Write-Error "Unable to create rule `"$RuleName`"."
 }
 }
-</pre>
+
+```
 I have hardcoded the following parameters in the runbook:
 <ul>
 	<li>SMA OpsMgr connection object name (which you will need to change to suit your environment)</li>

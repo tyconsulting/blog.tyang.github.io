@@ -29,7 +29,8 @@ In order to be able to overcome these constraints, I have developed a little tri
 <a href="http://blog.tyang.org/wp-content/uploads/2015/02/SNAGHTML12c34a9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML12c34a9" src="http://blog.tyang.org/wp-content/uploads/2015/02/SNAGHTML12c34a9_thumb.png" alt="SNAGHTML12c34a9" width="577" height="195" border="0" /></a>
 
 03. Create a function to load the DLLs. In the "SMSDK" module that I’ve written, the function looks like this:
-<pre language="PowerShell">Function Import-SMSDK
+```powershell
+Function Import-SMSDK
 {
 &lt;#
 .Synopsis
@@ -75,7 +76,8 @@ $bSDKLoaded = $false
 }
 $bSDKLoaded
 }
-</pre>
+
+```
 As you can see, In this function, I have hardcoded the DLL file names, assembly version and public key token. The script will try to load the assemblies (with the specific names, version and public key token) from the Global Assembly Cache first (line 32). If the assemblies are not located in the GAC, it will load the assemblies from the DLLs located in the PS Module folder (line 38).
 
 The key to this PS function is, you must firstly identify the assemblies version and public key token. There are 2 ways to can do this:
@@ -91,7 +93,8 @@ The key to this PS function is, you must firstly identify the assemblies version
 <strong><span style="color: #ff0000;">Note:</span></strong> although you can load the assemblies from the GAC without specifying the version number, in this scenario, you MUST specify the version to ensure the correct version is loaded. It happened to me before when I developed a script that uses OpsMgr SDK, it worked on most of the computers but one computer. It took me a while to find out because the computer had both OpsMgr and Service Manager SDKs loaded in the GAC, the wrong assembly was loaded because I didn’t not specify the version number in the script.
 
 Now, Once the Import SDK function is finalised, you may call it from scripts or other module functions. For example, in my "SMSDK" module, I’ve also created a function to establish connection to the Service Manager management group, called Connect-SMManagementGroup. This function calls the Import SDK (Import-SMSDK) function to load assemblies before connecting to the Service Manager management group:
-<pre language="PowerShell">Function Connect-SMManagementGroup
+```powershell
+Function Connect-SMManagementGroup
 {
 &lt;#
 .Synopsis
@@ -152,7 +155,8 @@ $MG = New-Object Microsoft.EnterpriseManagement.EnterpriseManagementGroup($MGCon
 }
 $MG
 }
-</pre>
+
+```
 For your reference, You can download the sample module (SMSDK) <strong><span style="font-size: medium;"><a href="http://blog.tyang.org/wp-content/uploads/2015/02/SMSDK.zip">HERE</a></span></strong>. However, the SDK DLLs are not included in this zip file. For Service Manager, you can find these DLLs from the Service Manager 2012 R2 Management Server, in the &lt;SCSM Management Server Install Dir&gt;\SDK Binaries folder and manually copy them to the PS module folder:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/02/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb9.png" alt="image" width="521" height="122" border="0" /></a>

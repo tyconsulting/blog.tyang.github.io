@@ -74,7 +74,8 @@ This module provides a connection type called SMAAddressBook. It can be used lik
 
 This module also provides a PowerShell function called Send-MobilePushNotification. It can be used to send push notification to either Prawl, NotifyMyAndroid or NotifyMyWindowsPhone.
 <h3>Sample Runbook</h3>
-<pre language="PowerShell">workflow Test-Notification {
+```powershell
+workflow Test-Notification {
 	#Get the contact details
 	$ContactName = 'tyang'
 	Write-Verbose "Getting SMA Address Book entry for $ContactName"
@@ -95,7 +96,8 @@ This module also provides a PowerShell function called Send-MobilePushNotificati
 	Write-Verbose 'Sending Android push notification'
 	Send-MobilePushNotification -os "Android" -apikey $Contact.AndroidAPI -Subject $Subject -Application 'SMA' -Body $Message
 }
-</pre>
+
+```
 As you can see from this sample, the runbook author does not need to know the SMTP server information (including login credentials), nor the contact details of the recipient. The runbook can simply pass the SMTP connection object (PowerShell Hash Table) into the Send-Email function.
 
 After I executed this runbook, I received the notification via both Email and Android push notification:

@@ -75,7 +75,8 @@ Delete from Core.ModuleVersions where ModuleKey In (Select ModuleKey from Core.M
 
 PRINT 'Deleting Modules'
 Delete from core.Modules where ModuleName = @ModuleName
-</pre>
+
+```
 To use this script, you will need to change the <strong>@ModuleName</strong> and <strong>@ConnectionName</strong> variable to suit your module:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTML1a938e65.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1a938e65" src="http://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTML1a938e65_thumb.png" alt="SNAGHTML1a938e65" width="665" height="458" border="0" /></a>

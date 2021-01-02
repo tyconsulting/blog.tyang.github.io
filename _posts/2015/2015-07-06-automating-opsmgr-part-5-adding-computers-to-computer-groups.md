@@ -177,7 +177,8 @@ Workflow Add-ComputerToComputerGroup
 		exit
 	}
 }
-</pre>
+
+```
 When using this runbook, you will need to update line 9 of the runbook, and replace the SMA connection name with the one you've used in your SMA environment:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd3cc63e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd3cc63e" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd3cc63e_thumb.png" alt="SNAGHTMLd3cc63e" width="688" height="488" border="0" /></a>

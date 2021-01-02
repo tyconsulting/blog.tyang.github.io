@@ -31,7 +31,8 @@ Switch ($InstalledLicense.LicenseStatus)
 5 {"Notification"}
 6 {"ExtendedGrace"}
 }
-</pre>
+
+```
 I configured the CI to only support computers running Windows 7 / Server 2008 R2 and above (as per the minimum supported OS for the SoftwareLicensingProduct WMI class documented on MSDN: <a title="http://msdn.microsoft.com/en-us/library/cc534596(v=vs.85).aspx" href="http://msdn.microsoft.com/en-us/library/cc534596(v=vs.85).aspx">http://msdn.microsoft.com/en-us/library/cc534596(v=vs.85).aspx</a>):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/01/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/01/image_thumb1.png" alt="image" width="415" height="369" border="0" /></a>

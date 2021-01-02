@@ -109,7 +109,8 @@ Since I haven’t seen anything similar to these on the net before, although the
     Write-Verbose "Total number of Management Group default value found: $($arrSettingValues.count)."
     $arrSettingValues
 }
-</pre>
+
+```
 This function returns an arraylist which contains <strong>ALL</strong> the default settings of the management group.
 
 <strong>Usage:</strong>
@@ -217,7 +218,8 @@ If you want to retrieve a particular setting, you can always use pipe ("|") and 
         Write-Output 'Done.'
     }
 }
-</pre>
+
+```
 <strong>Usage:</strong>
 
 Set-MGDefaultSetting -SDK "OpsMgrMS01" -SettingType Microsoft.EnterpriseManagement.Administration.Settings+ManagementGroup+AlertResolution -FieldName AlertAutoResolveDays -Value 3 –verbose

@@ -18,8 +18,10 @@ Like many other fellow MVPs, I have started playing with Azure Functions over th
 While I was trying to figure out a way to import custom modules into my PowerShell Azure Functions, I came across this post showing me how to upload 3rd party assemblies for C# functions: <a title="http://www.robfox.nl/2016/04/27/referencing-external-assemblies-azure-functions/" href="http://www.robfox.nl/2016/04/27/referencing-external-assemblies-azure-functions/">http://www.robfox.nl/2016/04/27/referencing-external-assemblies-azure-functions/</a>. So basically for adding assemblies for C#, you will need to create a folder called "bin" under your function root folder, and upload the DLL to the newly created folder using a FTP client. I thought I’d give this a try for PowerShell modules, and guess what? it worked! I’ll use one of my frequently used module called GAC as an example in this post and work through the process of how to prepare the module and how to use it in my PowerShell code.
 
 01. I firstly download the Gac module from the PowerShell Gallery (<a title="https://www.powershellgallery.com/packages/Gac/1.0.1" href="https://www.powershellgallery.com/packages/Gac/1.0.1">https://www.powershellgallery.com/packages/Gac/1.0.1</a>):
-<pre language="PowerShell">Save-Module Gac –repository PSGallery –path C:\temp
-</pre>
+```powershell
+Save-Module Gac –repository PSGallery –path C:\temp
+
+```
 02. Make sure the Azure Functions App Service has the deployment credential configured
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/10/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb.png" alt="image" width="343" height="205" border="0" /></a>
@@ -43,9 +45,11 @@ While I was trying to figure out a way to import custom modules into my PowerShe
 <a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-5.png" alt="image" width="352" height="285" border="0" /></a>
 
 Now that the module is uploaded, and because the module is not located in a folder that’s listed in the PSModulePath environment variable, we have to explicitly import the module manifest (.psd1 file) before using it. For example, I have created a function with only 2 lines of code as shown below:
-<pre language="PowerShell">import-module 'D:\home\site\wwwroot\HttpTriggerPowerShell1\bin\Gac\1.0.1\Gac.psd1'
+```powershell
+import-module 'D:\home\site\wwwroot\HttpTriggerPowerShell1\bin\Gac\1.0.1\Gac.psd1'
 Get-GacAssembly
-</pre>
+
+```
 The "Get-GacAssembly" cmdlet comes from the Gac PowerShell module. As the name suggests, it lists all the assemblies located in the Gac (Global Assemblies Cache). When I call the HTTP trigger function using Invoke-WebRequest, you’ll see the assemblies listed in the logs window:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-6.png" alt="image" width="696" height="120" border="0" /></a>

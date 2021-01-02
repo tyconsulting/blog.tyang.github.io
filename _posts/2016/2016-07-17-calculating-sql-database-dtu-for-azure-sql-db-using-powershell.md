@@ -20,7 +20,8 @@ Since the DTU concept is Microsoft’s proprietary IP, the actual formula for th
 Obviously, since we are invoking a web service, the computer where you are running the script from requires Internet connection. Here’s a sample script to invoke the <strong>Get-AzureSQLDBDTU</strong> function:
 
 <strong>Note:</strong> you will need to change the variables in the ‘variables’ region, the $LogicalDriveLetter is the drive letter for the SQL DB data file drive.
-<pre language="PowerShell">#region variables
+```powershell
+#region variables
 $SampleInterval = 1
 $MaxSamples = 3600
 $DatabaseName = 'AdventureWorks'
@@ -65,7 +66,8 @@ $apiPerformanceItems = ConvertTo-Json -InputObject $arrPerfValues
 #Invoke the web API to calculate DUT
 $DTUCalculationResult = Get-AzureSQLDBDTU -Core $Cores -apiPerformanceItems $apiPerformanceItems
 #endregion
-</pre>
+
+```
 The recommended Azure SQL DB service tier and coverage % can be retrieved in the <strong>‘Recommendations’</strong> property of the result:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/07/image.png"><img style="padding-top: 0px; padding-left: 0px; margin: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/07/image_thumb.png" alt="image" width="244" height="90" border="0" /></a>

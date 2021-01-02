@@ -73,7 +73,8 @@ As you can see from Evan’s post, this API is expecting a JSON object as the HT
 I’ve created a sample script and a runbook to help you get started. They are also included in the Github repository for this module (link at the bottom of this article):
 
 <strong> Sample Script: Test-OMSDataInjection.ps1</strong>
-<pre language="PowerShell">#requires -Version 3 -Modules OMSDataInjection
+```powershell
+#requires -Version 3 -Modules OMSDataInjection
 $LogName = 'OMSTestData'
 $UTCTimeStampField = 'LogTime'
 $Now = [Datetime]::UtcNow
@@ -113,9 +114,11 @@ $OMSDataJSON = @"
 Write-Output "Injecting JSON data into OMS"
 $InjectData = New-OMSDataInjection -OMSConnection $OMSConnection -LogType $LogName -UTCTimeStampField 'LogTime' -OMSDataJSON $OMSDataJSON -verbose
 #endregion
-</pre>
+
+```
 <strong>Sample Runbook: Test-OMSDataInjectionRunbook</strong>
-<pre language="PowerShell">#requires -Version 3 -Modules OMSDataInjection
+```powershell
+#requires -Version 3 -Modules OMSDataInjection
 $LogName = 'OMSTestData'
 $UTCTimeStampField = 'LogTime'
 $Now = [Datetime]::UtcNow
@@ -150,7 +153,8 @@ $OMSDataJSON = @"
 Write-Output "Injecting JSON data into OMS"
 $InjectData = New-OMSDataInjection -OMSConnection $OMSConnection -LogType $LogName -UTCTimeStampField 'LogTime' -OMSDataJSON $OMSDataJSON -verbose
 #endregion
-</pre>
+
+```
 <h3>Exploring Data in OMS</h3>
 Once the data is injected into OMS, if you are using a new data type,  it can take a while (few hours) for all the fields to be available in OMS.
 

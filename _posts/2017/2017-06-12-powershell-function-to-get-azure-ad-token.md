@@ -28,7 +28,8 @@ By default, if you don’t specify the ‘AuthenticationType’, it defaults to 
 Here are two examples how to use both UPN and SPN in a REST call to get all resource groups in your Azure subscription:
 
 <strong>Using User Principals:</strong>
-<pre language="PowerShell">$TenantId = 'your AAD tenant Id'
+```powershell
+$TenantId = 'your AAD tenant Id'
 $subscriptionId = 'your azure sub id'
 $userName = 'admin@yourcompany.onmicrosoft.com'
 $pw = ConvertTo-SecureString -String 'password1234' -AsPlainText -Force
@@ -37,7 +38,8 @@ $Token = Get-AADToken -TenantID $TenantId -Credential $AzureAdminCred
 $RESTAPIHeaders = @{'Authorization'=$Token;'Accept'='application/json'}
 $URI = "https://management.azure.com/subscriptions<a href="https://management.azure.com/subscriptions/">/</a>$subscriptionId/resourceGroups?api-version=2014-04-01"
 $GetResourceGroupsRequest = Invoke-WebRequest -UseBasicParsing -Uri $URI -Method GET -Headers $RESTAPIHeaders
-</pre>
+
+```
 <strong>Using AAD Application Service Principals:</strong>
 <pre class="" language="PowerShell">$TenantId = 'your AAD tenant Id'
 $subscriptionId = 'your azure sub id'
@@ -48,8 +50,11 @@ $Token = Get-AADToken -TenantID $TenantId -Credential $Credential -Authenticatio
 $RESTAPIHeaders = @{'Authorization'=$Token;'Accept'='application/json'}
 $URI = "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups?api-version=2014-04-01"
 $GetResourceGroupsRequest = Invoke-WebRequest -UseBasicParsing -Uri $URI -Method GET -Headers $RESTAPIHeaders
-</pre>
+
+```
 The HTTP request returns a response that’s saved in the $GetResourceGroupsRequest variable. To access the result, you will need to convert the response content from JSON to PSobject. i.e.
-<pre language="PowerShell">$ResourceGroups = ($GetResourceGroupsRequest.Content | ConvertFrom-Json).value
-</pre>
+```powershell
+$ResourceGroups = ($GetResourceGroupsRequest.Content | ConvertFrom-Json).value
+
+```
 <a href="https://blog.tyang.org/wp-content/uploads/2017/06/image.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/06/image_thumb.png" alt="image" width="991" height="160" border="0" /></a>

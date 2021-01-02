@@ -60,7 +60,8 @@ I simply coded the group populator data source to always return nothing by using
 
 Since populating groups can get complicated, and I think it will be very useful for people to use the <strong>OpsMgrExtended</strong> module to create and manage groups, I will dedicate this post and the next few posts in this blog series on creating and managing groups. So, please consider this as the first episode of the "sub series". In this post, I will demonstrate a simple runbook that you can use to create instance groups and computer groups.
 <h3>Runbook: New-Group</h3>
-<pre language="PowerShell">
+```powershell
+
 Workflow New-Group
 {
 Param(
@@ -107,7 +108,8 @@ Write-Output "Group `"$GroupName`" created."
 Write-Error "Unable to create group `"$GroupName`"."
 }
 }
-</pre>
+
+```
 <h3>Executing Runbook</h3>
 Creating Instance Group:
 

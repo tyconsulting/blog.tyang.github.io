@@ -17,7 +17,8 @@ tags:
 Over the last few weeks, I’ve been working with my MVP buddy Alex Verkinderen (<a href="https://twitter.com/AlexVerkinderen">@AlexVerkinderen</a>) on some Azure Function related stuff. We have both written few PowerShell based functions that output a HTML page.
 
 These functions use the ConvertTo-HTML cmdlet to produce the HTML output. For example, here’s a simple one that  list 2 cars in a HTML table:
-<pre language="PowerShell">$Cars = @()
+```powershell
+$Cars = @()
 #Car #1
 $CarProperties = @{
 'Make' = 'BMW'
@@ -35,7 +36,8 @@ $CarProperties = @{
 $Cars += New-Object psobject -Property $CarProperties
 $HTMLOutput = ($Cars | ConvertTo-Html -Title 'Car List') | Out-String
 Out-file -encoding Ascii -FilePath $res -InputObject $HTMLOutput
-</pre>
+
+```
 Today we ran into an issue while preparing for our next blog posts, after some diagnostics, we realised the issue was caused by the HTML output returned from the PowerShell based functions.
 
 If I use Invoke-WebRequest cmdlet in Powershell to trigger this PowerShell function, I am able to get the HTML output in the request output content and everything looks good:

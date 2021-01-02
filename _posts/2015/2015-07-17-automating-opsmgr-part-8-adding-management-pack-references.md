@@ -55,7 +55,8 @@ When using OpsMgr SDK to create MP references, since you are creating the refere
 
 The OpsMgrExtended module offers a function called <strong>New-OMManagementPackReference</strong> that can be used to easily create MP references in unsealed management packs. I have written a very simple runbook utilising this function.
 <h3>Runbook: Add-MPReference</h3>
-<pre language="PowerShell">Workflow Add-MPReference
+```powershell
+Workflow Add-MPReference
 {
 Param(
 [Parameter(Mandatory=$true)][String]$ManagementPackName,
@@ -77,7 +78,8 @@ throw "Unable to add MP reference for '$ReferenceMPName' to unsealed MP '$Manage
 exit
 }
 }
-</pre>
+
+```
 This runbook takes 3 input parameters:
 <ul>
 	<li>ManagementPackName: the name of the unsealed MP where the reference is going to saved to</li>

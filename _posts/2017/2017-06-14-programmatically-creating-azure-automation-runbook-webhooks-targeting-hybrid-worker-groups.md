@@ -39,12 +39,14 @@ I ended up using the REST API in my solution and managed to create webhooks targ
 In this post, I will share the code block I used to create the webhook. For demonstration purposes, I have created a very simple Hello World runbook that takes a single input parameter call "Name":
 
 HelloWorld Runbook:
-<pre language="PowerShell">[CmdletBinding()]
+```powershell
+[CmdletBinding()]
 PARAM (
 [Parameter(Mandatory = $true)][String]$Name
 )
 Write-output "Hello $Name"
-</pre>
+
+```
 Sample code for creating the webhook on Hybrid Worker groups:
 
 https://gist.github.com/tyconsulting/99ac239c4b7522917c89cc80be097f23

@@ -33,7 +33,8 @@ As I have previously demonstrated how to create and update OpsMgr groups using t
 
 Deleting groups that are defined in unsealed management packs can be easily accomplished using the <strong>Remove-OMGroup</strong> function from the OpsMgrExtended module. This function deletes the group class definition and discoveries from the unsealed MP. However, since it's very common for OpsMgr administrators to also create dependency monitors for groups (for group members health rollup), you cannot simply use Remove-OMGroup function to delete groups when there are also monitors targeting this group. Therefore, I have written  a sample runbook to delete the group as well as monitors targeting the group (if there are any).
 <h3>Runbook Delete-OpsMgrGroup</h3>
-<pre language="PowerShell">
+```powershell
+
 Workflow Delete-OpsMgrGroup
 {
 	Param(
@@ -86,7 +87,8 @@ Workflow Delete-OpsMgrGroup
 	exit
 	}
 }
-</pre>
+
+```
 In order to use this runbook, you will need to update Line 9, with the name of your SMA connection object.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML1591389.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1591389" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML1591389_thumb.png" alt="SNAGHTML1591389" width="600" height="404" border="0" /></a>

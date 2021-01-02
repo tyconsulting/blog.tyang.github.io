@@ -36,7 +36,8 @@ In order to configure the alerting and remediation for this OpsMgr alert, I need
 So first things first, I must create and publish the remediation runbook in the Azure Automation account before we can select it when we create the OMS alert. Although we cannot configure what parameters to pass into the runbook, the OMS alert passes the search result and some meta data into the runbook in JSON format (I will show it later). So based on my experience, in order to make the runbooks re-useable, we can some optional input parameters for the runbook, and inside the runbook, check if any of these optional parameters are null, then retrieve the value elsewhere (i.e. Azure Automation variable and credential assets).
 
 In this case, I have created a PowerShell based runbook called Remove-SCAdvisorRegistration, the code is listed below:
-<pre language="PowerShell">Param(
+```powershell
+Param(
     [Parameter(Mandatory=$false)][object]$WebHookData,
     [Parameter(Mandatory=$false)][PSCredential]$ServerAdminCred
 )
@@ -166,7 +167,8 @@ Foreach ($item in $SearchResultsValue)
 }
 Write-Output "Done."
 
-</pre>
+
+```
 Now, let’s fast forward a little bit and explain what does the input parameter from OMS alert look like. When we have configured Alert remediation during the OMS alert creation, a webhook for the runbook is automatically created. OMS uses this webhook to start the runbook. It passes a parameter called "WEBHOOKDATA", which is in JSON format into the runook. You can see the actual input by clicking on the INPUT tile in the runbook job execution history:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb2.png" alt="image" width="674" height="390" border="0" /></a>

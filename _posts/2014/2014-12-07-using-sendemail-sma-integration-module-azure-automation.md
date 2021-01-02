@@ -13,7 +13,8 @@ tags:
   - SMA
 ---
 Over the last couple of days, I’ve spent sometime on Azure Automation (SMA in Azure). The first thing I did was imported and configured the <a href="http://blog.tyang.org/2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/">SendEmail and SendPushNotification SMA Integration Modules</a> that I have posted earlier. I created a simple test runbook to send an email and a push notification to my android phone:
-<pre language="PowerShell">workflow Test-PushNotification
+```powershell
+workflow Test-PushNotification
 {
 #Get the contact details
 $ContactName = 'tyang'
@@ -36,7 +37,8 @@ $Send = Send-Email -SMTPSettings $SMTPSettings -To $Contact.Email -Subject $Subj
 Write-Verbose 'Sending Android push notification'
 Send-MobilePushNotification -os "Android" -apikey $Contact.AndroidAPI -Subject $Subject -Application 'Azure Automation' -Body $Message
 }
-</pre>
+
+```
 However, I found 2 issues related to the SendEmail module. I’ll go through both of the issues in this post.
 <h3>Issue 1</h3>
 When I executed this runbook, it failed to send the email message. I got this error:

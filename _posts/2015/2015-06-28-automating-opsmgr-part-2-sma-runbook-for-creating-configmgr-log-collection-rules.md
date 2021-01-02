@@ -44,7 +44,8 @@ I am going to demonstrate how to create these event collection rules using a SMA
 </ul>
 &nbsp;
 <h3>Runbook: New-ConfigMgrLogCollectionRule</h3>
-<pre language="PowerShell">
+```powershell
+
 workflow New-ConfigMgrLogCollectionRule
 {
     Param(
@@ -194,7 +195,8 @@ workflow New-ConfigMgrLogCollectionRule
         Write-Error "Unable to create Rule `"$RuleName`"."
     }
 }
-</pre>
+
+```
 When executing this runbook, the user must specify the following parameters:
 <ul>
 	<li><strong>RuleName:</strong> the internal name of the OpsMgr rule</li>

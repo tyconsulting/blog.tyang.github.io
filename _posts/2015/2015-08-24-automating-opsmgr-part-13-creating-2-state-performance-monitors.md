@@ -84,7 +84,8 @@ Write-Output "Monitor `"$MonitorName`" created."
 Write-Error "Unable to create monitor `"$Monitorname`"."
 }
 }
-</pre>
+
+```
 As you can see, I have hardcoded the following parameters in the runbook:
 <ul>
 	<li>Frequency – 900 seconds</li>
@@ -92,8 +93,10 @@ As you can see, I have hardcoded the following parameters in the runbook:
 	<li>Increase MP Version – true</li>
 </ul>
 So, before I can kick off this runbook, I need to firstly create the MP. This can be easily done using a one-liner on a machine where OpsMgrExtended is loaded:
-<pre language="PowerShell">New-OMManagementPack -SDK OMMS01 -Name "TYANG.SMA.Automation.Perf.Monitor.Demo" -DisplayName "TYANG SMA Automation Perf Monitor Demo" –Verbose
-</pre>
+```powershell
+New-OMManagementPack -SDK OMMS01 -Name "TYANG.SMA.Automation.Perf.Monitor.Demo" -DisplayName "TYANG SMA Automation Perf Monitor Demo" –Verbose
+
+```
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image32.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb32.png" alt="image" width="613" height="192" border="0" /></a>
 
 After the test MP is created, I can then execute the runbook. This runbook takes the following input parameters:

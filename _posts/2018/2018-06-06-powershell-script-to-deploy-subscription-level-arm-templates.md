@@ -40,7 +40,8 @@ In order to execute the script, you will firstly need to create a service princi
 This service principal must have sufficient privilege in the subscription that you are deploying the template to. In my case, since I’m deploying policy definitions, the Service Principal needs to have the subscription Owner role because the Contributor role does not have required rights in Microsoft.Authorization resource provider.
 
 To manually execute the script outside of the VSTS pipeline, you can do something like this:
-<pre language="powershell">$TenantId = '74edd9d1-c33c-4890-bbfe-53d8eea27fad'
+```powershell
+$TenantId = '74edd9d1-c33c-4890-bbfe-53d8eea27fad'
 $SubscriptionId = '3fe4fa99-78ff-44a2-ad57-4d2cba88790a'
 $ServicePrincipalAppNamePrefix = 'vsts'
 $ServicePrincipalKey = 'ENTER YOUR SP KEY HERE'
@@ -51,7 +52,8 @@ Add-AzureRMAccount -Subscription $SubscriptionId
 $TemplateFilePath = 'C:\temp\allowedRoleDefinitionDemo.azuredeploy.json'
 $ParameterFilePath = "C:\temp\allowedRoleDefinitionDemo.azuredeploy.parameters.json"
 .\Deploy-SubscriptionLevelTemplate.ps1 -TenantId $tenantId -SubscriptionId $SubscriptionId -location $location -ServicePrincipalAppNamePrefix $ServicePrincipalAppNamePrefix -ServicePrincipalKey $ServicePrincipalKey -TemplateFilePath $TemplateFilePath -ParameterFilePath $ParameterFilePath  -Verbose
-</pre>
+
+```
 Few things to be aware of:
 <ul>
  	<li>By default, the script parameter –validate is set to $false, to perform template validation instead of deployment, use <strong>–validate $true</strong> when executing the script.</li>
@@ -80,12 +82,14 @@ Firstly, associate the variable group to the build:
 <a href="https://blog.tyang.org/wp-content/uploads/2018/06/image-7.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/06/image_thumb-7.png" alt="image" width="717" height="322" border="0" /></a>
 
 The first Azure PowerShell task "Get Azure Subscription Details" retrieves the tenant and subscription Id from AzureRM context and store them as variables. here’s the inline script:
-<pre language="powershell">$Context = Get-AzureRMContext
+```powershell
+$Context = Get-AzureRMContext
 $TenantId = $Context.Tenant.Id
 $SubId = $Context.subscription.Id
 Write-Output ("##vso[task.setvariable variable=TenantId]$TenantId")
 Write-Output ("##vso[task.setvariable variable=SubscriptionId]$SubId")
-</pre>
+
+```
 <a href="https://blog.tyang.org/wp-content/uploads/2018/06/image-8.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/06/image_thumb-8.png" alt="image" width="961" height="790" border="0" /></a>
 
 The second Azure PowerShell task executes the Deploy-SubscriptionLevelTemplate.ps1 script with the following parameters:

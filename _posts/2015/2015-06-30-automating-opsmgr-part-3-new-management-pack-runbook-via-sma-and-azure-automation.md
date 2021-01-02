@@ -45,7 +45,8 @@ The "Operations Manager SDK" connection must be created in the Azure Automation 
 
 The server  name I used is the FQDN of one of my OpsMgr management server. The user name is a service account I created in my on-prem Active Directory (I believe it's called Legacy AD or LAD now <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/06/wlEmoticon-smile2.png" alt="Smile" />). i.e. Domain\ServicecAccount.  This is connection is created exactly the same as the one I created in my On-Prem SMA environment.
 <h3>New-OpsMgrMP Runbook</h3>
-<pre language="PowerShell">workflow New-OpsMgrMP
+```powershell
+workflow New-OpsMgrMP
 {
 Param(
 [Parameter(Mandatory=$true)][String]$Name,
@@ -82,7 +83,8 @@ Write-Error "Unable to create Management Pack `"$Name`"."
 
 Write-Output "Done."
 }
-</pre>
+
+```
 The runbook in Azure Automation and SMA is exactly identical. Please note I have configured the Operations Manager SDK connection name to be identical on Azure Automation and SMA. you will need to update Line 11 of this runbook to the name of the connection you've created:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/06/image27.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb27.png" alt="image" width="529" height="59" border="0" /></a>

@@ -17,7 +17,8 @@ Recently when I was writing an Azure Automation PowerShell runbook, I had an req
 The key for this technique is to use the built-in variable that is available in any Azure Automation jobs called <strong>$PSPrivateMetaData</strong>. This variable contains the Job Id of the current job. Using this job Id, we are able to locate the Azure Automation account and the runbook for this job, and check how many jobs are running for the runbook. If there is only 1 job, then everything is good to go, you can continue on with whatever you need to do in your runbook, but if there are more than 1 jobs are running, then exit straightaway. The only pre-requisite is that you need to provide a way to login to the Azure subscription that’s hosting the Automation account.
 
 Here’s an example, and I’m using the  AzureRunAsConnection (that is created when you create the Automation account):
-<pre language="PowerShell">#Get current job Id
+```powershell
+#Get current job Id
 $CurrentJobId= $PSPrivateMetadata.JobId.Guid
 
 #Login to Azure
@@ -72,7 +73,8 @@ If ($CurrentRunningJobs)
 } else {
   Write-Output "No concurrent runbook jobs found. OK to continue."
 }
-</pre>
+
+```
 The sample code shown above does the following:
 <ol>
  	<li>Login to Azure using the Run As connection.</li>

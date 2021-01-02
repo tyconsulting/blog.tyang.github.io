@@ -166,7 +166,8 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:preformatted -->
-<pre class="wp-block-preformatted">./deploy-policyDef.ps1 -definitionFile C:\Temp\azurepolicy.json -subscriptionId cd45c044-18c4-4abe-a908-1e0b79f45003</pre>
+<pre class="wp-block-preformatted">./deploy-policyDef.ps1 -definitionFile C:\Temp\azurepolicy.json -subscriptionId cd45c044-18c4-4abe-a908-1e0b79f45003
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -174,7 +175,8 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:preformatted -->
-<pre class="wp-block-preformatted">./deploy-policyDef.ps1 -FolderPath C:\Temp -recurse -managementGroupName myMG -silent</pre>
+<pre class="wp-block-preformatted">./deploy-policyDef.ps1 -FolderPath C:\Temp -recurse -managementGroupName myMG -silent
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -219,7 +221,8 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:preformatted -->
-<pre class="wp-block-preformatted">"policyDefinitionid": "/providers/Microsoft.Management/managementgroups/myMG/providers/Microsoft.Authorization/policyDefinitions/restrict-public-storageAccounts-policyDef"</pre>
+<pre class="wp-block-preformatted">"policyDefinitionid": "/providers/Microsoft.Management/managementgroups/myMG/providers/Microsoft.Authorization/policyDefinitions/restrict-public-storageAccounts-policyDef"
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -227,7 +230,8 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:preformatted -->
-<pre class="wp-block-preformatted">"policyDefinitionid": "<strong>{policyLocationResourceId1}</strong>/providers/Microsoft.Authorization/policyDefinitions/restrict-public-storageAccounts-policyDef"</pre>
+<pre class="wp-block-preformatted">"policyDefinitionid": "<strong>{policyLocationResourceId1}</strong>/providers/Microsoft.Authorization/policyDefinitions/restrict-public-storageAccounts-policyDef"
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -239,7 +243,8 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:preformatted -->
-<pre class="wp-block-preformatted">./deploy-policyDef.ps1 -definitionFile C:\Temp\azurepolicyset.json -managementGroupName myMG -PolicyLocations @{policyLocationResourceId1 = '/providers/Microsoft.Management/managementGroups/myMG'}</pre>
+<pre class="wp-block-preformatted">./deploy-policyDef.ps1 -definitionFile C:\Temp\azurepolicyset.json -managementGroupName myMG -PolicyLocations @{policyLocationResourceId1 = '/providers/Microsoft.Management/managementGroups/myMG'}
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->

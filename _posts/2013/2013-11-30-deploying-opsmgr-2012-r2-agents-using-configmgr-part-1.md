@@ -1,6 +1,6 @@
 ---
 id: 2194
-title: 'Deploying OpsMgr 2012 R2 Agents Using ConfigMgr &#8211; Part 1'
+title: 'Deploying OpsMgr 2012 R2 Agents Using ConfigMgr - Part 1'
 date: 2013-11-30T10:33:19+10:00
 author: Tao Yang
 #layout: post
@@ -62,7 +62,7 @@ And this only happens in the more recent Windows OS versions.
 
 I suddenly realised because ConfigMgr 2007 is only 32-bit app, it may have problem calling the 64-bit "AgentConfigManager.MgmtSvcCfg" com object. To prove my guess, I simply created a vbscript with just 2 lines:
 
-[sourcecode language="VB"]
+```vb
 Set objMSConfig = CreateObject("AgentConfigManager.MgmtSvcCfg")
 Wscript.Echo Err
 ```
@@ -87,7 +87,7 @@ So now, I’ve identified the problem being the 64-bit "AgentConfigManager.MgmtS
 
 I’ve named the first script <strong>OM12AgentMigration.vbs</strong>:
 
-[sourcecode language="VB"]
+```vb
 '=============================================
 ' NAME:    OM12AgentMigration.vbs
 ' AUTHOR:  Tao Yang
@@ -154,24 +154,24 @@ strPWD = CreateObject("Scripting.FileSystemObject").GetAbsolutePathName(".")
 
 'Function to determine OS architecture
 Function GetOSArch
-	Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
-	Set col = objWMIService.ExecQuery _
-	("Select * from Win32_OperatingSystem")
-	For Each item in col
-		arrOSVersion = Split(item.Version,".")
-		If arrOSVersion(0) &gt;= 6 Then
-			'OS is Vista / 2008 or higher
-			StrOSArch = item.OSArchitecture
-		Else
-			int64Bit = InStr(item.Caption,"x64")
-			If int64Bit &gt; 0 Then
-				strOSArch = "64-bit"
-			Else
-				strOSArch = "32-bit"
-			End If
-		End If
-	Next
-	GetOSArch = strOSArch
+  Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+  Set col = objWMIService.ExecQuery _
+  ("Select * from Win32_OperatingSystem")
+  For Each item in col
+    arrOSVersion = Split(item.Version,".")
+    If arrOSVersion(0) &gt;= 6 Then
+      'OS is Vista / 2008 or higher
+      StrOSArch = item.OSArchitecture
+    Else
+      int64Bit = InStr(item.Caption,"x64")
+      If int64Bit &gt; 0 Then
+        strOSArch = "64-bit"
+      Else
+        strOSArch = "32-bit"
+      End If
+    End If
+  Next
+  GetOSArch = strOSArch
 End Function
 
 'Get OS architecture so we can determine which version of the agent to install
@@ -216,7 +216,7 @@ Result = sh.run(strConfigCmd,0,True)
 
 The second secript is named <strong>OM12AgentConfig.vbs</strong>:
 
-[sourcecode language="VB"]
+```vb
 '=============================================
 ' NAME:    OM12AgentConfig.vbs
 ' AUTHOR:  Tao Yang
@@ -315,7 +315,11 @@ ELSE
 END IF
 ```
 
-When creating the package in ConfigMgr, These 2 scripts need to be copied to the OpsMgr 2012 R2 agent install root folder: <a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML22520a61.png"><img style="display: inline; border: 0px;" title="SNAGHTML22520a61" alt="SNAGHTML22520a61" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML22520a61_thumb.png" width="580" height="208" border="0" /></a> The syntax for OM12AgentMigration.vbs is:
+When creating the package in ConfigMgr, These 2 scripts need to be copied to the OpsMgr 2012 R2 agent install root folder:
+
+![](http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML22520a61.png)
+
+The syntax for OM12AgentMigration.vbs is:
 
 <strong>cscript /nologo OM12AgentMigration.vbs &lt;Management Group Name&gt; &lt;Management Server FDDN&gt; &lt;Port&gt;</strong>
 
@@ -325,9 +329,13 @@ cscript /nologo OM12AgentMigration.vbs MYOPSMGRMG  MyManagementServer.MyCompany
 
 Both scripts log to a log file located at C:\Temp\OM12AgentInstall.log. When the first script executes msiexec, it also generates a msi log located at C:\Temp\OM12AgentMSI.log. I’ve hardcoded the log files path to C:\Temp rather than using the %temp% environment variable because during my testing in my work’s environment, I have noticed the %temp% variable in some of the machines are incorrectly configured and it would cause the script to fail. my script would create the C:\Temp directory if it does not exist.
 
-The OM12AgentInstall.log looks like this: <a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML225046c7.png"><img style="display: inline; border: 0px;" title="SNAGHTML225046c7" alt="SNAGHTML225046c7" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML225046c7_thumb.png" width="580" height="244" border="0" /></a> I have also created an uninstall script called <strong>OM12AgentUninstall.vbs</strong>, which will work on both 32-bit and 64-bit Operating Systems. This script is also placed on the same folder as the other install scripts.
+The OM12AgentInstall.log looks like this:
 
-[sourcecode language="VB"]
+![](http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML225046c7.png)
+
+I have also created an uninstall script called **OM12AgentUninstall.vbs**, which will work on both 32-bit and 64-bit Operating Systems. This script is also placed on the same folder as the other install scripts.
+
+```vb
 '=============================================
 ' NAME:    OM12AgentUninstall.vbs
 ' AUTHOR:  Tao Yang

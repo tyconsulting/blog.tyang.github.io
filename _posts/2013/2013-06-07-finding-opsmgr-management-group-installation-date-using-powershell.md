@@ -16,7 +16,7 @@ As part of what I’m working on at the moment, I need to find out when the OpsM
 
 To do so, I can either use the OpsMgr SDK or the OperationsManager PowerShell module. I’ve developed below scripts to run locally on a management server:
 
-<strong>Using SDK:</strong>
+**Using SDK:**
 
 ```powershell
 $MgmtServer = $Env:COMPUTERNAME
@@ -28,12 +28,11 @@ $MG = New-Object Microsoft.EnterpriseManagement.ManagementGroup($MGConnSetting)
 $MG.GetManagementGroupMonitoringObject()
 ```
 
+**TimeAdded** property indicates the MG initial installation date.
 
-<strong>TimeAdded</strong> property indicates the MG initial installation date.
+![](http://blog.tyang.org/wp-content/uploads/2013/06/image.png)
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/06/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/06/image_thumb.png" width="580" height="316" border="0" /></a>
-
-<strong>Using OperationsManager PowerShell module:</strong>
+**Using OperationsManager PowerShell module:**
 
 ```powershell
 import-module OperationsManager
@@ -41,4 +40,4 @@ $mg = Get-SCOMManagementGroup
 $mg.GetManagementGroupMonitoringObject() | format-list
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/06/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/06/image_thumb1.png" width="580" height="359" border="0" /></a>
+![](http://blog.tyang.org/wp-content/uploads/2013/06/image1.png)

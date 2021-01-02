@@ -34,7 +34,8 @@ Here’s the policy definition:
 		"effect": "deny"
 	}
 }
-</pre>
+
+```
 &nbsp;
 
 It is located in my GitHub repo, where you can download or deploy directly to your environment via Azure portal:<a title="https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/restrict-public-ips" href="https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/restrict-public-ips">https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/restrict-public-ips</a>

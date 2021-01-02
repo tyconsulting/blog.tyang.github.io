@@ -120,7 +120,8 @@ The names of all outputs the ARM template should contain (optional).
 <strong>Examples:</strong>
 
 Test ARM template file with parameters, variables, functions, resources and outputs:
-<pre language="PowerShell">$params = @{
+```powershell
+$params = @{
 TemplatePath = 'c:\temp\azuredeploy.json'
 parameters = 'virtualMachineNamePrefix', 'virtualMachineSize', 'adminUsername', 'virtualNetworkResourceGroup', 'virtualNetworkName', 'adminPassword', 'subnetName'
 variables = 'nicName', 'publicIpAddressName', 'publicIpAddressSku', 'publicIpAddressType', 'subnetRef', 'virtualMachineName', 'vnetId'
@@ -129,7 +130,8 @@ resources = 'Microsoft.Compute/virtualMachines', 'Microsoft.Network/networkInter
 outputs = 'adminUsername'
 }
 .\Test.ARMTemplate.ps1 @params
-</pre>
+
+```
 Test ARM template file with only the resources elements:
 <pre language="PowerShell" class="">
 $params = @{
@@ -137,7 +139,8 @@ TemplatePath = 'c:\temp\azuredeploy.json'
 resources = 'Microsoft.Compute/virtualMachines', 'Microsoft.Network/networkInterfaces', 'Microsoft.Network/publicIpAddresses'
 }
 .\Test.ARMTemplate.ps1 @params
-</pre>
+
+```
 <h3>Using it in Azure DevOps Pipeline</h3>
 To use this Pester test script in your VSTS pipeline, you can follow the steps listed below:
 

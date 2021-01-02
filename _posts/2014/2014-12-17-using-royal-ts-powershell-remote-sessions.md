@@ -92,14 +92,18 @@ If you like your console looks like the left one rather than one on the right, p
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image35.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb35.png" alt="image" width="444" height="171" border="0" /></a>
 
 02. Modify the "All Users Current Host" profile <strong><span style="color: #ff0000;">from a normal PowerShell window</span></strong> (NOT within PowerShell ISE). If you are not sure if this profile has been created, run the command below:
-<pre language="PowerShell">if (!(test-Path $profile.alluserscurrenthost)) {New-Item -type File -Path $Profile.alluserscurrenthost}
-</pre>
+```powershell
+if (!(test-Path $profile.alluserscurrenthost)) {New-Item -type File -Path $Profile.alluserscurrenthost}
+
+```
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image36.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb36.png" alt="image" width="611" height="115" border="0" /></a>
 
 After the profile is created, open it in notepad (in PowerShell window, type: <strong>Notepad $Profile.AllUsersCurrentHost</strong>) and add 2 lines of code:
-<pre language="PowerShell">import-module PSConsole
+```powershell
+import-module PSConsole
 Resize -max
-</pre>
+
+```
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image37.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb37.png" alt="image" width="405" height="131" border="0" /></a>
 
 After saving the changes, next time when you initiate a connection in Royal TS, the console will automatically maximise to use all the usable space.

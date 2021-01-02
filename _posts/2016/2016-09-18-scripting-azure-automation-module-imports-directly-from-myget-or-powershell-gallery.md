@@ -39,8 +39,10 @@ The –ContentLink URI that we need to pass to the Add-AzureRmAutomationModule c
 <a href="https://www.powershellgallery.com/api/v2/package/SendEmail/1.3">https://www.powershellgallery.com/<strong><span style="color: #ff0000;">api/v2/</span></strong>package/SendEmail/1.3</a>.
 
 As you can see, all you need to do is to add "api/v2/" in the URI. The PowerShell command would be something like this:
-<pre language="PowerShell">New-AzureRmAutomationModule -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Name 'SendEmail' -ContentLink 'https://www.powershellgallery.com/api/v2/package/SendEmail/1.3'
-</pre>
+```powershell
+New-AzureRmAutomationModule -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Name 'SendEmail' -ContentLink 'https://www.powershellgallery.com/api/v2/package/SendEmail/1.3'
+
+```
 <h3><strong>Importing from a private MyGet feed</strong></h3>
 For a private MyGet feed, you can access it by embedding the API key into the URL:
 
@@ -53,13 +55,16 @@ i.e. for my SendEmail module, the PowerShell command would be something like thi
 $MyGetAPIKey = '89c2d7b8-2d76-4274-a5b7-bcb1f186502c'
 $PackageURI = "https://www.myget.org/F/$MyGetFeedName/auth/$MyGetAPIKey/api/v2/package/SendEmail/1.3"
 New-AzureRmAutomationModule -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Name 'SendEmail' -ContentLink $PackageURI
-</pre>
+
+```
 <h3><strong>Importing from a public MyGet feed</strong></h3>
 If the module is located in a public MyGet feed, then the API key is not required. the URI for the module would be very similar to PowerShell Gallery, you will just need to embed "<strong>api/v2/</strong>" in to the original URI:
 
 <strong>'https://www.myget.org/F/<span style="color: #ff0000;">&lt;MyGet Public Feed Name&gt;</span>/<span style="color: #ff0000;">api/v2/</span>package/<span style="color: #ff0000;">&lt;Module Name&gt;</span>/<span style="color: #ff0000;">&lt;Module Version&gt;</span>'</strong>
 
 the PowerShell script would be something like this:
-<pre language="PowerShell">$MyGetPublicFeedName = 'SampleMyGetPublicFeed'
+```powershell
+$MyGetPublicFeedName = 'SampleMyGetPublicFeed'
 New-AzureRmAutomationModule -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Name 'SendEmail' -ContentLink "https://www.myget.org/F/$MyGetPublicFeedName/api/v2/package/SendEmail/1.3"
-</pre>
+
+```

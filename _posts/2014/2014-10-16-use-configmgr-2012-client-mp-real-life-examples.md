@@ -28,7 +28,8 @@ It took us and Microsoft Premier support few days to identify the cause, I wonâ€
 To achieve both goals, I created 2 DCM baselines and targeted them to appropriate collections in ConfigMgr.
 <h3>Duplicate AD Computer Account Baseline</h3>
 This baseline contains only 1 Configuration Item (CI). the CI uses a script to detect if the computer account exists in other domains. Hereâ€™s the script (note the domain names need to be modified in the first few lines):
-<pre language="PowerShell">#list of domains to check
+```powershell
+#list of domains to check
 $arrDomains = new-object System.Collections.Arraylist
 [void]$arrDomains.Add('DoaminA.ForestName')
 [void]$arrDomains.Add('DoaminB.ForestName')
@@ -92,7 +93,8 @@ $bDuplicateFound = $true
 }
 }
 $bDuplicateFound
-</pre>
+
+```
 In order for the CI to be compliant, the return value from the script needs to be "False" (no duplicate accounts found).
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb7.png" alt="image" width="431" height="447" border="0" /></a>

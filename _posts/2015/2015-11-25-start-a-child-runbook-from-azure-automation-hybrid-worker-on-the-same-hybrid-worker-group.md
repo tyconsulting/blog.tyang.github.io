@@ -18,7 +18,8 @@ Today I was writing a PowerShell runbook (let’s call it Runbook A) that’s de
 To use it, simply place the function shown below in the parent runbook (Runbook A in this case), and call this function to retrieve the Hybrid Worker configuration.
 
 <strong>Function:</strong>
-<pre language="PowerShell">Function Get-HybridWorkerConfig
+```powershell
+Function Get-HybridWorkerConfig
 {
     $RegKeyPath = "HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker"
     If (Test-Path $RegKeyPath)
@@ -28,11 +29,13 @@ To use it, simply place the function shown below in the parent runbook (Runbook 
         $null
     }
 }
-</pre>
+
+```
 <a href="http://blog.tyang.org/wp-content/uploads/2015/11/SNAGHTML2f76e97b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2f76e97b" src="http://blog.tyang.org/wp-content/uploads/2015/11/SNAGHTML2f76e97b_thumb.png" alt="SNAGHTML2f76e97b" width="709" height="324" border="0" /></a>
 
 <strong>Code Sample:</strong>
-<pre language="PowerShell">#Get the Hybrid Worker group name
+```powershell
+#Get the Hybrid Worker group name
 $HybridWorkerGroup = (Get-HybridWorkerConfig).RunbookWorkerGroup
 
 #Preparing input parameters for Runbook B
@@ -48,7 +51,8 @@ Login-AzureRmAccount -Credential $AzureCred -SubscriptionName $SubscriptionName
 #Start Runbook B using Start-AzureRmAutomationRunbook cmdlet
 Start-AzureRmAutomationRunbook -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Name "RunbookB" -Parameters $params -RunOn $HybridWorkerGroup
 
-</pre>
+
+```
 <strong>Note:</strong>
 
 The Get-HybridWorkerConfig function would return $null value if the computer is not a Hybrid Worker.

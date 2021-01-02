@@ -177,7 +177,8 @@ tags:
 <p>- powershell: |<br>&nbsp;&nbsp;&nbsp; $pw = ConvertTo-SecureString '$(System.AccessToken)' -AsPlainText -Force<br>&nbsp;&nbsp;&nbsp; $cred = New-Object System.Management.Automation.PSCredential 'abc', $pw<br>&nbsp;&nbsp;&nbsp; Install-Module Pester -Repository $(ArtifactsFeedName) -Credential $cred -force -scope CurrentUser<br>&nbsp;&nbsp;&nbsp; Install-Module AzPolicyTest -Repository $(ArtifactsFeedName) -Credential $cred -force -scope CurrentUser<br>&nbsp;&nbsp; displayName: 'Install required PowerShell modules'</p>
 <p>- powershell: |<br>&nbsp;&nbsp;&nbsp; Import-Module AzPolicyTest<br>&nbsp;&nbsp;&nbsp; Test-JSONContent -path $(Build.SourcesDirectory)\tenant-root-mg\policy-definitions -OutputFile $(Build.SourcesDirectory)\TEST-tenant-root-mg-Policy.JSCONContent.XML<br>&nbsp;&nbsp;&nbsp; Test-AzPolicyDefinition -Path $(Build.SourcesDirectory)\tenant-root-mg\policy-definitions -OutputFile $(Build.SourcesDirectory)\TEST-tenant-root-mg-PolicyDefinition.XML<br>&nbsp;&nbsp; errorActionPreference: continue<br>&nbsp;&nbsp; displayName: 'Pester Test Azure Policy Definitions'</p>
 <p>- powershell: |<br>&nbsp;&nbsp;&nbsp; Import-Module AzPolicyTest<br>&nbsp;&nbsp;&nbsp; Test-JSONContent -path $(Build.SourcesDirectory)\tenant-root-mg\initiative-definitions -OutputFile $(Build.SourcesDirectory)\TEST-tenant-root-mg-Initiative.JSCONContent.XML<br>&nbsp;&nbsp;&nbsp; Test-AzPolicySetDefinition -Path $(Build.SourcesDirectory)\tenant-root-mg\initiative-definitions -OutputFile $(Build.SourcesDirectory)\TEST-tenant-root-mg-InitiativeDefinition.XML<br>&nbsp;&nbsp; errorActionPreference: continue<br>&nbsp;&nbsp; displayName: 'Pester Test Azure Policy Initiative Definitions'</p>
-<p>- task: PublishTestResults@2<br>&nbsp;&nbsp; displayName: 'Publish Test Results **\TEST-*.xml'<br>&nbsp;&nbsp; inputs:<br>&nbsp;&nbsp;&nbsp;&nbsp; testResultsFormat: NUnit<br>&nbsp;&nbsp;&nbsp;&nbsp; testResultsFiles: '**\TEST-*.xml'<br>&nbsp;&nbsp;&nbsp;&nbsp; failTaskOnFailedTests: true</p></pre>
+<p>- task: PublishTestResults@2<br>&nbsp;&nbsp; displayName: 'Publish Test Results **\TEST-*.xml'<br>&nbsp;&nbsp; inputs:<br>&nbsp;&nbsp;&nbsp;&nbsp; testResultsFormat: NUnit<br>&nbsp;&nbsp;&nbsp;&nbsp; testResultsFiles: '**\TEST-*.xml'<br>&nbsp;&nbsp;&nbsp;&nbsp; failTaskOnFailedTests: true</p>
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -199,7 +200,8 @@ steps:
 &nbsp;&nbsp;&nbsp;&nbsp; SourceFolder: '$(Build.SourcesDirectory)'
 &nbsp;&nbsp;&nbsp;&nbsp; TargetFolder: '$(Build.ArtifactStagingDirectory)'
 &nbsp;&nbsp;&nbsp;&nbsp; CleanTargetFolder: true
-&nbsp;&nbsp;&nbsp;&nbsp; OverWrite: true</pre>
+&nbsp;&nbsp;&nbsp;&nbsp; OverWrite: true
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:paragraph -->
@@ -272,7 +274,8 @@ steps:
 &nbsp;&nbsp;&nbsp;&nbsp; ScriptPath: '$(System.DefaultWorkingDirectory)/_Azure.Policy-CI/drop/scripts/deploy-policyDef.ps1'
 &nbsp;&nbsp;&nbsp;&nbsp; ScriptArguments: '-folderpath "$(System.DefaultWorkingDirectory)/_Azure.Policy-CI/drop/tenant-root-mg/policy-definitions" -recurse -managementGroupName "$(MGName)" -silent'
 &nbsp;&nbsp;&nbsp;&nbsp; FailOnStandardError: true
-&nbsp;&nbsp;&nbsp;&nbsp; azurePowerShellVersion: LatestVersion</pre>
+&nbsp;&nbsp;&nbsp;&nbsp; azurePowerShellVersion: LatestVersion
+```
 <!-- /wp:preformatted -->
 
 <!-- wp:quote -->
@@ -298,7 +301,8 @@ steps:
 <!-- wp:html -->
 <pre language="YAML">
 <p>steps:<br>- task: AzurePowerShell@4<br>&nbsp;&nbsp; displayName: 'Initiative: resource-diag-settings-LA'<br>&nbsp;&nbsp; inputs:<br>&nbsp;&nbsp;&nbsp;&nbsp; azureSubscription: 'mg-tenant-root-ty-lab'<br>&nbsp;&nbsp;&nbsp;&nbsp; ScriptPath: '$(System.DefaultWorkingDirectory)/_Azure.Policy-CI/drop/scripts/deploy-policySetDef.ps1'<br>&nbsp;&nbsp;&nbsp;&nbsp; ScriptArguments: '-definitionFile "$(System.DefaultWorkingDirectory)/_Azure.Policy-CI/drop/tenant-root-mg/initiative-definitions/resource-diagnostics-settings/log-analytics/azurepolicyset-la.json" -managementGroupName "$(MGName)" -PolicyLocations @{policyLocationResourceId1 = ''/providers/Microsoft.Management/managementGroups/$(MGName)'} -silent'<br>&nbsp;&nbsp;&nbsp;&nbsp; FailOnStandardError: true<br>&nbsp;&nbsp;&nbsp;&nbsp; azurePowerShellVersion: LatestVersion</p>
-</pre>
+
+```
 <!-- /wp:html -->
 
 <!-- wp:paragraph -->

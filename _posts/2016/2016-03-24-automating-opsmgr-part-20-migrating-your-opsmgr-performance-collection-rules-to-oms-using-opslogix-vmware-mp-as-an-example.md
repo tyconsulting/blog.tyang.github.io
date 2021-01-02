@@ -86,7 +86,8 @@ I have added many verbose messages in the script, so you can use the optional â€
 <pre class="" language="PowerShell">$cred = Get-Credential
 
 .\Copy-PerfRulesToOMS.ps1 -ManagementServer "ManagementServerName" -Credential $cred -ManagementPackName "OpsLogix.IMP.VMWare.Monitoring" â€“Verbose
-</pre>
+
+```
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/SNAGHTMLd5d2347.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd5d2347" src="http://blog.tyang.org/wp-content/uploads/2016/03/SNAGHTMLd5d2347_thumb.png" alt="SNAGHTMLd5d2347" width="663" height="410" border="0" /></a>
 
 This script firstly connect to the management group, read the source MP, then retrieves all performance collection rules from this MP. If the source MP contains any perf collection rules, it will create a new unsealed MP and start creating a co-responding OMS PerfHourly collection rule for each original OpsMgr perf collection rule. the OMS PerfHourly collection rules will have the same properties, input parameters as well as the same data source and condition detection member modules as the original OpsMgr Perf Collection rules. But they will be configured to use another Write Action member module to send the perf data to OMS.

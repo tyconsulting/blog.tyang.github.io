@@ -36,7 +36,7 @@ Because the ID for these groups follows a naming convention, the only difference
 
 Once the snippet template is created, I then created a snippet selected the previously created snippet template as the type
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/06/image5.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/06/image_thumb5.png" width="496" height="254" border="0" /></a>.<a href="http://blog.tyang.org/wp-content/uploads/2013/06/image6.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/06/image_thumb6.png" width="399" height="384" border="0" /></a>
+<a href="http://blog.tyang.org/wp-content/uploads/2013/06/image5.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/06/image_thumb5.png" width="496" height="254" border="0" /></a><a href="http://blog.tyang.org/wp-content/uploads/2013/06/image6.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/06/image_thumb6.png" width="399" height="384" border="0" /></a>
 
 I then created a very simple CSV file, which contains the state – monitor match:
 
@@ -60,29 +60,29 @@ I had to repeat this process 3 times because I have 3 sets of groups and the ove
 
 Below is the content of the snippet template:
 
-[sourcecode language="XML"]
-&lt;ManagementPackFragment SchemaVersion="1.0"&gt;
-&lt;Monitoring&gt;
-&lt;Overrides&gt;
-&lt;MonitorPropertyOverride ID="Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Algorithm.Override" Context="ServerLib!Demo.Server.Library.All.Server.#text('State')#.Computer.Group" Enforced="false" Monitor="SC!Microsoft.SystemCenter.ComputerGroup.#text('Monitor')#Rollup" Property="Algorithm"&gt;
-&lt;Value&gt;Percentage&lt;/Value&gt;
-&lt;/MonitorPropertyOverride&gt;
-&lt;MonitorPropertyOverride ID="Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Percentage.Override" Context="ServerLib!Demo.Server.Library.All.Server.#text('State')#.Computer.Group" Enforced="false" Monitor="SC!Microsoft.SystemCenter.ComputerGroup.#text('Monitor')#Rollup" Property="AlgorithmPercentage"&gt;
-&lt;Value&gt;95&lt;/Value&gt;
-&lt;/MonitorPropertyOverride&gt;
-&lt;/Overrides&gt;
-&lt;/Monitoring&gt;
-&lt;LanguagePacks&gt;
-&lt;LanguagePack ID="ENU" IsDefault="true"&gt;
-&lt;DisplayStrings&gt;
-&lt;DisplayString ElementID="Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Algorithm.Override"&gt;
-&lt;Name&gt;All Server Computer #text('State')# Group #text('Monitor')# Dependency Monitor Health Algorithm Override&lt;/Name&gt;
-&lt;/DisplayString&gt;
-&lt;DisplayString ElementID="Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Percentage.Override"&gt;
-&lt;Name&gt;All Server Computer #text('State')# Group #text('Monitor')# Dependency Monitor Health Percentage Override&lt;/Name&gt;
-&lt;/DisplayString&gt;
-&lt;/DisplayStrings&gt;
-&lt;/LanguagePack&gt;
-&lt;/LanguagePacks&gt;
-&lt;/ManagementPackFragment&gt;
+```xml
+<ManagementPackFragment SchemaVersion="1.0">
+  <Monitoring>
+    <Overrides>
+      <MonitorPropertyOverride ID="Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Algorithm.Override" Context="ServerLib!Demo.Server.Library.All.Server.#text('State')#.Computer.Group" Enforced="false" Monitor="SC!Microsoft.SystemCenter.ComputerGroup.#text('Monitor')#Rollup" Property="Algorithm">
+      <Value>Percentage</Value>
+      </MonitorPropertyOverride>
+      <MonitorPropertyOverride ID="Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Percentage.Override" Context="ServerLib!Demo.Server.Library.All.Server.#text('State')#.Computer.Group" Enforced="false" Monitor="SC!Microsoft.SystemCenter.ComputerGroup.#text('Monitor')#Rollup" Property="AlgorithmPercentage">
+      <Value>95</Value>
+      </MonitorPropertyOverride>
+    </Overrides>
+  </Monitoring>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Algorithm.Override">
+          <Name>All Server Computer #text('State')# Group #text('Monitor')# Dependency Monitor Health Algorithm Override</Name>
+        </DisplayString>
+        <DisplayString ElementID="Demo.Server.Override.All.Server.Computer.Group.#text('State')#.#text('Monitor')#.Dependency.Monitor.Health.Percentage.Override">
+          <Name>All Server Computer #text('State')# Group #text('Monitor')# Dependency Monitor Health Percentage Override</Name>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>
 ```

@@ -36,11 +36,13 @@ I’m using a key (a byte array) to encrypt the password secure string.  If you
 <a href="http://www.adminarsenal.com/admin-arsenal-blog/secure-password-with-powershell-encrypting-credentials-part-2/">Secure Password With PowerShell: Encrypting Credentials – Part 2</a>
 
 So firstly, I’ll need to create a key and store the content to a file:
-<pre language="PowerShell">$AESKey = New-Object Byte[] 32
+```powershell
+$AESKey = New-Object Byte[] 32
 [Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($AESKey)
 
 Set-Content C:\Temp\PassEncryptKey.key $AESKey
-</pre>
+
+```
 I then uploaded the key to the Azure Functions folder – I’ve already uploaded the PowerShell modules to the "bin" folder, I created a sub-folder under "bin" called Keys:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-8.png" alt="image" width="467" height="307" border="0" /></a>
@@ -59,11 +61,14 @@ PowerShell function <strong>Get-EncryptedPassword</strong>:
   $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
   $Encryptedpassword
 }
-</pre>
+
+```
 <p align="justify">I call this function to encrypt the password and copy the encrypted string to the clipboard:</p>
 
-<pre language="PowerShell">$encryptedpass = Get-EncryptedPassword -KeyPath C:\temp\PassEncryptKey.key -Password "ClearTextPassword"
-$encryptedpass | clip</pre>
+```powershell
+$encryptedpass = Get-EncryptedPassword -KeyPath C:\temp\PassEncryptKey.key -Password "ClearTextPassword"
+$encryptedpass | clip
+```
 <a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-9.png" alt="image" width="691" height="90" border="0" /></a>
 
 <span style="color: #000000; background-color: #ffff00;">I then created two app settings in Azure Functions Application settings:</span>

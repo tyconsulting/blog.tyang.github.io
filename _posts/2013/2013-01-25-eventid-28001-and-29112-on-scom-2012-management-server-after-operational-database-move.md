@@ -20,18 +20,18 @@ I followed the <a href="http://technet.microsoft.com/en-us/library/hh278848.aspx
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/01/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/01/image_thumb1.png" width="580" height="359" border="0" /></a>
 
-<em><span style="color: #ff0000; font-size: small;">The Root connector received an exception from the Config Service on StateSyncRequest: </span></em>
+<em><span style="color: #ff0000;">The Root connector received an exception from the Config Service on StateSyncRequest: </span></em>
 
-<em><span style="color: #ff0000; font-size: small;">System.Runtime.Remoting.RemotingException: Failed to connect to an IPC Port: The system cannot find the file specified.
+<em><span style="color: #ff0000;">System.Runtime.Remoting.RemotingException: Failed to connect to an IPC Port: The system cannot find the file specified.
 </span></em>
 
-<em><span style="color: #ff0000; font-size: small;">Server stack trace:
+<em><span style="color: #ff0000;">Server stack trace:
 at System.Runtime.Remoting.Channels.Ipc.IpcPort.Connect(String portName, Boolean secure, TokenImpersonationLevel impersonationLevel, Int32 timeout)
 at System.Runtime.Remoting.Channels.Ipc.ConnectionCache.GetConnection(String portName, Boolean secure, TokenImpersonationLevel level, Int32 timeout)
 at System.Runtime.Remoting.Channels.Ipc.IpcClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
 at System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)</span></em>
 
-<em><span style="color: #ff0000; font-size: small;">Exception rethrown at [0]:
+<em><span style="color: #ff0000;">Exception rethrown at [0]:
 at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
 at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
 at Microsoft.EnterpriseManagement.Mom.Internal.IConfigService.OnStateSyncRequest(Guid source, UInt64 messageIdentifier, String cookie)</span></em>
@@ -40,9 +40,9 @@ at Microsoft.EnterpriseManagement.Mom.Internal.IConfigService.OnStateSyncRequest
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/01/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/01/image_thumb2.png" width="580" height="359" border="0" /></a>
 
-<span style="color: #ff0000; font-size: small;"><em>OpsMgr Management Configuration Service failed to execute bootstrap work item 'ConfigurationStoreInitializeWorkItem' due to the following exception</em></span>
+<span style="color: #ff0000;"><em>OpsMgr Management Configuration Service failed to execute bootstrap work item 'ConfigurationStoreInitializeWorkItem' due to the following exception</em></span>
 
-<span style="color: #ff0000; font-size: small;"><em>System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+<span style="color: #ff0000;"><em>System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
 at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
 at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
 at System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity)

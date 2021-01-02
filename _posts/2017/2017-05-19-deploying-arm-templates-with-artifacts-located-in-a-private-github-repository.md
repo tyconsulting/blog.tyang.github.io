@@ -81,7 +81,8 @@ In the ARM templates, define the following parameters (and define the default va
     "_GitHubAccessToken": {
       "type": "securestring"
     }
-</pre>
+
+```
 define the linked template URL in the variables section:
 <pre language="JSON">  "variables": {
     "nestedTemplates": {
@@ -89,7 +90,8 @@ define the linked template URL in the variables section:
       "AzureAutomation": "[concat(parameters('GitHubFetcherWebServiceURI'), '?githuburi=', parameters('_GitHubLocation'), '/nestedtemplates/AzureAutomation.json', '&githubaccesstoken=', parameters('_GitHubAccessToken'))]"
     },
 },
-</pre>
+
+```
 For the Azure Automation runbook that I am planning to deploy, define the URI to the script in the variables section similar to the previous example:
 <pre language="JSON">"runbooks": {
       "helloWorldScript": {
@@ -101,7 +103,8 @@ For the Azure Automation runbook that I am planning to deploy, define the URI to
         "scriptUri": "[concat(parameters('GitHubFetcherWebServiceURI'), '?githuburi=', parameters('_GitHubLocation'), '/runbooks/helloworld.ps1', '&githubaccesstoken=', parameters('_GitHubAccessToken'))]"
       }
 }
-</pre>
+
+```
 For the Azure Automation runbook resource, use the variable defined above in the script uri property:
 <pre language="JSON">"resources": [
           {
@@ -127,7 +130,8 @@ For the Azure Automation runbook resource, use the variable defined above in the
           ]
         }
 ],
-</pre>
+
+```
 <h5><strong>GitHub README.md</strong></h5>
 Most of the ARM template repositories contains the "Deploy to Azure" and "Visualize" buttons as shown below:
 
@@ -135,13 +139,15 @@ Most of the ARM template repositories contains the "Deploy to Azure" and "Visual
 
 To add the "Deploy to Azure" button to your README.md markdown file, you will need to add the following code to the markdown (modify the URL to suit your environment):
 <pre class="">[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fmyfunctionapp.azurewebsites.net%2Fapi%2FGitHubPrivateRepoFileFetcher%3Fgithuburi%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Ftyconsulting%2FTestPrivateRepo%2Fmaster%2FDemoNestedTemplates%2Fazuredeploy.json%26githubaccesstoken%3De82dc3df60b92147c81a9924042da8d7f0bc78c8)
-</pre>
+
+```
 For the "Visualize" button, add the following code in the markdown:
 
 <pre>
 <a href="http://armviz.io/#/?load=https%3A%2F%2Fmyfunctionapp.azurewebsites.net%2Fapi%2FGitHubPrivateRepoFileFetcher%3Fgithuburi%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Ftyconsulting%2FTestPrivateRepo%2Fmaster%2FDemoNestedTemplates%2Fazuredeploy.json%26githubaccesstoken%3De82dc3df60b92147c81a9924042da8d7f0bc78c8" target="_blank">
 <img src="http://armviz.io/visualizebutton.png"/>
-</pre>
+
+```
 
 Basically, add the Azure Function URL with required parameters as the parameter to the azure custom deployment and armviz.io URIs. you will need to encode the function URI. you can use an an online encoder utility such as <a title="http://www.url-encode-decode.com/" href="http://www.url-encode-decode.com/">http://www.url-encode-decode.com/</a> to encode the original Azure Function URI.
 

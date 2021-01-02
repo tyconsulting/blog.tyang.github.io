@@ -14,6 +14,10 @@ tags:
 ---
 Today I've been asked how to inventory PowerShell execution policies on all servers in a domain. I originally thought I can ultilise RemoteIn as PowerShell V2 should be deployed on all servers. then I realised WSMan wasn't configured on the srevers so I couldn't use "New-PSSession" cmdlet...
 
-Therefore, I wrote a function called <span style="color: #ff0000;"><strong><a href="http://blog.tyang.org/wp-content/uploads/2010/07/Get-RemoteExecutionPolicy.zip">Get-RemoteExecutionPolicy</a></strong></span>.  It retrieves the setting from the remote registry.
+Therefore, I wrote a function called <span style="color: #ff0000;">**<a href="http://blog.tyang.org/wp-content/uploads/2010/07/Get-RemoteExecutionPolicy.zip">Get-RemoteExecutionPolicy</a>**</span>.  It retrieves the setting from the remote registry.
 
-The usage is: <strong>Get-RemoteExecutionPolicy &lt;machine name&gt;</strong>.
+Usage:
+
+```powershell
+Get-RemoteExecutionPolicy \<machine name\>.
+```

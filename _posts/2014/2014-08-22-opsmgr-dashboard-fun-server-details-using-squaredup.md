@@ -56,7 +56,8 @@ If ($bValid)
 $dataObject["Parameters"]= $parameterCollection
 $ScriptContext.ReturnCollection.Add($dataObject)
 }
-</pre>
+
+```
 And here’s the script for the improved performance view (with "&embed=true" parameter):
 <pre lang="powershell">Param($globalSelectedItems)
 $dataObject = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request")
@@ -87,5 +88,6 @@ If ($bValid)
 $dataObject["Parameters"]= $parameterCollection
 $ScriptContext.ReturnCollection.Add($dataObject)
 }
-</pre>
+
+```
 I’d also like to clarify that my examples are just providing alternative ways to utilise SquaredUp and display useful information on a single pane of glass (dashboards).  I don’t want to mislead the readers of article to have an impression that SquaredUp relies on native OpsMgr consoles and dashboards. In my opinion and experience with SquaredUp, I think it is a perfect replacement to the built-in OpsMgr web console.

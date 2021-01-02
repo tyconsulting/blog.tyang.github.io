@@ -64,8 +64,10 @@ Now, let’s test them, I will use the –verbose switch when calling these func
 <strong>01. Creating a test MP</strong>
 
 Firstly, I’ll create a test MP using the <strong>New-OMManagementPack</strong> command from the OpsMgrExtended module:
-<pre language="PowerShell">New-OMManagementPack -SDK "OMMS01" -Name "TYANG.OpsLogix.Test" -DisplayName "TYANG OpsLogix Test MP" -Description "Custom MP for OpsLogix test MP" -Version 1.0.0.0 –Verbose
-</pre>
+```powershell
+New-OMManagementPack -SDK "OMMS01" -Name "TYANG.OpsLogix.Test" -DisplayName "TYANG OpsLogix Test MP" -Description "Custom MP for OpsLogix test MP" -Version 1.0.0.0 –Verbose
+
+```
 <a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-13.png" alt="image" width="651" height="131" border="0" /></a>
 
 <strong>02. Create an instance for the alert rule template (using PowerShell Splatting)</strong>

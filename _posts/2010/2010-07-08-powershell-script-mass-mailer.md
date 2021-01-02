@@ -21,18 +21,22 @@ I quickly wrote <a href="http://blog.tyang.org/wp-content/uploads/2010/07/Mass-M
 
 <a href="http://blog.tyang.org/wp-content/uploads/2010/07/image6.png"><img style="border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/image_thumb6.png" border="0" alt="image" width="281" height="162" /></a>
 
+{:start="2"}
 2. in Mass-Mailer.ps1 file, modify the highlighted section ( and remove the "&lt;" and "&gt;"brackets):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2010/07/image7.png"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/image_thumb7.png" border="0" alt="image" width="580" height="323" /></a>
 
+{:start="3"}
 3. Open <strong>recipientsList.txt</strong> and enter recipients name and emails, one recipient per line with format Name<strong>;</strong>Email (i.e. <strong>John Smith;John.Smith@xxx.com</strong>)
 
 <a href="http://blog.tyang.org/wp-content/uploads/2010/07/image8.png"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/image_thumb8.png" border="0" alt="image" width="506" height="134" /></a>
 
+{:start="4"}
 4. Write the email in<strong> EmailBody.txt</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2010/07/image9.png"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/image_thumb9.png" border="0" alt="image" width="490" height="146" /></a>
 
+{:start="5"}
 5. Execute Mass-Mailer.PS1
 
 The email is sent to each recipient individually. it looks like:

@@ -27,9 +27,12 @@ This script requires the following two PowerShell modules:
 <strong>Syntax:</strong>
 
 1. Using a Key Based AzureServicePrincipal connection (in Azure Automation as a runbook, explained in my <a href="https://blog.tyang.org/2017/10/15/new-powershell-module-for-azure-automation-azureserviceprincipalaccount/">previous post</a>):
-<pre class="lang:ps decode:true ">Register-AzureResourceProviders.ps1 –AzureConnectionName ‘AzureConnectionName’</pre>
+<pre class="lang:ps decode:true ">Register-AzureResourceProviders.ps1 –AzureConnectionName ‘AzureConnectionName’
+```
 2. Using a key-based (not certificate based) Service Principal or an Azure AD user account without Multi-Factor Authentication (MFA) (for key based service principals, use the AAD Application Id as the user name and the key as the password when creating the PSCredential object):
-<pre class="lang:ps decode:true ">Register-AzureResourceProviders.ps1 –TenantId ‘MyAADTenantID’ –SubscriptionId ‘MyAzureSubscriptionId’ –Credential $Credential</pre>
+<pre class="lang:ps decode:true ">Register-AzureResourceProviders.ps1 –TenantId ‘MyAADTenantID’ –SubscriptionId ‘MyAzureSubscriptionId’ –Credential $Credential
+```
 3. Using an AzureAD user account (with or without MFA, you will be prompted to enter the password and may be prompted for MFA if required) – this method only works when you are running this script interactively.
-<pre class="lang:ps decode:true ">Register-AzureResourceProviders.ps1 –TenantId ‘MyAADTenantID’ –SubscriptionId ‘MyAzureSubscriptionId’ –UserName ‘my.name@mycompany.onmicrosoft.com’</pre>
+<pre class="lang:ps decode:true ">Register-AzureResourceProviders.ps1 –TenantId ‘MyAADTenantID’ –SubscriptionId ‘MyAzureSubscriptionId’ –UserName ‘my.name@mycompany.onmicrosoft.com’
+```
 <strong><span style="color: #ff0000;">Note:</span></strong> For most of scripts I’ve written for Azure, I intentionally avoid using the official AzureRM PowerShell modules (well, this is a topic for another day), but instead, I’m using Azure Resource Manager REST API. The only reason this script requires the AzureRM.Profile module is because my AzureServicePrincipalAccount module requires a DLL from the AzureRM.Profile module in order to obtain the Azure AD oAuth token (for the REST API calls). You may modify the script to suit your requirements by adding / removing the inclusion and exclusion regular expressions (line 103-104).

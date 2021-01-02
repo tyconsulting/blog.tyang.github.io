@@ -95,7 +95,8 @@ Here’s a sample definition file:
     ],
     "defaultManagementGroup": "mg-quarantine"
 }
-</pre>
+
+```
 
 the definition file contains the following sections:
 
@@ -134,7 +135,8 @@ if your "management" subscriptions are created as EA subs and have a naming conv
     "subQuotaIdRegex": "^EnterpriseAgreement_*",
     "managementGroup": "mg-mgmt-root"
 }
-</pre>
+
+```
 
 Or if you want to place all users MSDN subscriptions into a management group called "mg-msdn", the rule can be something like:
 
@@ -143,7 +145,8 @@ Or if you want to place all users MSDN subscriptions into a management group cal
     "subQuotaIdRegex": "^msdn_*",
     "managementGroup": "mg-msdn"
 }
-</pre>
+
+```
 
 In order to be placed into the defined management group, the subscription must match <strong>both</strong> the name regex and quota Id regex. The script uses case insensitive match for the regex. so it doesn’t matter if you define your regex as "^msdn_<em>" or "^MSDN_</em>".
 
@@ -159,8 +162,10 @@ You will need to create an Azure AD application with a service principal for eac
 
 You may use my <a href="https://gist.github.com/tyconsulting/91c3899224f80f9b098e20ba8ec1da16">New-AADServivcePrincipal.ps1</a> script to create the&nbsp; service principal. For Example:
 
-<pre language="PowerShell">New-AADServicePrinicipal.ps1 –AADAppName AzDevOpsConnection –KeyType ‘Key’
-</pre>
+```powershell
+New-AADServicePrinicipal.ps1 –AADAppName AzDevOpsConnection –KeyType ‘Key’
+
+```
 
 <strong>Service Connection in Azure DevOps project</strong>
 

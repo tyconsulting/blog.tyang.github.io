@@ -45,7 +45,8 @@ The OpsMgrExtedned module comes with a function called <strong>New-OMWindowsServ
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML2e5dc32.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2e5dc32" src="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML2e5dc32_thumb.png" alt="SNAGHTML2e5dc32" width="609" height="433" border="0" /></a>
 <h3>Sample Runbook New-WindowsServiceTemplateInstance</h3>
-<pre language="PowerShell">Workflow New-WindowsServiceTemplateInstance
+```powershell
+Workflow New-WindowsServiceTemplateInstance
 {
 Param(
 [Parameter(Mandatory=$true)][String]$InstanceDisplayName,
@@ -129,7 +130,8 @@ Write-Error "Unable to create the Windows Service monitoring template instance `
 }
 
 }
-</pre>
+
+```
 I have hardcoded the following parameters in the runbook:
 <ul>
 	<li>SMA OpsMgr connection object name (which you will need to change to suit your environment)</li>

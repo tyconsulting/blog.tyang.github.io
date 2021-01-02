@@ -39,12 +39,14 @@ In order to get VMM consoles fixed as soon as possible, I’ve taken the followi
 
 <a href="http://blog.tyang.org/wp-content/uploads/2013/05/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/05/image_thumb2.png" width="468" height="202" border="0" /></a>
 
+{:start="4"}
 4. Confirm the OpsMgr connection is removed from the database by running below SQL query:
 
 ```sql
 SELECT * FROM tbl_MOM_OMConnection
 ```
 
+{:start="5"}
 5. I restarted VMM service again just to be safe
 
 Now I can open VMM console from any computers on my network <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" alt="Smile" src="http://blog.tyang.org/wp-content/uploads/2013/05/wlEmoticon-smile.png" />

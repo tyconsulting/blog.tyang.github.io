@@ -61,7 +61,8 @@ Delete from Core.ModuleVersions where ModuleKey In (Select ModuleKey from Core.M
 PRINT 'Deleting Modules'
 Delete from core.Modules where ModuleName = @ModuleName
 COMMIT TRANSACTION T1
-</pre>
+
+```
 
 As I explained in the <a href="http://blog.tyang.org/2014/09/29/clean-sma-database-module-deletion/" target="_blank">previous post</a>, you will need to update the <strong>@ModuleName</strong> and <strong>@ConnectionName</strong> variables accordingly.
 

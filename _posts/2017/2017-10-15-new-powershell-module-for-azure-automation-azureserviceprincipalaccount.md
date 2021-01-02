@@ -101,7 +101,8 @@ $Login.Context
 } else {
 Write-Error "Connection asset '$ConnectionName' does not exist in this Automation account."
 }
-</pre>
+
+```
 Furthermore, you can also using this function without connection objects – by passing individual parameters for either the key or the certificate based Service Principals:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/10/image-2.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/10/image_thumb-2.png" alt="image" width="885" height="393" border="0" /></a>

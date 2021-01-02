@@ -3,5 +3,7 @@ main:
     url: /categories/
   - title: "Tags"
     url: /tags/
+  - title: "Posts by Year"
+    url: /posts/
   - title: "About me"
     url: /about/

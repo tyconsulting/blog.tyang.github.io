@@ -45,7 +45,8 @@ I have added a lot of comments in this XML file so it should be very self-explan
 &nbsp;
 <h3>Script</h3>
 Since I have written a lot of scripts using OpsMgr SDK in the past, I didn’t find Service Manager SDK too hard (although this is only the second time I’ve written scripts for Service Manager). The script itself is fairly simple and short:
-<pre language="PowerShell">
+```powershell
+
 #==============================================================
 # AUTHOR:  Tao Yang 
 # DATE:    19/02/2015
@@ -246,7 +247,8 @@ if ($arrRelationships.Count -gt 0)
 Write-Verbose "Updating LastSyncFileDateUTC in the XML file '$ConfigXML'."
 $XML.Configuration.LastSyncFileDateUTC = $NowFileDateUTC.tostring()
 $XML.save($configXml)
-</pre>
+
+```
 &nbsp;
 
 To execute the script, simply pass the service management server name (user name and password are optional), and you can also use -verbose if you'd like to see verbose messages:

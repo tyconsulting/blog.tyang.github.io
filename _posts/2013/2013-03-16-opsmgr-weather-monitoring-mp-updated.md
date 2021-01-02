@@ -9,7 +9,7 @@ permalink: /2013/03/16/opsmgr-weather-monitoring-mp-updated/
 categories:
   - SCOM
 tags:
-  - Management Pack
+  - SCOM Management Pack
   - MP Authoring
   - SCOM
 ---

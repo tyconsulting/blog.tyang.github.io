@@ -38,7 +38,8 @@ The runbook I'm demonstrating today was based on the PowerShell script in the <a
 
 By creating an agent task to create health rollup dependency monitors (in the OpsMgr Group Health Rollup Configuration Task MP), I have provided a more user friendly way for OpsMgr users to configure health rollup for groups, but this task won't help us when we are designing an automation solution. Therefore, I have written a SMA runbook based on the script I developed for the MP.
 <h3>Runbook: Configure-GroupHealthRollup</h3>
-<pre language="PowerShell">Workflow Configure-GroupHealthRollup
+```powershell
+Workflow Configure-GroupHealthRollup
 {
 PARAM (
 [Parameter(Mandatory=$true,HelpMessage='Please enter the group name')][Alias('g','group')][String]$GroupName,
@@ -315,7 +316,8 @@ Write-Output "Done"
 Write-Error "Unable to configure health rollup for group '$GroupName'."
 }
 }
-</pre>
+
+```
 This runbook requires the following input parameters:
 <ul>
 	<li><strong>GroupName:</strong> Required parameter. Name of the group (note, this is not the display name you see in the OpsMgr console)</li>

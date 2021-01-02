@@ -44,23 +44,28 @@ To visualise it, this is what I have done:
        "description": "the current datetime in ticks. this is used to generate a unique string for every deployment"
      }
    }
-},</pre>
+},
+```
 2. Generate a globally unique string in the variables section of the ARM template:
 <pre class="lang:js decode:true ">"variables": {
    "UniqueStringBasedOnTimeStamp": "[uniqueString(deployment().name, parameters('_CurrentDateTimeInTicks'))]",
-},</pre>
+},
+```
 3. Generate GUIDs wherever is required. i.e. for my jobSchedule name:
-<pre class="lang:js decode:true ">"name": "[guid('AzureAutomationJobName', variables('UniqueStringBasedOnTimeStamp'))]"</pre>
+<pre class="lang:js decode:true ">"name": "[guid('AzureAutomationJobName', variables('UniqueStringBasedOnTimeStamp'))]"
+```
 4. Get current UTC date time in ticks in PowerShell
 <pre class="lang:ps decode:true ">$UTCNow = (Get-Date).ToUniversalTime()
 
-$UTCTimeTick = $UTCNow.Ticks.tostring()</pre>
+$UTCTimeTick = $UTCNow.Ticks.tostring()
+```
 5. Create an ARM template deployment in PowerShell and pass the UTC time in ticks to the template
 <pre class="lang:ps decode:true">$TemplateParameters = @{
    '_CurrentDateTimeInTicks' = $UTCTimeTick
 }
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName  -TemplateFile $TemplateFilePath @TemplateParameters</pre>
+New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName  -TemplateFile $TemplateFilePath @TemplateParameters
+```
 &nbsp;
 <h2>Conclusion</h2>
 By using the combination of deployment name and current time stamp, we can generate a globally unique string, and then using this unique string to generate GUIDs that we can pretty much guarantee it will be globally unique.

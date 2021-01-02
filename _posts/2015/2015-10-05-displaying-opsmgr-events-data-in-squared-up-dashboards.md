@@ -29,7 +29,8 @@ INNER JOIN Event.vEventRule AS EvtRule ON Evt.EventOriginId = EvtRule.EventOrigi
 INNER JOIN EventLoggingComputer AS Cmp WITH (NoLock) ON Evt.LoggingComputerRowId = Cmp.EventLoggingComputerRowId
 INNER JOIN Event.vEventDetail AS Det WITH (NoLock) ON Evt.EventOriginId = Det.EventOriginId
 WHERE Pub.EventPublisherName = 'Place-Your-Event-Source-Here' Order by DateTime desc
-</pre>
+
+```
 <h4>Get all events with a specific Event Number:</h4>
 <pre class="" language="SQL">Select 'Level' = Case Evt.EventLevelId WHEN 1 THEN 'Error' WHEN 2 THEN 'Warning' WHEN 4 THEN 'Information' WHEN 8 THEN 'Success Audit' WHEN 16 THEN 'Failure Audit' ELSE 'Undefined' END, Convert(VARCHAR(24),Evt.DateTime,113) as 'Date Time', Evt.EventDisplayNumber as 'Event Number',Pub.EventPublisherName As 'Source', Cmp.ComputerName As 'Name', Det.RenderedDescription As 'Description'
 FROM Event.vEvent AS Evt WITH (NoLock)
@@ -38,7 +39,8 @@ INNER JOIN Event.vEventRule AS EvtRule ON Evt.EventOriginId = EvtRule.EventOrigi
 INNER JOIN EventLoggingComputer AS Cmp WITH (NoLock) ON Evt.LoggingComputerRowId = Cmp.EventLoggingComputerRowId
 INNER JOIN Event.vEventDetail AS Det WITH (NoLock) ON Evt.EventOriginId = Det.EventOriginId
 WHERE Evt.EventNumber = Place-Your-Event-Number-Here Order by DateTime desc
-</pre>
+
+```
 Note: For these 2 queries, you will need to place the event publisher name and event ID into the queries accordingly.
 
 As an example, I have created a Squared Up dashboard for Forefront Endpoint Protection (FEP) MP, where I used the SQL plugin to retrieve the recent 30 security events logged by the MP:

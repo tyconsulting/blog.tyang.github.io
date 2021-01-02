@@ -103,7 +103,8 @@ Write-OutPut "List item $listItemURI successfully updated."
 Write-Error "Failed to update the list item $listItemURI."
 }
 }
-</pre>
+
+```
 Unlike Ryan’s code, which also monitors the SP list, my runbook <strong>ONLY</strong> updates a specific list item.
 <h3>Pre-Requisite and Parameters</h3>
 Prior to using this runbook, you will need to save a credential in SMA which has  access to the SharePoint site

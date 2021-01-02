@@ -65,7 +65,8 @@ This DSC resource module contains 2 resources:
 <strong>cPowerShellRepository</strong>
 
 Syntax:
-<pre language="PowerShell">cPowerShellRepository [String] #ResourceName
+```powershell
+cPowerShellRepository [String] #ResourceName
 {
 Name = [string]
 [DependsOn = [string[]]]
@@ -76,7 +77,8 @@ Name = [string]
 [PublishLocation = [string]]
 [SourceLocation = [string]]
 }
-</pre>
+
+```
 To register a feed, you will need to specify some basic information such as PublishLocation and SourceLocation. You can also set Ensure = Absent to unregister the feed with the name specified in the Name parameter.
 
 When not specified, the InstallationPolicy field default value is "Untrusted". If you’d like to set the repository as a trusted repository, set this value to "Trusted".
@@ -88,7 +90,8 @@ When not specified, the InstallationPolicy field default value is "Untrusted". I
 <strong>cPowerShellModuleManagement</strong>
 
 Syntax:
-<pre language="PowerShell">cPowerShellModuleManagement [String] #ResourceName
+```powershell
+cPowerShellModuleManagement [String] #ResourceName
 {
 PSModuleName = [string]
 RepositoryName = [string]
@@ -100,7 +103,8 @@ RepositoryName = [string]
 [PsDscRunAsCredential = [PSCredential]]
 [PSModuleVersion = [string]]
 }
-</pre>
+
+```
 <ul>
  	<li><strong>PSModuleName</strong> – PowerShell module name. When this is set to ‘all’, all modules from the specified repository will be installed. <u><em>So please do not use ‘all’ against PSGallery!!</em></u></li>
  	<li><strong>RepositoryName</strong> – Name of the repository where module will be installed from. This can be a public repository such as PowerShell Gallery, or your privately owned repository (i.e. your ProGet or MyGet feeds). You can use the cPowerShellRepository resource to configure the repository.</li>
@@ -137,7 +141,8 @@ Configuration SampleProGetConfiguration
         }
     }
 }
-</pre>
+
+```
 Using this configuration, I can manage the modules from the repository feed level. if I add or update a module to the feed, the DSC LCM on each configured compute will automatically install the newly added (or updated) module when next time the configuration is refreshed.
 
 <strong>2. Register to a feed hosted on MyGet, and install several specific modules</strong>
@@ -178,7 +183,8 @@ Configuration SampleMyGetConfiguration
         }
     }
 }
-</pre>
+
+```
 In this example, I’ve specified a particular module can be installed at any time (the Gac module), and another module can only be installed (or updated) at a specific time window (the SharePointSDK module).
 <h3>Download and Install Locations</h3>
 This DSC Resource has been published to PowerShellGallery: <a title="https://www.powershellgallery.com/packages/cPowerShellPackageManagement" href="https://www.powershellgallery.com/packages/cPowerShellPackageManagement">https://www.powershellgallery.com/packages/cPowerShellPackageManagement</a>

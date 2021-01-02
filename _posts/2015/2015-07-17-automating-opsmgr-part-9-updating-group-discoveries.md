@@ -72,7 +72,8 @@ $UpdateResult = Update-OMGroupDiscovery -SDK OpsMgrMS01 -GroupName $GroupName -N
 
 #Display the result (True = updated successful
 $UpdateResult
-</pre>
+
+```
 Please note, I'm specifying the management server name instead of the SMA connection object in this example, if you are using it in SMA or Azure Automation, you can also switch -SDK to -SDKConnection and pass a connection object to the functions.
 
 The script is very self explanatory, with 2 catches:

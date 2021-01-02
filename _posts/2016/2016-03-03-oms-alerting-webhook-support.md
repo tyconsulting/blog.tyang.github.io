@@ -81,7 +81,8 @@ Additionally, we are also able to customize the JSON payload if we only want to 
 "ResultCount": "#searchresultcount",
 "SearchIntervalInSeconds": "#searchinterval",
 "LinkToSearchResults": "#linktosearchresults" }
-</pre>
+
+```
 <strong><span style="color: #ff0000;">4th March 2016 Update:</span></strong>
 
 After this post has been published, Anand Balasubramanian from OMS product team has provided me another JSON payload example and asked me to add to this post. The example below can be used to post the OMS alert to a Slack channel:
@@ -108,7 +109,8 @@ After this post has been published, Anand Balasubramanian from OMS product team 
     ]
 }
 
-</pre>
+
+```
 &nbsp;
 <h3>Summary</h3>
 To summarize, I am very glad that we now have the webhook capability for OMS alert rules. Although it requires more configurations, this is definitely more flexible than the original Azure Automation runbook remediation feature in OMS Alerting.

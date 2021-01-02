@@ -35,7 +35,8 @@ In the demonstrations, I will show how to retrieve the monitoring object ID for 
 &nbsp;
 <h3>Using OpsMgr PowerShell Module OperationsManager</h3>
 <strong>01. Define variables and connect to the management server:</strong>
-<pre language="PowerShell">#region variables
+```powershell
+#region variables
 
 $ClassDisplayName = "SQL Database"
 $DBName = "master"
@@ -47,11 +48,14 @@ $DBEngine = "MSSQLSERVER"
 #Connect to OpsMgr management server
 import-module operationsmanager
 New-SCOMManagementGroupConnection -ComputerName OPSMGRMS01
-</pre>
+
+```
 <strong>02. Get the monitoring class based on its display name:</strong>
-<pre language="PowerShell">#Get the monitoring class based on the class display name
+```powershell
+#Get the monitoring class based on the class display name
 $MonitoringClasses = Get-SCOMClass -DisplayName $ClassDisplayName
-</pre>
+
+```
 However, in my management group, there are 2 classes with the same name "SQL Database":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb5.png" alt="image" width="565" height="88" border="0" /></a>
@@ -60,7 +64,8 @@ As you can see, the first item in the array $MonitoringClasses is the correct on
 
 <strong>03. Get the monitoring object for the particular database:</strong>
 <pre language="PowerShell" class="">$MonitoringObject = Get-SCOMClassInstance -Class $MonitoringClasses[0] | Where-object {$_.Name -eq $DBName -and $_.'[Microsoft.Windows.Computer].PrincipalName'.value -ieq $SQLServer -and $_.'[Microsoft.SQLServer.ServerRole].InstanceName'.value -ieq $DBEngine}
-</pre>
+
+```
 The Get-SCOMClassInstance cmdlet does not take any criteria, therefore, the command above retrieves all instances of the SQL Database class, then filter the result based on the database name, SQL server name and SQL DB instance name to locate the particlar database that we are looking for.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb6.png" alt="image" width="554" height="513" border="0" /></a>
@@ -76,7 +81,8 @@ The type for the ID field is Guid. You can also convert it to a string as shown 
 In this example, I won’t spend too much time on how to load the SDK assemblies, in the script, I’m assuming the SDK DLLs are already loaded into the Global Assembly Cache (GAC). So, in order to use this script, you will need to run this on an OpsMgr management server or a web console server, or a computer that has operations console installed.
 
 <strong>01. Define variables, load SDK assemblies and connect to OpsMgr management group:</strong>
-<pre language="PowerShell">#region variables
+```powershell
+#region variables
 
 $ClassDisplayName = "SQL Database"
 $DBName = "master"
@@ -92,13 +98,16 @@ $DBEngine = "MSSQLSERVER"
 #Connect to management group
 $MGConnSetting = New-Object Microsoft.EnterpriseManagement.ManagementGroupConnectionSettings("OpsMgrMS01")
 $MG = New-Object Microsoft.EnterpriseManagement.ManagementGroup($MGConnSetting)
-</pre>
+
+```
 <strong>02. Get the monitoring class based on the display name</strong>
-<pre language="PowerShell">#Get the monitoring class
+```powershell
+#Get the monitoring class
 $strMCQuery = "DisplayName = '$ClassDisplayName'"
 $mcCriteria = New-Object Microsoft.EnterpriseManagement.Configuration.MonitoringClassCriteria($strMCQuery)
 $MonitoringClass = $MG.GetMonitoringClasses($mcCriteria)
-</pre>
+
+```
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb8.png" alt="image" width="674" height="328" border="0" /></a>
 
 As you can see, since the display name is not unique, 2 classes are returned from the search (this is same as the first method), except this time, the type for $MonitoringClass varible is a ReadOnlyCollection. However, we can still reference the correct monitoring class using $MonitoringClass[0]
@@ -108,12 +117,14 @@ As you can see, since the display name is not unique, 2 classes are returned fro
 <strong>03. Get the monitoring object for the particular database:</strong>
 
 Please refer to <a href="https://msdn.microsoft.com/en-us/library/microsoft.enterprisemanagement.monitoring.monitoringobjectgenericcriteria.aspx">this page</a> for the properties that you can use to build the search criteria (MonitoringObjectGenericCriteria)
-<pre language="PowerShell">#Get the monitoring object
+```powershell
+#Get the monitoring object
 $DBPath = "$SQLServer`;$DBEngine"
 $strMOQuery = "DisplayName = '$DBName' AND Path = '$DBPath'"
 $MOCriteria = New-Object Microsoft.EnterpriseManagement.Monitoring.MonitoringObjectGenericCriteria($strMOQuery)
 $MonitoringObject = $MG.GetMonitoringObjects($MOCriteria, $MonitoringClass[0])
-</pre>
+
+```
 As you can see, unlike the first method using the built-in module, we can specify a more granular search criteria to locate the monitoring object (as result, the command execution should be much faster). However, please keep in mind although there is only one monitoring object returned from the search result, the $MonitoirngObject variable is still a ReadOnlyCollection:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb10.png" alt="image" width="579" height="212" border="0" /></a>

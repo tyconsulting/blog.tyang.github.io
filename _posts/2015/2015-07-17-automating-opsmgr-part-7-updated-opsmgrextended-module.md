@@ -39,7 +39,8 @@ In this release (version 1.1), I have made the following updates:
 </ul>
 In Part 5 and 6, I demonstrated 2 runbooks to add explicit members to computer groups and instance groups. As I mentioned in those posts, I would make those 2 runbooks as native functions within the module, hence the new functions New-OMComputerGroupExplicitMember and OMInstanceGroupExplicitMember. So instead of using the long and complicated runbooks from Part 5 and 6, with this updated version, you can now use very simple runbooks as shown below:
 <h4>Runbook: Add-ComputerToComputerGroup</h4>
-<pre language="PowerShell">Workflow Add-ComputerToComputerGroup
+```powershell
+Workflow Add-ComputerToComputerGroup
 {
 Param(
 [Parameter(Mandatory=$true)][String]$GroupName,
@@ -58,9 +59,11 @@ throw "Unable to add '$ComputerPrincipalName' to group '$GroupName'."
 exit
 }
 }
-</pre>
+
+```
 <h4>Runbook: Add-ObjectToInstanceGroup</h4>
-<pre language="PowerShell">Workflow Add-ObjectToInstanceGroup
+```powershell
+Workflow Add-ObjectToInstanceGroup
 {
 Param(
 [Parameter(Mandatory=$true)][String]$GroupName,
@@ -79,7 +82,8 @@ throw "Unable to add monitoring object '$MonitoringObjectID' to group '$GroupNam
 exit
 }
 }
-</pre>
+
+```
 <h3>How to Download Updated version?</h3>
 I have updated the original link, so you can download this updated version at TY Consulting's web site: <a title="http://www.tyconsulting.com.au/portfolio/opsmgrextended-powershell-and-sma-module/" href="http://www.tyconsulting.com.au/portfolio/opsmgrextended-powershell-and-sma-module/">http://www.tyconsulting.com.au/portfolio/opsmgrextended-powershell-and-sma-module/</a>
 <h3>Conclusion</h3>

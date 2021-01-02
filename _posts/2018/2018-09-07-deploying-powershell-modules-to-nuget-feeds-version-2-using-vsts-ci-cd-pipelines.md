@@ -65,18 +65,22 @@ Firstly, since my code is located in a public GitHub repo, there’s no point to
 This task runs few lines of inline scripts to install required modules to the VSTS agent – since I’m using host agents and they are stateless, they are required to run my Pester tests defined in the PSPesterTest module:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-4.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-4.png" alt="image" width="604" height="546" border="0" /></a>
-<pre language="PowerShell">$FeedName = 'PSGallery'
+```powershell
+$FeedName = 'PSGallery'
 Install-PackageProvider Nuget -Scope CurrentUser -Force
 Install-module PSScriptAnalyzer -force -Scope CurrentUser -Repository $FeedName
 Install-module PSPesterTest -force -Scope CurrentUser -Repository $FeedName
-</pre>
+
+```
 4. Add another PowerShell task called "Pester Test PowerShell scripts"
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-5.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-5.png" alt="image" width="877" height="466" border="0" /></a>
-<pre language="PowerShell">Import-Module PSPesterTest
+```powershell
+Import-Module PSPesterTest
 Test-ImportModule -ModulePath $(Build.SourcesDirectory)\PSSouthPark -OutputFile $(Build.SourcesDirectory)\TEST-PSPesterTest.ModuleImport.XML
 Test-PSScriptAnalyzerRule -Path $(Build.SourcesDirectory)\PSSouthPark -recurse -MinimumSeverityLevel Warning -OutputFile $(Build.SourcesDirectory)\TEST-PSPesterTest.PSSA.XML
-</pre>
+
+```
 This step runs the 2 Pester tests I have defined in the PesterTest module and output the result into XML files.
 
 5. Publish Test Results
@@ -129,7 +133,8 @@ With MyGet feed, the feed URI is <strong>https://www.myget.org/F/&lt;FeedName&gt
 
 <span style="color: #ff0000;">Tip:</span> To retrieve the feed URI for PowerShell Gallery, on a Windows 10 machine, run this PowerShell command:
 <pre language="PowerShell" class="">Get-PSRepository –Name PSGallery | fl *
-</pre>
+
+```
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-13.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-13.png" alt="image" width="949" height="331" border="0" /></a>
 
 Depending on the NuGet feed provider, you need to obtain an API key that has permission to publish to the particular feed that you wish to push packages to.

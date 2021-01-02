@@ -25,7 +25,8 @@ Today, I have written a sample runbook: <strong>Invoke-OMSSavedSearch</strong>. 
 <strong><span style="color: #ff0000;">Note:</span></strong> due to the limitation of the OMS Search API, we can only retrieve the user defined saved searches. Therefore you cannot use this runbook for any built-in saved searches in OMS.
 
 <strong>Runbook:</strong>
-<pre language="PowerShell">workflow Invoke-OMSSavedSearch
+```powershell
+workflow Invoke-OMSSavedSearch
 {
     Param(
     [Parameter(Mandatory=$true)][String]$OMSConnectionName,
@@ -66,7 +67,8 @@ Today, I have written a sample runbook: <strong>Invoke-OMSSavedSearch</strong>. 
     $SearchResult = Invoke-OMSSearchQuery -SubscriptionID $SubscriptionID -ResourceGroupName $ResourceGroupName -OMSWorkspaceName $WorkSpaceName -Query $SearchQuery -Token $Token
     $SearchResult
 }
-</pre>
+
+```
 This runbook expects 3 input parameters:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb20.png" alt="image" width="473" height="409" border="0" /></a>

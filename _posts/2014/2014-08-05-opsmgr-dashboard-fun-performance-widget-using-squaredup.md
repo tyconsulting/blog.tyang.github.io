@@ -52,7 +52,8 @@ If ($bValid)
 $dataObject["Parameters"]= $parameterCollection
 $ScriptContext.ReturnCollection.Add($dataObject)
 }
-</pre>
+
+```
 Additionally, in order to make SquaredUp work in this dashboard, I had to configure the Data Warehouse DB connection and enable Single Sign-On according to the instructions below:
 <ul>
 	<li>Configure DW Connectiion: <a title="http://support.squaredup.com/support/solutions/articles/27999-configure-the-data-warehouse-connection" href="http://support.squaredup.com/support/solutions/articles/27999-configure-the-data-warehouse-connection">http://support.squaredup.com/support/solutions/articles/27999-configure-the-data-warehouse-connection</a></li>
