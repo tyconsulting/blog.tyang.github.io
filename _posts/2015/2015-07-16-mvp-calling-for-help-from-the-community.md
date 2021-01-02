@@ -4,6 +4,10 @@ title: MVP Calling for Help From the Community
 date: 2015-07-16T20:29:47+10:00
 author: Tao Yang
 #layout: post
+excerpt: ""
+header:
+  overlay_image: /wp-content/uploads/2015/07/041615_1218_whatisnewan2.png
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 guid: http://blog.tyang.org/?p=4212
 permalink: /2015/07/16/mvp-calling-for-help-from-the-community/
 categories:
@@ -11,8 +15,6 @@ categories:
 tags:
   - MVP
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/041615_1218_whatisnewan2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="041615_1218_whatisnewan2" src="http://blog.tyang.org/wp-content/uploads/2015/07/041615_1218_whatisnewan2_thumb.png" alt="041615_1218_whatisnewan2" width="685" height="174" border="0" /></a>
-
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/bob.jpg"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SCOMBob" src="http://blog.tyang.org/wp-content/uploads/2015/07/bob_thumb.jpg" alt="SCOMBob" width="139" height="244" align="left" border="0" /></a>OK, I don't blog about my personal life on this blog at all, and I don't think I have ever blogged anything that's not technical or my career related on this blog. Well, this is going to be the first non-technical post on this blog.
 
 If you follow my blog for System Center and OpsMgr related content, you must have also heard the name <strong>Bob Cornelissen</strong><a href="http://www.bictt.com/blogs/bictt.php" target="_blank">(Blog</a>, <a href="https://twitter.com/Bob_Cornelissen" target="_blank">Twitter</a>) before. Bob is a fellow System Center Cloud and Datacenter (SCCDM) MVP from the Netherland. Bob is also one of the authors for the <a href="http://www.amazon.com/Mastering-System-Center-Operations-Manager/dp/1118128990" target="_blank">Mastering System Center 2012 Operations Manager book</a>.

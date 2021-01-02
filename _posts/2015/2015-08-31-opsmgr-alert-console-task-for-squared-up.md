@@ -14,10 +14,10 @@ tags:
   - SquaredUp
 ---
 I have just created 2 alert console tasks in OpsMgr for Squared Up:
-<ul>
-	<li>View Alert in Squared Up</li>
-	<li>View Alert Source Object in Squared Up</li>
-</ul>
+
+* View Alert in Squared Up
+* View Alert Source Object in Squared Up
+
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML7c0f76d.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7c0f76d" src="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML7c0f76d_thumb.png" alt="SNAGHTML7c0f76d" width="546" height="293" border="0" /></a>
 
 These 2 tasks will open the selected alert and alert source object in Squared Up  respectively using your default browser:
@@ -40,4 +40,4 @@ You need to open the unsealed MP (xml) in a text editor (such as Notepad++), and
 
 You can download this MP from the link below:
 
-[wpdm_package id='4435']
+[DOWNLOAD](../../../../wp-content/uploads/2015/06/SquaredUp.Console.Task.zip)

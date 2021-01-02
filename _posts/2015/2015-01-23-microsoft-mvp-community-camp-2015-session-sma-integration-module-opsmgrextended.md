@@ -24,14 +24,13 @@ If you have heard or used my OpsMgr Self Maintenance MP, you’d know that I hav
 
 To date, I haven’t really discussed this piece of work in details with anyone other than few SCOM focused MVPs (and my wife of course). This is going to be the first time I’m demonstrating this project in public.
 
-In order to help promoting this event, and also, trying to "lure" you to come to my session if you are based in Melbourne, I’ve recorded a short video demonstrating how I’ve automated the creation of a blank MP and then a Performance Monitor rule (with override) using SharePoint, Orchestrator and SMA. I will also include this same demo in my presentation, and it is probably going to be one of the easier ones <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/01/wlEmoticon-smile.png" alt="Smile" />.
+In order to help promoting this event, and also, trying to "lure" you to come to my session if you are based in Melbourne, I’ve recorded a short video demonstrating how I’ve automated the creation of a blank MP and then a Performance Monitor rule (with override) using SharePoint, Orchestrator and SMA. I will also include this same demo in my presentation, and it is probably going to be one of the easier ones :smiley:.
 
 I’ve uploaded the recording to YouTube, you can watch from <a href="https://www.youtube.com/watch?v=aX9oSj_eKeY">https://www.youtube.com/watch?v=aX9oSj_eKeY</a> or from below:
 <div id="scid:5737277B-5D6D-4f48-ABFC-DD9C333F4C5D:350a6272-7fac-4950-b22b-4a39718f0b0f" class="wlWriterEditableSmartContent" style="float: none; margin: 0px; display: inline; padding: 0px;">
 <div><object width="705" height="395"><param name="movie" value="http://www.youtube.com/v/aX9oSj_eKeY?hl=en&hd=1" /><embed src="http://www.youtube.com/v/aX9oSj_eKeY?hl=en&hd=1" type="application/x-shockwave-flash" width="705" height="395" /></object></div>
 <div style="width: 705px; clear: both; font-size: .8em;">Please watch in Youtube and switch to the full screen mode.</div>
 </div>
-&nbsp;
 
 If you like what you saw and would like to see more and find out what’s under the hood, please come to this free event next Friday. You can register from <a href="https://msevents.microsoft.com/CUI/EventDetail.aspx?EventID=1032610277&Culture=en-AU&community=0">here</a>.
 

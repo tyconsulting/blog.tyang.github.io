@@ -14,7 +14,7 @@ tags:
   - SCCM
   - SCOM
 ---
-<span style="color: #ff0000;"><strong>4th October, 2014: This MP has been updated to Version 1.2.0.0. Please download the latest version from this page: <a href="http://blog.tyang.org/2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/">http://blog.tyang.org/2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/</a>.</strong></span>
+<span style="color: #ff0000;">**4th October, 2014: This MP has been updated to Version 1.2.0.0. Please download the latest version from this page: <a href="http://blog.tyang.org/2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/">http://blog.tyang.org/2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/</a>.**</span>
 
 OK, after few weeks of hard work, the updated version of the ConfigMgr 2012 (R2) Client MP is finally here.
 
@@ -24,44 +24,35 @@ The changes since previous version (v1.0.1.0) are listed below:
 
 ## Bug Fixes:
 
-<ul>
-	<li>Software Update agent health not rolled up (dependency monitors was missed in the previous release).</li>
-	<li>SyncTime in some data source modules were not correctly implemented</li>
-	<li>Typo in Pending Software update monitor alert description</li>
-	<li>The "All ConfigMgr 2012 Client computer group" population is incorrect. It includes all windows computers, not just the ones with ConfigMgr 2012 client installed.</li>
-	<li>Many warning alerts "Operations Manager failed to start a process" generated against various scripts used in this MP. It has been identified the issue is caused by the OpsMgr agent executing the workflows when the SMS Agent Host service is not running. This typically happened right after computer startup or reboot because SMS Agent Host service is set to Automatic (Delayed). All the scripts that query root\ccm WMI namespace have been re-written to wait up to 3 minutes for the SMS Agent Host to start (if it’s not already started). Hopefully this will reduce the number of these warning alerts. The updated scripts will also try to catch such condition so the alert indicates the actual issue:</li>
-</ul>
-<a href="http://blog.tyang.org/wp-content/uploads/2014/09/clip_image002.jpg"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="clip_image002" src="http://blog.tyang.org/wp-content/uploads/2014/09/clip_image002_thumb.jpg" alt="clip_image002" width="612" height="533" border="0" /></a>
+* Software Update agent health not rolled up (dependency monitors was missed in the previous release).
+* SyncTime in some data source modules were not correctly implemented
+* Typo in Pending Software update monitor alert description
+* The "All ConfigMgr 2012 Client computer group" population is incorrect. It includes all windows computers, not just the ones with ConfigMgr 2012 client installed.
+* Many warning alerts "Operations Manager failed to start a process" generated against various scripts used in this MP. It has been identified the issue is caused by the OpsMgr agent executing the workflows when the SMS Agent Host service is not running. This typically happened right after computer startup or reboot because SMS Agent Host service is set to Automatic (Delayed). All the scripts that query root\ccm WMI namespace have been re-written to wait up to 3 minutes for the SMS Agent Host to start (if it’s not already started). Hopefully this will reduce the number of these warning alerts. The updated scripts will also try to catch such condition so the alert indicates the actual issue:
 
-&nbsp;
+	![](http://blog.tyang.org/wp-content/uploads/2014/09/clip_image002.jpg)
 
 ## Additional Items:
 
-<ul>
-	<li>A diagnostic task and a recovery task for the CcmExec service monitor. The diagnostic task detects if the system uptime is longer than 5 minutes (overrideable), if the system uptime is longer than 5 minutes, the recovery task will start the SMS Agent Host service. Both the service monitor and the recovery task are disabled by default. –If you decide to use this service monitor and the recovery task (both disabled by default), it would help to reduce the number of failed start a process warning alerts caused by stopped SMS Agent Host service.</li>
-	<li>Monitor if the SCCM client has been placed into the Provisioning mode for a long period of time (Consecutive Sample monitor) (<a href="http://thoughtsonopsmgr.blogspot.com.au/2014/06/sccm-w7-osd-task-sequence-with-install.html">http://thoughtsonopsmgr.blogspot.com.au/2014/06/sccm-w7-osd-task-sequence-with-install.html</a>)</li>
-	<li>The Missing CCMEval Consecutive Sample unit monitor has been disabled and replaced by a new monitor. The new monitor is no longer a consecutive sample monitor, it will simply detect if the CCMEval job has missed 5 consecutive cycles (number of missing cycles is overrideable). This new monitor is designed to simplify the detection process and to address the false alerts the previous consecutive monitor generates.</li>
-	<li>Monitor CCMCache size. Alert when the available free space for the CCMCache is lower than 20%. Some ConfigMgr client computers may be hosted on expensive storage devices (i.e. 90% of my lab machines are now running on SSD). Therefore I think it is necessary to monitor the ccmcache usage.  This monitor provides an indication on how much space has been consumed by ccmcache folder.</li>
-	<li>Agent Task: Delete CCMCache content</li>
-</ul>
-&nbsp;
+* A diagnostic task and a recovery task for the CcmExec service monitor. The diagnostic task detects if the system uptime is longer than 5 minutes (overrideable), if the system uptime is longer than 5 minutes, the recovery task will start the SMS Agent Host service. Both the service monitor and the recovery task are disabled by default. –If you decide to use this service monitor and the recovery task (both disabled by default), it would help to reduce the number of failed start a process warning alerts caused by stopped SMS Agent Host service.
+* Monitor if the SCCM client has been placed into the Provisioning mode for a long period of time (Consecutive Sample monitor) (<a href="http://thoughtsonopsmgr.blogspot.com.au/2014/06/sccm-w7-osd-task-sequence-with-install.html">http://thoughtsonopsmgr.blogspot.com.au/2014/06/sccm-w7-osd-task-sequence-with-install.html</a>)
+* The Missing CCMEval Consecutive Sample unit monitor has been disabled and replaced by a new monitor. The new monitor is no longer a consecutive sample monitor, it will simply detect if the CCMEval job has missed 5 consecutive cycles (number of missing cycles is overrideable). This new monitor is designed to simplify the detection process and to address the false alerts the previous consecutive monitor generates.
+* Monitor CCMCache size. Alert when the available free space for the CCMCache is lower than 20%. Some ConfigMgr client computers may be hosted on expensive storage devices (i.e. 90% of my lab machines are now running on SSD). Therefore I think it is necessary to monitor the ccmcache usage.  This monitor provides an indication on how much space has been consumed by ccmcache folder.
+* Agent Task: Delete CCMCache content
+
 
 ## Updated Items:
 
-<ul>
-	<li>Pending Reboot monitor updated to allow users to disable any of the 4 areas that the monitor checks for reboot (Pending File Rename operation is disabled by default because it generates too many alerts):
-<ul>
-	<li>Component Based Serving</li>
-	<li>Windows Software Update Agent</li>
-	<li>SCCM Client</li>
-	<li>Pending File Rename operation</li>
-</ul>
-</li>
-	<li>The Missing CCMEval monitor is disabled and superseded.</li>
-	<li>All consecutive samples monitors have been updated. The <strong>System.ConsolidatorCondition</strong> condition detection module has been replaced by the <strong>&lt;MatchCount&gt;</strong> configuration in the <strong>System.ExpressionFilter</strong> module (New in OpsMgr 2012) to consolidate consecutive samples. It simplifies the configuration and tuning process of these consecutive sample monitors.</li>
-	<li>Additional events logged in the Operations manager event log by various scripts. – help with troubleshooting. Please refer to Appendix A of the MP documentation for the details of these events.</li>
-</ul>
-&nbsp;
+
+* Pending Reboot monitor updated to allow users to disable any of the 4 areas that the monitor checks for reboot (Pending File Rename operation is disabled by default because it generates too many alerts):
+  * Component Based Serving
+  * Windows Software Update Agent
+  * SCCM Client
+  * Pending File Rename operation
+* The Missing CCMEval monitor is disabled and superseded.
+* All consecutive samples monitors have been updated. The **System.ConsolidatorCondition** condition detection module has been replaced by the <strong><MatchCount></strong> configuration in the <strong>System.ExpressionFilter</strong> module (New in OpsMgr 2012) to consolidate consecutive samples. It simplifies the configuration and tuning process of these consecutive sample monitors.
+* Additional events logged in the Operations manager event log by various scripts. – help with troubleshooting. Please refer to Appendix A of the MP documentation for the details of these events.
+
 
 ## Upgrade Tip
 
@@ -72,8 +63,6 @@ This version is in-place upgradable from the previous version. However, since th
 ## Special Thanks
 
 I’d like to thank all the people who has provided the feedback since the last release and spent time helped with testing this version. I’d like to specially thank <a href="https://cloudadministrator.wordpress.com/">Stanislav Zhelyazkov</a> for this valuable feedbacks and the testing effort. I’d also like to Thank Marnix Wolf for his <a href="http://thoughtsonopsmgr.blogspot.com.au/2014/06/sccm-w7-osd-task-sequence-with-install.html">blog post</a> which has helped me built the Provisioning Mode Consecutive Sample monitor in this MP.
-
-&nbsp;
 
 ## Download
 

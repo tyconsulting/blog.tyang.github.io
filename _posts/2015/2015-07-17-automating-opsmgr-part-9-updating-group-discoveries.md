@@ -4,6 +4,10 @@ title: 'Automating OpsMgr Part 9: Updating Group Discoveries'
 date: 2015-07-17T22:54:10+10:00
 author: Tao Yang
 #layout: post
+excerpt: ""
+header:
+  overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 guid: http://blog.tyang.org/?p=4257
 permalink: /2015/07/17/automating-opsmgr-part-9-updating-group-discoveries/
 categories:
@@ -17,19 +21,19 @@ tags:
   - SMA
 ---
 
-## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+## Introduction
 
 This is the 9th instalment of the Automating OpsMgr series. Previously on this series:
-<ul>
-	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
-	<li><a href="http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/">Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules</a></li>
-	<li><a href="http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/">Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation</a></li>
-	<li><a href="http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/">Automating OpsMgr Part 4:Creating New Empty Groups</a></li>
-	<li><a href="http://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/">Automating OpsMgr Part 5: Adding Computers to Computer Groups</a></li>
-	<li><a href="http://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/">Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups</a></li>
-	<li><a href="http://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/">Automating OpsMgr Part 7: Updated OpsMgrExtended Module</a></li>
-	<li><a href="http://blog.tyang.org/2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/" target="_blank">Automating OpsMgr Part 8: Adding Management Pack References</a></li>
-</ul>
+
+* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
+* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
+* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
+* [Automating OpsMgr Part 4:Creating New Empty Groups](http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
+* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](http://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
+* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](http://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
+* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
+* [Automating OpsMgr Part 8: Adding Management Pack References](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/)
+
 OK, now I've got all the darts lined up (as per part 7 and 8), I can talk about how to update group discovery configurations.
 
 Often when you create groups, the groups are configured to have dynamic memberships. for example, as I previously blogged <a href="http://blog.tyang.org/2015/01/18/creating-opsmgr-instance-group-computers-running-application-health-service-watchers/" target="_blank">Creating OpsMgr Instance Groups for All Computers Running an Application and Their Health Service Watchers</a>.
@@ -53,7 +57,9 @@ As I explained in the previous post (Part 8), because the Hyper-V Host class is 
 So, in order to achieve my goal, I must firstly create a MP reference for the VMM discovery MP, then I will be able to update the group discovery data source.
 
 Here's the PowerShell script:
-<pre language="Powershell" class="">#Group Name
+
+```powershell
+#Group Name
 $GroupName = "Group.Creation.Demo.Demo.Instance.Group"
 
 #Define New group discovery data source configuration (MUST use single quote)
@@ -76,15 +82,15 @@ $UpdateResult = Update-OMGroupDiscovery -SDK OpsMgrMS01 -GroupName $GroupName -N
 
 #Display the result (True = updated successful
 $UpdateResult
-
 ```
+
 Please note, I'm specifying the management server name instead of the SMA connection object in this example, if you are using it in SMA or Azure Automation, you can also switch -SDK to -SDKConnection and pass a connection object to the functions.
 
 The script is very self explanatory, with 2 catches:
-<ul>
-	<li>the group discovery DS configuration is defined in a multi-line string variable, you <strong>MUST</strong> use single quotation marks (@<strong><span style="color: #ff0000;">'</span> </strong>and <strong><span style="color: #ff0000;">'</span></strong>@) for this variable, because the dollar sign ($) is a reserved character in PowerShell, if you use double quotes, you must also place an escape character ("`") in front of every dollar sign, with can be very time consuming.</li>
-	<li>You must use the version 1.1 of the OpsMgrExtended module (published in part 7 earlier today). The Update-OMGroupDiscovery function is a new addition in version 1.1, and New-OMManagementPackReference had a small bug that was also fixed in version 1.1.</li>
-</ul>
+
+* the group discovery DS configuration is defined in a multi-line string variable, you **MUST** use single quotation marks (@**<span style="color: #ff0000;">'</span> **and **<span style="color: #ff0000;">'</span>**@) for this variable, because the dollar sign ($) is a reserved character in PowerShell, if you use double quotes, you must also place an escape character ("`") in front of every dollar sign, with can be very time consuming.
+* You must use the version 1.1 of the OpsMgrExtended module (published in part 7 earlier today). The Update-OMGroupDiscovery function is a new addition in version 1.1, and New-OMManagementPackReference had a small bug that was also fixed in version 1.1.
+
 Since I've added -Verbose switch when calling both functions, I can also see some verbose output:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image33.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb33.png" alt="image" width="732" height="177" border="0" /></a>

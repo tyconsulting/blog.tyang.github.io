@@ -17,7 +17,8 @@ I needed to find a way to restrict ALL Azure Service Manager (ASM, aka Classic) 
 https://gist.github.com/tyconsulting/5d48530f5a7a58d50fc8c83bd3995c99
 
 Once I have deployed the definition and assigned it to the subscription level (using PowerShell commands listed below), I could no longer deploy ASM resources:
-<pre language="PowerShell" class="">#Set the Subscription ID
+```powershell
+#Set the Subscription ID
 $subscriptionId = '7c6bd10f-ab0d-4a8b-9c32-548589e1142b'
 
 Add-AzureRmAccount

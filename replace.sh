@@ -7,6 +7,12 @@ sed -i "s/<strong>/**/" $filename
 echo "replacing </strong> with **"
 sed -i "s/<\/strong>/**/" $filename
 
+echo "replacing <b> with **"
+sed -i "s/<b>/**/" $filename
+
+echo "replacing </b> with **"
+sed -i "s/<\/b>/**/" $filename
+
 echo "removing <om>"
 sed -i "s/<om>//" $filename
 
@@ -43,5 +49,8 @@ sed -i "s/&lt;/</" $filename
 
 echo "replacing &gt; with <"
 sed -i "s/&gt;/>/" $filename
+
+echo "removing &nbsp;"
+sed -i "s/&nbsp;//" $filename
 
 echo "done"

@@ -179,20 +179,30 @@ exclude:
   - Rakefile
   - README
   - replace.sh
-  - sed*
   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
   - /_posts/2010 # temp, remove later
+  - /wp-content/uploads/2010 # temp, remove later
   - /_posts/2011 # temp, remove later
+  - /wp-content/uploads/2011 # temp, remove later
   - /_posts/2012 # temp, remove later
+  - /wp-content/uploads/2012 # temp, remove later
   - /_posts/2013 # temp, remove later
-  - /_posts/2015 # temp, remove later
+  - /wp-content/uploads/2013 # temp, remove later
+  - /_posts/2014 # temp, remove later
+  - /wp-content/uploads/2014 # temp, remove later
   - /_posts/2016 # temp, remove later
+  - /wp-content/uploads/2016 # temp, remove later
   - /_posts/2017 # temp, remove later
+  - /wp-content/uploads/2017 # temp, remove later
   - /_posts/2018 # temp, remove later
+  - /wp-content/uploads/2018 # temp, remove later
   - /_posts/2019 # temp, remove later
+  - /wp-content/uploads/2019 # temp, remove later
   - /_posts/2020 # temp, remove later
+  - /wp-content/uploads/2020 # temp, remove later
+  - /wp-content/uploads/download-manager-files # temp, remove later
 keep_files:
   - .git
   - .svn

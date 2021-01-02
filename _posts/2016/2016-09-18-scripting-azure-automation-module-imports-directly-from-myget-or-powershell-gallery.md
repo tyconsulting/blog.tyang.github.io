@@ -55,7 +55,8 @@ For a private MyGet feed, you can access it by embedding the API key into the UR
 The URL for my module would be: "<strong>http://www.myget.org/F/<span style="color: #ff0000;">&lt;Your MyGet feed name&gt;</span>/auth/<span style="color: #ff0000;">&lt;MyGet API Key&gt;</span>/api/v2/package/<span style="color: #ff0000;">&lt;Module Name&gt;</span>/<span style="color: #ff0000;">&lt;Module Version&gt;</span></strong>"
 
 i.e. for my SendEmail module, the PowerShell command would be something like this:
-<pre class="" language="PowerShell">$MyGetFeedName = 'SampleMyGetFeed'
+```powershell
+$MyGetFeedName = 'SampleMyGetFeed'
 $MyGetAPIKey = '89c2d7b8-2d76-4274-a5b7-bcb1f186502c'
 $PackageURI = "https://www.myget.org/F/$MyGetFeedName/auth/$MyGetAPIKey/api/v2/package/SendEmail/1.3"
 New-AzureRmAutomationModule -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Name 'SendEmail' -ContentLink $PackageURI

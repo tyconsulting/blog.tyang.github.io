@@ -4,6 +4,10 @@ title: Squared Up Dashboard Community Initiative
 date: 2015-08-24T15:51:08+10:00
 author: Tao Yang
 #layout: post
+excerpt: ""
+header:
+  overlay_image: /wp-content/uploads/2015/08/kablam3.jpg
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 guid: http://blog.tyang.org/?p=4411
 permalink: /2015/08/24/squared-up-dashboard-community-initiative/
 categories:
@@ -13,8 +17,6 @@ tags:
   - Dashboard
   - SquaredUp
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/kablam3.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="kablam3" src="http://blog.tyang.org/wp-content/uploads/2015/08/kablam3_thumb.jpg" alt="kablam3" width="693" height="208" border="0" /></a>
-
 It has been over 3 months since I started working for Squared Up. If you ask me my impression about Squared Up, I believe they truly care about the System Center community. Over the last few months, the folks at Squared Up have been working on an initiative to create a community dashboard repository, where everyone can submit and share their Squared Up dashboards with the broader community.
 
 With the recent release of Squared Up version 2.1.11, exporting and importing dashboards have been made incredibly easy. I have made a short demo video and uploaded to YouTube:
@@ -52,7 +54,6 @@ So, that means the process for submitting is now as simple as;
 	<li>Send the ZIP + screenshots to <a href="mailto:community@squaredup.com"><b>community@squaredup.com</b></a><b><u></u></b></li>
 	<li>Win a <b><u>Lego Death Star</u></b><i> (hopefully…)</i></li>
 </ul>
-&nbsp;
 
 <i><span style="color: #ff0000;">*</span> </i><i>You may want to ensure that there’s no private information available in any images or Visio SVGs used within your dashboards or in the dashboard title or sub-titles </i>
 
@@ -70,12 +71,10 @@ Richard
 
 Now with the SCU Europe is taking place over in Basel, Switzerland this week, Squared Up has 2 sessions:
 
-&nbsp;
 <ul>
 	<li>Whisky Tasting (and insider info…) with Squared Up (25th August, 17:15)</li>
 	<li>Revolutionise SCOM with Squared Up (26th August, 12:00pm)</li>
 </ul>
-&nbsp;
 
 Please stay tuned, there might be something exciting to be announced!
 

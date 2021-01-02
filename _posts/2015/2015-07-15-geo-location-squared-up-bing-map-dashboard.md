@@ -13,7 +13,7 @@ tags:
   - SCOM
   - SquaredUp
 ---
-<p align="center"><a href="http://blog.tyang.org/wp-content/uploads/2015/07/bing-maps.jpg"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin: 1px auto 0px; display: block; padding-right: 0px; border: 0px;" title="bing-maps" src="http://blog.tyang.org/wp-content/uploads/2015/07/bing-maps_thumb.jpg" alt="bing-maps" width="244" height="139" border="0" /></a></p>
+
 Before I started working for Squared Up, the very first project we talked about was producing Bing Maps dashboard in Squared Up.
 
 I started working on this project after I finished the OpsMgr Data Warehouse Health Check script. And I'm please to announce we have just published the Bing Maps Dashboard solution on Squared Up's website: <a title="http://squaredup.com/geo-location-of-scom-objects-within-squared-up-map-dashboards/" href="http://squaredup.com/geo-location-of-scom-objects-within-squared-up-map-dashboards/">http://squaredup.com/geo-location-of-scom-objects-within-squared-up-map-dashboards/</a>

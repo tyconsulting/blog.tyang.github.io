@@ -29,18 +29,16 @@ In order to create a Power BI dataset in your cloud based Power BI sites which i
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/PowerBI-OpsMgr-Dashboard-Connection.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="PowerBI OpsMgr Dashboard Connection" src="http://blog.tyang.org/wp-content/uploads/2015/12/PowerBI-OpsMgr-Dashboard-Connection_thumb.png" alt="PowerBI OpsMgr Dashboard Connection" width="558" height="228" border="0" /></a>
 
-&nbsp;
+
 
 The solution we are going to implement requires the following pre-requisites:
-<ul>
-	<li>A on-prem server for hosting the Power BI Enterprise Gateway</li>
-	<li>Power BI Desktop installed on an on-prem computer (i.e. your own PC)</li>
-	<li>A Power BI Pro account</li>
-	<li>A service account that has access to the OpsMgr data warehouse DB</li>
-</ul>
-<strong><span style="color: #ff0000;">Note:</span></strong>
 
-Power BI Enterprise Gateway is a feature only available for Power BI Pro accounts. Please refer to <a href="https://powerbi.microsoft.com/en-us/pricing">this page</a> for differences between Power BI Free and Pro accounts.
+* A on-prem server for hosting the Power BI Enterprise Gateway
+* Power BI Desktop installed on an on-prem computer (i.e. your own PC)
+* A Power BI Pro account
+* A service account that has access to the OpsMgr data warehouse DB
+
+>**Note:** Power BI Enterprise Gateway is a feature only available for Power BI Pro accounts. Please refer to <a href="https://powerbi.microsoft.com/en-us/pricing">this page</a> for differences between Power BI Free and Pro accounts.
 
 ## Configuration
 
@@ -68,9 +66,7 @@ We then specify the SQL server name and database name for the OpsMgr DW DB:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-4.png" alt="image" width="407" height="170" border="0" /></a>
 
-<strong><span style="color: #ff0000;">Note:</span></strong>
-
-<strong>Please make sure the server name and database name entered here is IDENTICAL as what you have entered for the OpsMgr DW DB Data Source you have created under the Power BI Enterprise Gateway.</strong>
+>**<span style="color: #ff0000;">Note:</span> Please make sure the server name and database name entered here is IDENTICAL as what you have entered for the OpsMgr DW DB Data Source you have created under the Power BI Enterprise Gateway.**
 
 Then, we will select all the tables and views that we are interested in. I won’t repeat what Cameron has already demonstrated, Please refer to his post for more details on what tables and views to select.
 

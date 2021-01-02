@@ -13,7 +13,7 @@ tags:
   - SquaredUp
 ---
 
-## <a href="http://blog.tyang.org/wp-content/uploads/2015/10/plugin-thumbnail.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; margin-left: 0px; display: inline; padding-right: 0px; margin-right: 0px; border: 0px;" title="plugin-thumbnail" src="http://blog.tyang.org/wp-content/uploads/2015/10/plugin-thumbnail_thumb.png" alt="plugin-thumbnail" width="114" height="104" align="left" border="0" /></a>Introduction
+## Introduction
 
 If you are an existing Squared Up customer, or have previously evaluated Squared Up’s product, you’d probably already know that currently, other than the existing SQL Plugin, Squared Up dashboards retrieve data via either OpsMgr Data Warehouse (DW) DB, or via OpsMgr SDK.
 
@@ -34,39 +34,28 @@ Since OMS is collecting data that is not natively available in OpsMgr (such as C
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image30.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb24.png" alt="image" width="705" height="343" border="0" /></a>
 
 In this dashboard, I have configured the following sections:
-<ul>
-	<li>Windows Services Changes For the Last 6 Hours
-<ul>
-	<li>Data type: ConfigurationChange</li>
-	<li>OMS Solution: Change Tracking</li>
-</ul>
-</li>
-	<li>Software Changes For the Last 1 Day
-<ul>
-	<li>Data type: ConfigurationChange</li>
-	<li>OMS Solution: Change Tracking</li>
-</ul>
-</li>
-	<li>Top Offenders in OpsMgr (Nosiest monitoring objects)
-<ul>
-	<li>Data type: Alert</li>
-	<li>OMS Solution: Alert Management</li>
-</ul>
-</li>
-	<li>Hyper-V Host Available Memory
-<ul>
-	<li>Data type: PerfHoulry</li>
-	<li>OMS Solution: Capacity Planning</li>
-</ul>
-</li>
-	<li>Wired Data Traffic by Process
-<ul>
-	<li>Data type: WiredData</li>
-	<li>OMS Solution: Wired Data</li>
-</ul>
-</li>
-</ul>
-Without the OMS plugin, some of above listed data will not be available in Squared Up dashboards (such as change tracking data and wired data), some could be retrieved only via complex SQL queries (such as top OpsMgr offenders). Take Top OpsMgr offenders as example again, it is super easy to find out who are the OpsMgr top offenders in OMS, by using a very simple query: <strong>"Type=Alert AlertState=New TimeGenerated&gt;NOW-24HOURS | measure count() by SourceFullName".</strong>
+
+* Windows Services Changes For the Last 6 Hours
+  * Data type: ConfigurationChange
+  * OMS Solution: Change Tracking
+* Software Changes For the Last 1 Day
+  * Data type: ConfigurationChange
+  * OMS Solution: Change Tracking
+* Top Offenders in OpsMgr (Nosiest monitoring objects)
+  * Data type: Alert
+  * OMS Solution: Alert Management
+* Hyper-V Host Available Memory
+  * Data type: PerfHoulry
+  * OMS Solution: Capacity Planning
+* Wired Data Traffic by Process
+  * Data type: WiredData
+  * OMS Solution: Wired Data
+
+Without the OMS plugin, some of above listed data will not be available in Squared Up dashboards (such as change tracking data and wired data), some could be retrieved only via complex SQL queries (such as top OpsMgr offenders). Take Top OpsMgr offenders as example again, it is super easy to find out who are the OpsMgr top offenders in OMS, by using a very simple query:
+
+```text
+Type=Alert AlertState=New TimeGenerated>NOW-24HOURS | measure count() by SourceFullName
+```
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image31.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb25.png" alt="image" width="533" height="284" border="0" /></a>
 

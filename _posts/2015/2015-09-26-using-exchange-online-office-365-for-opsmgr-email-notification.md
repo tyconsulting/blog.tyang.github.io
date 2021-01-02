@@ -23,42 +23,48 @@ As more and more organisations have moved from having On-Prem Exchange environme
 
 Since Marnix and Anton has already blogged this solution, I’ll only briefly go through what I’ve done in my lab:
 
-01. In one of my Office 365 subscriptions (Enterprise E3), I create a user and assigned a license to it:
+1. In one of my Office 365 subscriptions (Enterprise E3), I create a user and assigned a license to it:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLf7da6aa.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLf7da6aa" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLf7da6aa_thumb.png" alt="SNAGHTMLf7da6aa" width="225" height="357" border="0" /></a>
+![](http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLf7da6aa.png)
 
 This user ID will be used to authenticate to Office 365 and email notifications will be send via this account.
 
-02. Get the SMTP setting for your Office 365 subscription:
+{:start="2"}
+2. Get the SMTP setting for your Office 365 subscription:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image31.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb31.png" alt="image" width="370" height="340" border="0" /></a>
+  ![](http://blog.tyang.org/wp-content/uploads/2015/09/image31.png)
 
-03. Add the "SMTP Server" feature on one of my Windows Server 2012 R2 VMs:
+{:start="3"}
+3. Add the "SMTP Server" feature on one of my Windows Server 2012 R2 VMs:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image32.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb32.png" alt="image" width="394" height="280" border="0" /></a>
+  ![](http://blog.tyang.org/wp-content/uploads/2015/09/image32.png)
 
-04. Open IIS 6.0 manager and you can see the SMTP Virtual Server:
+{:start="4"}
+4. Open IIS 6.0 manager and you can see the SMTP Virtual Server:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image33.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb33.png" alt="image" width="398" height="283" border="0" /></a>
+  ![](http://blog.tyang.org/wp-content/uploads/2015/09/image33.png)
 
-05. Configure SMTP Relay:
+{:start="5"}
+5. Configure SMTP Relay:
 
-Outbound Security:
+  Outbound Security:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLfad281a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLfad281a" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLfad281a_thumb.png" alt="SNAGHTMLfad281a" width="305" height="311" border="0" /></a>
+  ![](http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLfad281a.png)
 
-Outbound Connections:
+  Outbound Connections:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image34.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb34.png" alt="image" width="278" height="156" border="0" /></a>
+  ![](http://blog.tyang.org/wp-content/uploads/2015/09/image34.png)
 
-Advanced:
+  Advanced:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image35.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb35.png" alt="image" width="293" height="285" border="0" /></a>
+  ![](http://blog.tyang.org/wp-content/uploads/2015/09/image35.png)
 
-06. Created a DNS alias smtp.&lt;domain name&gt; and pointed to the server where I installed SMTP server.
+{:start="6"}
+6. Created a DNS alias smtp.\<domain name\> and pointed to the server where I installed SMTP server.
 
-07. Setup SMTP notification channel in OpsMgr:
+{:start="7"}
+7. Setup SMTP notification channel in OpsMgr:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLfb0e4f3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLfb0e4f3" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLfb0e4f3_thumb.png" alt="SNAGHTMLfb0e4f3" width="475" height="411" border="0" /></a>
+  ![](http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLfb0e4f3.png)
 
 that’s it, it should take no longer than 10 minutes. Although I haven’t tried with other email provider, theoretically, it should also work of Gmail, Outlook.com, etc. as long as you have a valid account and the correct SMTP settings.

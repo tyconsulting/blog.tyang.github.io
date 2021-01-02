@@ -17,42 +17,41 @@ Today I was writing a PowerShell runbook (let’s call it Runbook A) that’s de
 
 To use it, simply place the function shown below in the parent runbook (Runbook A in this case), and call this function to retrieve the Hybrid Worker configuration.
 
-<strong>Function:</strong>
+**Function:**
+
 ```powershell
 Function Get-HybridWorkerConfig
 {
-    $RegKeyPath = "HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker"
-    If (Test-Path $RegKeyPath)
-    {
-        Get-ItemProperty $RegKeyPath
-    } else {
-        $null
-    }
+  $RegKeyPath = "HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker"
+  If (Test-Path $RegKeyPath)
+  {
+    Get-ItemProperty $RegKeyPath
+  } else {
+    $null
+  }
 }
-
 ```
-<a href="http://blog.tyang.org/wp-content/uploads/2015/11/SNAGHTML2f76e97b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2f76e97b" src="http://blog.tyang.org/wp-content/uploads/2015/11/SNAGHTML2f76e97b_thumb.png" alt="SNAGHTML2f76e97b" width="709" height="324" border="0" /></a>
 
-<strong>Code Sample:</strong>
+![](http://blog.tyang.org/wp-content/uploads/2015/11/SNAGHTML2f76e97b.png)
+
+**Code Sample:**
+
 ```powershell
 #Get the Hybrid Worker group name
 $HybridWorkerGroup = (Get-HybridWorkerConfig).RunbookWorkerGroup
 
 #Preparing input parameters for Runbook B
 $params = @{
-    "Parameter1" = 'Value1';
-    "Parameter2" = 'Value2';
-    "Parameter3" = 'Value3'
-	}
+  "Parameter1" = 'Value1';
+  "Parameter2" = 'Value2';
+  "Parameter3" = 'Value3'
+}
 
 #Log on the Azure using Login-AzureRmAccount cmdlet
 Login-AzureRmAccount -Credential $AzureCred -SubscriptionName $SubscriptionName
 
 #Start Runbook B using Start-AzureRmAutomationRunbook cmdlet
 Start-AzureRmAutomationRunbook -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Name "RunbookB" -Parameters $params -RunOn $HybridWorkerGroup
-
-
 ```
-<strong>Note:</strong>
 
-The Get-HybridWorkerConfig function would return $null value if the computer is not a Hybrid Worker.
+>**Note:** The Get-HybridWorkerConfig function would return $null value if the computer is not a Hybrid Worker.

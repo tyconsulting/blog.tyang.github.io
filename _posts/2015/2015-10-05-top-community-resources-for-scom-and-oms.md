@@ -21,4 +21,4 @@ I know that many friends have mentioned my work and myself in many occasions in 
 
 You can download it from the link below:
 
-[wpdm_package id='4726']
+[DOWNLOAD](../../../../wp-content/uploads/2015/10/Top Community Resources for SCOM and OMS.pdf)

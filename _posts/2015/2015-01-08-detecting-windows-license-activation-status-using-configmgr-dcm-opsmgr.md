@@ -20,18 +20,18 @@ Recently, during a ConfigMgr 2012 RAP (Risk and Health Assessment Program) engag
 To respond to the recommendation from Microsoft, I quickly created a DCM baseline with 1 Configuration Item (CI). The CI uses a simple PowerShell script to detect the Windows license status.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/01/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/01/image_thumb.png" alt="image" width="400" height="377" border="0" /></a>
-<pre language="PowerShell" class="">$InstalledLicense = Get-WmiObject -Query "Select * from SoftwareLicensingProduct Where PartialProductKey IS NOT NULL AND ApplicationID = '55c92734-d682-4d71-983e-d6ec3f16059f'"
+```powershell
+$InstalledLicense = Get-WmiObject -Query "Select * from SoftwareLicensingProduct Where PartialProductKey IS NOT NULL AND ApplicationID = '55c92734-d682-4d71-983e-d6ec3f16059f'"
 Switch ($InstalledLicense.LicenseStatus)
 {
-0 {"Unlicensed"}
-1 {"Licensed"}
-2 {"Out-of-Box Grace Period"}
-3 {"Out-of-Tolerance Grace Period"}
-4 {"Non-Genuine Grace Period"}
-5 {"Notification"}
-6 {"ExtendedGrace"}
+  0 {"Unlicensed"}
+  1 {"Licensed"}
+  2 {"Out-of-Box Grace Period"}
+  3 {"Out-of-Tolerance Grace Period"}
+  4 {"Non-Genuine Grace Period"}
+  5 {"Notification"}
+  6 {"ExtendedGrace"}
 }
-
 ```
 I configured the CI to only support computers running Windows 7 / Server 2008 R2 and above (as per the minimum supported OS for the SoftwareLicensingProduct WMI class documented on MSDN: <a title="http://msdn.microsoft.com/en-us/library/cc534596(v=vs.85).aspx" href="http://msdn.microsoft.com/en-us/library/cc534596(v=vs.85).aspx">http://msdn.microsoft.com/en-us/library/cc534596(v=vs.85).aspx</a>):
 

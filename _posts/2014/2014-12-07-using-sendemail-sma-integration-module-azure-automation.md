@@ -16,28 +16,27 @@ Over the last couple of days, I’ve spent sometime on Azure Automation (SMA in 
 ```powershell
 workflow Test-PushNotification
 {
-#Get the contact details
-$ContactName = 'tyang'
-Write-Verbose "Getting SMA Address Book entry for $ContactName"
-$Contact = Get-AutomationConnection -Name $ContactName
-Write-Verbose "Contact: $Contact"
+  #Get the contact details
+  $ContactName = 'tyang'
+  Write-Verbose "Getting SMA Address Book entry for $ContactName"
+  $Contact = Get-AutomationConnection -Name $ContactName
+  Write-Verbose "Contact: $Contact"
 
-#Get SMTP settings
-Write-Verbose "Getting SMTP configuration"
-$SMTPSettings = Get-AutomationConnection -Name 'GmailSMTP'
-Write-Verbose $SMTPSettings
-$Subject = "Test message from Azure Automation"
-$Message = "Hello, this is a test message from Azure Automation."
+  #Get SMTP settings
+  Write-Verbose "Getting SMTP configuration"
+  $SMTPSettings = Get-AutomationConnection -Name 'GmailSMTP'
+  Write-Verbose $SMTPSettings
+  $Subject = "Test message from Azure Automation"
+  $Message = "Hello, this is a test message from Azure Automation."
 
-#Send email
-Write-Verbose 'Sending email'
-$Send = Send-Email -SMTPSettings $SMTPSettings -To $Contact.Email -Subject $Subject -Body $Message -HTMLBody $false
+  #Send email
+  Write-Verbose 'Sending email'
+  $Send = Send-Email -SMTPSettings $SMTPSettings -To $Contact.Email -Subject $Subject -Body $Message -HTMLBody $false
 
-#Android Push Notification
-Write-Verbose 'Sending Android push notification'
-Send-MobilePushNotification -os "Android" -apikey $Contact.AndroidAPI -Subject $Subject -Application 'Azure Automation' -Body $Message
+  #Android Push Notification
+  Write-Verbose 'Sending Android push notification'
+  Send-MobilePushNotification -os "Android" -apikey $Contact.AndroidAPI -Subject $Subject -Application 'Azure Automation' -Body $Message
 }
-
 ```
 However, I found 2 issues related to the SendEmail module. I’ll go through both of the issues in this post.
 

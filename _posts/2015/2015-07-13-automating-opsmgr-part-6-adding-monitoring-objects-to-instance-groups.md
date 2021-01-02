@@ -4,6 +4,10 @@ title: 'Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups'
 date: 2015-07-13T18:13:07+10:00
 author: Tao Yang
 #layout: post
+excerpt: ""
+header:
+  overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 guid: http://blog.tyang.org/?p=4193
 permalink: /2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/
 categories:
@@ -17,21 +21,21 @@ tags:
   - SMA
 ---
 
-## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+## </a>Introduction
 
 This is the 6th instalment of the Automating OpsMgr series. Previously on this series:
-<ul>
-	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
-	<li><a href="http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/">Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules</a></li>
-	<li><a href="http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/">Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation</a></li>
-	<li><a href="http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/">Automating OpsMgr Part 4:Creating New Empty Groups</a></li>
-	<li><a href="http://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/" target="_blank">Automating OpsMgr Part 5: Adding Computers to Computer Groups</a></li>
-</ul>
-In part 4, I have demonstrated how to create empty instance groups and computer groups using the <strong>OpsMgrExtended</strong> module and in part 5, I've demonstrated how to add a Windows Computer object to a Computer Group as an explicit member. In this post, I will share a runbook that adds a monitoring object to an Instance Group. As I mentioned in Part 4, I will dedicated few posts on creating and managing OpsMgr groups, this post would be the 3rd post on this topic.
+
+* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
+* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
+* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
+* [Automating OpsMgr Part 4:Creating New Empty Groups](http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
+* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](http://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
+
+In part 4, I have demonstrated how to create empty instance groups and computer groups using the **OpsMgrExtended** module and in part 5, I've demonstrated how to add a Windows Computer object to a Computer Group as an explicit member. In this post, I will share a runbook that adds a monitoring object to an Instance Group. As I mentioned in Part 4, I will dedicated few posts on creating and managing OpsMgr groups, this post would be the 3rd post on this topic.
 
 ## Runbook Add-ObjectToInstanceGroup
 
-<pre language="PowerShell" class="">
+```powershell
 Workflow Add-ObjectToInstanceGroup
 {
 	Param(
@@ -284,20 +288,20 @@ Workflow Add-ObjectToInstanceGroup
 		exit
 	}
 }
-
 ```
+
 In order for you to use this runbook, you will need to modify line 9 with the name of the SMA connection you've created in your environment.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML325a4b96.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML325a4b96" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML325a4b96_thumb.png" alt="SNAGHTML325a4b96" width="458" height="329" border="0" /></a>
 
 This runbook requires 2 input parameters:
-<ul>
-	<li><strong>GroupName:</strong> The internal name of the group. I did not use the display name because it is not unique.</li>
-	<li><strong>Monitoring Object ID:</strong> The ID of the monitoring object that you wish to add to the instance group.</li>
-</ul>
+
+* **GroupName:** The internal name of the group. I did not use the display name because it is not unique.
+* **Monitoring Object ID:** The ID of the monitoring object that you wish to add to the instance group.
+
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb22.png" alt="image" width="514" height="444" border="0" /></a>
 
-<strong><span style="color: #ff0000;">Note:</span></strong>
+**<span style="color: #ff0000;">Note:</span>**
 
 Since the monitoring object ID is not visible in the Operations Console, I have previously posted an article and demonstrated several ways to find this Id for monitoring objects: <a href="http://blog.tyang.org/2015/03/11/various-ways-to-find-the-id-of-a-monitoring-object-in-opsmgr/" target="_blank">Various Ways to Find the ID of a Monitoring Object in OpsMgr</a>. If you are also using <a href="http://squaredup.com/" target="_blank">Squared Up dashboard</a>, you can also use Squared Up to lookup and export the Monitoring Object ID as demonstrated in <a href="https://www.youtube.com/watch?v=RJj-c2hjSus" target="_blank">this YouTube video</a>.
 
@@ -321,7 +325,7 @@ Verbose messages:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image26.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb26.png" alt="image" width="657" height="669" border="0" /></a>
 
-<strong>Adding an Existing Member to the Group:</strong>
+**Adding an Existing Member to the Group:**
 
 I have coded the runbook to also check if the monitoring object that you want to add is already a member of the group (by looking up related objects of the group instance). If it is the case, the runbook will write a warning message and exit without adding it.
 
@@ -329,7 +333,7 @@ i.e.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image27.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb27.png" alt="image" width="608" height="173" border="0" /></a>
 
-<em>ce2dd108-0129-4fc0-842b-347311cb9107:[localhost]:The Monitoring Object 'Microsoft.SystemCenter.VirtualMachineManager.201 2.HyperVHost:HYPERV03.corp.tyang.org;2541ebea-50ae-4d4b-8755-5b77a50cd32b' (ID:'fabfe649-921c-cf17-d198-0fba29cee9ff') is already a member of the instance group Group.Creation.Demo.Demo.Instance.Group. No need to add it again. Aborting.</em>
+*ce2dd108-0129-4fc0-842b-347311cb9107:[localhost]:The Monitoring Object 'Microsoft.SystemCenter.VirtualMachineManager.201 2.HyperVHost:HYPERV03.corp.tyang.org;2541ebea-50ae-4d4b-8755-5b77a50cd32b' (ID:'fabfe649-921c-cf17-d198-0fba29cee9ff') is already a member of the instance group Group.Creation.Demo.Demo.Instance.Group. No need to add it again. Aborting.*
 
 ## Conclusion
 

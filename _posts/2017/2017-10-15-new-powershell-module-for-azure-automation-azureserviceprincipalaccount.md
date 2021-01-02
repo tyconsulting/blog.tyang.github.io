@@ -87,7 +87,8 @@ By the default, the Azure AD Service Principal connection type provided by Azure
 <a href="https://blog.tyang.org/wp-content/uploads/2017/10/image-1.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/10/image_thumb-1.png" alt="image" width="368" height="582" border="0" /></a>
 
 This module also provides a "proxy" function called <strong>Add-AzureRMServicePrincipalAccount</strong> to simplify the Sign-in process to Azure. This function allows you to pass either the built-in <strong>AzureServicePrincipal</strong> connection type or the <strong>Key Based AzureServicePrincipal</strong> type defined in this module, and it will determine the connection type automatically and sign in to Azure using the connection you have passed in. In another word, consider this as a universal sign-in function no matter if you are using the native certificate based SP connection, or a key based connection. Here’s a sample runbook:
-<pre language="PowerShell" class="">[CmdletBinding()]
+```powershell
+[CmdletBinding()]
 Param(
 [String]$ConnectioNName
 )

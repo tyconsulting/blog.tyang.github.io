@@ -22,7 +22,7 @@ Yesterday, the OMS product team has <a href="http://blogs.technet.com/b/momteam/
 
 I won’t repeat what’s already been discussed in these 2 posts, but I’ll tackle it from the management pack authoring perspective, and sharing what I have discovered so far.
 
-<strong><span style="color: #ff0000;">Note:</span></strong> If you haven’t read above mentioned 2 posts, I strongly recommend you to do so before continuing with this article.
+**<span style="color: #ff0000;">Note:</span>** If you haven’t read above mentioned 2 posts, I strongly recommend you to do so before continuing with this article.
 
 ## Management Pack Under The Hood
 
@@ -30,7 +30,7 @@ By default, OMS has 8 performance counters configured for near-real time perf co
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb.png" alt="image" width="655" height="373" border="0" /></a>
 
-As explained in both the official blog post from the OMS product team as well as Stan’s blog, you can add additional perf counters on this page, and it will be pushed to the OpsMgr management groups that are connected to this OMS workspace. I am fairly certain, the sample interval range is <strong>between 10-1800 seconds</strong> (minimum 10 seconds, maximum 30 minutes).
+As explained in both the official blog post from the OMS product team as well as Stan’s blog, you can add additional perf counters on this page, and it will be pushed to the OpsMgr management groups that are connected to this OMS workspace. I am fairly certain, the sample interval range is **between 10-1800 seconds** (minimum 10 seconds, maximum 30 minutes).
 
 All the counters configured on this page are stored in an Unsealed management pack called "Microsoft System Center Advisor Log Management Collection" in your OpsMgr management group.
 
@@ -40,13 +40,13 @@ If you export this MP and open it using MPViewer, you will see there are 2 rules
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6a306af.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6a306af" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6a306af_thumb.png" alt="SNAGHTML6a306af" width="690" height="319" border="0" /></a>
 
-<strong>Microsoft.IntelligencePack.LogManagement.Collection.PerformanceCounter.xxxxxxxxxx:</strong>
+**Microsoft.IntelligencePack.LogManagement.Collection.PerformanceCounter.xxxxxxxxxx:**
 
 These rules are collecting the raw real time perf data:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb1.png" alt="image" width="648" height="243" border="0" /></a>
 
-<strong>Microsoft.IntelligencePack.LogManagement.Collection.PerformanceCounterAggregation.xxxxxxxxxx:</strong>
+**Microsoft.IntelligencePack.LogManagement.Collection.PerformanceCounterAggregation.xxxxxxxxxx:**
 
 As the name suggested, these rules are collecting the 30-minute aggregated data (As stated in the official blog post, the raw data retention is 14 days and the 30-minute aggregated data retention is same as your OMS data plan).
 
@@ -70,55 +70,49 @@ After Examining these 2 rules closely,  we can see the following:
 
 ## Write Your own OMS Near-Real Time Perf Collection Rules
 
-Now that we have discovered how are the near-real time perf data is collected in OpsMgr, I have spent some time today testing different rule configurations. Based on <strong><u>my own experience</u></strong>, my findings are:
+Now that we have discovered how are the near-real time perf data is collected in OpsMgr, I have spent some time today testing different rule configurations. Based on **<u>my own experience</u>**, my findings are:
 
-<strong>01. Both raw data collection rule and aggregation data collection rule are required</strong>
+**01. Both raw data collection rule and aggregation data collection rule are required**
 
 Based on my testing, I found in order to submit near-real time perf data to OMS, I must create both raw data and aggregation data collection rules (as shown above). I tried with only one rule for the raw data, after few hours, I still couldn’t see the data in OMS. I then created another rule for the aggregation data, imported the updated MP in OpsMgr, after about 30 minutes, the data became visible from the search result.
 
-<strong>02. Data source module "Microsoft.IntelligencePacks.Performance.DataProvider"</strong>
+**02. Data source module "Microsoft.IntelligencePacks.Performance.DataProvider"**
 
 The rule must use the data source module "Microsoft.IntelligencePacks.Performance.DataProvider", which is defined in management pack "Microsoft System Center Advisor Types Library" (Microsoft.IntelligencePacks.Types). This data source module consists of 2 member modules:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb3.png" alt="image" width="689" height="447" border="0" /></a>
-<ul>
-	<li>Data Source: System.Performance.DataProvider</li>
-	<li>Condition Detection: System.Performance.DataGenericMapper</li>
-</ul>
+
+* Data Source: System.Performance.DataProvider
+* Condition Detection: System.Performance.DataGenericMapper
+
 I have tried to use System.Performance.DataProvider module directly in both raw and aggregation data collection rules, unfortunately this configuration does not seem to work. additionally, many 4502 events were logged in the Operations Manager log on the OpsMgr agent computer indicating the configuration for the aggregation data collection rule is incorrect.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb4.png" alt="image" width="565" height="533" border="0" /></a>
 
-<strong>03. The Rule target must be Windows Computer class (Microsoft.Windows.Computer).</strong>
+**03. The Rule target must be Windows Computer class (Microsoft.Windows.Computer).**
 
 Initially I have written few rules targeting SQL DB Engine class, waited few hours and I could only see the 30-minute aggregated data in OMS (collected by the aggregation collection rules). The data insertion is every 30 minutes and the perf graph could not be displayed in OMS (showed "No Data"). When I changed the target for both rules from SQL DB Engine to Windows Computer class, the raw data started to appear.
 
 Having said that, I have also tried Windows Server Computer class (Microsoft.Windows.Server.Computer). This class is derived from Windows Computer class. This configuration also worked. So in my opinion, it is fair to guess the target class must be Windows Computer class or class that’s based on Windows Computer class.
 <h4>Demo Management Pack "OMS Performance Demo MP"</h4>
 I have created a MP during my experiments today. In the end, I have deleted all the rules that are not working in this MP and kept two sets rules for demonstration purpose:
-<ul>
-	<li>Set #1:
-<ul>
-	<li>Target: Microsoft.Windows.Computer</li>
-	<li>Perf Counter: Processor(_Total)\% Privileged Time</li>
-</ul>
-</li>
-</ul>
+
+* Set #1:
+  * Target: Microsoft.Windows.Computer
+  * Perf Counter: Processor(_Total)\% Privileged Time
+
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb5.png" alt="image" width="729" height="366" border="0" /></a>
-<ul>
-	<li>Set #2:
-<ul>
-	<li>Target: Microsoft.Windows.Server.Computer</li>
-	<li>Perf Counter: SQLServer:Memory Manager(*)\Free Memory (KB)</li>
-</ul>
-</li>
-</ul>
+
+* Set #2:
+  * Target: Microsoft.Windows.Server.Computer
+  * Perf Counter: SQLServer:Memory Manager(*)\Free Memory (KB)
+
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb6.png" alt="image" width="718" height="254" border="0" /></a>
 
 You can download my demo MP from the link below:
 
-[wpdm_package id='4478']
+[DOWNLOAD](../../../../wp-content/uploads/2015/09/OMS.Perf.Demo.zip)
 
-<strong><span style="color: #ff0000;">Disclaimer:</span></strong>
+**<span style="color: #ff0000;">Disclaimer:</span>**
 
 This post is purely based on my own experiment, it may not be 100% accurate. Please use it with caution and test it in your test environment first!

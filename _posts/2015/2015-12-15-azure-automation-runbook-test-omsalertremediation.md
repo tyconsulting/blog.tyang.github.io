@@ -18,7 +18,8 @@ Couple of weeks ago, I published a post titled <a href="http://blog.tyang.org/20
 
 Once you have created this rnbook in your Azure Automation account, you can use it as the remediation runbook for any OMS alerts.
 
-<strong>Source code:</strong>
+**Source code:**
+
 ```powershell
 param ([object]$WebHookData)
 #Process inputs from webhook data
@@ -57,9 +58,10 @@ Send-Email `
 -To your@email.address
 
 ```
-<strong>Requirements</strong>
 
-This runbooks uses the SendEmail module for sending emails. You can install it to your automation account directly from PowerShell gallery(<a title="https://www.powershellgallery.com/packages/SendEmail/" href="https://www.powershellgallery.com/packages/SendEmail/">https://www.powershellgallery.com/packages/SendEmail/</a>), or download the source code from GitHub(<a title="https://github.com/tyconsulting/SendEmail_PowerShellModule" href="https://github.com/tyconsulting/SendEmail_PowerShellModule">https://github.com/tyconsulting/SendEmail_PowerShellModule</a>). Once the module is deployed to your Automation Account, you will then need to create a connection with type "<strong>SMTPServerConnection</strong>" with the name "<strong>SMTPNotification</strong>":
+**Requirements**
+
+This runbooks uses the SendEmail module for sending emails. You can install it to your automation account directly from PowerShell gallery(<a title="https://www.powershellgallery.com/packages/SendEmail/" href="https://www.powershellgallery.com/packages/SendEmail/">https://www.powershellgallery.com/packages/SendEmail/</a>), or download the source code from GitHub(<a title="https://github.com/tyconsulting/SendEmail_PowerShellModule" href="https://github.com/tyconsulting/SendEmail_PowerShellModule">https://github.com/tyconsulting/SendEmail_PowerShellModule</a>). Once the module is deployed to your Automation Account, you will then need to create a connection with type "**SMTPServerConnection**" with the name "<strong>SMTPNotification</strong>":
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML2d83c96-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2d83c96" src="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML2d83c96_thumb-1.png" alt="SNAGHTML2d83c96" width="237" height="710" border="0" /></a>
 

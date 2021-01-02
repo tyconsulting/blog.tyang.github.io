@@ -27,54 +27,49 @@ The list creation and customization process is exactly the same as the On-Prem S
 
 Again, this runbook is unchanged from the On-Prem version. Simply import it into your Azure Automation account.
 
-<strong><a href="http://blog.tyang.org/wp-content/uploads/2014/12/Get-MSMPCatalog.zip">Download Get-MSMPCatalog</a></strong>
+**<a href="http://blog.tyang.org/wp-content/uploads/2014/12/Get-MSMPCatalog.zip">Download Get-MSMPCatalog</a>**
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML803890ed.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML803890ed" src="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML803890ed_thumb.png" alt="SNAGHTML803890ed" width="688" height="589" border="0" /></a>
 
-## 
-
-
 ## 03. Prepare the SMA Integration Module SharePointOnline
 
-In order to authenticate to SharePoint Online sites, We must use a <strong>SharePointOnlineCredentials </strong>instance in the script. In my previously post, I wrote a runbook called Populate-OnPremMPCatalog. That runbook utilize Invoke-RestMethod PowerShell cmdlet to interact with SharePoint 2013’s REST API. Unfortunately, we cannot pass a SharePointOnlineCredentials object to this Cmdlet, therefore it cannot be used in this scenario.
+In order to authenticate to SharePoint Online sites, We must use a **SharePointOnlineCredentials **instance in the script. In my previously post, I wrote a runbook called Populate-OnPremMPCatalog. That runbook utilize Invoke-RestMethod PowerShell cmdlet to interact with SharePoint 2013’s REST API. Unfortunately, we cannot pass a SharePointOnlineCredentials object to this Cmdlet, therefore it cannot be used in this scenario.
 
 Additionally, the SharePointOnlineCredentials class comes from the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=35585">SharePoint Client Component SDK</a>. In order to create a SharePointOnlineCredentials object in PowerShell scripts, the script need to firstly load the assemblies from 2 DLLs that are part of the SDK. Because I can’t install this SDK in the Azure Automation runbook servers, I needed to figure out a way to be able to load these DLLs in my runbook.
 
 As I have previously written SMA Integration Modules with DLLs embedded in. This time, I figured I can do the same thing – Creating a PowerShell / SMA Integration module that includes the required DLLs. Therefore, I’ve created a customised module in order to load the assemblies. But since the SDK also consists of other goodies, I have written few other functions to perform CRUD (Create, Read, Update, Delete) operations on SharePoint list items. These functions have made the runbook much simpler.
 
-I called this module <strong>SharePointOnline</strong>, it consists of 5 files:
-<ul>
-	<li><strong>Microsoft.SharePoint.Client.dll</strong> – One of required DLLs from the SDK</li>
-	<li><strong>Microsoft.SharePoint.Client.Runtime.dll</strong> – One of required DLLs from the SDK</li>
-	<li><strong>SharePointOnline.psd1</strong> – Module Manifest file</li>
-	<li><strong>SharePointOnline.psm1</strong> – PowerShell module file</li>
-	<li><strong>SharePointOnline-Automation.json</strong> – SMA Integration Module Meta File (where the connection asset is defined).</li>
-</ul>
+I called this module **SharePointOnline**, it consists of 5 files:
+
+* **Microsoft.SharePoint.Client.dll** – One of required DLLs from the SDK
+* **Microsoft.SharePoint.Client.Runtime.dll** – One of required DLLs from the SDK
+* **SharePointOnline.psd1** – Module Manifest file
+* **SharePointOnline.psm1** – PowerShell module file
+* **SharePointOnline-Automation.json** – SMA Integration Module Meta File (where the connection asset is defined).
+
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb16.png" alt="image" width="633" height="187" border="0" /></a>
 
-<strong><a href="http://blog.tyang.org/wp-content/uploads/2014/12/SharePointOnline.zip">Download SharePointOnline Module</a></strong>
+**<a href="http://blog.tyang.org/wp-content/uploads/2014/12/SharePointOnline.zip">Download SharePointOnline Module</a>**
 <h4><span style="color: #ff0000;"><span style="font-size: medium;">Note:</span> </span></h4>
-The zip file you’ve downloaded from the link above <strong><em>DOES NOT</em></strong> contain the 2 DLL files. I am not sure if Microsoft is OK with 3rd party distributing their software / intellectual properties. So, just to cover myself, you will need to download the SDK (64-bit version) from Microsoft directly (<a title="https://www.microsoft.com/en-us/download/details.aspx?id=35585" href="https://www.microsoft.com/en-us/download/details.aspx?id=35585">https://www.microsoft.com/en-us/download/details.aspx?id=35585</a>), install it on a 64-bit computer, and copy above mentioned 2 DLLs into the SharePointOnline module folder.
+The zip file you’ve downloaded from the link above **DOES NOT** contain the 2 DLL files. I am not sure if Microsoft is OK with 3rd party distributing their software / intellectual properties. So, just to cover myself, you will need to download the SDK (64-bit version) from Microsoft directly (<a title="https://www.microsoft.com/en-us/download/details.aspx?id=35585" href="https://www.microsoft.com/en-us/download/details.aspx?id=35585">https://www.microsoft.com/en-us/download/details.aspx?id=35585</a>), install it on a 64-bit computer, and copy above mentioned 2 DLLs into the SharePointOnline module folder.
 
-Once the SDK is installed, you can find these 2 files in <strong>"C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\"</strong> folder.
+Once the SDK is installed, you can find these 2 files in **"C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\"** folder.
 
 Once the DLLs are placed into the folder, zip the SharePointOnline folder to SharePointOnline.zip file again, and the integration module is ready.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb17.png" alt="image" width="405" height="134" border="0" /></a>
 
 I’d like to also briefly go through this SharePointOnline module. This module contains the following functions:
-<ul>
-	<li><strong>Import-SharePointClientSDK:</strong> Load the Assemblies from the 2 DLLs included in the module</li>
-	<li><strong>New-SPOCredential:</strong> Create a new SharePointOnlineCredentials object from the username and password provided.</li>
-	<li><strong>Get-SPOListFields:</strong> Get all fields from a SharePoint Online list (return an array object)</li>
-	<li><strong>Add-SPOListItem:</strong> Add an item to the SharePoint Online list (by passing in a hash table containing the value for each field)</li>
-	<li><strong>Get-SPOListItems:</strong> Get all items from a SharePoint Online list (return an array object)</li>
-	<li><strong>Remove-SPOListItem:</strong> Remove a list item from a SharePoint Online list (by providing the ID of the item)</li>
-	<li><strong>Update-SPOListItem:</strong> Update a list item (by providing the list Item ID and a hash table containing updated values)</li>
-</ul>
-This module is made to be re-used for SharePoint Online operations that involves list items. I will write a separate post to go through this in details. But for now, all we need to do is to import it into Azure Automation.
 
-&nbsp;
+* **Import-SharePointClientSDK:** Load the Assemblies from the 2 DLLs included in the module
+* **New-SPOCredential:** Create a new SharePointOnlineCredentials object from the username and password provided.
+* **Get-SPOListFields:** Get all fields from a SharePoint Online list (return an array object)
+* **Add-SPOListItem:** Add an item to the SharePoint Online list (by passing in a hash table containing the value for each field)
+* **Get-SPOListItems:** Get all items from a SharePoint Online list (return an array object)
+* **Remove-SPOListItem:** Remove a list item from a SharePoint Online list (by providing the ID of the item)
+* **Update-SPOListItem:** Update a list item (by providing the list Item ID and a hash table containing updated values)
+
+This module is made to be re-used for SharePoint Online operations that involves list items. I will write a separate post to go through this in details. But for now, all we need to do is to import it into Azure Automation.
 
 ## 04. Import SharePointOnline Module into Azure Automation and Create SharePoint Online Connection
 
@@ -87,37 +82,35 @@ Once the module is imported, a connection object must also be created.
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb18.png" alt="image" width="446" height="286" border="0" /></a>
 
 You must provide the following information when creating the SharePointOnline connection object:
-<ol>
-	<li><strong>SharePointSiteURL</strong> – The URL to your SharePoint Online site (i.e. https//yourcompany.sharepoint.com)</li>
-	<li><strong>UserName</strong> – a User how should be part of the site members role (members group have contribute access). This username <strong>MUST</strong> be in the email address format. (i.e. <a href="mailto:yourname@yourcompany.com">yourname@yourcompany.com</a>). I believe this account must be an account created in the Office 365 subscription. I have tried using an outlook.com account (added as a SharePoint site member), it didn’t work.</li>
-	<li><strong>Password</strong> – Password for the username you’ve specified.</li>
-</ol>
+
+1. **SharePointSiteURL** – The URL to your SharePoint Online site (i.e. https//yourcompany.sharepoint.com)
+2. **UserName** – a User how should be part of the site members role (members group have contribute access). This username <strong>MUST</strong> be in the email address format. (i.e. <a href="mailto:yourname@yourcompany.com">yourname@yourcompany.com</a>). I believe this account must be an account created in the Office 365 subscription. I have tried using an outlook.com account (added as a SharePoint site member), it didn’t work.
+3. **Password** – Password for the username you’ve specified.
+
 i.e.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML80731611.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML80731611" src="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML80731611_thumb.png" alt="SNAGHTML80731611" width="460" height="464" border="0" /></a>
 
-&nbsp;
-
 ## 05. Create a Runbook to Populate SharePoint List
 
-This is equivalent to the previous runbook Populate-OnPremMPCatalog. I have named it <strong>Populate-SPOnlineMPCatalog</strong>.
+This is equivalent to the previous runbook Populate-OnPremMPCatalog. I have named it **Populate-SPOnlineMPCatalog**.
 
-<strong><a href="http://blog.tyang.org/wp-content/uploads/2014/12/Populate-SPOnlineMPCatalog.zip">Download Populate-SPOnlineMPCatalog Runbook</a></strong>
+**<a href="http://blog.tyang.org/wp-content/uploads/2014/12/Populate-SPOnlineMPCatalog.zip">Download Populate-SPOnlineMPCatalog Runbook</a>**
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML8093a11f.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8093a11f" src="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML8093a11f_thumb.png" alt="SNAGHTML8093a11f" width="597" height="511" border="0" /></a>
 
 This runbook is expecting 4 parameters:
-<ul>
-	<li><strong>SPOConnection:</strong> The <strong>name</strong> of the SharePointOnline connection that you’ve created earlier.</li>
-	<li><strong>ListName: </strong>The list name of your MP catalog list.</li>
-	<li><strong>NotifyByEmail:</strong> Specify if you’d like an email notification when new MPs have been added to the catalog.</li>
-	<li><strong>ContactName:</strong> If NotifyByEmail is set to "true", specify the <a href="http://blog.tyang.org/2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/">SMAAddressBook</a> connection name for the email notification recipient.</li>
-</ul>
-<strong><span style="color: #ff0000;">Note:</span></strong> If you’d like to receive email notifications, you also need to import and configure the <a href="http://blog.tyang.org/2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/">SendEmail and SendPushNotification modules</a> from my blog. Once the SMTP server connection and the Address book connection are created, please modify line 111 of the runbook with the name of your SMTP server connection:
+
+* **SPOConnection:** The <strong>name</strong> of the SharePointOnline connection that you’ve created earlier.
+* **ListName: **The list name of your MP catalog list.
+* **NotifyByEmail:** Specify if you’d like an email notification when new MPs have been added to the catalog.
+* **ContactName:** If NotifyByEmail is set to "true", specify the <a href="http://blog.tyang.org/2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/">SMAAddressBook</a> connection name for the email notification recipient.
+
+**<span style="color: #ff0000;">Note:</span>** If you’d like to receive email notifications, you also need to import and configure the <a href="http://blog.tyang.org/2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/">SendEmail and SendPushNotification modules</a> from my blog. Once the SMTP server connection and the Address book connection are created, please modify line 111 of the runbook with the name of your SMTP server connection:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb19.png" alt="image" width="666" height="238" border="0" /></a>
 
-<strong><span style="color: #ff0000;">Note:</span> </strong>I have previously blogged the issues I have experienced using the SendEmail module in Azure Automation. You may find this post useful: <a href="http://blog.tyang.org/2014/12/07/using-sendemail-sma-integration-module-azure-automation/">Using the SendEmail SMA Integration Module in Azure Automation</a>.
+**<span style="color: #ff0000;">Note:</span> **I have previously blogged the issues I have experienced using the SendEmail module in Azure Automation. You may find this post useful: <a href="http://blog.tyang.org/2014/12/07/using-sendemail-sma-integration-module-azure-automation/">Using the SendEmail SMA Integration Module in Azure Automation</a>.
 
 &nbsp;
 

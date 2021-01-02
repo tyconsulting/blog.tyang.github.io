@@ -72,7 +72,6 @@ Other than combining David’s SCCM Compliance MP, there are also few other upda
 	<li>DCM Agent</li>
 	<li>DCM Baseline</li>
 </ul>
-&nbsp;
 
 ## Enhanced Compliance Monitoring
 
@@ -84,32 +83,14 @@ By default, the discovery for DCM Baselines is disabled. It needs to be enabled 
 
 There are several groups can be used for overriding the DCM Baseline discovery:
 
-&nbsp;
-<table style="color: #000000;" border="1" cellspacing="0" cellpadding="0">
-<tbody>
-<tr>
-<td valign="top" width="343"><b>Scenario</b></td>
-<td valign="top" width="343"><b>Override Target</b></td>
-</tr>
-<tr>
-<td valign="top" width="343"><b>Enable For All DCM Agents</b></td>
-<td valign="top" width="343">Class: ConfigMgr 2012 Client Desired Configuration Management Agent</td>
-</tr>
-<tr>
-<td valign="top" width="343"><b>Enable For Server Computers Only</b></td>
-<td valign="top" width="343">Group: All ConfigMgr 2012 Client DCM Agents on Server OS</td>
-</tr>
-<tr>
-<td valign="top" width="343"><b>Enable For Client Computers Only</b></td>
-<td valign="top" width="343">Group: All ConfigMgr 2012 Client DCM Agents on Client OS</td>
-</tr>
-<tr>
-<td valign="top" width="343"><b>Enable for a subset of group of computers</b></td>
-<td valign="top" width="343">Manually create an instance group and populate the membership based on the "ConfigMgr 2012 Client Desired Configuration Management Agent" class</td>
-</tr>
-</tbody>
-</table>
-<strong><span style="font-size: medium;">Note:</span> </strong>Once the DCM Baseline discovery is enabled, please also disable the "ConfigMgr 2012 Client DCM Baselines Compliance Monitor" for the same targets as it has become redundant.
+| Scenario                                  | Override Target                                                                                                                                 |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Enable For All DCM Agents                 | Class: ConfigMgr 2012 Client Desired Configuration Management Agent                                                                             |
+| Enable For Server Computers Only          | Group: All ConfigMgr 2012 Client DCM Agents on Server OS                                                                                        |
+| Enable For Client Computers Only          | Group: All ConfigMgr 2012 Client DCM Agents on Client OS                                                                                        |
+| Enable for a subset of group of computers | Manually create an instance group and populate the membership based on the "ConfigMgr 2012 Client Desired Configuration Management Agent" class |
+
+>**Note:** Once the DCM Baseline discovery is enabled, please also disable the "ConfigMgr 2012 Client DCM Baselines Compliance Monitor" for the same targets as it has become redundant.
 
 Once the DCM baselines are discovered, their compliance status is monitored individually:
 
@@ -131,13 +112,11 @@ An additional unsealed management pack named "ConfigMgr 2012 Client Enhanced Com
 	<li>An override to enable DCM baseline discovery for "All Business Critical ConfigMgr 2012 Client DCM Agents" group.</li>
 	<li>An override to disable the legacy ConfigMgr 2012 Client DCM Baselines Compliance Monitor for "All Business Critical ConfigMgr 2012 Client DCM Agents" group.</li>
 </ul>
-&nbsp;
+
 
 <em><span style="color: #ff0000;">In summary, this management pack enables DCM baseline discovery for all ConfigMgr 2012 client on server computers and switch from existing "overall" compliance baselines status monitor to the new more granular compliance baseline status monitor which targets individual baselines. This management pack also enables users to manually populate the new "All Business Critical ConfigMgr 2012 Client DCM Agents" group. Members in this group will also be monitored the same way as the server computers as previously mentioned.</span></em>
 
-<b>Note:</b> Please only use this management pack when you prefer to enable enhanced compliance monitoring on all server computers, otherwise, please manually configure the groups and overrides as previously stated.
-
-&nbsp;
+>**Note:** Please only use this management pack when you prefer to enable enhanced compliance monitoring on all server computers, otherwise, please manually configure the groups and overrides as previously stated.
 
 ## New RunAs Profile for Low-Privilege Environments
 
@@ -173,14 +152,12 @@ Prior to this release, only the top level class ConfigMgr 2012 Client has its de
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb5.png" alt="image" width="650" height="359" border="0" /></a>
 
-&nbsp;
-
-<strong>Note:</strong> I only managed to find high res icons for the Software Distribution Agent and the Software Update Agent (extracted from various DLLs and EXEs). I couldn’t find a way to extract icons from AdminUI.UIResources.DLL – where all the icons used by SCCM are stored. So for other icons, I had to use SnagIt to take screenshots of these icons. You may notice the quality is not that great, but after few days effort trying to find these icons, this is the best I can do. If you have a copy of these icons (res higher than 80x80), or know a way to extract these icons from AdminUI.UIResources.dll, please contact me and I’ll update them in the next release.
+>**Note:** I only managed to find high res icons for the Software Distribution Agent and the Software Update Agent (extracted from various DLLs and EXEs). I couldn’t find a way to extract icons from AdminUI.UIResources.DLL – where all the icons used by SCCM are stored. So for other icons, I had to use SnagIt to take screenshots of these icons. You may notice the quality is not that great, but after few days effort trying to find these icons, this is the best I can do. If you have a copy of these icons (res higher than 80x80), or know a way to extract these icons from AdminUI.UIResources.dll, please contact me and I’ll update them in the next release.
 
 ## Credit
 
-<strong>BIG</strong> thank you to David Allen for his work on the SCCM Compliance MP, and also helping me test this release!
+**BIG** thank you to David Allen for his work on the SCCM Compliance MP, and also helping me test this release!
 
-You can download the ConfigMgr 2012 Client MP Version 1.2.0.0 <strong><span style="font-size: medium;"><a href="http://blog.tyang.org/wp-content/uploads/2014/10/ConfigMgr-2012-Client-MP-V1.2.0.0.zip">HERE</a></span></strong>.
+You can download the ConfigMgr 2012 Client MP Version 1.2.0.0 [**HERE**](http://blog.tyang.org/wp-content/uploads/2014/10/ConfigMgr-2012-Client-MP-V1.2.0.0.zip).
 
 Until next time, happy SCOMMING!

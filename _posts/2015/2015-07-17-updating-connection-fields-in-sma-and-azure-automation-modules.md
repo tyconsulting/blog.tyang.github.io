@@ -19,11 +19,11 @@ Stan has also raised this issue in the User Voice: <a title="http://feedback.azu
 
 As you can see from the feedback from Joe Levy and Beth Cooper, it is a known issue with SMA and Azure Automation. Joe has also provided a workaround for Azure Automation (deleting the connection type using REST API).
 
-I have seen this issue many times in the past with SMA, and when I started writing this post, I realised I actually <a href="http://blog.tyang.org/2014/09/29/clean-sma-database-module-deletion/" target="_blank">blogged</a> about this issue almost a year ago. - I didn't remember blogging it at all, maybe it a sign that I'm getting old <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/07/wlEmoticon-smile.png" alt="Smile" />.
+I have seen this issue many times in the past with SMA, and when I started writing this post, I realised I actually <a href="http://blog.tyang.org/2014/09/29/clean-sma-database-module-deletion/" target="_blank">blogged</a> about this issue almost a year ago. - I didn't remember blogging it at all, maybe it a sign that I'm getting old :smiley:.
 
 Anyways, I've updated the SQL script from my previous post, wrapped the deletion commands in a transaction as per Beth's advice:
 
-<pre language="SQL">
+```sql
 USE SMA
 Declare @ModuleName Varchar(max)
 Declare @ConnectionName Varchar(max)
@@ -61,12 +61,11 @@ Delete from Core.ModuleVersions where ModuleKey In (Select ModuleKey from Core.M
 PRINT 'Deleting Modules'
 Delete from core.Modules where ModuleName = @ModuleName
 COMMIT TRANSACTION T1
-
 ```
 
-As I explained in the <a href="http://blog.tyang.org/2014/09/29/clean-sma-database-module-deletion/" target="_blank">previous post</a>, you will need to update the <strong>@ModuleName</strong> and <strong>@ConnectionName</strong> variables accordingly.
+As I explained in the <a href="http://blog.tyang.org/2014/09/29/clean-sma-database-module-deletion/" target="_blank">previous post</a>, you will need to update the **@ModuleName** and **@ConnectionName** variables accordingly.
 
-Lastly, I'd like to state that it is very common to update the connection type JSON file during your module development phase. During this phase, you would probably use this script a lot <strong><u>on your development environment</u></strong>. But please do not try and use this in production environment. It is developed by myself with no involvement from Microsoft, and Microsoft would never support directly editing the database.
+Lastly, I'd like to state that it is very common to update the connection type JSON file during your module development phase. During this phase, you would probably use this script a lot **<u>on your development environment</u>**. But please do not try and use this in production environment. It is developed by myself with no involvement from Microsoft, and Microsoft would never support directly editing the database.
 
 ## Conclusion
 

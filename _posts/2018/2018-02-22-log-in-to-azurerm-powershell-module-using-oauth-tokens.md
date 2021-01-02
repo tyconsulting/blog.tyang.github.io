@@ -16,7 +16,8 @@ tags:
 In my last post, I demonstrated <a href="https://blog.tyang.org/2018/02/04/generating-azure-ad-oauth-token-in-powershell/" target="_blank" rel="noopener">how to generate Azure AD oAuth tokens</a> using my <a href="https://www.powershellgallery.com/packages/AzureServicePrincipalAccount" target="_blank" rel="noopener">AzureServicePrincipalAccount</a> PowerShell module.
 
 Although personally, I pretty much use Azure Resource Manager REST API for everything – this is where the oAuth token come in play, but often, I have seen colleagues and customers use a mixture of both ARM REST APIs calls and AzureRM modules within same PowerShell scripts. This could potentially be troublesome because in order to use AzureRM modules, you will need to sign-in to Azure using Add-AzureRMAccount (or it’s alias Login-AzureRMAccount). Luckily, Add-AzureRMAccount also supports signing in using an existing AAD oAuth token. So, if you have already generated an oAuth token for invoking ARM REST APIs, you can continue using this token for AzureRM modules. here’s how you do it:
-<pre language="Powershell" class="">#variables
+```powershell
+#variables
 $TenantId = '1239054d-9f01-46eb-b7a4-b301e424c6fe'
 $SubscriptionId = '412510db-cea0-40c4-95e3-f9818e279ef7'
 $AccountId = 'you@yourcompany.onmicrosoft.com'

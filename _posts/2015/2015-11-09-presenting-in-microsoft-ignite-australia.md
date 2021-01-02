@@ -16,4 +16,4 @@ Microsoft Ignite Australia is going to take place in Gold Coast, QLD between 17 
 
 So if you are attending Ignite Australia and would like to learn more about Azure Automation, please make sure you come to our session.
 
-Hope to see you all in the sunny Gold Coast next week. <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/11/wlEmoticon-smile.png" alt="Smile" />
+Hope to see you all in the sunny Gold Coast next week. :smiley:

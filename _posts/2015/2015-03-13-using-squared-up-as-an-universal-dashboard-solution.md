@@ -20,11 +20,9 @@ I’ve been playing with Squared Up a lot lately – to get myself familiar with
 few days ago, I was involved in a conversation around from SCOM users / consumers point view, how to bring data from multiple management groups into a single pane of glass. As the result of this conversation, I’ve spent some time and tried the <a href="http://download.squaredup.com/downloads/download-info/sql/">Squared Up SQL Plugin</a>. After couple of hours, I managed to produce 2 dashboards using this plugin, both using data sources that are foreign to the OpsMgr management group the Squared Up instance is connected to.
 
 In this blog, I’ll go through the steps setting up the following dashboards:
-<ul>
-	<li>Active Alerts from another OpsMgr management group (data source: the OperationsManager DB from the other management group).</li>
-	<li>ConfigMgr 2012 Package Distribution Dashboard (data source: ConfigMgr primary site DB).</li>
-</ul>
-&nbsp;
+
+* Active Alerts from another OpsMgr management group (data source: the OperationsManager DB from the other management group).
+* ConfigMgr 2012 Package Distribution Dashboard (data source: ConfigMgr primary site DB).
 
 I will demonstrate using the Squared Up 2.0 dashboard installed on the OpsMgr web console server in my home lab.
 
@@ -34,7 +32,7 @@ The ConfigMgr infrastructure is also located in my home lab (on-prem).
 
 ## Pre-Requisites
 
-<strong>Setting up DB access in SQL</strong>
+**Setting up DB access in SQL**
 
 Since the SQL connection string used by this plugin is stored in clear text, SquaredUp does not recommend using a username and password. Therefore, in the connection string, I’m using integrated security.
 
@@ -46,11 +44,9 @@ and for the OpsMgr operational DB:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb25.png" alt="image" width="421" height="380" border="0" /></a>
 
-<strong>Installing Squared Up SQL Plugin</strong>
+**Installing Squared Up SQL Plugin**
 
-You will need to install the <strong><span style="text-decoration: underline;">latest</span></strong> version (2.0.2) of the plugin. if you have already installed it before, please make sure you update to this version. There was a bug in the earlier versions, and it has been fixed in 2.0.2.
-
-&nbsp;
+You will need to install the **<span style="text-decoration: underline;">latest</span>** version (2.0.2) of the plugin. if you have already installed it before, please make sure you update to this version. There was a bug in the earlier versions, and it has been fixed in 2.0.2.
 
 ## ConfigMgr Package Distribution Dashboard
 
@@ -60,43 +56,41 @@ This dashboard contains 3 parts (two parts on the top, one on the bottom). the t
 
 All 3 parts are using the SQL plugin, the connection string for all 3 parts are:
 
-<em>Data Source=&lt;ConfigMgr DB Server&gt;;Initial Catalog=&lt;ConfigMgr Site DB&gt;;Integrated Security=True;</em>
+Data Source=<ConfigMgr DB Server>;Initial Catalog=&lt;ConfigMgr Site DB&gt;;Integrated Security=True;
 
 the top 2 parts are configured like this:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image26.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb26.png" alt="image" width="671" height="307" border="0" /></a>
 
-<strong>Pkg Dist - Error State part (Top left):</strong>
+**Pkg Dist - Error State part (Top left):**
 
 SQL query string:
+```sql
+SELECT Count([StateGroupName]) FROM v_ContentDistributionReport where StateGroupName = 'Error'
+```
 
-<em>SELECT Count([StateGroupName]) FROM v_ContentDistributionReport where StateGroupName = 'Error'</em>
-
-<strong>Pkg Dist – Retrying State part (Top right):</strong>
+**Pkg Dist – Retrying State part (Top right):**
 
 SQL query string:
-
-<em>SELECT Count([StateGroupName]) FROM v_ContentDistributionReport where StateGroupName = 'Retrying'</em>
-
+```sql
+SELECT Count([StateGroupName]) FROM v_ContentDistributionReport where StateGroupName = 'Retrying'
+```
 Other parameters:
+* isscalar: true
+* scalarfontsize: 120
 
-isscalar: true
-
-scalarfontsize: 120
-
-<strong>Pkg Dist – List (Bottom):</strong>
+**Pkg Dist – List (Bottom):**
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image27.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb27.png" alt="image" width="592" height="276" border="0" /></a>
 
 SQL query string:
 
-<em>SELECT [PkgID],[DistributionPoint],[State],[StateName],[StateGroupName],[SourceVersion],[SiteCode],Convert(VARCHAR(24),[SummaryDate],113) as 'Summary Date',[PackageType] FROM v_ContentDistributionReport where StateGroupName &lt;&gt; 'Success' order by StateGroupName desc</em>
+```sql
+SELECT [PkgID],[DistributionPoint],[State],[StateName],[StateGroupName],[SourceVersion],[SiteCode],Convert(VARCHAR(24),[SummaryDate],113) as 'Summary Date',[PackageType] FROM v_ContentDistributionReport where StateGroupName <> 'Success' order by StateGroupName desc
+```
 
 other parameters:
-
-isscalar: false
-
-&nbsp;
+* isscalar: false
 
 ## Active Alerts Dashboard for a foreign OpsMgr MG
 
@@ -104,58 +98,60 @@ isscalar: false
 
 Similar to the previous sample, there are 2 parts on the top displaying scalar values. In this case, I’ve chosen to display the active alerts count for critical and warning alerts. Followed by the 2 big scalar numbers, I added 2 lists for active critical & warning alerts.
 
-<strong>SQL connection strings:</strong>
+**SQL connection strings:**
 
-<em>Data Source=&lt;OpsMgr DB server&gt;;Initial Catalog=OperationsManager;Integrated Security=True;</em>
+Data Source=<OpsMgr DB server>;Initial Catalog=OperationsManager;Integrated Security=True;
 
-<strong>Active Alert Count – Critical (Top left):</strong>
-
-SQL query string:
-
-<em>select count(id) from [dbo].[AlertView] where ResolutionState &lt;&gt; 255 and severity = 2</em>
-
-isscalar: true
-
-scalarfontsize: 120
-
-<strong>Active Alert Count – Warning (Top right):</strong>
+**Active Alert Count – Critical (Top left):**
 
 SQL query string:
 
-<em>select count(id) from [dbo].[AlertView] where ResolutionState &lt;&gt; 255 and severity = 1</em>
+```sql
+select count(id) from [dbo].[AlertView] where ResolutionState <> 255 and severity = 2
+```
 
-isscalar: true
+* isscalar: true
+* scalarfontsize: 120
 
-scalarfontsize: 120
-
-<strong>Active Alerts – Critical (list):</strong>
-
-SQL query string:
-
-<em>SELECT Case a.[MonitoringObjectHealthState] When 0 Then 'Not Monitored' When 1 Then 'Healthy' When 2 Then 'Warning' When 3 Then 'Critical' END As 'Health State', a.[MonitoringObjectFullName] as 'Monitoring Object',a.[AlertStringName] as 'Alert Title',r.ResolutionStateName as 'Resolution State',Case a.Severity When 0 Then 'Information' When 1 Then 'Warning' When 2 Then 'Critical' END As 'Alert Severity', Case a.Priority When 0 Then 'Low' When 1 Then 'Medium' When 2 Then 'High' END As 'Alert Priority',Convert(VARCHAR(24),a.[TimeRaised],113) as 'Time Raised UTC' FROM [dbo].[AlertView] a inner join dbo.ResolutionStateView r on a.ResolutionState = r.ResolutionState where a.ResolutionState &lt;&gt; 255 and a.severity = 2 order by a.TimeRaised desc</em>
-
-isscalar: false
-
-tableshowheaders: true
-
-<strong>Active Alerts – Warning (list):</strong>
+**Active Alert Count – Warning (Top right):**
 
 SQL query string:
 
-<em>SELECT Case a.[MonitoringObjectHealthState] When 0 Then 'Not Monitored' When 1 Then 'Healthy' When 2 Then 'Warning' When 3 Then 'Critical' END As 'Health State', a.[MonitoringObjectFullName] as 'Monitoring Object',a.[AlertStringName] as 'Alert Title',r.ResolutionStateName as 'Resolution State',Case a.Severity When 0 Then 'Information' When 1 Then 'Warning' When 2 Then 'Critical' END As 'Alert Severity', Case a.Priority When 0 Then 'Low' When 1 Then 'Medium' When 2 Then 'High' END As 'Alert Priority',Convert(VARCHAR(24),a.[TimeRaised],113) as 'Time Raised UTC' FROM [dbo].[AlertView] a inner join dbo.ResolutionStateView r on a.ResolutionState = r.ResolutionState where a.ResolutionState &lt;&gt; 255 and a.severity = 1 order by a.TimeRaised desc</em>
+```sql
+select count(id) from [dbo].[AlertView] where ResolutionState <> 255 and severity = 1
+```
 
-isscalar: false
+* isscalar: true
+* scalarfontsize: 120
 
-tableshowheaders: true
+**Active Alerts – Critical (list):**
+
+SQL query string:
+
+```sql
+SELECT Case a.[MonitoringObjectHealthState] When 0 Then 'Not Monitored' When 1 Then 'Healthy' When 2 Then 'Warning' When 3 Then 'Critical' END As 'Health State', a.[MonitoringObjectFullName] as 'Monitoring Object',a.[AlertStringName] as 'Alert Title',r.ResolutionStateName as 'Resolution State',Case a.Severity When 0 Then 'Information' When 1 Then 'Warning' When 2 Then 'Critical' END As 'Alert Severity', Case a.Priority When 0 Then 'Low' When 1 Then 'Medium' When 2 Then 'High' END As 'Alert Priority',Convert(VARCHAR(24),a.[TimeRaised],113) as 'Time Raised UTC' FROM [dbo].[AlertView] a inner join dbo.ResolutionStateView r on a.ResolutionState = r.ResolutionState where a.ResolutionState <> 255 and a.severity = 2 order by a.TimeRaised desc
+```
+
+* isscalar: false
+* tableshowheaders: true
+
+**Active Alerts – Warning (list):**
+
+SQL query string:
+
+```sql
+SELECT Case a.[MonitoringObjectHealthState] When 0 Then 'Not Monitored' When 1 Then 'Healthy' When 2 Then 'Warning' When 3 Then 'Critical' END As 'Health State', a.[MonitoringObjectFullName] as 'Monitoring Object',a.[AlertStringName] as 'Alert Title',r.ResolutionStateName as 'Resolution State',Case a.Severity When 0 Then 'Information' When 1 Then 'Warning' When 2 Then 'Critical' END As 'Alert Severity', Case a.Priority When 0 Then 'Low' When 1 Then 'Medium' When 2 Then 'High' END As 'Alert Priority',Convert(VARCHAR(24),a.[TimeRaised],113) as 'Time Raised UTC' FROM [dbo].[AlertView] a inner join dbo.ResolutionStateView r on a.ResolutionState = r.ResolutionState where a.ResolutionState <> 255 and a.severity = 1 order by a.TimeRaised desc
+```
+
+* isscalar: false
+* tableshowheaders: true
 
 As shown in the dashboard screenshot above, currently I have 9 critical and 12 warning alerts in the MG on the cloud, this figure matches what’s showing in the Operations console:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML4252316b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML4252316b" src="http://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML4252316b_thumb.png" alt="SNAGHTML4252316b" width="696" height="463" border="0" /></a>
 
-&nbsp;
-
 ## Conclusion
 
-By using the Squared Up SQL plugin, you can potentially turn Squared UP into a dashboard for any systems (not just OpsMgr). The limit is your imagination <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/03/wlEmoticon-smile.png" alt="Smile" />. I have also written few posts on Squared Up before, you can find them here: <a title="http://blog.tyang.org/tag/squaredup/" href="http://blog.tyang.org/tag/squaredup/">http://blog.tyang.org/tag/squaredup/</a>
+By using the Squared Up SQL plugin, you can potentially turn Squared UP into a dashboard for any systems (not just OpsMgr). The limit is your imagination :smiley:. I have also written few posts on Squared Up before, you can find them here: <a title="http://blog.tyang.org/tag/squaredup/" href="http://blog.tyang.org/tag/squaredup/">http://blog.tyang.org/tag/squaredup/</a>
 
 Lastly, I encourage you to share your brilliant ideas with the rest of us, and I will for sure keep posting on this topic if I come up with something cool in the future.

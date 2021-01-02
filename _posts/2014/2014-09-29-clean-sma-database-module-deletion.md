@@ -46,7 +46,8 @@ I also noticed that even after the module has been deleted, the connection is st
 ## My Resolution
 
 Since I couldn’t find any documentation on how to completely remove an Integration Module, I went ahead and developed a SQL script to completely remove the module and module connection from the various tables in the SMA database. Here’s the SQL script:
-<pre lang="SQL">USE SMA
+```sql
+USE SMA
 Declare @ModuleName Varchar(max)
 Declare @ConnectionName Varchar(max)
 Set @ModuleName = 'MyModule'

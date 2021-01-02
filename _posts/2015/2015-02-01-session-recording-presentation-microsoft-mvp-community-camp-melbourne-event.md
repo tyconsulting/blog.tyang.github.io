@@ -4,6 +4,10 @@ title: Session Recording for My Presentation in Microsoft MVP Community Camp Mel
 date: 2015-02-01T19:44:18+10:00
 author: Tao Yang
 #layout: post
+excerpt: ""
+header:
+  overlay_image: /wp-content/uploads/2015/02/image.png
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 guid: http://blog.tyang.org/?p=3693
 permalink: /2015/02/01/session-recording-presentation-microsoft-mvp-community-camp-melbourne-event/
 categories:
@@ -15,8 +19,6 @@ tags:
   - SCOM
   - SMA
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb.png" alt="image" width="372" height="211" border="0" /></a>
-
 Last Friday, I presented in the Melbourne MVP Community Camp day, on the topic of "Automating SCOM Tasks Using SMA".
 
 I have uploaded the session recording to YouTube. You can either watch it here:
@@ -58,8 +60,7 @@ $MG = New-Object Microsoft.EnterpriseManagement.ManagementGroup($ConnectionSetti
 
 #Get Management Group Administration
 $Admin = $MG.Administration
-
 ```
 Overall, I think I could have done better - as I wasn’t in the best shape that day. I have been sick for the last 3 weeks (dry cough passed on to me from my daughter). The night before the presentation, I was coughing none-stop and couldn’t go to sleep. I then got up, looked up the Internet and someone suggested that sleeping upright might help. I then ended up slept on the couch for 2.5 hours before got up and drove to Microsoft’s office. So I was really exhausted even before I got on stage. Secondly, the USB external Microphone didn’t work on my Surface, so the sound was recorded from the internal mic – not the best quality for sure.
 
-Anyways, for those who’s watching the recording online, I’m really interested in hearing back from you if you have any suggestions or feedbacks in regards to the session itself, or the OpsMgrExtended module that I’m about to release. So, please feel free to drop me an email if you like <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/02/wlEmoticon-smile.png" alt="Smile" />.
+Anyways, for those who’s watching the recording online, I’m really interested in hearing back from you if you have any suggestions or feedbacks in regards to the session itself, or the OpsMgrExtended module that I’m about to release. So, please feel free to drop me an email if you like :smiley:.

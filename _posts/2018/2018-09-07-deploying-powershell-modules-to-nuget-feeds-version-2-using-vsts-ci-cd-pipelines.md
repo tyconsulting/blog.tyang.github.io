@@ -138,7 +138,8 @@ In this demo, I am creating 3 environments (that pushes package to 3 different f
 With MyGet feed, the feed URI is <strong>https://www.myget.org/F/&lt;FeedName&gt;/api/v2</strong>, and the URI for PowerShell Gallery is: <strong>https://www.powershellgallery.com/api/v2/package/</strong>
 
 <span style="color: #ff0000;">Tip:</span> To retrieve the feed URI for PowerShell Gallery, on a Windows 10 machine, run this PowerShell command:
-<pre language="PowerShell" class="">Get-PSRepository –Name PSGallery | fl *
+```powershell
+Get-PSRepository –Name PSGallery | fl *
 
 ```
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-13.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-13.png" alt="image" width="949" height="331" border="0" /></a>

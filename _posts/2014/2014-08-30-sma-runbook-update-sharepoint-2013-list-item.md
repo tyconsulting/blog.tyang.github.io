@@ -27,90 +27,90 @@ Here’s the finished work:
 ```powershell
 Workflow Update-SharePointListItem
 {
-Param(
-[Parameter(Mandatory=$true)][String]$SharepointSiteURL,
-[Parameter(Mandatory=$true)][String]$SavedCredentialName,
-[Parameter(Mandatory=$true)][String]$ListName,
-[Parameter(Mandatory=$true)][String]$ListItemID,
-[Parameter(Mandatory=$true)][String]$PropertyName,
-[Parameter(Mandatory=$true)][String]$PropertyValue
-)
+  Param(
+    [Parameter(Mandatory=$true)][String]$SharepointSiteURL,
+    [Parameter(Mandatory=$true)][String]$SavedCredentialName,
+    [Parameter(Mandatory=$true)][String]$ListName,
+    [Parameter(Mandatory=$true)][String]$ListItemID,
+    [Parameter(Mandatory=$true)][String]$PropertyName,
+    [Parameter(Mandatory=$true)][String]$PropertyValue
+  )
 
-Function Update-SP2013ListItem
-{
-Param([String]$SiteUri, [String]$itemURI, [String]$PropertyName, [String]$PropertyValue, [string]$ListItemEntityTypeFullName, [PSCredential]$credential)
+  Function Update-SP2013ListItem
+  {
+    Param([String]$SiteUri, [String]$itemURI, [String]$PropertyName, [String]$PropertyValue, [string]$ListItemEntityTypeFullName, [PSCredential]$credential)
 
-$ContextInfoUri = "$SiteUri`/_api/contextinfo"
-$RequestDigest = (Invoke-RestMethod -Method Post -Uri $ContextInfoUri -Credential $credential).GetContextWebInformation.FormDigestValue
-$body = "{ '__metadata': { 'type': '$ListItemEntityTypeFullName' }, $PropertyName`: '$PropertyValue'}"
-$header = @{
-"accept" = "application/json;odata=verbose"
-"X-RequestDigest" = $RequestDigest
-"If-Match"="*"
-}
-Try {
-Invoke-RestMethod -Method MERGE -Uri $itemURI -Body $body -ContentType "application/json;odata=verbose" -Headers $header -Credential $credential
-$Updated = $true
-} Catch {
-$Updated = $false
-}
-$Updated
-}
+    $ContextInfoUri = "$SiteUri`/_api/contextinfo"
+    $RequestDigest = (Invoke-RestMethod -Method Post -Uri $ContextInfoUri -Credential $credential).GetContextWebInformation.FormDigestValue
+    $body = "{ '__metadata': { 'type': '$ListItemEntityTypeFullName' }, $PropertyName`: '$PropertyValue'}"
+    $header = @{
+    "accept" = "application/json;odata=verbose"
+    "X-RequestDigest" = $RequestDigest
+    "If-Match"="*"
+    }
+    Try {
+      Invoke-RestMethod -Method MERGE -Uri $itemURI -Body $body -ContentType "application/json;odata=verbose" -Headers $header -Credential $credential
+      $Updated = $true
+    } Catch {
+      $Updated = $false
+    }
+    $Updated
+  }
 
-# Get the credential to authenticate to the SharePoint List with
+  # Get the credential to authenticate to the SharePoint List with
 
-$credential = Get-AutomationPSCredential -Name $SavedCredentialName
+  $credential = Get-AutomationPSCredential -Name $SavedCredentialName
 
-# combined uri
+  # combined uri
 
-#SharePoint 2013
-$ListItemsUri = [System.String]::Format("{0}/_api/web/lists/getbytitle('{1}')/items",$SharepointSiteURL, $ListName)
-$ListUri = [System.String]::Format("{0}/_api/web/lists/getbytitle('{1}')",$SharepointSiteURL, $ListName)
+  #SharePoint 2013
+  $ListItemsUri = [System.String]::Format("{0}/_api/web/lists/getbytitle('{1}')/items",$SharepointSiteURL, $ListName)
+  $ListUri = [System.String]::Format("{0}/_api/web/lists/getbytitle('{1}')",$SharepointSiteURL, $ListName)
 
-#Get ListItemEntityTypeFullName
-$List = Invoke-RestMethod -uri $ListUri -credential $Credential
-$ListItemEntityTypeFullName = $list.entry.content.properties.ListItemEntityTypeFullName
-$ListItemEntityTypeFullName
+  #Get ListItemEntityTypeFullName
+  $List = Invoke-RestMethod -uri $ListUri -credential $Credential
+  $ListItemEntityTypeFullName = $list.entry.content.properties.ListItemEntityTypeFullName
+  $ListItemEntityTypeFullName
 
-#Translating Field display name (title) to the internal name
-$FieldFilter = "Title eq '$PropertyName'"
-$ListFieldUri = "$ListUri`/Fields?`$Filter=$FieldFilter"
-$ListField = Invoke-RestMethod -Uri $ListFieldUri -Credential $credential
-$FieldInternalName = $ListField.Content.properties.InternalName
+  #Translating Field display name (title) to the internal name
+  $FieldFilter = "Title eq '$PropertyName'"
+  $ListFieldUri = "$ListUri`/Fields?`$Filter=$FieldFilter"
+  $ListField = Invoke-RestMethod -Uri $ListFieldUri -Credential $credential
+  $FieldInternalName = $ListField.Content.properties.InternalName
 
-#Get list items
-$listItemURI = inlinescript {
-$listItems = Invoke-RestMethod -Uri $Using:ListItemsUri -Credential $Using:credential
-foreach($li in $listItems)
-{
-$ItemId = $li.Id.split("/")[2].replace("Items", "")
-$ItemId = $ItemId.replace("(","")
-$ItemId = $ItemId.replace(")","")
-If ($ItemId -eq $USING:ListItemID)
-{
-#This is the item URI for the specific list item that we are looking for.
-$itemUri = [System.String]::Format("{0}/_api/{1}",$USING:SharepointSiteURL, $li.id)
-}
-}
-$itemUri
-}
-#Update the list property
-If ($listItemURI)
-{
-Write-Output "Updating $listItemURI. Setting $PropertyName to '$PropertyValue'"
-$Updated = Update-SP2013ListItem -SiteUri $SharepointSiteURL -itemURI $listItemURI -PropertyName $FieldInternalName -PropertyValue $PropertyValue -ListItemEntityTypeFullName $ListItemEntityTypeFullName -credential $credential
-}
+  #Get list items
+  $listItemURI = inlinescript {
+    $listItems = Invoke-RestMethod -Uri $Using:ListItemsUri -Credential $Using:credential
+    foreach($li in $listItems)
+    {
+      $ItemId = $li.Id.split("/")[2].replace("Items", "")
+      $ItemId = $ItemId.replace("(","")
+      $ItemId = $ItemId.replace(")","")
+      If ($ItemId -eq $USING:ListItemID)
+      {
+        #This is the item URI for the specific list item that we are looking for.
+        $itemUri = [System.String]::Format("{0}/_api/{1}",$USING:SharepointSiteURL, $li.id)
+      }
+    }
+    $itemUri
+  }
+  #Update the list property
+  If ($listItemURI)
+  {
+    Write-Output "Updating $listItemURI. Setting $PropertyName to '$PropertyValue'"
+    $Updated = Update-SP2013ListItem -SiteUri $SharepointSiteURL -itemURI $listItemURI -PropertyName $FieldInternalName -PropertyValue $PropertyValue -ListItemEntityTypeFullName $ListItemEntityTypeFullName -credential $credential
+  }
 
-If ($Updated -eq $true)
-{
-Write-OutPut "List item $listItemURI successfully updated."
-} else {
-Write-Error "Failed to update the list item $listItemURI."
-}
+  If ($Updated -eq $true)
+  {
+    Write-OutPut "List item $listItemURI successfully updated."
+  } else {
+    Write-Error "Failed to update the list item $listItemURI."
+  }
 }
 
 ```
-Unlike Ryan’s code, which also monitors the SP list, my runbook <strong>ONLY</strong> updates a specific list item.
+Unlike Ryan’s code, which also monitors the SP list, my runbook **ONLY** updates a specific list item.
 
 ## Pre-Requisite and Parameters
 
@@ -120,23 +120,18 @@ Prior to using this runbook, you will need to save a credential in SMA which has
 
 The runbook is expecting the following parameters:
 
-<strong>SharePointSiteURL:</strong> The URL to the sharepoint site. i.e. <a href="http://SharepointServer/Sites/DemoSite">http://SharepointServer/Sites/DemoSite</a>
-
-<strong>SavedCredentialName:</strong> name of the saved credential to connect to SharePoint site
-
-<strong>ListName:</strong> Name of the list. i.e. "Test List"
-
-<strong>ListItemID:</strong> the ID for the list item that the runbook is going to update
-
-<strong>PropertyName:</strong> the field / property of the item that is going to be updated.
-
-<strong>PropertyValue:</strong> the new value that is going to be set to the list item property.
+* **SharePointSiteURL:** The URL to the sharepoint site. i.e. <a href="http://SharepointServer/Sites/DemoSite">http://SharepointServer/Sites/DemoSite</a>
+* **SavedCredentialName:** name of the saved credential to connect to SharePoint site
+* **ListName:** Name of the list. i.e. "Test List"
+* **ListItemID:** the ID for the list item that the runbook is going to update
+* **PropertyName:** the field / property of the item that is going to be updated.
+* **PropertyValue:** the new value that is going to be set to the list item property.
 
 Note: The list Item ID is the reference number for the item within the list. If you point the mouse cursor to the item, you will find the list item ID in the URL.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML90254b7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML90254b7" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML90254b7_thumb.png" alt="SNAGHTML90254b7" width="671" height="393" border="0" /></a>
 
-## Putting it into Test:
+## Putting it into Test
 
 To test, I’ve created a new list as shown in the above screenshot, I have kicked off the runbook with the the following parameters:
 
@@ -149,8 +144,6 @@ Here’s the result:
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fd5d4a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8fd5d4a" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fd5d4a_thumb.png" alt="SNAGHTML8fd5d4a" width="588" height="406" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fed515.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8fed515" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fed515_thumb.png" alt="SNAGHTML8fed515" width="580" height="383" border="0" /></a>
-
-## 
 
 
 ## Using It Together With Orchestrator SharePoint IP
@@ -165,4 +158,4 @@ If you are also using SC Orchestrator and have deployed the SharePoint IP, you c
 
 Although I’m still a newbie when comes to SMA, it got me really excited. Before its time, when I design Orchestrator runbooks, I often ended up just write the entire solution in PowerShell and then chopped up my PowerShell scripts into many "Run .Net Script" activities. I thought, wouldn’t it be nice if there is an automation engine that only uses PowerShell? Well, looks like SMA is the solution. I wish I have started using it sooner.
 
-If you are like me and want to learn more about this product, i <strong><span style="color: #ff0000;">highly</span></strong> recommend you to read the <a href="http://gallery.technet.microsoft.com/systemcenter/Service-Management-fcd75828">Service Management Automation Whitepaper</a> (currently version 1.0.4) from my fellow SCCDM MVP Michael Rueefli. I have read it page by page like a bible!
+If you are like me and want to learn more about this product, i **<span style="color: #ff0000;">highly</span>** recommend you to read the <a href="http://gallery.technet.microsoft.com/systemcenter/Service-Management-fcd75828">Service Management Automation Whitepaper</a> (currently version 1.0.4) from my fellow SCCDM MVP Michael Rueefli. I have read it page by page like a bible!

@@ -35,13 +35,13 @@ The high level workflow is shown in the diagram below:
 
 ## Design
 
-<strong>01. SharePoint List</strong>
+**01. SharePoint List**
 
 Firstly, I created a list on one of our SharePoint sites, and this list only contains one item:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML52b1a8c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML52b1a8c" src="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML52b1a8c_thumb.png" alt="SNAGHTML52b1a8c" width="456" height="239" border="0" /></a>
 
-<strong>02. Orchestrator Runbook</strong>
+**02. Orchestrator Runbook**
 
 I firstly deployed the SharePoint integration pack to the Orchestrator management servers and all the runbook servers. Then I setup a connection to the SharePoint site using a service account
 
@@ -71,95 +71,94 @@ This activity runs a simple PowerShell script to start the SMA runbook. The SMA 
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML53aaec0.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML53aaec0" src="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML53aaec0_thumb.png" alt="SNAGHTML53aaec0" width="440" height="108" border="0" /></a>
 
-<strong>03. SMA Runbook</strong>
+**03. SMA Runbook**
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML5413f3c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML5413f3c" src="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML5413f3c_thumb.png" alt="SNAGHTML5413f3c" width="546" height="417" border="0" /></a>
 
 Firstly, I created few variables, credentials and connections to be used in the runbook:
 
 Connections:
-<ul>
-	<li>SMTP connection from the <a href="http://blog.tyang.org/2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/">SendEmail module I posted earlier</a>.</li>
-	<li>Email recipient connection from <a href="http://blog.tyang.org/2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/">SendPushNotification module I posted earlier</a>.</li>
-</ul>
+
+* SMTP connection from the <a href="http://blog.tyang.org/2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/">SendEmail module I posted earlier</a>.
+* Email recipient connection from <a href="http://blog.tyang.org/2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/">SendPushNotification module I posted earlier</a>.
+
 Credential:
-<ul>
-	<li>Windows Credential that has access to the MDT database (we have MDT DB located on the SCCM SQL server, so it only accepts Windows authentication). I named the credential "ProdMDTDB"</li>
-</ul>
+
+* Windows Credential that has access to the MDT database (we have MDT DB located on the SCCM SQL server, so it only accepts Windows authentication). I named the credential "ProdMDTDB"
+
 Variables:
-<ul>
-	<li>MDT Database SQL Server address. I named it "CM12SQLServer"</li>
-	<li>Gateway IP address. I named it "GatewayIP"</li>
-</ul>
-&nbsp;
+
+* MDT Database SQL Server address. I named it "CM12SQLServer"
+* Gateway IP address. I named it "GatewayIP"
 
 Here’s the code for the SMA runbook:
-<pre language="PowerShell" class="">Workflow Update-MDTLocation
-{
-PARAM (
-[Parameter(Mandatory=$true,HelpMessage='Please enter the new location')][Alias('l')][String]$Location
-)
-$SQLServer = Get-AutomationVariable -Name 'CM12SQLServer'
-$SQLInstance = 'MSSQLSERVER'
-$DBName = 'MDT'
-$CredName = 'ProdMDTDB'
-Write-Verbose "SQL Server: $SQLServer"
-Write-Verbose "SQL Instalce: $SQLInstance"
-Write-Verbose "Database: $DBName"
-Write-Verbose "Retrieving saved SMA credential $CredName"
-$SQLCred = Get-AutomationPSCredential -Name $CredName
-$SQLUserName = $SQLCred.UserName
-Write-Verbose "Connecting to $SQLServer using account $SQLUserName"
-$ConnString = "Server=$SQLServer\$SQLInstannce;Database=$DBName;Integrated Security=SSPI"
-$GatewayIP = Get-AutomationVariable -Name 'GatewayIP'
-$strQuery = @"
-USE $DBName
-Declare @Gateway Varchar(max)
-Declare @NewLocation Varchar(max)
-Declare @NewLocationID int
-Set @Gateway = `'$GatewayIP`'
-Set @NewLocation = `'$Location`'
-Set @NewLocationID = (Select L.ID From LocationIdentity L Where L.Location = @NewLocation)
-Update LocationIdentity_DefaultGateway Set ID = @NewLocationID Where DefaultGateway = @Gateway
-"@
-Write-Verbose "Executing SQL query: $strQuery"
-$Result = InlineScript
-{
-$connection = New-Object System.Data.SqlClient.SqlConnection
-$connection.ConnectionString = $USING:ConnString
-$connection.Open()
-$command = $connection.CreateCommand()
-$command.CommandText = $USING:strQuery
-$result = $command.ExecuteNonQuery()
-$result
-} -PSComputerName $SQLServer -PSCredential $SQLCred
-Write-Output "$result row(s) updated."
-if ($result -gt 0)
-{
-$EmailMessage = "MDT location updated for $result site(s). New Location specified: $Location."
-} else {
-$EmailMessage = "MDT location did not get updated. Please contact STS to investigate further."
-}
 
-#Email result
-$SMTPSettings = Get-AutomationConnection -Name '[SMTP connection name]'
-$Recipient = Get-AutomationConnection -Name '[email recipient’s connection name]'
-Write-Verbose "Emailing result to $Recipient.Email"
-Send-Email -SMTPSettings $SMTPSettings -To $Recipient.Email -Subject 'MDT Location Gateway address update result' -Body $EmailMessage -HTMLBody $False
-}
+```powershell
+Workflow Update-MDTLocation
+{
+  PARAM (
+    [Parameter(Mandatory=$true,HelpMessage='Please enter the new location')][Alias('l')][String]$Location
+  )
+  $SQLServer = Get-AutomationVariable -Name 'CM12SQLServer'
+  $SQLInstance = 'MSSQLSERVER'
+  $DBName = 'MDT'
+  $CredName = 'ProdMDTDB'
+  Write-Verbose "SQL Server: $SQLServer"
+  Write-Verbose "SQL Instalce: $SQLInstance"
+  Write-Verbose "Database: $DBName"
+  Write-Verbose "Retrieving saved SMA credential $CredName"
+  $SQLCred = Get-AutomationPSCredential -Name $CredName
+  $SQLUserName = $SQLCred.UserName
+  Write-Verbose "Connecting to $SQLServer using account $SQLUserName"
+  $ConnString = "Server=$SQLServer\$SQLInstannce;Database=$DBName;Integrated Security=SSPI"
+  $GatewayIP = Get-AutomationVariable -Name 'GatewayIP'
+  $strQuery = @"
+  USE $DBName
+  Declare @Gateway Varchar(max)
+  Declare @NewLocation Varchar(max)
+  Declare @NewLocationID int
+  Set @Gateway = `'$GatewayIP`'
+  Set @NewLocation = `'$Location`'
+  Set @NewLocationID = (Select L.ID From LocationIdentity L Where L.Location = @NewLocation)
+  Update LocationIdentity_DefaultGateway Set ID = @NewLocationID Where DefaultGateway = @Gateway
+  "@
+  Write-Verbose "Executing SQL query: $strQuery"
+  $Result = InlineScript
+  {
+    $connection = New-Object System.Data.SqlClient.SqlConnection
+    $connection.ConnectionString = $USING:ConnString
+    $connection.Open()
+    $command = $connection.CreateCommand()
+    $command.CommandText = $USING:strQuery
+    $result = $command.ExecuteNonQuery()
+    $result
+  } -PSComputerName $SQLServer -PSCredential $SQLCred
+  Write-Output "$result row(s) updated."
+  if ($result -gt 0)
+  {
+    $EmailMessage = "MDT location updated for $result site(s). New Location specified: $Location."
+  } else {
+    $EmailMessage = "MDT location did not get updated. Please contact STS to investigate further."
+  }
 
+  #Email result
+  $SMTPSettings = Get-AutomationConnection -Name '[SMTP connection name]'
+  $Recipient = Get-AutomationConnection -Name '[email recipient’s connection name]'
+  Write-Verbose "Emailing result to $Recipient.Email"
+  Send-Email -SMTPSettings $SMTPSettings -To $Recipient.Email -Subject 'MDT Location Gateway address update result' -Body $EmailMessage -HTMLBody $False
+}
 ```
 
 ## Putting Everything Together
 
 As demonstrated in the diagram in the beginning of this post, here’s how the whole workflow works:
-<ol>
-	<li>User login to the SharePoint site and update the only item in the list. He / She enters  the new location in the "New Gateway IP Location" field.</li>
-	<li>The Orchestrator runbook checks updated items in this SharePoint list every 15 seconds.</li>
-	<li>if the Orchestrator runbook detects the first (and only) item has been updated, it takes the new location value, start the SMA runbook and pass the new value to the SMA runbook.</li>
-	<li>SMA runbook runs a PowerShell script to update the gateway location directly from the MDT database.</li>
-	<li>SMA runbook sends email to a nominated email address when the MDT database is updated.</li>
-</ol>
+
+1. User login to the SharePoint site and update the only item in the list. He / She enters  the new location in the "New Gateway IP Location" field.
+2. The Orchestrator runbook checks updated items in this SharePoint list every 15 seconds.
+3. if the Orchestrator runbook detects the first (and only) item has been updated, it takes the new location value, start the SMA runbook and pass the new value to the SMA runbook.
+4. SMA runbook runs a PowerShell script to update the gateway location directly from the MDT database.
+5. SMA runbook sends email to a nominated email address when the MDT database is updated.
+
 The email looks like this:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML197a0f95.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML197a0f95" src="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML197a0f95_thumb.png" alt="SNAGHTML197a0f95" width="505" height="179" border="0" /></a>
@@ -173,11 +172,11 @@ The Orchestrator runbook and the SMA runbook execution history can also be viewe
 ## Room for Improvement
 
 I created this automation process in a quick and easy way to get them off my back. I know in this process, there are a lot of areas can be improved. i.e.
-<ul>
-	<li>Using a SMA runbook to monitor SharePoint list direct so Orchestrator is no longer required (i.e. using the script from <a href="http://blogs.technet.com/b/systemcenter/archive/2014/01/14/service-management-automation-and-sharepoint-mvp.aspx">this article</a>. – Credit to Christian Booth and Ryan Andorfer).</li>
-	<li>User input validation</li>
-	<li>Look up AD to retrieve user’s email address instead of hardcoding it in a variable.</li>
-</ul>
+
+* Using a SMA runbook to monitor SharePoint list direct so Orchestrator is no longer required (i.e. using the script from <a href="http://blogs.technet.com/b/systemcenter/archive/2014/01/14/service-management-automation-and-sharepoint-mvp.aspx">this article</a>. – Credit to Christian Booth and Ryan Andorfer).
+* User input validation
+* Look up AD to retrieve user’s email address instead of hardcoding it in a variable.
+
 Maybe in the future when I have spare time, I’ll go back and make it better , but for now, the implementers are happy, my team mates are happier because it is one less thing off our plate <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2014/11/wlEmoticon-smile.png" alt="Smile" />.
 
 ## Conclusion

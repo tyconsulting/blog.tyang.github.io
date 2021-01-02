@@ -18,10 +18,10 @@ tags:
 ## Background
 
 Over the last week or so, I’ve been busy creating Squared Up dashboards for various System Center 2012 components, which will be made publicly available through Squared Up’s new community site. While I was creating dashboards for some System Center components, I realised how little do the native MP from Microsoft offers (i.e. Orchestrator and Windows Azure Pack).  Luckily, some awesome MP developers have recognised this and released additional MPs to fill the gaps. i.e
-<ul>
- 	<li>Brian Wren’s (aka MP Author) Orchestrator Runbook Sample MP: <a title="https://gallery.technet.microsoft.com/Orchestrator-Runbook-90307b26" href="https://gallery.technet.microsoft.com/Orchestrator-Runbook-90307b26">https://gallery.technet.microsoft.com/Orchestrator-Runbook-90307b26</a></li>
- 	<li>Oskar Landman’s Windows Azure Pack (WAP) MP: <a title="https://gallery.technet.microsoft.com/SCOM-Management-Pack-3855607d" href="https://gallery.technet.microsoft.com/SCOM-Management-Pack-3855607d">https://gallery.technet.microsoft.com/SCOM-Management-Pack-3855607d</a></li>
-</ul>
+
+ * Brian Wren’s (aka MP Author) Orchestrator Runbook Sample MP: <a title="https://gallery.technet.microsoft.com/Orchestrator-Runbook-90307b26" href="https://gallery.technet.microsoft.com/Orchestrator-Runbook-90307b26">https://gallery.technet.microsoft.com/Orchestrator-Runbook-90307b26</a>
+ * Oskar Landman’s Windows Azure Pack (WAP) MP: <a title="https://gallery.technet.microsoft.com/SCOM-Management-Pack-3855607d" href="https://gallery.technet.microsoft.com/SCOM-Management-Pack-3855607d">https://gallery.technet.microsoft.com/SCOM-Management-Pack-3855607d</a>
+
 So in additional to creating Squared Up dashboards for the native System Center management packs, I have also created dashboards for above mentioned community MPs.
 
 However, if you have used (or tried to use) Brian’s Orchestrator Runbook MP, you’d probably know the PowerShell scripts in the MP is not compatible with Windows Server 2012 R2 or PowerShell version 3 and later. The issue is raised in the Q and A section (in a function, you can not use return in try-catch-finally statement).
@@ -70,12 +70,11 @@ Obviously, big thank-you would go to <a href="https://twitter.com/MPAuthor">Bria
 
 You can download my updated MP from the link below. Please feel free to contact me if you have any questions or issues.
 
-[wpdm_package id='4565']
+[DOWNLOAD](../../../../wp-content/uploads/2015/09/MPAuthor.Orchestrator.zip)
 
-<strong>GitHub Repo</strong>
+**GitHub Repo**
 
 <a href="https://github.com/tyconsulting/SCOM.MP_Updated_MPAUthor.Orchestrator">https://github.com/tyconsulting/SCOM.MP_Updated_MPAUthor.Orchestrator</a>
 
-&nbsp;
 
-&nbsp;
+

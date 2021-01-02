@@ -4,6 +4,10 @@ title: Next Step in My Career
 date: 2015-04-19T14:11:13+10:00
 author: Tao Yang
 #layout: post
+excerpt: ""
+header:
+  overlay_image: /wp-content/uploads/2015/04/Full-Logo-Raw-Long-White-Background.png
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 guid: http://blog.tyang.org/?p=3880
 permalink: /2015/04/19/next-step-in-my-career/
 categories:
@@ -11,10 +15,6 @@ categories:
 tags:
   - TY Consulting; Career
 ---
-&nbsp;
-
-<a href="http://blog.tyang.org/wp-content/uploads/2015/04/Full-Logo-Raw-Long-White-Background.png"><img class="alignleft  wp-image-3883" src="http://blog.tyang.org/wp-content/uploads/2015/04/Full-Logo-Raw-Long-White-Background-300x83.png" alt="Full Logo Raw Long White Background" width="412" height="114" /></a>
-
 Back in September 2011, after a short and unpleasant contracting experience, I joint a large Australian retailer as a senior systems engineer, focusing on their System Center infrastructure. I chose this company because the office location is close to home, the role was interesting (have a VERY large System Center environment to play with), and my wife and I were expecting a baby so I thought a permanent role suited me better. Now looking back the 3.5 years I have spent there, I have involved in multiple System Center implementation and upgrade projects, written countless amount of management packs, trained many of my colleagues in various System Center products, and most importantly, continued blogging on this blog and earned my System Center Cloud and Datacenter Management MVP title.
 
 Like all good things come to an end, I have realised it is time for me to move on and I have tendered my resignation 2 weeks ago. My last day as a full time employee there is Friday 1st of May 2015.

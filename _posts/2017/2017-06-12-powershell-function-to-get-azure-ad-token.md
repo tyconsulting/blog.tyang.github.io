@@ -41,7 +41,8 @@ $GetResourceGroupsRequest = Invoke-WebRequest -UseBasicParsing -Uri $URI -Method
 
 ```
 <strong>Using AAD Application Service Principals:</strong>
-<pre class="" language="PowerShell">$TenantId = 'your AAD tenant Id'
+```powershell
+$TenantId = 'your AAD tenant Id'
 $subscriptionId = 'your azure sub id'
 $AADAppId = 'Your Azure AD Application Id'
 $AADAppPassword = ConvertTo-SecureString -String 'password1234' -AsPlainText -force

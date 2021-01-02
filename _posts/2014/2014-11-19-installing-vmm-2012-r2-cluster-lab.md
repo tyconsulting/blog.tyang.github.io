@@ -16,12 +16,12 @@ I needed to build a 2-node VMM 2012 R2 cluster in my lab in order to test an Ops
 ## AD Computer accounts:
 
 I pre-staged 4 computer accounts in the existing OU where my existing VMM infrastructure is located:
-<ul>
-	<li>VMM01 – VMM cluster node #1</li>
-	<li>VMM02 – VMM cluster node #2</li>
-	<li>VMMCL01 – VMM cluster</li>
-	<li>HAVMM – Cluster Resource for VMM cluster</li>
-</ul>
+
+* VMM01 – VMM cluster node #1
+* VMM02 – VMM cluster node #2
+* VMMCL01 – VMM cluster
+* HAVMM – Cluster Resource for VMM cluster
+
 <a href="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML14878767.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML14878767" src="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML14878767_thumb.png" alt="SNAGHTML14878767" width="598" height="252" border="0" /></a>
 
 I assign VMMCL01 full control permission to the HAVMM (Cluster resource) computer AD account:
@@ -82,7 +82,7 @@ Completion
 
 Run VMM install again on the second cluster node.
 
-As instructed in the completion window, run ConfigureSCPTool<strong>.exe –AddNode HAVMM.corp.tyang.org CORP\HAVMM$</strong>
+As instructed in the completion window, run ConfigureSCPTool**.exe –AddNode HAVMM.corp.tyang.org CORP\HAVMM$**
 
 Cluster Role is now created and can be started:
 
@@ -95,20 +95,18 @@ In order to integrate VMM and OpsMgr, OpsMgr agent and console need to be instal
 ## Installing Update Rollup
 
 After OpsMgr components are installed, I then installed the following updates from the latest System Center 2012 R2 Update Rollup (UR 4 at the time of writing):
-<ul>
-	<li>OpsMgr agent update</li>
-	<li>OpsMgr console update</li>
-	<li>VMM management server update</li>
-	<li>VMM console update</li>
-</ul>
+
+* OpsMgr agent update
+* OpsMgr console update
+* VMM management server update
+* VMM console update
+
 
 ## Connect VMM to OpsMgr
 
 I configured OpsMgr connection in VMM console:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/11/2014-11-19_22-29-43.jpg"><img class="alignnone  wp-image-3350" src="http://blog.tyang.org/wp-content/uploads/2014/11/2014-11-19_22-29-43.jpg" alt="2014-11-19_22-29-43" width="537" height="399" /></a>
-
-&nbsp;
 
 ## Conclusion
 

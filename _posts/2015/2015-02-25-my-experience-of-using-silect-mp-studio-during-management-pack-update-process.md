@@ -18,13 +18,13 @@ Today, one of my colleagues came to me seeking help on an error logged in the Op
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/02/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb10.png" alt="image" width="506" height="355" border="0" /></a>
 
-It’s obvious the offending script(GetSQL2012SPNState.vbs) is from the SQL 2012 MP, and we can tell the error is that the computer FQDN where WMI is trying to connect to is incorrect. In the pixelated area, the FQDN contains the NetBIOS computer name plus <strong>2</strong> domain names from the same forest.
+It’s obvious the offending script(GetSQL2012SPNState.vbs) is from the SQL 2012 MP, and we can tell the error is that the computer FQDN where WMI is trying to connect to is incorrect. In the pixelated area, the FQDN contains the NetBIOS computer name plus **2** domain names from the same forest.
 
 I knew the SQL MP in our production environment is 2 version behind (Currently on version 6.4.1.0), so I wanted to find out if the latest one (6.5.4.0) has fixed this issue.
 
 Therefore, as I always do, I firstly went through the change logs in the MP guide. The only thing I can find that might be related to SPN monitoring is this line:
 
-<em><span style="text-decoration: underline;">SPN monitor now has overridable ‘search scope’ which allows the end user to choose between LDAP and Global Catalog</span></em>
+<span style="text-decoration: underline;">SPN monitor now has overridable ‘search scope’ which allows the end user to choose between LDAP and Global Catalog</span>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/02/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb11.png" alt="image" width="454" height="184" border="0" /></a>
 
@@ -63,17 +63,17 @@ After seeing this, I took an educated guess that this could be the fix to our is
 ## Conclusion
 
 Updating management packs has always been a challenging task (for everyone I believe). In my opinion, we are all facing challenges because not knowing EXACTLY what has been changed. This is because:
-<ul>
-	<li>It is impossible to read and compare each MP files (i.e. the SQL 2012 Monitoring MP has around 50,000 lines of code, then plus the 2008 and 2005 MP, plus the library MP, etc.), they are just too big to read!</li>
-	<li>MP Guide normally only provides a vague description in the change log (if the are change logs after all).</li>
-	<li>Any bugs caused by the human error would not be captured in the change logs.</li>
-	<li>Sometimes it is harder to test a MP in test environment because test environments normally don’t have the same load as production, therefore it is harder to test some workflows (i.e. performance monitors).</li>
-</ul>
+
+* It is impossible to read and compare each MP files (i.e. the SQL 2012 Monitoring MP has around 50,000 lines of code, then plus the 2008 and 2005 MP, plus the library MP, etc.), they are just too big to read!
+* MP Guide normally only provides a vague description in the change log (if the are change logs after all).
+* Any bugs caused by the human error would not be captured in the change logs.
+* Sometimes it is harder to test a MP in test environment because test environments normally don’t have the same load as production, therefore it is harder to test some workflows (i.e. performance monitors).
+
 And we normally rely on the following sources to make our judgement:
-<ul>
-	<li>The MP Guide. – Only if the changes are captured in the guide, and they are normally very vague.</li>
-	<li>Social media (tweets and blogs) – but this is only based on the blog author’s experience, the bug you have experienced may not been seen in other people’s environment (i.e. this particular error I mentioned in this post probably won’t happen in my lab because I only have a single domain in the forest).</li>
-</ul>
+
+* The MP Guide. – Only if the changes are captured in the guide, and they are normally very vague.
+* Social media (tweets and blogs) – but this is only based on the blog author’s experience, the bug you have experienced may not been seen in other people’s environment (i.e. this particular error I mentioned in this post probably won’t happen in my lab because I only have a single domain in the forest).
+
 Normally, you’d wait someone else to be the guinea pig, test it out and let you know if there are any issues before you start updating your environment (i.e. the recent <a href="https://nocentdocent.wordpress.com/2015/01/13/scom-os-mp-6-0-7294-0-serious-flaw/">bug in Server OS MP 6.0.7294.0 was firstly identified by SCCDM MVP Daniele Grandini</a> and it was soon been removed from the download site by microsoft).
 
 In MP Studio, the feature that I wanted to explore the most is the MP compare function. It really provides OpsMgr administrators a detailed view on what has been changed in the MP and you (as OpsMgr admin) can use this information to make better decisions (i.e. whether to upgrade or not? are there any additional overrides required?). Based on today’s experience, if I start timing before I loaded the MPs into the repository, it probably took me less than 15 minutes to identify this MP update is something very worth trying (in order to fix my production issue).

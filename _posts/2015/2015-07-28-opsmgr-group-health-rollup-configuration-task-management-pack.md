@@ -12,7 +12,6 @@ tags:
   - Management Pack
   - SCOM
 ---
-
 ## Introduction
 
 In OpsMgr, groups are frequently used when designing service level monitoring and dashboards. The group members’ health rollup behaviours can be configured by creating various dependency monitors targeting against the group.
@@ -42,23 +41,23 @@ Although a set of required parameters are pre-configured for the agent task, the
 The following parameters can be customized via overrides:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image41.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb41.png" alt="image" width="576" height="445" border="0" /></a>
-<ul>
-	<li><b>Health Rollup Policy</b><b>：</b> Possible values: 'BestOf', 'WorstOf','Percentage'.</li>
-	<li><b>Worst state of the percentage in healthy state</b><b>：</b> Integer between 1 and 100. Only used when Algorithm is set to 'Percentage'.</li>
-	<li><b>Member Unavailable Rollup As</b><b>：</b> Possible Values: 'Uninitialized', 'Success ', 'Warning' and 'Error'</li>
-	<li><b>Member in Maintenance Mode Rollup As</b><b>：</b> 'Uninitialized', 'Success', 'Warning' and 'Error'</li>
-	<li><b>Management Pack Name</b><b>：</b> The Management Pack name of which the monitors going to be saved. Only used when the group is defined in a sealed MP.'</li>
-	<li><b>Increase Management Pack version by 0.0.0.1</b><b>：</b> Specify if the management pack version should be increased by 0.0.0.1.</li>
-</ul>
-<span style="color: #ff0000;"><b>NOTE</b>: </span>Please <b><u>DO NOT</u></b> select multiple instance groups at once.
+
+* **Health Rollup Policy**<b>：</b> Possible values: 'BestOf', 'WorstOf','Percentage'.
+* **Worst state of the percentage in healthy state**<b>：</b> Integer between 1 and 100. Only used when Algorithm is set to 'Percentage'.
+* **Member Unavailable Rollup As**<b>：</b> Possible Values: 'Uninitialized', 'Success ', 'Warning' and 'Error'
+* **Member in Maintenance Mode Rollup As**<b>：</b> 'Uninitialized', 'Success', 'Warning' and 'Error'
+* **Management Pack Name**<b>：</b> The Management Pack name of which the monitors going to be saved. Only used when the group is defined in a sealed MP.'
+* **Increase Management Pack version by 0.0.0.1**<b>：</b> Specify if the management pack version should be increased by 0.0.0.1.
+
+<span style="color: #ff0000;">**NOTE**: </span>Please <b><u>DO NOT</u></b> select multiple instance groups at once.
 
 After the task is executed against a group, 4 dependency monitors are created:
-<ul>
-	<li>Availability Dependency Monitor</li>
-	<li>Configuration Dependency Monitor</li>
-	<li>Performance Dependency Monitor</li>
-	<li>Security Dependency Monitor</li>
-</ul>
+
+* Availability Dependency Monitor
+* Configuration Dependency Monitor
+* Performance Dependency Monitor
+* Security Dependency Monitor
+
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML7326e1c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7326e1c" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML7326e1c_thumb.png" alt="SNAGHTML7326e1c" width="619" height="461" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image42.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb42.png" alt="image" width="455" height="237" border="0" /></a>
@@ -79,4 +78,4 @@ Thanks Squared Up for making this management pack free to the community.
 
 This management pack can be downloaded from the link below:
 
-[wpdm_package id='4275']
+[DOWNLOAD](../../../../wp-content/uploads/2015/07/OpsMgr.Group.Health.Rollup.Task.zip)

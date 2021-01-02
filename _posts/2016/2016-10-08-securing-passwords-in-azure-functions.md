@@ -50,7 +50,8 @@ I then uploaded the key to the Azure Functions folder – I’ve already uploade
 I wrote a little PowerShell function (that runs on my PC, where a copy of the key file is stored) to encrypt the password.
 
 PowerShell function <strong>Get-EncryptedPassword</strong>:
-<pre class="" language="PowerShell">Function Get-EncryptedPassword
+```powershell
+Function Get-EncryptedPassword
 {
   param (
     [Parameter(Mandatory=$true,HelpMessage='Please specify the key file path')][ValidateScript({Test-Path $_})][String]$KeyPath,

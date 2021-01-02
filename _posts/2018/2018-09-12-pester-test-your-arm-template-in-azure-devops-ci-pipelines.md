@@ -137,7 +137,8 @@ outputs = 'adminUsername'
 
 ```
 Test ARM template file with only the resources elements:
-<pre language="PowerShell" class="">
+```powershell
+
 $params = @{
 TemplatePath = 'c:\temp\azuredeploy.json'
 resources = 'Microsoft.Compute/virtualMachines', 'Microsoft.Network/networkInterfaces', 'Microsoft.Network/publicIpAddresses'

@@ -4,6 +4,10 @@ title: 'Use of ConfigMgr 2012 Client MP: Real Life Examples'
 date: 2014-10-16T13:53:51+10:00
 author: Tao Yang
 #layout: post
+excerpt: ""
+header:
+  overlay_image: /wp-content/uploads/2014/10/Compliance.png
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 guid: http://blog.tyang.org/?p=3258
 permalink: /2014/10/16/use-configmgr-2012-client-mp-real-life-examples/
 categories:
@@ -13,7 +17,8 @@ tags:
   - SCCM
   - SCOM
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/Compliance.png"><img class="alignleft" style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Compliance" src="http://blog.tyang.org/wp-content/uploads/2014/10/Compliance_thumb.png" alt="Compliance" width="206" height="244" border="0" /></a>Last week, while I was assisting with few production issues in a ConfigMgr 2012 environment, I had to quickly implement some monitoring for some ConfigMgr 2012 site systems. By utilising the most recent release of ConfigMgr 2012 Client management pack (version 1.2.0.0) and few DCM baselines, I managed to achieve the goals in a short period of time. The purpose of this post is to share my experience and hopefully someone can pick few tips and tricks from it.
+
+Last week, while I was assisting with few production issues in a ConfigMgr 2012 environment, I had to quickly implement some monitoring for some ConfigMgr 2012 site systems. By utilising the most recent release of ConfigMgr 2012 Client management pack (version 1.2.0.0) and few DCM baselines, I managed to achieve the goals in a short period of time. The purpose of this post is to share my experience and hopefully someone can pick few tips and tricks from it.
 
 ## Background
 
@@ -32,6 +37,7 @@ To achieve both goals, I created 2 DCM baselines and targeted them to appropriat
 ## Duplicate AD Computer Account Baseline
 
 This baseline contains only 1 Configuration Item (CI). the CI uses a script to detect if the computer account exists in other domains. Here’s the script (note the domain names need to be modified in the first few lines):
+
 ```powershell
 #list of domains to check
 $arrDomains = new-object System.Collections.Arraylist
@@ -42,37 +48,37 @@ $arrDomains = new-object System.Collections.Arraylist
 #region functions
 Function Search-ADComputer
 {
-param
-(
-[String]$domain,
-[String]$ComputerName
-)
+  param
+  (
+    [String]$domain,
+    [String]$ComputerName
+  )
 
-#Get Domain DN
-If ($DomainDN)
-{
-Remove-Variable DomainDN
-}
-$DomainSplit = $domain.split('.')
-For ($i=0; $i -lt $DomainSplit.count; $i++)
-{
-$DC = $DomainSplit[$i]
-$DomainDN = $DomainDN + ",DC=$DC"
-}
-$DomainDN = $($DomainDN.TrimEnd(',')).TrimStart(',')
-$DomainDN = "LDAP://$DomainDN"
-$Searcher = New-Object -TypeName System.DirectoryServices.DirectorySearcher
-$Searcher.SearchRoot = $DomainDN
-$Searcher.Filter = "(&(objectCategory=Computer)(name=$ComputerName))"
-Try {
-FOREACH ($Computer in $($Searcher.FindAll()))
-{
-$DN = $($Computer.properties.distinguishedname)
-}
-} Catch {
-$DN = $NULL
-}
-$DN
+  #Get Domain DN
+  If ($DomainDN)
+  {
+    Remove-Variable DomainDN
+  }
+  $DomainSplit = $domain.split('.')
+  For ($i=0; $i -lt $DomainSplit.count; $i++)
+  {
+    $DC = $DomainSplit[$i]
+    $DomainDN = $DomainDN + ",DC=$DC"
+  }
+  $DomainDN = $($DomainDN.TrimEnd(',')).TrimStart(',')
+  $DomainDN = "LDAP://$DomainDN"
+  $Searcher = New-Object -TypeName System.DirectoryServices.DirectorySearcher
+  $Searcher.SearchRoot = $DomainDN
+  $Searcher.Filter = "(&(objectCategory=Computer)(name=$ComputerName))"
+  Try {
+    FOREACH ($Computer in $($Searcher.FindAll()))
+    {
+      $DN = $($Computer.properties.distinguishedname)
+    }
+  } Catch {
+    $DN = $NULL
+  }
+  $DN
 }
 #endregion
 
@@ -83,27 +89,24 @@ $Domain = $objCS.domain.tolower()
 
 #Remove the current domain from arraylist
 if ($arrDomains.contains($Domain)){
-$arrDomains.Remove($Domain)
+  $arrDomains.Remove($Domain)
 }
 
 #Search other domains
 $bDuplicateFound = $false
 Foreach ($domain in $arrDomains)
 {
-$SearchResult = Search-ADComputer $domain $ComputerName
-If ($SearchResult)
-{
-$bDuplicateFound = $true
-}
+  $SearchResult = Search-ADComputer $domain $ComputerName
+  If ($SearchResult)
+  {
+    $bDuplicateFound = $true
+  }
 }
 $bDuplicateFound
-
 ```
 In order for the CI to be compliant, the return value from the script needs to be "False" (no duplicate accounts found).
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb7.png" alt="image" width="431" height="447" border="0" /></a>
-
-&nbsp;
 
 ## Distribution Point Configuration Baseline
 
@@ -130,6 +133,6 @@ So what do I need to configure now in OpsMgr for the alerts to go through? The a
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML6373dbb.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6373dbb" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML6373dbb_thumb.png" alt="SNAGHTML6373dbb" width="554" height="302" border="0" /></a>
 
-<strong>Conclusion</strong>
+## Conclusion
 
 By utilising the DCM baseline monitoring capability in ConfigMgr 2012 Client MP can greatly simply the processes of monitoring configuration items of targeted endpoints. As showed in these 2 examples, there is no requirement of having OpsMgr administrators involved. Additionally, it is much simpler to create collections for deploying DCM baselines than defining target classes and discoveries in OpsMgr (in order to target the monitors / rules). I encourage you (both ConfigMgr admins and OpsMgr admins) to give it a try, and hopefully you will find it beneficial.

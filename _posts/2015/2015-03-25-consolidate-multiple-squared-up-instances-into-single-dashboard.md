@@ -54,4 +54,4 @@ More information about Connected MG can be found here: <a title="https://technet
 
 By using the Iframe Plugin, you simply consolidate the views into a single page, therefore the limitations for connected MGs listed above don’t apply here.
 
-This is what I have to share today. As I mentioned in the beginning of this article, there will be more on managing multiple management groups in the future. so stay tuned <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/03/wlEmoticon-smile1.png" alt="Smile" />.
+This is what I have to share today. As I mentioned in the beginning of this article, there will be more on managing multiple management groups in the future. so stay tuned :smiley:.

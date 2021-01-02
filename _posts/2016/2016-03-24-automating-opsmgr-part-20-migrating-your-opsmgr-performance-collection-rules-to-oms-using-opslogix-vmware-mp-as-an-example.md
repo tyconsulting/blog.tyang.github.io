@@ -89,7 +89,8 @@ The script takes the following input parameters:
 <strong>Executing the script:</strong>
 
 I have added many verbose messages in the script, so you can use the optional –verbose switch when executing the script.
-<pre class="" language="PowerShell">$cred = Get-Credential
+```powershell
+$cred = Get-Credential
 
 .\Copy-PerfRulesToOMS.ps1 -ManagementServer "ManagementServerName" -Credential $cred -ManagementPackName "OpsLogix.IMP.VMWare.Monitoring" –Verbose
 
