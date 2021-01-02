@@ -19,7 +19,9 @@ Over the last couple of days, I have written few additional functions in the Ops
 	<li><strong>Set-MGDefaultSetting</strong> – Set any particular MG default setting</li>
 </ul>
 Since I haven’t seen anything similar to these on the net before, although they will be part of the module when I release it to the public later, I thought they are pretty cool and I’ll publish the code here now.
-<h3>Get-MGDefaultSettings</h3>
+
+## Get-MGDefaultSettings
+
 <pre language="PowerShell" class="">Function Get-MGDefaultSettings
 {
 &lt;# 
@@ -132,7 +134,9 @@ If you want to retrieve a particular setting, you can always use pipe ("|") and 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image10.png"><img class="" style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb10.png" alt="image" width="697" height="130" border="0" /></a>
 
 &nbsp;
-<h3>Set-MGDefaultSetting</h3>
+
+## Set-MGDefaultSetting
+
 <pre language="PowerShell" class="">Function Set-MGDefaultSetting
 {
 &lt;# 

@@ -20,7 +20,9 @@ Syncing data between on-prem locations and public cloud has become a very common
 
 Few weeks ago, <a href="https://www.synology.com/">Synology</a> reached out to me and asked me if I’d be interested to review their free <a href="https://www.synology.com/en-global/dsm/feature/cloud_sync">Cloud Sync</a> solution with Azure Storage. Since I’ve been thinking about replacing two 6-year old NAS devices at home, and wanting to move some files to Azure and OneDrive, I have accepted the offer. Although Synology supplied me with the NAS device (<a href="https://www.synology.com/en-global/products/DS920+">DS920+</a>), this is not a sponsored post, I’m only sharing my opinion based on my own experience.
 
-<h3>Installing Cloud Sync</h3>
+
+## Installing Cloud Sync
+
 
 Synology Cloud Sync is extremely easy to configure. Once you’ve logged in to the web portal of your Synology NAS, it can be found in the Package Center, you can install it with one click (and follow the wizard).
 
@@ -28,7 +30,9 @@ Once installed, we can start creating sync jobs. Cloud Sync supports many public
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/09/SNAGHTML540a34b.png"><img width="1032" height="432" title="SNAGHTML540a34b" style="display: inline; background-image: none;" alt="SNAGHTML540a34b" src="https://blog.tyang.org/wp-content/uploads/2020/09/SNAGHTML540a34b_thumb.png" border="0"></a>
 
-<h3>Azure Storage Account</h3>
+
+## Azure Storage Account
+
 
 Firstly, I have created an Azure Storage Account in Australia Southeast region since it’s the closest region to my home. I connected the storage account to a VNet, and added my home broadband’s IP address to the firewall rule so the NAS device can reach it (as shown below). This restrict accessing to the storage account only from the VNet it connects to, my home IP, and other Azure services (Since I’ve ticked Allow trusted Microsoft services to access this storage account).
 
@@ -86,7 +90,9 @@ At this stage, any changes on the NAS folder or the blob container will be repli
 
 <p>5.&nbsp; On the Azure Storage Account, I modified the test.txt file using Azure Storage Explorer, and saved the change directly to the storage account. Again, within few seconds, Synology NAS detected the change and downloaded the file from the storage account.
 
-<h3>Microsoft OneDrive (Personal)</h3>
+
+## Microsoft OneDrive (Personal)
+
 
 With Microsoft OneDrive, I have 2 real use cases:
 
@@ -109,7 +115,9 @@ All the other settings are the same as the Azure Storage, you can choose sync di
 
 For the OneDrive connection, I performed similar sets of tests that I previously performed for the Storage Account, the behaviour is very similar – locally initiated changes trigger synchronisation which gets replicated to OneDrive as soon as the changes are made. However, changes on the OneDrive don’t seem to get replicated to the local folder as quickly as when syncing with Azure Storage Account. the default polling interval for OneDrive is 600 seconds (every 10 minutes), I tried to decrease it to 15 seconds, but it doesn’t seem like Cloud Sync is polling OneDrive every 15 seconds as configured. the files did appear on the NAS share after around 10 minutes though. This is not a big deal, I can live with it.
 
-<h3>Conclusion</h3>
+
+## Conclusion
+
 
 Overall, I’m pretty happy with the feature Cloud Sync offers.
 

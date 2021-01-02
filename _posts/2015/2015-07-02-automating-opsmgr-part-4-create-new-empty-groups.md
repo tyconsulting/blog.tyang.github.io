@@ -16,7 +16,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 4th instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -59,7 +61,9 @@ I simply coded the group populator data source to always return nothing by using
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb4.png" alt="image" width="244" height="127" border="0" /></a>
 
 Since populating groups can get complicated, and I think it will be very useful for people to use the <strong>OpsMgrExtended</strong> module to create and manage groups, I will dedicate this post and the next few posts in this blog series on creating and managing groups. So, please consider this as the first episode of the "sub series". In this post, I will demonstrate a simple runbook that you can use to create instance groups and computer groups.
-<h3>Runbook: New-Group</h3>
+
+## Runbook: New-Group
+
 ```powershell
 
 Workflow New-Group
@@ -110,7 +114,9 @@ Write-Error "Unable to create group `"$GroupName`"."
 }
 
 ```
-<h3>Executing Runbook</h3>
+
+## Executing Runbook
+
 Creating Instance Group:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb5.png" alt="image" width="548" height="554" border="0" /></a>
@@ -118,7 +124,9 @@ Creating Instance Group:
 Creating Computer Group:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb6.png" alt="image" width="491" height="598" border="0" /></a>
-<h3>Results:</h3>
+
+## Results:
+
 In Operations Console:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb7.png" alt="image" width="591" height="202" border="0" /></a>
@@ -138,7 +146,9 @@ Management Pack - Computer Group Discovery:
 Management Pack - Language Pack:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb11.png" alt="image" width="534" height="273" border="0" /></a>
-<h3>Additional Readings</h3>
+
+## Additional Readings
+
 Over the years I've been working with OpsMgr, I've booked mark the following great blog articles on creating groups in OpsMgr. You might find some of them useful:
 <ul>
 	<li><a href="http://blogs.technet.com/b/jonathanalmquist/archive/2010/04/28/how-to-create-a-computer-group-in-the-r2-authoring-console.aspx" target="_blank">How to create a computer group in the R2 Authoring Console</a> - by Jonathan Almquist</li>
@@ -157,5 +167,7 @@ Also, few previous posts from this blog:
 	<li><a href="http://blog.tyang.org/2015/01/18/creating-opsmgr-instance-group-computers-running-application-health-service-watchers/" target="_blank">Creating OpsMgr Instance Group for All Computers Running an Application and Their Health Service Watchers</a></li>
 	<li><a href="http://blog.tyang.org/2014/04/23/using-computers-health-service-watchers-groups-management-group-containing-clusters/" target="_blank">Using Computers And Health Service Watchers Groups in a Management Group containing Clusters</a></li>
 </ul>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 In this post, I have demonstrated how to create computer groups and instance groups without any members. In the next post, I will demonstrate a runbook to add an explicit member to a computer group.

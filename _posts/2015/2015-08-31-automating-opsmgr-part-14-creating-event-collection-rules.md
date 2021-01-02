@@ -16,7 +16,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 14th installment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -44,7 +46,9 @@ In the <strong>OpsMgrExtended</strong> module, there is a function called <stron
 A side note here, Last week, I received an email asked me if the OpsMgrExtended module can be used outside of SMA and Azure Automation. The answer is yes, it can be used as a normal PowerShell module. for all the functions included in the module, you can access the examples by using the Get-Help cmdlet with –Full or –Example switch:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image43.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb43.png" alt="image" width="674" height="520" border="0" /></a>
-<h3>Runbook: New-EventCollectionRule</h3>
+
+## Runbook: New-EventCollectionRule
+
 ```powershell
 Workflow New-EventCollectionRule
 {
@@ -146,5 +150,7 @@ Load the workflow:
 Execute the workflow:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image50.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb50.png" alt="image" width="695" height="212" border="0" /></a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 In this post, I have demonstrated how to create an event collection rule using OpsMgrExtended module, with and without automation engines such as SMA and Azure Automation. I will demonstrate how to create a 2-state event monitor in the next post of the Automating OpsMgr series. Until next time, happy automating!

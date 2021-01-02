@@ -13,7 +13,9 @@ tags:
   - PowerShell
   - SCSM
 ---
-<h3>Background</h3>
+
+## Background
+
 In my previous post <a href="http://blog.tyang.org/2015/02/22/writing-powershell-modules-that-interact-with-various-sdk-assemblies/">Writing PowerShell Module That Interact With Various SDK Assemblies</a>, I’ve explained how to create a PowerShell module that embeds various SDK DLLs and I’ve used System Center Service Manager SDK as an example. Well, the reason that I created the module for Service Manager SDK is because I needed to write a script to extract CMDB data from Service Manager. In this post, I’ll go through what’ I’ve done and the script can also be downloaded at the end of the article.
 
 So, I needed to write a script to export configuration items from Service Manager, I have the following requirements:
@@ -25,9 +27,13 @@ So, I needed to write a script to export configuration items from Service Manage
 	<li>Be able to filter unwanted relationships (from being exported).</li>
 </ul>
 After evaluating different options, I have decided to directly interact with Service Manager SDK in the script instead of using the native Service Manager PowerShell module and the community based module <a href="https://smlets.codeplex.com/">SMLets</a>.
-<h3>Pre-requisite</h3>
+
+## Pre-requisite
+
 As I just mentioned, this script requires the SMSDK module I have created previously (you will have to locate the SDK DLLs from your Service Manager management server and copy them to the module folder as I explained in the previous post).
-<h3>Configuration</h3>
+
+## Configuration
+
 In order to make the script generic while being extendable, I’ve used a XML file to define various configurations for the script:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb.png" alt="image" width="691" height="596" border="0" /></a>
@@ -43,7 +49,9 @@ I have added a lot of comments in this XML file so it should be very self-explan
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb1.png" alt="image" width="678" height="440" border="0" /></a>
 
 &nbsp;
-<h3>Script</h3>
+
+## Script
+
 Since I have written a lot of scripts using OpsMgr SDK in the past, I didn’t find Service Manager SDK too hard (although this is only the second time I’ve written scripts for Service Manager). The script itself is fairly simple and short:
 ```powershell
 
@@ -254,7 +262,9 @@ $XML.save($configXml)
 To execute the script, simply pass the service management server name (user name and password are optional), and you can also use -verbose if you'd like to see verbose messages:
 
 <strong>.\SMConfigItemExtract.ps1 -ManagementServer SCSMMS01 -verbose</strong>
-<h3>Outputs</h3>
+
+## Outputs
+
 This script will create a separate CSV file for each CI class that’s configured in the XML. It will also create a single CSV file for ALL relationships export:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb2.png" alt="image" width="488" height="103" border="0" /></a>
@@ -264,7 +274,9 @@ This script will create a separate CSV file for each CI class that’s configure
 The script also writes the execution time stamp to the config.xml under &lt;LastSyncFileDateUTC&gt;. When the script runs next time, it will retrieve this value and only export the configuration items that have been changed after this time stamp. If you need to force a full sync, please manually remove the value in this tag:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb3.png" alt="image" width="463" height="124" border="0" /></a>
-<h3>Download</h3>
+
+## Download
+
 You can download the prerequisite SMSDK PowerShell module <a href="http://blog.tyang.org/wp-content/uploads/2015/02/SMSDK.zip">HERE</a>.
 
 You can download the script and the config.xml file <a href="http://blog.tyang.org/wp-content/uploads/2015/03/SCSMCIExport.zip">HERE</a>.

@@ -16,7 +16,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 6th instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -26,7 +28,9 @@ This is the 6th instalment of the Automating OpsMgr series. Previously on this s
 	<li><a href="http://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/" target="_blank">Automating OpsMgr Part 5: Adding Computers to Computer Groups</a></li>
 </ul>
 In part 4, I have demonstrated how to create empty instance groups and computer groups using the <strong>OpsMgrExtended</strong> module and in part 5, I've demonstrated how to add a Windows Computer object to a Computer Group as an explicit member. In this post, I will share a runbook that adds a monitoring object to an Instance Group. As I mentioned in Part 4, I will dedicated few posts on creating and managing OpsMgr groups, this post would be the 3rd post on this topic.
-<h3>Runbook Add-ObjectToInstanceGroup</h3>
+
+## Runbook Add-ObjectToInstanceGroup
+
 <pre language="PowerShell" class="">
 Workflow Add-ObjectToInstanceGroup
 {
@@ -326,5 +330,7 @@ i.e.
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image27.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb27.png" alt="image" width="608" height="173" border="0" /></a>
 
 <em>ce2dd108-0129-4fc0-842b-347311cb9107:[localhost]:The Monitoring Object 'Microsoft.SystemCenter.VirtualMachineManager.201 2.HyperVHost:HYPERV03.corp.tyang.org;2541ebea-50ae-4d4b-8755-5b77a50cd32b' (ID:'fabfe649-921c-cf17-d198-0fba29cee9ff') is already a member of the instance group Group.Creation.Demo.Demo.Instance.Group. No need to add it again. Aborting.</em>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 This is a rather complicated runbook and most of the code runs within InlineScript. To make everyone's life easier, I will add this as a function in the OpsMgrExtended module upon next release. In the next post, I will demonstrate how to update a group by updating the group discovery.

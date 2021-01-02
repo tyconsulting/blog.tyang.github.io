@@ -19,7 +19,9 @@ The ARM template deployment <a href="https://docs.microsoft.com/en-us/azure/azur
 
 In a nutshell, comparing to the existing ARM template validation capability (<a href="https://docs.microsoft.com/en-us/powershell/module/az.resources/test-azresourcegroupdeployment" target="_blank" rel="noopener noreferrer">Test-AzResourceGroupDeployment</a>, <a href="https://docs.microsoft.com/en-us/powershell/module/az.resources/test-azdeployment" target="_blank" rel="noopener noreferrer">Test-AzDeployment</a>, etc.), the what-if API provides additional capability that provides you an overview on if your template is deployed, what resources will be created / deleted and modified. Although the what-if API is still in preview and still have many rough edges, I think it’s now the time to get my hands dirty and start playing with it. I’ll share my experience and opinions in this post.
 
-<h3>What-If API vs Existing ARM Template Validation</h3>
+
+## What-If API vs Existing ARM Template Validation
+
 
 Prior to the What-If API, we’ve always had way to validate our ARM templates. the latest Azure Powershell module ships the following commands for validating different types of ARM template:
 
@@ -42,7 +44,9 @@ It will also detect syntax errors in the template:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/04/image-1.png"><img width="1052" height="83" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2020/04/image_thumb-1.png" border="0"></a>
 
-<h3>What-If API vs Terraform Plan</h3>
+
+## What-If API vs Terraform Plan
+
 
 If you have used Terraform before, the what-if API will probably remind you of <a href="https://www.terraform.io/docs/commands/plan.html" target="_blank" rel="noopener noreferrer">terraform plan</a>, which does exactly what what-if does, but the significant difference between ARM what-if API and terraform plan is: <font style="background-color: rgb(255, 255, 0);">what-if API does not use state files</font>. This is a huge advantage comparing to Terraform.
 
@@ -66,7 +70,9 @@ To tackle the problem with sharing state files between multiple developers, Hash
 
 So, what about the ARM What-if API? it <strong>DOES NOT use any kind of offline state files</strong>. When you use it to evaluate your ARM template, it compares what’s defined in your template with what’s deployed in your Azure environment in real life. This is a HUGE advantage. I’ve heard so many people bragging about how useful terraform plan output is, and now, Microsoft just introduced the same capability in native ARM APIs, and removed the complexity of having to maintain offline state files.
 
-<h3>What-If in Action</h3>
+
+## What-If in Action
+
 
 To test it out, I’ve created a simple ARM template that creates the following resources:
 
@@ -100,13 +106,17 @@ if you want to programmatically manipulate the changes, you can access them as t
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/04/image-5.png"><img width="650" height="491" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2020/04/image_thumb-5.png" border="0"></a>
 
-<h3>Reducing Noise</h3>
+
+## Reducing Noise
+
 
 Since the What-if API is still in preview, it’s not perfect. It is only as good as how well each Azure Resource Provider is implemented. You will see some false positive depending on the resource types. For example, from my previous screenshot for the result when adding bastion hosts, it has shown all the subnets will be deleted. Obviously, this is not the case. What-If leverages a purposely built noise reduction service in Azure to calculate the result when you call it. The product group is still working on reducing the false positivise. It is explained here why does noise occur: <a href="https://github.com/Azure/arm-template-whatif#why-does-noise-occur">https://github.com/Azure/arm-template-whatif#why-does-noise-occur</a>.
 
 I strongly encourage you to try it out, file issues if you’ve experienced false positives or other bugs at it’s GitHub repo: <a href="https://aka.ms/whatifissues">https://aka.ms/whatifissues</a>
 
-<h3>What’s Next?</h3>
+
+## What’s Next?
+
 
 As this API gradually become more and more mature, I will definitely try to incorporate into my CI/CD pipelines. Once I’ve got something worth showing, i will post my solution here.
 

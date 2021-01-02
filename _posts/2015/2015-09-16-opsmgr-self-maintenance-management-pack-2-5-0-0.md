@@ -17,9 +17,13 @@ tags:
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/OMSelfMaintMPIcon.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px none;" title="OMSelfMaintMPIcon" src="http://blog.tyang.org/wp-content/uploads/2015/09/OMSelfMaintMPIcon_thumb.png" alt="OMSelfMaintMPIcon" width="125" height="122" align="left" border="0" /></a><span style="color: #ff0000;">26/10/2015 Update: It has been identified the unsealed override MP was not included in the download, and also there was a small error in "Known Issue" section (section 8) of the MP guide. Therefore I have just updated the download which now included the override MP and updated MP guide. However, if you have already downloaded the version 2.5.0.1, and only after the override MP, you can download it from <a href="http://blog.tyang.org/wp-content/uploads/2015/10/OpsMgr.2012.Self_.Maintenance.Overrides.zip">HERE</a>.</span>
 
 <span style="color: #ff0000;">18/09/2015 Update: A bug has been identified in version 2.5.0.0, where the newly added Data Warehouse DB staging tables row count performance collection rules is causing issues with the Exchange Correlation service from the of Exchange MP (Please refer to the comment section of this post) because the rule category is set to "None". I have updated the category of these performance collection rules in both the Self Maintenance MP and the OMS Add-On MP. Please re-download the MP (version 2.5.0.1) if you have already downloaded it and you are using Exchange MP in your environment.</span>
-<h3>Introduction</h3>
+
+## Introduction
+
 I can’t believe it has been 1 year and 3 month since the OpsMgr Self Maintenance MP was lastly updated. This is partially because over the last year or so, I have been spending a lot of time developing the OpsMgr PowerShell / SMA module OpsMgrExtended and am stilling working on the <a href="http://blog.tyang.org/tag/automating-opsmgr/">Automating OpsMgr blog series</a>.  But I think one of the main reasons is that I did not get too many new ideas for the next release. I have decided to start working on version 2.5 of the Self Maintenance MP few weeks ago, when I realised I have collected enough resources for a new release. So, after few weeks of development and testing, I’m pleased to announce the version 2.5 is ready for the general public.
-<h3>What’s new in version 2.5?</h3>
+
+## What’s new in version 2.5?
+
 <ul>
 	<li>Bug Fix: corrected "Collect All Management Server SDK Connection Count Rule" where incorrect value may be collected when there are gateway servers in the management group.</li>
 	<li>Additional Performance Rules for Data Warehouse DB Staging Tables row count.</li>
@@ -139,7 +143,9 @@ This rule was inspired by this blog post (although the script used in this rule 
 Having ability to automatically reset health state for manually closed monitor alerts must be THE most popular suggestion I have received for the Self Maintenance MP. I get this suggestions all the time, from the community, and also from MVPs. Originally, my plan was to write a brand new rule for this purpose. I then realised I already have created a rule to detect any manually closed monitor alerts. So instead of creating something brand new, I have updated the existing rule "OpsMgr 2012 Self Maintenance Detect Manually Closed Monitor Alerts Rule". In this release, this rule now has an additional overrideable parameter called "ResetUnitMonitors". This parameter is set to "false" by default. But when it is set to "true" via overrides, the script used by this rule will also reset the health state of the monitor of which generated the alert if the monitor is a unit monitor and its’ current health state is either warning or error:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb20.png" alt="image" width="480" height="228" border="0" /></a>
-<h3>OpsMgr Self Maintenance OMS Add On MP</h3>
+
+## OpsMgr Self Maintenance OMS Add On MP
+
 OK, we all have to admit, OMS is such a hot topic at the moment. Hopefully you all have played and read about this solution (if not, you can learn more about this product from Mr Pete Zerger’s survival guide for OMS:<a title="http://social.technet.microsoft.com/wiki/contents/articles/31909.ms-operations-management-suite-survival-guide.aspx" href="http://social.technet.microsoft.com/wiki/contents/articles/31909.ms-operations-management-suite-survival-guide.aspx">http://social.technet.microsoft.com/wiki/contents/articles/31909.ms-operations-management-suite-survival-guide.aspx</a>)
 
 With the release of version 2.5.0.0, the new "OpsMgr Self Maintenance OMS Add-On Management Pack" has been introduced.
@@ -201,13 +207,19 @@ SDK Connection Count Perf Data:
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb23.png" alt="image" width="623" height="396" border="0" /></a>
 
 Please refer to the MP guide section 7.2 for more information (and sample search queries) about these OMS data collection rules.
-<h3>Credit</h3>
+
+## Credit
+
 There are simply too many people to thank. I have mentioned few names in this post, but if I attempt to mention everyone who’s given me feedback, advise and helped me testing, I’m sure I’ll miss someone.
 
 So I’d like to thank the broader OpsMgr community for adopting this MP and for all the feedback and suggestions I’ve received.
-<h3>What’s Next?</h3>
+
+## What’s Next?
+
 Well, my another short time goal is to create a Squared Up dashboard for this MP, and release it in Squared Up’s upcoming community dashboard site.
 
 Speaking about the long time goal, my prediction is that the next release is probably going to be dedicated to OpsMgr 2016. I am planning to make a brand new MP for OpsMgr 2016 (instead of upgrading this build), so I am able to delete all the obsolete elements in the 2016 build. I will re-evaluate and test all the workflows in this MP, making sure it is still relevant for OpsMgr 2016.
-<h3>Download</h3>
+
+## Download
+
 You can download this MP from my company’s website <span style="font-size: large;"><strong><a href="http://www.tyconsulting.com.au/portfolio/opsmgr-self-maintenance-management-pack-v-2-5-0-0/">HERE</a></strong></span>

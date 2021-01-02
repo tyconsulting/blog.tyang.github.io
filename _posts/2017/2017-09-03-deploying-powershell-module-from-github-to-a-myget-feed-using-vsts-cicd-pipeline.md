@@ -39,7 +39,9 @@ In order to demonstrate the process, I have quickly written a PowerShell module 
 
 I’ll now go through the entire process of setting up the pipeline in VSTS.
 <h2>Creating and Configure Project in VSTS</h2>
-<h3>Create VSTS Project</h3>
+
+## Create VSTS Project
+
 1. Create a new project in VSTS, make sure use Git version control
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/09/image.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/09/image_thumb.png" alt="image" width="586" height="433" border="0" /></a>
@@ -47,7 +49,9 @@ I’ll now go through the entire process of setting up the pipeline in VSTS.
 2. Select ‘<strong>build code from an external repository</strong>’
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/09/image-1.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/09/image_thumb-1.png" alt="image" width="497" height="462" border="0" /></a>
-<h3>Create Build Definition</h3>
+
+## Create Build Definition
+
 3. Create new build definition
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/09/image-2.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/09/image_thumb-2.png" alt="image" width="428" height="212" border="0" /></a>
@@ -93,7 +97,9 @@ I’ll now go through the entire process of setting up the pipeline in VSTS.
 12. Save the build definition to "\" folder
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/09/image-12.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/09/image_thumb-12.png" alt="image" width="562" height="204" border="0" /></a>
-<h3>Create Release Definition</h3>
+
+## Create Release Definition
+
 13. Create a new release definition using an empty template
 
 <a href="https://blog.tyang.org/wp-content/uploads/2017/09/image-13.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/09/image_thumb-13.png" alt="image" width="560" height="324" border="0" /></a>

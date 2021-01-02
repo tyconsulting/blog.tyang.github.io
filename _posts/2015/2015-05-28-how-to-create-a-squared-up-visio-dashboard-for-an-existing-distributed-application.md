@@ -13,7 +13,9 @@ tags:
   - SCOM
   - SquaredUp
 ---
-<h3>Background</h3>
+
+## Background
+
 OK, it has been over a month since my last blog post. Not that I’ve been lazy, I’ve actually been crazily busy. As you may know, I’ve started working for Squared Up after Ignite. So, this is another blog about Squared Up – this time, I’ll touch base on the Visio dashboard.
 
 If you haven’t heard or played with Squared Up’s Visio Dashboard plug-in, you can find a good demo by Squared Up’s founder, Richard Benwell in one of Microsoft Ingite’s SCOM Sessions here: <a title="https://www.youtube.com/watch?v=cUc2RSaoHtI" href="https://www.youtube.com/watch?v=cUc2RSaoHtI">https://www.youtube.com/watch?v=cUc2RSaoHtI</a>
@@ -21,7 +23,9 @@ If you haven’t heard or played with Squared Up’s Visio Dashboard plug-in, yo
 If you already have a Visio diagram for your application (that’s been monitored by OpsMgr), it is really quick and easy to import it into Squared Up as a dashboard (as Richard demonstrated in the Ignite session). However, what if you don’t have Visio diagrams for aparticular application you want to create dashboard for (i.e. an Off-The-Shelve application such as AD, ConfigMgr, etc.)? If this is the case, you can manually create the Visio diagram – and hopefully you are able to find the relevant stencils for your applications. But, this can take a lot of time. If you are like me, who really hate drawing Visio diagrams, you probably won’t enjoy this process too much.
 
 In this post, I’ll show you how to quickly produce a Visio dashboard in Squared Up for an existing application that’s been monitored by SCOM. I’ll use the Windows Azure Pack Distributed Application from the community WAP management pack as an example (developed by Oskar Landman from Inovativ: <a title="http://www.systemcentercentral.com/windows-azure-pack-scom-management-pack/" href="http://www.systemcentercentral.com/windows-azure-pack-scom-management-pack/">http://www.systemcentercentral.com/windows-azure-pack-scom-management-pack/</a>).
-<h3>Walkthrough</h3>
+
+## Walkthrough
+
 <strong>01. In OpsMgr console, open the diagram view for the DA of your choice and export it to a Visio .vdx file:</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/05/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/05/image_thumb.png" alt="image" width="591" height="436" border="0" /></a>
@@ -106,7 +110,9 @@ I’ve then hidden the data in Visio, exported it as a .SVG file, and produced a
 Which is very similar to the diagram view in OpsMgr console:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/05/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/05/image_thumb13.png" alt="image" width="493" height="370" border="0" /></a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 If you already have Squared Up in your environment, I hope you find this blog post useful. As I demonstrated, it is really easy to create a Squared Up dashboard for your existing Distributed Applications – and I’ve already done the hard work for you (creating the script for looking up monitoring object IDs).
 
 As we all know, Squared Up is based on HTML 5 and it’s cross platform, You can use it on browsers other than IE, as well as mobile devices such as an Android tablet. The picture below is my Lenovo Yoga Tab 2 Android tablet displaying this Squared Up WAP dashboard I’ve just created <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/05/wlEmoticon-smile.png" alt="Smile" />

@@ -19,7 +19,9 @@ Often when you are playing with security related products, you would need to cre
 I have used this method in the past when testing the Microsoft Forefront Endpoint Protection management pack in OpsMgr. Today I needed to use it again when I was preparing a demo for the OMS Malware Assessment. I thought, why not make an Azure Automation runbook that automatically create the EICAR test file for me on remote computers, so I can trigger it manually or schedule it to run on a regular basis? So here’s what I came up with.
 
 <strong><span style="color: #ff0000;">CAUTION:</span></strong> Use it at your own risk! And obviously, this runbook is designed to run on hybrid workers <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/11/wlEmoticon-smile1.png" alt="Smile" />.
-<h3>Runbook: New-FakeVirus</h3>
+
+## Runbook: New-FakeVirus
+
 ```powershell
 #=========================================================
 # AUTHOR:  Tao Yang 
@@ -64,7 +66,9 @@ You will need to specify 3 optional input parameters:
 	<li>ComputerName: The target computer of where the fake virus is going to be created, if not specified, it will be created on the runbook worker itself.</li>
 	<li>Folder: the folder of where the file is going to be created on the target computer. If not specified, the runbook will use the System environment variable %TEMP%.</li>
 </ul>
-<h3>Runbook Output:</h3>
+
+## Runbook Output:
+
 <a href="http://blog.tyang.org/wp-content/uploads/2015/11/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/11/image_thumb7.png" alt="image" width="672" height="243" border="0" /></a>
 
 If your Windows Defender or System Center Endpoint Protection (SCEP) is working correctly, you will see this on your target computer straightaway:

@@ -59,7 +59,9 @@ Lastly, I used the Compare Plugin from NotePad++ to compare the differences in b
 <a href="http://blog.tyang.org/wp-content/uploads/2015/02/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb16.png" alt="image" width="700" height="277" border="0" /></a>
 
 After seeing this, I took an educated guess that this could be the fix to our issue and asked my colleague to load MP version 6.5.4.0 into our Test management group to see if it fixes the issue. When we went to load the MP, we found out that I have already loaded it in Test (I’ve been extremely busy lately and I forgot I did it!). So my colleague checked couple of DPM servers in our test environment and confirmed the error does not exist in Test. It seems we have nailed this issue.
-<h3>Conclusion</h3>
+
+## Conclusion
+
 Updating management packs has always been a challenging task (for everyone I believe). In my opinion, we are all facing challenges because not knowing EXACTLY what has been changed. This is because:
 <ul>
 	<li>It is impossible to read and compare each MP files (i.e. the SQL 2012 Monitoring MP has around 50,000 lines of code, then plus the 2008 and 2005 MP, plus the library MP, etc.), they are just too big to read!</li>

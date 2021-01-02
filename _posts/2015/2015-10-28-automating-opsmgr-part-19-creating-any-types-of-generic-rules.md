@@ -19,7 +19,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 19th instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -44,7 +46,9 @@ This is the 19th instalment of the Automating OpsMgr series. Previously on this 
 Although I have written number of functions in the current version of the OpsMgrExtended module that allows you to  create some popular types of rules in OpsMgr (i.e. perf collection rules and event collection rules). Sometimes, you still need to create other types of rules, such as WMI event collection rules, or rules based on module types written by yourself. In this post, I will demonstrate how to create any types of rules using the <strong>New-OMRule</strong> function.
 
 Additionally, since the OpsMgrExtended module can be used on both your on-prem SMA infrastructure as well as on your Azure Automation account (with the help of Hybrid Workers), and pretty much all the previous runbooks and posts are based on SMA, I will use Azure Automation in this post (and maybe in the future posts too). I will demonstrate 2 sample runbooks in this post. Since Azure Automation now supports PowerShell runbooks on both Azure runbook workers as well as on hybrid workers, with the 2 sample runbooks I’m going to demonstrate, one is based on PowerShell workflow and the other one is a PowerShell runbook.
-<h3>What Components are OpsMgr Rules Made Up?</h3>
+
+## What Components are OpsMgr Rules Made Up?
+
 Before we diving into the sample runbooks, please let me explain how are the OpsMgr rules made up. In OpsMgr, a rule is essentially a workflow that contains the following components:
 <ol>
 	<li>One or more Data Source modules</li>
@@ -52,7 +56,9 @@ Before we diving into the sample runbooks, please let me explain how are the Ops
 	<li>One or more Write Action modules</li>
 </ol>
 To explain in plain English, a rule can have multiple data source modules and write action modules, but condition detection module is optional, and you can only use up to 1 condition detection module in your rule. The order of execution is Data Source Modules –&gt; Condition Detection Module –&gt; Write Action Modules. Additionally, some modules requires mandatory and/or optional configuration parameters (i.e. System.SimpleScheduler), some modules do not require any configuration parameters (i.e. Microsoft.SystemCenter.CollectPerformanceData).
-<h3>OM-Rule Design Consideration</h3>
+
+## OM-Rule Design Consideration
+
 When I was writing the New-OMRule function, I have realised in order to capture all required information for each member module, the following information is required:
 <ul>
 	<li>Module Type Name (Mandatory)</li>
@@ -71,13 +77,17 @@ Other than the information listed above, if we are writing an alert-generating r
 	<li>Alert Name</li>
 	<li>Alert Description</li>
 </ul>
-<h3></h3>
+
+## 
+
 I needed to figure out a way to enforce users to supply all required information listed above. In order to do that, I think the best way is to define a class for member module configurations and another class for alert configurations. However, since class definition is a new concept only been introduced in PowerShell version 5 (which still in preview other than Windows 10 machines at the time of this writing), I could not do this natively in PowerShell. In order to work around this limitation, I have defined these two classes in OpsMgrExtended.Types.dll using C#. This DLL is shipped as part of the OpsMgrExtended module.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image33.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb27.png" alt="image" width="471" height="193" border="0" /></a>
 
 The OM-Rule is expecting instances of these classes defined in OpsMgrExtended.Types.dll as input parameters. You will see how I used these classes in the sample runbooks.
-<h3>Sample PowerShell Runbook: New-WMIPerfCollectionRule</h3>
+
+## Sample PowerShell Runbook: New-WMIPerfCollectionRule
+
 OK, let’s start with a "simpler" one first. The <strong>New-WMIPerfCollectionRule</strong> runbook is a PowerShell runbook that can be used to create perf collection rules based on WMI queries. I think it’s simpler than the other one because it’s a PowerShell runbook (as opposed to PowerShell workflow) and we don’t have to worry about configuring alerts for the rules created by this runbook. The source code for this runbook is listed below:
 <pre class="" language="PowerShell">
 Param(
@@ -252,7 +262,9 @@ The hybrid worker will pick up this job very soon, and during this test run, the
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image36.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb30.png" alt="image" width="418" height="437" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image37.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb31.png" alt="image" width="419" height="439" border="0" /></a>
-<h3>Sample PowerShell Workflow Runbook: New-WindowsEventAlertRule</h3>
+
+## Sample PowerShell Workflow Runbook: New-WindowsEventAlertRule
+
 Now, let’s take a look at the second sample runbook. This runbook is designed to create rules that detects certain event log entries and generates alerts upon detection. I think it’s more complicated than the first sample because this is a traditional PowerShell workflow runbook (which works on both SMA and Azure Automation), and we also need to configure alert settings for this rule. The source code for this runbook is listed below:
 <pre class="" language="PowerShell">
 Workflow New-WindowsEventAlertRule
@@ -493,7 +505,9 @@ After the hybrid worker in my lab executed the runbook, I am able to see the rul
 and the raw XML (once I’ve exported the MP):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image44.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb38.png" alt="image" width="697" height="587" border="0" /></a>
-<h3>Hybrid Worker Configuration</h3>
+
+## Hybrid Worker Configuration
+
 Since the samples in this post are all based on Azure Automation and Hybrid worker, I just want to point out this article if you need help setting it up: <a title="https://azure.microsoft.com/en-us/documentation/articles/automation-hybrid-runbook-worker/" href="https://azure.microsoft.com/en-us/documentation/articles/automation-hybrid-runbook-worker/">https://azure.microsoft.com/en-us/documentation/articles/automation-hybrid-runbook-worker/</a>
 
 Also as I mentioned earlier, you will need to deploy OpsMgrExtended module manually on to the hybrid workers by yourself. When copying the OpsMgrExtended module to your hybrid workers, make sure you copy to a folder that’s listed in the PSModulePath environment variable. During my testing with a PowerShell runbook, I initially placed it under "C:\Program Files\WindowsPowerShell\Modules" folder, as it was listed in the PSModulePath environment variable when I checked in a PowerShell console on the hybrid worker. However, I got error messages telling me the runbook could not find commands defined in the OpsMgrExtended module. To troubleshoot, I wrote a simple PowerShell runbook:
@@ -505,7 +519,9 @@ and based on the output, the folder in "C:\Program Files" is not listed!
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image46.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb40.png" alt="image" width="700" height="147" border="0" /></a>
 
 Therefore, I had to move the module to another location (C:\Windows\System32\WindowsPowerShell\v1.0\Modules). after the move, the runbook started working.
-<h3>Summary</h3>
+
+## Summary
+
 In this post, I have demonstrated how to use the New-OMRule function from OpsMgrExtended PS module to create any types of rules in OpsMgr. Although OpsMgrExtended module has already shipped two other functions to create event collection and performance collection rules, the New-OMRule fills the gap that allows users to specify each individual member module and its configurations. This is probably the most technically in-depth post in the Automating OpsMgr series. I have tried my best to explain and demonstrate how to use the New-OMRule function. But if you are still unclear, have questions or issues, please feel free to contact me.
 
 I haven’t figured out what I will cover in the next post, but I still have a lot to cover in this series. Since I am attending few conferences in the coming weeks in November, I probably won’t have time to work on part 20 until end of November. Until next time, happy automating!

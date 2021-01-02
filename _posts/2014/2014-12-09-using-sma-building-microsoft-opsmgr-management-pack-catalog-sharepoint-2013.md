@@ -60,7 +60,9 @@ For each of these additional columns, please make sure<strong> "Require that thi
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb7.png" alt="image" width="484" height="218" border="0" /></a>
 
 <strong><span style="color: #ff0000;">Note:</span></strong> the internal names of these columns would be different than these display names. The script in the SMA runbook will translate these display names to the actual internal names. So it doesn’t matter how you created these columns, as long as the display names are exactly the same as what I listed, it should be OK.
-<h3>02. Create a Runbook to Retrieve Microsoft OpsMgr Management Packs Info</h3>
+
+## 02. Create a Runbook to Retrieve Microsoft OpsMgr Management Packs Info
+
 We have all used the "Download Management Packs" function in the OpsMgr console:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb8.png" alt="image" width="357" height="308" border="0" /></a>
@@ -74,7 +76,9 @@ I called this runbook <strong>Get-MSMPCatalog</strong>:
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML7630c779.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7630c779" src="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML7630c779_thumb.png" alt="SNAGHTML7630c779" width="511" height="440" border="0" /></a>
 
 This runbook will be called by another runbook, and it returns an arraylist as output.
-<h3>03. Create a Runbook to Populate the SharePoint List</h3>
+
+## 03. Create a Runbook to Populate the SharePoint List
+
 I created a second runbook to call the first runbook Get-MSMPCatalog, then workout which MPs are not on the SharePoint List, and add the missing ones. I called the second Runbook <strong>Populate-OnPremMPCatalog:</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/Populate-OnPremMPCatalog.zip"><strong>Download Populate-OnPremMPCatalog</strong></a>
@@ -98,7 +102,9 @@ i.e. My SMTP connection and SMAAddress book connection:
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML766a1bed.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML766a1bed" src="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML766a1bed_thumb.png" alt="SNAGHTML766a1bed" width="394" height="838" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb10.png" alt="image" width="395" height="598" border="0" /></a>
-<h3>04. Execute Runbook Populate-OnPremMPCatalog</h3>
+
+## 04. Execute Runbook Populate-OnPremMPCatalog
+
 When executing this runbook, you will need to fill out some parameters as listed above:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb11.png" alt="image" width="329" height="298" border="0" /></a>
@@ -114,17 +120,23 @@ The first run will take a long time (in my lab, over 1 hour), but any subsequent
 I have also created a schedule to execute this runbook daily. This is to make my catalog in sync with Microsoft’s, and notify me when new MPs are released.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb14.png" alt="image" width="531" height="158" border="0" /></a>
-<h3>Customizing the MP Catalog SharePoint List</h3>
+
+## Customizing the MP Catalog SharePoint List
+
 You may not like the default view of the MP Catalog list. You may want to hide some of the columns. This can be easily done by customising the default view of the list, or creating new views.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb15.png" alt="image" width="584" height="490" border="0" /></a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 I’ve always wanted a place where I can simply click on a link to download a particular management pack. I have made this possible by using SMA and SharePoint. The only downside is, only individual management packs are listed. They are not bundled, and no documentations available.
 
 There is also a MP Catalog wiki page on TechNet: <a title="https://social.technet.microsoft.com/wiki/contents/articles/16174.microsoft-management-packs.aspx" href="https://social.technet.microsoft.com/wiki/contents/articles/16174.microsoft-management-packs.aspx">https://social.technet.microsoft.com/wiki/contents/articles/16174.microsoft-management-packs.aspx</a>, it is maintained by Microsoft and few System Center MVPs. You should be able to find all the recent MS management packs from there as well.
 
 I have also managed to populate this catalog on a SharePoint Online (Office 365) site using Azure Automation – a 100% cloud based solution. For the cloud based version, one of the runbooks is completely different due to the differences in SharePoint APIs (SharePoint 2013 vs. SharePoint Online). I will post it in few days.
-<h3>Credit</h3>
+
+## Credit
+
 Thanks for all the System Center MVPs who have provided input and feedback on this topic. You know who you are, much appreciated! <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2014/12/wlEmoticon-smile.png" alt="Smile" />
 
 Lastly, please feel free to contact me if you have anything to add on this topic. I’d love to hear from you.

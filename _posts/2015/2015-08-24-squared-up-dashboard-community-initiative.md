@@ -84,4 +84,4 @@ There are many ways to get involved in the System Center community, such as blog
 During a catch up call with Squared Up last week, Richard explained to me that they are essentially providing an additional channel for people to contribute and get involved in the community, because at the end of the day, not everyone blogs or write code. contributing an existing dashboard can be very quick and easy, it doesn’t take too much effort at all!
 
 So, if you have designed an awesome Squared Up dashboard for a particular application and you would like to share it with the community, I encourage to take this opportunity and start sharing! As Squared Up Pointed out to me, their goal is for people to:
-<h3 align="center">Use –&gt; Share –&gt;Improve</h3>
+<h3 align="center">Use –&gt; Share –&gt;Improve

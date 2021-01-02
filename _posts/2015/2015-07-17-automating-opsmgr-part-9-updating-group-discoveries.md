@@ -16,7 +16,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 9th instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -35,7 +37,9 @@ Often when you create groups, the groups are configured to have dynamic membersh
 In this post, I will demonstrate once you've created an empty group (as shown in Part 4), how can you use OpsMgrExtended module to modify the group discovery data source, so the group will dynamically include all objects that meet the criteria (Membership rules).
 
 Because this is not something you'd use as a standalone solution, I will not provide sample runbooks, but instead, just walk through the PowerShell code.
-<h3>Example Walkthrough</h3>
+
+## Example Walkthrough
+
 In this demonstration, I have firstly created a blank management pack, and then use the runbook demonstrated in Part 4, and created an empty instance group. At this stage, the management pack looks like this:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML236ed3d.png"><img class="" style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML236ed3d" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML236ed3d_thumb.png" alt="SNAGHTML236ed3d" width="740" height="933" border="0" /></a>
@@ -96,5 +100,7 @@ and the original empty discovery rule was replaced with what I specified in the 
 Now when I check the group membership in the console, I can see all the Hyper-V hosts in my lab:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image36.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb36.png" alt="image" width="488" height="214" border="0" /></a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 In this post, I have demonstrated how to use OpsMgrExnteded module to update a group discovery data source configuration. Although I've only provided 1 example, for an instance group, the process for updating computer groups are pretty much the same. In next post, I will demonstrate how to delete a group using the OpsMgrExtended module.

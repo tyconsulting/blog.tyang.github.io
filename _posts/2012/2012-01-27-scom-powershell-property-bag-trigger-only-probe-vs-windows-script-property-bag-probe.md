@@ -16,24 +16,32 @@ When writing a Probe Action Module to run a trigger only PowerShell script and r
 
 Below are 2 examples how to create trigger only probe modules for both PowerShell and VBScript:
 <h2><span style="font-weight: bold;">1. PowerShell</span></h2>
-<h3>Member Modules:</h3>
+
+## Member Modules:
+
 <strong>Microsoft.Windows.PowerShellPropertyBagTriggerOnlyProbe</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/01/image27.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb27.png" alt="image" width="580" height="455" border="0" /></a>
-<h3>Data Types:</h3>
+
+## Data Types:
+
 Input: Trigger Only
 
 Output: System.PropertyBag Data
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/01/image28.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb28.png" alt="image" width="580" height="455" border="0" /></a>
 <h2><span style="font-weight: bold;">2. VBScript:</span></h2>
-<h3>Member Modules:</h3>
+
+## Member Modules:
+
 <strong>System.PassThroughProbe</strong>
 
 <strong>Microsoft.Windows.ScriptPropertyBagProbe</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2012/01/image29.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb29.png" alt="image" width="580" height="455" border="0" /></a>
-<h3>Data Type:</h3>
+
+## Data Type:
+
 Input: Trigger Only
 
 Output: System.PropertyBag Data

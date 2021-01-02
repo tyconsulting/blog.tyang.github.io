@@ -16,7 +16,9 @@ tags:
   - SCCM
   - SCOM
 ---
-<h3>Introduction</h3>
+
+## Introduction
+
 I have been playing with Azure Operational Insights for a while now, and I am really excited about the capabilities and capacities it brings. I haven’t blogged anything about OpInsights until now, largely because all the wonderful articles that my MVP friends have already written. i.e. the OpInsights series from Stanislav Zheyazkov (at the moment, he’s written 18 parts so far!): <a title="https://cloudadministrator.wordpress.com/2015/04/30/microsoft-azure-operational-insights-preview-series-general-availability-part-18-2/" href="https://cloudadministrator.wordpress.com/2015/04/30/microsoft-azure-operational-insights-preview-series-general-availability-part-18-2/">https://cloudadministrator.wordpress.com/2015/04/30/microsoft-azure-operational-insights-preview-series-general-availability-part-18-2/</a>
 
 Back in my previous life, when I was working on ConfigMgr for living, THE one thing that I hate the most, is reading log files, not to mention all the log file names, locations, etc. that I have to memorise. I remember there was even a spreadsheet listing all the log files for ConfigMgr. Even until now, when I see a ConfigMgr person, I’d always ask "How many log files did you read today?" – as a joke. However, sometimes, when sh*t hits the fan, people won’t see the funny side of it. In my opinion, based on my experience working on ConfigMgr, I see the following challenges in ConfigMgr log files:
@@ -51,7 +53,9 @@ When Microsoft has released Operational Insights (OpInsights) to preview, the fi
 	<li>Being able to correlate data from multiple log files and multiple computers when searching, thus make administrator’s troubleshooting experience much easier.</li>
 </ul>
 &nbsp;
-<h3>Challenges</h3>
+
+## Challenges
+
 A line of ConfigMgr log entry consists of many piece of information. And the server and client log files have different format. i.e.
 
 <strong>Server Log file:</strong>
@@ -71,7 +75,9 @@ Since OMS is still very new, there aren’t many Solution Packs available (aka I
 <strong>OpsMgr Limitations</strong>
 
 As we all know, OpsMgr provides a "Generic Text Log" event collection rule. But unfortunately, this native event data source is not capable of accomplish what I am going to achieve here.
-<h3>NiCE Log File Management Pack</h3>
+
+## NiCE Log File Management Pack
+
 NiCE is a company based in Germany. They offer a <a href="http://www.nice.de/log-file-monitoring-scom-nice-logfile-mp">free OpsMgr management pack for log file monitoring</a>. There are already many good blog articles written about this MP, I will not write an introduction here. If you have never heard or used it, please read the articles listed below, then come back to this post:
 
 <a href="http://stefanroth.net/2014/02/24/scom-2012-nice-log-file-library-mp-monitoring-robocopy-log-file/">SCOM 2012 – NiCE Log File Library MP Monitoring Robocopy Log File</a> – By Stefan Roth
@@ -113,7 +119,9 @@ The NiCE Log MP also provides a Regular Expression Tester UI in the management p
 <a href="http://blog.tyang.org/wp-content/uploads/2015/06/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb2.png" alt="image" width="600" height="609" border="0" /></a>
 
 Now, I hope you get the bigger picture of what I want to achieve now. I want to use OpsMgr 2012, NiCE Log File MP to collect various ConfigMgr 2012 log files (both client and server logs), and then send over to OMS via OpsMgr. It is now time to talk about the management packs.
-<h3>Management Pack</h3>
+
+## Management Pack
+
 Obviously, the NiCE Log File MP is required. You can download it from NiCE’s customer portal once registered. This MP must be firstly imported into your management group.
 
 Additionally, your OpsMgr management group must be configured to connect to a Operational Insights (or called "System Center Advisor" if you haven’t patched your management group in the last few months). However, what I’m about to show you is also able to store the data in your on-prem OpsMgr operational and data warehouse databases. So, even if you don’t use OMS (yet), you are still able to leverage this solution to store your ConfigMgr log data in OpsMgr databases.
@@ -149,7 +157,9 @@ To map the rule structure into our requirement, the rules we are going to author
 </li>
 </ul>
 &nbsp;
-<h3>Using NiCE Log MP as Data Source</h3>
+
+## Using NiCE Log MP as Data Source
+
 Unfortunately, we cannot build our rules 100% from the OpsMgr operations console. The NiCE Log File MP does not provide any event collection rules in the UI. There are only alert rules and performance collection rules to choose from:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/06/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb3.png" alt="image" width="596" height="512" border="0" /></a>
@@ -178,7 +188,9 @@ When creating your own event collecting rules, you will only need to provide the
 	<li>FileName: the name of the log file (i.e. execmgr.log)</li>
 </ul>
 &nbsp;
-<h3>So What am I Offering?</h3>
+
+## So What am I Offering?
+
 I’m offering 3 management pack files to get you started:
 <h4>ConfigMgr.Log.Collection.Library (ConfigMgr Logs Collection Library Management Pack)</h4>
 This sealed management pack provides the 2 data source modules that I’ve just mentioned:
@@ -226,7 +238,9 @@ This rule collects the ContentTransferManager.log only to Data Warehouse DB and 
 </li>
 </ul>
 &nbsp;
-<h3>What Do I get in OMS?</h3>
+
+## What Do I get in OMS?
+
 After you’ve created your collection rules and imported into your OpsMgr management group, within few minutes, the management packs would have reached the agents, started processing the logs, and send the data back to OpsMgr. OpsMgr would then send the data to OMS. It will take another few minutes for OMS to process the data before the data becomes searchable in OMS.
 
 You will then be able to search the events:
@@ -269,9 +283,13 @@ By Daniele Muscetta:
 <ul>
 	<li><a href="https://azure.microsoft.com/en-us/documentation/articles/operational-insights-search/">Search for data in Operational Insights</a></li>
 </ul>
-<h3>Download MP</h3>
+
+## Download MP
+
 You may download all 3 management packs from TY Consulting’s web site: <a title="http://www.tyconsulting.com.au/portfolio/configmgr-log-collection-management-pack/" href="http://www.tyconsulting.com.au/portfolio/configmgr-log-collection-management-pack/">http://www.tyconsulting.com.au/portfolio/configmgr-log-collection-management-pack/</a>
-<h3>What’s Next?</h3>
+
+## What’s Next?
+
 I understand writing management packs is not a task for everyone, currently, you will need to write your own MP to capture the log files of your choice. I am working on an automated solution. I am getting very close in releasing the <a href="http://blog.tyang.org/2015/02/01/session-recording-presentation-microsoft-mvp-community-camp-melbourne-event/">OpsMgrExtended PowerShell / SMA module</a> that I’ve been working since August last year. In this module, I will provide a way to automate OpsMgr rule creation using PowerShell. I will write a follow-up post after the release of OpsMgrExtended module to go through how to use PowerShell to create these ConfigMgr log collection rules. So, please stay tuned <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/06/wlEmoticon-smile.png" alt="Smile" />.
 
 <strong>Note: </strong>I’d like to warn everyone who’s going to implement this solution: Please do not leave these rules enabled by default when you’ve just created it. You need to have a better understanding on how much data is sending to OMS as there is a cost associated in how much data is sending to it, as well as the impact to your link to the Internet. So please make them disabled by default, start with a smaller group.

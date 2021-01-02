@@ -17,6 +17,6 @@ Special thanks to my wife – The background picture was taken by her using her 
 
 Bye bye to the old look,
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb23.png" alt="image" width="684" height="222" border="0" /></a>
+![](http://blog.tyang.org/wp-content/uploads/2014/07/image23.png)
 
 Sometimes I wish there are more artistic gene in me. I’m still not 100% satisfied with the look, but this is the best I can do for now.

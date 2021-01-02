@@ -14,13 +14,19 @@ tags:
   - SCOM Management Pack
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/capacity-banner-bg.jpg"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="capacity-banner-bg" src="http://blog.tyang.org/wp-content/uploads/2016/03/capacity-banner-bg_thumb.jpg" alt="capacity-banner-bg" width="196" height="195" align="left" border="0" /></a>Just over a month ago, I have <a href="http://blog.tyang.org/2016/01/07/capacity-planning-oms-vs-opslogix-capacity-reportsmp/">blogged</a> and presented a webcast comparing the <a href="http://www.opslogix.com/capacity-planning-reports-management-pack/">OpsLogix Capacity Report</a> Management Pack and the OMS Capacity solution. Since then, an update was released on this management pack and I’d like to take a moment to provide a proper overview for this MP. For those who have not used this management pack and are looking for a solution for capacity forecasting and management, I hope you will have some ideas on the capabilities this management pack provides.
-<h3>Management Pack Introduction</h3>
+
+## Management Pack Introduction
+
 The OpsLogix Capacity Report MP provides OpsMgr reports that can be used to forecast trending of any existing performance data collected by OpsMgr. Same as any other OpsMgr reports, the reports provided by this MP can be accessed from the reporting pane in the OpsMgr console, under "OpsLogix IMP – Capacity trending reports" folder:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-5.png" alt="image" width="378" height="316" border="0" /></a>
-<h3>Installing and Configuring Management Pack</h3>
+
+## Installing and Configuring Management Pack
+
 Other than the capacity report MP itself (OpsLogix.IMP.Capacity_v1.0.2.24.mpb), I was also given a zip file containing my license key. This zip file contains an unsealed MP (OpsLogix.IMP.Capacity.License.xml), which contains my license key and it is unique to my environment. I need to import the license MP into my OpsMgr management group together with the capacity report MP. Once both MPs are imported, you will able to see the reports from the folder shown in the screenshot above.
-<h3>Reports</h3>
+
+## Reports
+
 This MP offers the following reports:
 <ul>
 	<li>Absolute value Report – Single instance</li>
@@ -102,7 +108,9 @@ The last two reports from this MP are the "Percentage value Report – Multi ins
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-14.png" alt="image" width="611" height="535" border="0" /></a>
 
 So if you don’t really care about the healthy and warning items, and only want to concentrate on critical items, you may find these 2 reports handy.
-<h3>Summary</h3>
+
+## Summary
+
 The OpsLogix Capacity Report MP provides generic forecasting reports that can be used against any types of performance data collected by OpsMgr. As long as the related perf counters are being collected by OpsMgr, the reports can be used when planning future capacities. The audiences of this MP can be anyone who are using OpsMgr (i.e. server admins, network admins, cloud and fabric admins, DBAs, LOB application owners, etc).
 
 Lastly, if you have any questions, please feel free to contact myself, or OpsLogix sales team directly (<a href="mailto:sales@opslogix.com">sales@opslogix.com</a>).

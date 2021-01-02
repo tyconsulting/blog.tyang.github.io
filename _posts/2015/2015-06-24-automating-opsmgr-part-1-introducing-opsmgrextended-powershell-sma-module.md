@@ -317,7 +317,9 @@ When this module is used as a normal PowerShell module, all the functions that r
 	<li><strong>-Password (optional):</strong> the password for the alternative account.</li>
 </ul>
 &nbsp;
-<h3>Getting Help and More Information</h3>
+
+## Getting Help and More Information
+
 I have included help information for every function in this module. You can access if using Get-Help cmdlet.
 
 i.e. <strong>Get-help New-OMRule –Full</strong>
@@ -329,9 +331,13 @@ Once imported in SMA, you can also see the description for each function in the 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeaf2cd0.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLeaf2cd0" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeaf2cd0_thumb.png" alt="SNAGHTMLeaf2cd0" width="498" height="411" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeb0d60c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLeb0d60c" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeb0d60c_thumb.png" alt="SNAGHTMLeb0d60c" width="443" height="340" border="0" /></a>
-<h3>Getting Started</h3>
+
+## Getting Started
+
 I have written many sample runbooks for this module. Initially, my plan was to release these sample runbooks together with the module. Then I had a second thought, I think instead of releasing these samples now, I will make this a blog series and continue writing posts explaining how to use this module for different scenarios. I believe by doing so, it will help readers better understand the capability this module brings. I will name this series "Automating OpsMgr" and consider this is Part 1 of this series.
-<h3>System Requirements</h3>
+
+## System Requirements
+
 The minimum PowerShell version required for this module is 3.0.
 
 The entire module and sample runbooks were developed on Windows Server 2012 R2, Windows 8.1, OpsMgr 2012 R2 and PowerShell version 4.0.
@@ -341,7 +347,9 @@ I have not test this module on OpsMgr 2012 RTM and SP1. Although the SDK assembl
 I have performed very limited testing on PowerShell 5.0 Preview. I cannot guarantee it will work with PowerShell 5.0 100%. But if you manage to find any issues on PowerShell 5.0, please let me know.
 
 &nbsp;
-<h3>Where Can I Download this Module?</h3>
+
+## Where Can I Download this Module?
+
 This module can be downloaded from TY Consulting’s web site from link below:
 
 <a href="http://www.tyconsulting.com.au/portfolio/opsmgrextended-powershell-and-sma-module/" target="_blank">DOWNLOAD HERE</a>.

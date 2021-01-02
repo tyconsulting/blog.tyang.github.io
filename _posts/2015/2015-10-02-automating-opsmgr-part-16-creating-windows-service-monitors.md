@@ -16,7 +16,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 16th instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -42,7 +44,9 @@ You can access the help document for this function using the Get-Help cmdlet:
 <strong>Get-Help New-OMServiceMonitor –Full</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLb42d9c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLb42d9c" src="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLb42d9c_thumb.png" alt="SNAGHTMLb42d9c" width="387" height="320" border="0" /></a>
-<h3>Sample Runbook: New-ServiceMonitor</h3>
+
+## Sample Runbook: New-ServiceMonitor
+
 ```powershell
 Workflow New-ServiceMonitor
 {
@@ -121,9 +125,13 @@ This runbook takes the following input parameters:
 	<li><strong>MonitorName</strong> – The name of the unit monitor</li>
 	<li><strong>ParentMonitor</strong> – The parent dependency monitor for the event unit monitor</li>
 </ul>
-<h3>Runbook Execution Result:</h3>
+
+## Runbook Execution Result:
+
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb.png" alt="image" width="515" height="587" border="0" /></a>
-<h3>Monitor Properties from OpsMgr Console:</h3>
+
+## Monitor Properties from OpsMgr Console:
+
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb1.png" alt="image" width="439" height="454" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb3.png" alt="image" width="439" height="454" border="0" /></a>
@@ -131,5 +139,7 @@ This runbook takes the following input parameters:
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb4.png" alt="image" width="441" height="456" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb5.png" alt="image" width="440" height="455" border="0" /></a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 In this post, I have shown how to create a basic windows service monitor using a simple SMA / Azure Automation runbook with New-OMServiceMonitor function in the OpsMgrExtended module. In the next post, I will show you how to create an instance of the Windows Service management pack template using the OpsMgrExtended module.

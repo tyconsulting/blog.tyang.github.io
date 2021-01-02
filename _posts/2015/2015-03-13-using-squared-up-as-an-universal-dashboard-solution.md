@@ -12,7 +12,9 @@ tags:
   - SCOM
   - SquaredUp
 ---
-<h3>Background</h3>
+
+## Background
+
 I’ve been playing with Squared Up a lot lately – to get myself familiar with the new 2.0 version, thus my recent few posts were all related to it.
 
 few days ago, I was involved in a conversation around from SCOM users / consumers point view, how to bring data from multiple management groups into a single pane of glass. As the result of this conversation, I’ve spent some time and tried the <a href="http://download.squaredup.com/downloads/download-info/sql/">Squared Up SQL Plugin</a>. After couple of hours, I managed to produce 2 dashboards using this plugin, both using data sources that are foreign to the OpsMgr management group the Squared Up instance is connected to.
@@ -29,7 +31,9 @@ I will demonstrate using the Squared Up 2.0 dashboard installed on the OpsMgr we
 The foreign OpsMgr management group is hosted in my Azure subscription. All the servers used by this management group are connected to my home lab via a Azure S2S VPN connection. They are located on the same domain as my on-prem lab.
 
 The ConfigMgr infrastructure is also located in my home lab (on-prem).
-<h3>Pre-Requisites</h3>
+
+## Pre-Requisites
+
 <strong>Setting up DB access in SQL</strong>
 
 Since the SQL connection string used by this plugin is stored in clear text, SquaredUp does not recommend using a username and password. Therefore, in the connection string, I’m using integrated security.
@@ -47,7 +51,9 @@ and for the OpsMgr operational DB:
 You will need to install the <strong><span style="text-decoration: underline;">latest</span></strong> version (2.0.2) of the plugin. if you have already installed it before, please make sure you update to this version. There was a bug in the earlier versions, and it has been fixed in 2.0.2.
 
 &nbsp;
-<h3>ConfigMgr Package Distribution Dashboard</h3>
+
+## ConfigMgr Package Distribution Dashboard
+
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML421df2f8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML421df2f8" src="http://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML421df2f8_thumb.png" alt="SNAGHTML421df2f8" width="670" height="375" border="0" /></a>
 
 This dashboard contains 3 parts (two parts on the top, one on the bottom). the top 2 parts displays the a single number (how many package distributions are in error and retrying states). the bottom part is a list for all the distributions that are in these 2 states.
@@ -91,7 +97,9 @@ other parameters:
 isscalar: false
 
 &nbsp;
-<h3>Active Alerts Dashboard for a foreign OpsMgr MG</h3>
+
+## Active Alerts Dashboard for a foreign OpsMgr MG
+
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/image28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb28.png" alt="image" width="695" height="364" border="0" /></a>
 
 Similar to the previous sample, there are 2 parts on the top displaying scalar values. In this case, I’ve chosen to display the active alerts count for critical and warning alerts. Followed by the 2 big scalar numbers, I added 2 lists for active critical & warning alerts.
@@ -145,7 +153,9 @@ As shown in the dashboard screenshot above, currently I have 9 critical and 12 w
 <a href="http://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML4252316b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML4252316b" src="http://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML4252316b_thumb.png" alt="SNAGHTML4252316b" width="696" height="463" border="0" /></a>
 
 &nbsp;
-<h3>Conclusion</h3>
+
+## Conclusion
+
 By using the Squared Up SQL plugin, you can potentially turn Squared UP into a dashboard for any systems (not just OpsMgr). The limit is your imagination <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/03/wlEmoticon-smile.png" alt="Smile" />. I have also written few posts on Squared Up before, you can find them here: <a title="http://blog.tyang.org/tag/squaredup/" href="http://blog.tyang.org/tag/squaredup/">http://blog.tyang.org/tag/squaredup/</a>
 
 Lastly, I encourage you to share your brilliant ideas with the rest of us, and I will for sure keep posting on this topic if I come up with something cool in the future.

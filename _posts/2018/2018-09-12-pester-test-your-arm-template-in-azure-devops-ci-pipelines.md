@@ -17,7 +17,9 @@ tags:
   - PowerShell
   - VSTS
 ---
-<h3>Introduction</h3>
+
+## Introduction
+
 It is fair to say, I have spent a lot of time on Pester lately. I just finished up a 12 months engagement with a financial institute here in Melbourne. During this engagement, everyone in the project team had to write tests for any patterns / pipelines they are developing. I once even wrote a standalone pipeline only to perform Pester tests. One of the scenario we had to cater for is: How can you ensure the ARM template you are deploying only deploys the resources that you intended to deploy? In another word, if someone has gone rogue or mistakenly modified the template, how can you make sure it does not deploy resources that’s not supposed to be deployed (i.e. a wide open VNet without NSG rules).
 
 To cater for this requirement, an engineer from the customer’s own cloud team has written a Pester test that validates the content of the ARM templates by parsing the JSON file. I like the idea, but since I didn’t bother (and couldn’t) keep a copy of the code, I wrote my own version, with some improvements and additional capability. The pester test I wrote performs the following tests:
@@ -86,7 +88,9 @@ For example, say I have a template that deploys a single VM. This template has t
 </li>
 </ul>
 Using this Pester test script, I can either be very strict and ensure ALL the elements listed above must be defined (and nothing else), or be less restrictive, only test against the required element (resources) and one or more optional elements (parameters, variables, functions and outputs).
-<h3>Test.ARMTemplate.ps1</h3>
+
+## Test.ARMTemplate.ps1
+
 Here’s the code, hosted on GitHub:
 
 https://gist.github.com/tyconsulting/2a6b84938f871bcfb4b896868cf37ab8
@@ -141,7 +145,9 @@ resources = 'Microsoft.Compute/virtualMachines', 'Microsoft.Network/networkInter
 .\Test.ARMTemplate.ps1 @params
 
 ```
-<h3>Using it in Azure DevOps Pipeline</h3>
+
+## Using it in Azure DevOps Pipeline
+
 To use this Pester test script in your VSTS pipeline, you can follow the steps listed below:
 
 <strong>1. Include this script in your repository</strong>
@@ -199,7 +205,9 @@ You can view the result of each individual test from the build logs:
 You can also create a widget in a dashboard and view the test results in a graph:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-25.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-25.png" alt="image" width="879" height="631" border="0" /></a>
-<h3>Limitations</h3>
+
+## Limitations
+
 Initially, I also wanted to do a full-blown JSON schema validation by ad-hoc downloading ARM template schema, and validate the ARM template against the schema (which should be always up to date). I found this simple PowerShell script by the author of Newtonsoft.JSON libraries: <a title="https://gist.github.com/JamesNK/7e6d026c8b78c049bb1e1b6fb0ed85cf" href="https://gist.github.com/JamesNK/7e6d026c8b78c049bb1e1b6fb0ed85cf">https://gist.github.com/JamesNK/7e6d026c8b78c049bb1e1b6fb0ed85cf</a>. It was a good starting point, but since the ARM template schema contains many $ref elements that reference other schemas, I had to modify this script to use the <a href="https://www.newtonsoft.com/json/help/html/RefJsonSchemaResolver.htm">JsonSchemaResolver</a> in order to resolve these references. Based on my experience, it was a hit and miss, not all references could be resolved because I was getting errors for some specific resource types defined in the ARM template, and after I spent almost a day trying to get this working, I got an error saying I have reached the hourly limit (<a title="https://www.newtonsoft.com/store/jsonschema" href="https://www.newtonsoft.com/store/jsonschema">https://www.newtonsoft.com/store/jsonschema</a>) and I need to purchase a commercial license. This prompted me to stop exploring further because I don’t really want to develop a free solution that relies on commercial licenses. Therefore, this Pester test does not perform ARM JSON schema validation against your template. In my opinion, the best way to do it is to validate your template directly against the ARM engine (do a validation only deployment):
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-26.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-26.png" alt="image" width="793" height="405" border="0" /></a>

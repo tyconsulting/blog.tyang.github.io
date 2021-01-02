@@ -179,7 +179,7 @@ exclude:
   - Rakefile
   - README
   - replace.sh
-  - _posts/*/sed*
+  - sed*
   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test

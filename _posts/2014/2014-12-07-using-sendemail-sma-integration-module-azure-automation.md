@@ -40,7 +40,9 @@ Send-MobilePushNotification -os "Android" -apikey $Contact.AndroidAPI -Subject $
 
 ```
 However, I found 2 issues related to the SendEmail module. I’ll go through both of the issues in this post.
-<h3>Issue 1</h3>
+
+## Issue 1
+
 When I executed this runbook, it failed to send the email message. I got this error:
 
 <span style="color: #ff0000;"><em>Cannot find the 'Send-Email' command. If this command is defined as a workflow, ensure it is defined before the workflow that calls it. If it is a command intended to run directly within Windows PowerShell (or is not available on this system), place it in an InlineScript: 'InlineScript { Send-Email }'</em></span>
@@ -56,7 +58,9 @@ Whereas the SendPushNotification module works because it has a manifest file:
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb1.png" alt="image" width="465" height="96" border="0" /></a>
 
 I didn’t pick this one up when I released the modules because it worked in the On-Prem SMA environments when I wrote it. So, it’s easy to fix this issue. I generated a manifest file for SendEmail module, uploaded it to Azure Automation, the issue went away.
-<h3>Issue 2</h3>
+
+## Issue 2
+
 After fixing the first issue, I started receiving SMTP authentication errors. I have configured a Gmail account as the sender – same as how I setup in my lab’s SMA environment, but I got SMTP error 5.5.1:
 
 <em><span style="color: #ff0000;">Exception calling "Send" with "1" argument(s): "The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.5.1 Authentication Required.</span></em>
@@ -78,7 +82,9 @@ Luckily, I could go adjust these security activity settings, and verify these si
 After adjusting these security settings, the runbook started working and I received the test notification email from the runbook:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML6f13fab7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6f13fab7" src="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML6f13fab7_thumb.png" alt="SNAGHTML6f13fab7" width="515" height="206" border="0" /></a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 Based on my experience, I’m guessing the module manifest file is a must-have in Azure Automation? I have updated the SendEmail module and re-uploaded to this blog. If you have already downloaded it, sorry but you will need to download again if you are planning to use it in Azure Automation (Here’s the <a href="http://blog.tyang.org/wp-content/uploads/2014/12/SMANotificationModules.zip">download link</a>).
 
 And if you are using a public email service as the sender like me, the security features implemented by the service provider may prevent you from using the email account in Azure Automation. You may need to adjust the security settings of the email account (like what I did with the Outlook account).

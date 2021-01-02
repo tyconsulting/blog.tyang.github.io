@@ -13,6 +13,12 @@ sed -i "s/<om>//" $filename
 echo "removing </om>"
 sed -i "s/<\/om>//" $filename
 
+echo "removing <em>"
+sed -i "s/<em>//" $filename
+
+echo "removing </em>"
+sed -i "s/<\/em>//" $filename
+
 echo "removing <ul>"
 sed -i "s/<ul>//" $filename
 

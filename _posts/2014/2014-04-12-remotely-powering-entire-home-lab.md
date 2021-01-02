@@ -12,7 +12,7 @@ tags:
   - PowerShell
   - PowerShell Web Access
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/RemoteControlicon.png"><img class="alignleft size-full wp-image-2493" alt="Remote" src="http://blog.tyang.org/wp-content/uploads/2014/04/RemoteControlicon.png" width="256" height="256" /></a>My home lab consists of 3 PCs running Hyper-V and a HP Proliant Microserver N54L running SCVMM. I have previously blogged the lab setup in a 2-part blog posts (<a href="http://blog.tyang.org/2012/10/04/my-home-test-lab-part-1/">Part 1</a>, <a href="http://blog.tyang.org/2012/10/05/my-home-test-lab-part-2/">Part 2</a>). These 2 blog articles was written back in October 2012, although there are few changes in the current setup (new hardware, etc), but the overall setup is pretty much the same.
+My home lab consists of 3 PCs running Hyper-V and a HP Proliant Microserver N54L running SCVMM. I have previously blogged the lab setup in a 2-part blog posts (<a href="http://blog.tyang.org/2012/10/04/my-home-test-lab-part-1/">Part 1</a>, <a href="http://blog.tyang.org/2012/10/05/my-home-test-lab-part-2/">Part 2</a>). These 2 blog articles was written back in October 2012, although there are few changes in the current setup (new hardware, etc), but the overall setup is pretty much the same.
 
 All 4 machines in my lab have been constantly running 24x7, except when we go on holidays or there’s a power outage (which doesn’t happen very often). This is largely because I just can’t be bothered to spend time start and shutdown all the physicals and virtuals every time I use the lab, not to mention I often access my lab when I’m in the office via RDP using my Surface Pro 2 with an external monitor. Because all of the computers are PC grade hardware, there are no out-of-band management cards (i.e. iLo, DRAC, etc.) on these boxes, I had no way to remotely start them when I was in the office.
 
@@ -26,7 +26,7 @@ I installed a freeware called <a href="http://aquilawol.sourceforge.net/">Aquila
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image10.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb10.png" width="398" height="364" border="0" /></a>
 
-During my testing, the HP Microserver and one of the Hyper-V box (HyperV01, the one with the Intel motherboard) had no problem at all. However, the other HyperV box HyperV02, would not WOL. after some research, it seemed like a known issue with the motherboard that only be able to WOL when the computer is at sleep, not when it’s powered off. Luckily other than the on-board Marvell NIC, I also have a dual port Intel GB NIC and a single port Intel desktop GB NIC on this computer. the dual port NIC also wouldn’t work. but the desktop NIC worked :)
+During my testing, the HP Microserver and one of the Hyper-V box (HyperV01, the one with the Intel motherboard) had no problem at all. However, the other HyperV box HyperV02, would not WOL. after some research, it seemed like a known issue with the motherboard that only be able to WOL when the computer is at sleep, not when it’s powered off. Luckily other than the on-board Marvell NIC, I also have a dual port Intel GB NIC and a single port Intel desktop GB NIC on this computer. the dual port NIC also wouldn’t work. but the desktop NIC worked :smiley:
 
 <strong>2. Installed a Windows Server 2012 R2 virtual machine on my "Study" PC.</strong>
 
@@ -95,11 +95,12 @@ Here are the live demos for both scripts:
 
 <strong>Start-Lab:</strong>
 
-https://www.youtube.com/watch?v=owxLYNCQOkc
+<iframe src="//www.youtube.com/embed/owxLYNCQOkc" height="375" width="640" allowfullscreen="" frameborder="0"></iframe>
 
 <strong>Stop-Lab:</strong>
 
-https://www.youtube.com/watch?v=bjEnAi3tWEk
+<iframe src="//www.youtube.com/embed/bjEnAi3tWEk" height="375" width="640" allowfullscreen="" frameborder="0"></iframe>
+
 
 For your reference, the scripts can be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2014/04/LabAdmin.zip">HERE</a>.
 
@@ -107,4 +108,4 @@ For your reference, the scripts can be downloaded <a href="http://blog.tyang.org
 
 I live in Australia, one of the countries with the highest electricity prices. It is time for me to do something to cut down the running cost of my home lab - especially when my colleagues told me their average electricity bills are only half of mine.
 
-Now, I can remotely start my entire lab anywhere via my mobile phone, and it only takes me a single command to shut down the lab, I won’t need to have them running 24x7. So I’m hoping my implemented this new feature in my lab, I should be able to see some noticeable reductions in my next power bill. :)
+Now, I can remotely start my entire lab anywhere via my mobile phone, and it only takes me a single command to shut down the lab, I won’t need to have them running 24x7. So I’m hoping my implemented this new feature in my lab, I should be able to see some noticeable reductions in my next power bill. :smiley:

@@ -15,22 +15,22 @@ tags:
 Often when developing an OpsMgr management pack for server class applications, we need to be cluster-aware. Sometimes workflows don’t need to run on a cluster, sometimes, the workflow should only be executed on a cluster. (i.e. I wrote a monitor that runs on a Windows 2008 R2 Hyper-V cluster once a day and check if all virtual machines are hosted by their preferred cluster nodes.)
 
 There are many good articles out there explaining cluster-aware discoveries in OpsMgr management packs:
-<ul>
-	<li><a href="http://blogs.technet.com/b/authormps/archive/2011/03/13/your-mp-discoveries-and-clustering.aspx">Your MP Discoveries and Clustering</a></li>
-	<li><a href="https://social.technet.microsoft.com/wiki/contents/articles/1204.mp-best-practice-make-likely-server-roles-mscs-aware.aspx">MP Best Practice – Make likely server roles MSCS aware</a></li>
-</ul>
-However, in many occasions, only using the "<strong>IsVirtualNode</strong>" property from the Windows Server class (Microsoft.Windows.Server.Computer) is not enough (or granular enough) to identify the specific clusters.
+
+* <a href="http://blogs.technet.com/b/authormps/archive/2011/03/13/your-mp-discoveries-and-clustering.aspx">Your MP Discoveries and Clustering</a>
+* <a href="https://social.technet.microsoft.com/wiki/contents/articles/1204.mp-best-practice-make-likely-server-roles-mscs-aware.aspx">MP Best Practice – Make likely server roles MSCS aware</a>
+
+However, in many occasions, only using the "**IsVirtualNode**" property from the Windows Server class (Microsoft.Windows.Server.Computer) is not enough (or granular enough) to identify the specific clusters.
 
 I’m explain what I mean using an example.
 
 For example, I have a 2-node SQL cluster configured as below:
-<ul>
-	<li>Node 1 name: <strong><em>blablabla</em>SQL01A</strong></li>
-	<li>Node 2 name: <strong><em>blablabla</em>SQL01B</strong></li>
-	<li>Cluster Name: <strong><em>blablabla</em>SQL01C</strong></li>
-	<li>DTC Cluster Resource Access Name: <strong><em>blablabla</em>SQL01D</strong></li>
-	<li>SQL Server Cluster Resource Access Name: <strong><em>blablabla</em>SQL01E</strong></li>
-</ul>
+
+* Node 1 name: **blablablaSQL01A**
+* Node 2 name: **blablablaSQL01B**
+* Cluster Name: **blablablaSQL01C**
+* DTC Cluster Resource Access Name: **blablablaSQL01D**
+* SQL Server Cluster Resource Access Name: **blablablaSQL01E**
+
 <a href="http://blog.tyang.org/wp-content/uploads/2014/03/image7.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb7.png" width="580" height="254" border="0" /></a>
 
 After installing the OpsMgr agent on both cluster nodes and enabled Agent-Proxy for them, totally 5 Windows Server objects will be discovered, one for each name mentioned above:
@@ -45,19 +45,19 @@ When I looked at the "Computer" state view in the Microsoft SQL management pack,
 
 If I create a discovery for SQL Clusters based on any computers have SQL DB Engine installed and is a virtual node, I would have discovered 3 instances (SQL01C, SQL01D and SQL 01E) for the same cluster.
 
-If I only want to discover the cluster itself (<em>blablabla</em>SQL01C), I believe the discovery needs to perform the following checks:
+If I only want to discover the cluster itself (blablablaSQL01C), I believe the discovery needs to perform the following checks:
 
-<strong>01. The Windows Server Is Virtual Node</strong>
+**01. The Windows Server Is Virtual Node**
 
 After a bit of digging, I found the "Windows Clustering Discovery" from Windows Cluster Library MP sets "IsVirtualNode" to True:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/03/image10.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb10.png" width="397" height="304" border="0" /></a>
 
-<strong>02. The existence of Cluster Service</strong>
+**02. The existence of Cluster Service**
 
 I’m not sure if there are any management packs other than Windows Clustering Library out there that set IsVirtualNode to True. So , to be safe, I would also configure my discovery to look for the Cluster service.
 
-<strong>03. The cluster is actually hosting my application</strong>
+**03. The cluster is actually hosting my application**
 
 This is done via a WMI query to the MSCluster_Resource class in root\MSCluster name space.
 
@@ -65,23 +65,23 @@ In order to identify the cluster is hosting my application, I need to find if th
 
 i.e. I have access to 3 kinds of clusters in my work environment. I’ll list the WMI query for each cluster type:
 
-<strong>SQL Cluster:</strong> <em>"Select * from MSCluster_Resource Where Type = ‘<strong>SQL Server</strong>’ And Name LIKE ‘<strong>SQL Server’</strong>"</em>
+**SQL Cluster:** "Select * from MSCluster_Resource Where Type = ‘**SQL Server**’ And Name LIKE ‘**SQL Server’**"
 
-<strong>Hyper-V Cluster:</strong> <em>"Select * from MSCluster_Resource Where Type = ‘<strong>Virtual Machine</strong>’ And Name LIKE ‘<strong>Virtual Machine %</strong>’"</em>
-<ul>
-	<li><strong><span style="color: #ff0000;">Note:</span></strong> <em>This is because each VM in Hyper-V cluster have a resource name of "Virtual Machine &lt;VM Name&gt;".</em></li>
-</ul>
-<strong>OpsMgr 2007 RMS Cluster:</strong> <em>"Select * from MSCluster_Resource Where Type = ‘<strong>Generic Service</strong>’ And Name LIKE ‘<strong>System Center Data Access</strong>"</em>
+**Hyper-V Cluster:** "Select * from MSCluster_Resource Where Type = ‘**Virtual Machine**’ And Name LIKE ‘**Virtual Machine %**’"
+
+>**<span style="color: #ff0000;">Note:</span>** This is because each VM in Hyper-V cluster have a resource name of "Virtual Machine <VM Name>".
+
+**OpsMgr 2007 RMS Cluster:** "Select * from MSCluster_Resource Where Type = ‘**Generic Service**’ And Name LIKE ‘**System Center Data Access**"
 
 As you can see, I believe in order to accurately identify my application, both cluster resource type and name need to match. Only using resource type in WMI query is not enough because the resource type could be "Generic Service".
 
-<strong>04. The computer name matches the cluster name</strong>
+**04. The computer name matches the cluster name**
 
-Because I am only interested in the actual cluster, not client access names for cluster resource groups, the computer name of the Windows Server instance needs to match the cluster name. I can read the cluster name in registry "<strong><em>HKLM\SYSTEM\CurrentControlSet\Services\ClusSvc\Parameters\ClusterName</em></strong>"
+Because I am only interested in the actual cluster, not client access names for cluster resource groups, the computer name of the Windows Server instance needs to match the cluster name. I can read the cluster name in registry "**HKLM\SYSTEM\CurrentControlSet\Services\ClusSvc\Parameters\ClusterName**"
 
 In my sample MP, I created a class based on Microsoft.Windows.ComputerRole for my cluster and created a Timed Script Discovery based on the 4 criteria mentioned above.
 
-<strong><span style="color: #ff0000;">Note:</span></strong> <em>I know that using a script discovery targeting a wide range (all windows servers) is not ideal. I couldn’t manage to write a custom discovery module that meets my requirements. for example, the computer name could be in capital but the cluster name could be in lower case, System.ExpressionFilter (which is used by filtered registry discovery module) does not support case insensitive regular expression match (</em><a href="http://support.microsoft.com/kb/2702651"><em>More Info</em></a><em>). Therefore in my script, I have many IF statements nested. for example, if the windows server is not a virtual node, at the first if statement, it would not meet the if criteria and bypass the rest of the script, jump to the end of the script and submit an empty set of discovery data. I’ve done it this way to ensure the script does not continue running if one criteria is not met.</em>
+>**<span style="color: #ff0000;">Note:</span>** I know that using a script discovery targeting a wide range (all windows servers) is not ideal. I couldn’t manage to write a custom discovery module that meets my requirements. for example, the computer name could be in capital but the cluster name could be in lower case, System.ExpressionFilter (which is used by filtered registry discovery module) does not support case insensitive regular expression match (<a href="http://support.microsoft.com/kb/2702651"><em>More Info</em></a><em>). Therefore in my script, I have many IF statements nested. for example, if the windows server is not a virtual node, at the first if statement, it would not meet the if criteria and bypass the rest of the script, jump to the end of the script and submit an empty set of discovery data. I’ve done it this way to ensure the script does not continue running if one criteria is not met.</em>
 
 Again, using SQL clusters as an example, I created a class called "SQL Server Cluster", and only the actual clusters (name ends with letter "C") are discovered:
 
@@ -91,34 +91,33 @@ In order to re-use the code, I have create a snippet template in VSAE. This snip
 
 Here’s the code for the snippet template:
 
-[code language="xml" padlinenumbers="false"]
-
-&lt;ManagementPackFragment SchemaVersion="1.0"&gt;
- &lt;TypeDefinitions&gt;
- &lt;EntityTypes&gt;
- &lt;ClassTypes&gt;
- &lt;ClassType ID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole" Base="#alias('Microsoft.Windows.Library')#!Microsoft.Windows.ComputerRole" Accessibility="Public" Abstract="false" Hosted="true" Singleton="false"&gt;
- &lt;Property ID="ClusterName" Key="false" Type="string" /&gt;
- &lt;/ClassType&gt;
- &lt;/ClassTypes&gt;
- &lt;/EntityTypes&gt;
- &lt;/TypeDefinitions&gt;
- &lt;Monitoring&gt;
- &lt;Discoveries&gt;
- &lt;Discovery ID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole.Discovery" Target="#alias('Microsoft.Windows.Library')#!Microsoft.Windows.Server.Computer" Enabled="true" ConfirmDelivery="false" Remotable="true" Priority="Normal"&gt;
- &lt;Category&gt;Discovery&lt;/Category&gt;
- &lt;DiscoveryTypes&gt;
- &lt;DiscoveryClass TypeID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole"&gt;
- &lt;Property TypeID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole" PropertyID="ClusterName" /&gt;
- &lt;/DiscoveryClass&gt;
- &lt;/DiscoveryTypes&gt;
- &lt;DataSource ID="DS" TypeID="#alias('Microsoft.Windows.Library')#!Microsoft.Windows.TimedScript.DiscoveryProvider"&gt;
- &lt;IntervalSeconds&gt;3600&lt;/IntervalSeconds&gt;
- &lt;SyncTime /&gt;
- &lt;ScriptName&gt;ClusterDiscovery.vbs&lt;/ScriptName&gt;
- &lt;Arguments&gt;$MPElement$ $Target/Id$ $Target/Property[Type="#alias('Microsoft.Windows.Library')#!Microsoft.Windows.Computer"]/PrincipalName$ "#text('Cluster Resource Type')#" "#text('Cluster Resource Name Search String')#" "$Target/Property[Type="#alias('Microsoft.Windows.Library')#!Microsoft.Windows.Server.Computer"]/IsVirtualNode$"&lt;/Arguments&gt;
- &lt;ScriptBody&gt;
- &lt;![CDATA[
+```xml
+<ManagementPackFragment SchemaVersion="1.0">
+ <TypeDefinitions>
+ <EntityTypes>
+ <ClassTypes>
+ <ClassType ID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole" Base="#alias('Microsoft.Windows.Library')#!Microsoft.Windows.ComputerRole" Accessibility="Public" Abstract="false" Hosted="true" Singleton="false">
+ <Property ID="ClusterName" Key="false" Type="string" />
+ </ClassType>
+ </ClassTypes>
+ </EntityTypes>
+ </TypeDefinitions>
+ <Monitoring>
+ <Discoveries>
+ <Discovery ID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole.Discovery" Target="#alias('Microsoft.Windows.Library')#!Microsoft.Windows.Server.Computer" Enabled="true" ConfirmDelivery="false" Remotable="true" Priority="Normal">
+ <Category>Discovery</Category>
+ <DiscoveryTypes>
+ <DiscoveryClass TypeID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole">
+ <Property TypeID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole" PropertyID="ClusterName" />
+ </DiscoveryClass>
+ </DiscoveryTypes>
+ <DataSource ID="DS" TypeID="#alias('Microsoft.Windows.Library')#!Microsoft.Windows.TimedScript.DiscoveryProvider">
+ <IntervalSeconds>3600</IntervalSeconds>
+ <SyncTime />
+ <ScriptName>ClusterDiscovery.vbs</ScriptName>
+ <Arguments>$MPElement$ $Target/Id$ $Target/Property[Type="#alias('Microsoft.Windows.Library')#!Microsoft.Windows.Computer"]/PrincipalName$ "#text('Cluster Resource Type')#" "#text('Cluster Resource Name Search String')#" "$Target/Property[Type="#alias('Microsoft.Windows.Library')#!Microsoft.Windows.Server.Computer"]/IsVirtualNode$"</Arguments>
+ <ScriptBody>
+ <![CDATA[
 '========================================================
 ' AUTHOR: Tao Yang
 ' Script Name: ClusterDiscovery.vbs
@@ -179,46 +178,46 @@ IF UCase(bIsVirtualNode) = "TRUE" Then
  End If
 END IF
 oAPI.Return oDiscoveryData
- ]]&gt;&lt;/ScriptBody&gt;
- &lt;TimeoutSeconds&gt;120&lt;/TimeoutSeconds&gt;
- &lt;/DataSource&gt;
- &lt;/Discovery&gt;
- &lt;/Discoveries&gt;
- &lt;/Monitoring&gt;
- &lt;LanguagePacks&gt;
- &lt;LanguagePack ID="ENU" IsDefault="true"&gt;
- &lt;DisplayStrings&gt;
- &lt;DisplayString ElementID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole"&gt;
- &lt;Name&gt;#text('Class DisplayName')#&lt;/Name&gt;
- &lt;Description&gt;&lt;/Description&gt;
- &lt;/DisplayString&gt;
- &lt;DisplayString ElementID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole" SubElementID="ClusterName"&gt;
- &lt;Name&gt;Cluster Name&lt;/Name&gt;
- &lt;Description&gt;&lt;/Description&gt;
- &lt;/DisplayString&gt;
- &lt;DisplayString ElementID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole.Discovery"&gt;
- &lt;Name&gt;#text('Class DisplayName')# Discovery&lt;/Name&gt;
- &lt;Description&gt;Script discovery for #text('Class DisplayName')#&lt;/Description&gt;
- &lt;/DisplayString&gt;
- &lt;/DisplayStrings&gt;
- &lt;/LanguagePack&gt;
- &lt;/LanguagePacks&gt;
-&lt;/ManagementPackFragment&gt;
+ ]]></ScriptBody>
+ <TimeoutSeconds>120</TimeoutSeconds>
+ </DataSource>
+ </Discovery>
+ </Discoveries>
+ </Monitoring>
+ <LanguagePacks>
+ <LanguagePack ID="ENU" IsDefault="true">
+ <DisplayStrings>
+ <DisplayString ElementID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole">
+ <Name>#text('Class DisplayName')#</Name>
+ <Description></Description>
+ </DisplayString>
+ <DisplayString ElementID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole" SubElementID="ClusterName">
+ <Name>Cluster Name</Name>
+ <Description></Description>
+ </DisplayString>
+ <DisplayString ElementID="#text('MP Id')#.#text('Cluster Type')#.Cluster.ComputerRole.Discovery">
+ <Name>#text('Class DisplayName')# Discovery</Name>
+ <Description>Script discovery for #text('Class DisplayName')#</Description>
+ </DisplayString>
+ </DisplayStrings>
+ </LanguagePack>
+ </LanguagePacks>
+</ManagementPackFragment>
 
-[/code]
+```
 
 When using this template, for each cluster that you want to define and discover in your MP, simply supply the following information:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/03/image12.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb12.png" width="580" height="114" border="0" /></a>
-<ul>
-	<li><strong>MP Id:</strong> the ID (or the prefix) of your MP. this is going to be used as the prefix for all the items defined in the snippet.</li>
-	<li><strong>Cluster Type:</strong> the type (or common name) of your cluster. i.e. SQL, Hyper-V, etc.</li>
-	<li><strong>Cluster Resource Type:</strong> The value of the "Type" property of the MSCluster_Resource WMI instance.</li>
-</ul>
+
+* **MP Id:** the ID (or the prefix) of your MP. this is going to be used as the prefix for all the items defined in the snippet.
+* **Cluster Type:** the type (or common name) of your cluster. i.e. SQL, Hyper-V, etc.
+* **Cluster Resource Type:** The value of the "Type" property of the MSCluster_Resource WMI instance.
+
 <a href="http://blog.tyang.org/wp-content/uploads/2014/03/image13.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb13.png" width="580" height="395" border="0" /></a>
-<ul>
-	<li><strong>Cluster Resource Name Search String:</strong> the search string for the cluster resource name.</li>
-</ul>
+
+* **Cluster Resource Name Search String:** the search string for the cluster resource name.
+
 <a href="http://blog.tyang.org/wp-content/uploads/2014/03/image14.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb14.png" width="562" height="348" border="0" /></a>
 
 The "SQL Server Cluster" discovered in the previous screenshot is created using this snippet template.

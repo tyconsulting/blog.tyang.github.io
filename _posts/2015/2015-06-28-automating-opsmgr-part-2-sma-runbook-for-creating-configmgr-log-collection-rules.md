@@ -19,7 +19,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 2nd instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/" target="_blank">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -31,7 +33,9 @@ The solution I provided in that post included few sealed management packs and a 
 When using management pack authoring tools such as VSAE, if you need to reference a sealed management pack (or management pack bundle), you must have the sealed MP or MP bundle files (.mp or .mpb) handy and add these files as references in your MP project. But since the sealed MP "Microsoft.IntelligencePacks.Types" is automatically pushed to your management group as part of the OpInsights integration, and Microsoft does not provide a downloadable .mp file for this MP (yes,I have asked the OpInsights product group). There was no alternatives but manually editing the XML outside of the authoring tool in order to create these rules.
 
 Our goal is to create potentially a large number of event collection rules for all the ConfigMgr event logs that ConfigMgr administrators are interested in. In my opinion, this is a perfect automation candidate because you will need to create multiple near-identical rules, and it is very time consuming if you use MP authoring tools and text editors to create these rules (as I explained above).
-<h3>Pre-requisites</h3>
+
+## Pre-requisites
+
 I am going to demonstrate how to create these event collection rules using a SMA runbook which uses The <strong><a href="http://www.tyconsulting.com.au/portfolio/opsmgrextended-powershell-and-sma-module/" target="_blank">OpsMgrExtended PowerShell module</a></strong>. In order to implement this solution, you will need the following:
 <ul>
 	<li>An OpsMgr 2012 SP1 or R2 management group that has been connected to Azure Operational Insights (OMS)</li>
@@ -43,7 +47,9 @@ I am going to demonstrate how to create these event collection rules using a SMA
 	<li>The "ConfigMgr Logs Collection Library Management Pack" must also be imported into your OpsMgr management group – Download link provided in my <a href="http://blog.tyang.org/2015/06/10/collecting-configmgr-logs-to-microsoft-operation-management-suite-the-nice-way/" target="_blank">previous post</a>.</li>
 </ul>
 &nbsp;
-<h3>Runbook: New-ConfigMgrLogCollectionRule</h3>
+
+## Runbook: New-ConfigMgrLogCollectionRule
+
 ```powershell
 
 workflow New-ConfigMgrLogCollectionRule
@@ -283,7 +289,9 @@ And shortly after it, you should start seeing the log entries in your OMS worksp
 <a href="http://blog.tyang.org/wp-content/uploads/2015/06/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb25.png" alt="image" width="789" height="431" border="0" /></a>
 
 &nbsp;
-<h3>Conclusion</h3>
+
+## Conclusion
+
 I have demonstrated how to use the <strong>OpsMgrExtended</strong> module in a SMA runbook to enable users creating large number of similar OpsMgr management pack workflows.
 
 Given this is only part 2 of the series, and the first example I have released, maybe I should have started with something easier. The reason I've chosen this example as Part 2 is because I am going to present in the next <a href="http://mscsig.azurewebsites.net/" target="_blank">Melbourne System Center, Security, & Infrastructure user group</a> meeting next Tuesday 7th July among with 3 other MVPs (David O'Brien, James Bannan and Orin Thomas). I am going to demonstrate this very same scenario - using OpInsights to collect SCCM log files. So I thought I'll make this the 2nd instalment of the series, so people who attended the user group meeting have something to refer to. In this sample runbook, I've used a relatively more complicated activity called <strong>New-OMRule</strong> to create these event collection rules. This activity is designed as a generic method to create any types of OpsMgr rules. I will dedicate another blog post just for this one in the future.

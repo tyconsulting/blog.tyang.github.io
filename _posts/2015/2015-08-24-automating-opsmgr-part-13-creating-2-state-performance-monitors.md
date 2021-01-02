@@ -16,7 +16,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 13th instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -39,7 +41,9 @@ OpsMgrExtended module provides a function called <strong>New-OM2StatePerformance
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image31.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb31.png" alt="image" width="670" height="212" border="0" /></a>
 
 Same as the previous posts, I’m going to show a sample runbook which utilise this function.
-<h3>Runbook New-2StatePerformanceMonitor</h3>
+
+## Runbook New-2StatePerformanceMonitor
+
 <pre class="" language="PowerShell">Workflow New-2StatePerformanceMonitor
 {
 Param(
@@ -126,5 +130,7 @@ Monitor created by the runbook:
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image37.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb37.png" alt="image" width="368" height="380" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image38.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb38.png" alt="image" width="368" height="380" border="0" /></a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 In this post, I have demonstrated a SMA / Azure Automation runbook to create 2-state performance monitors in OpsMgr. Now that I have covered both aspect of the performance  data (perf collection rule and monitor), I will move on to the event data in the next post.

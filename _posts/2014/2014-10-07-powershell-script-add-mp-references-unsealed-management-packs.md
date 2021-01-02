@@ -13,7 +13,9 @@ tags:
   - PowerShell
   - SCOM
 ---
-<h3>Background</h3>
+
+## Background
+
 Few months ago, I have written a <a href="http://blog.tyang.org/2014/06/24/powershell-script-remove-obsolete-references-unsealed-opsmgr-management-packs/">script</a> to remove obsolete MP references from unsealed management packs and have also built this into the OpsMgr Self Maintenance MP. Last week, I needed to write a script to do the opposite: creating obsolete MP references in unsealed MPs.
 
 In the past, some of the MPs I have released had issues with creating overrides in the OpsMgr operational console. i.e. the OpsMgr 2012 Self Maintenance MP and the ConfigMgr 2012 Client MP. Both of them have one thing in common: the phrase "2012" is a part of the MP namespace, and if someone tries to create an override for these MPs in the operational console, he / she will get an "Alias atribute is invalid" error:
@@ -23,10 +25,13 @@ In the past, some of the MPs I have released had issues with creating overrides 
 When I was testing the latest release ConfigMgr 2012 Client MP (version 1.2.0.0) last week, I also got this error when assigning a RunAs account to the RunAs profile defined in the MP – because the assignment is basically a Secure Reference Override, and a MP reference to the ConfigMgr 2012 Client Library MP needs to be created in the Microsoft.SystemCenter.SecureReferenceOverride MP.
 
 Although we can easily workaround this issue by exporting the unsealed MP, add the MP reference in by manually editing the XML, I thought I’ll write a PowerShell script to do this to make everyone’s life easier.
-<h3>Script</h3>
+
+## Script
+
 To make it a bit easier for the users, this PowerShell function <strong><span style="text-decoration: underline;">CAN ONLY</span></strong> be used on a OpsMgr management server.
 
-<pre lang="powershell">;Function Add-MPRef
+```powershell
+;Function Add-MPRef
 
 {
 &lt;#
@@ -114,7 +119,11 @@ Write-Error $Result
 
 
 ```
-<h3>Usage Example:</h3>
+
+## Usage Example:
+
 Add-MPRef -ReferenceMPName "ConfigMgr.2012.Client.Library" -Alias "C2CL" -UnsealedMPName "Microsoft.SystemCenter.SecureReferenceOverride" –Verbose
-<h3>Conclusion</h3>
+
+## Conclusion
+
 By using this script, we can pick the alias name that we prefer. Although this script is already included in the ConfigMgr 2012 Client MP package, I’d also like to share this script on this blog. For me, it’s a rare scenario that I had to do this, but I hope this can also help someone out there.

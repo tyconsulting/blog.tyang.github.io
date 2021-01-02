@@ -33,39 +33,37 @@ Param($globalSelectedItems)
 $i = 1
 foreach ($globalSelectedItem in $globalSelectedItems)
 {
- $MonitoringObjectID = $globalSelectedItem["Id"]
- $MG = Get-SCOMManagementGroup
- $globalSelectedItemInstance = Get-SCOMClassInstance -Id $MonitoringObjectID
- $Computername = $globalSelectedItemInstance.DisplayName
- $strInstnaceCriteria = "FullName='Microsoft.Windows.Computer:$Computername'"
- $InstanceCriteria = New-Object Microsoft.EnterpriseManagement.Monitoring.MonitoringObjectGenericCriteria($strInstnaceCriteria)
- $Instance = $MG.GetMonitoringObjects($InstanceCriteria)[0]
- $Events = Get-SCOMEvent -instance $Instance -EventId 10001 -EventSource "LocationMonitoring" | Where-Object {$_.Parameters[1] -eq 4} |Sort-Object TimeAdded -Descending | Select -First 50
- foreach ($Event in $Events)
- {
- $EventID = $Event.Id.Tostring()
- $LocalTime = $Event.Parameters[0]
- $LocationStatus = $Event.Parameters[1]
- $Latitude = $Event.Parameters[2]
- $Longitude = $Event.Parameters[3]
- $Altitude = $Event.Parameters[4]
- $ErrorRadius = $Event.Parameters[5].trimend(".")
- 
- $dataObject = $ScriptContext.CreateInstance("xsd://foo!bar/baz")
- $dataObject["Id"]=$EventID
- $dataObject["No"]=$i
- $dataObject["LocalTime"]=$LocalTime
- $dataObject["Latitude"]=$Latitude
- $dataObject["Longitude"]=$Longitude
- $dataObject["Altitude"]=$Altitude
- $dataObject["ErrorRadius (Metres)"]=$ErrorRadius
- $ScriptContext.ReturnCollection.Add($dataObject)
- $i++
- } 
+  $MonitoringObjectID = $globalSelectedItem["Id"]
+  $MG = Get-SCOMManagementGroup
+  $globalSelectedItemInstance = Get-SCOMClassInstance -Id $MonitoringObjectID
+  $Computername = $globalSelectedItemInstance.DisplayName
+  $strInstnaceCriteria = "FullName='Microsoft.Windows.Computer:$Computername'"
+  $InstanceCriteria = New-Object Microsoft.EnterpriseManagement.Monitoring.MonitoringObjectGenericCriteria($strInstnaceCriteria)
+  $Instance = $MG.GetMonitoringObjects($InstanceCriteria)[0]
+  $Events = Get-SCOMEvent -instance $Instance -EventId 10001 -EventSource "LocationMonitoring" | Where-Object {$_.Parameters[1] -eq 4} |Sort-Object TimeAdded -Descending | Select -First 50
+  foreach ($Event in $Events)
+  {
+    $EventID = $Event.Id.Tostring()
+    $LocalTime = $Event.Parameters[0]
+    $LocationStatus = $Event.Parameters[1]
+    $Latitude = $Event.Parameters[2]
+    $Longitude = $Event.Parameters[3]
+    $Altitude = $Event.Parameters[4]
+    $ErrorRadius = $Event.Parameters[5].trimend(".")
+
+    $dataObject = $ScriptContext.CreateInstance("xsd://foo!bar/baz")
+    $dataObject["Id"]=$EventID
+    $dataObject["No"]=$i
+    $dataObject["LocalTime"]=$LocalTime
+    $dataObject["Latitude"]=$Latitude
+    $dataObject["Longitude"]=$Longitude
+    $dataObject["Altitude"]=$Altitude
+    $dataObject["ErrorRadius (Metres)"]=$ErrorRadius
+    $ScriptContext.ReturnCollection.Add($dataObject)
+    $i++
+  } 
 }
 ```
-
-&nbsp;
 
 Because I need to drive the contextual PowerShell Web Browser widget (section 3) from the PowerShell Grid Widget (section 2), the script used in section 3 needs to locate the exact event selected in section 2. As per Oleg’s article, based on his experiment, the only property passed between widgets is the "Id" property (of the data object). therefore, instead of using an auto increment number as the value for "Id" property as demonstrated in the previous screenshot from Oleg’s blog, I assigned the actual event Id as the data object Id so script in section 3 can use the event ID to retrieve data from the particular event.
 

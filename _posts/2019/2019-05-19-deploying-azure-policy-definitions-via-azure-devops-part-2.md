@@ -29,7 +29,9 @@ You can find the source code of this module here:
 
 PowerShell module AzPolicyTest: <a href="https://github.com/tyconsulting/AzPolicyTest">https://github.com/tyconsulting/AzPolicyTest</a>
 
-<h3>AzPolicyTest  PowerShell Module</h3>
+
+## AzPolicyTest  PowerShell Module
+
 
 This module provides the following functions:
 
@@ -196,7 +198,9 @@ The <strong>Test-AzPolicySetDefinition</strong> performs the following tests aga
 
 <a href="https://blog.tyang.org/wp-content/uploads/2019/05/image-2.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2019/05/image_thumb-2.png" alt="image" width="633" height="707" border="0" /></a>
 
-<h3><!--EndFragment-->Publishing AzPolicyTest to Azure Artifacts Feed</h3>
+
+## <!--EndFragment-->Publishing AzPolicyTest to Azure Artifacts Feed
+
 
 I need a place to host the PowerShell module, so it can be installed at runtime – since I’m planning to use the Microsoft-hosted agents in Azure DevOps.
 

@@ -14,13 +14,17 @@ tags:
   - Power BI
   - SCOM
 ---
-<h3>Introduction</h3>
+
+## Introduction
+
 Few days ago, my friend and CDM MVP Cameron Fuller published a great article on how to build Power BI Dashboards for OpsMgr. You can check out Cameron’s post from here: <a title="http://blogs.catapultsystems.com/cfuller/archive/2015/12/01/using-power-bi-for-disk-space-dashboards-and-reports-in-operations-manager/" href="http://blogs.catapultsystems.com/cfuller/archive/2015/12/01/using-power-bi-for-disk-space-dashboards-and-reports-in-operations-manager/">http://blogs.catapultsystems.com/cfuller/archive/2015/12/01/using-power-bi-for-disk-space-dashboards-and-reports-in-operations-manager/</a>
 
 The solution Cameron produced was based on Power BI desktop and OpsMgr Data Warehouse DB, which both are located in your on-premises network. After Cameron has shown us what he has produced, I spent some time, and managed to extend the reports and dashboards that Cameron has created using Power BI Desktop to Power BI sites, which is a cloud-based PaaS solution offered as a part of the Office 365.
 
 In this post, I will go through the process of setting up this solution so you can move Cameron’s Power BI dashboard to the cloud.
-<h3>Pre-Requisites</h3>
+
+## Pre-Requisites
+
 In order to create a Power BI dataset in your cloud based Power BI sites which is based on the on-prem OpsMgr Data Warehouse DB, we will need to install a component called <a href="https://powerbi.microsoft.com/en-us/documentation/powerbi-gateway-enterprise/">Power BI Enterprise Gateway</a> (Currently in preview) on a server in your on-prem data center. As shown in the diagram below, once the dataset is created for the OpsMgr Data Warehouse DB, the Power BI Site will query the OpsMgr DW DB through the Power BI Enterprise Gateway.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/PowerBI-OpsMgr-Dashboard-Connection.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="PowerBI OpsMgr Dashboard Connection" src="http://blog.tyang.org/wp-content/uploads/2015/12/PowerBI-OpsMgr-Dashboard-Connection_thumb.png" alt="PowerBI OpsMgr Dashboard Connection" width="558" height="228" border="0" /></a>
@@ -37,7 +41,9 @@ The solution we are going to implement requires the following pre-requisites:
 <strong><span style="color: #ff0000;">Note:</span></strong>
 
 Power BI Enterprise Gateway is a feature only available for Power BI Pro accounts. Please refer to <a href="https://powerbi.microsoft.com/en-us/pricing">this page</a> for differences between Power BI Free and Pro accounts.
-<h3>Configuration</h3>
+
+## Configuration
+
 The install process for the Power BI Enterprise Gateway is very straightforward. It is documented here: <a title="https://powerbi.microsoft.com/en-us/documentation/powerbi-gateway-enterprise/" href="https://powerbi.microsoft.com/en-us/documentation/powerbi-gateway-enterprise/">https://powerbi.microsoft.com/en-us/documentation/powerbi-gateway-enterprise/</a>
 
 Once it is installed and connected to your Power BI account, you will be able to manage the gateway after you’ve logged on to the Power BI Site (<a title="https://app.powerbi.com/" href="https://app.powerbi.com/">https://app.powerbi.com/</a>):
@@ -113,7 +119,9 @@ And we can create a new report in Power BI Site, same way as what Cameron has de
 In my lab, I have created the dataset and imported the Power BI report file to Power BI Site few days ago. From the above screenshot, you can see the performance data collected today (as highlighted in red). This means the Power BI Site is directly quering my On-Prem OpsMgr DW DB in real time via the Power BI Enterprise gateway. And when I checked my usage, the OpsMgr DW DB dataset has only consumed 1MB of data:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML9083664.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML9083664" src="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML9083664_thumb.png" alt="SNAGHTML9083664" width="661" height="388" border="0" /></a>
-<h3>Summary</h3>
+
+## Summary
+
 In this post, I have demonstrated how to extend the PowerBI report and dashboard you have build in PowerBI Desktop located in your On-Prem environments to the cloud based version – Power BI Site, via the newly released Power BI Enterprise Gateway (still in preview at the time of writing).
 
 Although we must have a Power BI Pro account in order to leverage the Power BI gateways, since are using direct query method when connecting to the OpsMgr DW database, this solution should not consume too much data from your monthly allowrance for the PRO user.

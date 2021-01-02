@@ -18,13 +18,17 @@ tags:
   - SharePoint
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2016/02/Sharepoint-2013-Logo.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Sharepoint-2013-Logo" src="http://blog.tyang.org/wp-content/uploads/2016/02/Sharepoint-2013-Logo_thumb.png" alt="Sharepoint-2013-Logo" width="178" height="178" align="left" border="0" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2016/02/Sharepoint-2013-Logo.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Sharepoint-2013-Logo" src="http://blog.tyang.org/wp-content/uploads/2016/02/Sharepoint-2013-Logo_thumb.png" alt="Sharepoint-2013-Logo" width="178" height="178" align="left" border="0" /></a>Introduction
+
 This blog has been a bit quiet over the last few weeks. This is because I have been really really busy. I have spent a lot of time working on an updated version of the SharePointSDK PS module. Just in case you have not played with this module, here’s some background info:
 
 Just over a year ago, I posted a PowerShell / SMA / Azure Automation module on <a href="http://blog.tyang.org/2014/12/23/sma-integration-module-sharepoint-list-operations/">this blog</a> called SharePointSDK. Few months ago, I have also published this module on <a href="https://github.com/tyconsulting/SharePointSDK_PowerShellModule">Github</a> and <a href="https://www.powershellgallery.com/packages/SharePointSDK">PowerShell Gallery</a>. This module was designed to help automate operations around SharePoint lists (i.e. CRUD operations for SharePoint list items). Coupling SharePoint (both On-prem version or SharePoint Online) with Azure Automation (or even SMA) is becoming more and more common in the community when designing automation solutions. This module provides ways for your automation runbooks to interact with SharePoint list items.
 
 However, I believe the original 1.0 release was really basic, and there are still a lot I’d like to cover in this module. Now I’m pleased to announce the new major release (version 2.0.1) is now available on both Github and PowerShell Gallery.
-<h3>What’s New?</h3>
+
+## What’s New?
+
 I’ve included the following updates in version 2.0.1:
 <ul>
 	<li><strong>26 additional functions!</strong></li>
@@ -230,7 +234,9 @@ The table below lists all the functions that are shipped in the current release 
 As you can see, the previous version has shipped 11 functions, and <span style="background-color: #ffff00;">26 additional functions</span> have been added to the current release (2.0.1). With this release, other than the SharePoint list items, we are also able to manage SharePoint lists, list fields, groups, group members, and even subsites. I have included functions to create what I believe the most common list fields (as highlighted below):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/02/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/02/image_thumb.png" alt="image" width="373" height="324" border="0" /></a>
-<h3>Future Plans</h3>
+
+## Future Plans
+
 At this stage, there are still few things I’d like to cover in this module but I simply do not have time. Since I think I have reached another milestone at this stage, I have decided to release this version now and roll other ideas into the future release.
 
 In the second week of March, I will be presenting at SCU APAC (<a href="systemcenteruniverse.asia/malaysia/">Kuala Lumpur, Malaysia</a>) and Australia (<a href="systemcenteruniverse.asia/australia/">Melbourne</a>).  I am presenting 2 identical sessions at both locations:
@@ -241,7 +247,9 @@ In the second week of March, I will be presenting at SCU APAC (<a href="systemce
 As part of the demos I have prepared for the Azure Automation session with Pete, I will cover how I’m using this module as part of my automation solutions.
 
 After SCU, I am planning to write another blog post for my <a href="http://blog.tyang.org/tag/automating-opsmgr/">Automating OpsMgr series</a> which will cover one of the our SCU demos (I know, it has been a long time since my last post for that series). I will also cover this module in more details in this upcoming blog post.
-<h3>Download the Module</h3>
+
+## Download the Module
+
 So for now, if you’d like to give this module a try, you can find it from both <a href="https://github.com/tyconsulting/SharePointSDK_PowerShellModule/releases/tag/2.0.1">GitHub</a> and <a href="https://www.powershellgallery.com/packages/SharePointSDK/2.0.1">PowerShell Gallery</a>. All functions are fully documented in the help file. <strong>You can access the help document as well as code examples using Get-Help with –Full switch</strong>.
 
 Lastly, if you have any feedback, or suggestions for future releases, please feel free to drop me an email.

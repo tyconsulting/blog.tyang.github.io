@@ -16,7 +16,8 @@ tags:
   - Container
   - Docker
 ---
-<h3 style="text-align: left;">Background</h3>
+<h3 style="text-align: left;">Background
+
 
 In certain parts of the world, some of the popular apps and services that I use daily are blocked by state-owned firewalls. Couple of years ago, before we went to that part of the world for family holiday, I looked into setting up proxy servers on the public cloud so we can actually use our Android phones when we are over there. One of my high school friends told me he’s using a popular Socks5 proxy server called <a href="https://github.com/shadowsocks">Shadowsocks</a> hosted on a GCP VM instance. Shadowsocks is a Linux based server, it is extremely easy to setup, and it provides client apps for <a href="https://github.com/shadowsocks/shadowsocks-windows/releases">Windows</a>, <a href="https://github.com/shadowsocks/shadowsocks-iOS/wiki/Shadowsocks-for-OSX-Help">OSX</a>, Android (<a href="https://github.com/shadowsocks/shadowsocks-android/releases">GitHub</a>, <a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks">Google Play</a>) and <a href="https://github.com/shadowsocks/shadowsocks-iOS/wiki/Help">iOS</a>.
 
@@ -32,7 +33,9 @@ I’m going to go through how I used YAML pipelines in Azure DevOps to deploy an
 
 <strong><span style="color: #ff0000;">NOTE:</span></strong> Before we continue, let me set this straight first. The purpose of this post is really to demonstrate and share my experience of deploying a simple containerized app to Azure using Azure Pipelines. Hosting Internet based proxy servers is legal. We are all law-abiding citizens, don’t hold me responsible for your inappropriate use of proxy servers.
 
-<h3>Pre-requisites</h3>
+
+## Pre-requisites
+
 
 I’m using several Azure DevOps extensions in my pipelines. If you don’t want to use them, you can remove the steps in the pipeline:
 
@@ -41,7 +44,9 @@ I’m using several Azure DevOps extensions in my pipelines. If you don’t want
     <li>Run ARM TTK Tests: <a href="https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtension">https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtension</a></li>
 </ul>
 
-<h3>Azure Container Registry Pipeline</h3>
+
+## Azure Container Registry Pipeline
+
 
 Firstly, I created a pipeline to deploy an container registry to host the docker image. The pattern is located in the <a href="https://github.com/tyconsulting/containers.patterns/tree/master/acr">acr folder</a> in the repo. The <a href="https://github.com/tyconsulting/containers.patterns/blob/master/acr/azure.pipelines.yaml">YAML pipeline</a> deploys an <a href="https://github.com/tyconsulting/containers.patterns/blob/master/acr/templates/azuredeploy.json">ARM template</a>, which contains an ACR and key vault (for storing ACR admin credential).
 
@@ -91,7 +96,9 @@ The pipeline contains the following stages:
 
 This pipeline is pretty straightforward, once completed, I’m ready to continue with the second pipeline.
 
-<h3>Docker Image</h3>
+
+## Docker Image
+
 
 As part of the ACI pipeline, the docker image is built, scanned and pushed to ACR from the <a href="https://github.com/tyconsulting/containers.patterns/blob/master/containers/shadowsocks/Dockerfile">Dockerfile</a> I’ve created. it basically performs the following steps:
 
@@ -105,7 +112,9 @@ As part of the ACI pipeline, the docker image is built, scanned and pushed to AC
 
 The config file controls various settings such as port mapping, encryption method, and password when connecting to the shadowsocks server. I don’t really consider the password here a secret because it’s generic that everyone who connect to my instance would use. I’d put a very simple phrase here so it’s not too hard for people to enter when setting up profile on their client apps.
 
-<h3>Azure Container Instance Pipeline</h3>
+
+## Azure Container Instance Pipeline
+
 
 The ACI pattern is located in the <a href="https://github.com/tyconsulting/containers.patterns/tree/master/containers/shadowsocks">container/shadowsocks</a> folder of my GitHub repo. Similar to the ACR pipeline, I needed to create some variable groups, service connections and environments to support the ACI pipeline:
 
@@ -211,7 +220,9 @@ To test, I connected the Shadowsocks client to one of the profiles (i.e. the ins
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/06/image-15.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2020/06/image_thumb-15.png" alt="image" width="286" height="615" border="0" /></a>
 
-<h3>Conclusion</h3>
+
+## Conclusion
+
 
 I also found something interesting when playing with Shadowsocks. Based on my testing, I noticed some video streaming providers have different content for different regions. For example, since I’m based in Australia, I am able to watch an Aussie comedy called <a href="https://www.imdb.com/title/tt2401525/">Upper Middle Bogan</a> on Netflix. but if I connect my phone to my Shadowsocks instance in USA, I am not able to find the show on Netflix:
 

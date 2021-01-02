@@ -14,7 +14,9 @@ tags:
   - SCOM
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/Compliance.png"><img class="alignleft" style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Compliance" src="http://blog.tyang.org/wp-content/uploads/2014/10/Compliance_thumb.png" alt="Compliance" width="206" height="244" border="0" /></a>Last week, while I was assisting with few production issues in a ConfigMgr 2012 environment, I had to quickly implement some monitoring for some ConfigMgr 2012 site systems. By utilising the most recent release of ConfigMgr 2012 Client management pack (version 1.2.0.0) and few DCM baselines, I managed to achieve the goals in a short period of time. The purpose of this post is to share my experience and hopefully someone can pick few tips and tricks from it.
-<h3>Background</h3>
+
+## Background
+
 We are in the process of rebuilding few hundreds sites from Windows Server 2008 R2 / System Center 2007 R2 to Windows Server 2012 R2 / System Center 2012 R2. Last week, the support team has identified few issues during the conversion process. I have been asked to assist. In this post, I will go through 2 particular issues, and also how I setup monitoring so support team and management have a clearer picture of the real impact.
 
 <strong>Issue 1:</strong> WinRM connectivity issues caused by duplicate computer accounts in AD.
@@ -26,7 +28,9 @@ The conversion process involves rebuilding some physical and virtual servers fro
 It took us and Microsoft Premier support few days to identify the cause, I won’t go into the details. But we need to be able to identify from the Distribution Point itself if it is still a PXE enabled DP.
 
 To achieve both goals, I created 2 DCM baselines and targeted them to appropriate collections in ConfigMgr.
-<h3>Duplicate AD Computer Account Baseline</h3>
+
+## Duplicate AD Computer Account Baseline
+
 This baseline contains only 1 Configuration Item (CI). the CI uses a script to detect if the computer account exists in other domains. Here’s the script (note the domain names need to be modified in the first few lines):
 ```powershell
 #list of domains to check
@@ -100,7 +104,9 @@ In order for the CI to be compliant, the return value from the script needs to b
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb7.png" alt="image" width="431" height="447" border="0" /></a>
 
 &nbsp;
-<h3>Distribution Point Configuration Baseline</h3>
+
+## Distribution Point Configuration Baseline
+
 This baseline also only contain 1 CI. Since it contains application setting, I used a very simple script to detect the existence of the ConfigMgr DP:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb8.png" alt="image" width="485" height="480" border="0" /></a>
@@ -113,7 +119,9 @@ The compliant condition for the CI is set to:
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e005e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML62e005e" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e005e_thumb.png" alt="SNAGHTML62e005e" width="498" height="235" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e9fb8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML62e9fb8" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e9fb8_thumb.png" alt="SNAGHTML62e9fb8" width="499" height="223" border="0" /></a>
-<h3>Alerting through OpsMgr</h3>
+
+## Alerting through OpsMgr
+
 Once I’ve setup and deployed these 2 baselines to appropriate collections, everything has been setup in ConfigMgr. I can now take the ConfigMgr admin hat off.
 
 So what do I need to configure now in OpsMgr for the alerts to go through? The answer is: Nothing! Since the ConfigMgr 2012 Client MP (version 1.2.0.0) has already been implemented in the OpsMgr management group, I don’t need to put on the OpsMgr admin hat because there’s nothing else I need to do. Within few hours, the newly created baselines will be discovered in OpsMgr, and start being monitored:

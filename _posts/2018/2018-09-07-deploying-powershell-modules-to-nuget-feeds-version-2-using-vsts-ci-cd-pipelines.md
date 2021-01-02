@@ -14,7 +14,9 @@ tags:
   - VSTS
 ---
 It’s been 2 weeks since my last post, I was half way through my list (of blogs to be written), then Melbourne was hit by a big cold wave, I got sick for over a week because of that, and with the recent outage of VSTS, I only got chance to finalise my code and demo for this post today.
-<h3>Background</h3>
+
+## Background
+
 Last year, I posted an article on <a href="https://blog.tyang.org/2017/09/03/deploying-powershell-module-from-github-to-a-myget-feed-using-vsts-cicd-pipeline/">how to deploy PowerShell modules from GitHub to MyGet feeds using VSTS</a>. I wasn’t really satisfied with what I did back then, and I had a requirement to develop several VSTS pipelines to deploy couple of private PowerShell modules I developed for a customer. I wanted to utilise out of the box tasks in my pipelines, have better Pester tests, and easier to deploy to multiple environments (multiple feeds). After some digging around, managed to use the <a href="https://docs.microsoft.com/en-us/vsts/pipelines/tasks/package/nuget?view=vsts">NuGet task</a> since under the hood, PowerShell modules is just a NuGet package:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb.png" alt="image" width="801" height="522" border="0" /></a>
@@ -26,7 +28,9 @@ In order to use this NuGet task (which leverages nuget.exe), I needed to provide
 As you can see, the .nuspec file is a XML file that contains the meta data of the NuGet package, just like the PowerShell module manifest (.psd1) file.
 
 When I was creating the pipelines for the customer, I was able to quickly creating the .nuspec files manually as part of the source code stored in the Git repo, then point the NuGet VSTS task to the specific nuspec file. This was quick and easy, since I didn’t have a lot of time to further automate the process, I left it there since it did the job. But I wanted to revisit this topic when I have a bit more time – I don’t really want to manually create / update the nuspec file every time, since it’s just copy & paste information from the module manifest .psd1 file.
-<h3>Automatically Generating NuGet Specification File</h3>
+
+## Automatically Generating NuGet Specification File
+
 Over the last couple of days, I have spent some time on this, and wanted to come up a way to automatically generate the nuspec file for PowerShell modules – since when we create PowerShell modules, we only need to create the manifest files, the nuspec files were automatically created by Microsoft’s <a href="https://www.powershellgallery.com/packages/PowerShellGet">PowerShellGet module</a>. Luckily, PowerShellGet is open sourced, published in <a href="https://github.com/PowerShell/PowerShellGet">GitHub</a>, and it’s MIT license allows me to re-use its source code. I was able to "borrow" some code from it, and came up with this script that generates .nuspec files from .psd1 - <strong>psd1-to-nuspec.ps1</strong>:
 
 https://gist.github.com/tyconsulting/c567e5cc66fc522d46743d744579be27
@@ -43,7 +47,9 @@ After I put together this script, I was able to include this in my Git repo, and
  	<li>publish the module to multiple feeds (as different environments in the release pipeline) using the native VSTS NuGet task</li>
 </ul>
 I will walk through how I created the the build and release pipelines now, using the same demo module PSSouthPark from my original post last year. The source code is still located in one of my public GitHub repos: <a title="https://github.com/tyconsulting/PSSouthPark" href="https://github.com/tyconsulting/PSSouthPark">https://github.com/tyconsulting/PSSouthPark</a>, which is linked to my VSTS pipeline. Please feel free to clone or fork my repo if you want to give it a try yourself (or simply love South Park, or want to prank someone via WinRM <img class="wlEmoticon wlEmoticon-smile" src="https://blog.tyang.org/wp-content/uploads/2018/09/wlEmoticon-smile.png" alt="Smile" />).
-<h3>Creating VSTS Pipelines</h3>
+
+## Creating VSTS Pipelines
+
 <span style="color: #ff0000;">Note:</span> In this demo, I’m using the hosted VSTS agent, if you are using your own agent pool, the steps can be slightly different than mine.
 
 <strong>Build (CI) Pipeline</strong>
@@ -158,7 +164,9 @@ Depending on the NuGet feed provider, you need to obtain an API key that has per
 In my demo, I don’t really want to deploy this module to PowerShell Gallery because it can be seen as offensive <img class="wlEmoticon wlEmoticon-smile" src="https://blog.tyang.org/wp-content/uploads/2018/09/wlEmoticon-smile.png" alt="Smile" />. so I configured the PowerShell Gallery environment to require pre-deployment approval (and I’ll go cancel it later).
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/image-16.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/09/image_thumb-16.png" alt="image" width="931" height="124" border="0" /></a>
-<h3>Summary</h3>
+
+## Summary
+
 In this article, I walked through how I deployed PowerShell modules to NuGet feeds using the native VSTS NuGet task. It took me a while to strip the useful code from Microsoft’s PowerShellGet module in order to automatically generate the nuspec files.
 
 When the Publish-Module from PowerShellGet is executed, it generates a nuspec file for the module that you wish to publish, but deletes it after the deployment. It would be a lot easier for us if Microsoft can extend the capability to allow us to only generate nuspec file or create NuGet package without deploying it.

@@ -67,7 +67,9 @@ COMMIT TRANSACTION T1
 As I explained in the <a href="http://blog.tyang.org/2014/09/29/clean-sma-database-module-deletion/" target="_blank">previous post</a>, you will need to update the <strong>@ModuleName</strong> and <strong>@ConnectionName</strong> variables accordingly.
 
 Lastly, I'd like to state that it is very common to update the connection type JSON file during your module development phase. During this phase, you would probably use this script a lot <strong><u>on your development environment</u></strong>. But please do not try and use this in production environment. It is developed by myself with no involvement from Microsoft, and Microsoft would never support directly editing the database.
-<h3>Conclusion</h3>
+
+## Conclusion
+
 If you are having this issue with On-Prem SMA, in your <u>non-prod environment</u>, you can try to use this SQL script to remove the connection type AFTER the old module has been deleted.
 
 If you are having this issue in Azure Automation, please use the REST API as Joe mentioned in the User Voice: <a title="https://msdn.microsoft.com/en-us/library/azure/mt163852.aspx" href="https://msdn.microsoft.com/en-us/library/azure/mt163852.aspx">https://msdn.microsoft.com/en-us/library/azure/mt163852.aspx</a>

@@ -14,7 +14,9 @@ tags:
   - SCOM
 ---
 Recently, I have had chance to evaluate the <a href="http://www.opslogix.com/vmware-management-pack/">OpsLogix VMware management pack</a>. In this post, I will discuss my experience with this MP so far.
-<h3>Setup and Configuration</h3>
+
+## Setup and Configuration
+
 Once the MP files are imported , you will be able to import the license from the licensing dashboard in the monitoring pane under the OpsLogix folder.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1ef419e2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1ef419e2" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1ef419e2_thumb.png" alt="SNAGHTML1ef419e2" width="486" height="373" border="0" /></a>
@@ -36,7 +38,9 @@ The OpsLogix VMware MP also has defined a resource pool that you can use for mon
 By default, the resource pool membership is set Automatic (which means all management servers are a member of). you can change it to Manual membership and hand pick the management servers you want to be a member of this resource pool.
 
 Alternatively, you can also pick another existing resource pool (or even create your own) in the OpsLogix VMware configuration dashboard. You can also use resource pools containing OpsMgr gateway servers to monitor your VMware environment.
-<h3>Discovered Objects</h3>
+
+## Discovered Objects
+
 This MP discovers and monitors the following components:
 <ul>
 	<li>vCenter servers</li>
@@ -63,7 +67,9 @@ The MP collects data and queries the health state of the VMware components via t
 I have been asked many times before that what exactly does this MP monitor / collect? To answer the question, I’ve used MPViewer and exported all the monitoring MPs to Excel and make <a href="http://blog.tyang.org/wp-content/uploads/2016/02/VMWareMPExtract.xlsx">this SpreadSheet</a> that contains all the rules and unit monitors.
 
 This MP does not require any additional servers to monitor the VMware infrastructure as it leverages a resource pool to query vCenter. In my lab environment, since I have installed vCenter server on a Windows server, I also installed the OpsMgr agent on the vCenter server, so the server itself is monitored by OpsMgr.
-<h3>Hardware Monitoring</h3>
+
+## Hardware Monitoring
+
 As mentioned previously, this MP also monitors the hardware components in your VMware environments. In particular, the following components are discovered and monitored:
 <ul>
 	<li>Battery</li>
@@ -89,7 +95,9 @@ Storage:
 Processors:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2ffe462.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2ffe462" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2ffe462_thumb.png" alt="SNAGHTML2ffe462" width="524" height="256" border="0" /></a>
-<h3>Reporting</h3>
+
+## Reporting
+
 The reporting MP provides several availability reports for different VMware components:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f58ed68.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1f58ed68" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f58ed68_thumb.png" alt="SNAGHTML1f58ed68" width="459" height="335" border="0" /></a>
@@ -101,11 +109,15 @@ i.e. ESX host availability report:
 I’ve created a sample ESX host availability report, you can download it from <a href="http://blog.tyang.org/wp-content/uploads/2016/02/VMware-ESX-host-availability-report.xlsx">HERE</a>.
 
 Note: all the reports shipped in this MP are <a href="http://blogs.msdn.com/b/eugenebykov/archive/2007/05/21/linked-reports.aspx">linked reports</a>, So if they don’t meet your requirements, you can always use other  existing reports in your management group (i.e. the performance reports from Microsoft Generic Report Library).
-<h3>Squared Up Dashboard</h3>
+
+## Squared Up Dashboard
+
 I have created a Squared Up dashboard for this the OpsLogix VMware MP.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/02/OpsLogix-VMware-Dashboard.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="OpsLogix VMware Dashboard" src="http://blog.tyang.org/wp-content/uploads/2016/02/OpsLogix-VMware-Dashboard_thumb.png" alt="OpsLogix VMware Dashboard" width="649" height="332" border="0" /></a>
 
 If you are also Squared Up in your OpsMgr environment, you can download this dashboard and import this dashboard from Squared Up’s community site: <a title="https://community.squaredup.com/browse/download-info/opslogix-vmware/" href="https://community.squaredup.com/browse/download-info/opslogix-vmware/">https://community.squaredup.com/browse/download-info/opslogix-vmware/</a>
-<h3>Summary</h3>
+
+## Summary
+
 If you’d like to know more about this MP, you can find the datasheet here: <a title="http://www.opslogix.com/wp-content/uploads/2014/08/VMware-MP-Datasheet-2016.pdf" href="http://www.opslogix.com/wp-content/uploads/2014/08/VMware-MP-Datasheet-2016.pdf">http://www.opslogix.com/wp-content/uploads/2014/08/VMware-MP-Datasheet-2016.pdf</a> and the whitepaper here: <a title="http://www.opslogix.com/wp-content/uploads/2016/01/VMware-MP-White-Paper-2016.pdf" href="http://www.opslogix.com/wp-content/uploads/2016/01/VMware-MP-White-Paper-2016.pdf">http://www.opslogix.com/wp-content/uploads/2016/01/VMware-MP-White-Paper-2016.pdf</a>

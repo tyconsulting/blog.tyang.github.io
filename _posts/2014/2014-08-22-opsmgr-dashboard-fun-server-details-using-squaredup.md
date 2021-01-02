@@ -23,71 +23,76 @@ The bottom left is the improved version of the performance view (using embed par
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML2d6fce9d.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2d6fce9d" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML2d6fce9d_thumb.png" alt="SNAGHTML2d6fce9d" width="469" height="966" border="0" /></a>
 
 This server detail view contains the following information:
-<ul>
-	<li>Alerts associated to the computer</li>
-	<li>Health states of the Distributed Apps that this computer is a part of.</li>
-	<li>Health State of its hosted components (Equivalent to the Health Explorer??)</li>
-	<li>Discovered properties of this computer</li>
-</ul>
+
+* Alerts associated to the computer
+* Health states of the Distributed Apps that this computer is a part of.
+* Health State of its hosted components (Equivalent to the Health Explorer??)
+* Discovered properties of this computer
+
 Combined with the performance view, it gives a good overview of the current state of the computer from different angles.
 
 Here’s the script for this server detail view:
-<pre lang="powershell">Param($globalSelectedItems)
+
+```powershell
+Param($globalSelectedItems)
 $dataObject = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request")
-$dataObject["BaseUrl"]=<a href="http://&lt;Your SquaredUp Web Server&gt;/SquaredUp/object">http://Your SquaredUp Web Server/SquaredUp/object</a>
+$dataObject["BaseUrl"]=<a href="http://<Your SquaredUp Web Server>/SquaredUp/object">http://Your SquaredUp Web Server/SquaredUp/object</a>
 $parameterCollection = $ScriptContext.CreateCollection("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter[]")
 $bValid = $false
 foreach ($globalSelectedItem in $globalSelectedItems)
 {
-$parameter0 = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
-$parameter0["Name"] = "objectId"
-$parameter0["Value"] = $globalSelectedItem["Id"]
+  $parameter0 = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
+  $parameter0["Name"] = "objectId"
+  $parameter0["Value"] = $globalSelectedItem["Id"]
 
-$parameter1 = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
-$parameter1["Name"] = "Embed"
-$parameter1["Value"] = "true"
+  $parameter1 = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
+  $parameter1["Name"] = "Embed"
+  $parameter1["Value"] = "true"
 
-$parameterCollection.Add($parameter0)
-$parameterCollection.Add($parameter1)
-$bValid = $true
+  $parameterCollection.Add($parameter0)
+  $parameterCollection.Add($parameter1)
+  $bValid = $true
 }
 If ($bValid)
 {
-$dataObject["Parameters"]= $parameterCollection
-$ScriptContext.ReturnCollection.Add($dataObject)
+  $dataObject["Parameters"]= $parameterCollection
+  $ScriptContext.ReturnCollection.Add($dataObject)
 }
 
 ```
 And here’s the script for the improved performance view (with "&embed=true" parameter):
-<pre lang="powershell">Param($globalSelectedItems)
+
+```powershell
+Param($globalSelectedItems)
 $dataObject = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request")
-$dataObject["BaseUrl"]=<a href="http://&lt;Your Squaredup Web Server&gt;/SquaredUp/performance/objectoverview">http://Your Squaredup Web Server/SquaredUp/performance/objectoverview</a>
+$dataObject["BaseUrl"]=<a href="http://<Your Squaredup Web Server>/SquaredUp/performance/objectoverview">http://Your Squaredup Web Server/SquaredUp/performance/objectoverview</a>
 $parameterCollection = $ScriptContext.CreateCollection("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter[]")
 $bValid = $false
 foreach ($globalSelectedItem in $globalSelectedItems)
 {
-$parameter0 = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
-$parameter0["Name"] = "objectId"
-$parameter0["Value"] = $globalSelectedItem["Id"]
+  $parameter0 = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
+  $parameter0["Name"] = "objectId"
+  $parameter0["Value"] = $globalSelectedItem["Id"]
 
-$parameter1 = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
-$parameter1["Name"] = "timeframe"
-$parameter1["Value"] = "Last12Hours"
+  $parameter1 = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
+  $parameter1["Name"] = "timeframe"
+  $parameter1["Value"] = "Last12Hours"
 
-$parameter2 = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
-$parameter2["Name"] = "Embed"
-$parameter2["Value"] = "true"
+  $parameter2 = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
+  $parameter2["Name"] = "Embed"
+  $parameter2["Value"] = "true"
 
-$parameterCollection.Add($parameter0)
-$parameterCollection.Add($parameter1)
-$parameterCollection.Add($parameter2)
-$bValid = $true
+  $parameterCollection.Add($parameter0)
+  $parameterCollection.Add($parameter1)
+  $parameterCollection.Add($parameter2)
+  $bValid = $true
 }
 If ($bValid)
 {
-$dataObject["Parameters"]= $parameterCollection
-$ScriptContext.ReturnCollection.Add($dataObject)
+  $dataObject["Parameters"]= $parameterCollection
+  $ScriptContext.ReturnCollection.Add($dataObject)
 }
 
 ```
+
 I’d also like to clarify that my examples are just providing alternative ways to utilise SquaredUp and display useful information on a single pane of glass (dashboards).  I don’t want to mislead the readers of article to have an impression that SquaredUp relies on native OpsMgr consoles and dashboards. In my opinion and experience with SquaredUp, I think it is a perfect replacement to the built-in OpsMgr web console.

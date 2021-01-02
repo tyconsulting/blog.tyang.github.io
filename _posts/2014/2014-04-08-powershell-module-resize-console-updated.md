@@ -47,7 +47,7 @@ Or "rsc –m" if use aliases. The –max switch will move the window to the top 
 
 Every time I get on to a box (most likely via RDP) for the first time, I always had to manually set the PowerShell console size to suit my needs. then next time I RDP in from another computer with different display resolutions, I often had to set it again.
 
-With resize-console –max, it will always set the console to the maximum size and occupies the entire screen. It will make my life so much easier. Not that I have OCD(Obsessive Compulsive Disorder), but for those ones who do, this function would make you much happier I suppose :). I’ll demonstrate this in the Youtube video at the end of this article.
+With resize-console –max, it will always set the console to the maximum size and occupies the entire screen. It will make my life so much easier. Not that I have OCD(Obsessive Compulsive Disorder), but for those ones who do, this function would make you much happier I suppose :smiley:. I’ll demonstrate this in the Youtube video at the end of this article.
 
 Note: for this functionality, I used some of the code from <a href="http://richardspowershellblog.wordpress.com/2011/07/23/moving-windows/">Richard Siddaways’s blog</a>. So thanks to Richard.
 
@@ -98,8 +98,8 @@ Please watch this video in full screen and 720P/1080P or you may not be able to 
 
 You can download the module <strong><a href="http://blog.tyang.org/wp-content/uploads/2014/04/PSConsoleV2.zip">HERE</a></strong>. simply unzip and copy the whole folder to <strong>C:\Windows\System32\WindowsPowerShell\v1.0\Modules</strong>
 
-So why am I spending time on this PowerShell project rather than System Center, which is my bread and butter? That would be the topic for my next blog article. :)
+So why am I spending time on this PowerShell project rather than System Center, which is my bread and butter? That would be the topic for my next blog article. :smiley:
 
 Please feel free to contact me for any issues or suggestions.
 
-Until next time, happy PowerShelling :)
+Until next time, happy PowerShelling :smiley:

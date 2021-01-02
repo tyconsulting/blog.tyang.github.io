@@ -12,7 +12,9 @@ tags:
   - Management Pack
   - SCOM
 ---
-<h3>Introduction</h3>
+
+## Introduction
+
 In OpsMgr, groups are frequently used when designing service level monitoring and dashboards. The group members’ health rollup behaviours can be configured by creating various dependency monitors targeting against the group.
 
 When creating groups, only instance groups can be created within the OpsMgr console. Unlike computer groups, instance groups do not inherit any dependent monitors from their base class. Therefore when an instance group is created in the OpsMgr console, by default, the health state of the group is "Not monitored" (Uninitialized):
@@ -28,7 +30,9 @@ Squared Up has engaged me and asked me to develop an agent task to configure gro
 The "OpsMgr group health Rollup Configuration Task Management Pack" provides an agent task to create dependency monitors for the selected groups using OpsMgr SDK.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image39.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb39.png" alt="image" width="644" height="290" border="0" /></a>
-<h3>Management Pack Overview</h3>
+
+## Management Pack Overview
+
 In order for the OpsMgr operators to easily navigate to the groups, this management pack provides a state view for all groups (System.Group class):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image40.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb40.png" alt="image" width="544" height="321" border="0" /></a>
@@ -60,13 +64,19 @@ After the task is executed against a group, 4 dependency monitors are created:
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image42.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb42.png" alt="image" width="455" height="237" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image43.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb43.png" alt="image" width="339" height="363" border="0" /></a>
-<h3>Security Consideration</h3>
+
+## Security Consideration
+
 Natively in OpsMgr, only user accounts assigned either authors role or administrators role have access to create monitors. However, users with lower privileges (such as operators and advanced operators) can potentially execute this task and create dependency monitors.
 
 Please keep this in mind when deploying this management pack. You may need to scope user roles accordingly to only allow appropriate users have access to this task.
-<h3>Credit</h3>
+
+## Credit
+
 Thanks Squared Up for making this management pack free to the community.
-<h3>Download</h3>
+
+## Download
+
 This management pack can be downloaded from the link below:
 
 [wpdm_package id='4275']

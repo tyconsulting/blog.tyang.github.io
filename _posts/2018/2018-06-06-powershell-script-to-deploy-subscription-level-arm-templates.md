@@ -16,11 +16,15 @@ tags:
   - PowerShell
   - VSTS
 ---
-<h3>Introduction</h3>
+
+## Introduction
+
 In my <a href="https://blog.tyang.org/2018/06/06/using-arm-templates-to-deploying-azure-policy-definitions-that-requires-input-parameters/">previous post</a>, I demonstrated how to deploy Azure Policy definitions that require input parameters via ARM templates. as I mentioned in that post, at the time of writing, the tooling has not been updated to allow subscription level ARM template deployments. The only possible way to deploy such template right now is via the ARM REST API.
 
 I have a requirement to deploy subscription level templates in VSTS pipelines. since I can’t use the native AzureRM PowerShell module or the Azure Resource Group Deployment VSTS task, I had to create a PowerShell script that can be used under the context of Azure PowerShell VSTS task.
-<h3>Requirements</h3>
+
+## Requirements
+
 The script has the following requirements:
 
 <strong>1. Being able to invoke ARM REST API within the Azure PowerShell VSTS task.</strong>
@@ -30,7 +34,9 @@ In order to invoke ARM REST APIs, an Azure AD oAuth token needs to be generated 
 <strong>2. Being able to perform ARM template validation</strong>
 
 Part of the build (CI) pipeline would be validating the ARM template and input parameters, make sure it template is valid before kicking off the release (CD) task. so the same script can also be used to perform the validation using an input parameter.
-<h3>PowerShell Script Deploy-SubscriptionLevelTemplate.ps1</h3>
+
+## PowerShell Script Deploy-SubscriptionLevelTemplate.ps1
+
 https://gist.github.com/tyconsulting/25915358d7d521e846260cead4211bd4
 
 In order to execute the script, you will firstly need to create a service principal and also pass its key to the script.
@@ -66,7 +72,9 @@ Few things to be aware of:
 i.e. the output when I deployed the sample template from my previous post:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/06/image-4.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/06/image_thumb-4.png" alt="image" width="1002" height="1078" border="0" /></a>
-<h3>Using it in VSTS</h3>
+
+## Using it in VSTS
+
 To demonstrate this, I created a very simple project and pipelines in VSTS, in real life, you’d probably want to have additional tasks in your pipelines (i.e. running pester tests, etc.).
 
 <strong>Creating a variable group to retrieve the Service Principal key from key vault (you will need to store it in KV manually first)</strong>
@@ -129,7 +137,9 @@ Input parameters (change it according to your requirements):
 If the template or parameter files contain errors, the build would fail:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/06/image-15.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/06/image_thumb-15.png" alt="image" width="945" height="408" border="0" /></a>
-<h3>Summary</h3>
+
+## Summary
+
 This script is designed primarily for VSTS Azure PowerShell task, therefore I’m using an AAD Service Principal.
 
 It does not support specifying ARM input parameters as script input or specifying ARM template and parameters files in a URI format (like what AzureRM module does), because I don’t have such a requirement. Feel free to modify this script to suit your requirements. Suggestions are always welcome. just leave me a message in the comment area.

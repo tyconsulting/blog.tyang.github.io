@@ -15,7 +15,9 @@ tags:
   - Power BI
   - PowerShell
 ---
-<h3>Background</h3>
+
+## Background
+
 Few days ago my good friend and fellow CDM MVP Alex Verkinderen (<a href="https://twitter.com/AlexVerkinderen">@AlexVerkinderen</a>) had a requirement to produce a Power BI dashboard for Azure AD users. so Alex and I started discussing a way to produce such report in Power BI. After exploring various potential possibilities, we have decided to leverage Azure Functions to feed data into Power BI. You can check out the Power BI solution Alex has built on his blog here: <a href="http://www.mscloud.be/retrieve-azure-aad-user-information-with-azure-functions-and-publish-it-into-powerbi">http://www.mscloud.be/retrieve-azure-aad-user-information-with-azure-functions-and-publish-it-into-powerbi</a>
 
 In this blog post, I’m not going to the details of how the AAD Users Power BI report was built. Instead, I will focus on the Azure Functions component and briefly demonstrate how to build a Azure Functions web service and act as a Power BI data source. As an example for this post, I’ll build a Azure Functions web service in PowerShell that brings in Azure VMs information into Power BI. To set the stage, I have already written two blog posts yesterday on Azure Functions:

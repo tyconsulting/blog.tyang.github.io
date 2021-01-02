@@ -16,7 +16,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 5th instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -31,7 +33,9 @@ In OpsMgr, groups can be populated via Explicit memberships (static) or Dynamic 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd397dca.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd397dca" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd397dca_thumb.png" alt="SNAGHTMLd397dca" width="466" height="206" border="0" /></a>
 
 In this post, I will demonstrate how to use a runbook to add a Windows computer object to a computer group via Explicit membership.
-<h3>Runbook Add-ComputerToComputerGroup</h3>
+
+## Runbook Add-ComputerToComputerGroup
+
 <pre language="PowerShell" class="">
 Workflow Add-ComputerToComputerGroup
 {
@@ -212,7 +216,9 @@ Since the OpsMgrExtended module does not (yet) have a function to add a computer
 	<li>Update the unsealed management pack where the discovery is defined.</li>
 </ol>
 &nbsp;
-<h3>Executing Runbook</h3>
+
+## Executing Runbook
+
 Group membership before execution:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd56ca18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd56ca18" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd56ca18_thumb.png" alt="SNAGHTMLd56ca18" width="437" height="152" border="0" /></a>
@@ -226,7 +232,9 @@ Executing runbook:
 Group membership after execution:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd586a6a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd586a6a" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd586a6a_thumb.png" alt="SNAGHTMLd586a6a" width="457" height="95" border="0" /></a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 In this post, I have demonstrated how to use a runbook and OpsMgrExtended module to add a Windows computer object as a static member of a computer group.
 
 I've also demonstrated even when an activity is not pre-defined in the OpsMgrExnteded module, we can still leverage OpsMgrExnteded module to perform the task because we can directly interact with OpsMgr management groups and SDKs via this module - by using the <strong>Connect-OMManagementGroup</strong> function, the SDK will be loaded automatically.

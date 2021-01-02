@@ -16,7 +16,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 11th instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -37,7 +39,9 @@ The runbook I'm demonstrating today was based on the PowerShell script in the <a
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLaf5f001.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLaf5f001" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLaf5f001_thumb.png" alt="SNAGHTMLaf5f001" width="626" height="198" border="0" /></a>
 
 By creating an agent task to create health rollup dependency monitors (in the OpsMgr Group Health Rollup Configuration Task MP), I have provided a more user friendly way for OpsMgr users to configure health rollup for groups, but this task won't help us when we are designing an automation solution. Therefore, I have written a SMA runbook based on the script I developed for the MP.
-<h3>Runbook: Configure-GroupHealthRollup</h3>
+
+## Runbook: Configure-GroupHealthRollup
+
 ```powershell
 Workflow Configure-GroupHealthRollup
 {
@@ -343,7 +347,9 @@ After runbook execution:
 Dependency monitor health rollup policy:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/image47.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb47.png" alt="image" width="398" height="426" border="0" /></a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 In this post, I have demonstrated how to configure OpsMgr group health rollup by creating dependency monitors using a SMA runbook. As I mentioned in <a href="http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/" target="_blank">part 4</a>, I was going to dedicate few post for a creating and managing groups mini series. This post would be the last post for this managing groups mini series. To summarise, on managing groups, I have covered the following aspects:
 <ul>
 	<li>Creating new empty groups (Part 4)</li>

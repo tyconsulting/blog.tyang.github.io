@@ -14,35 +14,35 @@ tags:
 ---
 I am really excited about the 2 new PowerShell dashboard widget released in OpsMgr 2012 R2 UR2. PowerShell has always been my favourite scripting language, something I have been using on a daily basis since 2008. In my opinion, the opportunities are endless when having the ability to execute PowerShell scripts within an OpsMgr dashboard. I will start posting my ideas in this blog.
 
-<strong>Background</strong>
+## Background
 
 For those who don’t know me, I work for an Australian retailer which has 3 brands (supermarkets, service stations and liquor stores) with totally over 2000 stores across the country. Pretty much every Windows device in the stores are being managed by System Center. Because of the nature of the environment we are in, in the past, there were ideas tossing around in the office that people really like to have some kind of map dashboard for OpsMgr, and we have trailed / tested different solutions. Although there are 3rd party solutions out there, yesterday, I have spent couple of hours and created a dashboard like this:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image15.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb15.png" alt="image" width="580" height="318" border="0" /></a>
 
 This dashboard contains:
-<ul>
-	<li>Top Left: State widget for a customized class called "TYANG Remote Computer", which is based on Windows Computer class.</li>
-	<li>Bottom Left: Contextual PowerShell Grid widget displays health state of all related objects for "TYANG Remote Computers"</li>
-	<li>Right: Contextual PowerShell Web Browser widget that pin-points the computer location on Google Maps.</li>
-</ul>
+
+* Top Left: State widget for a customized class called "TYANG Remote Computer", which is based on Windows Computer class.
+* Bottom Left: Contextual PowerShell Grid widget displays health state of all related objects for "TYANG Remote Computers"
+* Right: Contextual PowerShell Web Browser widget that pin-points the computer location on Google Maps.
+
 In Action:
 
-http://youtu.be/7Q7lEZYIv9E
+<iframe src="//www.youtube.com/embed/7Q7lEZYIv9E" height="375" width="640" allowfullscreen="" frameborder="0"></iframe>
 
 I’ll now go through the steps I took to make this dashboard work. the management packs I used in the demo can also be downloaded from the link at the end of this post.
 
-<strong>Instructions</strong>
+## Instructions
 
-<strong>Step 01. Create a management pack to define and discover the custom Windows Computer class.</strong>
+### Step 01. Create a management pack to define and discover the custom Windows Computer class.
 
 I Named this management pack "Demo.Remote.Computers". I basically created a customized Windows Computer class with 4 additional properties:
-<ul>
-	<li>Street</li>
-	<li>City (aka Suburb as what we call in Australia)</li>
-	<li>State</li>
-	<li>Country</li>
-</ul>
+
+* Street
+* City (aka Suburb as what we call in Australia)
+* State
+* Country
+
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image16.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb16.png" alt="image" width="545" height="396" border="0" /></a>
 
 I then created a registry key and stored these property values in the key:
@@ -55,7 +55,7 @@ Lastly, before I sealed the MP, I also created a folder and a state view for thi
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image18.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb18.png" alt="image" width="580" height="62" border="0" /></a>
 
-<strong>Step 02. Create the dashboard</strong>
+### Step 02. Create the dashboard
 
 Now that the class is defined and discovered, I can move on to the dashboard. To create the dashboard, firstly, I created a brand new MP from the Operations console, and called it "Demo Remote Computer Dashboard" with the ID "Demo.Remote.Computer.Dashboard". When the unsealed MP is created in the operations console, a folder is automatically created with the MP. I will place the dashboard under this folder (for now):
 
@@ -103,20 +103,20 @@ Add the script below to the script section:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22ef9a12.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML22ef9a12" src="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22ef9a12_thumb.png" alt="SNAGHTML22ef9a12" width="580" height="326" border="0" /></a>
 
-[source language="Powershell"]
+```powershell
 Param($globalSelectedItems)
 foreach ($globalSelectedItem in $globalSelectedItems)
 {
-$globalSelectedItemInstance = Get-SCOMClassInstance -Id $globalSelectedItem["Id"]
-foreach ($relatedItem in $globalSelectedItemInstance.GetRelatedMonitoringObjects())
-{
-$ClassName = $relatedItem.GetMonitoringclasses()[0].DisplayName
-$dataObject = $ScriptContext.CreateFromObject($relatedItem, "Id=Id,State=HealthState,DisplayName=DisplayName,FullName=FullName", $null)
-$dataObject["ParentRelatedObject"] = $globalSelectedItemInstance.DisplayName
-$ScriptContext.ReturnCollection.Add($dataObject)
+  $globalSelectedItemInstance = Get-SCOMClassInstance -Id $globalSelectedItem["Id"]
+  foreach ($relatedItem in $globalSelectedItemInstance.GetRelatedMonitoringObjects())
+  {
+    $ClassName = $relatedItem.GetMonitoringclasses()[0].DisplayName
+    $dataObject = $ScriptContext.CreateFromObject($relatedItem, "Id=Id,State=HealthState,DisplayName=DisplayName,FullName=FullName", $null)
+    $dataObject["ParentRelatedObject"] = $globalSelectedItemInstance.DisplayName
+    $ScriptContext.ReturnCollection.Add($dataObject)
+  }
 }
-}
-[/source]
+```
 
 Click Next and Create to create the widget.
 
@@ -136,30 +136,30 @@ Copy the script below to the script section:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22f4ac2b.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML22f4ac2b" src="http://blog.tyang.org/wp-content/uploads/2014/05/SNAGHTML22f4ac2b_thumb.png" alt="SNAGHTML22f4ac2b" width="569" height="378" border="0" /></a>
 
-[source language="Powershell"]
+```powershell
 Param($globalSelectedItems)
 $dataObject = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request")
 $dataObject["BaseUrl"]="http://maps.google.com/maps"
 $parameterCollection = $ScriptContext.CreateCollection("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter[]")
 foreach ($globalSelectedItem in $globalSelectedItems)
 {
-$globalSelectedItemInstance = Get-SCOMClassInstance -Id $globalSelectedItem["Id"]
-$StreetProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "Street"}
-$CityProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "City"}
-$StateProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "State"}
-$CountryProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "Country"}
-$Street = $globalSelectedItemInstance.GetMonitoringPropertyValue($StreetProperty)
-$City = $globalSelectedItemInstance.GetMonitoringPropertyValue($CityProperty)
-$State = $globalSelectedItemInstance.GetMonitoringPropertyValue($StateProperty)
-$Country = $globalSelectedItemInstance.GetMonitoringPropertyValue($CountryProperty)
-$parameter = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
-$parameter["Name"] = "q"
-$parameter["Value"] = "$street $City $state $Country"
-$parameterCollection.Add($parameter)
+  $globalSelectedItemInstance = Get-SCOMClassInstance -Id $globalSelectedItem["Id"]
+  $StreetProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "Street"}
+  $CityProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "City"}
+  $StateProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "State"}
+  $CountryProperty = $globalSelectedItemInstance.GetMonitoringProperties() | Where-Object {$_.name -match "Country"}
+  $Street = $globalSelectedItemInstance.GetMonitoringPropertyValue($StreetProperty)
+  $City = $globalSelectedItemInstance.GetMonitoringPropertyValue($CityProperty)
+  $State = $globalSelectedItemInstance.GetMonitoringPropertyValue($StateProperty)
+  $Country = $globalSelectedItemInstance.GetMonitoringPropertyValue($CountryProperty)
+  $parameter = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
+  $parameter["Name"] = "q"
+  $parameter["Value"] = "$street $City $state $Country"
+  $parameterCollection.Add($parameter)
 }
 $dataObject["Parameters"]= $parameterCollection
 $ScriptContext.ReturnCollection.Add($dataObject)
-[/source]
+```
 
 Click Next and Create to create the widget.
 
@@ -191,9 +191,9 @@ Lastly, delete the old dashboard MP in OpsMgr, and import the updated one. The d
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/05/image26.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/05/image_thumb26.png" alt="image" width="244" height="57" border="0" /></a>
 
-<strong>Issues I experienced</strong>
+## Issues I experienced
 
-01. Google Maps VS. Bing Maps
+1.  Google Maps VS. Bing Maps
 
 Someone may want to ask, why did I choose Google Maps rather than Microsoft’s Bing Maps. Well, I’m not sure about other countries, but couple of years ago when I was testing a well known OpsMgr map dashboard, which uses Bing Map (you probably know which one I’m talking about), I found the mapping data for Australia is very inaccurate.
 
@@ -239,9 +239,9 @@ I’m not a web developer, but I’m guessing if I develop a web page on a web s
 
 Anyways, after playing with it for a while, I don’t really mind clicking the arrow to minimise the left pane every time, having the left pane there can be handy sometimes as I can also use the "Get Directions" function as I demonstrated in the video.
 
-<strong>Conclusion</strong>
+## Conclusion
 
-Overall, I spent more time trying to get Google Maps working in the widget than time creating the management pack and dashboard. The management packs can be downloaded <strong><a href="http://blog.tyang.org/wp-content/uploads/2014/05/Sample-Dashboard-Google-Maps.zip">HERE</a></strong>.
+Overall, I spent more time trying to get Google Maps working in the widget than time creating the management pack and dashboard. The management packs can be downloaded **<a href="http://blog.tyang.org/wp-content/uploads/2014/05/Sample-Dashboard-Google-Maps.zip">HERE</a>**.
 
 Please keep in mind the MP that defines and discovers your classes must be sealed so other MPs can reference it. I’ve included both sealed and unsealed version of this MP, if you want to test it out in your environment, please make sure you used the sealed version (Demo.Remote.Computers.mp).
 

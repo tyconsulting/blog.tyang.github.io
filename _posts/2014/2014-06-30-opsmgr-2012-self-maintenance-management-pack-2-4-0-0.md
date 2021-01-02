@@ -13,7 +13,7 @@ tags:
   - MP Authoring
   - SCOM
 ---
-This blog has been a bit quiet lately because of 2 reasons: FIFA World Cup and I’ve been updating the OpsMgr 2012 Self Maintenance MP. :)
+This blog has been a bit quiet lately because of 2 reasons: FIFA World Cup and I’ve been updating the OpsMgr 2012 Self Maintenance MP. :smiley:
 
 <strong>What’s new in version 2.4.0.0?</strong>
 <ul>
@@ -96,4 +96,4 @@ I’d like to thank Cameron Fuller, Bob Cornelissen and Raphael Burri for the su
 
 Lastly, if you have suggestions or issues / questions that are not documented in the documentation, please feel free to contact me.
 
-<strong><a href="http://blog.tyang.org/wp-content/uploads/2014/06/OpsMgr-2012-Self-Maintenance-MP-2.4.0.0.zip">DOWNLOAD LINK</a></strong>
+[**DOWNLOAD LINK**](https://cookdown.com/scom-essentials/self-maintenance)

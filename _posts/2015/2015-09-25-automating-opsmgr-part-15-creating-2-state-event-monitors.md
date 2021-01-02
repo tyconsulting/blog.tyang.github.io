@@ -16,7 +16,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 15th instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -41,7 +43,9 @@ Like all other functions in this module, it has been fully documented, with few 
 <strong>Get-Help New-OM2StateEventMonitor –Full</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb9099e1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLb9099e1" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb9099e1_thumb.png" alt="SNAGHTMLb9099e1" width="364" height="266" border="0" /></a>
-<h3>Runbook: New-2StateEventMonitor</h3>
+
+## Runbook: New-2StateEventMonitor
+
 ```powershell
 Workflow New-2StateEventMonitor
 {
@@ -143,5 +147,7 @@ Healthy Event:
 Alert Setting:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image30.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb30.png" alt="image" width="382" height="395" border="0" /></a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 In this post, I’ve demonstrated how to create a 2-state event monitor using the OpsMgrExtended module. now that I have covered both even collection rules and even monitors, I will dedicate the next 2 posts on monitoring Windows services.

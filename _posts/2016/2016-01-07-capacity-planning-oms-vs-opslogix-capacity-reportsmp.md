@@ -14,14 +14,18 @@ tags:
   - OpsLogix
   - SCOM
 ---
-<h3>Introduction</h3>
+
+## Introduction
+
 When it comes to data center / fabric capacity planning, currently there are 2 major solutions within Microsoft’s System Center and OMS space. These solutions are:
 <ul>
 	<li>OMS Capacity Planning Solution (<a href="http://microsoft.com/oms">http://microsoft.com/oms</a>)</li>
 	<li>OpsLogix Capacity Reporting Management Pack for OpsMgr (<a title="http://www.opslogix.com/capacity-management-pack/" href="http://www.opslogix.com/capacity-management-pack/">http://www.opslogix.com/capacity-management-pack/</a>)</li>
 </ul>
 In this post, I will discuss the differences and similarities between these 2 solutions
-<h3>OMS Capacity Planning Solution Overview</h3>
+
+## OMS Capacity Planning Solution Overview
+
 The OMS Capacity Planning solution was designed to provide an overview on the current and future utilisation of your virtualisation infrastructure and fabric. It is freely available for all OMS customers (well, you do have to pay for the OMS data consumption).
 
 It collects a set of performance data via OpsMgr, and forecast your resource utilization based on the performance data collected.
@@ -53,7 +57,9 @@ It provides some charts and diagrams which gives you a high level overview of yo
 You can also access the performance data collected by this solution via Search (Type=Perf)
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-6.png" alt="image" width="667" height="261" border="0" /></a>
-<h3>OpsLogix Capacity Report MP Overview</h3>
+
+## OpsLogix Capacity Report MP Overview
+
 Unlike OMS Capacity Planning solution, the OpsLogix Capacity Report MP is not a hybrid solution. It does not require integrations with any products. Once you have imported the Capacity Report MP and the license MP, you should soon see the number of reports deployed in your OpsMgr management group.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML15da8eb9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML15da8eb9" src="http://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML15da8eb9_thumb.png" alt="SNAGHTML15da8eb9" width="651" height="422" border="0" /></a>
@@ -75,7 +81,9 @@ The percentage value reports are designed for the performance collection rules t
 Or, if you only want to see the critical ones, you can use "Critical Only" reports.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-10.png" alt="image" width="573" height="198" border="0" /></a>
-<h3>Comparison</h3>
+
+## Comparison
+
 Although both solutions provide forecasting capabilities for your infrastructure managed by OpsMgr, it serves different purposes.
 
 OMS Capacity Planning solution collects <strong><em>a specific set</em></strong> of performance counters around the compute and storage fabric, and provides a high level view on what is the current and future capacity for the fabric in your <strong><em>Hyper-V</em></strong> environment. If you want to take a look at what counters are being collected by the Capacity Planning solution, you can export the following MPs from your OpsMgr management group and take a look using MPViewer.
@@ -87,5 +95,7 @@ The OpsLogix Capacity Report MP provides a set of generic reports that can be us
 Since the performance data collected by the OMS Capacity Planning solution is being saved only at your OMS workspace, you will not see these performance collection rules from the drop down lists in the OpsLogix capacity reports because they are not available in your OpsMgr Data Warehouse DB.
 
 Although I have not personally tried it, theoretically, you can use the OpsLogix capacity report MP to produce forecasting reports for your Hyper-V environments (just like what the OMS Capacity Planning does), as long as you have configured OpsMgr to collect the same counters. Additionally, if you are using other hypervisors such as VMware and they are being monitored by OpsMgr, you can also use the OpsLogix capacity report MP for forecasting your fabric resource utilisation – this is something the OMS Capacity Planning solution does not provide.
-<h3>Conclusion</h3>
+
+## Conclusion
+
 I hope I have provided a high level overview and comparison between OMS Capacity Planning solution and OpsLogix Capacity Report MP in this post. If you have questions or feedback, please feel free to contact me.

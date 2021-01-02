@@ -18,7 +18,9 @@ tags:
 Squared Up has recently established a brand new web site: <a href="https://community.squaredup.com">https://community.squaredup.com</a>. This is where everyone in the community is able to share Squared Up dashboards. So, it’s pretty similar to TechNet Gallery, but only for Squared Up dashboards.
 
 So far, I have produced dashboards for all products in the System Center 2012 (R2)suite. I am planning to share few more dashboards via this site, but for now, I’d like to show you what I have shared so far, and what other awesome dashboards a currently available for download.
-<h3>My System Center 2012 R2 Suite Dashboards</h3>
+
+## My System Center 2012 R2 Suite Dashboards
+
 <h4>ConfigMgr 2012 (R2)</h4>
 <img src="https://community.squaredup.com/wp-content/uploads/2015/09/screenshot_v2.jpg" alt="" width="575" height="323" />
 
@@ -63,7 +65,9 @@ The screenshot provided does not contain any subscription perf data because I do
 <img src="https://community.squaredup.com/wp-content/uploads/2015/10/Self-Maintenance-MP-Dashboard.png" alt="" width="580" height="307" />
 
 Download from: <a title="https://community.squaredup.com/browse/download-info/opsmgr-self-maintenance/" href="https://community.squaredup.com/browse/download-info/opsmgr-self-maintenance/">https://community.squaredup.com/browse/download-info/opsmgr-self-maintenance/</a>
-<h3>Other Awesome Dashboards</h3>
+
+## Other Awesome Dashboards
+
 In addition to the dashboards I’ve created for the System Center 2012 R2 suite, there are also other awesome dashboards that I think you should take a look:
 <h4>Office 365 (Created by myself)</h4>
 <img src="https://community.squaredup.com/wp-content/uploads/2015/09/screen2.png" alt="" width="587" height="292" />
@@ -89,5 +93,7 @@ Download from: <a title="https://community.squaredup.com/browse/download-info/sh
 <img src="https://community.squaredup.com/wp-content/uploads/2015/09/OpsMgrDash.png" alt="" width="563" height="280" />
 
 Download from: <a title="https://community.squaredup.com/browse/download-info/opsmgr/" href="https://community.squaredup.com/browse/download-info/opsmgr/">https://community.squaredup.com/browse/download-info/opsmgr/</a>
-<h3>About Squared Up Community Dashboards</h3>
+
+## About Squared Up Community Dashboards
+
 Please visit <a title="https://squaredup.com/community/" href="https://squaredup.com/community/">https://squaredup.com/community/</a> If you’d like to learn more about Squared Up’s Community Dashboards initiative. It is really easy to export your dashboards and share with the community. We will sanity check all dashboards submission before publishing it to the public, this is to ensure no sensitive information about your environment is shared with the public.

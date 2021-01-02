@@ -15,13 +15,17 @@ tags:
   - SCOM
 ---
 <span style="color: #ff0000;">Update: 09/09/2015: I found a small error in the demo MP provided at the end of this post, where one of the perf collection rules had an extra condition detection module (which prevents the real-time perf data to be sent to OMS). I have just updated the MP and the download link.</span>
-<h3>Introduction</h3>
+
+## Introduction
+
 Yesterday, the OMS product team has <a href="http://blogs.technet.com/b/momteam/archive/2015/09/01/near-real-time-performance-data-collection-in-oms.aspx">announced the availability of the Near-Real Time (NRT) Performance Data Collection in OMS</a>. My buddy and fellow SCCDM MVP Stanislav Zhelyazkov has already wrote an article on his blog: <a href="https://cloudadministrator.wordpress.com/2015/09/01/operations-management-suite-performance-monitoring/">Operations Management Suite – Performance Monitoring</a>.
 
 I won’t repeat what’s already been discussed in these 2 posts, but I’ll tackle it from the management pack authoring perspective, and sharing what I have discovered so far.
 
 <strong><span style="color: #ff0000;">Note:</span></strong> If you haven’t read above mentioned 2 posts, I strongly recommend you to do so before continuing with this article.
-<h3>Management Pack Under The Hood</h3>
+
+## Management Pack Under The Hood
+
 By default, OMS has 8 performance counters configured for near-real time perf collection. You can see them in the settings section of your workspace:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb.png" alt="image" width="655" height="373" border="0" /></a>
@@ -63,7 +67,9 @@ After Examining these 2 rules closely,  we can see the following:
 06. Since both rules are disabled by default, the MP also comes with overrides to enable these rules for the OMS managed computers:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6c32a96.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6c32a96" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6c32a96_thumb.png" alt="SNAGHTML6c32a96" width="671" height="351" border="0" /></a>
-<h3>Write Your own OMS Near-Real Time Perf Collection Rules</h3>
+
+## Write Your own OMS Near-Real Time Perf Collection Rules
+
 Now that we have discovered how are the near-real time perf data is collected in OpsMgr, I have spent some time today testing different rule configurations. Based on <strong><u>my own experience</u></strong>, my findings are:
 
 <strong>01. Both raw data collection rule and aggregation data collection rule are required</strong>

@@ -12,11 +12,15 @@ tags:
   - SCOM 2016
   - SCOM Installation
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/08/keep-calm-and-love-mrnogui.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="keep-calm-and-love-mrnogui" src="http://blog.tyang.org/wp-content/uploads/2015/08/keep-calm-and-love-mrnogui_thumb.png" alt="keep-calm-and-love-mrnogui" width="210" height="244" align="left" border="0" /></a>Background</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/08/keep-calm-and-love-mrnogui.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="keep-calm-and-love-mrnogui" src="http://blog.tyang.org/wp-content/uploads/2015/08/keep-calm-and-love-mrnogui_thumb.png" alt="keep-calm-and-love-mrnogui" width="210" height="244" align="left" border="0" /></a>Background
+
 This blog has been a little bit quiet over the last couple of weeks as I have been busy working on few projects that are yet to be finalised to be released to the public. Few days ago, there was a private conversation between few SCCDM MVPs – we were trying to figure out how to configure the IE settings on a management server in order to complete the OMS registration process using the console on the management server itself. As the result of that conversation, I raised question if OpsMgr can be installed on Windows Server Core because I believe any kind of administrative tasks should be performed from a remote machine. My buddy <a href="https://cloudadministrator.wordpress.com/">Stanislav Zhelyazkov</a> pointed out it’s actually supported and suggested this could actually be a good blog topic. I am also very interested in seeing this to work in my lab, as I have been spent a lot of $$$ lately on computer hardware for my lab, I think it would benefit myself if I can cut the footprint of some applications that I have running in my lab by removing the GUI interfaces from Windows server instances.
 
 So, I spent my spare time this weekend trying to install each of the OpsMgr 2016 TP3 component on Windows Server 2016 TP3 with one principal – each component must be installed on a Windows Server OS with minimum supported GUI interface. In this post, I will go through my deployment experience.
-<h3>Overview</h3>
+
+## Overview
+
 As we all know, currently (OpsMgr 2016 Tp3) is still largely the same as OpsMgr 2012 R2, with added support to newer OS (Windows Server 2016 TP) and few minor new functionalities.
 
 Nowadays, Windows Server consists the following UI options (from minimum to maximum):
@@ -112,7 +116,9 @@ As the result, I have deployed the following servers in my lab. All of them are 
 </tbody>
 </table>
 I will now go through my experience of configuring each OpsMgr 2016 TP3 components in my lab (with minimum GUI).
-<h3>01. General OS Installation</h3>
+
+## 01. General OS Installation
+
 I did not use any image or template based deployment methods (i.e. via VMM or ConfigMgr). I simply manually created these VMs on a Windows Server 2012 R2 Hyper-V box and installed the OS using the Windows Server 2016 TP3 ISO that I’ve downloaded from my MSDN subscription. I chose Server Core during the install for all above mentioned virtual machines. After the OS install, I performed the following tasks on all servers:
 
 <strong>Using </strong><a href="https://technet.microsoft.com/en-us/library/ee441254%28v=ws.10%29.aspx?f=255&MSPPError=-2147217396"><strong>sconfig.cmd</strong></a><strong> to configure the following:</strong>
@@ -138,7 +144,9 @@ I did not use any image or template based deployment methods (i.e. via VMM or Co
 <strong>Configure disks and volumes using diskpart.exe</strong>
 
 I am not going to go through diskpart here, and it is not the only way to do so.
-<h3>02. Configure SQL Server (OMTP3DB01)</h3>
+
+## 02. Configure SQL Server (OMTP3DB01)
+
 I mounted the SQL 2014 Enterprise with SP1 ISO to the VM in Hyper-V and launch the install using command:
 
 <span style="color: #0000ff;">setup.exe /UIMODE=EnableUIOnServerCore /Action=Install</span>
@@ -175,7 +183,9 @@ As you can see, since this is on a Server Core machine, I did not install SQL Ma
 <strong><span style="color: #ff0000;">Note:</span></strong> I found a good post on how to install SQL on Server Core: <a href="http://tenbulls.co.uk/2012/09/19/using-the-sql-server-installation-wizard-on-server-core/">http://tenbulls.co.uk/2012/09/19/using-the-sql-server-installation-wizard-on-server-core/</a>. However, when I initially launched the install wizard without "/Action=Install" switch, I was presented to the "SQL Server Installation Center" page, but when I clicked on any links on this page, nothing would happen. Luckily someone mentioned this switch in one of the comments and I was able to by pass this page:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb12.png" alt="image" width="405" height="318" border="0" /></a>
-<h3>03. Configure the First Management Server (OMTP3MS01):</h3>
+
+## 03. Configure the First Management Server (OMTP3MS01):
+
 As documented on <a href="https://technet.microsoft.com/en-us/library/dn249696.aspx">TechNet</a>, management servers require the minimal server interface and AuthManager:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb13.png" alt="image" width="507" height="184" border="0" /></a>
@@ -240,7 +250,9 @@ When I run the exe, I can specify a location to extract the installation to. I h
 	<li>The installation also logs to "%LocalAppData%\SCOM\Logs" folder. You may have to check the logs in this folder the installation didn’t go as what you have hoped.</li>
 	<li>Since I did not install the Operations Console on the management server, I did not have to install the SQL CRL Type and Report Viewer as pre-requisites. – They are the pre-reqs for the console, not for the management server server.</li>
 </ul>
-<h3>04. Configure Additional Management Server (OMTP2MS02):</h3>
+
+## 04. Configure Additional Management Server (OMTP2MS02):
+
 I have gone through the same OS requirements as the first management server (Server-Gui-Mgmt-Infra and AuthManager), please refer to the previous section. After these components were installed on OMTP3MS02, I used a slightly simpler command for the additional management server install:
 
 <span style="color: #0000ff;">setup.exe /install /components:OMServer
@@ -257,7 +269,9 @@ I have gone through the same OS requirements as the first management server (Ser
 /silent</span>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML1185ef98.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1185ef98" src="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML1185ef98_thumb.png" alt="SNAGHTML1185ef98" width="583" height="424" border="0" /></a>
-<h3>05. Configure Gateway Server (OMTP3GW01)</h3>
+
+## 05. Configure Gateway Server (OMTP3GW01)
+
 The OS requirement for gateway servers is different than management servers. It does not require the minimal server interface (Server-Gui-Mgmt-Infra) and AuthManager. Additionally, we cannot use the setup.exe for the gateway server unattended install. we must execute the gateway server msi directly using msiexec.exe.
 
 As I mentioned before, the OpsMgr install bits have already been copied to each server, in the command prompt, I firstly changed the directory to C:\Software\SCOM\gateway\AMD64 (C:\Software\SCOM is where I copied the install bits to).
@@ -308,7 +322,9 @@ Set-SCOMParentManagementServer -GatewayServer $GatewayServer -FailoverServer $Fa
 	<li>Official documentation for gateway server unattended installation can be found here: <a title="https://technet.microsoft.com/en-us/library/hh456445.aspx" href="https://technet.microsoft.com/en-us/library/hh456445.aspx">https://technet.microsoft.com/en-us/library/hh456445.aspx</a></li>
 	<li>The official documentation has missed a required parameter "<strong>AcceptEndUserLicenseAgreement</strong>". My friend and fellow SCCDM MVP Marnix Wolf has previously blogged about this error on his blog: <a title="http://thoughtsonopsmgr.blogspot.com.au/2014/06/installing-scom-2012x-gateway-server.html" href="http://thoughtsonopsmgr.blogspot.com.au/2014/06/installing-scom-2012x-gateway-server.html">http://thoughtsonopsmgr.blogspot.com.au/2014/06/installing-scom-2012x-gateway-server.html</a></li>
 </ul>
-<h3>06. Configure Web Console server (OMTP3WEB01)</h3>
+
+## 06. Configure Web Console server (OMTP3WEB01)
+
 The web console server can be installed on a Server Core instance. However, we must firstly install all required IIS and .NET components.
 
 <strong>Install IIS components via PowerShell:</strong>
@@ -347,7 +363,9 @@ Go to the folder where SCOM Install bits are located:
 	<li>Official documentation for web console unattended install: <a title="https://technet.microsoft.com/en-us/library/hh298606.aspx" href="https://technet.microsoft.com/en-us/library/hh298606.aspx">https://technet.microsoft.com/en-us/library/hh298606.aspx</a></li>
 	<li>Since the IIS management console is not installed on server core, I will go through how to install and configure IIS management in the remote management section towards the end of this post.</li>
 </ul>
-<h3>07. Configure Reporting Server</h3>
+
+## 07. Configure Reporting Server
+
 Since the Reporting server has the full GUI interface enabled (required by SSRS), there is no much to cover here. I will only briefly go through few points here.
 
 <strong>Install SQL Server Reporting Services (SSRS)</strong>
@@ -359,7 +377,9 @@ I launched the SQL installation and only installed SSRS. I then went through eac
 <strong>Install OpsMgr Reporting Server</strong>
 
 I launched the OpsMgr installation wizard and selected Reporting Server. The only error I received was that the SQL Server Agent was not running. So I went to check the SQL Server Agent service on the SQL server OMTP3DB01, and realised I must have left the start type for SQL Server Agent service to the default configuration of Manual. I changed it to automatic and started the service. I was then able to continue on with the reporting server installation.
-<h3>08. Configure a Remote Management machine</h3>
+
+## 08. Configure a Remote Management machine
+
 Now that I have all the OpsMgr components installed, I need a machine to remotely manage these components. For this purpose, I have created a VM running Windows 10 Professional and have installed the following components:
 <ul>
 	<li>OpsMgr 2016 Tp3 Console</li>
@@ -418,5 +438,7 @@ And tried to run a report:
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/image30.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb30.png" alt="image" width="450" height="286" border="0" /></a>
 
 Everything seems to be OK (with my limited testing so far).
-<h3>Conclusion</h3>
+
+## Conclusion
+
 In this post, I have documented the steps I took to setup OpsMgr 2016 TP3 on Windows servers using the<strong><u> minimum required</u></strong> GUI components. This is 100% based on my own experience in my lab. Please use it with caution and I will not hold any responsibilities if anything went south in your environment. Please also feel free to contact me if you have anything to add on this topic, or simply want to share you experience.

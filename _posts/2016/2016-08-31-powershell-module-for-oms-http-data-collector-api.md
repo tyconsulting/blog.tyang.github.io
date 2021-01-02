@@ -13,13 +13,17 @@ tags:
   - OMS
   - PowerShell
 ---
-<h3>Background</h3>
+
+## Background
+
 Earlier today, the OMS Product Group has released the OMS HTTP Data Collection API to public preview. If you haven’t read the announcement, you can read <a href="https://blogs.technet.microsoft.com/msoms/2016/08/30/http-data-collector-api-send-us-data-from-space-or-anywhere/">this blog post</a> written by the PM of this feature, Evan Hissey first.
 
 As a Cloud and Datacenter Management MVP, I’ve had private preview access to this feature for few months now, and I actually even developed a solution using this API in a customer engagement with my friend and fellow CDM MVP Alex Verkinderen (<a href="https://twitter.com/AlexVerkinderen">@AlexVerkinderen</a>) just over a month ago. I was really impressed with the potential opportunities this feature may bring to us, I’ve been spamming Evan’s inbox asking him for the release date of this feature so I can blog about it and also present this in user group meetups.
 
 Since most of us wouldn’t like having to deal with HTTP headers, bodies, authorizations and other overhead we have to put into our code in order to use this API, I have developed a PowerShell module to help us easily utilize this API.
-<h3>Introducing OMSDataInjection PowerShell Module</h3>
+
+## Introducing OMSDataInjection PowerShell Module
+
 This module was developed about 2 months ago, I was waiting for the API to become public so I can release this module. So now the wait is over, I can finally release it.
 
 This module contains only one public function: <strong>New-OMSDataInjection</strong>. This function is well documented in a proper help file. you can access it via <em><strong>Get-Help New-OMSDataInjection –Full</strong>. </em>I have added 2 examples in the help file too:
@@ -69,7 +73,9 @@ When the optional secondary key is specified, if the web request using the prima
 <strong>03. Supports two types of input: JSON and PSObject</strong>
 
 As you can see from Evan’s post, this API is expecting a JSON object as the HTTP body which contains the data to be injected into OMS. When I started testing this API few months ago, my good friend and fellow MVP Stanislav Zhelyazkov (<a href="https://twitter.com/StanZhelyazkov">@StanZhelyazkov</a>) suggested me instead of writing plain JSON format, it’s better to put everything into a PSObject then convert it to JSON in PowerShell so we don’t mess with the format and type of each field. I think it was a good idea, so I have coded the module to take either JSON format, or a PSObject that contains the data to be injected into OMS.
-<h3>Sample Script  and Runbook</h3>
+
+## Sample Script  and Runbook
+
 I’ve created a sample script and a runbook to help you get started. They are also included in the Github repository for this module (link at the bottom of this article):
 
 <strong> Sample Script: Test-OMSDataInjection.ps1</strong>
@@ -155,7 +161,9 @@ $InjectData = New-OMSDataInjection -OMSConnection $OMSConnection -LogType $LogNa
 #endregion
 
 ```
-<h3>Exploring Data in OMS</h3>
+
+## Exploring Data in OMS
+
 Once the data is injected into OMS, if you are using a new data type,  it can take a while (few hours) for all the fields to be available in OMS.
 
 i.e. the data injected by the sample script and Azure Automation runbook (executed on Azure):
@@ -167,11 +175,15 @@ all the fields that you have defined are stored as custom fields in your OMS wor
 <a href="http://blog.tyang.org/wp-content/uploads/2016/08/image-55.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-55.png" alt="image" width="512" height="324" border="0" /></a>
 
 Please keep in mind, since the Custom Fields feature is still at the preview phase, there’s a limit of 100 custom fields per workspace at this stage (<a title="https://azure.microsoft.com/en-us/documentation/articles/log-analytics-custom-fields/" href="https://azure.microsoft.com/en-us/documentation/articles/log-analytics-custom-fields/">https://azure.microsoft.com/en-us/documentation/articles/log-analytics-custom-fields/</a>), so please be mindful of this limitation when you are building your custom solutions using the HTTP Data Collector API.
-<h3>Where to Download This Module?</h3>
+
+## Where to Download This Module?
+
 I have published this module in PowerShell Gallery: <a title="https://www.powershellgallery.com/packages/OMSDataInjection" href="https://www.powershellgallery.com/packages/OMSDataInjection">https://www.powershellgallery.com/packages/OMSDataInjection</a>, if you are using PowerShell version 5 and above, you can install it directly from it: <strong>Install-Module –Name OMSDataInjection –Repository PSGallery</strong>
 
 You can also download it from it’s GitHub repo: <a title="https://github.com/tyconsulting/OMSDataInjection-PSModule/releases" href="https://github.com/tyconsulting/OMSDataInjection-PSModule/releases">https://github.com/tyconsulting/OMSDataInjection-PSModule/releases</a>
-<h3>Summary</h3>
+
+## Summary
+
 In the past, we’ve had the OMS Custom View Designer that can help us visualising the data that we already have in OMS Log Analytics, what we were missing is a native way to inject data into OMS. Now with the release of this API, the gap has been filled. Like Evan mentioned in his blog post, by coupling this API with the OMS View Designer (and even throwing Power BI into the mix), you can develop some really fancy solutions.
 
 On 21st of September (3 weeks from now), I will be presenting at the Melbourne Microsoft Cloud and Datacenter Meetup (<a title="https://www.meetup.com/Melbourne-Microsoft-Cloud-and-Datacenter-Meetup/events/233154212/" href="https://www.meetup.com/Melbourne-Microsoft-Cloud-and-Datacenter-Meetup/events/233154212/">https://www.meetup.com/Melbourne-Microsoft-Cloud-and-Datacenter-Meetup/events/233154212/</a>), my topic is Developing Your OWN Custom OMS Solutions. I will doing live demos creating solutions using the HTTP Data Collector API as well as the Custom View Designer. If you are from Melbourne, I encourage you to attend. I am also planning to record this session and publish it on YouTube later.

@@ -12,7 +12,9 @@ tags:
   - Azure Automation
   - OMS
 ---
-<h3>Introduction</h3>
+
+## Introduction
+
 Few weeks ago, OMS Alerting has introduced a new feature that enables the alert to trigger a webhook:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb.png" alt="image" width="340" height="433" border="0" /></a>
@@ -30,7 +32,9 @@ So, why do we need this new webhook feature? Comparing with the Azure Automation
 	<li>Ability to customize the JSON payload (that will be sent to the destination system as HTTP body via webhooks).</li>
 </ul>
 &nbsp;
-<h3>Limitation on Current Azure Automation Runbook Remediation</h3>
+
+## Limitation on Current Azure Automation Runbook Remediation
+
 As I mentioned in the previous post, when OMS Alerting triggers an Azure Automation runbook, it passes the following information to the runbook as part of the search results in request body:
 <ul>
 	<li>Id</li>
@@ -48,7 +52,9 @@ Let me use a real example to explain this limitation again. For example, if I am
 <a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-2.png" alt="image" width="458" height="303" border="0" /></a>
 
 In this case, a critical piece of information we need for the runbook - the computer name only exists in the search query used by the OMS alert rule. When the OMS alert is raised and the runbook is triggered, since the webhook request body does not contain the search query and only contains an empty OMS search result in "Values" property. The computer name is not passed into the runbook as part of the input parameters. The runbook will not be able to know the computer name that is missing the heartbeat, thus difficult to design the runbook for alert remediation. The only walk around I can think of is to create a separate OMS alert rule and a separate runbook for each computer that you want to detect the missing heartbeat.
-<h3>Benefit of Using the Webhook Feature</h3>
+
+## Benefit of Using the Webhook Feature
+
 With the new webhook support, I’d glad that we are able to pass additional parameters as part of the webhook request body. These additional parameters can potentially make the runbooks more flexible. By default, other than the OMS search result itself, it also passes the following information:
 <ul>
 	<li>Workspace ID</li>
@@ -112,7 +118,9 @@ After this post has been published, Anand Balasubramanian from OMS product team 
 
 ```
 &nbsp;
-<h3>Summary</h3>
+
+## Summary
+
 To summarize, I am very glad that we now have the webhook capability for OMS alert rules. Although it requires more configurations, this is definitely more flexible than the original Azure Automation runbook remediation feature in OMS Alerting.
 
 Additionally, Ravi Kiran the OMS automation team has also written a blog on how to parse JSON output for Azure Alerts, which you may also find helpful: <a href="https://azure.microsoft.com/en-us/blog/using-azure-automation-to-take-actions-on-azure-alerts/">https://azure.microsoft.com/en-us/blog/using-azure-automation-to-take-actions-on-azure-alerts/</a>.

@@ -14,13 +14,18 @@ tags:
   - SharePoint
   - SMA
 ---
-<h3>Background</h3>
+
+## Background
+
 This blog hasn’t been too active lately. I’ve been spending a lot of time learning the new member in System Center family: Service Management Automation.
 
 Yesterday, I needed a SMA runbook to update SharePoint 2013 list items, I found a sample from a <a href="http://blogs.technet.com/b/systemcenter/archive/2014/01/14/service-management-automation-and-sharepoint-mvp.aspx">blog post</a> by <a href="https://twitter.com/ChBooth">Christian Booth</a>, which contains a SMA runbook written by <a href="https://twitter.com/Randorfer">Ryan Andorfer</a>, a System Center Cloud and Datacenter MVP.  Looks Ryan’s code was written for SharePoint 2010, which does not work for SharePoint 2013 because the SharePoint REST API has been updated. So I have spent some time, learned a bit more about SharePoint 2013’s REST API, and developed a new runbook for SharePoint 2013 based on Ryan’s code.
-<h3>PowerShell Code</h3>
+
+## PowerShell Code
+
 Here’s the finished work:
-<pre lang="powershell">Workflow Update-SharePointListItem
+```powershell
+Workflow Update-SharePointListItem
 {
 Param(
 [Parameter(Mandatory=$true)][String]$SharepointSiteURL,
@@ -106,7 +111,9 @@ Write-Error "Failed to update the list item $listItemURI."
 
 ```
 Unlike Ryan’s code, which also monitors the SP list, my runbook <strong>ONLY</strong> updates a specific list item.
-<h3>Pre-Requisite and Parameters</h3>
+
+## Pre-Requisite and Parameters
+
 Prior to using this runbook, you will need to save a credential in SMA which has  access to the SharePoint site
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML7ebadf0.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7ebadf0" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML7ebadf0_thumb.png" alt="SNAGHTML7ebadf0" width="299" height="411" border="0" /></a>
@@ -128,7 +135,9 @@ The runbook is expecting the following parameters:
 Note: The list Item ID is the reference number for the item within the list. If you point the mouse cursor to the item, you will find the list item ID in the URL.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML90254b7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML90254b7" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML90254b7_thumb.png" alt="SNAGHTML90254b7" width="671" height="393" border="0" /></a>
-<h3>Putting it into Test:</h3>
+
+## Putting it into Test:
+
 To test, I’ve created a new list as shown in the above screenshot, I have kicked off the runbook with the the following parameters:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/08/image_thumb8.png" alt="image" width="379" height="354" border="0" /></a>
@@ -140,14 +149,20 @@ Here’s the result:
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fd5d4a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8fd5d4a" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fd5d4a_thumb.png" alt="SNAGHTML8fd5d4a" width="588" height="406" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fed515.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8fed515" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fed515_thumb.png" alt="SNAGHTML8fed515" width="580" height="383" border="0" /></a>
-<h3></h3>
-<h3>Using It Together With Orchestrator SharePoint IP</h3>
+
+## 
+
+
+## Using It Together With Orchestrator SharePoint IP
+
 Since this SMA runbook requires the List Item ID to locate the specific list item, when you design your solution, you will need to find a way to retrieve this parameter prior to calling this runbook.
 
 If you are also using SC Orchestrator and have deployed the SharePoint IP, you can use the "Monitor List Items" activity, and the List Item ID is published by this activity:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/08/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/08/image_thumb10.png" alt="image" width="385" height="333" border="0" /></a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 Although I’m still a newbie when comes to SMA, it got me really excited. Before its time, when I design Orchestrator runbooks, I often ended up just write the entire solution in PowerShell and then chopped up my PowerShell scripts into many "Run .Net Script" activities. I thought, wouldn’t it be nice if there is an automation engine that only uses PowerShell? Well, looks like SMA is the solution. I wish I have started using it sooner.
 
 If you are like me and want to learn more about this product, i <strong><span style="color: #ff0000;">highly</span></strong> recommend you to read the <a href="http://gallery.technet.microsoft.com/systemcenter/Service-Management-fcd75828">Service Management Automation Whitepaper</a> (currently version 1.0.4) from my fellow SCCDM MVP Michael Rueefli. I have read it page by page like a bible!

@@ -16,7 +16,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 10th instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -32,7 +34,9 @@ This is the 10th instalment of the Automating OpsMgr series. Previously on this 
 As I have previously demonstrated how to create and update OpsMgr groups using the <strong>OpsMgrExtended</strong> module, it's now the time cover how to delete groups in OpsMgr.
 
 Deleting groups that are defined in unsealed management packs can be easily accomplished using the <strong>Remove-OMGroup</strong> function from the OpsMgrExtended module. This function deletes the group class definition and discoveries from the unsealed MP. However, since it's very common for OpsMgr administrators to also create dependency monitors for groups (for group members health rollup), you cannot simply use Remove-OMGroup function to delete groups when there are also monitors targeting this group. Therefore, I have written  a sample runbook to delete the group as well as monitors targeting the group (if there are any).
-<h3>Runbook Delete-OpsMgrGroup</h3>
+
+## Runbook Delete-OpsMgrGroup
+
 ```powershell
 
 Workflow Delete-OpsMgrGroup
@@ -110,5 +114,7 @@ Verbose Messages (deleting dependency monitors):
 <a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML14fa1a1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML14fa1a1" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML14fa1a1_thumb.png" alt="SNAGHTML14fa1a1" width="678" height="467" border="0" /></a>
 
 &nbsp;
-<h3>Conclusion</h3>
+
+## Conclusion
+
 This post is rather short comparing to some of the previous ones in this series. I have few ideas for the next post, but haven't decided which one am I going to write first. Anyways, until next time, happy automating!

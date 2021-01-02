@@ -15,7 +15,9 @@ tags:
   - SCCM
   - SCOM
 ---
-<h3>Background</h3>
+
+## Background
+
 It’s only been 2 weeks since I released the last update of this MP (version 1.1.0.0). Soon after the release, Mr. <a href="https://twitter.com/aquilaweb">David Allen</a>, a fellow System Center CDM MVP contacted me, asked me to test his SCCM Compliance MP, and possibly combine it with my ConfigMgr 2012 Client MP.
 
 In the ConfigMgr 2012 Client MP, the OVERALL DCM baselines compliance status are monitored by the DCM Agent class, whereas in David’s SCCM Compliance MP, each DCM Baseline is discovered as a separate entity and monitored separately. Because of the utilisation of Cook Down feature, comparing with the approach in the ConfigMgr 2012 Client MP, this approach adds no additional overhead to the OpsMgr agents.
@@ -25,7 +27,9 @@ David’s MP also included a RunAs profile to allow users to configure monitorin
 I think both of the features are pretty cool, so I have taken David’s MP, re-modelled the health classes relationships, re-written the scripts from PowerShell to VBScripts, and combined what David has done to the ConfigMgr 2012 Client MP.
 
 If you (the OpsMgr administrators) are concerned about number of additional objects that are going to be discovered by this release (every DCM baseline on every ConfigMgr 2012 Client monitored by OpsMgr), the DCM Baselines discovery is disabled by default, I have taken an similar approach as configuring Business Critical Desktop monitoring, there is an additional unsealed MP in this release to allow you to cherry pick which endpoints to monitor in this regards.
-<h3>What’s New in Version 1.2.0.0</h3>
+
+## What’s New in Version 1.2.0.0
+
 Other than combining David’s SCCM Compliance MP, there are also few other updates included in this release. Here’s the full "What’s New" list:
 
 <strong>Bug Fix: ConfigMgr 2012 Client Missing Client Health Evaluation (CCMEval) Execution Cycles Monitor alert parameter incorrect</strong>
@@ -69,7 +73,9 @@ Other than combining David’s SCCM Compliance MP, there are also few other upda
 	<li>DCM Baseline</li>
 </ul>
 &nbsp;
-<h3>Enhanced Compliance Monitoring</h3>
+
+## Enhanced Compliance Monitoring
+
 Version 1.2.0.0 has introduced a new feature that can monitor assigned DCM Compliance Baselines on a more granular level. Prior to this release, there is a unit monitor targeting the DCM agent class and monitor the overall baselines compliance status as a whole. Since version 1.2.0.0, each individual DCM baseline can be discovered and monitored separately.
 
 By default, the discovery for DCM Baselines is disabled. It needs to be enabled on manually via overrides before DCM baselines can be monitored individually.
@@ -132,7 +138,9 @@ An additional unsealed management pack named "ConfigMgr 2012 Client Enhanced Com
 <b>Note:</b> Please only use this management pack when you prefer to enable enhanced compliance monitoring on all server computers, otherwise, please manually configure the groups and overrides as previously stated.
 
 &nbsp;
-<h3>New RunAs Profile for Low-Privilege Environments</h3>
+
+## New RunAs Profile for Low-Privilege Environments
+
 Since almost all of the workflows in the ConfigMgr 2012 Client management packs require local administrative access to access various WMI namespaces and registry, it will not work when the OpsMgr agent RunAs account does not have local administrator privilege.
 
 Separate RunAs accounts can be created and assigned to the "ConfigMgr 2012 Client Local Administrator RunAs Account" profile.
@@ -152,11 +160,15 @@ For More information about OpsMgr RunAs account and profile, please refer to: <a
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb3.png" alt="image" width="500" height="407" border="0" /></a>
 
 Please refer to the MP documentation section "14.3 Error Received when Adding RunAs Account to the RunAs Profile" for instruction on fixing this error.
-<h3>New Rule: Missing Cache Content Removal Rule</h3>
+
+## New Rule: Missing Cache Content Removal Rule
+
 This rule runs every 4 hours by default and checks if any registered ConfigMgr 2012 Client cache content has been deleted from the file system. When obsolete cache content is detected, this rule will remove the cache content entry from ConfigMgr 2012 client via WMI and generates an informational alert with the details of the missing cache content:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb4.png" alt="image" width="635" height="399" border="0" /></a>
-<h3>Additional Icons:</h3>
+
+## Additional Icons:
+
 Prior to this release, only the top level class ConfigMgr 2012 Client has its dedicated icons. I have spent a lot of time looking for icons for all other classes, I managed to produce icons for each monitoring classes in this release:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb5.png" alt="image" width="650" height="359" border="0" /></a>
@@ -164,7 +176,9 @@ Prior to this release, only the top level class ConfigMgr 2012 Client has its de
 &nbsp;
 
 <strong>Note:</strong> I only managed to find high res icons for the Software Distribution Agent and the Software Update Agent (extracted from various DLLs and EXEs). I couldn’t find a way to extract icons from AdminUI.UIResources.DLL – where all the icons used by SCCM are stored. So for other icons, I had to use SnagIt to take screenshots of these icons. You may notice the quality is not that great, but after few days effort trying to find these icons, this is the best I can do. If you have a copy of these icons (res higher than 80x80), or know a way to extract these icons from AdminUI.UIResources.dll, please contact me and I’ll update them in the next release.
-<h3>Credit</h3>
+
+## Credit
+
 <strong>BIG</strong> thank you to David Allen for his work on the SCCM Compliance MP, and also helping me test this release!
 
 You can download the ConfigMgr 2012 Client MP Version 1.2.0.0 <strong><span style="font-size: medium;"><a href="http://blog.tyang.org/wp-content/uploads/2014/10/ConfigMgr-2012-Client-MP-V1.2.0.0.zip">HERE</a></span></strong>.

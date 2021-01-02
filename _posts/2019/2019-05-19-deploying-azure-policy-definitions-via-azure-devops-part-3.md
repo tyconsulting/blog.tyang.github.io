@@ -35,7 +35,9 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->
-<h3>Pre-requisites</h3>
+
+## Pre-requisites
+
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -59,7 +61,9 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->
-<h3>Storing the definition and deployment scripts in Azure Repo</h3>
+
+## Storing the definition and deployment scripts in Azure Repo
+
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -79,7 +83,9 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->
-<h3>Creating Service Connections</h3>
+
+## Creating Service Connections
+
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -91,7 +97,9 @@ tags:
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
-<h3>Creating Variable Groups</h3>
+
+## Creating Variable Groups
+
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -115,7 +123,9 @@ tags:
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
-<h3>Creating Build (CI) Pipeline</h3>
+
+## Creating Build (CI) Pipeline
+
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -217,7 +227,9 @@ steps:
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
-<h3>Create Release (CD) Pipeline</h3>
+
+## Create Release (CD) Pipeline
+
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -322,7 +334,9 @@ steps:
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
-<h3>Executing the pipelines:</h3>
+
+## Executing the pipelines:
+
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -346,7 +360,9 @@ steps:
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
-<h3>Conclusion</h3>
+
+## Conclusion
+
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->

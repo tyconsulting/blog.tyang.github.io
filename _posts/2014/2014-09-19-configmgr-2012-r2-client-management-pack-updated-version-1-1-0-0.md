@@ -21,7 +21,9 @@ OK, after few weeks of hard work, the updated version of the ConfigMgr 2012 (R2)
 The big focus in this release is to reduce the noise this MP generates. In the end, besides the new and updated components I have introduced in this MP, I also had to update every single script used by the monitors and rule.
 
 The changes since previous version (v1.0.1.0) are listed below:
-<h3>Bug Fixes:</h3>
+
+## Bug Fixes:
+
 <ul>
 	<li>Software Update agent health not rolled up (dependency monitors was missed in the previous release).</li>
 	<li>SyncTime in some data source modules were not correctly implemented</li>
@@ -32,7 +34,9 @@ The changes since previous version (v1.0.1.0) are listed below:
 <a href="http://blog.tyang.org/wp-content/uploads/2014/09/clip_image002.jpg"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="clip_image002" src="http://blog.tyang.org/wp-content/uploads/2014/09/clip_image002_thumb.jpg" alt="clip_image002" width="612" height="533" border="0" /></a>
 
 &nbsp;
-<h3>Additional Items:</h3>
+
+## Additional Items:
+
 <ul>
 	<li>A diagnostic task and a recovery task for the CcmExec service monitor. The diagnostic task detects if the system uptime is longer than 5 minutes (overrideable), if the system uptime is longer than 5 minutes, the recovery task will start the SMS Agent Host service. Both the service monitor and the recovery task are disabled by default. –If you decide to use this service monitor and the recovery task (both disabled by default), it would help to reduce the number of failed start a process warning alerts caused by stopped SMS Agent Host service.</li>
 	<li>Monitor if the SCCM client has been placed into the Provisioning mode for a long period of time (Consecutive Sample monitor) (<a href="http://thoughtsonopsmgr.blogspot.com.au/2014/06/sccm-w7-osd-task-sequence-with-install.html">http://thoughtsonopsmgr.blogspot.com.au/2014/06/sccm-w7-osd-task-sequence-with-install.html</a>)</li>
@@ -41,7 +45,9 @@ The changes since previous version (v1.0.1.0) are listed below:
 	<li>Agent Task: Delete CCMCache content</li>
 </ul>
 &nbsp;
-<h3>Updated Items:</h3>
+
+## Updated Items:
+
 <ul>
 	<li>Pending Reboot monitor updated to allow users to disable any of the 4 areas that the monitor checks for reboot (Pending File Rename operation is disabled by default because it generates too many alerts):
 <ul>
@@ -56,13 +62,19 @@ The changes since previous version (v1.0.1.0) are listed below:
 	<li>Additional events logged in the Operations manager event log by various scripts. – help with troubleshooting. Please refer to Appendix A of the MP documentation for the details of these events.</li>
 </ul>
 &nbsp;
-<h3>Upgrade Tip</h3>
+
+## Upgrade Tip
+
 This version is in-place upgradable from the previous version. However, since there are additional input parameters introduced to the scripts used by monitors and rule, you may experience a large number of "Operations Manager failed to start a process" warning alert right after the updated MPs have been imported and distributed to the OpsMgr agents. To workaround this issue, I strongly recommend to place the "All ConfigMgr 2012 Clients" group into maintenance mode for 1 hour before importing the updated MPs. To do so, simply go the the "Discovered Inventory" view, and change the target type to "All ConfigMgr 2012 Clients", and place the selected group into maintenance mode.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTML30b0e7ee.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML30b0e7ee" src="http://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTML30b0e7ee_thumb.png" alt="SNAGHTML30b0e7ee" width="661" height="494" border="0" /></a>
-<h3>Special Thanks</h3>
+
+## Special Thanks
+
 I’d like to thank all the people who has provided the feedback since the last release and spent time helped with testing this version. I’d like to specially thank <a href="https://cloudadministrator.wordpress.com/">Stanislav Zhelyazkov</a> for this valuable feedbacks and the testing effort. I’d also like to Thank Marnix Wolf for his <a href="http://thoughtsonopsmgr.blogspot.com.au/2014/06/sccm-w7-osd-task-sequence-with-install.html">blog post</a> which has helped me built the Provisioning Mode Consecutive Sample monitor in this MP.
 
 &nbsp;
-<h3>Download</h3>
+
+## Download
+
 <a href="http://blog.tyang.org/wp-content/uploads/2014/09/ConfigMgr-2012-Client-MP-V1.1.0.0.zip">Download ConfigMgr 2012 (R2) Client Management Pack 1.1.0.0</a>

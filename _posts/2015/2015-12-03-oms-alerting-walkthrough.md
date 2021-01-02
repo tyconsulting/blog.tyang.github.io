@@ -13,9 +13,13 @@ tags:
   - Azure Automation
   - OMS
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/12/image.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb.png" alt="image" width="172" height="172" align="left" border="0" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb.png" alt="image" width="172" height="172" align="left" border="0" /></a>Introduction
+
 Earlier today, the OMS product team has <a href="http://blogs.technet.com/b/momteam/archive/2015/12/02/announcing-the-oms-alerting-public-preview.aspx">announced the OMS Alerting feature has entered Public Preview</a>. This is indeed an exciting news and it is another good example that Microsoft is working very hard to close the gaps between OMS and the existing On-Prem monitoring solution - System Center Operations Manager. Alex Frankel from the OMS product team has already given a brief introduction on this feature from the announcement blog post. In this post, I will demonstrate how I used this feature to alert and auto-remediate an issue detected in my lab environment.
-<h3>Background</h3>
+
+## Background
+
 Few months ago, I have lost my lab OpsMgr management group completely due to hardware failures. After I replaced faulty hardware and built a brand new management group, I re-configured all the servers in my lab reported to the new management group. However, I then started getting many "Failed to enable Advisor Connector on the computer" alerts in my OpsMgr environment:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb1.png" alt="image" width="637" height="371" border="0" /></a>
@@ -32,7 +36,9 @@ In order to configure the alerting and remediation for this OpsMgr alert, I need
 	<li>At least one Azure Automation Hybrid Worker is configured (because I need to target the remediation runbook to on-premises lab servers.</li>
 	<li>OMS Alerting and Alert remediation feature enabled</li>
 </ul>
-<h3>Creating Azure Automation Runbook</h3>
+
+## Creating Azure Automation Runbook
+
 So first things first, I must create and publish the remediation runbook in the Azure Automation account before we can select it when we create the OMS alert. Although we cannot configure what parameters to pass into the runbook, the OMS alert passes the search result and some meta data into the runbook in JSON format (I will show it later). So based on my experience, in order to make the runbooks re-useable, we can some optional input parameters for the runbook, and inside the runbook, check if any of these optional parameters are null, then retrieve the value elsewhere (i.e. Azure Automation variable and credential assets).
 
 In this case, I have created a PowerShell based runbook called Remove-SCAdvisorRegistration, the code is listed below:
@@ -186,7 +192,9 @@ As you can see, the "SearchResults" contains 3 elements:
 The Value property is where you can retrieve the search result, and it is defined as an array. When I was writing the remediation runbook, I was able to get the offending OpsMgr agent computer name from the "SourceDisplayName" field of each item in the "Value array".
 
 Now the runbook is created, make sure it is published before we heading back to the OMS portal start creating the alert. Please note that we will have to come back and revisit this runbook after the alert is created.
-<h3>Creating OMS Alert</h3>
+
+## Creating OMS Alert
+
 The search query that I’m using for this alert is:
 
 <strong><em><span style="background-color: #ffff00;">Type=Alert AlertState=New AlertName="Failed to enable Advisor Connector on the computer."</span></em></strong>
@@ -210,7 +218,9 @@ I’m creating the alert with the following parameters:
 After the alert is saved, you will be able to see it in the Settings/Alerts page:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb5.png" alt="image" width="518" height="257" border="0" /></a>
-<h3>Reconfiguring Runbook Webhook</h3>
+
+## Reconfiguring Runbook Webhook
+
 In this example, because the runbook must be executed against a Hybrid Worker group (as we are targeting computers in on-prem network), I must reconfigure the webhook (created by OMS alert) to target a Hybrid Worker group (instead of the default config of targeting Azure workers). You can do so by going to the webhook parameters section, and choose Hybrid Worker group from the drop down list:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb6.png" alt="image" width="618" height="278" border="0" /></a>
@@ -226,7 +236,9 @@ From now on, this alert will be executed every 15 minutes, and search for the re
 The OMS alert will also kick off the remediation runbook via the webhook. Because I have enabled verbose logging for this runbook, I was able to see some additional verbose messages:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/12/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb8.png" alt="image" width="697" height="423" border="0" /></a>
-<h3>Additional Resources</h3>
+
+## Additional Resources
+
 <h4>Test-OMSAlertRemediation Runbook</h4>
 I have also written a test runbook called Test-OMSAlertRemediation that you can use for any OMS alerts. This extracts information from the JSON input and send to you via email. It should be very helpful for you when you are authoring real remediation runbooks (so you know what kind of input data you can play with). I will publish it in the next blog post as it’s getting closer to mid night now.
 <h4>New OMS Ebook – Inside the MS Operations Management Suite</h4>

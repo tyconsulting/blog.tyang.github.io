@@ -13,7 +13,9 @@ tags:
   - PowerShell
   - SMA
 ---
-<h3>Background</h3>
+
+## Background
+
 For those who knows me, I’m an OpsMgr guy. I spend a lot of time in OpsMgr and I am very used to the way OpsMgr sends notifications (using notification channels and subscribers).
 
 In OpsMgr, I like the idea of saving the SMTP configuration and notification recipients’ contact details into the system so everyone who has got enough privilege can use these configurations (when configuring alert subscriptions).
@@ -40,7 +42,9 @@ To achieve my goals, I have created 2 SMA Integration modules:
 </tr>
 </tbody>
 </table>
-<h3>SendEmail Module</h3>
+
+## SendEmail Module
+
 This module defines a connection type where can be used to save all SMTP related information:
 <ul>
 	<li>SMTP Server address</li>
@@ -59,7 +63,9 @@ This module defines a connection type where can be used to save all SMTP related
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1ba1992f.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1ba1992f" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1ba1992f_thumb.png" alt="SNAGHTML1ba1992f" width="475" height="301" border="0" /></a>
 
 This module also provides a PowerShell function called "Send-Email". Since when retrieving an automation connection in SMA, a hash table is returned, Not only you can pass individual SMTP parameters into the Send-Email function, you can also simply pass the SMA connection object that you have retrieved using "Get-AutomationConnection" cmdlet. for more information, please refer to the help topic of this function, and the sample runbook below.
-<h3>SendPushNotification Module</h3>
+
+## SendPushNotification Module
+
 This module provides a connection type called SMAAddressBook. It can be used like an address book to store recipient’s contact details:
 <ul>
 	<li>Display Name</li>
@@ -73,7 +79,9 @@ This module provides a connection type called SMAAddressBook. It can be used lik
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1bb2b9d4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1bb2b9d4" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1bb2b9d4_thumb.png" alt="SNAGHTML1bb2b9d4" width="517" height="329" border="0" /></a>
 
 This module also provides a PowerShell function called Send-MobilePushNotification. It can be used to send push notification to either Prawl, NotifyMyAndroid or NotifyMyWindowsPhone.
-<h3>Sample Runbook</h3>
+
+## Sample Runbook
+
 ```powershell
 workflow Test-Notification {
 	#Get the contact details
@@ -105,17 +113,23 @@ After I executed this runbook, I received the notification via both Email and An
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1bb9521f.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1bb9521f" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1bb9521f_thumb.png" alt="SNAGHTML1bb9521f" width="583" height="216" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb14.png" alt="image" width="529" height="262" border="0" /></a>
-<h3>Download</h3>
+
+## Download
+
 Please download from the download link below. Once downloaded, please import the zip files below into SMA:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/10/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb15.png" alt="image" width="559" height="138" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/SMANotificationModules.zip">Download Link</a>
-<h3>Related Posts</h3>
+
+## Related Posts
+
 <a href="http://blog.tyang.org/2013/04/07/opsmgr-alerts-push-notification-to-ios-and-android-and-windows-phone-devices/">OpsMgr Alerts Push Notification to iOS (And Android, And Windows Phone) Devices</a>
 
 <a href="http://blogs.technet.com/b/orchestrator/archive/2014/06/12/authoring-integration-modules-for-sma.aspx">Authoring Integration Modules for SMA</a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 As shown in the sample above, once the SMTP details are saved in SMTP connection objects, and recipients’ contact details are saved as SMAAddressBook connections, it is really simple to utilise the functions provided by these 2 modules to send notifications.
 
 Also, I’d like to point out I had to create 2 integration modules instead of 1 because I need to create 2 kinds of connections. Having said that, these 2 modules do not depend on each other and can be used separately too.

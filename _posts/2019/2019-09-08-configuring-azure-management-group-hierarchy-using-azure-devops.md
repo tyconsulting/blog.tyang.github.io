@@ -22,7 +22,9 @@ Previously, I have published a 3-part blog series on deploying Azure Policy Defi
 
 In this post, I’ll cover how I managed to implement the management group hierarchy using Azure DevOps. I will cover policy & initiative assignment in a future blog post.
 
-<h3>Problem Statement</h3>
+
+## Problem Statement
+
 
 Before I dive into the technical details, I’d like to firstly explain why is this required?
 
@@ -34,7 +36,9 @@ When new subscriptions are joining your organisations tenants so frequently, you
 
 So why do I care about these subscriptions? In the subscriptions under the management of the cloud team, we have many restrictions in place – for example, normal users cannot create vnets, public-facing storage accounts, etc. but these users can do whatever they want in their own MSDN or free trial subscriptions. users can also move resources between subscriptions (<a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-move-resources">https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-move-resources</a>). This can be a potential security risk, if you do nothing about these user-owned subscriptions.
 
-<h3>Solution</h3>
+
+## Solution
+
 
 Since everything should be driven by code and templates, Using Azure DevOps to implement the overall management group hierarchy makes perfect sense.
 
@@ -150,7 +154,9 @@ Or if you want to place all users MSDN subscriptions into a management group cal
 
 In order to be placed into the defined management group, the subscription must match <strong>both</strong> the name regex and quota Id regex. The script uses case insensitive match for the regex. so it doesn’t matter if you define your regex as "^msdn_<em>" or "^MSDN_</em>".
 
-<h3>Building the Pipelines</h3>
+
+## Building the Pipelines
+
 
 Before building the pipelines, there are some pre-requisites need to be taken care of first.
 
@@ -232,7 +238,9 @@ This is pretty much the same as the first step, except the "-whatif" argument ha
 
 <strong>NOTE:</strong> When this step runs, the scripts will skip any existing management groups that are defined in the input file, and skip any subscriptions that are already placed in the correct management group. The script will <strong>DO NOTHING</strong> to any existing management groups that are not defined in the input file.
 
-<h3>Conclusion</h3>
+
+## Conclusion
+
 
 In this post, I have explained the solution that I have developed to implement Azure Management Group hierarchy in a very dynamic enterprise environment. Before implementing this solution, probably is better to firstly draw up your management group hierarchy design, figure out where in the hierarchy you are going to create RBAC assignments, custom policy / initiative definitions, and assigning policies / initiatives. If you have subscriptions created outside of your control, consider what kind of restrictions you wish to apply to these subs, and potentially advise your users move their non-EA subs to their own tenants.
 

@@ -15,7 +15,9 @@ tags:
 <a href="http://blog.tyang.org/wp-content/uploads/2017/01/EZAlert.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="EZAlert" src="http://blog.tyang.org/wp-content/uploads/2017/01/EZAlert_thumb.png" alt="EZAlert" width="427" height="106" border="0" /></a>
 
 OpsLogix has recently released a new product to the market called "EZalert". It learns the operator’s alert handling behaviour and then it is able to automatically update Alert resolution states based on its learning outcome. You can find more information about this product here: <a title="http://www.opslogix.com/ezalert/" href="http://www.opslogix.com/ezalert/">http://www.opslogix.com/ezalert/</a>. I was given a trail license for evaluation and review. Today I installed it on a dedicated VM and connected it to my lab OpsMgr management group.
-<h3>EZalert Walkthrough</h3>
+
+## EZalert Walkthrough
+
 Once installed, I could see a new dashboard view added in the monitoring pane, and this is where we tune all the alerts:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/01/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/01/image_thumb.png" alt="image" width="682" height="450" border="0" /></a>
@@ -50,7 +52,9 @@ In my opinion, this is a very good practice when tuning alerts. when setting ale
  	<li>When you have introduced new management packs in your management group</li>
  	<li>When you have updated existing management packs to the newer versions</li>
 </ul>
-<h3>EZalert vs Alert Update Connector</h3>
+
+## EZalert vs Alert Update Connector
+
 Before EZalert’s time, I have been using the OpsMgr Alert Update Connector (AUC) from Microsoft (<a title="https://blogs.technet.microsoft.com/kevinholman/2012/09/29/opsmgr-public-release-of-the-alert-update-connector/" href="https://blogs.technet.microsoft.com/kevinholman/2012/09/29/opsmgr-public-release-of-the-alert-update-connector/">https://blogs.technet.microsoft.com/kevinholman/2012/09/29/opsmgr-public-release-of-the-alert-update-connector/</a>). I was really struggling when configuring AUC so I developed my own solution to configure AUC in an automated fashion  (<a title="http://blog.tyang.org/2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/" href="http://blog.tyang.org/2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/">http://blog.tyang.org/2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/</a>) and I have also developed a management pack to monitor it (<a title="http://blog.tyang.org/2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/" href="http://blog.tyang.org/2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/">http://blog.tyang.org/2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/</a>). In my opinion, AUC  is a solid solution. It’s been around for many years and being used by many customers. But I do find it has some limitations:
 <ul>
  	<li>Configuration process is really hard</li>
@@ -71,7 +75,9 @@ However, AUC has the following advantages over EZalert:
  	<li>AUC supports assigning different values to different groups or individual objects. In EZalert, the exception can only be created for individual monitoring objects and it doesn’t seem like you can assign different value for this object, it’s simply on/off exception</li>
  	<li>Other than Alert resolution state, AUC can also be used to update other alert properties (i.e. custom fields, Owner, ticket ID,  etc.). EZalert doesn’t seem like it can update other alert fields.</li>
 </ul>
-<h3>Things to Consider</h3>
+
+## Things to Consider
+
 When using EZalert, in my opinion, there are few things you need to consider:
 
 <strong>1. It does not replace requirements for overrides</strong>
@@ -85,7 +91,9 @@ As we all know, we shouldn’t manually close monitor generated alerts. So when 
 <strong>3. Create Scoped roles for normal operators in order to hide the EZalert dashboard view</strong>
 
 You may not want normal operators to train alerts, so instead of using the built-in operators role, you’d better create your own scoped role and hide the EZalert dashboard view from normal operators
-<h3>Conclusion</h3>
+
+## Conclusion
+
 I believe EZalert has some strong use cases. Unless you have a very complicated alert flow automation process that leverages other alert fields such as custom fields, owner, etc. (i.e. for generating tickets, etc) and you are currently using AUC for this particular reason, I think EZalert gives you a much more user friendly experience for ongoing alert tuning.
 
 I have personally implemented AUC in few places, and I still get calls every now and then from those places asking help with AUC configuration and it’s been few years since it was implemented. Also I’m not exactly sure if AUC is officially supported by Microsoft because it was originally developed by an OpsMgr PFE at this spare time (I’m not entirely sure about the supportability of AUC, maybe someone from MSFT can confirm). Whereas EZalert is a commercial product, the vendor OpsLogix provide full support of  it.

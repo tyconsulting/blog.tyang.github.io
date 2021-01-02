@@ -12,7 +12,9 @@ tags:
   - PowerShell
   - RoyalTS
 ---
-<h3>Background</h3>
+
+## Background
+
 I have used many Remote Desktop applications in the past. I have to say <a href="http://www.royalts.com/">Royal TS</a> is the one that I like the most! Recently, I showed it to one of my colleagues, after a bit of playing around, he purchased a license for himself too.
 
 Today, my colleague asked me if I knew that Royal TS is also able to run external commands, and he thought it’s pretty cool that he’s able to launch PowerShell in the Royal TS window. Then I thought, if you can run PowerShell in Royal TS, we should be able to establish PS remote sessions in Royal TS too. Within 10 minutes, we managed to create few connections in Royal TS like these:
@@ -26,7 +28,9 @@ Today, my colleague asked me if I knew that Royal TS is also able to run externa
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML1c2e5543.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1c2e5543" src="http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML1c2e5543_thumb.png" alt="SNAGHTML1c2e5543" width="192" height="244" border="0" /></a>
 
 In this post, I’ll go through the steps I took to set them up.
-<h3>Connections to Individual Servers</h3>
+
+## Connections to Individual Servers
+
 To create a connection to an individual server,
 
 01. Choose add-&gt;External Application:
@@ -62,7 +66,9 @@ If you choose to use an alternative credential,  you must also tick "<strong>Us
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image29.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb29.png" alt="image" width="521" height="401" border="0" /></a>
 
 <strong><span style="color: #ff0000;">Note:</span></strong> in the arguments field from step 01, I’ve used a Royal TS variable $CustomField1$ as the name of the computer in the Enter-PSSession command. It is more user friendly to use the Custom Field for the computer name, rather than modifying the argument string for each connection that you wish to create.
-<h3><span style="color: #000000;">Create An Ad-Hoc Connection</span></h3>
+
+## <span style="color: #000000;">Create An Ad-Hoc Connection</span>
+
 You can also create a connection in Royal TS for Ad-Hoc connections. In this scenario, you will need to enter the remote computer that you wish to connect to:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image30.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb30.png" alt="image" width="398" height="190" border="0" /></a>
@@ -78,7 +84,9 @@ To create this connection in Royal TS, instead of using the Custom Field 1 for t
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image32.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb32.png" alt="image" width="556" height="427" border="0" /></a>
 
 The Custom Field 1 is no longer required in this scenario. Everything else is the same as the previous sample (for individual computers).
-<h3>Other Considerations</h3>
+
+## Other Considerations
+
 <strong>Maximised PowerShell Window</strong>
 
 You may have noticed from the screenshots above, that the PowerShell windows are perfectly fitted in the Royal TS frame. this is because I am also using a customised PS Module that I’ve written in the past to resize the PoewerShell window. Without this module, the PowerShell console would not automatically fit into the Royal TS frame:
@@ -125,9 +133,13 @@ If you want to create multiple connections, all you need to do is to create the 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/12/image39.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb39.png" alt="image" width="258" height="332" border="0" /></a>
 
 When duplicating connections, the only fields you need to change are the Display Name and CustomField1.
-<h3>WinRM configuration</h3>
+
+## WinRM configuration
+
 Needless to say, WinRM must be enabled and properly configured for PS remoting to work. this is a pre-requisite. I won’t go through how to configure WinRM here. Someone actually wrote a whole <a href="http://powershell.org/wp/2012/08/06/ebook-secrets-of-powershell-remoting/">book</a> on this topic.
-<h3>Conclusion</h3>
+
+## Conclusion
+
 I’d like to thank Stefan Koell (<a href="http://www.code4ward.net/main/blog.aspx">blog</a>, <a href="https://twitter.com/StefanKoell">twitter</a>), the Royal TS developer (and also my fellow SCCDM MVP) for such an awesome tool. This is now probably <strong>THE</strong> most used application on all my computers <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2014/12/wlEmoticon-smile3.png" alt="Smile" />.
 
 If you haven’t tried <a href="http://www.royalts.com/">Royal TS</a> out, please give it a try. Other than the obvious Windows version, there are also a Mac version, an iOS version and an Android version.

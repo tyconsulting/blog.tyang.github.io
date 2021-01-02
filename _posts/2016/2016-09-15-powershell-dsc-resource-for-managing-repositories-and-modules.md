@@ -12,7 +12,9 @@ tags:
   - DSC
   - PowerShell
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2016/09/256x256.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="256x256" src="http://blog.tyang.org/wp-content/uploads/2016/09/256x256_thumb.png" alt="256x256" width="151" height="151" align="left" border="0" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2016/09/256x256.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="256x256" src="http://blog.tyang.org/wp-content/uploads/2016/09/256x256_thumb.png" alt="256x256" width="151" height="151" align="left" border="0" /></a>Introduction
+
 PowerShell version 5 has introduced a new feature that allows you to install packages (such as PowerShell modules) from NuGet repositories. If you have used cmdlets such as Find-Module, Install-Module or Uninstall-Module, then you have already taken advantage of this awesome feature.
 
 By default, a Microsoft owned public repository <a href="https://www.powershellgallery.com/">PowerShell Gallery</a> is configured on all computers running PowerShell version 5 and when you use Find-Module or Install-Module, you are pulling the modules from the PowerShell Gallery.
@@ -38,7 +40,9 @@ over the time, modules get updated, new modules get released from various source
 PowerShell Gallery is public. everything you publish to it will be available for the entire world. Organisations often write modules specifically for internal use, and may not want to share it with the rest of the world.
 
 Before I dive into the main topic, I’d like to discuss what I have done for implementing private repositories.
-<h3>Private Repositories</h3>
+
+## Private Repositories
+
 PowerShell PackageManagement uses NuGet repositories. I found the following solutions available:
 <ul>
  	<li>MyGet (<a title="https://www.myget.org/" href="https://www.myget.org/">https://www.myget.org/</a>)</li>
@@ -52,7 +56,9 @@ ProGet is a on-premises solution. To install it, you will need a web server (and
 Since both MyGet and ProGet offer NFR (Not For Resell) licenses to Microsoft MVPs, I have tested both for my lab environment. They both work pretty well. I did not bother to setup the free private NuGet repository (the 3rd option).
 
 These days, I found myself writing more and more PowerShell modules for different projects. During development phase, I’d normally use a feed that’s hosted on my ProGet server because it is located in my lab, so it’s faster to publish and download modules. Once the module is ready, I’d normally publish it to MyGet for general consumption because it’s a SaaS based application, both my lab machines and Azure IaaS machines will have no problem accessing it.
-<h3>DSC Resource cPowerShellPackageManagement</h3>
+
+## DSC Resource cPowerShellPackageManagement
+
 In order to overcome the other two challenges that I’m facing (module automatically deployment and version inconsistency), I have created a DSC resource called cPowerShellPackageManagement.
 
 According to the DSC namingstandard, the first letter ‘c’ indicates it is a community resource, and as the rest of the name suggests, it is used to manage PowerShell packages.
@@ -112,7 +118,9 @@ RepositoryName = [string]
  	<li><strong>MaintenanceStartHour, MaintenanceStartMinute and MaintenanceLengthMinute</strong> – Since the LCM will run the DSC configuration on a pre-configured interval, you may not want to install / uninstall modules during business hours. Therefore, you can set the maintenance start hour (0-23) and start minute (0-59) to specify the start time of the maintenance window. MaintenanceLengthMinute represents the length of the maintenance window in minutes. These fields are optional, when specified, module installation and uninstallation will only take place when the LCM runs the configuration within the maintenance window. Note: Please make sure the MaintenanceLengthMinute is greater than the value configured for the LCM ConfigurationModeFrequencyMins property.</li>
 </ul>
 <a href="http://blog.tyang.org/wp-content/uploads/2016/09/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/09/image_thumb-1.png" alt="image" width="428" height="220" border="0" /></a>
-<h3>Sample Configuration</h3>
+
+## Sample Configuration
+
 Here are some sample configurations to demonstrate the usage of these DSC resources.
 
 <strong>1. Register to an On-Prem ProGet feed and install all modules from the feed</strong>
@@ -186,9 +194,13 @@ Configuration SampleMyGetConfiguration
 
 ```
 In this example, I’ve specified a particular module can be installed at any time (the Gac module), and another module can only be installed (or updated) at a specific time window (the SharePointSDK module).
-<h3>Download and Install Locations</h3>
+
+## Download and Install Locations
+
 This DSC Resource has been published to PowerShellGallery: <a title="https://www.powershellgallery.com/packages/cPowerShellPackageManagement" href="https://www.powershellgallery.com/packages/cPowerShellPackageManagement">https://www.powershellgallery.com/packages/cPowerShellPackageManagement</a>
 
 The project is also located on Github: <a title="https://github.com/tyconsulting/PowerShellPackageManagementDSCResource" href="https://github.com/tyconsulting/PowerShellPackageManagementDSCResource">https://github.com/tyconsulting/PowerShellPackageManagementDSCResource</a>
-<h3>Special Thanks</h3>
+
+## Special Thanks
+
 I’d like to thank my MVP friends Jakob G Svendsen (<a href="https://twitter.com/JakobGSvendsen">@JakobGSvendsen</a>), Pete Zerger (<a href="https://twitter.com/pzerger">@pzerger</a>), Daniele Grandini (<a href="https://twitter.com/DanieleGrandini">@DanieleGrandini</a>) and James Bannan (<a href="https://twitter.com/jamesbannan">@JamesBannan</a>) who provided feedback and helped me testing the modules.

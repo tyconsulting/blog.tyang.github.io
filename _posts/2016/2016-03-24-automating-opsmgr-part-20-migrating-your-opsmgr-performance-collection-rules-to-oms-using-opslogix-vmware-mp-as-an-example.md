@@ -14,7 +14,9 @@ tags:
   - OMS
   - SCOM
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 20th installment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -47,7 +49,9 @@ As we all know, we can pretty much categorise SCOM data into the following 4 cat
 	<li>State Data</li>
 </ul>
 Unlike SCOM, since OMS does not use classes, there are no classes, relationships and state data in OMS, but for the other 3 types, we can easily get them over to OMS. With the SCOM alert data, you can simply enable the Alert solution after you have connected your SCOM management group to your OMS workspace. OMS also has its own alerting and remediation capability. For all existing performance collection and event collection rules, we can easily recreate them using a different Write Action module to store these data into OMS. In this post, I will show you how we can gather all performance collection rules from an existing OpsMgr management pack, and re-create these them for OMS (stored as PerfHourly data in OMS). But before we diving into it, let’s quickly go through the performance data in OMS.
-<h3>OMS Performance Data</h3>
+
+## OMS Performance Data
+
 There are 2 types of performance data in OMS. The <strong>PerfHourly</strong> data was introduced with the Capacity Planning solution. As the name suggests, PerfHourly data is the hourly aggregated performance data. It does not store any raw perf data in OMS.
 
 Another type of performance data is called <strong>Near-Real Time (NRT)</strong> performance data. NRT perf data can be access using queries such as <strong>Type=Perf</strong>. Unlike the PerfHourly data, NRT perf data can collect perf data as frequent as every 10 seconds, and the aggregation interval is every half hour. Both raw and aggregated NRT perf data are stored in OMS, where raw data is stored for 14 days and the OMS search queries only return aggregated data.
@@ -59,7 +63,9 @@ Since an OpsMgr rule can only have up to one (1) condition detection member modu
 Therefore in order to make the script work with any existing OpsMgr performance collection rules, I have chosen to store the perf data in OMS as PerfHourly data because it has far less "red tapes". Having said that, please keep in mind it is still possible to re-create OpMgr perf collection rules as OMS NRT perf collection rules, but it’s just not something we can develop as a generic automated solution.
 
 If you want to learn more about performance data in OMS, or how to author OMS based collection rules in SCOM using VSAE, please refer to <strong>Chapter 5: Working with Performance Data</strong> and <strong>Chapter 11: Custom Management Pack Authoring</strong> of the Inside OMS book I mentioned in the beginning of this post.
-<h3>PowerShell Script: Copy-PerfRulesToOMS.ps1</h3>
+
+## PowerShell Script: Copy-PerfRulesToOMS.ps1
+
 In the previous posts of this blog series, I have simply placed the scripts / runbooks within the post it self. I have decided to use Github from now on. So the script Copy-PerfRulesToOMS.ps1 can be found in one of my public Github repositories: <a title="https://github.com/tyconsulting/OpsMgr-SDK-Scripts/blob/master/OMS%20Related%20Scripts/Copy-PerfRulesToOMS.ps1" href="https://github.com/tyconsulting/OpsMgr-SDK-Scripts/blob/master/OMS%20Related%20Scripts/Copy-PerfRulesToOMS.ps1">https://github.com/tyconsulting/OpsMgr-SDK-Scripts/blob/master/OMS%20Related%20Scripts/Copy-PerfRulesToOMS.ps1</a>
 
 This script reads configurations of all performance collection rules in a particular OpsMgr management pack, and then recreate these rules with same configuration but stores the performance data as PerfHourly data in your OMS workspace. The OMS perf collection rules created by this script will be stored in a brand new unsealed MP with the name ‘&lt;Original MP name&gt;.OMS.Perf.Collection’ and display name ‘&lt;Original MP display name&gt; OMS PerfHourly Addon""’.

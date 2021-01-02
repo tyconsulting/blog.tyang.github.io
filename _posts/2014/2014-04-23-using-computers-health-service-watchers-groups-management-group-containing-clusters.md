@@ -35,7 +35,7 @@ As you can see each discovered Windows cluster is a group, and it contains all c
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML66a977a.png"><img style="display: inline; border: 0px;" title="SNAGHTML66a977a" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML66a977a_thumb.png" alt="SNAGHTML66a977a" width="580" height="294" border="0" /></a>
 
-So in order for the "Computer and Health Service Watcher" instance groups to include clusters, the GroupPopulator in the group discovery data source needs to be updated to include an additional &lt;MemberShipRule&gt; segment. in the example below, I’ve created a group that contains all computers with the NetBIOS name starts with the letter "S", associated health service watcher objects, and all clusters with the name starts with letter "S" as well:
+So in order for the "Computer and Health Service Watcher" instance groups to include clusters, the GroupPopulator in the group discovery data source needs to be updated to include an additional <MemberShipRule> segment. in the example below, I’ve created a group that contains all computers with the NetBIOS name starts with the letter "S", associated health service watcher objects, and all clusters with the name starts with letter "S" as well:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image33.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb33.png" alt="image" width="580" height="570" border="0" /></a>
 
@@ -44,69 +44,69 @@ Of course, in order to add highlighted section in the discovery, I also added th
 <a href="http://blog.tyang.org/wp-content/uploads/2014/04/image34.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb34.png" alt="image" width="407" height="402" border="0" /></a>
 
 Here’s the XML code for the group discovery if you want to copy and paste:
-[source language="XML"]
-  &lt;Monitoring&gt;
-    &lt;Discoveries&gt;
-      &lt;Discovery ID="Demo.CompAndHSW.Instance.Group.Discovery" Enabled="true" Target="Demo.CompAndHSW.Instance.Group" ConfirmDelivery="false" Remotable="true" Priority="Normal"&gt;
-        &lt;Category&gt;Discovery&lt;/Category&gt;
-        &lt;DiscoveryTypes /&gt;
-        &lt;DataSource ID="DS" TypeID="SC!Microsoft.SystemCenter.GroupPopulator"&gt;
-          &lt;RuleId&gt;$MPElement$&lt;/RuleId&gt;
-          &lt;GroupInstanceId&gt;$MPElement[Name="Demo.CompAndHSW.Instance.Group"]$&lt;/GroupInstanceId&gt;
-          &lt;MembershipRules&gt;
-            &lt;MembershipRule&gt;
-              &lt;MonitoringClass&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]$&lt;/MonitoringClass&gt;
-              &lt;RelationshipClass&gt;$MPElement[Name="MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities"]$&lt;/RelationshipClass&gt;
-              &lt;Expression&gt;
-                &lt;RegExExpression&gt;
-                  &lt;ValueExpression&gt;
-                    &lt;Property&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/NetbiosComputerName$&lt;/Property&gt;
-                  &lt;/ValueExpression&gt;
-                  &lt;Operator&gt;MatchesRegularExpression&lt;/Operator&gt;
-                  &lt;Pattern&gt;^[Ss]&lt;/Pattern&gt;
-                &lt;/RegExExpression&gt;
-              &lt;/Expression&gt;
-            &lt;/MembershipRule&gt;
-            &lt;MembershipRule&gt;
-              &lt;MonitoringClass&gt;$MPElement[Name="SC!Microsoft.SystemCenter.HealthServiceWatcher"]$&lt;/MonitoringClass&gt;
-              &lt;RelationshipClass&gt;$MPElement[Name="MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities"]$&lt;/RelationshipClass&gt;
-              &lt;Expression&gt;
-                &lt;Contains&gt;
-                  &lt;MonitoringClass&gt;$MPElement[Name="SC!Microsoft.SystemCenter.HealthService"]$&lt;/MonitoringClass&gt;
-                  &lt;Expression&gt;
-                    &lt;Contained&gt;
-                      &lt;MonitoringClass&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]$&lt;/MonitoringClass&gt;
-                      &lt;Expression&gt;
-                        &lt;Contained&gt;
-                          &lt;MonitoringClass&gt;$Target/Id$&lt;/MonitoringClass&gt;
-                        &lt;/Contained&gt;
-                      &lt;/Expression&gt;
-                    &lt;/Contained&gt;
-                  &lt;/Expression&gt;
-                &lt;/Contains&gt;
-              &lt;/Expression&gt;
-            &lt;/MembershipRule&gt;
-            &lt;MembershipRule&gt;
-              &lt;MonitoringClass&gt;$MPElement[Name="Cluster!Microsoft.Windows.Cluster"]$&lt;/MonitoringClass&gt;
-              &lt;RelationshipClass&gt;$MPElement[Name="MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities"]$&lt;/RelationshipClass&gt;
-              &lt;Expression&gt;
-                &lt;RegExExpression&gt;
-                  &lt;ValueExpression&gt;
-                    &lt;Property&gt;$MPElement[Name="Cluster!Microsoft.Windows.Cluster"]/Name$&lt;/Property&gt;
-                  &lt;/ValueExpression&gt;
-                  &lt;Operator&gt;MatchesRegularExpression&lt;/Operator&gt;
-                  &lt;Pattern&gt;^[Ss]&lt;/Pattern&gt;
-                &lt;/RegExExpression&gt;
-              &lt;/Expression&gt;
-            &lt;/MembershipRule&gt;
-          &lt;/MembershipRules&gt;
-        &lt;/DataSource&gt;
-      &lt;/Discovery&gt;
-    &lt;/Discoveries&gt;
-  &lt;/Monitoring&gt;
-[/source]
-Once the additional &lt;MembershipRule&gt; segement is added to the GroupPopulator module, all windows clusters will be shown as child groups for both my custom defined group and the "Windows Clusters" group:
+```xml
+  <Monitoring>
+    <Discoveries>
+      <Discovery ID="Demo.CompAndHSW.Instance.Group.Discovery" Enabled="true" Target="Demo.CompAndHSW.Instance.Group" ConfirmDelivery="false" Remotable="true" Priority="Normal">
+        <Category>Discovery</Category>
+        <DiscoveryTypes />
+        <DataSource ID="DS" TypeID="SC!Microsoft.SystemCenter.GroupPopulator">
+          <RuleId>$MPElement$</RuleId>
+          <GroupInstanceId>$MPElement[Name="Demo.CompAndHSW.Instance.Group"]$</GroupInstanceId>
+          <MembershipRules>
+            <MembershipRule>
+              <MonitoringClass>$MPElement[Name="Windows!Microsoft.Windows.Computer"]$</MonitoringClass>
+              <RelationshipClass>$MPElement[Name="MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities"]$</RelationshipClass>
+              <Expression>
+                <RegExExpression>
+                  <ValueExpression>
+                    <Property>$MPElement[Name="Windows!Microsoft.Windows.Computer"]/NetbiosComputerName$</Property>
+                  </ValueExpression>
+                  <Operator>MatchesRegularExpression</Operator>
+                  <Pattern>^[Ss]</Pattern>
+                </RegExExpression>
+              </Expression>
+            </MembershipRule>
+            <MembershipRule>
+              <MonitoringClass>$MPElement[Name="SC!Microsoft.SystemCenter.HealthServiceWatcher"]$</MonitoringClass>
+              <RelationshipClass>$MPElement[Name="MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities"]$</RelationshipClass>
+              <Expression>
+                <Contains>
+                  <MonitoringClass>$MPElement[Name="SC!Microsoft.SystemCenter.HealthService"]$</MonitoringClass>
+                  <Expression>
+                    <Contained>
+                      <MonitoringClass>$MPElement[Name="Windows!Microsoft.Windows.Computer"]$</MonitoringClass>
+                      <Expression>
+                        <Contained>
+                          <MonitoringClass>$Target/Id$</MonitoringClass>
+                        </Contained>
+                      </Expression>
+                    </Contained>
+                  </Expression>
+                </Contains>
+              </Expression>
+            </MembershipRule>
+            <MembershipRule>
+              <MonitoringClass>$MPElement[Name="Cluster!Microsoft.Windows.Cluster"]$</MonitoringClass>
+              <RelationshipClass>$MPElement[Name="MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities"]$</RelationshipClass>
+              <Expression>
+                <RegExExpression>
+                  <ValueExpression>
+                    <Property>$MPElement[Name="Cluster!Microsoft.Windows.Cluster"]/Name$</Property>
+                  </ValueExpression>
+                  <Operator>MatchesRegularExpression</Operator>
+                  <Pattern>^[Ss]</Pattern>
+                </RegExExpression>
+              </Expression>
+            </MembershipRule>
+          </MembershipRules>
+        </DataSource>
+      </Discovery>
+    </Discoveries>
+  </Monitoring>
+```
+Once the additional <MembershipRule> segement is added to the GroupPopulator module, all windows clusters will be shown as child groups for both my custom defined group and the "Windows Clusters" group:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML67d6784.png"><img style="display: inline; border: 0px;" title="SNAGHTML67d6784" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML67d6784_thumb.png" alt="SNAGHTML67d6784" width="489" height="471" border="0" /></a>
+![](http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML67d6784.png)
 
-Lastly, if you are updating a existing group, don’t forget to change the display name to something like "Computers, Clusters and Health Service Watchers Group" :)
+Lastly, if you are updating a existing group, don’t forget to change the display name to something like "Computers, Clusters and Health Service Watchers Group" :smiley:

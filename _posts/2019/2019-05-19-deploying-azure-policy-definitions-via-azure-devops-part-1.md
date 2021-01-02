@@ -15,7 +15,9 @@ tags:
   - PowerShell
 ---
 <!-- wp:heading {"level":3} -->
-<h3>Introduction</h3>
+
+## Introduction
+
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -83,7 +85,9 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->
-<h3>Bulk Deploying Policy and Initiative Definition using PowerShell Scripts</h3>
+
+## Bulk Deploying Policy and Initiative Definition using PowerShell Scripts
+
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->

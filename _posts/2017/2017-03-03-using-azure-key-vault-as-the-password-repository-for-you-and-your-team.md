@@ -19,7 +19,9 @@ tags:
 Over the past decade, I have used several password management applications such as <a href="https://pwsafe.org/">Password Safe</a>, <a href="http://keepass.info/">KeePass</a> and <a href="https://www.lastpass.com/">LastPass</a>. Out of these products, only LastPass is cloud based. I have been hesitate to use LastPass over the last few years and stayed with KeePass because of the <a href="http://www.pcworld.com/article/2936621/the-lastpass-security-breach-what-you-need-to-know-do-and-watch-out-for.html">LastPass data breach back in 2015</a>. Few months ago, my friend Alex Verkinderen finally convinced me to start using LastPass again. But this time, in order to be more secure and being able to use Multi-Factor Authentication (MFA), I have purchased a premium account and also purchased a <a href="https://www.yubico.com/products/yubikey-hardware/yubikey-neo/">YubiKey Neo</a> for MFA. I understand not everyone is willing to spend money on password repository solutions (in my case, USD $12 per year for the LastPass Premium account and USD $50 + shipping for a Yubikey Neo from Amazon). Also, based on my personal experience, there are still many organisations that don’t have a centralised password repositories. Many engineers and consultants I have met still store passwords in clear text.
 
 On the other hand, Azure Key Vault has drawn a lot of attention since it was released and it is become really popular. I have certainly used it a lot over the last few months and managed to integrate it with many solutions that I have built.
-<h3>AzureKeyVaultPasswordRepo PowerShell Module</h3>
+
+## AzureKeyVaultPasswordRepo PowerShell Module
+
 I spent few hours last night and today, developed a PowerShell CLI menu based app based on few existing scripts I wrote in the past. This app allows you to create, manage Azure Key Vault and use it as your personal (or team's) password repository. In order to simplify the process of deploying and using this app, I wrapped it in a PowerShell module. I named this module <strong>AzureKeyVaultPasswordRepo</strong> and it is now available on both PowerShell Gallery and GitHub:
 
 PowerShell Gallery: <a title="https://www.powershellgallery.com/packages/AzureKeyVaultPasswordRepo/" href="https://www.powershellgallery.com/packages/AzureKeyVaultPasswordRepo/">https://www.powershellgallery.com/packages/AzureKeyVaultPasswordRepo/</a>
@@ -86,7 +88,9 @@ Instead of selecting a credential to manage from the list, you can also search c
 As shown previously, for faster access, you can use option 4 to store the Azure subscription Id and the Key Vault Name in the registry. if you decide to delete the profile (i.e. when you decide to use another subscription or key vault), you can use option 5 to delete the existing profile from registry.
 <h4>Managing Key Vault Access</h4>
 You can use option 6 to grant full access to the key vault to other Azure AD accounts, or use option 7 to remove access.
-<h3>Conclusion</h3>
+
+## Conclusion
+
 Personally I’m pretty happy to see what I have produced during such a short period of time (only few hours based on some existing scripts I wrote few weeks ago). I think this would fill a gap for people and organisations that do not have a commercial password management solution.
 
 Azure Key Vault is a very in-expensive solution, and by using an Azure offering, you automatically inherit the MFA solutions that you have configured for Azure / Azure AD. i.e. I’m not using Azure AD premium for my lab but for my Microsoft (@outlook.com) account, I have enabled MFA using the Microsoft Authenticator app. Therefore in order to access the Key Vault using this module, I will need to use MFA during the sign in process.

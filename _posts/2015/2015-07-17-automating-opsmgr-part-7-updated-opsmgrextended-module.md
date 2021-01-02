@@ -17,7 +17,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 7th instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -28,7 +30,9 @@ This is the 7th instalment of the Automating OpsMgr series. Previously on this s
 	<li><a href="http://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/" target="_blank">Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups</a></li>
 </ul>
 I dedicated part 4-6 on creating and managing groups using the OpsMgrExtended module. I was going to continue on this topic and demonstrate how to update group discovery in part 7 (this post), but unfortunately there is a change of plan. While I was preparing for the group discovery update runbook, I noticed I had to firstly cover how to add reference MPs before I can talk about updating group discoveries. I then realised there was a small bug in the New-OMManagementPackReference. Therefore, I have decided to update the OpsMgrExtended module first, before continuing the topics of managing groups.
-<h3>What's New?</h3>
+
+## What's New?
+
 In this release (version 1.1), I have made the following updates:
 <ul>
 	<li>Bug fix: <strong>New-OMTCPPortMonitoring</strong> fails when not using the the SMA connection object.</li>
@@ -84,7 +88,11 @@ exit
 }
 
 ```
-<h3>How to Download Updated version?</h3>
+
+## How to Download Updated version?
+
 I have updated the original link, so you can download this updated version at TY Consulting's web site: <a title="http://www.tyconsulting.com.au/portfolio/opsmgrextended-powershell-and-sma-module/" href="http://www.tyconsulting.com.au/portfolio/opsmgrextended-powershell-and-sma-module/">http://www.tyconsulting.com.au/portfolio/opsmgrextended-powershell-and-sma-module/</a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 With the updated module in place, I will continue my discussion on managing groups. In the next part of this series, I will demonstrate how to add a management pack reference to an unsealed management pack.

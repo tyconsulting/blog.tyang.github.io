@@ -15,9 +15,13 @@ tags:
   - Azure Table
   - PowerShell
 ---
-<h3><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Azure Storage - Table" src="http://blog.tyang.org/wp-content/uploads/2016/11/Azure-Storage-Table.png" alt="Azure Storage - Table" width="166" height="166" align="left" border="0" />Introduction</h3>
+
+## <img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Azure Storage - Table" src="http://blog.tyang.org/wp-content/uploads/2016/11/Azure-Storage-Table.png" alt="Azure Storage - Table" width="166" height="166" align="left" border="0" />Introduction
+
 Firstly, apologies for not being able to blog for 6 weeks. I have been really busy lately.  As part of a project that I’m working on, I have been dealing with Azure Table storage and its REST API over the last couple of weeks. I have written few Azure Function app in C# as well as some Azure Automation runbooks in PowerShell that involves inserting, querying and updating records (entities) in Azure tables. I was struggling a little bit during development of these function apps and runbooks because I couldn’t find too many good code examples and I personally believe this REST API is not well documented on Microsoft’s documentation site (<a title="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/table-service-rest-api" href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/table-service-rest-api">https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/table-service-rest-api</a>). Therefore I have spent the last two days developed a PowerShell module for managing the lifecycle of the Azure Table entities. This module can be used to perform CRUD (Create, Read, Update, Delete) operations for Azure Table entities.
-<h3>AzureTableEntity PowerShell Module</h3>
+
+## AzureTableEntity PowerShell Module
+
 This PowerShell module is named as AzureTableEntity, it can be located in both GitHub and PowerShell Gallery:
 <ul>
  	<li>GitHub: <a title="https://github.com/tyconsulting/AzureTableEntity-PowerShell-Module" href="https://github.com/tyconsulting/AzureTableEntity-PowerShell-Module">https://github.com/tyconsulting/AzureTableEntity-PowerShell-Module</a></li>
@@ -73,7 +77,9 @@ Once you have created the connection objects, instead of specifying storage acco
 I have published some sample code I wrote when developing this module to GitHub Gist:
 
 https://gist.github.com/tyconsulting/1ff706181d8e476528c86b8f7ac8af23
-<h3>Summary</h3>
+
+## Summary
+
 I wrote this module so I can simplify my Azure Automation runbooks and make IT Pro’s life easier when working on Azure Table storage. If you have to deal with Azure Table storage, I hope you find this module useful. If you are a developer and looking for code samples, you can still use this module and simply translate the code to the language of your choice.
 
 I purposely didn’t include any functions for managing the Azure table storage itself because you can manage the Table storage using the Azure.Storage module.

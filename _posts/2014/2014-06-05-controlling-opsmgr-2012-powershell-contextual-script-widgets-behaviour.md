@@ -34,17 +34,17 @@ Param($globalSelectedItems)
 #Function to Check If the monitoring object belongs to a specific class
 Function Validate-ObjectClass ($MonitoringObjectID, $ClassName)
 {
-$ClassId = (Get-SCOMClass -Name "$ClassName").Id
-$MObject = Get-SCOMMonitoringObject -Id $MonitoringObjectID
-$bvalid = $false
-Foreach ($Id in $MObject.MonitoringClassIds)
-{
-If ($Id -eq $ClassId)
-{
-$bvalid = $true
-}
-}
-$bValid
+  $ClassId = (Get-SCOMClass -Name "$ClassName").Id
+  $MObject = Get-SCOMMonitoringObject -Id $MonitoringObjectID
+  $bvalid = $false
+  Foreach ($Id in $MObject.MonitoringClassIds)
+  {
+    If ($Id -eq $ClassId)
+    {
+      $bvalid = $true
+    }
+  }
+  $bValid
 }
 
 $dataObject = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/Request")
@@ -53,37 +53,37 @@ $parameterCollection = $ScriptContext.CreateCollection("xsd://Microsoft.SystemCe
 $bAllValid = $true #Assuming all selected objects are valid
 foreach ($globalSelectedItem in $globalSelectedItems)
 {
-#Save the monitoring object ID into a variable
-$MObjectID = $globalSelectedItem["Id"]
-#Check if a "Demo.Remote.Computers.Remote.Computer.Class" object is selected
-$bValidOBject = Validate-ObjectClass $MObjectID "Demo.Remote.Computers.Remote.Computer.Class"
-If ($bValidOBject)
-{
-#Valid object, continue building URL parameters
-$globalSelectedItemInstance = Get-SCOMClassInstance -Id $MObjectID
-$MProperties = $globalSelectedItemInstance.GetMonitoringProperties()
-$StreetProperty = $MProperties | Where-Object {$_.name -match "Street"}
-$CityProperty = $MProperties | Where-Object {$_.name -match "City"}
-$StateProperty = $MProperties | Where-Object {$_.name -match "State"}
-$CountryProperty = $MProperties | Where-Object {$_.name -match "Country"}
-$Street = $globalSelectedItemInstance.GetMonitoringPropertyValue($StreetProperty)
-$City = $globalSelectedItemInstance.GetMonitoringPropertyValue($CityProperty)
-$State = $globalSelectedItemInstance.GetMonitoringPropertyValue($StateProperty)
-$Country = $globalSelectedItemInstance.GetMonitoringPropertyValue($CountryProperty)
-$parameter = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
-$parameter["Name"] = "q"
-$parameter["Value"] = "$street $City $state $Country"
-$parameterCollection.Add($parameter)
-} else {
-#the object is not a valid object, therefore set "All Valid" boolean variable to false
-$bAllValid = $false
-}
+  #Save the monitoring object ID into a variable
+  $MObjectID = $globalSelectedItem["Id"]
+  #Check if a "Demo.Remote.Computers.Remote.Computer.Class" object is selected
+  $bValidOBject = Validate-ObjectClass $MObjectID "Demo.Remote.Computers.Remote.Computer.Class"
+  If ($bValidOBject)
+  {
+    #Valid object, continue building URL parameters
+    $globalSelectedItemInstance = Get-SCOMClassInstance -Id $MObjectID
+    $MProperties = $globalSelectedItemInstance.GetMonitoringProperties()
+    $StreetProperty = $MProperties | Where-Object {$_.name -match "Street"}
+    $CityProperty = $MProperties | Where-Object {$_.name -match "City"}
+    $StateProperty = $MProperties | Where-Object {$_.name -match "State"}
+    $CountryProperty = $MProperties | Where-Object {$_.name -match "Country"}
+    $Street = $globalSelectedItemInstance.GetMonitoringPropertyValue($StreetProperty)
+    $City = $globalSelectedItemInstance.GetMonitoringPropertyValue($CityProperty)
+    $State = $globalSelectedItemInstance.GetMonitoringPropertyValue($StateProperty)
+    $Country = $globalSelectedItemInstance.GetMonitoringPropertyValue($CountryProperty)
+    $parameter = $ScriptContext.CreateInstance("xsd://Microsoft.SystemCenter.Visualization.Component.Library!Microsoft.SystemCenter.Visualization.Component.Library.WebBrowser.Schema/UrlParameter")
+    $parameter["Name"] = "q"
+    $parameter["Value"] = "$street $City $state $Country"
+    $parameterCollection.Add($parameter)
+  } else {
+    #the object is not a valid object, therefore set "All Valid" boolean variable to false
+    $bAllValid = $false
+  }
 }
 #only return data when all selected objects are valid
 If ($bAllValid)
 {
-$dataObject["Parameters"]= $parameterCollection
-$ScriptContext.ReturnCollection.Add($dataObject)
+  $dataObject["Parameters"]= $parameterCollection
+  $ScriptContext.ReturnCollection.Add($dataObject)
 }
 ```
 

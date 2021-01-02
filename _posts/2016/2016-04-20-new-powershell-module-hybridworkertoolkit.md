@@ -18,7 +18,9 @@ tags:
 <strong><a href="http://blog.tyang.org/wp-content/uploads/2016/04/HybridWorkerToolkit.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px none;" title="HybridWorkerToolkit" src="http://blog.tyang.org/wp-content/uploads/2016/04/HybridWorkerToolkit_thumb.png" alt="HybridWorkerToolkit" width="172" height="171" align="left" border="0" /></a><span style="color: #ff0000;">23/04/2016 Update:</span></strong> released version 1.0.3 to GitHub and PowerShell gallery. New additions documented in <a href="http://blog.tyang.org/2016/04/23/hybridworkertoolkit-powershell-module-updated-to-version-1-0-3/">this blog post</a>.
 
 <span style="color: #ff0000;"><strong>21/04/2016 Update:</strong></span> updated GitHub and PowerShell gallery and released version 1.0.2 with minor bug fix and updated help file.
-<h3>Introduction</h3>
+
+## Introduction
+
 Over the last few days, I have been working on a PowerShell module for Azure Automation Hybrid Workers. I named this module <strong>HybridWorkerToolkit</strong>.
 
 This module is designed to run within either a PowerShell runbook or a PowerShell workflow runbook on Azure Automation Hybrid Workers. It provides few functions that can be called within the runbook. These activities can assist gathering information about Hybrid Workers and the runbook runtime environment. It also provides a function to log <strong><u>structured</u></strong> events to the Hybrid Workers Windows Event Logs.
@@ -28,7 +30,9 @@ My good friend and fellow MVP Pete Zerger <a href="http://insidethecloudos.azure
 So I combined Pete’s idea with Kevin’s script, as well as some code I’ve written in the past for Hybrid Workers, and developed this module.
 
 Why do we want to use Windows Event logs combined with OMS for logging runbook activities on Hybrid workers? As Pete explained on this post, it provides a centralised solution where you can query and retrieve these activity logs for all your runbooks from a single location. Additionally, based on my experience (and also confirmed with few other friends), is that when you use Write-Verbose or Write-Output in your runbook and enabled verbose logging, the runbook execution time can increase significantly, especially when loading a module with a lot of activities. Based on my own experience, I’ve seen a runbook that would normally takes a minute or two to run with verbose logging turned off ended up ran over half an hour after I enabled verbose logging. This is another reason I’ve developed this module so it gives you an alternative option to log verbose, error, process and output messages.
-<h3>Functions</h3>
+
+## Functions
+
 This module provides the following 3 functions:
 <ul>
  	<li>Get-HybridWorkerConfiguration</li>
@@ -94,7 +98,9 @@ This function also has an optional Boolean parameter called ‘-LogHybridWorkerC
  	<li>Hybrid Worker server System-wide Proxy server address</li>
  	<li>Microsoft OMS Workspace ID</li>
 </ul>
-<h3>Sample Runbooks</h3>
+
+## Sample Runbooks
+
 <strong>Sample PowerShell Runbook:</strong>
 ```powershell
 Get-HybridWorkerConfiguration  | out-file C:\temp\HybridWorkerConfiguration.txt
@@ -141,7 +147,9 @@ Event generated (with basic information / without setting –LogHybridWorkerConf
 Event generated (whensetting –LogHybridWorkerConfig to $true):
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML4150515.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML4150515" src="http://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML4150515_thumb.png" alt="SNAGHTML4150515" width="620" height="381" border="0" /></a>
-<h3>Consuming collected events in OMS</h3>
+
+## Consuming collected events in OMS
+
 Once you have collected these events in OMS, you can use search queries to find them, and you can also create OMS alerts to notify you using your preferred methods.
 <h4>Searching Events in OMS</h4>
 i.e. I can use this query to get all events logged by a particular runbook:
@@ -163,11 +171,15 @@ i.e. if I want to create an OMS alert for any Error events logged by New-HybridW
 <a href="http://blog.tyang.org/wp-content/uploads/2016/04/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/04/image_thumb-2.png" alt="image" width="606" height="423" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/04/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/04/image_thumb-3.png" alt="image" width="483" height="369" border="0" /></a>
-<h3>Download / Deploy this module</h3>
+
+## Download / Deploy this module
+
 I have published this module on Github as well as PowerShell Gallery:
 
 GitHub Repository: <a title="https://github.com/tyconsulting/HybridWorkerToolkit" href="https://github.com/tyconsulting/HybridWorkerToolkit">https://github.com/tyconsulting/HybridWorkerToolkit</a>
 
 PowerShell Gallery:  <a title="http://www.powershellgallery.com/packages/HybridWorkerToolkit/1.0.1" href="http://www.powershellgallery.com/packages/HybridWorkerToolkit/1.0.3">http://www.powershellgallery.com/packages/HybridWorkerToolkit/1.0.3</a>
-<h3>Credit</h3>
+
+## Credit
+
 I’d like to thank Pete and Kevin for the ideas in the first place, also I’d like to thank <a href="https://twitter.com/pzerger">Pete</a>, <a href="https://twitter.com/JakobGSvendsen">Jakob Svendsen</a>, <a href="https://twitter.com/DanieleGrandini">Daniele Grandini</a> and <a href="https://twitter.com/kjacobsen">Kieran Jacobsen</a> for the testing and feedback!

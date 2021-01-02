@@ -19,7 +19,9 @@ I also bought a type cover 2 the same time. I really wanted to get the power cov
 Guess what, I was still waiting when Microsoft announced the Surface 3 release date. I sort of got the idea, they will probably never come to Australia.
 
 For me, a power keyboard is a nice-to-have, but I really want a docking station! Therefore, I have to look elsewhere. I soon found 2 possible alternatives (USB 3 docking stations).
-<h3>Toshiba Dynadock V.S. Targus USB 3 Dual Video Dock</h3>
+
+## Toshiba Dynadock V.S. Targus USB 3 Dual Video Dock
+
 <a href="http://www.toshiba.com/us/accessories/Docking-and-Stands/Port-Replicators/Docking-Station/PA3927U-1PRP">Toshiba Dynadock U3.0</a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/07/to_pa3927u_300.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="to_pa3927u_300" src="http://blog.tyang.org/wp-content/uploads/2014/07/to_pa3927u_300_thumb.png" alt="to_pa3927u_300" width="244" height="244" border="0" /></a>
@@ -31,7 +33,9 @@ For me, a power keyboard is a nice-to-have, but I really want a docking station!
 Both of them have similar specs, The local retail price for the Toshiba one is around AUD $160 and Targus is around $180 (currently $1 AUD = $0.94 USD). I’ve decided to go for the Tagus one simply because the Toshiba dock is vertical with a stand, it will be harder to carry around (if I want to). The Targus dock seems to be more portable to me.
 
 So instead of buying it in a retail shop, I managed to find a seller on eBay U.S. who accepts "Best Price". After bargaining the price back and forth few times, I managed to get a brand new one for $85 USD. with international shipping, in the end, I paid AUD $118, which I’m very happy about the price!
-<h3>Targus Dock V.S. Surface Dock</h3>
+
+## Targus Dock V.S. Surface Dock
+
 Here’s a specs comparison between the Targus dock and the Surface Pro 2 dock:
 <table border="0" width="580" cellspacing="0" cellpadding="2">
 <tbody>
@@ -73,7 +77,9 @@ Here’s a specs comparison between the Targus dock and the Surface Pro 2 dock:
 </tbody>
 </table>
 The Targus dock also comes with a DVI-To-VGA adapter and a HDMI-To-DVI adapter to cater for different monitor connections. Based on the comparison above, the Targus dock is definitely more feature rich. Since I’ve already bought a spare Surface Pro 2 power supply from eBay, I didn’t mind the fact that I can’t power the Surface with this dock.
-<h3>More Pictures</h3>
+
+## More Pictures
+
 Here’s the back view:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/07/Targus-Back.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Targus Back" src="http://blog.tyang.org/wp-content/uploads/2014/07/Targus-Back_thumb.jpg" alt="Targus Back" width="492" height="492" border="0" /></a>
@@ -85,11 +91,15 @@ Using it with my Surface Pro 2:
 Physical size comparing with Surface Pro 2:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/07/20140724_212815.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="20140724_212815" src="http://blog.tyang.org/wp-content/uploads/2014/07/20140724_212815_thumb.jpg" alt="20140724_212815" width="580" height="326" border="0" /></a>
-<h3>Drivers</h3>
+
+## Drivers
+
 I have no problems with drivers, all the drivers got automatically installed when I connected them for the first time.
 
 Cameron Fuller wrote an article on his experience with Surface 2 RT: <a href="http://blogs.catapultsystems.com/cfuller/archive/2014/04/09/using-the-surface-2-rt-like-a-pro-fessional-1.aspx">Using the Surface 2 RT like a Pro-fessional</a>. In Cameron’s article, he listed all the hardware accessories that he has purchased for the RT device. I’m guessing RT devices would always face compatibility issues because of drivers, I haven’t been managed to find an RT device to test this dock with, so I’m not sure if it supports Windows RT.
-<h3>Replacement for Other Devices</h3>
+
+## Replacement for Other Devices
+
 Down here in Australia, I looked up prices for a USB 3 video adapter. it is around $100 AUD (around $94 USD). By getting a docking station like this, it is equivalent of getting:
 <ul>
 	<li>2x USB 3 video adapter</li>

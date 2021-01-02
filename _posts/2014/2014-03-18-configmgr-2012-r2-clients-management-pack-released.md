@@ -17,7 +17,7 @@ tags:
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2013/08/SCCM-Client-Monitor.png"><img class="alignleft  wp-image-2124" alt="ConfigMgr 2012 Client MP Icon" src="http://blog.tyang.org/wp-content/uploads/2013/08/SCCM-Client-Monitor.png" width="215" height="215" /></a>Time flies, I can’t believe it’s been over 7 months since I posted the <a href="http://blog.tyang.org/2013/08/31/management-pack-configmgr-2012-clients-testers-wanted/">beta version of the ConfigMgr 2012 client MP</a> for testing. I haven’t forgotten about this MP (because it’s one of the deliverables for the System Center 2012 upgrade project that I’ve been working on for the last 12 months or so). Today, I finally managed to finish updating this MP, it is ready for final release (Version 1.0.1.0).
 
-I didn’t manage to get many feedbacks since the beta version was released. so it’s either a good thing that everyone’s happy about it, or it’s really bad that no one bothered to use it :) . I would hope it’s because that everyone’s happy about it :)
+I didn’t manage to get many feedbacks since the beta version was released. so it’s either a good thing that everyone’s happy about it, or it’s really bad that no one bothered to use it :smiley: . I would hope it’s because that everyone’s happy about it :smiley:
 
 Anyways, below is a list of what’s changed.
 

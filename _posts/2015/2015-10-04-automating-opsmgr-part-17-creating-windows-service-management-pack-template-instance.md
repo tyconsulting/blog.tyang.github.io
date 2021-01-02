@@ -44,7 +44,9 @@ The OpsMgrExtedned module comes with a function called <strong>New-OMWindowsServ
 <strong>Get-Help New-OMWindowsServiceTemplateInstance –Full</strong>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML2e5dc32.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2e5dc32" src="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML2e5dc32_thumb.png" alt="SNAGHTML2e5dc32" width="609" height="433" border="0" /></a>
-<h3>Sample Runbook New-WindowsServiceTemplateInstance</h3>
+
+## Sample Runbook New-WindowsServiceTemplateInstance
+
 ```powershell
 Workflow New-WindowsServiceTemplateInstance
 {
@@ -159,9 +161,15 @@ To help you visualise what are these parameters mean, I’ve mapped them to the 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb8.png" alt="image" width="483" height="441" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb9.png" alt="image" width="486" height="444" border="0" /></a>
-<h3>Runbook Execution Result:</h3>
+
+## Runbook Execution Result:
+
 <a href="http://blog.tyang.org/wp-content/uploads/2015/10/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb10.png" alt="image" width="592" height="523" border="0" /></a>
-<h3>A Known Issue</h3>
+
+## A Known Issue
+
 When I was writing the sample runbook, I found a small bug in the OpsMgrExtended module. You may noticed from the screenshots above, that the description field is not populated. I have found the cause of this issue and fixed it in my lab. This fix will be shipped with the next release. So please just be aware of this issue, I don’t think it’s too critical.
-<h3>Conclusion</h3>
+
+## Conclusion
+
 In this post, I have demonstrated how to create Windows Service MP template instances using the OpsMgrExtended module. This concludes the topics of monitoring Windows services. In the next module, I will demonstrate how to create any types of generic rules by specifying the configuration of each member module (Data Source, Condition Detection and Write Action) using the New-OMRule function. Until next time, happy automating!

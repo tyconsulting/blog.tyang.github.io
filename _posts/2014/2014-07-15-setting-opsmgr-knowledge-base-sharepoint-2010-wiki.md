@@ -14,7 +14,7 @@ tags:
 ---
 Previously, I blogged my opinion on <a href="http://blog.tyang.org/2014/07/06/using-external-knowledge-base-opsmgr/">using external knowledge base for OpsMgr</a>. In that article, I mentioned a <a href="http://www.systemcentercentral.com/use-sharepoint-wiki-as-scom-knowledge-base/">SharePoint 2013 Wiki solution</a> developed by Stefan Koell. As I mentioned, I successfully set it up in my home lab without issues. However, I had issues setting it up at work, which is still using SharePoint 2010.
 
-After going through what I’ve done with the SharePoint engineer in my company, I was told the issue is with <strong>WikiRedirect.aspx</strong>. I was told this page doesn’t exist on my SharePoint 2010 Enterprise Wiki site. So to work around the issue, I had to update Stefan’s JavaScript and made it work in SharePoint 2010. The UI looks a bit different than what WikiRedirect.aspx does, but essentially the same. The script redirects to a page if it already exists, or prompt to create a new page if it doesn’t exist.
+After going through what I’ve done with the SharePoint engineer in my company, I was told the issue is with **WikiRedirect.aspx**. I was told this page doesn’t exist on my SharePoint 2010 Enterprise Wiki site. So to work around the issue, I had to update Stefan’s JavaScript and made it work in SharePoint 2010. The UI looks a bit different than what WikiRedirect.aspx does, but essentially the same. The script redirects to a page if it already exists, or prompt to create a new page if it doesn’t exist.
 
 Here’s what it looks like:
 
@@ -28,8 +28,8 @@ Prompt to create a new page:
 
 And here’s the script (I named it RedirectJs.txt):
 
-[sourcecode language="JavaScript"]
-&lt;script type="text/JavaScript" unselectable="on"&gt;
+```javascript
+<script type="text/JavaScript" unselectable="on">
 
 // the path to the Enterprise Wiki Site in sharepoint
 var SiteUrl = 'http://Sharepoint/Sites/SCOMKB/';
@@ -69,7 +69,7 @@ function load_url(externallink)
 
 function main()
 {
-	// strip " # % & * : &lt; &gt; ? \ / { } ~ | from name
+	// strip " # % & * : < > ? \ / { } ~ | from name
 	var name = querystring('name');
 	name = unescape(name);
 	name = name.replace("\"", '-');
@@ -78,8 +78,8 @@ function main()
 	name = name.replace('&', '-');
 	name = name.replace('*', '-');
 	name = name.replace(':', '-');
-	name = name.replace('&lt;', '-');
-	name = name.replace('&gt;', '-');
+	name = name.replace('<', '-');
+	name = name.replace('>', '-');
 	name = name.replace('?', '-');
 	name = name.replace('/', '-');
 	name = name.replace("\\", '-');
@@ -100,7 +100,7 @@ function main()
 		load_url(CreatePageUrl);
 	}
 }
-&lt;/script&gt;
+</script>
 ```
 
 When you use this script, please update the SiteUrl variable to represent the URL of your SharePoint wiki site.
@@ -109,10 +109,10 @@ When you use this script, please update the SiteUrl variable to represent the UR
 
 Please note adding scripts to a web part is different in SharePoint 2010 than 2013. The script needs to be uploaded to the site as a separate file then link the the web part. here’s a good <a href="http://sharepointadam.com/2010/08/31/insert-javascript-into-a-content-editor-web-part-cewp/">article</a> on how to do it.
 
-<strong><span style="color: #ff0000;">Note:</span></strong> I have also tested this script on my SharePoint 2013 wiki site. Unfortunately, it does <strong><span style="color: #ff0000;">NOT</span></strong> work.
+**<span style="color: #ff0000;">Note:</span>** I have also tested this script on my SharePoint 2013 wiki site. Unfortunately, it does **<span style="color: #ff0000;">NOT</span>** work.
 
-<strong>Disclaimer:</strong>
+**Disclaimer:**
 
-My knowledge on SharePoint and JavaScript is next to none. Therefore, when I was told wikiredirect.aspx was the problem, I had to take his word for it. And I did lots of search online and came up with this JavaScript that worked for me. I won’t get offended if someone criticise me if my statement is wrong about SharePoint and if you think the script can be improved. <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2014/07/wlEmoticon-smile1.png" alt="Smile" /> Lastly, please test it and make sure it works in your environment. I don’t have another SharePoint 2010 site I can test on, the only place I made it work is on my work’s production SharePoint site.
+My knowledge on SharePoint and JavaScript is next to none. Therefore, when I was told wikiredirect.aspx was the problem, I had to take his word for it. And I did lots of search online and came up with this JavaScript that worked for me. I won’t get offended if someone criticise me if my statement is wrong about SharePoint and if you think the script can be improved. :smiley: Lastly, please test it and make sure it works in your environment. I don’t have another SharePoint 2010 site I can test on, the only place I made it work is on my work’s production SharePoint site.
 
-The script can also be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2014/07/RedirectJs.zip">HERE</a>.
+The script can also be downloaded [HERE](http://blog.tyang.org/wp-content/uploads/2014/07/RedirectJs.zip).

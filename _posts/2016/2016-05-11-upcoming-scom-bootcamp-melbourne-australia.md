@@ -19,7 +19,8 @@ This bootcamp is designed for SCOM administrators and operators. If you are runn
 Here’s the detail of this training event:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/05/SCOMBootcamp.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SCOMBootcamp" src="http://blog.tyang.org/wp-content/uploads/2016/05/SCOMBootcamp_thumb.png" alt="SCOMBootcamp" width="585" height="205" border="0" /></a>
-<h3 align="center">SCOM 2012 Bootcamp – Australia</h3>
+<h3 align="center">SCOM 2012 Bootcamp – Australia
+
 <h4><strong><span style="color: #f79646;">Date: 20 - 23 June 2016</span></strong></h4>
 <h4><b><strong><span style="color: #f79646;">Location:</span></strong></b></h4>
 <em>Saxons Training Facilities Melbourne </em><i>

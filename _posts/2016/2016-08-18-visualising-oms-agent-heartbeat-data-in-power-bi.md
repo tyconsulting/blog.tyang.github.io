@@ -42,7 +42,9 @@ The fish visual is called "Enlighten Aquarium", as you can see below, it’s an 
 
 In this blog post, I will walk through the steps of creating these reports.
 <h2>Instructions</h2>
-<h3>Pre-Requisites</h3>
+
+## Pre-Requisites
+
 Before we create these reports, you need to make sure:
 
 <strong>01. Power BI account</strong>
@@ -82,7 +84,9 @@ Since these reports use number of custom Power BI visuals, you will need to down
  	<li>Tornado Chart</li>
  	<li>Enlighten Aquarium</li>
 </ul>
-<h3>Create Reports</h3>
+
+## Create Reports
+
 To start creating the report, firstly logon to Power BI using the account you’ve used to make the connection in OMS, and then find the Dataset you have specified. in this post, I’ve created a dataset called "OMS – Agent Heartbeat". By clicking on the dataset, you will be presented to an empty report:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2016/08/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-9.png" alt="image" width="558" height="334" border="0" /></a>

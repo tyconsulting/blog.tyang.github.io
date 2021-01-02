@@ -11,9 +11,13 @@ categories:
 tags:
   - SMA
 ---
-<h3>Background</h3>
+
+## Background
+
 I noticed an issue while I was writing a SMA integration module. I once made an mistake in the .json file and I noticed I couldn’t import the updated module back to SMA even after I firstly deleted the old version. I’ll explain this issue using a sample dummy module.
-<h3>Reproducing The Issue</h3>
+
+## Reproducing The Issue
+
 To reproduce the issue, I firstly created a dummy module with 3 files:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/09/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/09/image_thumb1.png" alt="image" width="394" height="113" border="0" /></a>
@@ -38,7 +42,9 @@ I then tried to delete the existing module and imported again, but I got the sam
 I also noticed that even after the module has been deleted, the connection is still available to be selected:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTML1a885165.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1a885165" src="http://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTML1a885165_thumb.png" alt="SNAGHTML1a885165" width="473" height="537" border="0" /></a>
-<h3>My Resolution</h3>
+
+## My Resolution
+
 Since I couldn’t find any documentation on how to completely remove an Integration Module, I went ahead and developed a SQL script to completely remove the module and module connection from the various tables in the SMA database. Here’s the SQL script:
 <pre lang="SQL">USE SMA
 Declare @ModuleName Varchar(max)
@@ -84,5 +90,7 @@ To use this script, you will need to change the <strong>@ModuleName</strong> and
 After I ran this script, I was able to import the updated module:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/09/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/09/image_thumb6.png" alt="image" width="488" height="365" border="0" /></a>
-<h3>Disclaimer</h3>
+
+## Disclaimer
+
 Although I’ve used this for multiple modules in multiple SMA environments and so far have not found any problems, I did not consult this workaround with SMA experts, please use this at your own risk. Please don’t blame me if it breaks your environment.

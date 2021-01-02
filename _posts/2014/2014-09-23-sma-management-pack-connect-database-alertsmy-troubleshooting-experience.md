@@ -58,7 +58,9 @@ While I was troubleshooting this issue, I came across a <a href="https://cloudad
 <a href="http://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTMLc7e3526.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLc7e3526" src="http://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTMLc7e3526_thumb.png" alt="SNAGHTMLc7e3526" width="676" height="412" border="0" /></a>
 
 I email Stan and he got back to me and told me he’s using a named instance in his lab and these monitors are working fine in his lab after he added the SQL instance name in the registry. He also told me he didn’t recall specifying the SQL Instance name during the SMA setup but the setup went successful. My guess is that the SQL Browser service must be running on his SQL server, so the setup had no problem identifying the named instance.
-<h3>Conclusion</h3>
+
+## Conclusion
+
 Based on my experience and Stan’s experience, we’d like to make the following recommendations:
 <ul>
 	<li>Enable the Name Pipes protocol</li>

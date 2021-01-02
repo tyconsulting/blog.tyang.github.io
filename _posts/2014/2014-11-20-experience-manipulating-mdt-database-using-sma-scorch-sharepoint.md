@@ -14,7 +14,9 @@ tags:
   - SharePoint
   - SMA
 ---
-<h3>Background</h3>
+
+## Background
+
 At work, there is an implementation team who’s responsible for building Windows 8 tablets in a centralised location (we call it integration centre) then ship these tablets to remote locations around the country. We use SCCM 2012 R2 and MDT 2013 to build these devices using a MDT enabled task sequence in SCCM. The task sequence use MDT locations to apply site specific settings (I’m not a OSD expert, I’m not even going to try to explain exactly what these locations entries do in the task sequence).
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML4d5244b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML4d5244b" src="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML4d5244b_thumb.png" alt="SNAGHTML4d5244b" width="332" height="287" border="0" /></a>
@@ -30,7 +32,9 @@ I wasn’t aware of this arrangement until someone in my team went on leave and 
 The high level workflow is shown in the diagram below:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/11/MDT-Automation.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="MDT Automation" src="http://blog.tyang.org/wp-content/uploads/2014/11/MDT-Automation_thumb.png" alt="MDT Automation" width="705" height="325" border="0" /></a>
-<h3>Design</h3>
+
+## Design
+
 <strong>01. SharePoint List</strong>
 
 Firstly, I created a list on one of our SharePoint sites, and this list only contains one item:
@@ -145,7 +149,9 @@ Send-Email -SMTPSettings $SMTPSettings -To $Recipient.Email -Subject 'MDT Locati
 }
 
 ```
-<h3>Putting Everything Together</h3>
+
+## Putting Everything Together
+
 As demonstrated in the diagram in the beginning of this post, here’s how the whole workflow works:
 <ol>
 	<li>User login to the SharePoint site and update the only item in the list. He / She enters  the new location in the "New Gateway IP Location" field.</li>
@@ -163,7 +169,9 @@ The Orchestrator runbook and the SMA runbook execution history can also be viewe
 <a href="http://blog.tyang.org/wp-content/uploads/2014/11/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb20.png" alt="image" width="525" height="466" border="0" /></a>
 
 <a href="http://blog.tyang.org/wp-content/uploads/2014/11/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb21.png" alt="image" width="520" height="344" border="0" /></a>
-<h3>Room for Improvement</h3>
+
+## Room for Improvement
+
 I created this automation process in a quick and easy way to get them off my back. I know in this process, there are a lot of areas can be improved. i.e.
 <ul>
 	<li>Using a SMA runbook to monitor SharePoint list direct so Orchestrator is no longer required (i.e. using the script from <a href="http://blogs.technet.com/b/systemcenter/archive/2014/01/14/service-management-automation-and-sharepoint-mvp.aspx">this article</a>. – Credit to Christian Booth and Ryan Andorfer).</li>
@@ -171,5 +179,7 @@ I created this automation process in a quick and easy way to get them off my bac
 	<li>Look up AD to retrieve user’s email address instead of hardcoding it in a variable.</li>
 </ul>
 Maybe in the future when I have spare time, I’ll go back and make it better , but for now, the implementers are happy, my team mates are happier because it is one less thing off our plate <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2014/11/wlEmoticon-smile.png" alt="Smile" />.
-<h3>Conclusion</h3>
+
+## Conclusion
+
 I hope you find my experience in this piece of work useful. I am still very new in SMA (and I know nothing about MDT). So, if you have any suggestions or critics, please feel free to drop me an email.

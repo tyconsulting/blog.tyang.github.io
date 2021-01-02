@@ -16,7 +16,9 @@ tags:
   - SCOM
   - SMA
 ---
-<h3><a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction</h3>
+
+## <a href="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded.png"><img class="alignleft size-thumbnail wp-image-4038" src="http://blog.tyang.org/wp-content/uploads/2015/06/OpsMgrExnteded-150x150.png" alt="OpsMgrExnteded" width="150" height="150" /></a>Introduction
+
 This is the 12th instalment of the Automating OpsMgr series. Previously on this series:
 <ul>
 	<li><a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a></li>
@@ -32,7 +34,9 @@ This is the 12th instalment of the Automating OpsMgr series. Previously on this 
 	<li><a href="http://blog.tyang.org/2015/07/29/automating-opsmgr-part-11-configuring-group-health-rollup/">Automating OpsMgr Part 11: Configuring Group Health Rollup</a></li>
 </ul>
 From now on, I will start concentrating on creating various monitoring workflows (rules, monitors, template instances, etc) using the <strong>OpsMgrExtended</strong> module. I will dedicate at least 6-7 posts on this topic. Since OpsMgr is a monitoring solution, I am now getting to the core offering of this module – providing ways for OpsMgr professionals to automate the creation of their monitoring requirements. In this post, I will demonstrate a runbook utilising <strong>New-OMPerformanceCollectionRule</strong> activity from the OpsMgrExtended module, to create performance collection rules in OpsMgr.
-<h3>Runbook New-PerfCollectionRule</h3>
+
+## Runbook New-PerfCollectionRule
+
 <pre class="" language="PowerShell">Workflow New-PerfCollectionRule
 {
 Param(
@@ -118,5 +122,7 @@ Rule configuration (from the console):
 Accessing Perf data collected by this rule in a Perf view:
 
 <a href="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTMLb5a869e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLb5a869e" src="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTMLb5a869e_thumb.png" alt="SNAGHTMLb5a869e" width="590" height="446" border="0" /></a>
-<h3>Conclusion</h3>
+
+## Conclusion
+
 In this post, I have demonstrated how to use a runbook to create a performance collection rule in OpsMgr. In the next post, I will demonstrate how to create a 2-state performance monitor.
