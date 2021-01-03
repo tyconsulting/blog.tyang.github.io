@@ -55,13 +55,10 @@ I managed to deploy the role and make it available on the tenant root MG using t
     }
   ]
 }
-
 ```
 
 Few things to note here:
 
-<ol>
-    <li>You can simply deploy this subscription-level template to any subscription in your tenant. The assignment scope includes the tenant root MG, which covers all subscriptions in your tenant.</li>
-    <li>I had to include [subscription().id] in the assignableScope otherwise the deployment will fail.</li>
-    <li>During my tests, and I think it’s a known portal bug at this stage – after the role is deployed, in Azure portal, you may not be able to see the role definition in a subscription (other than the one you deployed the template to). However, you can still use PowerShell or ARM REST API to view and assign the role.</li>
-</ol>
+1. You can simply deploy this subscription-level template to any subscription in your tenant. The assignment scope includes the tenant root MG, which covers all subscriptions in your tenant.
+2. I had to include [subscription().id] in the assignableScope otherwise the deployment will fail.
+3. During my tests, and I think it’s a known portal bug at this stage – after the role is deployed, in Azure portal, you may not be able to see the role definition in a subscription (other than the one you deployed the template to). However, you can still use PowerShell or ARM REST API to view and assign the role.

@@ -59,4 +59,10 @@ sed -i "s/<blockquote>/>/" $filename
 echo "removing </blockquote>"
 sed -i "s/<\/blockquote>//" $filename
 
+echo "removing <p>"
+sed -i "s/<p>//" $filename
+
+echo "removing </p>"
+sed -i "s/<\/p>//" $filename
+
 echo "done"

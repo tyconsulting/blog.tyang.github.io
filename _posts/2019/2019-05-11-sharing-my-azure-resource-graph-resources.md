@@ -15,7 +15,7 @@ tags:
 ---
 I have created a public GitHub repo to store and share resources I created around Azure Resource Graph:
 
-<a href="https://github.com/tyconsulting/AzureResourceGraph">https://github.com/tyconsulting/AzureResourceGraph</a>
+[https://github.com/tyconsulting/AzureResourceGraph](https://github.com/tyconsulting/AzureResourceGraph)
 
 I have add queries, scripts I have developed over the last few months, as well as few how-to articles. I will continue updating this repo whenever I have developed new contents to add.
 

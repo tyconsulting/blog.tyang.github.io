@@ -22,15 +22,13 @@ We are planning to release this book at the Experts Live USA conference on March
 
 Speaking of conferences, in the next couple of months, I am going to present in the following conferences with my good friend Alex Verkinderen(<a href="https://twitter.com/AlexVerkinderen">@AlexVerkinderen</a>) on the topics of Azure Governance:
 
-<ul>
-    <li>Feb 13th-14th Microsoft Ignite Tour Sydney (<a title="https://sessioncatalog.myignitetour.microsoft.com/sydney" href="https://sessioncatalog.myignitetour.microsoft.com/sydney">https://sessioncatalog.myignitetour.microsoft.com/sydney</a>)</li>
-    <li>March 26th Experts Live USA in Austin Texas (<a title="https://www.expertslive.us/" href="https://www.expertslive.us/">https://www.expertslive.us/</a>)</li>
-</ul>
+* Feb 13th-14th Microsoft Ignite Tour Sydney (<a title="https://sessioncatalog.myignitetour.microsoft.com/sydney" href="https://sessioncatalog.myignitetour.microsoft.com/sydney">https://sessioncatalog.myignitetour.microsoft.com/sydney</a>)
+* March 26th Experts Live USA in Austin Texas (<a title="https://www.expertslive.us/" href="https://www.expertslive.us/">https://www.expertslive.us/</a>)
 
 At Experts Live, I am also going to co-present a SCOM session with Richard Benwell from SquaredUp (<a href="https://twitter.com/squared_up">@Squared_up</a>).
 
 <a href="https://blog.tyang.org/wp-content/uploads/2019/01/Im-Speaking-Badge2.png"><img style="display: inline; background-image: none;" title="I'm Speaking Badge2" src="https://blog.tyang.org/wp-content/uploads/2019/01/Im-Speaking-Badge2_thumb.png" alt="I'm Speaking Badge2" width="540" height="279" border="0"></a>
 
-If you are planning to attend the above mentioned conferences, please make sure you come check out my sessions <img class="wlEmoticon wlEmoticon-smile" src="https://blog.tyang.org/wp-content/uploads/2019/01/wlEmoticon-smile.png" alt="Smile">.
+If you are planning to attend the above mentioned conferences, please make sure you come check out my sessions :smiley:.
 
 P.S. Experts Live USA is going to be the first conference that I have ever presented in the United States. I want to make it a fun session. If there are any Aussie souvenirs that you think might be good giveaway during my session, please feel free to let me know!

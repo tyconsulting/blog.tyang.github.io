@@ -199,9 +199,9 @@ exclude:
   - /_posts/2017 # temp, remove later
   - /wp-content/uploads/2017 # temp, remove later
   - /_posts/2018 # temp, remove later
+  - /wp-content/uploads/2018 # temp, remove later
+  - /_posts/2019 # temp, remove later
   - /wp-content/uploads/2019 # temp, remove later
-  - /_posts/2020 # temp, remove later
-  - /wp-content/uploads/2020 # temp, remove later
   - /wp-content/uploads/download-manager-files # temp, remove later
 keep_files:
   - .git

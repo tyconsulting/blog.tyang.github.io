@@ -13,7 +13,8 @@ tags:
   - Pester
   - PowerShell
 ---
-<h2>Background</h2>
+
+## Background
 
 Few days ago, I needed to validate JSON files against a predefined schema in a build pipeline in Azure DevOps. The validation needed to be performed using the Pester framework, and fail the build if the validation failed.
 
@@ -25,11 +26,10 @@ I coded the script into a PowerShell module, so I can define module dependency (
 
 I may cover how I use Azure Artifacts to host PowerShell modules and use them in CI/CD pipelines another time.
 
-<h2>PowerShell Module: TestJSONSchema</h2>
+## PowerShell Module: TestJSONSchema
 
-GitHub: <a href="https://github.com/tyconsulting/TestJsonSchema-PS">https://github.com/tyconsulting/TestJsonSchema-PS</a>
-
-PowerShell Gallery: <a href="https://www.powershellgallery.com/packages/TestJsonSchema/1.0.0">https://www.powershellgallery.com/packages/TestJsonSchema/1.0.0</a>
+* GitHub: <a href="https://github.com/tyconsulting/TestJsonSchema-PS">https://github.com/tyconsulting/TestJsonSchema-PS</a>
+* PowerShell Gallery: <a href="https://www.powershellgallery.com/packages/TestJsonSchema/1.0.0">https://www.powershellgallery.com/packages/TestJsonSchema/1.0.0</a>
 
 As I mentioned earlier, this module requires PowerShell Core (version 6+), and Pester. You will need to install PowerShell Core and Pester module in PowerShell Core. The instruction is provided in the README.md file in the GitHub repo.
 
@@ -40,7 +40,4 @@ The module provides a function called <strong>Test-JsonSchema</strong>, it Peste
 You can use Get-Help to read the detailed help file of this function.
 
 
-### <font color="#ff0000">Important Note:</font>
-
-
-This module is <strong>NOT</strong> designed to validate Azure Resource Manager (ARM) templates. The ARM templates support features that are not natively defined the the JSON specifications (such as single-line and multi-line comments). If your goal is to pester test your ARM templates, the ARM product group in Microsoft has provided an awesome solution, you can find it from the Azure Quickstart Templates repo: <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/test/template-tests">https://github.com/Azure/azure-quickstart-templates/tree/master/test/template-tests</a>
+>**Important Note:** This module is **NOT** designed to validate Azure Resource Manager (ARM) templates. The ARM templates support features that are not natively defined the the JSON specifications (such as single-line and multi-line comments). If your goal is to pester test your ARM templates, the ARM product group in Microsoft has provided an awesome solution, you can find it from the Azure Quickstart Templates repo: <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/test/template-tests">https://github.com/Azure/azure-quickstart-templates/tree/master/test/template-tests</a>

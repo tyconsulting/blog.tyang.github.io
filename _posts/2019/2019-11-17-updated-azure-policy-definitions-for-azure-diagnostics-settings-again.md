@@ -18,24 +18,13 @@ I firstly published a set of policy definitions for configuring Azure resource d
 
 I’ve updated the Policy Definitions for the resource Diagnostic Settings again today with the following updates:
 
-<ul>
-    <li>New Policies added:
-<ul>
-    <li>Azure Bastion Hosts</li>
-    <li>Azure AD Domain Services</li>
-</ul>
-</li>
-    <li>Existing Policy Updated:
-<ul>
-    <li>Azure App Service – with the support for the additional logs announced at Ignite 2019. Also the name of the policy file has changed.</li>
-</ul>
-</li>
-    <li>Removed (since they were incorrectly written in the first place and never worked):
-<ul>
-    <li>VM</li>
-    <li>VMSS</li>
-</ul>
-</li>
-</ul>
+* New Policies added:
+  * Azure Bastion Hosts
+  * Azure AD Domain Services
+* Existing Policy Updated:
+  * Azure App Service – with the support for the additional logs announced at Ignite 2019. Also the name of the policy file has changed.
+* Removed (since they were incorrectly written in the first place and never worked):
+  * VM
+  * VMSS
 
 You can find the latest version on my GitHub repo: <a href="https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/resource-diagnostics-settings">https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/resource-diagnostics-settings</a>

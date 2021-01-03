@@ -18,12 +18,10 @@ Recently, my favourite SCOM management pack ISV NiCE (<a title="https://www.nice
 
 The current version of the MP supports monitoring of the following O365 components:
 
-<ul>
-    <li>Exchange Online</li>
-    <li>Hybrid Exchange environments</li>
-    <li>SharePoint Online</li>
-    <li>OneDrive</li>
-</ul>
+* Exchange Online
+* Hybrid Exchange environments
+* SharePoint Online
+* OneDrive
 
 It monitors the availability and performance of above mentioned components and the MP supports monitoring of multiple tenants.
 

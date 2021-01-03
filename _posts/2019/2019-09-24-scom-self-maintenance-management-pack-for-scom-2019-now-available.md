@@ -12,23 +12,21 @@ tags:
   - SCOM
   - SCOM Management Pack
 ---
-<b>Good news! OpsMgr Self Maintenance MP v3.1 is now available</b> from cookdown.com <a href="https://cookdown.com/scom-essentials/self-maintenance/">https://cookdown.com/scom-essentials/self-maintenance/</a>
+**Good news! OpsMgr Self Maintenance MP v3.1 is now available** from cookdown.com <a href="https://cookdown.com/scom-essentials/self-maintenance/">https://cookdown.com/scom-essentials/self-maintenance/</a>
 
-<h5>Whats New?</h5>
+## Whats New?
 
-<ul>
-    <li>SCOM 2016, 1801/1807 and 2019 support</li>
-    <li>Retired the 2007 version of the MP</li>
-    <li>Completely re-written the MP with a new name</li>
-    <li>Several new monitors</li>
-    <li>Various bug fixes</li>
-    <li>decommissioned OMS add-on MP</li>
-    <li>Additional quick start override MP</li>
-</ul>
+* SCOM 2016, 1801/1807 and 2019 support
+* Retired the 2007 version of the MP
+* Completely re-written the MP with a new name
+* Several new monitors
+* Various bug fixes
+* decommissioned OMS add-on MP
+* Additional quick start override MP
 
-<h5>Self Maintenance MP now owned/maintained by Cookdown</h5>
+## Self Maintenance MP now owned/maintained by Cookdown
 
-<b>Who are Cookdown?</b>
+### Who are Cookdown?
 
 Cookdown are a new company span out from Squared Up (known for awesome HTML 5 dashboards for SCOM + Azure).
 
@@ -36,7 +34,7 @@ Cookdown where setup specifically to solve the challenges SCOM faces today - SCO
 
 They own a number of key SCOM solutions, from Powershell Authoring to Alert tuning. They also integrate SCOM into ServiceNow, allowing SCOM Alerts to automatically raise Incidents, using SCOM data to populate ServiceNow’s CMDB and leveraging SCOM agents to map complex Business Services in ServiceNow.
 
-<h5>Why handover to Cookdown?</h5>
+### Why handover to Cookdown?
 
 My Name is Tao Yang, back in 2012, I had an idea - Wrapping all common maintenance and administrative tasks for OpsMgr into a management pack so they can be self-managed. After few months’ development in my spare time, I published version 1.0 of the OpsMgr Self Maintenance MP in March 2013. I have kept this MP updated over the next few years, and it has become one of the most popular community management packs for OpsMgr. The Current version (v2.5.0.1) was released in 2015.
 
@@ -54,4 +52,4 @@ If you have any questions, please feel free to contact Cookdown:
 
 Email: <a>Hello@cookdown.com</a>
 
-Twitter: <a href="https://u11753937.ct.sendgrid.net/wf/click?upn=YxtzYvLKqjb5xl478-2FqZhPQov2TKDPRCaox7Lb5SXuP1mmDyvlzBLlmZKeN8nAHC_xjSWsxzD3kQUAzEofrlG64h8scsM7tqji-2BxOX9mnziMge4gdPBnX-2B3YYd0LBnNkFYuqm-2F3gi-2FivvtP9d-2B1akL2GI82J3iYJgD6ZLVWLMNvmYPe8XVP0OQm1LnZDO0gca4-2FCm6G-2B9n89W2LXooBWdg4YkTdUVPFScxZDOOKOtwee2YWOk5W5sEzKModNsc8RMMcftIXkyoWK5lD7-2FLlmSzg-3D-3D">@team_cookdown</a>
+Twitter: [@team_cookdown](https://twitter.com/team_cookdown)
