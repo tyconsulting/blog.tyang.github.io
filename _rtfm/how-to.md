@@ -6,6 +6,7 @@ modify:
 
 * _config.yml
 * index.html
+* _data/navigation.yml
 
 ```markdown
 sidebar:
