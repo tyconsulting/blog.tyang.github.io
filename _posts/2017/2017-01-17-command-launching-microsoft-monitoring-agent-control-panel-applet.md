@@ -22,7 +22,9 @@ When working on Server Core servers, I found it is troublesome that I can’t ac
 Although I can use PowerShell and the MMA agent COM object AgentConfigManager.MgmtSvcCfg, Sometime it is easier to use the applet.
 
 After some research, I found the applet can be launched using command line:
-<pre language="batch">C:\Program Files\Microsoft Monitoring Agent\Agent\AgentControlPanel.exe
 
+```text
+C:\Program Files\Microsoft Monitoring Agent\Agent\AgentControlPanel.exe
 ```
+
 <a href="http://blog.tyang.org/wp-content/uploads/2017/01/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-9.png" alt="image" width="500" height="428" border="0" /></a>

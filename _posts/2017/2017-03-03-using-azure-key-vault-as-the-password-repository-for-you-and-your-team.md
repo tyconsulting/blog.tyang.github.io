@@ -22,7 +22,7 @@ On the other hand, Azure Key Vault has drawn a lot of attention since it was rel
 
 ## AzureKeyVaultPasswordRepo PowerShell Module
 
-I spent few hours last night and today, developed a PowerShell CLI menu based app based on few existing scripts I wrote in the past. This app allows you to create, manage Azure Key Vault and use it as your personal (or team's) password repository. In order to simplify the process of deploying and using this app, I wrapped it in a PowerShell module. I named this module <strong>AzureKeyVaultPasswordRepo</strong> and it is now available on both PowerShell Gallery and GitHub:
+I spent few hours last night and today, developed a PowerShell CLI menu based app based on few existing scripts I wrote in the past. This app allows you to create, manage Azure Key Vault and use it as your personal (or team's) password repository. In order to simplify the process of deploying and using this app, I wrapped it in a PowerShell module. I named this module **AzureKeyVaultPasswordRepo** and it is now available on both PowerShell Gallery and GitHub:
 
 PowerShell Gallery: <a title="https://www.powershellgallery.com/packages/AzureKeyVaultPasswordRepo/" href="https://www.powershellgallery.com/packages/AzureKeyVaultPasswordRepo/">https://www.powershellgallery.com/packages/AzureKeyVaultPasswordRepo/</a>
 
@@ -30,9 +30,11 @@ GitHub: <a title="https://github.com/tyconsulting/AzureKeyVaultPasswordRepo-PSMo
 
 If you are running PowerShell version 5 and later, you can install this module using an one-liner:
 
-<em><span style="background-color: #ffff00;">Install-Module AzureKeyVaultPasswordRepo</span></em>
+```powershell
+Install-Module AzureKeyVaultPasswordRepo
+```
 
-Once it is installed, you can launch the app either using the full name <strong>Invoke-AzureKeyVaultPasswordRepository</strong>, or use one of the 2 shorter aliases (<strong>ipr</strong> and <strong>Start-PasswordRepo</strong>).
+Once it is installed, you can launch the app either using the full name **Invoke-AzureKeyVaultPasswordRepository**, or use one of the 2 shorter aliases (<strong>ipr</strong> and <strong>Start-PasswordRepo</strong>).
 
 ### Initial Setup
 
@@ -58,11 +60,11 @@ Once the permission is assigned, everything is ready to go. you will be presente
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-3.png" alt="image" width="602" height="228" border="0" /></a>
 
-<strong><span style="color: #ff0000;">Note:</span></strong> It is by design that this app does not use any existing key vaults that you may already have in your subscription. You have to create a new one. Any existing key vaults that are not created by this app will not appear on the list for you to choose.
+>**Note:** It is by design that this app does not use any existing key vaults that you may already have in your subscription. You have to create a new one. Any existing key vaults that are not created by this app will not appear on the list for you to choose.
 
 ### Creating Profile to store settings
 
-In order to make you access this key vault as fast as possible in the future, the first thing I’d suggest you to do is to select option 4 and save the Azure subscription Id and Key Vault name in your profile. this profile is stored in Windows Registry under HKEY_CURRENT_USER\SOFTWARE\TYConsulting\AzureKeyVaultPasswordRepo\Profiles\&lt;your Azure account name&gt;.
+In order to make you access this key vault as fast as possible in the future, the first thing I’d suggest you to do is to select option 4 and save the Azure subscription Id and Key Vault name in your profile. this profile is stored in Windows Registry under HKEY_CURRENT_USER\SOFTWARE\TYConsulting\AzureKeyVaultPasswordRepo\Profiles\<your Azure account name>.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-4.png" alt="image" width="547" height="361" border="0" /></a>
 
@@ -83,12 +85,12 @@ From the main menu, you have the option to:
 ### List, Retrieve, Update and Delete Credentials
 
 You can use Option 2 to list, retrieve, update and delete existing credentials. When option 2 is selected, the app will list all credentials stored in the key vault, and from there, you can choose the credential from the list that you are interested in. Once the credential is selected, you have the option to:
-<ol>
- 	<li>Copy user name to clipboard</li>
- 	<li>Copy password to clipboard</li>
- 	<li>Update credential (username / password)</li>
- 	<li>Delete Credential</li>
-</ol>
+
+1. Copy user name to clipboard
+2. Copy password to clipboard
+3. Update credential (username / password)
+4. Delete Credential
+
 <a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-7.png" alt="image" width="640" height="431" border="0" /></a>
 
 ### Search Credential
@@ -110,10 +112,10 @@ Personally I’m pretty happy to see what I have produced during such a short pe
 Azure Key Vault is a very in-expensive solution, and by using an Azure offering, you automatically inherit the MFA solutions that you have configured for Azure / Azure AD. i.e. I’m not using Azure AD premium for my lab but for my Microsoft (@outlook.com) account, I have enabled MFA using the Microsoft Authenticator app. Therefore in order to access the Key Vault using this module, I will need to use MFA during the sign in process.
 
 I’ve only spent few hours on this PowerShell module, there are still room for improvement. So consider this as a MVP (Minimum Viable Products). I think the following additions would be beneficial in future releases (if I decide to have develop further):
-<ul>
- 	<li>A GUI interface</li>
- 	<li>Support additional types of sensitive information, not just username and passwords</li>
- 	<li>Support Service Principal (Azure AD Applications)</li>
- 	<li>Support different levels of access (currently everyone has full access)</li>
-</ul>
+
+* A GUI interface
+* Support additional types of sensitive information, not just username and passwords
+* Support Service Principal (Azure AD Applications)
+* Support different levels of access (currently everyone has full access)
+
 Lastly, please give it a try, and I’d like to hear back from the community. If you are interested to learn how to interact with Key Vault using PowerShell, feel free to read the source code of this module. if you have any questions or suggestions, please feel free to contact me!

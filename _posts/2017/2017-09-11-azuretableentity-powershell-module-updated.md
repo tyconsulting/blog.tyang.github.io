@@ -22,19 +22,19 @@ GitHub: <a title="https://github.com/tyconsulting/AzureTableEntity-PowerShell-Mo
 
 What’s changed?
 
-<strong>New function Merge-AzureTableEntity</strong>
+**New function Merge-AzureTableEntity**
 
 Merge one or more entities in a Azure table. Please make sure you understand the difference between Azure table merge and update operations:
-<ul>
- 	<li>Update: replace entity fields with the the fields specified in the update operation</li>
- 	<li>Merge: update the value of existing fields specified in the merge operation</li>
-</ul>
+
+ * Update: replace entity fields with the the fields specified in the update operation
+ * Merge: update the value of existing fields specified in the merge operation
+
 If you want to update the value of an existing field and having the rest of the fields unchanged, make sure you use Merge-AzureTableEntity (instead of Update-AzureTableEntity).
 
-<strong>New function Test-AzureTableConnection</strong>
+**New function Test-AzureTableConnection**
 
 Testing the connection to an Azure table by specifying Storage Account name, key and table name.
 
-<strong>Update-AzureTableEntity Bug Fix</strong>
+**Update-AzureTableEntity Bug Fix**
 
 I have identified a bug in Update-AzureTableEntity when invoking bulk update. This is addressed in this release.

@@ -13,22 +13,122 @@ tags:
   - OMS
   - PowerShell
 ---
-<span style="font-size: small;"><a href="http://blog.tyang.org/wp-content/uploads/2017/04/Operations-Management-Suite-OMS.png"><img class="alignleft wp-image-5960 size-thumbnail" src="http://blog.tyang.org/wp-content/uploads/2017/04/Operations-Management-Suite-OMS-150x150.png" alt="" width="150" height="150" /></a>When performing OMS log search programmatically, you will encounter an API limitation that will prevent you from getting all the logs from the result set. Currently, if the search does not include an aggregation command, the API call will return maxium 5000 records. This limitation applies to both the OMS PowerShell module (</span><a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.operationalinsights"><span style="font-size: small;">AzureRM.OperationalInsights</span></a><span style="font-size: small;">) and searching directly via the </span><a href="https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-api"><span style="font-size: small;">Log Search API</span></a><span style="font-size: small;">.</span>
+When performing OMS log search programmatically, you will encounter an API limitation that will prevent you from getting all the logs from the result set. Currently, if the search does not include an aggregation command, the API call will return maxium 5000 records. This limitation applies to both the OMS PowerShell module ([AzureRM.OperationalInsights](https://docs.microsoft.com/en-us/powershell/module/azurerm.operationalinsights)) and searching directly via the [Log Search API](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-api).
 
-<span style="font-size: small;">The return response you get from either the Get-AzureRmOperationalInsightsSearchResults cmdlet or the Log Search API, you will get the total number of logs contained in the result set from the response metadata (as shown below), but you will only able to receive up to 5000 records. Natively, there is no way to receive anything over the first 5000 records from a single request.</span>
+The return response you get from either the Get-AzureRmOperationalInsightsSearchResults cmdlet or the Log Search API, you will get the total number of logs contained in the result set from the response metadata (as shown below), but you will only able to receive up to 5000 records. Natively, there is no way to receive anything over the first 5000 records from a single request.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/04/image.png"><span style="font-size: small;"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb.png" alt="image" width="603" height="229" border="0" /></span></a>
+![](http://blog.tyang.org/wp-content/uploads/2017/04/image.png)
 
-<span style="font-size: small;">Last month, I was working on a solution where I needed to retrieve all results from search queries, so I reached out to the OMS product group and other CDM MVPs. My buddy and the fellow co-author of the Inside OMS book Stanislav Zhelyazkov provided a work around. Basically, the work around is to use the "skip" command in subsequent request calls until you have retrieved everything. For example, if you want to retrieve all agent heartbeat events using query "Type=Heartbeat", you could perform multiple queries until you have retrieved all the log entries as shown below:</span>
-<ol>
- 	<li><span style="font-size: small;">1</span><sup><span style="font-size: small;">st</span></sup><span style="font-size: small;"> Query: "Type=Heartbeat | Top 5000"</span></li>
- 	<li><span style="font-size: small;">2</span><sup><span style="font-size: small;">nd</span></sup><span style="font-size: small;"> Query: "Type=Heartbeat | Skip 10000 | Top 5000"</span></li>
- 	<li><span style="font-size: small;">3</span><sup><span style="font-size: small;">rd</span></sup><span style="font-size: small;"> Query: "Type=Heartbeat | Skip 15000 | Top 5000"</span></li>
- 	<li><span style="font-size: small;">… repeat until the search API call returns no results</span></li>
-</ol>
-I have written a sample script using the OMS PowerShell module to demonstrate how to use the "skip" command in subsequent queries. The sample script is listed below:
-https://gist.github.com/tyconsulting/5751fe6a364d989df2fc76138e55bb37
+Last month, I was working on a solution where I needed to retrieve all results from search queries, so I reached out to the OMS product group and other CDM MVPs. My buddy and the fellow co-author of the Inside OMS book Stanislav Zhelyazkov provided a work around. Basically, the work around is to use the "skip" command in subsequent request calls until you have retrieved everything. For example, if you want to retrieve all agent heartbeat events using query ```Type=Heartbeat```, you could perform multiple queries until you have retrieved all the log entries as shown below:
+
+```sql
+# 1st query
+Type=Heartbeat | Top 5000
+
+# 2nd query
+Type=Heartbeat | Skip 10000 | Top 5000
+
+# 3rd query
+Type=Heartbeat | Skip 15000 | Top 5000
+```
+
+I have written a [sample script](https://gist.github.com/tyconsulting/5751fe6a364d989df2fc76138e55bb37) using the OMS PowerShell module to demonstrate how to use the "skip" command in subsequent queries. The sample script is listed below:
+
+```powershell
+#requires -Version 3.0 -Modules AzureRM.Profile,AzureRM.OperationalInsights
+<#
+=======================================================================
+AUTHOR:  Tao Yang 
+DATE:    24/04/2017
+Version: 1.0
+Comment:
+Demonstrate how to retrieve all OMS query results using "skip" command
+=======================================================================
+#>
+#Login to Azure
+Write-Output "Login to Azure"
+Add-AzureRMAccount
+Set-AzureRmContext -SubscriptionId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+
+Clear-Host
+$APIReturnLimit = 5000
+$WorkspaceName = 'YOUR-OMS-WORKSPACE-NAME'
+$OMSWorkspace = Get-AzureRmOperationalInsightsWorkspace | Where-Object {$_.Name -eq $WorkspaceName }
+$OMSWorkspaceName = $OMSWorkspace.Name
+$OMSWorkspaceResourceGroup = $OMSWorkspace.ResourceGroupName
+$SearchQuery = "Type=Heartbeat"
+$Now = [DateTime]::UtcNow
+$StartDate = $Now.AddHours(-25)
+$EndDate = $Now.AddHours(-11)
+$arrResults = New-Object System.Collections.ArrayList
+
+Write-output "Search Query: '$SearchQuery'"
+Write-Output "Search Start Date (UTC): $StartDate"
+Write-Output "Search End Date (UTC): $EndDate"
+Write-Output "Making the first Log Search API call"
+$FirstCall = Get-AzureRmOperationalInsightsSearchResults -WorkspaceName $OMSWorkspaceName -ResourceGroupName $OMSWorkspaceResourceGroup -Query $SearchQuery -Start $StartDate -End $EndDate -Top $APIReturnLimit
+$ResultsetSize = $FirstCall.Metadata.Total
+Write-Output "Return results total size: $ResultsetSize"
+
+# Split and extract request Id
+$FirstCallReqIdParts = $FirstCall.Id.Split("/")
+$FirstCallReqId = $FirstCallReqIdParts[$FirstCallReqIdParts.Count -1]
+Write-Output "Processing results from the first API call."
+while($FirstCall.Metadata.Status -eq "Pending") {
+  $FirstCall = Get-AzureRmOperationalInsightsSearchResults -WorkspaceName $OMSWorkspaceName -ResourceGroupName $OMSWorkspaceResourceGroup -Id $FirstCallReqId -Top $APIReturnLimit
+}
+
+#Processing results returned from the first API call
+Foreach ($item in $FirstCall.value)
+{
+  $objResult = ConvertFrom-JSON $item.tostring()
+  $objResult.psobject.Members.Remove('__metadata')
+  [void]$arrResults.Add($objResult)
+}
+
+Write-Output "Number of results processed so far: $($arrResults.Count)"
+If ($ResultsetSize -gt $APIReturnLimit)
+{
+  Write-output "total result size greater than the Log Search API limit of $APIReturnLimit. making subsequent API calls to retrieve all the rest..."
+  $i = 0
+  $AllDone = $false
+  Do {
+    $i++
+    $iSkip = $APIReturnLimit * $i
+    Write-Output "Making Subsequent call #$i"
+    $SubsequentQuery = "$SearchQuery | Skip $iSkip | Top $APIReturnLimit"
+    Write-output "Query: '$SubsequentQuery'"
+    $SubsequentCall = Get-AzureRmOperationalInsightsSearchResults -WorkspaceName $OMSWorkspaceName -ResourceGroupName $OMSWorkspaceResourceGroup -Query $SubsequentQuery -Start $StartDate -End $EndDate -Top $APIReturnLimit
+    # Split and extract request Id
+    $SubsequentCallReqIdParts = $SubsequentCall.Id.Split("/")
+    $SubsequentCallReqId = $SubsequentCallReqIdParts[$SubsequentCallReqIdParts.Count -1]
+    while($SubsequentCall.Metadata.Status -eq "Pending") {
+      $SubsequentCall = Get-AzureRmOperationalInsightsSearchResults -WorkspaceName $OMSWorkspaceName -ResourceGroupName $OMSWorkspaceResourceGroup -Id $SubsequentCallReqId -Top $APIReturnLimit
+    }
+
+    $SubsequentCallResultsetSize = $SubsequentCall.value.count
+    If ($SubsequentCallResultsetSize -gt 0)
+    {
+      Write-OUtput "Number of results returned from subsequent call #$i`: $SubsequentCallResultsetSize"
+      Foreach ($item in $SubsequentCall.value)
+      {
+        $objResult = ConvertFrom-JSON $item.tostring()
+        $objResult.psobject.Members.Remove('__metadata')
+        [void]$arrResults.Add($objResult)
+      }
+    } else {
+      Write-Output "Finished making API calls."
+      $AllDone = $true
+    }
+    Write-Output "Number of results processed so far: $($arrResults.Count)"
+    Write-Output ""
+  } Until ($AllDone)
+}
+Write-Output "Number of results processed: $($arrResults.Count)."
+Write-Output "Here's the first record from the result set:"
+$arrResults[0] | Format-List
+```
 
 Here’s the script output based on my lab environment:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-1.png" alt="image" width="607" height="517" border="0" /></a>
+![](http://blog.tyang.org/wp-content/uploads/2017/04/image-1.png)

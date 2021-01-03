@@ -14,15 +14,13 @@ tags:
 ---
 I have been blogging for six and half years and to this moment, I’m still enjoying it. Few months ago my better half has decided to start blogging as well. Although my partner also works in IT as a project manager, her real passions are photography and cooking. She has decided to start a blog focused on food and recipes. By doing this, not only she gets to create her favorite dishes, she also gets to take pictures too.
 
-Then there was a lot of preparation to get her started. I helped her registered her chosen domain name, got a WordPress site hosted on the same hoster as my blog and company website, and also bought a lot of cooking, photo and recording equipment. Now her site is up, and she has already posted 4 recipes. You can check it out on <a href="http://www.lemontaste.com.au">http://www.lemontaste.com.au</a>
+Then there was a lot of preparation to get her started. I helped her registered her chosen domain name, got a WordPress site hosted on the same hoster as my blog and company website, and also bought a lot of cooking, photo and recording equipment. Now her site is up, and she has already posted 4 recipes. You can check it out on [https://www.lemontaste.com.au](https://www.lemontaste.com.au)
 
 You can also follow her on the social media:
 
-Facebook page: <a title="https://www.facebook.com/lemontasteblog/" href="https://www.facebook.com/lemontasteblog/">https://www.facebook.com/lemontasteblog/</a>
-
-Twitter: <a href="https://twitter.com/LemonTaste_blog">@Lemontaste_blog</a>
-
-Instagram: <a href="https://www.instagram.com/lemontaste_blog">@Lemontaste_blog</a>
+* Facebook page: [https://www.facebook.com/lemontasteblog](https://www.facebook.com/lemontasteblog)
+* Twitter: [@Lemontaste_blog](https://twitter.com/LemonTaste_blog)
+* Instagram: [@Lemontaste_blog](https://www.instagram.com/lemontaste_blog)
 
 Please feel free to share the links with your friends and family, it will be much appreciated!
 

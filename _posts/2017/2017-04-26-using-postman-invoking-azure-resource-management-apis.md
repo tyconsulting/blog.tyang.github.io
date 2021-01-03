@@ -15,19 +15,76 @@ tags:
 ---
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/SNAGHTML21e56dff.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML21e56dff" src="http://blog.tyang.org/wp-content/uploads/2017/04/SNAGHTML21e56dff_thumb.png" alt="SNAGHTML21e56dff" width="168" height="168" align="left" border="0" /></a>When working with REST APIs, Postman (<a href="https://getpostman.com">https://getpostman.com</a>) is a popular tool that needs no further introductions. This week, I’ve been pretty busy working on the upcoming Inside OMS V2 book, and I’m currently focusing on the various OMS REST APIs for the Custom Solutions chapter. I want to use Postman to test and demonstrate how to use the OMS REST APIs. Since most of the ARM based APIs requires oAuth token in the authorization header, I needed to configure Postman to contact Microsoft Graph API in order to generate the token for the API calls.
 
-Initially, I thought this would be very straightforward and should have been done by other people in the past. I did find several posts via my favourite search engine, which were good enough to get me started, but I was not able to find one that explains how to configure Postman to request for the token natively without using external processes to generate the token. Therefore, I’m going to document what I have done here so I can reference this post in the Inside OMS book <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2017/04/wlEmoticon-smile.png" alt="Smile" />.
+Initially, I thought this would be very straightforward and should have been done by other people in the past. I did find several posts via my favourite search engine, which were good enough to get me started, but I was not able to find one that explains how to configure Postman to request for the token natively without using external processes to generate the token. Therefore, I’m going to document what I have done here so I can reference this post in the Inside OMS book :smiley:.
 
-<strong>Note:</strong> I’m using the Windows desktop version of Postman, the UI may be slightly different than the Chrome extension version.
+**Note:** I’m using the Windows desktop version of Postman, the UI may be slightly different than the Chrome extension version.
 
-<strong>Step 1: Create an Azure AD application and service principal for Postman.</strong>
+**Step 1: Create an Azure AD application and service principal for Postman.**
 
-I have automated the creation process using a PowerShell script shown below:
+I have automated the creation process using a [PowerShell script](https://gist.github.com/tyconsulting/a42acbaea669d4aa4e696776a5a3b939) shown below:
 
-https://gist.github.com/tyconsulting/a42acbaea669d4aa4e696776a5a3b939
+```powershell
+#Requires -Modules AzureRM.Resources, AzureRM.Profile
+#Modify below variables
+$SubscriptionName = "Tao Playground"
+$ApplicationDisplayName = "Postman"
+
+#region functions
+Function New-Passowrd
+{
+  [CmdletBinding()]
+  PARAM (
+    [Parameter(Mandatory = $true)][int]$Length,
+    [Parameter(Mandatory = $true)][int]$NumberOfSpecialCharacters
+  )
+  Add-Type -AssemblyName System.Web
+  [Web.Security.Membership]::GeneratePassword($Length,$NumberOfSpecialCharacters)
+}
+#endregion
+
+#region main
+#Variables
+$SignOnUrl = "https://www.getpostman.com"
+$ReplyUrl = "https://www.getpostman.com/oauth2/callback" #Do not change this one
+
+Write-Output "Loging to Azure"
+Add-AzureRMAccount
+#Add-AzureRMAccount -Credential $AADCred
+$Context = Set-AzureRmContext -SubscriptionName $SubscriptionName
+$SubscriptionId = $Context.Subscription.SubscriptionId
+$TenantId = $Context.Tenant.TenantId
+
+
+$ApplicationPassword = New-Passowrd -Length 16 -NumberOfSpecialCharacters 0
+$Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage $SignOnUrl -IdentifierUris "http://$ApplicationDisplayName" -ReplyUrls $ReplyUrl -Password $ApplicationPassword
+Write-OUtput "Creating Azure AD Application Service Principal."
+$ApplicationServicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $Application.ApplicationId
+
+Write-Output "Assigning the Contributor role to the application Service Principal..."
+$NewRole = $null
+$Retries = 0
+While ($NewRole -eq $null -and $Retries -le 5)
+{
+  # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+  Start-Sleep -Seconds 10
+  New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+  Start-Sleep -Seconds 10
+  $NewRole = Get-AzureRmRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+  $Retries++
+}
+
+Write-Output "Save below information for future use:"
+Write-Output "Azure Subscription Id: '$SubscriptionId'"
+Write-Output "'$ApplicationDisplayName' application client ID: '$($Application.ApplicationId.ToString())'"
+Write-Output "'$ApplicationDisplayName' application client secret: '$ApplicationPassword'"
+Write-Output ""
+Write-Output "Now go to https://manage.windowsazure.com and grant postman applicaiton access to the Windows Azure Service Management API (Delegated Permission: Access Azure Service Management as Organization users"
+#endregion
+```
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-2.png" alt="image" width="658" height="227" border="0" /></a>
 
-<strong>Step 2: Grant ‘Postman’ application permission to the Windows Azure Service Management API.</strong>
+**Step 2: Grant ‘Postman’ application permission to the Windows Azure Service Management API.**
 
 Note: steps demonstrated below MUST be completed in the Azure classical portal. Based on my experience, I was not able to give the Azure AD application permission to "Windows Azure Service Management API" from the new ARM portal.
 
@@ -47,9 +104,9 @@ Tick "Access Azure Service Management as Organization users" under the "Delegate
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-6.png" alt="image" width="369" height="197" border="0" /></a>
 
-<strong>Step 3: Configure Authorization in Postman.</strong>
+**Step 3: Configure Authorization in Postman.**
 
-In Postman, enter an URI for an ARM REST API call, in this example, I’ll use the OMS REST API to retrieve a list of workspaces. Here’s the URI I’m using: <strong>https://management.azure.com/subscriptions/<span style="background-color: #ffff00;">{subscription id}</span>/providers/microsoft.operationalinsights/workspaces?api-version=2015-03-20 </strong>
+In Postman, enter an URI for an ARM REST API call, in this example, I’ll use the OMS REST API to retrieve a list of workspaces. Here’s the URI I’m using: **https://management.azure.com/subscriptions/_{subscription id}_/providers/microsoft.operationalinsights/workspaces?api-version=2015-03-20**
 
 Make sure the HTTP method is set to "GET", and then click on Authorization. For the "Type" drop down list, select OAuth 2.0
 
@@ -61,23 +118,17 @@ Click on "Get New Access Token".
 
 Enter the following information in the "Get New Access Token" popup window:
 
-Token Name: <strong><span style="background-color: #ffff00;">AAD Token</span></strong>
-
-Auth URL: <span style="background-color: #ffff00;"><strong>https://login.microsoftonline.com/common/oauth2/authorize?resource=https%3A%2F%2Fmanagement.azure.com%2F</strong></span>
-
-Access Token URL: <strong><span style="background-color: #ffff00;">https://login.microsoftonline.com/common/oauth2/token</span></strong>
-
-Client ID: <strong><span style="background-color: #ffff00;">&lt;output from the script in Step 1&gt;</span></strong>
-
-Client Secret: <strong><span style="background-color: #ffff00;">&lt;output from the script in Step 1&gt;</span></strong>
-
-Grant Type: <strong><span style="background-color: #ffff00;">Authorization Code</span></strong>
-
-Make sure "Request access token locally" checkbox is unchecked.
+* Token Name: **<span style="background-color: #ffff00;">AAD Token</span>**
+* Auth URL: <span style="background-color: #ffff00;">**https://login.microsoftonline.com/common/oauth2/authorize?resource=https%3A%2F%2Fmanagement.azure.com%2F**</span>
+* Access Token URL: **<span style="background-color: #ffff00;">https://login.microsoftonline.com/common/oauth2/token</span>**
+* Client ID: **<span style="background-color: #ffff00;"><output from the script in Step 1></span>**
+* Client Secret: **<span style="background-color: #ffff00;"><output from the script in Step 1></span>**
+* Grant Type: **<span style="background-color: #ffff00;">Authorization Code</span>**
+* Make sure "Request access token locally" checkbox is unchecked.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-9.png" alt="image" width="283" height="342" border="0" /></a>
 
-Click on "Request Token", you will get the Azure AD sign-in page, enter the credential of an <strong>Organization account</strong>, – based on my experience, Microsoft accounts (i.e. @outlook.com) do not always work.
+Click on "Request Token", you will get the Azure AD sign-in page, enter the credential of an **Organization account**, – based on my experience, Microsoft accounts (i.e. @outlook.com) do not always work.
 
 <a href="http://blog.tyang.org/wp-content/uploads/2017/04/image-10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/04/image_thumb-10.png" alt="image" width="307" height="193" border="0" /></a>
 

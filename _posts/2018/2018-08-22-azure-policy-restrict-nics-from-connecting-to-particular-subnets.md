@@ -15,7 +15,8 @@ tags:
 I wrote this policy definition for a customer few weeks ago – to restrict VMs from connecting to particular subnets. The customer has several subnets that should not be used by VMs, i.e. dedicated subnet for Azure ADDS (which is not associated to any NSGs), or subnets that are using different NSGs, which normal users should not be using. Since the intension is not restricting users from using the entire VNet, but only particular subnets, we could not apply such restrictions using custom role definitions.
 
 Here’s the policy definition:
-<pre language="JSON" class="">{
+```json
+{
     "properties": {
         "displayName": "Restrict subnet for VM network interfaces",
         "description": "This policy restrict VM network interfaces from using a particular subnet",

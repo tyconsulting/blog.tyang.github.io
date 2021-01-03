@@ -17,6 +17,5 @@ I’ve just released SharePointSDK module version 2.1.5 with a minor bug fix wit
 
 You can find version 2.1.5 at:
 
-PowerShell Gallery: <a title="https://www.powershellgallery.com/packages/SharePointSDK/2.1.5" href="https://www.powershellgallery.com/packages/SharePointSDK/2.1.5">https://www.powershellgallery.com/packages/SharePointSDK/2.1.5</a>
-
-GitHub: <a title="https://github.com/tyconsulting/SharePointSDK_PowerShellModule/releases/tag/v2.1.5" href="https://github.com/tyconsulting/SharePointSDK_PowerShellModule/releases/tag/v2.1.5">https://github.com/tyconsulting/SharePointSDK_PowerShellModule/releases/tag/v2.1.5</a>
+* PowerShell Gallery: [https://www.powershellgallery.com/packages/SharePointSDK/2.1.5](https://www.powershellgallery.com/packages/SharePointSDK/2.1.5)
+* GitHub: [https://github.com/tyconsulting/SharePointSDK_PowerShellModule/releases/tag/v2.1.5](https://github.com/tyconsulting/SharePointSDK_PowerShellModule/releases/tag/v2.1.5)

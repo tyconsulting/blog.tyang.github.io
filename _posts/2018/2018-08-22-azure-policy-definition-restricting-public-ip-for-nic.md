@@ -17,7 +17,8 @@ It has been a while since my last blog post. There were a lot going on outside o
 Few weeks ago, I had to write several custom Azure Policy definitions for a customer. One of them is to restrict Public IPs being provisioned for VMs in particular resource groups. I found a similar definition from the Azure Policy GitHub repo that restrict PIP except for one subnet (<a title="https://github.com/Azure/azure-policy/tree/master/samples/Network/no-public-ip-except-for-one-subnet" href="https://github.com/Azure/azure-policy/tree/master/samples/Network/no-public-ip-except-for-one-subnet">https://github.com/Azure/azure-policy/tree/master/samples/Network/no-public-ip-except-for-one-subnet</a>). I removed the subnet component from this example, and made it to restrict PIP being associated to a NIC:
 
 Here’s the policy definition:
-<pre language="JSON" class="">"policyRule": {
+```json
+"policyRule": {
 	"if": {
 		"allOf": [
 			{

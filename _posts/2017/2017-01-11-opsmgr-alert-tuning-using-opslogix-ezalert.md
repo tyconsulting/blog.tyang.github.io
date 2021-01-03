@@ -4,6 +4,10 @@ title: OpsMgr Alert Tuning using OpsLogix EZalert
 date: 2017-01-11T11:50:28+10:00
 author: Tao Yang
 #layout: post
+excerpt: ""
+header:
+  overlay_image: /wp-content/uploads/2017/01/EZAlert.png
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 guid: http://blog.tyang.org/?p=5861
 permalink: /2017/01/11/opsmgr-alert-tuning-using-opslogix-ezalert/
 categories:
@@ -12,8 +16,6 @@ tags:
   - OpsLogix
   - SCOM
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2017/01/EZAlert.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="EZAlert" src="http://blog.tyang.org/wp-content/uploads/2017/01/EZAlert_thumb.png" alt="EZAlert" width="427" height="106" border="0" /></a>
-
 OpsLogix has recently released a new product to the market called "EZalert". It learns the operator’s alert handling behaviour and then it is able to automatically update Alert resolution states based on its learning outcome. You can find more information about this product here: <a title="http://www.opslogix.com/ezalert/" href="http://www.opslogix.com/ezalert/">http://www.opslogix.com/ezalert/</a>. I was given a trail license for evaluation and review. Today I installed it on a dedicated VM and connected it to my lab OpsMgr management group.
 
 ## EZalert Walkthrough
@@ -47,48 +49,46 @@ You can also create exclusions. if you want EZalert to skip certain alerts for c
 <a href="http://blog.tyang.org/wp-content/uploads/2017/01/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-7.png" alt="image" width="410" height="385" border="0" /></a>
 
 In my opinion, this is a very good practice when tuning alerts. when setting alert resolution states, you only need to do it once, and EZalert learns your behaviour and repeat your action for you in the future. It will be a huge time saver for all your OpsMgr operators over the time. It will also become very handy for alert tuning in the follow situations:
-<ul>
- 	<li>When you have just deployed a new OpsMgr management group</li>
- 	<li>When you have introduced new management packs in your management group</li>
- 	<li>When you have updated existing management packs to the newer versions</li>
-</ul>
+
+ * When you have just deployed a new OpsMgr management group
+ * When you have introduced new management packs in your management group
+ * When you have updated existing management packs to the newer versions
 
 ## EZalert vs Alert Update Connector
 
 Before EZalert’s time, I have been using the OpsMgr Alert Update Connector (AUC) from Microsoft (<a title="https://blogs.technet.microsoft.com/kevinholman/2012/09/29/opsmgr-public-release-of-the-alert-update-connector/" href="https://blogs.technet.microsoft.com/kevinholman/2012/09/29/opsmgr-public-release-of-the-alert-update-connector/">https://blogs.technet.microsoft.com/kevinholman/2012/09/29/opsmgr-public-release-of-the-alert-update-connector/</a>). I was really struggling when configuring AUC so I developed my own solution to configure AUC in an automated fashion  (<a title="http://blog.tyang.org/2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/" href="http://blog.tyang.org/2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/">http://blog.tyang.org/2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/</a>) and I have also developed a management pack to monitor it (<a title="http://blog.tyang.org/2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/" href="http://blog.tyang.org/2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/">http://blog.tyang.org/2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/</a>). In my opinion, AUC  is a solid solution. It’s been around for many years and being used by many customers. But I do find it has some limitations:
-<ul>
- 	<li>Configuration process is really hard</li>
- 	<li>Configuration is based on rules and monitors, not alerts. So it’s easy to incorrectly configure rules and monitors that don’t generate alerts (i.e. perf / event collection rules, aggregate / dependency monitors, etc).</li>
- 	<li>Modifying existing configuration causes service interrupt due to service restart</li>
- 	<li>When running in a distributed environment (on multiple management servers), you need to make sure configuration files are consistent across these servers and only one instance is running at any given time.</li>
- 	<li>No way to easily view the current configurations (without reading XML files)</li>
-</ul>
+
+ * Configuration process is really hard
+ * Configuration is based on rules and monitors, not alerts. So it’s easy to incorrectly configure rules and monitors that don’t generate alerts (i.e. perf / event collection rules, aggregate / dependency monitors, etc).
+ * Modifying existing configuration causes service interrupt due to service restart
+ * When running in a distributed environment (on multiple management servers), you need to make sure configuration files are consistent across these servers and only one instance is running at any given time.
+ * No way to easily view the current configurations (without reading XML files)
+
 I think EZalert has definitely addressed some of these shortcomings:
-<ul>
- 	<li>Alert training process is performed on the OpsMgr console</li>
- 	<li>No need to restart services and reload configuration files after new alerts are added or when existing alerts are modified</li>
- 	<li>Configurations are saved in a SQL database, not text based files</li>
- 	<li>Current configuration are easily viewable within the SCOM console</li>
-</ul>
+
+ * Alert training process is performed on the OpsMgr console
+ * No need to restart services and reload configuration files after new alerts are added or when existing alerts are modified
+ * Configurations are saved in a SQL database, not text based files
+ * Current configuration are easily viewable within the SCOM console
+
 However, AUC has the following advantages over EZalert:
-<ul>
- 	<li>AUC supports assigning different values to different groups or individual objects. In EZalert, the exception can only be created for individual monitoring objects and it doesn’t seem like you can assign different value for this object, it’s simply on/off exception</li>
- 	<li>Other than Alert resolution state, AUC can also be used to update other alert properties (i.e. custom fields, Owner, ticket ID,  etc.). EZalert doesn’t seem like it can update other alert fields.</li>
-</ul>
+
+ * AUC supports assigning different values to different groups or individual objects. In EZalert, the exception can only be created for individual monitoring objects and it doesn’t seem like you can assign different value for this object, it’s simply on/off exception
+ * Other than Alert resolution state, AUC can also be used to update other alert properties (i.e. custom fields, Owner, ticket ID,  etc.). EZalert doesn’t seem like it can update other alert fields.
 
 ## Things to Consider
 
 When using EZalert, in my opinion, there are few things you need to consider:
 
-<strong>1. It does not replace requirements for overrides</strong>
+**1. It does not replace requirements for overrides**
 
 If you are training EZalert to automatically close an alert when it’s generated, then you should ask yourself - do you really need this alert to be generated in the first place? Unless you want to see these alerts in the alert statistics report, you should probably disable this alert via overrides. EZalert should not be used to replace overrides. if you don’t need this alert, disable it! it saves resources on both SCOM server and agent to process alert, and database space to store the alert.
 
-<strong>2. Training Monitor generated alerts</strong>
+**2. Training Monitor generated alerts**
 
 As we all know, we shouldn’t manually close monitor generated alerts. So when you are training monitor alerts, make sure you don’t train EZalert to update the resolution state to "Closed". consider using other states such as "Resolved".
 
-<strong>3. Create Scoped roles for normal operators in order to hide the EZalert dashboard view</strong>
+**3. Create Scoped roles for normal operators in order to hide the EZalert dashboard view**
 
 You may not want normal operators to train alerts, so instead of using the built-in operators role, you’d better create your own scoped role and hide the EZalert dashboard view from normal operators
 
