@@ -297,7 +297,3 @@ defaults:
       sidebar:
         - text: "[![NiCE](/wp-content/uploads/2020/09/NiCE-Blog-Ads-365Monitoring-220x250-2020Q3-Animated.gif)](https://www.nice.de/)"
         - text: "[![GripMatix](/wp-content/uploads/2020/03/MetrixInsight_Ad.jpg)](https://www.gripmatix.com/gripmatix-citrix-sbc-vdi-scom-management-packs)"
-        - text: "[![lemontaste](/wp-content/uploads/2017/06/cropped-DSC_0661.jpg)](https://www.lemontaste.com.au)"
-        - text: "[![tyconsulting](/wp-content/uploads/2015/04/Full-Logo-220x64.png)](https://www.tyconsulting.com.au)"
-        - text: "[![insideAzureMgmt](/wp-content/uploads/2020/03/Northern-Lights-Cover-2020-web-234x300.png)](https://www.insidethemicrosoftcloud.com/book/)"
-        - text: "[![mvp](/wp-content/uploads/2017/06/MVP_Logo_Horizontal_Secondary_ProcessCyan_CMYK_300pp_w220.png)](http://mvp.microsoft.com/en-us/mvp/Tao%20Yang-5000997)"
