@@ -182,6 +182,7 @@ exclude:
   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
+  - /_rtfm # ignore documentation dir
   - /wp-content/uploads/download-manager-files # temp, remove later
 keep_files:
   - .git
