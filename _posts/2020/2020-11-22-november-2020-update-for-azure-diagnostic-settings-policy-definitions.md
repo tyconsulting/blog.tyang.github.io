@@ -18,41 +18,34 @@ Last month, I released some updates to the <a href="https://github.com/tyconsult
 
 Here’s a the change log:
 
-<ul>
-    <li>Updated the existing policy definitions for the following Azure services:</li>
-<ul>
-    <li>Azure Container Registry</li>
-    <li>Azure Kubernetes Service</li>
-    <li>Azure API Management</li>
-    <li>Azure Cognitive Services</li>
-    <li>Cosmos DB</li>
-    <li>Azure Data Factory</li>
-    <li>Event Grid Topic</li>
-    <li>ExpressRoute Circuits</li>
-    <li>Azure Firewall</li>
-    <li>Azure HDInsight</li>
-    <li>Azure Recovery Services Vault (Split Azure Backup and Azure Site Recovery into separate policies as explained in <a href="https://docs.microsoft.com/en-us/azure/backup/backup-azure-diagnostic-events?WT.mc_id=DOP-MVP-5000997">this article</a>)</li>
-    <li>IoT Hub</li>
-    <li>MySQL</li>
-    <li>PostgreSQL</li>
-    <li>Azure Relay</li>
-    <li>SignalR</li>
-    <li>SQL Elastic Pool</li>
-    <li>Virtual Network</li>
-    <li>Virtual Network Gateway (update + bugfix)</li>
-    <li>Web App (Updated to exclude Function App. Function App is not included because Diagnostic settings only support Function App V3 which is still in preview, and I can’t seem to find a way to detect Function Run time version using policy aliases).</li>
-</ul>
-    <li>New policy definitions for:</li>
-<ul>
-    <li>CDN Profile</li>
-    <li>Log App Integration Service Environment</li>
-    <li>AppInsights</li>
-    <li>App Service Environment</li>
-    <li>Azure Storage Account (at the time of writing, this is still in public preview, documented in <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/insights/storage-insights-overview?WT.mc_id=DOP-MVP-5000997">this article</a>)</li>
-</ul>
-    <li>Updated Diagnostic Setting policies that send data Log Analytics:</li>
-<ul>
-    <li>Added "<a href="https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#parameter-properties?WT.mc_id=DOP-MVP-5000997">assignPermission</a>" to log analytics workspaces</li>
-    <li>Added Azure Diagnostics mode vs Resource-Specific mode selection for applicable resource types (explained in <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics?WT.mc_id=DOP-MVP-5000997">this article</a>)</li>
-</ul>
-</ul>
+* Updated the existing policy definitions for the following Azure services:
+  * Azure Container Registry
+  * Azure Kubernetes Service
+  * Azure API Management
+  * Azure Cognitive Services
+  * Cosmos DB
+  * Azure Data Factory
+  * Event Grid Topic
+  * ExpressRoute Circuits
+  * Azure Firewall
+  * Azure HDInsight
+  * Azure Recovery Services Vault (Split Azure Backup and Azure Site Recovery into separate policies as explained in <a href="https://docs.microsoft.com/en-us/azure/backup/backup-azure-diagnostic-events?WT.mc_id=DOP-MVP-5000997">this article</a>)
+  * IoT Hub
+  * MySQL
+  * PostgreSQL
+  * Azure Relay
+  * SignalR
+  * SQL Elastic Pool
+  * Virtual Network
+  * Virtual Network Gateway (update + bugfix)
+  * Web App (Updated to exclude Function App. Function App is not included because Diagnostic settings only support Function App V3 which is still in preview, and I can’t seem to find a way to detect Function Run time version using policy aliases).
+* New policy definitions for:
+  * CDN Profile
+  * Log App Integration Service Environment
+  * AppInsights
+  * App Service Environment
+  * Azure Storage Account (at the time of writing, this is still in public preview, documented in <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/insights/storage-insights-overview?WT.mc_id=DOP-MVP-5000997">this article</a>)
+* Updated Diagnostic Setting policies that send data Log Analytics:
+  * Added "<a href="https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#parameter-properties?WT.mc_id=DOP-MVP-5000997">assignPermission</a>" to log analytics workspaces
+  * Added Azure Diagnostics mode vs Resource-Specific mode selection for applicable resource types (explained in <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics?WT.mc_id=DOP-MVP-5000997">this article</a>)
+

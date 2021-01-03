@@ -20,9 +20,7 @@ Syncing data between on-prem locations and public cloud has become a very common
 
 Few weeks ago, <a href="https://www.synology.com/">Synology</a> reached out to me and asked me if I’d be interested to review their free <a href="https://www.synology.com/en-global/dsm/feature/cloud_sync">Cloud Sync</a> solution with Azure Storage. Since I’ve been thinking about replacing two 6-year old NAS devices at home, and wanting to move some files to Azure and OneDrive, I have accepted the offer. Although Synology supplied me with the NAS device (<a href="https://www.synology.com/en-global/products/DS920+">DS920+</a>), this is not a sponsored post, I’m only sharing my opinion based on my own experience.
 
-
 ## Installing Cloud Sync
-
 
 Synology Cloud Sync is extremely easy to configure. Once you’ve logged in to the web portal of your Synology NAS, it can be found in the Package Center, you can install it with one click (and follow the wizard).
 
@@ -30,9 +28,7 @@ Once installed, we can start creating sync jobs. Cloud Sync supports many public
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/09/SNAGHTML540a34b.png"><img width="1032" height="432" title="SNAGHTML540a34b" style="display: inline; background-image: none;" alt="SNAGHTML540a34b" src="https://blog.tyang.org/wp-content/uploads/2020/09/SNAGHTML540a34b_thumb.png" border="0"></a>
 
-
 ## Azure Storage Account
-
 
 Firstly, I have created an Azure Storage Account in Australia Southeast region since it’s the closest region to my home. I connected the storage account to a VNet, and added my home broadband’s IP address to the firewall rule so the NAS device can reach it (as shown below). This restrict accessing to the storage account only from the VNet it connects to, my home IP, and other Azure services (Since I’ve ticked Allow trusted Microsoft services to access this storage account).
 
@@ -48,12 +44,10 @@ Then on the Synology NAS web portal, I created a sync job with the following inf
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/09/image-3.png"><img width="520" height="425" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2020/09/image_thumb-3.png" border="0"></a>
 
-<ul>
-    <li>Service endpoint: Azure Global</li>
-    <li>Storage account: &lt;my storage account name&gt;</li>
-    <li>Access key: the primary or secondary key for the storage account</li>
-    <li>Blob container name: &lt;my blob container name&gt;</li>
-</ul>
+* Service endpoint: Azure Global
+* Storage account: \<my storage account name\>
+* Access key: the primary or secondary key for the storage account
+* Blob container name: \<my blob container name\>
 
 Then I can choose the local path (a share on the NAS), and the remote path (in Azure storage blob), I can also select the sync direction. In this case, I’ve chosen bi-directional so changes from both end will be replicated to each other.
 
@@ -81,27 +75,21 @@ At this stage, any changes on the NAS folder or the blob container will be repli
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/09/image-11.png"><img width="851" height="438" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2020/09/image_thumb-11.png" border="0"></a>
 
-<ol>
-<li>I copied a binary file (AzurePortalInstaller.exe) to the NAS folder, the synchronisation started straightaway, the file got uploaded to the Azure storage blob.</p></li>
-<li><p>I deleted some files and folders from the NAS folder ("iTunes"), synchronisation started straightaway, those files and folders got deleted from the storage blob.</p></li>
-<li><p>I deleted some files from the storage blob container ("Data Migration Assistant *"), it took few seconds for the NAS device to poll the changes, and the local copy was updated accordingly. – I’m guessing this is dictated by the Polling interval value you have configured earlier.</p></li>
-<li><p>I created a new text file ("new Text Document.txt"), then renamed it to "test.txt", then added a line to it. each operations (new file, rename, update) triggered synchronisation instantaneously.</p></li>
-</ol>
 
-<p>5.&nbsp; On the Azure Storage Account, I modified the test.txt file using Azure Storage Explorer, and saved the change directly to the storage account. Again, within few seconds, Synology NAS detected the change and downloaded the file from the storage account.
-
+1. I copied a binary file (AzurePortalInstaller.exe) to the NAS folder, the synchronisation started straightaway, the file got uploaded to the Azure storage blob.
+2. I deleted some files and folders from the NAS folder ("iTunes"), synchronisation started straightaway, those files and folders got deleted from the storage blob.
+3. I deleted some files from the storage blob container ("Data Migration Assistant *"), it took few seconds for the NAS device to poll the changes, and the local copy was updated accordingly. – I’m guessing this is dictated by the Polling interval value you have configured earlier.
+4. I created a new text file ("new Text Document.txt"), then renamed it to "test.txt", then added a line to it. each operations (new file, rename, update) triggered synchronisation instantaneously.
+5. On the Azure Storage Account, I modified the test.txt file using Azure Storage Explorer, and saved the change directly to the storage account. Again, within few seconds, Synology NAS detected the change and downloaded the file from the storage account.
 
 ## Microsoft OneDrive (Personal)
 
-
 With Microsoft OneDrive, I have 2 real use cases:
 
-<ol>
-<li>Since my old NAS devices are running out of space, I have some files that I stored on my personal OneDrive, they are not available locally at home . Although I’m happy to keep those files there, I’d like to have them stored locally at home as well. So I created a sync job to sync with a folder in my OneDrive.</p></li>
-<li><p>My daughter’s iPad uploads photos to iCloud automatically and she’s getting close to the free quota. I don’t want to pay for additional storage since everyone in the family is on the Office 365 Family plan which offers 6 users 1TB of space on OneDrive. It is also easier to share them with other family members and we can access OneDrive from any devices such as PC, Mac, Android, iOS, etc. (unlike Apple iCloud). So I manually downloaded those photos from iCloud to a NAS folder, I want to automatically upload them to her OneDrive, so that she can still access those photos via the OneDrive app on her iPad if she needs to.</p></li>
-</ol>
+1. Since my old NAS devices are running out of space, I have some files that I stored on my personal OneDrive, they are not available locally at home . Although I’m happy to keep those files there, I’d like to have them stored locally at home as well. So I created a sync job to sync with a folder in my OneDrive.
+2. My daughter’s iPad uploads photos to iCloud automatically and she’s getting close to the free quota. I don’t want to pay for additional storage since everyone in the family is on the Office 365 Family plan which offers 6 users 1TB of space on OneDrive. It is also easier to share them with other family members and we can access OneDrive from any devices such as PC, Mac, Android, iOS, etc. (unlike Apple iCloud). So I manually downloaded those photos from iCloud to a NAS folder, I want to automatically upload them to her OneDrive, so that she can still access those photos via the OneDrive app on her iPad if she needs to.
 
-<p>Setting up sync jobs for OneDrive is super easier. All you need is to sign in to your Microsoft Account when prompted, and give user consent:
+Setting up sync jobs for OneDrive is super easier. All you need is to sign in to your Microsoft Account when prompted, and give user consent:
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/09/image-12.png"><img width="388" height="405" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2020/09/image_thumb-12.png" border="0"></a>
 
@@ -115,9 +103,7 @@ All the other settings are the same as the Azure Storage, you can choose sync di
 
 For the OneDrive connection, I performed similar sets of tests that I previously performed for the Storage Account, the behaviour is very similar – locally initiated changes trigger synchronisation which gets replicated to OneDrive as soon as the changes are made. However, changes on the OneDrive don’t seem to get replicated to the local folder as quickly as when syncing with Azure Storage Account. the default polling interval for OneDrive is 600 seconds (every 10 minutes), I tried to decrease it to 15 seconds, but it doesn’t seem like Cloud Sync is polling OneDrive every 15 seconds as configured. the files did appear on the NAS share after around 10 minutes though. This is not a big deal, I can live with it.
 
-
 ## Conclusion
-
 
 Overall, I’m pretty happy with the feature Cloud Sync offers.
 
@@ -125,16 +111,13 @@ For Microsoft OneDrive, although the polling interval is a little bit too long i
 
 With Azure Storage Accounts, in my opinion since Synology NAS devices are generally used by home users and small to medium businesses, it offers a very cost effective way to migrate / synchronize files to cloud platforms. The configuration is pretty easy and the synchronization is pretty effective based on my testing. However, for large enterprises, I believe it’s missing some features:
 
-<ol>
-    <li>It only supports 2 Azure environments: Azure Global and Azure China. It doesn’t support other environments such as Azure Germany, Azure Government.</li>
-</ol>
+1. It only supports 2 Azure environments: Azure Global and Azure China. It doesn’t support other environments such as Azure Germany, Azure Government.
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/09/image-14.png"><img width="666" height="167" title="image" style="display: inline; background-image: none;" alt="image" src="https://blog.tyang.org/wp-content/uploads/2020/09/image_thumb-14.png" border="0"></a>
 
-<ol>
-    <li>It does not support Azure Files, only blob storage. This limit prevents people who need to access the fires on the Storage Accounts via SMB.</li>
-    <li>To sync to Azure Storage Account, it uses Storage Account access keys. Some organisations prohibits users from using access keys. It would be good if we can use an Azure AD Service Principals that have sufficient <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-rbac-portal">RBAC permissions</a> to access the storage account.</li>
-</ol>
+{:start="2"}
+2. It does not support Azure Files, only blob storage. This limit prevents people who need to access the fires on the Storage Accounts via SMB.
+3. To sync to Azure Storage Account, it uses Storage Account access keys. Some organisations prohibits users from using access keys. It would be good if we can use an Azure AD Service Principals that have sufficient <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-rbac-portal">RBAC permissions</a> to access the storage account.
 
 The documentation for the Synology Cloud Sync can be found here: <a href="https://www.synology.com/en-global/knowledgebase/DSM/help/CloudSync/cloudsync">https://www.synology.com/en-global/knowledgebase/DSM/help/CloudSync/cloudsync</a>.
 

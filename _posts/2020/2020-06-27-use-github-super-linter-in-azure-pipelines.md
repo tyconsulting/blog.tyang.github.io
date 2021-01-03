@@ -23,16 +23,16 @@ Although the GitHub Super Linter is designed to be used in GitHub Actions, it ru
 
 It is really easy to incorporate it in your Azure Pipelines. I added it to one of my existing pipelines and replaced a task that runs PSScriptAnalyzer, and it worked the first attempt. Assuming you are using YAML pipeline, here’s the code snippet:
 
-<pre>  - job: lint_tests
-    displayName: Lint Tests
-    pool:
-      vmImage: ubuntu-latest
-    steps:
-    - script: |
-        docker pull github/super-linter:latest
-        docker run -e RUN_LOCAL=true -v $(System.DefaultWorkingDirectory):/tmp/lint github/super-linter
-      displayName: 'Code Scan using GitHub Super-Linter'
-
+```yml
+- job: lint_tests
+  displayName: Lint Tests
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - script: |
+      docker pull github/super-linter:latest
+      docker run -e RUN_LOCAL=true -v $(System.DefaultWorkingDirectory):/tmp/lint github/super-linter
+    displayName: 'Code Scan using GitHub Super-Linter'
 ```
 
 the syntax for running the Super Linter container is documented on it’s GitHub repo: <a href="https://github.com/github/super-linter/blob/master/docs/run-linter-locally.md">https://github.com/github/super-linter/blob/master/docs/run-linter-locally.md</a>. In my example, I’m scanning everything in $(System.DefaultWorkingDirectory) (which means everything in my git repo). You can adjust it according to your requirements.

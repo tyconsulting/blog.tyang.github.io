@@ -19,30 +19,26 @@ I’m currently working on a Puppet Module for Windows Server. This module needs
 
 To do so, I can either write a custom Puppet fact in Ruby, or an external fact (i.e. in PowerShell). So I’ve written both.
 
-The custom fact (cloud.rb) is placed in the <em><strong>lib/facter</strong></em> folder in the module. The external fact (cloud.ps1) is placed in the <em><strong>facts.d</strong></em> folder in the module.
+The custom fact (cloud.rb) is placed in the **lib/facter** folder in the module. The external fact (cloud.ps1) is placed in the <em><strong>facts.d</strong></em> folder in the module.
 
-<strong>Custom Fact:</strong>
+**Custom Fact:**
 
-https://gist.github.com/tyconsulting/610dbe8953417b2b5184a7a7a2696329
+{% gist 610dbe8953417b2b5184a7a7a2696329 %}
 
-<strong>External Fact:</strong>
+**External Fact:**
 
-https://gist.github.com/tyconsulting/72da9fbbe49ce6b468e7703340c7a1f6
+{% gist 72da9fbbe49ce6b468e7703340c7a1f6 %}
 
 To test, you can add a debug message in your Puppet manifest:
 
-<pre>#Custom Fact:
-
+```ruby
+#Custom Fact:
 $cloud_provider = $::cloud['provider'],
-
 notify{"cloud provider: ${cloud_provider}":}
 
 #External Fact:
-
 $cloud_provider_1 = $::cloud_provider,
-
 notify{"cloud provider PS: ${cloud_provider_1}":}
-
 ```
 
 On the Puppet agent, when you apply the config using –debug flag, you will see it in the output:

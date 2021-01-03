@@ -14,7 +14,7 @@ categories:
 tags:
   - Working From Home
 ---
-<h2>Introduction</h2>
+## Introduction
 
 With the current COVID-19 outbreak, more and more people have started using home office as the primary work location. So far I’ve seen many people sharing their home office setup on social media, I thought I’d share my home office (a.k.a Man Cave) is setup. Hopefully you can find some useful tips from this post.
 
@@ -24,7 +24,7 @@ We moved into our current house around 18 months ago. When we bought the place, 
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/03/IMG_20200318_180620.jpg"><img style="display: inline; background-image: none;" title="IMG_20200318_180620" src="https://blog.tyang.org/wp-content/uploads/2020/03/IMG_20200318_180620_thumb.jpg" alt="IMG_20200318_180620" width="801" height="602" border="0" /></a>
 
-<h2>My desk setup</h2>
+## My desk setup
 
 There are 2 desks in my home office, the other one is for my wife, although she prefers dinning table and kitchen bench more when she works from home, so she’s hardly here.
 
@@ -32,7 +32,7 @@ There are 2 desks in my home office, the other one is for my wife, although she 
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/03/IMG_20200318_175608.jpg"><img style="display: inline; background-image: none;" title="IMG_20200318_175608" src="https://blog.tyang.org/wp-content/uploads/2020/03/IMG_20200318_175608_thumb.jpg" alt="IMG_20200318_175608" width="642" height="482" border="0" /></a>
 
-<strong>Desk and chairs</strong>
+### Desk and chairs
 
 I got this <a href="https://www.ikea.com/au/en/p/bekant-corner-desk-left-sit-stand-black-stained-ash-veneer-black-s49282258/" target="_blank" rel="noopener noreferrer">BEKANT standing desk from Ikea</a> few years ago. it’s not the greatest out in the market, the the price is pretty attractive.
 
@@ -46,7 +46,7 @@ Since I have a standing desk, I also have an anti-fatigue standing mat and a sta
 
 I have a <a href="https://www.amazon.com.au/gp/product/B07DGD898N" target="_blank" rel="noopener noreferrer">soft foam foot rest</a> under my desk. It feels comfortable, much better than those metal or hard plastic ones I’ve used in the past.
 
-<strong>Monitor and Computers</strong>
+### Monitor and Computers
 
 The Monitor is the <a href="https://www.dell.com/en-au/shop/dell-ultrasharp-49-curved-monitor-u4919dw/apd/210-arfd/monitors-monitor-accessories" target="_blank" rel="noopener noreferrer">Dell Ultrawide 49 inch U4919DW</a>, mounted on the <a href="https://www.ergotron.com/en-gb/products/product-details/45-475#/?color=white" target="_blank" rel="noopener noreferrer">Ergotron HX monitor arm</a>. I’ve had this monitor for awhile, it replaced other 3 monitors I had before. i’m not using the PBP mode (Picture By Picture, which treats this monitor as 2 separate monitors), but instead, using the Dell Display Manager app to manage the window positions. I configured it to split monitor into half (as shown below).
 
@@ -60,11 +60,9 @@ I can use FancyZones and Dell Display Manager together. If I want to split the s
 
 The monitor is also a KVM switch. as you can see, I have 3 computers on my desk:
 
-<ul>
-    <li>Intel Hades Canyon NUC</li>
-    <li>Apple Mac Mini</li>
-    <li>Lenovo X1 Yoga Gen2 laptop</li>
-</ul>
+* Intel Hades Canyon NUC
+* Apple Mac Mini
+* Lenovo X1 Yoga Gen2 laptop
 
 All 3 computers are connected to the monitor. Other than the computers, I have also connected the webcam (Logitech C930) and external sound card (<a href="https://en.creative.com/p/sound-blaster/sound-blaster-omni-surround-5-1" target="_blank" rel="noopener noreferrer">Creative Sound Blaster Omni Surround 5.1</a>) to the monitor. This allows me to share these devices with all my computers via the KVM feature of the monitor.
 
@@ -76,7 +74,7 @@ One thing I want to point out here, it is a known issue that Mac Mini does not s
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/03/IMG_20200318_174107.jpg"><img style="display: inline; background-image: none;" title="IMG_20200318_174107" src="https://blog.tyang.org/wp-content/uploads/2020/03/IMG_20200318_174107_thumb.jpg" alt="IMG_20200318_174107" width="684" height="514" border="0" /></a>
 
-<strong>Speakers, Headsets and Microphone</strong>
+### Speakers, Headsets and Microphone
 
 I’ve recently got rid of my old PC speaker (Razer Leviathan sound bar, not recommended at all), replaced with <a href="https://www.logitechg.com/en-us/products/gaming-audio/g560-rgb-gaming-speakers.html" target="_blank" rel="noopener noreferrer">Logitech G560</a>. i’ve only had it for few days, but so far, I love it! The Sound quality is much better than the Razer sound bar, and I love the built-in LED lights on the 2 front speakers.
 
@@ -86,7 +84,7 @@ I have also been using <a href="https://www.amazon.com/Plantronics-Voyager-Bluet
 
 Few days ago, I purchased a <a href="https://www.bluedesigns.com/products/compass/" target="_blank" rel="noopener noreferrer">Blue Compass boom</a> arm for my microphone (Audio-Technica AT2020 XLR). I compared Blue Compass with Rode PSA 1, and decided to go for Blue Compass because it takes less room, and more suitable for higher monitors (when placed behind the monitor like what I did). The Microphone is connected to my Intel NUC via a Behringer Audio Inteface (UMC202HD), which I had for many years.
 
-<strong>Desk Lights</strong>
+### Desk Lights
 
 In the past few years, I’ve been using the <a href="https://www.benq.com/en-us/lamps/desklamp.html" target="_blank" rel="noopener noreferrer">BenQ e-Reading Desk Lamp</a>. it worked great, I really loved it, but I had to find something else because it takes too much space, and it is too tall. When I raise my standing desk, this desk lamp would hit the ceiling fan which is placed right above my desk. So I replaced it with the <a href="https://www.amazon.com/BenQ-ScreenBar-Auto-Dimming-Adjustment-ScreenBar_Black/dp/B076VNFZJG" target="_blank" rel="noopener noreferrer">BenQ ScreenBar</a>, which is designed to be place right on the top of the monitor. I’m amazed how well this ScreenBar has turned out. even when placed on such a wide monitor (49 inch Ultrawide), I don’t see any dark spots at all. I highly recommend it!
 
@@ -94,13 +92,13 @@ In addition to the screen bar, I have also placed a <a href="https://www.amazon.
 
 <a href="https://blog.tyang.org/wp-content/uploads/2020/03/IMG_20200318_174455.jpg"><img style="display: inline; background-image: none;" title="IMG_20200318_174455" src="https://blog.tyang.org/wp-content/uploads/2020/03/IMG_20200318_174455_thumb.jpg" alt="IMG_20200318_174455" width="980" height="476" border="0" /></a>
 
-<strong>Input Devices</strong>
+### Input Devices
 
 i’m a big fan of Microsoft Ergonomic keyboard. This is my 3rd set (<a href="https://www.microsoft.com/accessories/en-us/products/keyboards/sculpt-ergonomic-desktop/l5v-00001" target="_blank" rel="noopener noreferrer">Sculpt Ergonomic Desktop</a>). I was using the Surface Bluetooth version before, but since I got this monitor, and planning to use it as the KVM switch, I had to switch back to the wireless version so I can plug the receiver into the monitor. To be honest, I actually prefer the wireless version because it’s more responsive than the Bluetooth version.
 
 My wife bought a Surface Dial for me as a birthday present few years ago. It is on my desk, gathering dust. I don’t use it at all.
 
-<strong>Miscellaneous</strong>
+### Miscellaneous
 
 I have a Anker wireless charger for my mobile phone, and another <a href="https://www.amazon.com/Nintendo-Switch-Adjustable-Charging-Stand/dp/B07D12JGBB" target="_blank" rel="noopener noreferrer">USB charging stand for Nintendo Switch</a>.
 
@@ -112,7 +110,7 @@ On top of the cutting mat, there’s a <a href="https://www.amazon.com.au/gp/pro
 
 To tidy-up my desk, I recently put a <a href="https://www.ikea.com/au/en/p/skadis-pegboard-white-90321619/" target="_blank" rel="noopener noreferrer">Ikea pegboard</a> on each side of the desk. So far I like them!
 
-<h2>Furniture and Appliances</h2>
+## Furniture and Appliances
 
 There’s a 65' 4K Samsung TV in the room. it’s connected to a Roku media player (offered to my by my ISP Telstra, as part of my home broadband deal), Xbox One and Nintendo Switch. It’s also connected to a <a href="https://www.sonos.com/en-au/shop/beam.html" target="_blank" rel="noopener noreferrer">Sonos Beam sound bar</a> via HTMI port. I also have a <a href="https://www.sonos.com/en-au/shop/sub.html" target="_blank" rel="noopener noreferrer">Sonos subwoofer</a> and 2 old Play:1s, together with the Beam sound bar, I’ve created a 5.1 surround sound setup. I placed a bass trap behind the subwoofer to eliminate the vibration. I can noticed a big difference after placed it behind the sub. the whole house doesn't vibrate anymore when I play loud heavy music such as my favourite bands Metallica and Rammstein.
 
@@ -162,4 +160,4 @@ Lastly, I have a custom designed rock concert Lego set (designed by me many year
 
 Sometimes I have the door shut when my daughter plays piano, that causes confusion as she doesn’t know why the door was shut (maybe I’m in a meeting?). so I put a small <a href="https://www.amazon.com.au/Gray-Boogie-Board-eWriter-J31020001/dp/B010HWCEFY" target="_blank" rel="noopener noreferrer">boogieboard</a> on the door, so I can write down the reason why the door is closed (as shown in the first picture of this post). This worked well.
 
-So, this is how my man cave is setup as of March 2020. Hope you enjoyed reading it. ping me if you have any suggestions <img class="wlEmoticon wlEmoticon-smile" src="https://blog.tyang.org/wp-content/uploads/2020/03/wlEmoticon-smile.png" alt="Smile" />.
+So, this is how my man cave is setup as of March 2020. Hope you enjoyed reading it. ping me if you have any suggestions :smiley:.

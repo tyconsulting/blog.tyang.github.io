@@ -16,26 +16,18 @@ tags:
 ---
 The new Modify effect for Azure Policy was introduced few months ago. I was really excited about this new addition, but unfortunately I haven’t had time to write this post until today.
 
-The Modify effect is designed <strong><u>SPECIFICALLY</u></strong> for managing resource tags. You can use it to add / update / remove tags during resource creation or update (basically for both new and existing resources).
+The Modify effect is designed **<u>SPECIFICALLY</u>** for managing resource tags. You can use it to add / update / remove tags during resource creation or update (basically for both new and existing resources).
 
-<strong>Problem we had…</strong>
+**Problem we had…**
 
 Before the Modify effect was introduced, we were managing the tags using the "Deny" and "Append" effects:
 
-<ul>
-    <li>Deny:
-<ul>
-    <li>"Require tag and its value" policy</li>
-    <li>"Require tag and its value on resource groups" policy</li>
-</ul>
-</li>
-    <li>Append:
-<ul>
-    <li>"Append tag and its default value" policy</li>
-    <li>"Append tag and its default value to resource groups" policy</li>
-</ul>
-</li>
-</ul>
+* Deny:
+  * "Require tag and its value" policy
+  * "Require tag and its value on resource groups" policy
+* Append:
+  * "Append tag and its default value" policy
+  * "Append tag and its default value to resource groups" policy
 
 These policies allows you to set and enforce tag names and value on both resources and resource groups. What I did was adding above listed 4 policies into an initiative for each of the mandatory tags. For example, if 5 mandatory tags are required, I would have add these 4 policies 5 times into a single initiative. It worked well in a green field scenario (for new resources and resource groups).
 
@@ -43,20 +35,17 @@ However, when the initiative is assigned to an existing target with conflicting 
 
 For example, if the "require tag and its value" policy is shown as non-compliant to a key vault. I can’t even grant people access to the key vault (by modify the Key Vault access policies) until the non-compliant policies are fixed. This has been a massive headache for people. For example, you have a tag for recording the owner’s email for resource and resource groups. when the person changes roles within the organization, we often have to change the value of the "owner" tag. to do so, we had to use the following steps to update the tag value:
 
-<ol>
-    <li>Delete the initiative assignment</li>
-    <li>Use a script to update the owner tag value for all resources and resource groups</li>
-    <li>Create initiative assignment with updated tag value.</li>
-</ol>
+1. Delete the initiative assignment
+2. Use a script to update the owner tag value for all resources and resource groups
+3. Create initiative assignment with updated tag value.
 
-<strong>What about now?</strong>
+**What about now?**
 
 Now, with the Modify effect, life becomes so much easier. instead of using 4 policies for each required tag, we only need 2:
 
-<ul>
-    <li>Add a tag to a resource</li>
-    <li>Add a tag to a resource group</li>
-</ul>
+* Add a tag to a resource
+* Add a tag to a resource group
+
 
 These 2 policies add the specified tag and value when any resource or resource group missing this tag is created or updated. Existing resource groups can be remediated by triggering a remediation task. If the tag exists with a different value it will not be changed.
 

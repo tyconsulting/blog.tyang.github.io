@@ -21,17 +21,12 @@ The Inside Azure Management book v4 has been officially released few weeks ago. 
 
 To celebrate the book launch, the authors of this book (including myself), will host a one-day 16-hour free online summit on Wednesday 23rd July 2020. Come join us for a full day of deep-dive technical sessions across a variety of Microsoft cloud topics from Microsoft MVPs and special Microsoft guests. Topics will include
 
-DevOps and Automation
-
-Cyber Security
-
-Cloud Governance
-
-Migration and Monitoring
-
-Docker and Kubernetes
-
-AI and Identity
+* DevOps and Automation
+* Cyber Security
+* Cloud Governance
+* Migration and Monitoring
+* Docker and Kubernetes
+* AI and Identity
 
 You can register for the event at eventbrite.com: <a href="https://www.eventbrite.com/e/inside-azure-management-the-virtual-summit-tickets-109230577598">https://www.eventbrite.com/e/inside-azure-management-the-virtual-summit-tickets-109230577598</a>
 
