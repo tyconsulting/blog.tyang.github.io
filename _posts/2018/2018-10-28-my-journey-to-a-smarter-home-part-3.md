@@ -15,7 +15,9 @@ tags:
   - Sonos
 ---
 This is the 3rd part of the blog series. I have covered my home network setup using Ubiquiti Unifi devices in <a href="https://blog.tyang.org/2018/09/22/my-journey-to-a-smarter-home-part-1/">part 1</a>, and Xiaomi home automation products in <a href="https://blog.tyang.org/2018/09/25/my-journey-to-a-smarter-home-part-2/">Part 2</a>. In this part, I will discuss my experience with Google Home and Sonos products. It’s been over a month since the last part, this is because I was waiting for Google Home Hub to be released so I can get my hands on it and included it in this post.
-<h2>Google Home Speakers</h2>
+
+## Google Home Speakers
+
 I bought my first Google Home speaker when they were firstly released in Australia last year (2017). At that time, Amazon Echo was not officially released down under, and if I was going to get Amazon Echo, I’d have to get them from USA. I did some research before I bought my first Google Home speaker, I made my decision to go with Google Home after I watched this video: <a title="https://www.youtube.com/watch?v=Avb-IMy9YVU&t=3m16s" href="https://www.youtube.com/watch?v=Avb-IMy9YVU&t=3m16s">https://www.youtube.com/watch?v=Avb-IMy9YVU&t=3m16s</a>.
 
 Currently, I have 1 full size Google Home, 6 mini speakers as well as 2 newly released Google Home Hub (7 inch display) throughout the house – one in each room. i.e.
@@ -51,16 +53,16 @@ In the rumpus room on top of the AV receiver:
 As you can see, they don’t take too much room at all. since they are WiFi connected, you can place them anywhere that has good WiFi signals. To me, this is not a problem since I already have 7 Ubiquiti access points installed in the house. With Google Home, you can voice train the speakers so they know who’s speaking to them. i.e. if my wife is asking Google Home speakers what’s her schedule like for today, it is not going to tell her my schedules.
 
 In Google Home, I can setup rooms, and group devices into rooms. i.e. I have lights placed in the correct rooms in Google Home. When I’m in my office, I can say to the Google Home speaker in my office "OK Google, turn off the lights". Google Home will turn off all the lights in my office. Alternatively, if I say to my office Google Home speaker "OK Google, turn off the kitchen lights", it will turn off all the lights in the kitchen instead. For us, other than controlling the lights, we also use it for the following tasks:
-<ul>
- 	<li>Check the weather - "OK Google, what’s the weather like"</li>
- 	<li>Use it as the timer when cooking. It’s just a lot easier to do "OK Google, set the timer for 20 minutes" than setting up the timer in the oven.</li>
- 	<li>Use it as the alarm clock – "OK google, wake me up at 6". It will set the alarm clock for 6am. When the alarm goes off, it plays a very gentle melody (so you don’t get a heart attack). P.S. be VERY careful with this feature, it requires the Internet connection. I have learned it the hard way, when the Internet at my house went down at night due to an outage, and the alarm didn’t go off and I was late for work!</li>
- 	<li>My daughter’s favourite – "OK Google, tell me a joke". She thinks those jokes are funny. Well, she’s only 6…</li>
- 	<li>Use it as the Intercom unit – You can say "OK Google, broadcast", then google will respond "sure, what’s the message". you can then tell google what to broadcast to all the speakers in the house. Google Home will record your voice message, and play it back. This is useful when I’m in the kitchen preparing dinner, I don’t have to go look for my daughter and tell her the dinner’s ready. My daughter also used this to say good morning to me when she wakes up and still in bed in her room.</li>
- 	<li>My wife tells google what songs she’d like to listen, and Google Home finds the song from YouTube Music (because we don’t have paid Spotify subscriptions), and play on the speaker of her choice.</li>
- 	<li>My daughter uses them for her math homework. I remember when I was a kid, calculators were banned in school. Using calculators for math homework was considered cheating. I had to hide the calculators and don’t use it in front of parents. Now, my daughter doesn’t even need one, she can simply go "OK Google, what’s 7 plus 8".</li>
- 	<li>Use it to control the Chromecast connected to the TV, and tells it what to play on the TV.</li>
-</ul>
+
+* Check the weather - "OK Google, what’s the weather like"
+* Use it as the timer when cooking. It’s just a lot easier to do "OK Google, set the timer for 20 minutes" than setting up the timer in the oven.
+* Use it as the alarm clock – "OK google, wake me up at 6". It will set the alarm clock for 6am. When the alarm goes off, it plays a very gentle melody (so you don’t get a heart attack). P.S. be VERY careful with this feature, it requires the Internet connection. I have learned it the hard way, when the Internet at my house went down at night due to an outage, and the alarm didn’t go off and I was late for work!
+* My daughter’s favourite – "OK Google, tell me a joke". She thinks those jokes are funny. Well, she’s only 6…
+* Use it as the Intercom unit – You can say "OK Google, broadcast", then google will respond "sure, what’s the message". you can then tell google what to broadcast to all the speakers in the house. Google Home will record your voice message, and play it back. This is useful when I’m in the kitchen preparing dinner, I don’t have to go look for my daughter and tell her the dinner’s ready. My daughter also used this to say good morning to me when she wakes up and still in bed in her room.
+* My wife tells google what songs she’d like to listen, and Google Home finds the song from YouTube Music (because we don’t have paid Spotify subscriptions), and play on the speaker of her choice.
+* My daughter uses them for her math homework. I remember when I was a kid, calculators were banned in school. Using calculators for math homework was considered cheating. I had to hide the calculators and don’t use it in front of parents. Now, my daughter doesn’t even need one, she can simply go "OK Google, what’s 7 plus 8".
+* Use it to control the Chromecast connected to the TV, and tells it what to play on the TV.
+
 There are many integration capabilities that Google Home provides natively. i.e. Xiaomi’s Mi Home, Yeelights (part of Xiaomi’s suite, what I’m using at home), plus hundreds more. It also supports IFTTT, so if you want to, you can build your own solutions.
 
 I have to say, I’m really amazed with the sound quality of these speakers. even the Google Home Mini can be so loud, there is no issue using it in a large room at all (my office is around 40 square metres, even a mini speaker is more than enough).
@@ -68,30 +70,31 @@ I have to say, I’m really amazed with the sound quality of these speakers. eve
 Although it’s cool to interact with Google and control everything using voice commands, sometimes, it would be cool to have visual. With the recent introduction of Google Home Hub, I went to my local store and bought 2 at the very first day.  Initially I’ve been waiting for the Lenovo Smart Display for Google Assistant to be released in Australia, then few weeks ago after I watched Google’s announcement for Google Home Hub, I changed my mine. The Lenovo 10 inch Smart Display is too bulky for me, and the price down here is AUD $399. Google Home Hub is more compact, only 7 inch, and price is only $219. So for the price of 1 Lenovo Smart Display, I can almost get 2 Google Home Hubs. Having said that, Lenovo Smart Display comes with built-in camera, whereas Google has decided not to include cameras for security reasons. Since I don’t need a camera – in fact, I have privacy covers for all my webcam, tablets, laptops, etc., it didn’t bother me at all.
 
 I placed one Google Home Hub on my desk, because that’s where I spend most of my days. The other one is placed in the kitchen (it had a mini speaker there before). Kitchen is where we as the family spent most of our time, it’s where my wife and daughter use Google Home the most. With Google Home Hub, you can:
-<ul>
- 	<li>See the count down timer when you set the timer</li>
- 	<li>Watch news</li>
- 	<li>See weather forecast</li>
- 	<li>See upcoming events from your Gmail calendar</li>
- 	<li>watch YouTube</li>
- 	<li>search for recipes when cooking</li>
- 	<li>See album art and song information when streaming music</li>
- 	<li>Use it as a digital photo frame and display your photos from Google Photos</li>
- 	<li>Use it as a digital clock</li>
-</ul>
-When I’m working, I like to play YouTube / Netflix on the background. Now I can stream my preferred content from YouTube on the Google Home Hub on my desk so I can free up a monitor for other things (although I already have 3 monitors <img class="wlEmoticon wlEmoticon-smile" src="https://blog.tyang.org/wp-content/uploads/2018/10/wlEmoticon-smile.png" alt="Smile" />).
+
+* See the count down timer when you set the timer
+* Watch news
+* See weather forecast
+* See upcoming events from your Gmail calendar
+* watch YouTube
+* search for recipes when cooking
+* See album art and song information when streaming music
+* Use it as a digital photo frame and display your photos from Google Photos
+* Use it as a digital clock
+
+When I’m working, I like to play YouTube / Netflix on the background. Now I can stream my preferred content from YouTube on the Google Home Hub on my desk so I can free up a monitor for other things (although I already have 3 monitors :smiley:).
 
 The sound quality for Google Home Hub is pretty decent, I’d say on par with the mini speaker. I have been using the Google Home Hub now, I am really enjoying it! If this was released earlier, I probably would have got more of these, less of the mini speakers.
 
 Despite all the good stuff it brings, there are few things I hope Google Home can improve:
-<ol>
- 	<li>Native Sonos integration. Recently Sonos has started selling speakers with Amazon Alexa built-in (Sonos One, Sonos Beam). It makes me start wondering, if they are ever going to integrate with Google Home or it’s going to be exclusive to Amazon. I have invested so much in Sonos already, it would be nice if I can use Google Home to control them (although I have seen some rumours from the Sonos forum that it’s coming in 2018, so fingers crossed).</li>
- 	<li>Integration with applications such as Wunderlist. We use Microsoft’s Wunderlist for our household shopping list. We have lists shared between my wife and I. If she goes to the supermarkets, I don’t have to tell her what to get, I can simply add them into the list. With Google Home, you can tell Google to add stuff to your shopping list, but the shopping list is native to Google. I would love to be able to continue using Wunderlist, together with Google.</li>
- 	<li>Support for other 3rd party calendars. I use Outlook and Office 365. Currently, it only supports Gmail calendars.</li>
- 	<li>Better integration with other Smart Home devices. For example, after I linked Google Home to my Yeelight account, if I add more lights, I cannot sync my devices. Although this is supposed to work by telling google to "sync my devices", the response I got from google was "Sorry, I can’t help with that yet". This is why I haven’t connected my Mi Home account to it, because I constantly add / remove devices in Mi Home, there is no way I will setup everything from scratch again in Google Home when every time I add a Xiaomi device.</li>
- 	<li>Based on my testing, currently Google Home Hub can only stream video from YouTube, and Plex. According to Google, it also supports Stan. I don’t use Stan, I use Netflix and Amazon Prime Video. It would be nice if Google Home Hub have the same capability of Chromecast, and allow video streaming from more popular sources.</li>
-</ol>
-<h2>Sonos Speakers</h2>
+
+1. Native Sonos integration. Recently Sonos has started selling speakers with Amazon Alexa built-in (Sonos One, Sonos Beam). It makes me start wondering, if they are ever going to integrate with Google Home or it’s going to be exclusive to Amazon. I have invested so much in Sonos already, it would be nice if I can use Google Home to control them (although I have seen some rumours from the Sonos forum that it’s coming in 2018, so fingers crossed).
+2. Integration with applications such as Wunderlist. We use Microsoft’s Wunderlist for our household shopping list. We have lists shared between my wife and I. If she goes to the supermarkets, I don’t have to tell her what to get, I can simply add them into the list. With Google Home, you can tell Google to add stuff to your shopping list, but the shopping list is native to Google. I would love to be able to continue using Wunderlist, together with Google.
+3. Support for other 3rd party calendars. I use Outlook and Office 365. Currently, it only supports Gmail calendars.
+4. Better integration with other Smart Home devices. For example, after I linked Google Home to my Yeelight account, if I add more lights, I cannot sync my devices. Although this is supposed to work by telling google to "sync my devices", the response I got from google was "Sorry, I can’t help with that yet". This is why I haven’t connected my Mi Home account to it, because I constantly add / remove devices in Mi Home, there is no way I will setup everything from scratch again in Google Home when every time I add a Xiaomi device.
+5. Based on my testing, currently Google Home Hub can only stream video from YouTube, and Plex. According to Google, it also supports Stan. I don’t use Stan, I use Netflix and Amazon Prime Video. It would be nice if Google Home Hub have the same capability of Chromecast, and allow video streaming from more popular sources.
+
+## Sonos Speakers
+
 I am a big music fan, more specifically, I love Heavy Metal. Over the years, I have spent a lot of $$$ on headphones, especially Sennheiser headphones. Most of my headphones are Sennheiser’s. Few years ago I started investing on Sonos speakers. Initially I bought a Sonos Play 1 to test it out, and soon after that, I had 2 Sonos Play 1 pairs, and a Sonos Play 3. Recently, when Sonos released Sonos Beam, I bought one and connected to my Office TV. I also placed 2 Sonos Play 1 speakers behind the chairs and set them up as surround sound speakers.
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/10/IMG_20181028_165216.jpg"><img style="display: inline; background-image: none;" title="IMG_20181028_165216" src="https://blog.tyang.org/wp-content/uploads/2018/10/IMG_20181028_165216_thumb.jpg" alt="IMG_20181028_165216" width="589" height="443" border="0" /></a>

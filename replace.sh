@@ -53,4 +53,10 @@ sed -i "s/&gt;/>/" $filename
 echo "removing &nbsp;"
 sed -i "s/&nbsp;//" $filename
 
+echo "replacing <blockquote> with >"
+sed -i "s/<blockquote>/>/" $filename
+
+echo "removing </blockquote>"
+sed -i "s/<\/blockquote>//" $filename
+
 echo "done"

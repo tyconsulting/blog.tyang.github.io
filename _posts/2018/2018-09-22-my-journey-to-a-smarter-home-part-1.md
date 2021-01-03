@@ -14,13 +14,13 @@ tags:
   - Ubiquiti
 ---
 Over the last month, I have published 8 blog posts. Right now, although I still have few more on my to-do list, I’m just a bit over it. I want to write something different than my usual topics. I don’t know how many I am going to write right now, but I want to dedicate the next few posts to something that I have spent a lot of time on over the last couple of years – on all the gadgets I have installed at home, especially around home automation. I will share my experience on the following product families:
-<ul>
- 	<li>Ubiquiti Unifi</li>
- 	<li>Sonos</li>
- 	<li>Xiaomi and their entire ecosystem</li>
- 	<li>Google Home</li>
- 	<li>etc.</li>
-</ul>
+
+ * Ubiquiti Unifi
+ * Sonos
+ * Xiaomi and their entire ecosystem
+ * Google Home
+ * etc.
+
 Back in 2012, I have shared my home lab setup on this blog (<a href="https://blog.tyang.org/2012/10/04/my-home-test-lab-part-1/">part 1</a>, <a href="https://blog.tyang.org/2012/10/05/my-home-test-lab-part-2/">part2</a>). Looking back, I can’t believe it has been 6 years already! Since then, my lab has got a lot bigger than that. In 2014-2015, I once had 6 Hyper-V boxes and few physical Linux boxes in my lab all connected to a layer-3 managed switch. I had different VLANs for different workloads, etc. I remember back then, I had the entire System Center product suite running at home, the ConfigMgr environment alone was made up with 8 virtual machines. Over the past couple of years, I have shifted my focus from System Center to Azure, my home lab is getting smaller and smaller. Although I still have 4 Hyper-V servers (1 desktop PC with 64GB of RAM, and 3 Intel NUC range between 16GB to 32GB RAM), most of them are powered off most of the time. The only VMs I have running 24/7 are the domain controllers and a Windows VM running Windows Admin Center. Now I have a bunch of spare multi-port NICs and bunch of spare SSDs sitting in my closet. Although my lab is getting smaller, the number of network connected devices are actually increasing rapidly at my house.
 
 I’m sure a lot of people have heard this joke before:
@@ -34,8 +34,10 @@ Few months ago, during my parents visit, my old man came to me, a bit worried an
 So how did I come to this stage? I’m bit worried that one day, the /24 IP subnets may not be enough for my home!
 
 To begin this blog series, I’ll start with the physical network setup. so let’s talk about Ubiquiti first.
-<blockquote><strong>Note:</strong> Unless otherwise specified, all the price I mentioned in this blog series is Australian Dollars (AUD) with tax included. Currently, AUD$1 = USD$0.73, Chinese Yuan ￥4.99 and Euro€0.62</blockquote>
-<h2>Ubiquiti Unifi Network Devices</h2>
+>**Note:** Unless otherwise specified, all the price I mentioned in this blog series is Australian Dollars (AUD) with tax included. Currently, AUD$1 = USD$0.73, Chinese Yuan ￥4.99 and Euro€0.62
+
+## Ubiquiti Unifi Network Devices
+
 With increasing number of WiFi enabled devices we have in our homes nowadays, I was suffering with the poor wifi performance that brought to me by the Access Point that was built-in to the ADSL modem. So few years ago, I bought my first Ubiquiti Unifi access point, used it as a standalone device. Last year, I extended the setup, added an additional access point, together with a 24 port POE switch, a cloud key and a security gateway to my home network, and ditched the 8-port HP layer-3 managed switch I had for many years.
 
 Couple of months ago, we moved into a new house. Before moving in, during renovation, I had opportunity to re-design the network layout in this property. In addition to all the existing Ubiquiti gear I had, I bought a whole lot more access points, security cameras, etc. The end state looks like this:
@@ -62,19 +64,19 @@ P.S. Don’t laugh at my cabling skills. At least I colour coded the cables <img
 
 Here’s the full list of Ubiquiti products I have running at home:
 
-<strong>1. Main switch (Unifi 24 port POE 250W)</strong>
+**1. Main switch (Unifi 24 port POE 250W)**
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/US-24-250W_Front_Angle.jpg"><img style="display: inline; background-image: none;" title="US-24-250W_Front_Angle" src="https://blog.tyang.org/wp-content/uploads/2018/09/US-24-250W_Front_Angle_thumb.jpg" alt="US-24-250W_Front_Angle" width="642" height="227" border="0" /></a>
 
 This is the main switch that connects all the access points, lab servers, cloud key, security gateway, etc. it supports POE up to 250W, which is more than enough to power all 7 access points I have in the house. I’m glad that when I bought it last year, I got the 24 port version. right now, I only have 1 port left. The only thing I don’t like about this switch is the noise. it comes with 2 fans on each side. these fans can get pretty loud, especially in the summer. This is a fully managed layer 3 switch, but in order to configure the layer-3 capabilities such as static routes, you will need to have a cloud key, which runs the controller software for all your Unifi devices (except for cameras and NVRs).
 
-<strong>2. Camera switch (Unifi 8 port POE 150W)</strong>
+**2. Camera switch (Unifi 8 port POE 150W)**
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/US-8-150W_Left_Angle.jpg"><img style="display: inline; background-image: none;" title="US-8-150W_Left_Angle" src="https://blog.tyang.org/wp-content/uploads/2018/09/US-8-150W_Left_Angle_thumb.jpg" alt="US-8-150W_Left_Angle" width="656" height="384" border="0" /></a>
 
 I don’t have enough ports on the main 24-port switch for the security cameras, so when I bought the cameras, I got this switch as well. 6 POE cameras, plus the NVR recorder, and an uplink port to the main switch, I’ve used all 8 ports. This is a layer-3 managed POE switch as well, just like the 24-port model, but the 8-port model doesn’t have fans, which is good! One thing I don’t like about this switch is, although it comes with a mounting bracket, it is still not the right size to be rack mounted. unlike the 24 port switch, which can be rack mounted, I had to put this on a metal plate in the rack.
 
-<strong>3. Unifi AP-AC-Pro Access Point x2</strong>
+**3. Unifi AP-AC-Pro Access Point x2**
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/UAP-AC-PRO_Front_Angle.jpg"><img style="display: inline; background-image: none;" title="UAP-AC-PRO_Front_Angle" src="https://blog.tyang.org/wp-content/uploads/2018/09/UAP-AC-PRO_Front_Angle_thumb.jpg" alt="UAP-AC-PRO_Front_Angle" width="488" height="488" border="0" /></a>
 
@@ -82,7 +84,7 @@ I had 2 AP-AC Pro access points from my old house. they are designed to be mount
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/IMG_20180921_221517.jpg"><img style="display: inline; background-image: none;" title="IMG_20180921_221517" src="https://blog.tyang.org/wp-content/uploads/2018/09/IMG_20180921_221517_thumb.jpg" alt="IMG_20180921_221517" width="683" height="513" border="0" /></a>
 
-<strong>4. Unifi AP-AC In Wall Pro x4</strong>
+**4. Unifi AP-AC In Wall Pro x4**
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/UAP-AC-IW_Angled.jpg"><img style="display: inline; background-image: none;" title="UAP-AC-IW_Angled" src="https://blog.tyang.org/wp-content/uploads/2018/09/UAP-AC-IW_Angled_thumb.jpg" alt="UAP-AC-IW_Angled" width="196" height="385" border="0" /></a>
 
@@ -100,7 +102,7 @@ i.e. in my office, connected to a 8 port unmanaged switch for computers on the d
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/IMG_20180921_200149.jpg"><img style="display: inline; background-image: none;" title="IMG_20180921_200149" src="https://blog.tyang.org/wp-content/uploads/2018/09/IMG_20180921_200149_thumb.jpg" alt="IMG_20180921_200149" width="291" height="387" border="0" /></a>
 
-<strong>5. Unifi AP-AC Mesh</strong>
+**5. Unifi AP-AC Mesh**
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/UAP-AC-M_Open_Angle.jpg"><img style="display: inline; background-image: none;" title="UAP-AC-M_Open_Angle" src="https://blog.tyang.org/wp-content/uploads/2018/09/UAP-AC-M_Open_Angle_thumb.jpg" alt="UAP-AC-M_Open_Angle" width="189" height="374" border="0" /></a>
 
@@ -108,7 +110,7 @@ The Mesh APs are designed for outdoor use. I want to have good WiFi signal when 
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/IMG_20180921_175508.jpg"><img style="display: inline; background-image: none;" title="IMG_20180921_175508" src="https://blog.tyang.org/wp-content/uploads/2018/09/IMG_20180921_175508_thumb.jpg" alt="IMG_20180921_175508" width="528" height="703" border="0" /></a>
 
-<strong>6. Unifi Cloud Key</strong>
+**6. Unifi Cloud Key**
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/UC-CK_Cable.jpg"><img style="display: inline; background-image: none;" title="UC-CK_Cable" src="https://blog.tyang.org/wp-content/uploads/2018/09/UC-CK_Cable_thumb.jpg" alt="UC-CK_Cable" width="430" height="247" border="0" /></a>
 
@@ -160,7 +162,7 @@ I can also connect the cloud key to my Ubiquiti account. Once done, I can access
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/Screenshot_20180922-003525.jpg"><img style="display: inline; background-image: none;" title="Screenshot_20180922-003525" src="https://blog.tyang.org/wp-content/uploads/2018/09/Screenshot_20180922-003525_thumb.jpg" alt="Screenshot_20180922-003525" width="274" height="484" border="0" /></a>
 
-<strong>7. Unifi Security Gateway</strong>
+**7. Unifi Security Gateway**
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/USG_Right_Angle.jpg"><img style="display: inline; background-image: none;" title="USG_Right_Angle" src="https://blog.tyang.org/wp-content/uploads/2018/09/USG_Right_Angle_thumb.jpg" alt="USG_Right_Angle" width="475" height="273" border="0" /></a>
 
@@ -184,7 +186,7 @@ IPS:
 
 The IPS feature is fairly new, still in beta. I briefly tried it for few days (while my parents were visiting us). soon after I enabled it, I was flooded with alerts saying my old man’s tablet has got some trojan horse and it is attacking other devices out on the Internet. During the same timeframe, I started losing Internet connections at night, because the this Security Gateway device has stopped responding. This really pissed me off because I use Google home speakers as alarm clocks. No Internet means no alarm clock. I learned it the hard way because the alarm didn’t go off, and I was late for work. I also noticed that copying large files between VLANs is really slow. I’m talking about less than 4 mbps. Once I disabled it, everything went back to normal. The incident related to my old man’s tablet triggered me to create an isolated guest WiFi network so I can apply different policies to it.
 
-<strong>8. Unifi UVC-NVR-2TB Network Video Recorder</strong>
+**8. Unifi UVC-NVR-2TB Network Video Recorder**
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/NVR.jpg"><img style="display: inline; background-image: none;" title="NVR" src="https://blog.tyang.org/wp-content/uploads/2018/09/NVR_thumb.jpg" alt="NVR" width="464" height="253" border="0" /></a>
 
@@ -202,7 +204,7 @@ On the back of the device, there’s a VGA and HDMI port, so you can connect it 
 
 I can configure how the NVR starts recording (i.e. recording all the time, or only a movement is detected). I can also configure the retention period for the recordings. This device is not cheap, costed me $580. I guess it’s because of the 2TB SSD inside the device.
 
-<strong>9. Unifi UVC-G3 POE Security Cameras x6</strong>
+**9. Unifi UVC-G3 POE Security Cameras x6**
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/UVC-G3_Right_Angled.jpg"><img style="display: inline; background-image: none;" title="UVC-G3_Right_Angled" src="https://blog.tyang.org/wp-content/uploads/2018/09/UVC-G3_Right_Angled_thumb.jpg" alt="UVC-G3_Right_Angled" width="338" height="257" border="0" /></a>
 
@@ -224,7 +226,7 @@ At night:
 
 Price-wise, these cameras are somewhere in the middle, around $230 each. there are more expensive ones from Ubiquiti (goes up to $450). I needed 6, and $450 each are too much for me. You can also get them in 5-packs. The 5-pack costs $1099. so I got a 5-pack, plus an individual one.
 
-<strong>10. Unifi UCG-G3 Camera LED Range Extender</strong>
+**10. Unifi UCG-G3 Camera LED Range Extender**
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/UVC_G3_LED_RING.jpg"><img style="display: inline; background-image: none;" title="UVC_G3_LED_RING" src="https://blog.tyang.org/wp-content/uploads/2018/09/UVC_G3_LED_RING_thumb.jpg" alt="UVC_G3_LED_RING" width="219" height="457" border="0" /></a>
 
@@ -245,7 +247,9 @@ Then, it is really hard to clip the extender to the camera. I left them to my el
 Also the mini-USB connector to the camera is supposed to be sealed by a piece of rubber. The rubber does not seal properly. I can still see a gap. this could cause problems over time because they are being used outdoor, water may go in, and rubber doesn’t last too long in the sun! Therefore my electrician and I have duct taped all the cameras, so the rubber and the connector is not exposed to the bad weather conditions. I hope this is something Ubiquiti could address in any future models.
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/09/IMG_20180921_175721.jpg"><img style="display: inline; background-image: none;" title="IMG_20180921_175721" src="https://blog.tyang.org/wp-content/uploads/2018/09/IMG_20180921_175721_thumb.jpg" alt="IMG_20180921_175721" width="595" height="447" border="0" /></a>
-<h2>Conclusion</h2>
+
+## Conclusion
+
 This concludes the part 1 of this blog series. Unifi devices are not cheap comparing to all other consumer grade products. But in my opinion, they are well worth the investment. I have done a lot of research before purchasing all these gears. Microsoft MVP Troy Hunt has written several awesome posts on Ubiquiti products, these posts have helped me a lot during my research. You can find them here: <a title="https://www.troyhunt.com/tag/ubiquiti/" href="https://www.troyhunt.com/tag/ubiquiti/">https://www.troyhunt.com/tag/ubiquiti/</a>.
 
 I will dedicate Part 2 to my another favourite brand: Xiaomi. stay tuned.

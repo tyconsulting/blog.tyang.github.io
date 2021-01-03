@@ -31,18 +31,18 @@ Executing Unsigned runbook:
 
 I will not repeat how to sign runbooks and configure Hybrid Workers since it’s already documented in the article listed above. My intention is to share some gotcha and recommendations here.
 
-<strong>01. Do not install the private key of the code-signing cert to the hybrid workers.</strong>
+**01. Do not install the private key of the code-signing cert to the hybrid workers.**
 
 The Hybrid Workers only need the public key of the certs, so only import the .cer file to the cert store. Although it works, but do not import the .pfx file into the hybrid worker servers. This is more secure – people will not be able to export your code-signing cert from your Hybrid Workers, then sign runbooks using the exported cert, and you don’t have to give the entire cert to your server admins who’s responsibility is installing Hybrid Worker servers, not signing code.
 
-<strong>02. Do not try to modify the runbook in the portal</strong>
+**02. Do not try to modify the runbook in the portal**
 
 Any modifications you have done in the portal would void the signature, as the result, the runbook will not run on the Hybrid Workers after the modification. When the code is signed, there’s an empty line at the end of the script after the signature. if you remove the line, the runbook will not run again. so be VERY careful when handling the signed runbooks. This has happened to me before, it took me long time to figure out what happened.
 
-<strong>03. Do not store the signing certificates in Azure</strong>
+**03. Do not store the signing certificates in Azure**
 
 There are several places you can store certificates in your Azure subscriptions: i.e. in an Azure Key Vault, or as a certificate asset in your Automation Account. If you are concerned about running malicious code after your subscription is compromised, do not place the signing cert in a place where the bad guys can easily get to. So, keep the cert in a safe location, outside of your Azure subscriptions.
 
-<strong>Conclusion</strong>
+**Conclusion**
 
 The enforcement of code signing for Hybrid Worker provides a great control over only allowing genuine code to be executed in your on-premises network. You can also considering integrate the code-signing process in your CICD pipeline, which automate the signing process after the code has been reviewed (part of pull request merging into the branch that your pipeline is targeting), and tested (i.e. using Pester and PSScriptAnalyzer to make sure there are no potential risks in your code).

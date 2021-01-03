@@ -17,27 +17,26 @@ It has been a while since my last blog post. There were a lot going on outside o
 Few weeks ago, I had to write several custom Azure Policy definitions for a customer. One of them is to restrict Public IPs being provisioned for VMs in particular resource groups. I found a similar definition from the Azure Policy GitHub repo that restrict PIP except for one subnet (<a title="https://github.com/Azure/azure-policy/tree/master/samples/Network/no-public-ip-except-for-one-subnet" href="https://github.com/Azure/azure-policy/tree/master/samples/Network/no-public-ip-except-for-one-subnet">https://github.com/Azure/azure-policy/tree/master/samples/Network/no-public-ip-except-for-one-subnet</a>). I removed the subnet component from this example, and made it to restrict PIP being associated to a NIC:
 
 Here’s the policy definition:
+
 ```json
 "policyRule": {
-	"if": {
-		"allOf": [
-			{
-				"field": "type",
-				"equals": "Microsoft.Network/networkInterfaces"
-			},
-			{
-				"field": "Microsoft.Network/networkInterfaces/ipconfigurations[*].publicIpAddress.id",
-				"exists": true
-			}
-		]
-	},
-	"then": {
-		"effect": "deny"
-	}
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Network/networkInterfaces"
+      },
+      {
+        "field": "Microsoft.Network/networkInterfaces/ipconfigurations[*].publicIpAddress.id",
+        "exists": true
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
 }
-
 ```
-&nbsp;
 
 It is located in my GitHub repo, where you can download or deploy directly to your environment via Azure portal:<a title="https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/restrict-public-ips" href="https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/restrict-public-ips">https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/restrict-public-ips</a>
 

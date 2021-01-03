@@ -20,11 +20,48 @@ Now that I’m somewhat recharged, I will start working on the backlog of these 
 
 Basically, there’s an open REST endpoint you can hit to get the AAD tenant information. This end point is:
 
-https://login.windows.net/<strong>&lt;Tenant Id or Tenant Name&gt;</strong>/.well-known/openid-configuration
+https://login.windows.net/**\<Tenant Id or Tenant Name\>**/.well-known/openid-configuration
 
-I have wrapped this into a PowerShell function:
+I have wrapped this into a [PowerShell function](https://gist.github.com/tyconsulting/7c313dc98947f0e413cf69b0b2321013):
 
-https://gist.github.com/tyconsulting/7c313dc98947f0e413cf69b0b2321013
+```powershell
+Function Get-AADTenantConfiguration
+{
+  [CmdletBinding()]
+  [OutputType([string])]
+  PARAM (
+    [Parameter(ParameterSetName = 'ByTenantId', Position=0,Mandatory=$true)]
+    [ValidateScript({
+      try 
+      {
+        [System.Guid]::Parse($_) | Out-Null
+        $true
+      } 
+      catch 
+      {
+        $false
+      }
+    })]
+    [Alias('tID')]
+    [String]$TenantID,
+
+    [Parameter(ParameterSetName = 'ByTenantName', Position=1,Mandatory=$true)][Alias('cred')]
+    [ValidateNotNullOrEmpty()]
+    [String]
+    $TenantName
+  )
+  
+  if ($PScmdlet.ParameterSetName -eq 'ByTenantId')
+  {
+    $URI = "https://login.windows.net/$TenantId/.well-known/openid-configuration"
+  } else {
+    $URI = "https://login.windows.net/$TenantName/.well-known/openid-configuration"
+  }
+  $Response = Invoke-WebRequest -UseBasicParsing -Uri $URI -Method Get
+  $json = ConvertFrom-Json -InputObject $Response.Content
+  $json
+}
+```
 
 You can pass either the Tenant ID into the function (to get other common configuration such as AAD oAuth token endpoint, etc.) or using Tenant Name if you are not sure what the Tenant ID is and you wish to retrieve it.
 
@@ -33,8 +70,9 @@ For example, if I want to retrieve the common configuration for Microsoft’s ow
 <a href="https://blog.tyang.org/wp-content/uploads/2018/01/image.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/01/image_thumb.png" alt="image" width="982" height="722" border="0" /></a>
 
 The AAD tenant ID is part of several endpoint URIs returned from your request (i.e. in token_endpoint URI as shown above). you can easily retrieve it in PowerShell. i.e.
-<pre class="lang:ps decode:true ">(Get-AADTenantConfiguration -TenantName microsoft.onmicrosoft.com).token_endpoint.split('/')[3]
+
+```powershell
+(Get-AADTenantConfiguration -TenantName microsoft.onmicrosoft.com).token_endpoint.split('/')[3]
 ```
-&nbsp;
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/01/image-1.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/01/image_thumb-1.png" alt="image" width="971" height="72" border="0" /></a>

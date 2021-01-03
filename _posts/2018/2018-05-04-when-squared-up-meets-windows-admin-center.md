@@ -17,11 +17,11 @@ I have been in the private preview for Project Honolulu (now called Windows Admi
 
 I was really excited when Squared Up asked me to test their integration with Windows Admin Center couple of weeks ago. To me, it makes perfect sense if you have already deployed Windows Admin Center and are also using SCOM and Squared Up. Since Windows Admin Center is designed to replace various administrative tools for Windows, Hyper-V, failover clusters, etc., and SCOM has always been an enterprise monitoring and operational tool, the Squared Up Windows Admin Center extension surfaces the SCOM data and available tasks in the Windows Admin Center portal.
 
-<strong>Squared Up Extension:</strong>
+**Squared Up Extension:**
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/05/image.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/05/image_thumb.png" alt="image" width="1002" height="511" border="0" /></a>
 
-<strong>Native Windows Admin Center Overview Page:</strong>
+**Native Windows Admin Center Overview Page:**
 
 <a href="https://blog.tyang.org/wp-content/uploads/2018/05/image-1.png"><img style="display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2018/05/image_thumb-1.png" alt="image" width="1002" height="511" border="0" /></a>
 
