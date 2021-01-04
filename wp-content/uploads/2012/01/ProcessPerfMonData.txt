@@ -1,0 +1,100 @@
+'===================================================================================
+' AUTHOR:         	Tao Yang
+' Script Name:    	ProcessPerfMonData.vbs
+' DATE:           	23/01/2012
+' Version:        	1.0
+' COMMENT:			Script to collect perfmon data for specific service
+'===================================================================================
+Option Explicit
+SetLocale("en-us")
+Dim ServiceName, objWMIService,colService, objService, ComputerName
+Dim ProcessID, ProcessName, colProcess, objProcess, colPerfData, objPerfData
+Dim ElapsedTime, PercentProcessorTime, PercentUserTime, ThreadCount, PageFaultsPersec, IOReadBytesPersec, IOWriteBytesPersec
+Dim oAPI, oBag, oInst
+ServiceName = WScript.Arguments.Item(0)
+ComputerName = Wscript.Arguments.Item(1)
+Set oAPI = CreateObject("MOM.ScriptAPI")
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\" & ComputerName &"\root\cimv2")
+Set colService = objWMIService.ExecQuery("Select * from Win32_Service Where Name = '" + ServiceName + "'")
+
+For Each objService in colService
+	ProcessID = objService.ProcessID
+Next
+
+If ProcessID <> 0 THEN
+	Set colProcess = objWMIService.ExecQuery("Select * from Win32_Process Where ProcessID = " & ProcessID)
+	For Each objProcess in colProcess
+		ProcessName = objProcess.Name
+	Next
+	Set colPerfData = objWMIService.ExecQuery("Select * from Win32_PerfFormattedData_PerfProc_Process Where IDProcess = " & ProcessID)
+	For Each objPerfData in colPerfData
+		ElapsedTime = objPerfData.ElapsedTime
+		PercentProcessorTime = objPerfData.PercentProcessorTime
+		PercentUserTime = objPerfData.PercentUserTime
+		ThreadCount = objPerfData.ThreadCount
+		PageFaultsPersec = objPerfData.PageFaultsPersec
+		IOReadBytesPersec = objPerfData.IOReadBytesPersec
+		IOWriteBytesPersec = objPerfData.IOWriteBytesPersec
+	Next
+	'Elapsed Time
+	Set oBag = oAPI.CreatePropertyBag()
+	oBag.AddValue "Object", "Process"
+	oBag.AddValue "Instance", ServiceName
+	oBag.AddValue "Counter", "Elapsed Time"
+	oBag.AddValue "Value", ElapsedTime
+	oAPI.AddItem(oBag)
+	
+	'Percent Processor Time
+	Set oBag = oAPI.CreatePropertyBag()
+	oBag.AddValue "Object", "Process"
+	oBag.AddValue "Instance", ServiceName
+	oBag.AddValue "Counter", "% Processor Time"
+	oBag.AddValue "Value", PercentProcessorTime
+	oAPI.AddItem(oBag)
+	
+	'Percent User Time
+	Set oBag = oAPI.CreatePropertyBag()
+	oBag.AddValue "Object", "Process"
+	oBag.AddValue "Instance", ServiceName
+	oBag.AddValue "Counter", "% User Time"
+	oBag.AddValue "Value", PercentUserTime
+	oAPI.AddItem(oBag)
+	
+	'Thread Count
+	Set oBag = oAPI.CreatePropertyBag()
+	oBag.AddValue "Object", "Process"
+	oBag.AddValue "Instance", ServiceName
+	oBag.AddValue "Counter", "Thread Count"
+	oBag.AddValue "Value", ThreadCount
+	oAPI.AddItem(oBag)
+	
+	'Page Faults/Sec
+	Set oBag = oAPI.CreatePropertyBag()
+	oBag.AddValue "Object", "Process"
+	oBag.AddValue "Instance", ServiceName
+	oBag.AddValue "Counter", "Page Faults/sec"
+	oBag.AddValue "Value", PageFaultsPersec
+	oAPI.AddItem(oBag)	
+	
+	'IO Read Bytes/sec
+	Set oBag = oAPI.CreatePropertyBag()
+	oBag.AddValue "Object", "Process"
+	oBag.AddValue "Instance", ServiceName
+	oBag.AddValue "Counter", "IO Read Bytes/sec"
+	oBag.AddValue "Value", IOReadBytesPersec
+	oAPI.AddItem(oBag)
+	
+	'IO Write Bytes/sec
+	Set oBag = oAPI.CreatePropertyBag()
+	oBag.AddValue "Object", "Process"
+	oBag.AddValue "Instance", ServiceName
+	oBag.AddValue "Counter", "IO Write Bytes/sec"
+	oBag.AddValue "Value", IOWriteBytesPersec
+	oAPI.AddItem(oBag)
+ELSE
+	'Return an empty property bag
+	Set oBag = oAPI.CreatePropertyBag()
+	oAPI.AddItem(oBag)
+END IF
+oAPI.ReturnItems

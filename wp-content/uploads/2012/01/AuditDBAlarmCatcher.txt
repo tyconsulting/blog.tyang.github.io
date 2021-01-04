@@ -1,0 +1,76 @@
+﻿#-----------------------------------
+#alarms capture via AuditDB
+#Name:		AuditDBAlarmCatcher.PS1
+#Param 0:	SQL Database Instance Name
+#Param 2:	Database name
+#Param 2:	The inteval in seconds
+#Author:	Tao Yang
+#Date:		07/12/2011
+#-----------------------------------
+
+param([string]$SQLInstance,[String]$Database,[Int]$Interval)
+$EVENT_TYPE_ERROR = 1
+$EVENT_TYPE_WARNING = 2
+$EVENT_TYPE_INFORMATION = 4
+
+Function Get-LocalTime($UTCTime)
+{
+	$strCurrentTimeZone = (Get-WmiObject win32_timezone).StandardName
+	$TZ = [System.TimeZoneInfo]::FindSystemTimeZoneById($strCurrentTimeZone)
+	$LocalTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($UTCTime, $TZ)
+	Return $LocalTime
+}
+
+$oAPI = New-Object -ComObject "MOM.ScriptAPI"
+$oBag = $oAPI.CreatePropertyBag()
+$strServer = ".\$SQLInstance"
+
+$ADOCon = New-Object -ComObject "ADODB.Connection"
+$oResults = New-Object -ComObject "ADODB.Recordset"
+$adOpenStatic = 3
+$adLockOptimistic = 3
+$ADOCon.Provider = "sqloledb"
+$ADOCon.ConnectionTimeout = 60
+$nowInUTC = (Get-Date).ToUniversalTime()
+$StartTime = $nowInUTC.AddSeconds(-$Interval)
+$conString = "Server=$strServer;Database=$Database;Integrated Security=SSPI"
+$strQuery = "Select * from V_Audit Where EventTypeCaption LIKE 'Alarm triggered' AND EventDate &gt;= '$StartTime'"
+$ADOCon.Open($conString)
+$oResults.Open($strQuery, $ADOCon, $adOpenStatic, $adLockOptimistic)
+$oBag.AddValue('Interval', $Interval)
+If (!$oResults.EOF)
+{
+		If (!([appdomain]::currentdomain.getassemblies() | Where-Object {$_.FullName -ieq "system.core"}))
+	{
+	                Try {
+	                                Write-Host "Loading .NET DLL into Powershell..." -ForegroundColor Green
+	                                [Void][System.Reflection.Assembly]::LoadWithPartialName("System.Core")
+	                } Catch {
+	                                #We cannot use Write-Error cmdlet here because $ErrorActionPreference is set to "SilentlyContinue" so it won't display on the screen.
+	                                Write-Host "Unable to load .NET Framework into Powershell, please make sure it is installed!" -foregroundColor Red
+	                                Exit
+	                                }
+	}
+	$oBag.AddValue('GenerateAlert', 'True')
+	$arrLogEntries = @()
+	$oResults.MoveFirst()
+	Do {
+		$EventDate = $oResults.Fields.Item("EventDate").Value
+		$EventDate = Get-LocalTime $EventDate
+		$Description = $oResults.Fields.Item("Description").Value
+		$arrLogEntries += "- $EventDate`: $Description"
+		$oResults.MoveNext()
+	} until ($oResults.EOF)
+	$LogDetail = [System.String]::Join("&#13;", $arrLogEntries)
+	$intEntryCount = $arrLogEntries.count
+	Remove-Variable arrLogEntries
+} else {
+	$oBag.AddValue('GenerateAlert', 'False')
+	$intEntryCount = 0
+}
+$oResults.Close()
+$ADOCon.Close()
+
+$oBag.AddValue('LogEntry', $LogDetail)
+$oBag.AddValue('LogEntryCount', $intEntryCount)
+$oBag
