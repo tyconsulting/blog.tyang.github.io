@@ -109,16 +109,16 @@ author:
       # url: "https://www.tyconsulting.com.au"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      #url: "https://twitter.com/MrTaoYang"
+      url: "https://twitter.com/MrTaoYang"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://www.facebook.com/TY-Consulting-Pty-Ltd-1789941011250079"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      #url: "https://github.com/tyconsulting"
+      url: "https://github.com/tyconsulting"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin-in"
-      #url: "https://www.linkedin.com/in/tao-yang-988325a"
+      url: "https://www.linkedin.com/in/tao-yang-988325a"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
@@ -297,5 +297,5 @@ defaults:
       share: true
       related: true
       sidebar:
-        - text: "[![NiCE](/assets/sponsors/NiCE-Blog-Ads-365Monitoring-220x250-2020Q3-Animated.gif)](https://www.nice.de/)"
-        - text: "[![GripMatix](/assets/sponsors/MetrixInsight_Ad.jpg)](https://www.gripmatix.com/gripmatix-citrix-sbc-vdi-scom-management-packs)"
+        - text: "[![NiCE](/assets/sponsors/Nice.png)](https://www.nice.de/nice-active-365-monitor-for-azure/)"
+        - text: "[![GripMatix](/assets/sponsors/MetrixInsight.png)](https://www.gripmatix.com/gripmatix-citrix-sbc-vdi-scom-management-packs)"
