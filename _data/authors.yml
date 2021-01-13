@@ -2,7 +2,7 @@ Tao Yang:
   name             : "Tao Yang"
   avatar           : "/assets/avatar/avatar.jpeg"
   bio              : "I am a Microsoft Azure MVP based in Melbourne, Australia."
-  location         : "Melbourne Australia"
+  location         : 
   email            : 
   links:
     - label: "TY Consulting"
@@ -10,13 +10,13 @@ Tao Yang:
       # url: "https://www.tyconsulting.com.au"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/MrTaoYang"
+      #url: "https://twitter.com/MrTaoYang"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/tyconsulting"
+      #url: "https://github.com/tyconsulting"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin-in"
-      url: "https://www.linkedin.com/in/tao-yang-988325a"
+      #url: "https://www.linkedin.com/in/tao-yang-988325a"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://www.facebook.com/TY-Consulting-Pty-Ltd-1789941011250079"
