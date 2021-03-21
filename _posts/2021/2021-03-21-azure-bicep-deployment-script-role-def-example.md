@@ -49,6 +49,7 @@ To achieve what I need to do, I must use a subscription level template with nest
 2. I need to use the output of the role definition discovery deployment script as the conditions for the role definition and the role update deployment scripts. Since I cannot directly use the output of a resource in the condition for another resource because the outputs only becomes available during run time and this is not supported by ARM templates, I had to use nested templates so I can pass the discovery script output as an input parameter in other nested templates.
 
 As you can imagine, this template can be really complicated to develop using ARM template. Luckily now that with the support of modules in Bicep, I can split them into different bicep files, and each nested template becomes a module in the main Bicep template. The overall authoring experience has become a lot more pleasant. My [main.bicep](https://github.com/tyconsulting/BlogPosts/blob/master/Azure-Bicep/role.definitions/main.bicep) file has only 70 lines:
+
 ![](../../../../assets/images/2021/03/image1.png)
 
 The 1st deployment script (for existing role discovery) is defined in [role-discovery.bicep](https://github.com/tyconsulting/BlogPosts/blob/master/Azure-Bicep/role.definitions/role-discovery.bicep. ). 
