@@ -3,7 +3,7 @@ title: Azure Bicep, Deployment Script and Role Definition Code Example
 date: 2021-03-21 16:00
 author: Tao Yang
 permalink: /2021/03/21/azure-bicep-deployment-script-role-def-example/
-summary: 
+summary: Azure Bicep Deployment Script code example for Azure Role Definitions
 categories:
   - Azure
 tags:
