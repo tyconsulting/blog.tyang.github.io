@@ -4,7 +4,7 @@ title: 'PowerShell Script: Remove Obsolete References from Unsealed OpsMgr Manag
 date: 2014-06-24T16:45:04+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2849
+guid: https://blog.tyang.org/?p=2849
 permalink: /2014/06/24/powershell-script-remove-obsolete-references-unsealed-opsmgr-management-packs/
 categories:
   - PowerShell
@@ -58,21 +58,21 @@ You can run this script on any computers have OpsMgr 2012 console /agent / manag
 
 <strong>get-help .\MPReferencesCleanUp.ps1 –full</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/SNAGHTML436c9dc6.png"><img style="display: inline; border: 0px;" title="SNAGHTML436c9dc6" src="http://blog.tyang.org/wp-content/uploads/2014/06/SNAGHTML436c9dc6_thumb.png" alt="SNAGHTML436c9dc6" width="580" height="448" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/SNAGHTML436c9dc6.png"><img style="display: inline; border: 0px;" title="SNAGHTML436c9dc6" src="https://blog.tyang.org/wp-content/uploads/2014/06/SNAGHTML436c9dc6_thumb.png" alt="SNAGHTML436c9dc6" width="580" height="448" border="0" /></a>
 
 <strong>Examples:</strong>
 
 <strong>#1. Test run using -WhatIf: </strong>.\MPReferencesCleanUp.ps1 -ManagementServer "OPSMGRMS01" –BackupBeforeModify –BackupLocation "C:\Temp" -IncrementVersion –WhatIf
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image4.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb4.png" alt="image" width="580" height="624" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image4.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb4.png" alt="image" width="580" height="624" border="0" /></a>
 
 <strong>#2. Real run without –WhatIf:</strong> .\MPReferencesCleanUp.ps1 -ManagementServer "OPSMGRMS01" –BackupBeforeModify –BackupLocation "C:\Temp" –IncrementVersion
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image5.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb5.png" alt="image" width="580" height="513" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image5.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb5.png" alt="image" width="580" height="513" border="0" /></a>
 
 <strong>Download</strong>
 
-The script can be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2014/06/MPReferencesCleanUp.zip">HERE</a>.
+The script can be downloaded <a href="https://blog.tyang.org/wp-content/uploads/2014/06/MPReferencesCleanUp.zip">HERE</a>.
 
 <strong>What’s next?</strong>
 
