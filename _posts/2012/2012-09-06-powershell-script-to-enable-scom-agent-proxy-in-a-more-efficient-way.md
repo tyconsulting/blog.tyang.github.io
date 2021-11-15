@@ -4,7 +4,7 @@ title: PowerShell Script To Enable SCOM Agent Proxy in a More Efficient Way
 date: 2012-09-06T23:56:57+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1412
+guid: https://blog.tyang.org/?p=1412
 permalink: /2012/09/06/powershell-script-to-enable-scom-agent-proxy-in-a-more-efficient-way/
 categories:
   - PowerShell
@@ -17,7 +17,7 @@ if you search on how to enable SCOM agent proxy for all your SCOM agents using P
 
 However, no matter if the script uses SCOM 2007 PowerShell Snap-in, or SCOM 2012 PowerShell module, or even SCOM SDK, there is one limitation: the "ProxyingEnabled" property of the agent class is not one of the search criteria that you can use when retrieving the agent:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/09/image2.png"><img style="padding-left: 0px;padding-right: 0px;padding-top: 0px;border: 0px" src="http://blog.tyang.org/wp-content/uploads/2012/09/image_thumb2.png" alt="image" width="512" height="279" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/09/image2.png"><img style="padding-left: 0px;padding-right: 0px;padding-top: 0px;border: 0px" src="https://blog.tyang.org/wp-content/uploads/2012/09/image_thumb2.png" alt="image" width="512" height="279" border="0" /></a>
 
 If you use the SCOM SDK, there are only 4 property names that can be used in the search criteria expression:
 <ul>
@@ -86,17 +86,17 @@ Syntax:
 
 To run it on a SCOM management server, no other parameters need to be specified.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/09/image3.png"><img style="padding-left: 0px;padding-right: 0px;padding-top: 0px;border: 0px" src="http://blog.tyang.org/wp-content/uploads/2012/09/image_thumb3.png" alt="image" width="522" height="84" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/09/image3.png"><img style="padding-left: 0px;padding-right: 0px;padding-top: 0px;border: 0px" src="https://blog.tyang.org/wp-content/uploads/2012/09/image_thumb3.png" alt="image" width="522" height="84" border="0" /></a>
 
 To run it on a SCOM agent, you will need to specify a management server in the management group that you wish to connect to (does not have to be RMS or RMSE)
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/09/image4.png"><img style="padding-left: 0px;padding-right: 0px;padding-top: 0px;border: 0px" src="http://blog.tyang.org/wp-content/uploads/2012/09/image_thumb4.png" alt="image" width="580" height="93" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/09/image4.png"><img style="padding-left: 0px;padding-right: 0px;padding-top: 0px;border: 0px" src="https://blog.tyang.org/wp-content/uploads/2012/09/image_thumb4.png" alt="image" width="580" height="93" border="0" /></a>
 
 Additionally, the default SQL query timeout is set to 120 seconds, you can specify a different value by using the<strong> –SQLQueryTimeout</strong> parameter
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/09/image5.png"><img style="padding-left: 0px;padding-right: 0px;padding-top: 0px;border: 0px" src="http://blog.tyang.org/wp-content/uploads/2012/09/image_thumb5.png" alt="image" width="580" height="93" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/09/image5.png"><img style="padding-left: 0px;padding-right: 0px;padding-top: 0px;border: 0px" src="https://blog.tyang.org/wp-content/uploads/2012/09/image_thumb5.png" alt="image" width="580" height="93" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/09/Enable-AgentProxy-v2.5.zip">DOWNLOAD Enable-AgentProxy.ps1</a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/09/Enable-AgentProxy-v2.5.zip">DOWNLOAD Enable-AgentProxy.ps1</a>
 
 By the way, I also tried to run below SQL command to directly change the ProxyingEnabled attribute in the database (similar to <a href="http://blogs.technet.com/b/kevinholman/archive/2010/02/20/how-to-get-your-agents-back-to-remotely-manageable-in-opsmgr-2007-r2.aspx">Kevin Holman’s query to change all agents to remote manageable</a>):
 

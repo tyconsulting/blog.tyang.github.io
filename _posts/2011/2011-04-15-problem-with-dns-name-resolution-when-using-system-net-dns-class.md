@@ -4,7 +4,7 @@ title: Problem with DNS name resolution when using System.Net.DNS class
 date: 2011-04-15T22:51:00+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=435
+guid: https://blog.tyang.org/?p=435
 permalink: /2011/04/15/problem-with-dns-name-resolution-when-using-system-net-dns-class/
 categories:
   - DNS
@@ -20,11 +20,11 @@ I noticed when I’m using System.Net.DNS to perform reverse lookup (GetHostByAd
 
 When the machine is powered off, GetHostByAddress method is unable to resolve the IP address to it’s name (Which is desired result because there is no PTR record in reverse lookup zone):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/04/image3.png"><img style="padding-right: 0px; display: inline; padding-left: 0px; background-image: none; padding-top: 0px; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/04/image3_thumb.png" border="0" alt="image" width="832" height="377" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/04/image3.png"><img style="padding-right: 0px; display: inline; padding-left: 0px; background-image: none; padding-top: 0px; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/04/image3_thumb.png" border="0" alt="image" width="832" height="377" /></a>
 
 I then powered on the machine (Jump01), now I get different result. the IP address has been resolved to the host name:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/04/image11.png"><img style="padding-right: 0px; display: inline; padding-left: 0px; background-image: none; padding-top: 0px; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/04/image11_thumb.png" border="0" alt="image" width="833" height="336" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/04/image11.png"><img style="padding-right: 0px; display: inline; padding-left: 0px; background-image: none; padding-top: 0px; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/04/image11_thumb.png" border="0" alt="image" width="833" height="336" /></a>
 
 Because of the inconsistent result, I am not able to use System.Net.DNS class (even there are few other methods in this class, but the results are all the same).
 
@@ -58,7 +58,7 @@ Reason: this works great and it’s easy to use. can perform reverse lookup usin
 
 At the last, I found a freeware called <a href="http://www.simpledns.com/dns-client-lib.aspx">JHSoftware.DnsClient</a> and it solved my problem!
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/04/image15.png"><img style="padding-right: 0px; display: inline; padding-left: 0px; background-image: none; padding-top: 0px; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/04/image15_thumb.png" border="0" alt="image" width="803" height="268" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/04/image15.png"><img style="padding-right: 0px; display: inline; padding-left: 0px; background-image: none; padding-top: 0px; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/04/image15_thumb.png" border="0" alt="image" width="803" height="268" /></a>
 
 As shown above
 
@@ -84,4 +84,4 @@ Try {[JHSoftware.DNSClient]::LookupReverse("192.168.1.26")} Catch {"PTR Record n
 
 5. use same method (LookupReverse) to perform reverse lookup on one of my SCCM server, it successfully returned the FQDN.
 
-This is to do with my DNS record check which is part of my <a href="http://blog.tyang.org/2011/03/30/powershell-script-sccm-health-check">SCCM Health Check script</a> that I posted in previously. I am rewriting the DNS records check in the script as it produces inaccurate result. I have already completed the ability of utilizing PowerShell Remoting to check inboxes backlogs as I mentioned in the previous post. I will post the updated SCCM Health Check script in the next few days.
+This is to do with my DNS record check which is part of my <a href="https://blog.tyang.org/2011/03/30/powershell-script-sccm-health-check">SCCM Health Check script</a> that I posted in previously. I am rewriting the DNS records check in the script as it produces inaccurate result. I have already completed the ability of utilizing PowerShell Remoting to check inboxes backlogs as I mentioned in the previous post. I will post the updated SCCM Health Check script in the next few days.

@@ -4,7 +4,7 @@ title: OpsMgr Weather Monitoring MP Updated
 date: 2013-03-16T21:06:33+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1792
+guid: https://blog.tyang.org/?p=1792
 permalink: /2013/03/16/opsmgr-weather-monitoring-mp-updated/
 categories:
   - SCOM
@@ -13,7 +13,7 @@ tags:
   - MP Authoring
   - SCOM
 ---
-I got an email from someone up in Sweden the other day in regards to the <a href="http://blog.tyang.org/2012/10/25/monitoring-weather-conditions-using-scom/">Weather Monitoring MP</a> that I released few months ago. I’ve been made aware that a negative temperature reading is being recorded as a positive value (i.e. –8 degrees is being collected as 8 degrees).
+I got an email from someone up in Sweden the other day in regards to the <a href="https://blog.tyang.org/2012/10/25/monitoring-weather-conditions-using-scom/">Weather Monitoring MP</a> that I released few months ago. I’ve been made aware that a negative temperature reading is being recorded as a positive value (i.e. –8 degrees is being collected as 8 degrees).
 
 First of all, apologies for this mistake. I wrote the PowerShell script for the probe action module back in July last year, when most of world was in summer. I didn’t even think about negative values and I couldn’t test it anyway…
 
@@ -32,10 +32,10 @@ Below is a list of bugs that are fixed in this release (1.0.1.0):
 
 I’ve updated below 4 temperature related performance views so they can display negative values:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/03/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/03/image_thumb15.png" width="270" height="199" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/03/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/03/image_thumb15.png" width="270" height="199" border="0" /></a>
 
 The Y-Axis range is set to –130 to 134 (degrees) for Imperial Unit (Fahrenheit) and –90 to 57 (degrees) for Metric Unit (Celsius). According to <a href="http://en.wikipedia.org/wiki/List_of_weather_records">Wikipedia</a>, these figures are the highest and lowest temperature ever recorded on this plant. They can be customised by right clicking the view and choose "Personalize view…":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/03/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/03/image_thumb16.png" width="530" height="289" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/03/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/03/image_thumb16.png" width="530" height="289" border="0" /></a>
 
-the updated MP can be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2013/03/TYANG.Weather.Monitoring.v1.0.1.0.zip">HERE</a>. The download link from the <a href="http://blog.tyang.org/2012/10/25/monitoring-weather-conditions-using-scom/">original post</a> is also updated.
+the updated MP can be downloaded <a href="https://blog.tyang.org/wp-content/uploads/2013/03/TYANG.Weather.Monitoring.v1.0.1.0.zip">HERE</a>. The download link from the <a href="https://blog.tyang.org/2012/10/25/monitoring-weather-conditions-using-scom/">original post</a> is also updated.

@@ -4,7 +4,7 @@ title: Using SCOM PowerShell Snap-in and SDK client with a PowerShell Remote Ses
 date: 2012-05-09T22:11:10+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1219
+guid: https://blog.tyang.org/?p=1219
 permalink: /2012/05/09/using-scom-powershell-snap-in-and-sdk-client-with-a-powershell-remote-session/
 categories:
   - PowerShell
@@ -18,9 +18,9 @@ Recently, I’ve been working on a utility based on PowerShell scripts using Win
 
 So I did some testing to make sure my scripts disconnects from the RMS SDK service. I opened perfmon on RMS watching the "Client Connections" counter under OpsMgr SDK Service:
 
-![](http://blog.tyang.org/wp-content/uploads/2012/05/image2.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/05/image2.png)
 
-![](http://blog.tyang.org/wp-content/uploads/2012/05/image3.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/05/image3.png)
 
 and want to make sure the performance counter drops when the script is supposed to disconnect from SCOM management group. In my script, I use both the SCOM PowerShell Snap-in and the SCOM SDK, below is what the code looks like:
 ## SCOM PowerShell Snap-in
@@ -83,7 +83,7 @@ I couldn’t unload the SDK DLLs as I read it’s a limitation in .NET, the only
 
 Regardless which way I use to connect to SCOM (PowerShell Snap-in or SDK), the perf counter does not drop when I tried to disconnect using methods above. In fact, I could only get the counter drop when I close the Powershell console (or exit my GUI app which is just a pure Powershell script).
 
-![](http://blog.tyang.org/wp-content/uploads/2012/05/image4.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/05/image4.png)
 
 As shown above, notice that as soon as I exit PowerShell, the counter has dropped by 1.
 
@@ -119,7 +119,7 @@ I ran above code using an account that is a domain admin in my test environment 
 
 <span style="color: #ff0000;">The user does not have sufficient permission to perform the operation.</span>
 
-![](http://blog.tyang.org/wp-content/uploads/2012/05/image5.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/05/image5.png)
 
 After some research, I realised that I have to use the CredSSP (Credential Security Support Provider) authentication to pass my credential from the local Powershell session to the PS Remoting session (in this case, also on my local machine). So I modified my script to use Credssp when creating the new PS Session:
 
@@ -130,7 +130,7 @@ $NewSession = new-pssession -ComputerName $env:COMPUTERNAME -Authentication Cred
 
 It turned out, after the modification, the code still would not work:
 
-![](http://blog.tyang.org/wp-content/uploads/2012/05/image6.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/05/image6.png)
 
 I then found that I will also have to configure the remote session to pass my credential to the remote server again - in this case, the SDK service in SCOM RMS (second hop). so my credential will be passed from **Local PowerShell session –> PS remote session on the local computer –> SCOM RMS SDK Service**.
 
@@ -157,15 +157,15 @@ Computer Configuration\Administrative Templtes\System\Credential Delegation\Allo
 * Set to Enabled
 * Add "WSMAN/<local computer name>" to the server list
 
-![](http://blog.tyang.org/wp-content/uploads/2012/05/image7.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/05/image7.png)
 
 Now, after I updated the group policy (gpupdate /force), the code should just work. As shown below, I have retrieved the agent information using SCOM Powershell Snap-in via a PS remote session.
 
-![](http://blog.tyang.org/wp-content/uploads/2012/05/image8.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/05/image8.png)
 
 And now if I take a look at the OpsMgr SDK Service "Client Connections" perf counter:
 
-![](http://blog.tyang.org/wp-content/uploads/2012/05/image9.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/05/image9.png)
 
 My script has connected to the SDK service for few seconds then disconnected!
 ## Conclusion

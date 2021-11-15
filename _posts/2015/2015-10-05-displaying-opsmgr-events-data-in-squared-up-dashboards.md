@@ -4,7 +4,7 @@ title: Displaying OpsMgr Events Data in Squared Up Dashboards
 date: 2015-10-05T15:02:22+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4721
+guid: https://blog.tyang.org/?p=4721
 permalink: /2015/10/05/displaying-opsmgr-events-data-in-squared-up-dashboards/
 categories:
   - SCOM
@@ -50,17 +50,17 @@ WHERE Evt.EventNumber = Place-Your-Event-Number-Here Order by DateTime desc
 
 As an example, I have created a Squared Up dashboard for Forefront Endpoint Protection (FEP) MP, where I used the SQL plugin to retrieve the recent 30 security events logged by the MP:
 
-![](http://blog.tyang.org/wp-content/uploads/2015/10/image11.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/10/image11.png)
 
 The result displayed by the SQL query matches the Event view shipped with the FEP MP:
 
-![](http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML87024d3.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML87024d3.png)
 
-![](http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML8711770.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML8711770.png)
 
 and I have used the Data Warehouse DB variable in the SQL plugin configuration:
 
-![](http://blog.tyang.org/wp-content/uploads/2015/10/image12.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/10/image12.png)
 
 You can download this dashboard from Squared Up’s community site: [https://community.squaredup.com/browse/download-info/forefront-endpoint-protection-2/](https://community.squaredup.com/browse/download-info/forefront-endpoint-protection-2/)
 

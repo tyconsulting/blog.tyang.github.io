@@ -4,7 +4,7 @@ title: 'Deploying OpsMgr 2012 R2 Agents Using ConfigMgr - Part 2'
 date: 2013-11-30T20:53:58+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2262
+guid: https://blog.tyang.org/?p=2262
 permalink: /2013/11/30/deploying-opsmgr-202-r2-agents-using-configmgr-part-2/
 categories:
   - SCCM
@@ -13,7 +13,7 @@ tags:
   - SCOM
   - SCOM Agent
 ---
-This is the 2nd part of 2-part blog series. Part 1 can be found <a title="Deploying OpsMgr 2012 R2 Agents Using ConfigMgr – Part 1" href="http://blog.tyang.org/2013/11/30/deploying-opsmgr-2012-r2-agents-using-configmgr-part-1/">HERE</a>.
+This is the 2nd part of 2-part blog series. Part 1 can be found <a title="Deploying OpsMgr 2012 R2 Agents Using ConfigMgr – Part 1" href="https://blog.tyang.org/2013/11/30/deploying-opsmgr-2012-r2-agents-using-configmgr-part-1/">HERE</a>.
 
 In Part 1, I went through the issues I had with deploying OpsMgr 2012 R2 agent via ConfigMgr 2007. In this article, I will go through the steps I took to deploy OpsMgr 2012 R2 agent using ConfigMgr 2012 Application model and Compliance settings (DCM).
 
@@ -27,7 +27,7 @@ Instead of creating multiple programs within one package for different managemen
 
 Because I only want to maintain one application in ConfigMgr for multiple OpsMgr management groups without creating complex global conditions, I have thrown ConfigMgr Compliance Settings (formally known as Desired Configuration Management or DCM) into the mix. The pre-requisite for tis approach is that the Compliance Settings need to be enabled for the ConfigMgr client. This can be done either on the default client setting or creating a custom client setting and deploy it a collection of clients:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23e4be6b.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML23e4be6b" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23e4be6b_thumb.png" alt="SNAGHTML23e4be6b" width="580" height="345" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23e4be6b.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML23e4be6b" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23e4be6b_thumb.png" alt="SNAGHTML23e4be6b" width="580" height="345" border="0" /></a>
 
 Basically, I can separate the OpsMgr agent deployment into 2 steps:
 <ol>
@@ -47,9 +47,9 @@ Firstly, I need to create 2 global conditions for the OpsMgr 2012 R2 agent appli
 </ul>
 As the name suggests, the "OS Architecture" Global condition detects the OS architecture using a VBScript which I wrote a long time ago and kept reusing it in many places.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23f734ad.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML23f734ad" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23f734ad_thumb.png" alt="SNAGHTML23f734ad" width="505" height="476" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23f734ad.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML23f734ad" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23f734ad_thumb.png" alt="SNAGHTML23f734ad" width="505" height="476" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23f7fe66.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML23f7fe66" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23f7fe66_thumb.png" alt="SNAGHTML23f7fe66" width="507" height="455" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23f7fe66.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML23f7fe66" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23f7fe66_thumb.png" alt="SNAGHTML23f7fe66" width="507" height="455" border="0" /></a>
 
 Here’s the script (so you can copy and paste):
 
@@ -81,15 +81,15 @@ Wscript.Echo OSArch
 
 I also created the second global condition called "Is OpsMgr or SCSM Management Server" to detect if the endpoint is an OpsMgr or SCSM management server. Because OpsMgr agent cannot be install on OpsMgr or Service Manager management servers, they need to be excluded by the application deployment types. This global condition is based on a registry key, if the key <strong>HKLM\SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Server Management Groups</strong> exists, the the client is indeed an OpsMgr or Service Manager management server:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23fccf8d.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML23fccf8d" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23fccf8d_thumb.png" alt="SNAGHTML23fccf8d" width="550" height="493" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23fccf8d.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML23fccf8d" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML23fccf8d_thumb.png" alt="SNAGHTML23fccf8d" width="550" height="493" border="0" /></a>
 
 Next step is to create the application for OpsMgr 2012 R2 Agent. the "Create Application Wizard" is very straight forward. simply select either the 64-bit or 32-bit MOMAGENT.MSI and the wizard will identify all required information from the MSI.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML240076ea.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML240076ea" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML240076ea_thumb.png" alt="SNAGHTML240076ea" width="580" height="395" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML240076ea.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML240076ea" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML240076ea_thumb.png" alt="SNAGHTML240076ea" width="580" height="395" border="0" /></a>
 
 I have changed the name of the application from "Microsoft Monitoring Agent" to "OpsMgr 2012 R2 agent" as I don’t expect every ConfigMgr operators in my company knows that Microsoft has renamed the OpsMgr agent in the 2012 R2 release.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image9.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb9.png" alt="image" width="580" height="476" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image9.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb9.png" alt="image" width="580" height="476" border="0" /></a>
 
 I have marked my modification in red. Please be aware that the default installation program <strong>MUST</strong> be changed to:
 
@@ -99,25 +99,25 @@ I have marked my modification in red. Please be aware that the default installat
 
 Once the application is created, I created another deployment type for the other OS architecture type. I also renamed both deployment type to reflect the OS architecture:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image10.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb10.png" alt="image" width="580" height="122" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image10.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb10.png" alt="image" width="580" height="122" border="0" /></a>
 
 Now I need to use the two global conditions I created earlier to define requirements for each deployment type.
 
 For 64-bit deployment type, OS Architecture must be equal to "64-bit" and the registry key defined in "Is OpsMgr or SCSM Management Server" must not exist:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML24120ed2.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML24120ed2" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML24120ed2_thumb.png" alt="SNAGHTML24120ed2" width="520" height="344" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML24120ed2.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML24120ed2" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML24120ed2_thumb.png" alt="SNAGHTML24120ed2" width="520" height="344" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2412e8b8.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML2412e8b8" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2412e8b8_thumb.png" alt="SNAGHTML2412e8b8" width="403" height="368" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2412e8b8.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML2412e8b8" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2412e8b8_thumb.png" alt="SNAGHTML2412e8b8" width="403" height="368" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2413c79e.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML2413c79e" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2413c79e_thumb.png" alt="SNAGHTML2413c79e" width="414" height="354" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2413c79e.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML2413c79e" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2413c79e_thumb.png" alt="SNAGHTML2413c79e" width="414" height="354" border="0" /></a>
 
 Same global conditions needs to apply to the 32-bit deployment type, except OS Architecture must equal to "32-bit"
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2415d9c5.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML2415d9c5" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2415d9c5_thumb.png" alt="SNAGHTML2415d9c5" width="467" height="326" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2415d9c5.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML2415d9c5" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2415d9c5_thumb.png" alt="SNAGHTML2415d9c5" width="467" height="326" border="0" /></a>
 
 Now, the application is setup. It can be deployed to a collection. this collection can include every machine needs to be monitored by OpsMgr, <strong>AS WELL AS</strong> OpsMgr and Service Manager management servers. The global conditions prevent the OpsMgr 2012 R2 Agent from installing on to the OpsMgr or Service Manager servers (even if it tries to install on the management servers, it’s going to fail anyway). The screenshot below indicates the 3 OpsMgr management servers in my lab environment have been excluded (I haven’t built Service Manager 2012 R2 in my lab yet so it’s not on the list):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML242a3b1d.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML242a3b1d" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML242a3b1d_thumb.png" alt="SNAGHTML242a3b1d" width="522" height="429" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML242a3b1d.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML242a3b1d" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML242a3b1d_thumb.png" alt="SNAGHTML242a3b1d" width="522" height="429" border="0" /></a>
 
 <strong>Note:</strong> If a server is in the process to be setup as OpsMgr or Service Manager management server (or Service Manager DW management server), and it is already managed by ConfigMgr, please make sure it is not a member of the collection which the OpsMgr 2012 R2 Agent is deploying to, otherwise OpsMgr 2012 R2 agent might be install prior to the installation of OpsMgr or Service Manager server components and it will cause the server components installation to fail.
 
@@ -133,11 +133,11 @@ Firstly, the Configuration Item needs to be created. I named in "OpsMgr 2012 R2 
 
 I’m creating a CI for Windows and it contains application settings:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image11.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb11.png" alt="image" width="580" height="450" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image11.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb11.png" alt="image" width="580" height="450" border="0" /></a>
 
 Next, for the application detection method, I use a VBScript to detect if the healthservice service is present.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image12.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb12.png" alt="image" width="580" height="513" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image12.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb12.png" alt="image" width="580" height="513" border="0" /></a>
 
 Here’s the script (OM12AgentAppCIDetect.vbs):
 
@@ -169,7 +169,7 @@ End If
 
 Next, create a new Setting for the CI:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML244c4828.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML244c4828" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML244c4828_thumb.png" alt="SNAGHTML244c4828" width="454" height="395" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML244c4828.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML244c4828" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML244c4828_thumb.png" alt="SNAGHTML244c4828" width="454" height="395" border="0" /></a>
 
 In the General tab, give setting a name, remember this is unique to the specific OpsMgr management group.
 
@@ -179,13 +179,13 @@ Data Type: String
 
 Then add the discovery script and remediation script:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image13.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb13.png" alt="image" width="507" height="478" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image13.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb13.png" alt="image" width="507" height="478" border="0" /></a>
 
 Both scripts are written using VBScript.
 
 Discovery Script (OM12AgentCIDiscovery):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image14.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb14.png" alt="image" width="484" height="490" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image14.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb14.png" alt="image" width="484" height="490" border="0" /></a>
 
 ```vb
 '==============================================
@@ -281,7 +281,7 @@ Please note in the beginning of the script, the variable "<strong>AgentMGRegKey<
 
 Remediation Script (OM12AgentRemediate.vbs):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image15.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb15.png" alt="image" width="506" height="510" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image15.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb15.png" alt="image" width="506" height="510" border="0" /></a>
 
 ```vb
 '=============================================
@@ -362,7 +362,7 @@ END IF
 
 Now, moving to the "Compliance Rule" tab and create a new compliance rule
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image16.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb16.png" alt="image" width="446" height="418" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image16.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb16.png" alt="image" width="446" height="418" border="0" /></a>
 
 The Selected Setting should be default to the setting just created.
 
@@ -376,35 +376,35 @@ Tick the "Report noncompliance if this setting instance is not found" check box.
 
 For "Noncompliance severity for reports", I selected "Critical with event"
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image17.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb17.png" alt="image" width="519" height="535" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image17.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb17.png" alt="image" width="519" height="535" border="0" /></a>
 
 I unselected "Windows Embedded" under Supported Platforms:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image18.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb18.png" alt="image" width="503" height="443" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image18.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb18.png" alt="image" width="503" height="443" border="0" /></a>
 
 Now that the Configuration Item is created, I need to create a Configuration Baseline.
 
 Again, in real life, I’d name the Configuration Baseline something relevant to the OpsMgr management group it represents. The creation of the Configuration Baseline is pretty straightforward, I need to add the CI I’ve just created to it.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image19.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb19.png" alt="image" width="496" height="449" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image19.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb19.png" alt="image" width="496" height="449" border="0" /></a>
 
 Now, the Configuration Baseline is created, I’ll create a collection that contains all the OpsMgr 2012 R2 agents that SHOULD report to this particular management group, and then deploy the baseline to this collection. When deploying the baseline, make sure the "Remediate noncompliant rules when supported" check box is selected.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image20.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb20.png" alt="image" width="544" height="549" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image20.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb20.png" alt="image" width="544" height="549" border="0" /></a>
 
 <span style="color: #ff0000;"><strong>Note:</strong></span> In real world, I would create a collection for the OpsMgr agent application deployment, and then create separate collections for each management groups for the Configuration Baslines deployments.
 
 This should be all it’s required. After the OpsMgr 2012 R2 Agent application has been deployed the the endpoint and the Compliance Baseline has arrived to the ConfigMgr client, in my lab, within few hours, the Compliance Baseline got evaluated automatically (during DCM evaluation cycle), and the OpsMgr 2012 R2 client is automatically configured to point to the appropriate management group. The Configuration Baseline should be shown as compliant in the ConfigMgr client:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image21.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb21.png" alt="image" width="373" height="445" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image21.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb21.png" alt="image" width="373" height="445" border="0" /></a>
 
 And when opening "Microsoft Monitoring Agent" in the Control Panel,
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML24773e15.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML24773e15" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML24773e15_thumb.png" alt="SNAGHTML24773e15" width="464" height="313" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML24773e15.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML24773e15" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML24773e15_thumb.png" alt="SNAGHTML24773e15" width="464" height="313" border="0" /></a>
 
 you should see the management group you’ve configured in the CI remediation script:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image22.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb22.png" alt="image" width="459" height="385" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image22.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb22.png" alt="image" width="459" height="385" border="0" /></a>
 
 If you want to test the Configuration Baseline, you can simply delete the management group from the Microsoft Monitoring Agent, and then click the "Evaluate" button in ConfigMgr client under "Configuration Tab". If everything is working as expected, the configuration baseline will show as compliant and the management group is added back to the Microsoft Monitoring Agent.
 
@@ -412,7 +412,7 @@ If you want to test the Configuration Baseline, you can simply delete the manage
 
 <strong><span style="color: #ff0000;">Note:</span></strong> Please also be aware of the security setting configured for the OpsMgr management group:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2480b666.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML2480b666" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2480b666_thumb.png" alt="SNAGHTML2480b666" width="487" height="332" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2480b666.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML2480b666" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML2480b666_thumb.png" alt="SNAGHTML2480b666" width="487" height="332" border="0" /></a>
 
 If the management group is configured to reject new manual agent installations, you will never see any newly installed & configured OpsMgr agents in the OpsMgr console. You need set it to either automatically approve or review manually installed agents.
 

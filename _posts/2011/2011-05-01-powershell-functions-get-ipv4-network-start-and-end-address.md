@@ -4,7 +4,7 @@ title: 'PowerShell Functions: Get IPV4 Network Start and End Address'
 date: 2011-05-01T18:19:47+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=462
+guid: https://blog.tyang.org/?p=462
 permalink: /2011/05/01/powershell-functions-get-ipv4-network-start-and-end-address/
 categories:
   - PowerShell
@@ -65,4 +65,4 @@ Return $EndIP
 
 **Examples:**
 
-![1](http://blog.tyang.org/wp-content/uploads/2011/05/image.png)
+![1](https://blog.tyang.org/wp-content/uploads/2011/05/image.png)

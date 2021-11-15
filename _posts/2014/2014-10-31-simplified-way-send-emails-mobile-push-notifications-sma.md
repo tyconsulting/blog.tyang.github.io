@@ -4,7 +4,7 @@ title: A Simplified Way to Send Emails and Mobile Push Notifications in SMA
 date: 2014-10-31T22:38:03+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3293
+guid: https://blog.tyang.org/?p=3293
 permalink: /2014/10/31/simplified-way-send-emails-mobile-push-notifications-sma/
 categories:
   - PowerShell
@@ -42,11 +42,11 @@ This module defines a connection type where can be used to save all SMTP related
 * Sender Address
 * UseSSL (Boolean)
 
-![](http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1ba0bfc7.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1ba0bfc7.png)
 
-![](http://blog.tyang.org/wp-content/uploads/2014/10/image12.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/10/image12.png)
 
-![](http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1ba1992f.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1ba1992f.png)
 
 This module also provides a PowerShell function called "Send-Email". Since when retrieving an automation connection in SMA, a hash table is returned, Not only you can pass individual SMTP parameters into the Send-Email function, you can also simply pass the SMA connection object that you have retrieved using "Get-AutomationConnection" cmdlet. for more information, please refer to the help topic of this function, and the sample runbook below.
 
@@ -60,9 +60,9 @@ This module provides a connection type called SMAAddressBook. It can be used lik
 * Prawl (iOS push notification) API Key (optional, encrypted)
 * NotifyMyWndowsPhone API Key (optional, encrypted)
 
-![](http://blog.tyang.org/wp-content/uploads/2014/10/image13.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/10/image13.png)
 
-![](http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1bb2b9d4.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1bb2b9d4.png)
 
 This module also provides a PowerShell function called Send-MobilePushNotification. It can be used to send push notification to either Prawl, NotifyMyAndroid or NotifyMyWindowsPhone.
 
@@ -95,21 +95,21 @@ As you can see from this sample, the runbook author does not need to know the SM
 
 After I executed this runbook, I received the notification via both Email and Android push notification:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1bb9521f.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML1bb9521f.png)
 
-![](http://blog.tyang.org/wp-content/uploads/2014/10/image14.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/10/image14.png)
 
 ## Download
 
 Please download from the download link below. Once downloaded, please import the zip files below into SMA:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/10/image15.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/10/image15.png)
 
-[Download Link](http://blog.tyang.org/wp-content/uploads/2014/12/SMANotificationModules.zip)
+[Download Link](https://blog.tyang.org/wp-content/uploads/2014/12/SMANotificationModules.zip)
 
 ## Related Posts
 
-[OpsMgr Alerts Push Notification to iOS (And Android, And Windows Phone) Devices](http://blog.tyang.org/2013/04/07/opsmgr-alerts-push-notification-to-ios-and-android-and-windows-phone-devices/)
+[OpsMgr Alerts Push Notification to iOS (And Android, And Windows Phone) Devices](https://blog.tyang.org/2013/04/07/opsmgr-alerts-push-notification-to-ios-and-android-and-windows-phone-devices/)
 
 [Authoring Integration Modules for SMA](http://blogs.technet.com/b/orchestrator/archive/2014/06/12/authoring-integration-modules-for-sma.aspx)
 

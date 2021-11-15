@@ -4,7 +4,7 @@ title: SharePointSDK PowerShell Module Updated to Version 2.1.0
 date: 2016-06-05T19:33:56+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5408
+guid: https://blog.tyang.org/?p=5408
 permalink: /2016/06/05/sharepointsdk-powershell-module-updated-to-version-2-1-0/
 categories:
   - Power BI
@@ -23,11 +23,11 @@ This new release includes the following updates:
 
 i.e. When retrieving the SharePoint list in previous versions using Get-SPList function, you will get this error:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/06/image.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/06/image_thumb.png" alt="image" width="665" height="62" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/06/image.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/06/image_thumb.png" alt="image" width="665" height="62" border="0" /></a>
 
 This error is fixed in version 2.1.0. now you will get a default view defined in the module:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/06/image-1.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/06/image_thumb-1.png" alt="image" width="675" height="57" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/06/image-1.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/06/image_thumb-1.png" alt="image" width="675" height="57" border="0" /></a>
 
 **02. SharePoint client SDK DLLs are now automatically loaded with the module.**
 
@@ -39,7 +39,7 @@ In the past, the Import-SPClientSDK function will firstly try to load required D
 
 When adding a lookup field in a SharePoint list, you can specify including one or more additional columns. i.e.:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/06/image-2.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/06/image_thumb-2.png" alt="image" width="378" height="270" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/06/image-2.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/06/image_thumb-2.png" alt="image" width="378" height="270" border="0" /></a>
 
 The previous versions of this module did not support adding additional columns when creating a lookup field. In this version, you are able to add additional columns using the "-AdditionalSourceFields" parameter to achieve this goal.
 

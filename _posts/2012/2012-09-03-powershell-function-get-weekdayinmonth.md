@@ -4,7 +4,7 @@ title: 'PowerShell Function: Get-WeekDayInMonth'
 date: 2012-09-03T22:37:11+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1392
+guid: https://blog.tyang.org/?p=1392
 permalink: /2012/09/03/powershell-function-get-weekdayinmonth/
 categories:
   - PowerShell
@@ -75,7 +75,7 @@ OR
 Get-WeekDayInMonth 10 2012 2 2
 ```
 
-![](http://blog.tyang.org/wp-content/uploads/2012/09/image.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/09/image.png)
 
 Example #2: to query the 1st Sunday of May 2013
 
@@ -87,4 +87,4 @@ OR
 Get-WeekDayInMonth 5 2013 1 0
 ```
 
-![](http://blog.tyang.org/wp-content/uploads/2012/09/image1.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/09/image1.png)

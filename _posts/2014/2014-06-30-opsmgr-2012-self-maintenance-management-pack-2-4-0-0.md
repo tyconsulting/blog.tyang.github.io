@@ -4,7 +4,7 @@ title: OpsMgr 2012 Self Maintenance Management Pack 2.4.0.0
 date: 2014-06-30T15:37:33+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2892
+guid: https://blog.tyang.org/?p=2892
 permalink: /2014/06/30/opsmgr-2012-self-maintenance-management-pack-2-4-0-0/
 categories:
   - SCOM
@@ -30,25 +30,25 @@ This blog has been a bit quiet lately because of 2 reasons: FIFA World Cup and I
 
 I often get emails from people who are having issues configuring workflows in the Self Maintenance MP. I found one of a common issues is that the default action account for management servers does not required privileges. Therefore I created 2 monitors in this release to monitor if the MS action account has local administrator and OpsMgr administrator privileges.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image7.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb7.png" alt="image" width="550" height="539" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image7.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb7.png" alt="image" width="550" height="539" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image8.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb8.png" alt="image" width="558" height="549" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image8.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb8.png" alt="image" width="558" height="549" border="0" /></a>
 
 <strong>Additional Rule: OpsMgr 2012 Self Maintenance Obsolete Management Pack Alias Detection Rule</strong>
 
-As I mentioned in my previous post <a href="http://blog.tyang.org/2014/06/24/powershell-script-remove-obsolete-references-unsealed-opsmgr-management-packs/">PowerShell Script: Remove Obsolete References from Unsealed OpsMgr Management Packs</a>, I’ve created a rule that detects obsolete MP references in unsealed management packs. The difference between the stand alone script (from previous post) and this rule is, this rule would only detect obsolete MP references, it will not try to remove them. Operators can use the "Remove Obsolete MP References" agent task manually remove them (or using the standalone script I published earlier).
+As I mentioned in my previous post <a href="https://blog.tyang.org/2014/06/24/powershell-script-remove-obsolete-references-unsealed-opsmgr-management-packs/">PowerShell Script: Remove Obsolete References from Unsealed OpsMgr Management Packs</a>, I’ve created a rule that detects obsolete MP references in unsealed management packs. The difference between the stand alone script (from previous post) and this rule is, this rule would only detect obsolete MP references, it will not try to remove them. Operators can use the "Remove Obsolete MP References" agent task manually remove them (or using the standalone script I published earlier).
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image9.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb9.png" alt="image" width="529" height="549" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image9.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb9.png" alt="image" width="529" height="549" border="0" /></a>
 
 <strong>Additional Agent Task: Remove Obsolete MP References</strong>
 
 This task targets All Management Servers Resource Pool and can be used in conjunction with the Obsolete Management Pack Alias Detection Rule to delete obsolete MP references from unsealed management packs.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/SNAGHTML5ed69f2.png"><img style="display: inline; border: 0px;" title="SNAGHTML5ed69f2" src="http://blog.tyang.org/wp-content/uploads/2014/06/SNAGHTML5ed69f2_thumb.png" alt="SNAGHTML5ed69f2" width="536" height="557" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/SNAGHTML5ed69f2.png"><img style="display: inline; border: 0px;" title="SNAGHTML5ed69f2" src="https://blog.tyang.org/wp-content/uploads/2014/06/SNAGHTML5ed69f2_thumb.png" alt="SNAGHTML5ed69f2" width="536" height="557" border="0" /></a>
 
 <strong>Additional Agent Tasks: "Get Workflow Name(ID)" and "Reset Monitor Health State"</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image10.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb10.png" alt="image" width="242" height="292" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image10.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb10.png" alt="image" width="242" height="292" border="0" /></a>
 
 Previously, few people have suggested me to provide a method to reset all instances of a particular monitor. Recently, Cameron Fuller showed me a script from Matthew Dowst’s <a href="http://blogs.catapultsystems.com/mdowst/archive/2014/05/15/scom-monitor-reset-script.aspx">blog post</a> and suggested me to add this into the Self Maintenance MP.
 
@@ -56,7 +56,7 @@ The script from Matthew’s blog resets health state of all instances of monitor
 
 i.e.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image11.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb11.png" alt="image" width="580" height="285" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image11.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb11.png" alt="image" width="580" height="285" border="0" /></a>
 
 Therefore, when I was writing the script for the Reset Monitor Health State agent task, I used monitor name instead of display name. However, since the monitor name is actually not viewable in the Operations Console, I had to create another agent task to get the name of a workflow (monitors, rules and discoveries).
 
@@ -64,29 +64,29 @@ i.e. let’s use the "Computer Browser Service Health" monitors as an example.
 
 Get the monitor(s) using SCOM PowerShell Module:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image12.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb12.png" alt="image" width="580" height="523" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image12.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb12.png" alt="image" width="580" height="523" border="0" /></a>
 
 In my environment, there are 2 monitors that have the same display name. the actual monitor name is highlighted in the red rectangles. the names are unique. It is actually the MP element ID in the management pack where the monitor is coming from:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image13.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb13.png" alt="image" width="580" height="225" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image13.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb13.png" alt="image" width="580" height="225" border="0" /></a>
 
 So in order to use the "Reset Monitor Health State" task, operators firstly need to identify the monitor name (MP element ID), then paste it into an override field of the task. To make it easier, we can use the "Get Workflow Name(ID)" agent task to get the name:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image14.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb14.png" alt="image" width="580" height="573" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image14.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb14.png" alt="image" width="580" height="573" border="0" /></a>
 
 Then copy and paste the monitor name into the "MonitorName" override parameter of the "Reset Monitor Health State":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image15.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb15.png" alt="image" width="580" height="345" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image15.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb15.png" alt="image" width="580" height="345" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image16.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb16.png" alt="image" width="443" height="499" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image16.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb16.png" alt="image" width="443" height="499" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image17.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb17.png" alt="image" width="489" height="501" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image17.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb17.png" alt="image" width="489" height="501" border="0" /></a>
 
 <strong>Where to find the detailed information for these additional items?</strong>
 
 I have only covered a very high level overview of these additional workflows in this post. the detailed information can be found in the updated MP documentation (From Section 5.2.24 to 5.2.29):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image18.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb18.png" alt="image" width="580" height="203" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image18.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb18.png" alt="image" width="580" height="203" border="0" /></a>
 
 <strong><span style="text-decoration: underline;"><span style="color: #ff0000;">Please make sure you read each section before enabling / using each workflow!</span></span></strong>
 

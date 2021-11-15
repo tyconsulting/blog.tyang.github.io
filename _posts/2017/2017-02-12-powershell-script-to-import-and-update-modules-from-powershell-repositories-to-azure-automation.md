@@ -4,7 +4,7 @@ title: PowerShell Script to Import and Update Modules from PowerShell Repositori
 date: 2017-02-12T20:46:42+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5878
+guid: https://blog.tyang.org/?p=5878
 permalink: /2017/02/12/powershell-script-to-import-and-update-modules-from-powershell-repositories-to-azure-automation/
 categories:
   - Azure
@@ -22,7 +22,7 @@ I have written a PowerShell script that allows you to search PowerShell modules 
 
 This script is designed to run interactively. You will be prompted to enter details such as module name, version, Azure credential, selecting Azure subscription and Azure Automation account etc.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/02/ImportModuleScript.png"><img class="size-large wp-image-5882 alignnone" src="http://blog.tyang.org/wp-content/uploads/2017/02/ImportModuleScript-1024x342.png" alt="" width="775" height="259" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/02/ImportModuleScript.png"><img class="size-large wp-image-5882 alignnone" src="https://blog.tyang.org/wp-content/uploads/2017/02/ImportModuleScript-1024x342.png" alt="" width="775" height="259" /></a>
 
 The script works out the URI to the actual NuGet package for the module and import it directly to Azure Automation account. As you can see from above screenshot, Other than the PowerShell Gallery, I have also registered a private repository hosted on MyGet.org, and I am able to deploy modules directly from my private MyGet feed to my Azure Automation account.
 

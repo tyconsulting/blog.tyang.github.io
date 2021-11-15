@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/08/keep-calm-and-love-mrnogui-banner.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4403
+guid: https://blog.tyang.org/?p=4403
 permalink: /2015/08/24/deploying-opsmgr-2016-tp3-with-minimum-windows-server-gui-requirements/
 categories:
   - SCOM
@@ -72,9 +72,9 @@ I did not use any image or template based deployment methods (i.e. via VMM or Co
 * IP address and DNS settings
 * Join Domain
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb5.png" alt="image" width="244" height="88" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb5.png" alt="image" width="244" height="88" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb6.png" alt="image" width="459" height="266" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb6.png" alt="image" width="459" height="266" border="0" /></a>
 
 **Install .NET Framework 3.5 using dism.exe**
 
@@ -84,7 +84,7 @@ Dism /online /enable-feature /featurename:NetFx3 /All /LimitAccess /Source:d:\so
 
 >**Note:** D: is the CD-ROM drive in this case
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb7.png" alt="image" width="464" height="132" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb7.png" alt="image" width="464" height="132" border="0" /></a>
 
 **Configure disks and volumes using diskpart.exe**
 
@@ -100,7 +100,7 @@ setup.exe /UIMODE=EnableUIOnServerCore /Action=Install
 
 This command directly launch the setup wizard:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML11561eff.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML11561eff" src="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML11561eff_thumb.png" alt="SNAGHTML11561eff" width="661" height="499" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML11561eff.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML11561eff" src="https://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML11561eff_thumb.png" alt="SNAGHTML11561eff" width="661" height="499" border="0" /></a>
 
 I then went through this wizard and installed SQL as I normally would, the only thing to keep in mind is that not all the SQL features are supported in Server Core, I have selected the following features:
 
@@ -109,29 +109,29 @@ I then went through this wizard and installed SQL as I normally would, the only 
 * Client Tool Connectivity
 * SQL Client Connectivity SDK
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb8.png" alt="image" width="590" height="443" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb8.png" alt="image" width="590" height="443" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb9.png" alt="image" width="589" height="442" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb9.png" alt="image" width="589" height="442" border="0" /></a>
 
 **<span style="color: #ff0000;">Note:</span>** if you have chosen a feature that’s not supported by Server Core, you will get this error message:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb10.png" alt="image" width="378" height="186" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb10.png" alt="image" width="378" height="186" border="0" /></a>
 
 After few minutes, SQL server was successfully installed:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb11.png" alt="image" width="481" height="361" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb11.png" alt="image" width="481" height="361" border="0" /></a>
 
 As you can see, since this is on a Server Core machine, I did not install SQL Management Studio on this server, I performed all other required SQL configuration such as minimum and maximum memory config, temp DB config, maintenance plan creation, etc. from a remote machine. I will go through the steps I took to setup a machine for remote management towards the end of this post.
 
 >**Note:** I found a good post on how to install SQL on Server Core: <a href="http://tenbulls.co.uk/2012/09/19/using-the-sql-server-installation-wizard-on-server-core/">http://tenbulls.co.uk/2012/09/19/using-the-sql-server-installation-wizard-on-server-core/</a>. However, when I initially launched the install wizard without "/Action=Install" switch, I was presented to the "SQL Server Installation Center" page, but when I clicked on any links on this page, nothing would happen. Luckily someone mentioned this switch in one of the comments and I was able to by pass this page:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb12.png" alt="image" width="405" height="318" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb12.png" alt="image" width="405" height="318" border="0" /></a>
 
 ## 03. Configure the First Management Server (OMTP3MS01):
 
 As documented on <a href="https://technet.microsoft.com/en-us/library/dn249696.aspx">TechNet</a>, management servers require the minimal server interface and AuthManager:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb13.png" alt="image" width="507" height="184" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb13.png" alt="image" width="507" height="184" border="0" /></a>
 
 So, before installing the OpsMgr management server component, I need to firstly install these 2 components.
 
@@ -143,7 +143,7 @@ So, before installing the OpsMgr management server component, I need to firstly 
 Install-WindowsFeature Server-Gui-Mgmt-Infra -Source wim:D:\sources\install.wim:2
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb14.png" alt="image" width="543" height="141" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb14.png" alt="image" width="543" height="141" border="0" /></a>
 
 >**Note:**
 > * D: is the CD-ROM in this VM which has the Windows Server 2016 TP3  ISO loaded.
@@ -157,13 +157,13 @@ After installing the minimal server interface, I need to reboot the server. Afte
 dism /online /enable-feature /featurename:AuthManager /source:d:\sources\sxs
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb15.png" alt="image" width="566" height="222" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb15.png" alt="image" width="566" height="222" border="0" /></a>
 
 **Install first management server**
 
 **<span style="color: #ff0000;">Note:</span>** When I downloaded the System Center 2016 TP3, each System Center component is presented as a EXE:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb16.png" alt="image" width="514" height="134" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb16.png" alt="image" width="514" height="134" border="0" /></a>
 
 When I run the exe, I can specify a location to extract the installation to. I have previously extracted the OpsMgr installation to a folder, and copied the extracted content to C:\Software\SCOM on all the servers I mentioned above. So, now, I will run the unattended install from C:\Soffware\SCOM on this management server:
 
@@ -215,7 +215,7 @@ setup.exe /install /components:OMServer
 /silent
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML1185ef98.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1185ef98" src="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML1185ef98_thumb.png" alt="SNAGHTML1185ef98" width="583" height="424" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML1185ef98.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1185ef98" src="https://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML1185ef98_thumb.png" alt="SNAGHTML1185ef98" width="583" height="424" border="0" /></a>
 
 ## 05. Configure Gateway Server (OMTP3GW01)
 
@@ -239,7 +239,7 @@ ROOT_MANAGEMENT_SERVER_PORT=5723
 AcceptEndUserLicenseAgreement=1
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML118e49b8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML118e49b8" src="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML118e49b8_thumb.png" alt="SNAGHTML118e49b8" width="556" height="227" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML118e49b8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML118e49b8" src="https://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML118e49b8_thumb.png" alt="SNAGHTML118e49b8" width="556" height="227" border="0" /></a>
 
 After the gateway server has been successfully installed, I must approve it from a management server by taking the following steps:
 
@@ -254,7 +254,7 @@ Microsoft.EnterpriseManagement.GatewayApprovalTool.exe
 /Action=Create
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb17.png" alt="image" width="697" height="212" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb17.png" alt="image" width="697" height="212" border="0" /></a>
 
 Lastly, I need to configure the gateway server to failover to another management server. Since I did not install the console on management servers, I must perform this task on a remote machine where the console is installed (as the Operations Manager PowerShell is part of the console install):
 
@@ -264,7 +264,7 @@ $FailoverServer = Get-SCOMManagementServer –Name "OMTP3MS02.corp.tyang.org"
 Set-SCOMParentManagementServer -GatewayServer $GatewayServer -FailoverServer $FailoverServer
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb18.png" alt="image" width="467" height="168" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb18.png" alt="image" width="467" height="168" border="0" /></a>
 
 >**Note:**
 
@@ -283,7 +283,7 @@ The web console server can be installed on a Server Core instance. However, we m
 Add-WindowsFeature Web-Static-Content,Web-Default-Doc,Web-Dir-Browsing,Web-Http-Errors,Web-Http-Logging,Web-Request-Monitor,Web-Filtering,Web-Stat-Compression,Web-Metabase,Web-Asp-Net,Web-Windows-Auth,Web-ASP,Web-CGI
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb19.png" alt="image" width="531" height="131" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb19.png" alt="image" width="531" height="131" border="0" /></a>
 
 **Install HTTP Activation (.NET component) via PowerShell:**
 
@@ -291,7 +291,7 @@ Add-WindowsFeature Web-Static-Content,Web-Default-Doc,Web-Dir-Browsing,Web-Http-
 Add-WindowsFeature NET-WCF-HTTP-Activation45
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb20.png" alt="image" width="505" height="85" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb20.png" alt="image" width="505" height="85" border="0" /></a>
 
 **Install Web Console Pre-requisites (SQL CLR Type and Report viewer):**
 
@@ -329,7 +329,7 @@ Since the Reporting server has the full GUI interface enabled (required by SSRS)
 
 I launched the SQL installation and only installed SSRS. I then went through each page in the Reporting Service Configuration Manager and configured the SSRS instance. I created a new Reporting Server database on the main SQL server OMTP3DB01:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML11acd201.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML11acd201" src="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML11acd201_thumb.png" alt="SNAGHTML11acd201" width="448" height="269" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML11acd201.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML11acd201" src="https://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML11acd201_thumb.png" alt="SNAGHTML11acd201" width="448" height="269" border="0" /></a>
 
 **Install OpsMgr Reporting Server**
 
@@ -354,15 +354,15 @@ The IIS Manager for Remote Administration can be installed using <a href="http:/
 
 When I downloaded and launched the Web Platform Installer, I was able to see the IIS Manager for Remote Administration:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb21.png" alt="image" width="619" height="421" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb21.png" alt="image" width="619" height="421" border="0" /></a>
 
 However, somehow the installation failed (twice). When I checked the installation log, I found the downloaded msi failed signature verification.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb22.png" alt="image" width="691" height="339" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb22.png" alt="image" width="691" height="339" border="0" /></a>
 
 After I manually deleted this file from the temp folder and installed again from Web Platform Installer, it failed again. So I manually ran the downloaded msi file from the temp location, and it installed successful. I was able to see the option to connect to a remote IIS instance on my Windows 10 machine:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb23.png" alt="image" width="611" height="373" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb23.png" alt="image" width="611" height="373" border="0" /></a>
 
 **Configure IIS for Remote Management**
 
@@ -372,31 +372,31 @@ As I mentioned, I also need to enable IIS remote management for the web console 
 Install-WindowsFeature Web-Mgmt-Service
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb24.png" alt="image" width="469" height="95" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb24.png" alt="image" width="469" height="95" border="0" /></a>
 
 Remote Management can then be enabled via a registry value. The dword value "EnableRemoteManagement" in "HKEY_LOCAL_MACHINE\Software\Microsoft\WebManagement\Server" must be set to 1. You can do so using PowerShell, or using regedit from the remote machine (via Remote Registry service):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb25.png" alt="image" width="486" height="251" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb25.png" alt="image" width="486" height="251" border="0" /></a>
 
 After updating the registry value, start the WMSVC service:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image26.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb26.png" alt="image" width="320" height="42" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image26.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb26.png" alt="image" width="320" height="42" border="0" /></a>
 
 Then I was able to connect to the web console IIS server from the Windows 10 machine:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image27.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb27.png" alt="image" width="297" height="186" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image27.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb27.png" alt="image" width="297" height="186" border="0" /></a>
 
 ## 09. Verifications
 
 I launched the OpsMgr console, checked the management servers and deployed the agents on all other computers mentioned in this blog post:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb28.png" alt="image" width="654" height="172" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb28.png" alt="image" width="654" height="172" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image29.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb29.png" alt="image" width="654" height="213" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image29.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb29.png" alt="image" width="654" height="213" border="0" /></a>
 
 And tried to run a report:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image30.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb30.png" alt="image" width="450" height="286" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image30.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb30.png" alt="image" width="450" height="286" border="0" /></a>
 
 Everything seems to be OK (with my limited testing so far).
 

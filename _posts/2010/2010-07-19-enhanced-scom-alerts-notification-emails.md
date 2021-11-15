@@ -4,7 +4,7 @@ title: ENHANCED SCOM Alerts Notification Emails!
 date: 2010-07-19T17:32:00+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=132
+guid: https://blog.tyang.org/?p=132
 permalink: /2010/07/19/enhanced-scom-alerts-notification-emails/
 categories:
   - PowerShell
@@ -15,9 +15,9 @@ tags:
   - PowerShell
   - SCOM
 ---
-**<span style="color: #ff0000;">17/08/2012: The version 2 of this script has just been released: </span>**<a href="http://blog.tyang.org/2012/08/16/scom-enhanced-email-notification-script-version-2/">http://blog.tyang.org/2012/08/16/scom-enhanced-email-notification-script-version-2/</a>
+**<span style="color: #ff0000;">17/08/2012: The version 2 of this script has just been released: </span>**<a href="https://blog.tyang.org/2012/08/16/scom-enhanced-email-notification-script-version-2/">https://blog.tyang.org/2012/08/16/scom-enhanced-email-notification-script-version-2/</a>
 
-<span style="color: #ff0000;">**29/01/2012: The command notification channel setup section of this blog has been updated. More details of the change can be found HERE: <a href="http://blog.tyang.org/2012/01/29/command-line-parameters-for-scom-command-notification-channel/">http://blog.tyang.org/2012/01/29/command-line-parameters-for-scom-command-notification-channel/</a>**</span>
+<span style="color: #ff0000;">**29/01/2012: The command notification channel setup section of this blog has been updated. More details of the change can be found HERE: <a href="https://blog.tyang.org/2012/01/29/command-line-parameters-for-scom-command-notification-channel/">https://blog.tyang.org/2012/01/29/command-line-parameters-for-scom-command-notification-channel/</a>**</span>
 
 <strong style="color: #ff0000;">Please Note: This post and associated script has been updated on 30/09/2010.**
 
@@ -25,7 +25,7 @@ Even though SCOM is a great product, I personally believe that alert notificatio
 
 Most of times, the SCOM administrator would include a URL that takes you straight to the alert using SCOM web console. Web Console is greatly improved in SCOM 2007 R2, and it pretty much contains everything about the alert (such as alert name, description, source, time raised, monitor/rule name, description, knowledge article, etc).
 
-<a href="http://blog.tyang.org/wp-content/uploads/2010/07/image11.png"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/image_thumb11.png" alt="image" width="580" height="302" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2010/07/image11.png"><img style="border-width: 0px;" src="https://blog.tyang.org/wp-content/uploads/2010/07/image_thumb11.png" alt="image" width="580" height="302" border="0" /></a>
 
 But why can’t we have all this information in the notification email so we don’t have to come to the web console?
 
@@ -43,7 +43,7 @@ I completed forgot about this script until recently one of my customer’s suppo
 
 Below is the email notification for the alert from the above web console screenshot:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2010/09/image13.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2010/09/image_thumb13.png" alt="image" width="556" height="1062" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2010/09/image13.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2010/09/image_thumb13.png" alt="image" width="556" height="1062" border="0" /></a>
 
 OK. if you want to try this out in your SCOM environment, please keep reading. Let’s go through the steps setting this up in SCOM:
 
@@ -51,7 +51,7 @@ OK. if you want to try this out in your SCOM environment, please keep reading. L
 
 2. Modify this section of the script (line 26-48, Highlighted in <span style="color: #d5d500;">Yellow</span>):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2010/09/image18.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2010/09/image_thumb18.png" alt="image" width="580" height="387" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2010/09/image18.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2010/09/image_thumb18.png" alt="image" width="580" height="387" border="0" /></a>
 
 * **$NotifiedResState** – At the end of this script, after the email is sent, it changes the resolution state of the alert to "Notified". I have manually created such resolution state using SCOM Operations Console with number 85. You can use other number if you wish, just make sure this variable represent the right number of the resolution state you want the script to set the alert to at the end.
 * **Function getResStateName** - Modify function getResStateName to have ALL the resolution states for your SCOM environment.
@@ -66,9 +66,9 @@ OK. if you want to try this out in your SCOM environment, please keep reading. L
 
 **<span style="color: #ff0000;">NOTE: Because we are not using SMTP channels, we cannot specify the email addresses in Subscriber’s properties. Instead, we are passing in the email addresses as parameters. So for subscriptions with different subscribers, you will need to create multiple command channels with different email addresses.</span>**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2010/07/image12.png"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/image_thumb12.png" alt="image" width="420" height="368" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2010/07/image12.png"><img style="border-width: 0px;" src="https://blog.tyang.org/wp-content/uploads/2010/07/image_thumb12.png" alt="image" width="420" height="368" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2010/07/commandnotification.png"><img class="alignleft size-full wp-image-964" title="commandnotification" src="http://blog.tyang.org/wp-content/uploads/2010/07/commandnotification.png" alt="" width="856" height="593" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2010/07/commandnotification.png"><img class="alignleft size-full wp-image-964" title="commandnotification" src="https://blog.tyang.org/wp-content/uploads/2010/07/commandnotification.png" alt="" width="856" height="593" /></a>
 
 Settings:
 
@@ -85,22 +85,22 @@ Settings:
 
 5. Setting up subscribers
 
-<a href="http://blog.tyang.org/wp-content/uploads/2010/07/Subscriber1.jpg"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/Subscriber1_thumb.jpg" alt="Subscriber1" width="418" height="368" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2010/07/Subscriber1.jpg"><img style="border-width: 0px;" src="https://blog.tyang.org/wp-content/uploads/2010/07/Subscriber1_thumb.jpg" alt="Subscriber1" width="418" height="368" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2010/07/Subscriber2.jpg"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/Subscriber2_thumb.jpg" alt="Subscriber2" width="415" height="365" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2010/07/Subscriber2.jpg"><img style="border-width: 0px;" src="https://blog.tyang.org/wp-content/uploads/2010/07/Subscriber2_thumb.jpg" alt="Subscriber2" width="415" height="365" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2010/07/Subscriber3.jpg"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/Subscriber3_thumb.jpg" alt="Subscriber3" width="416" height="368" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2010/07/Subscriber3.jpg"><img style="border-width: 0px;" src="https://blog.tyang.org/wp-content/uploads/2010/07/Subscriber3_thumb.jpg" alt="Subscriber3" width="416" height="368" border="0" /></a>
 
 Subscriber address:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2010/07/image13.png"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/image_thumb13.png" alt="image" width="418" height="368" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2010/07/image13.png"><img style="border-width: 0px;" src="https://blog.tyang.org/wp-content/uploads/2010/07/image_thumb13.png" alt="image" width="418" height="368" border="0" /></a>
 
 6. Setting up subscriptions
 
-<a href="http://blog.tyang.org/wp-content/uploads/2010/07/Subscription3.jpg"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/Subscription3_thumb.jpg" alt="Subscription3" width="486" height="303" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2010/07/Subscription3.jpg"><img style="border-width: 0px;" src="https://blog.tyang.org/wp-content/uploads/2010/07/Subscription3_thumb.jpg" alt="Subscription3" width="486" height="303" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2010/07/Subscription4.jpg"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/Subscription4_thumb.jpg" alt="Subscription4" width="493" height="283" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2010/07/Subscription4.jpg"><img style="border-width: 0px;" src="https://blog.tyang.org/wp-content/uploads/2010/07/Subscription4_thumb.jpg" alt="Subscription4" width="493" height="283" border="0" /></a>
 
 One last thing to remember: The powerShell execution policy on your RMS needs to set to RemoteSigned or Unrestricted.
 
-This script can be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2010/09/SCOMEnhancedEmailNotification_V1.1.zip">HERE</a>. Feel free to email me if you are having issues setting this up!
+This script can be downloaded <a href="https://blog.tyang.org/wp-content/uploads/2010/09/SCOMEnhancedEmailNotification_V1.1.zip">HERE</a>. Feel free to email me if you are having issues setting this up!

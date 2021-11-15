@@ -4,7 +4,7 @@ title: 'Blog Site Recovered&ndash;Finally'
 date: 2016-05-16T19:55:32+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5399
+guid: https://blog.tyang.org/?p=5399
 permalink: /2016/05/16/blog-site-recovered-finally/
 categories:
   - Others

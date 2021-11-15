@@ -4,7 +4,7 @@ title: Error 80041001 in InventoryAgent.log after mof files modifications
 date: 2011-10-09T16:39:23+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=715
+guid: https://blog.tyang.org/?p=715
 permalink: /2011/10/09/error-80041001-in-inventoryagent-log-after-mof-files-modifications/
 categories:
   - SCCM
@@ -18,7 +18,7 @@ I’ve been playing with SCCM mof files this weekend. After I’ve extended conf
 
 Unknown error encountered processing an instance of class &lt;name of the WMI class&gt;: 80041001
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image10.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb10.png" alt="image" width="580" height="95" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image10.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb10.png" alt="image" width="580" height="95" border="0" /></a>
 
 I checked the SCCM client, the WMI class was created correctly, but the inventory data was not loaded in the SCCM database therefore I could not view it in Resource Manager.
 
@@ -30,6 +30,6 @@ Also, while I was playing with mof files, I found this awesome tool called <stro
 
 it automatically generates mof extensions for you when you select the registry key that you want to inventory:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image11.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb11.png" alt="image" width="580" height="366" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image11.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb11.png" alt="image" width="580" height="366" border="0" /></a>
 
 If you are planning to use this tool to generate the configuration.mof and sms_def.mof extensions, please make sure you tick "<strong>Enable 64bits (for Regkeys not written in Wow6432Node)</strong>" if you have 64-bit SCCM clients in your environment (nowadays, I can’t imagine that you don’t!). This is also what above mentioned KB article suggested.

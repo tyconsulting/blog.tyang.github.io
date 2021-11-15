@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4119
+guid: https://blog.tyang.org/?p=4119
 permalink: /2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/
 categories:
   - PowerShell
@@ -25,9 +25,9 @@ tags:
 
 This is the 4th instalment of the Automating OpsMgr series. Previously on this series:
 
-* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
-* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
-* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
+* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](https://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
+* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](https://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
+* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](https://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
 
 When developing management packs, it is very common to define various groups that contain objects discovered by the management pack. The groups can be used for overrides, maintenance modes, reports, scoping user access, etc.
 
@@ -35,7 +35,7 @@ Generally speaking, there are 2 types of groups in OpsMgr: instance groups and c
 
 In the OpsMgr console, the easiest way to identify the group type is by the icon. i.e.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb1.png" alt="image" width="174" height="52" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb1.png" alt="image" width="174" height="52" border="0" /></a>
 
 As you can see, the computer group has an additional computer in the icon.
 
@@ -43,11 +43,11 @@ There are 2 steps when creating a group:
 
 1. Class definition - A singleton, unhosted group class representing the group itself. i.e.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb2.png" alt="image" width="600" height="243" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb2.png" alt="image" width="600" height="243" border="0" /></a>
 
 2. A discovery workflow which uses A Data Source module type called "Microsoft.SystemCenter.GroupPopulator" to populate the group membership. i.e.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb3.png" alt="image" width="602" height="368" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb3.png" alt="image" width="602" height="368" border="0" /></a>
 
 The class definition and the discovery can be defined in the same management pack, or different packs (i.e. Class definition in a sealed MP, and discovery MP can reference the sealed class definition MP). As you can see, the class definition for groups are really simple, but the discovery can sometimes get very complicated - all depending on your requirements.
 
@@ -62,7 +62,7 @@ So what does an empty group mean?
 
 I simply coded the group populator data source to always return nothing by using a simple expression where True equals False (which would never happen):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb4.png" alt="image" width="244" height="127" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb4.png" alt="image" width="244" height="127" border="0" /></a>
 
 Since populating groups can get complicated, and I think it will be very useful for people to use the **OpsMgrExtended** module to create and manage groups, I will dedicate this post and the next few posts in this blog series on creating and managing groups. So, please consider this as the first episode of the "sub series". In this post, I will demonstrate a simple runbook that you can use to create instance groups and computer groups.
 
@@ -121,33 +121,33 @@ Workflow New-Group
 
 Creating Instance Group:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb5.png" alt="image" width="548" height="554" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb5.png" alt="image" width="548" height="554" border="0" /></a>
 
 Creating Computer Group:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb6.png" alt="image" width="491" height="598" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb6.png" alt="image" width="491" height="598" border="0" /></a>
 
 ## Results:
 
 In Operations Console:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb7.png" alt="image" width="591" height="202" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb7.png" alt="image" width="591" height="202" border="0" /></a>
 
 Management Pack - Class Definition:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb8.png" alt="image" width="577" height="153" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb8.png" alt="image" width="577" height="153" border="0" /></a>
 
 Management Pack - Instance Group Discovery:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb9.png" alt="image" width="585" height="435" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb9.png" alt="image" width="585" height="435" border="0" /></a>
 
 Management Pack - Computer Group Discovery:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb10.png" alt="image" width="580" height="422" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb10.png" alt="image" width="580" height="422" border="0" /></a>
 
 Management Pack - Language Pack:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb11.png" alt="image" width="534" height="273" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb11.png" alt="image" width="534" height="273" border="0" /></a>
 
 ## Additional Readings
 
@@ -166,8 +166,8 @@ Over the years I've been working with OpsMgr, I've booked mark the following gre
 
 Also, few previous posts from this blog:
 
-* <a href="http://blog.tyang.org/2015/01/18/creating-opsmgr-instance-group-computers-running-application-health-service-watchers/" target="_blank">Creating OpsMgr Instance Group for All Computers Running an Application and Their Health Service Watchers</a>
-* <a href="http://blog.tyang.org/2014/04/23/using-computers-health-service-watchers-groups-management-group-containing-clusters/" target="_blank">Using Computers And Health Service Watchers Groups in a Management Group containing Clusters</a>
+* <a href="https://blog.tyang.org/2015/01/18/creating-opsmgr-instance-group-computers-running-application-health-service-watchers/" target="_blank">Creating OpsMgr Instance Group for All Computers Running an Application and Their Health Service Watchers</a>
+* <a href="https://blog.tyang.org/2014/04/23/using-computers-health-service-watchers-groups-management-group-containing-clusters/" target="_blank">Using Computers And Health Service Watchers Groups in a Management Group containing Clusters</a>
 
 
 ## Conclusion

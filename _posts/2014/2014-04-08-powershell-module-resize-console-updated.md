@@ -4,7 +4,7 @@ title: 'PowerShell Module to resize console &ndash; Updated'
 date: 2014-04-08T22:01:28+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2487
+guid: https://blog.tyang.org/?p=2487
 permalink: /2014/04/08/powershell-module-resize-console-updated/
 categories:
   - PowerShell
@@ -12,7 +12,7 @@ tags:
   - PowerShell
   - PowerShell Web Access
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/PSWAIcon.png"><img style="margin-left: 0px; display: inline; margin-right: 0px; border: 0px;" title="PSWAIcon" alt="PSWAIcon" src="http://blog.tyang.org/wp-content/uploads/2014/04/PSWAIcon_thumb.png" width="243" height="244" align="left" border="0" /></a> Few days ago I wrote a <a href="http://blog.tyang.org/2014/04/05/powershell-module-resize-console/">PowerShell module</a> that contains 1 cmdlet / function to resize the PowerShell console windows.
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/PSWAIcon.png"><img style="margin-left: 0px; display: inline; margin-right: 0px; border: 0px;" title="PSWAIcon" alt="PSWAIcon" src="https://blog.tyang.org/wp-content/uploads/2014/04/PSWAIcon_thumb.png" width="243" height="244" align="left" border="0" /></a> Few days ago I wrote a <a href="https://blog.tyang.org/2014/04/05/powershell-module-resize-console/">PowerShell module</a> that contains 1 cmdlet / function to resize the PowerShell console windows.
 
 It was a quick job that I did less than half an hour. I wrote it primarily to make PowerShell Web Access (PSWA) more user friendly.
 
@@ -57,19 +57,19 @@ I have included a XML file (profiles.xml) in this module. We can save pre-define
 
 i.e.:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1aca2b96.png"><img style="display: inline; border: 0px;" title="SNAGHTML1aca2b96" alt="SNAGHTML1aca2b96" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1aca2b96_thumb.png" width="270" height="560" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1aca2b96.png"><img style="display: inline; border: 0px;" title="SNAGHTML1aca2b96" alt="SNAGHTML1aca2b96" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1aca2b96_thumb.png" width="270" height="560" border="0" /></a>
 
 The screen size and resolution are different among different computers and mobile devices. I have created different profiles for each type of devices that I own, so when I use a particular device to access PSWA, I can simply apply the appropriate screen size to suit that device.
 
 i.e. the screenshot below is taken from my mobile phone (Samsung Note3):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image8.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb8.png" width="569" height="322" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image8.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb8.png" width="569" height="322" border="0" /></a>
 
 when I applied the profile "Note3", the PSWA console fits perfectly on the screen.
 
 Or, on my 10.1 inch tablet Samsung Galaxy Tab2:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image9.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb9.png" width="580" height="364" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image9.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb9.png" width="580" height="364" border="0" /></a>
 
 I used aliases, applied the "tab2" profile to fit the screen.
 
@@ -88,7 +88,7 @@ For details of each functions, You can refer to the help information (get-help)
 
 This one simply display the current window size and buffer size on screen. it’s reading the properties of "$host.ui.rawui"
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1ad77daf4.png"><img style="display: inline; border: 0px;" title="SNAGHTML1ad77daf[4]" alt="SNAGHTML1ad77daf[4]" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1ad77daf4_thumb.png" width="374" height="195" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1ad77daf4.png"><img style="display: inline; border: 0px;" title="SNAGHTML1ad77daf[4]" alt="SNAGHTML1ad77daf[4]" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1ad77daf4_thumb.png" width="374" height="195" border="0" /></a>
 
 For your reference, here’s a recorded demo that I have updated to Youtube:
 
@@ -96,7 +96,7 @@ https://www.youtube.com/watch?v=awrhCsrI4_k
 
 Please watch this video in full screen and 720P/1080P or you may not be able to see what’s happening on the powershell console.
 
-You can download the module <strong><a href="http://blog.tyang.org/wp-content/uploads/2014/04/PSConsoleV2.zip">HERE</a></strong>. simply unzip and copy the whole folder to <strong>C:\Windows\System32\WindowsPowerShell\v1.0\Modules</strong>
+You can download the module <strong><a href="https://blog.tyang.org/wp-content/uploads/2014/04/PSConsoleV2.zip">HERE</a></strong>. simply unzip and copy the whole folder to <strong>C:\Windows\System32\WindowsPowerShell\v1.0\Modules</strong>
 
 So why am I spending time on this PowerShell project rather than System Center, which is my bread and butter? That would be the topic for my next blog article. :smiley:
 

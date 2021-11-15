@@ -4,7 +4,7 @@ title: 'I&rsquo;m Now a Microsoft Certified Solutions Expert (MCSE): Private Clo
 date: 2013-05-16T21:44:19+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1941
+guid: https://blog.tyang.org/?p=1941
 permalink: /2013/05/16/im-now-a-microsoft-certified-solutions-expert-mcse-private-cloud/
 categories:
   - Others
@@ -12,7 +12,7 @@ tags:
   - Certification
   - Training
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2013/05/MCSErgb_1460.png"><img class="alignleft size-full wp-image-1942" alt="MCSE(rgb)_1460" src="http://blog.tyang.org/wp-content/uploads/2013/05/MCSErgb_1460.png" width="252" height="80" /></a>Yesterday, I completed the last exam: 70-247: Configuring and Deploying a Private Cloud with System Center 2012. With all the previous exams that I took over last few months, I’m now a MCSE: Private Cloud.
+<a href="https://blog.tyang.org/wp-content/uploads/2013/05/MCSErgb_1460.png"><img class="alignleft size-full wp-image-1942" alt="MCSE(rgb)_1460" src="https://blog.tyang.org/wp-content/uploads/2013/05/MCSErgb_1460.png" width="252" height="80" /></a>Yesterday, I completed the last exam: 70-247: Configuring and Deploying a Private Cloud with System Center 2012. With all the previous exams that I took over last few months, I’m now a MCSE: Private Cloud.
 
 Being technical in I.T industry means I always have to keep myself up to date with the latest technologies and certifications. 2012 in particular has been very busy for me. Firstly, I became a dad in June, 2012. Secondly, we can all recall how many products that Microsoft has released in 2012! I started studying and preparing for exams around March, April 2012 during my spare time. Now, just a little bit over 1 year, I have completed the following exams during this period:
 

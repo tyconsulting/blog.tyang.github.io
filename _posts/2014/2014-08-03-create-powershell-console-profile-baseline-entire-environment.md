@@ -4,7 +4,7 @@ title: How to Create a PowerShell Console Profile Baseline for the Entire Enviro
 date: 2014-08-03T16:48:24+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3084
+guid: https://blog.tyang.org/?p=3084
 permalink: /2014/08/03/create-powershell-console-profile-baseline-entire-environment/
 categories:
   - PowerShell
@@ -21,14 +21,14 @@ For example, I would like to achieve the following when I start any 64 bit Power
 * Append "- Tao Yang Test Lab" in the console title
 * Change console’s background colour to black
 * Change the text colour to green
-* if I’m on the normal PowerShell command console, maximise the console window using the PSConsole module I have written in the past (<a title="http://blog.tyang.org/2014/04/08/powershell-module-resize-console-updated/" href="http://blog.tyang.org/2014/04/08/powershell-module-resize-console-updated/">http://blog.tyang.org/2014/04/08/powershell-module-resize-console-updated/</a>)
+* if I’m on the normal PowerShell command console, maximise the console window using the PSConsole module I have written in the past (<a title="https://blog.tyang.org/2014/04/08/powershell-module-resize-console-updated/" href="https://blog.tyang.org/2014/04/08/powershell-module-resize-console-updated/">https://blog.tyang.org/2014/04/08/powershell-module-resize-console-updated/</a>)
 * Set the location to C:\
 
 This is what I want the consoles to look like:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML65445bb.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML65445bb.png)
 
-![](http://blog.tyang.org/wp-content/uploads/2014/08/image.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/08/image.png)
 
 Although I can manually copy the code into the profiles for each of my user accounts and enable roaming profile for  these users, I don’t want to take this approach because it’s too manual and I am not a big fan of roaming profiles.
 
@@ -48,7 +48,7 @@ As I mentioned previously, because I want to use the PSConsole module I have dev
 
 The All Users All Hosts profile is located at **$PsHome\profile.ps1**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/08/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/08/image_thumb1.png" alt="image" width="362" height="86" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/08/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/08/image_thumb1.png" alt="image" width="362" height="86" border="0" /></a>
 
 Here’s the code I’ve added to this profile:
 
@@ -129,7 +129,7 @@ This script will overwrite the profile if already exists, so it will make sure t
 
 In SCCM, I have created a Package with one program for this script:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/08/image2.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/08/image2.png)
 
 **Command Line:** 
 
@@ -140,7 +140,7 @@ In SCCM, I have created a Package with one program for this script:
 
 I created a re-occurring deployment for this program:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/08/image3.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/08/image3.png)
 
 I’ve set it to run it once a day at 8:00am and always rerun.
 
@@ -150,6 +150,6 @@ This is an example on how we can standardise the baseline of PowerShell consoles
 
 For example, on one of my computers, I have added one line to the default Current User Current Host profile:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/08/image4.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/08/image4.png)
 
 In the All Users All Hosts profile, I have set the location to C:\, but in the Current User Current Host profile, I’ve set the location to "C:\Scripts\Backup Script". The result is, when I started the console, the location is set to "C:\Scripts\Backup Script". Obviously the Current User Current Host profile was executed after the All Users All Hosts profile. Therefore we can use the All Users All Hosts profile as a baseline and using Current User Current Host profile as a delta :smiley:.

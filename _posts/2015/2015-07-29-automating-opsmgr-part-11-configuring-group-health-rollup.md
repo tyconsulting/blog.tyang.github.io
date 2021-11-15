@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4305
+guid: https://blog.tyang.org/?p=4305
 permalink: /2015/07/29/automating-opsmgr-part-11-configuring-group-health-rollup/
 categories:
   - PowerShell
@@ -24,22 +24,22 @@ tags:
 
 This is the 11th instalment of the Automating OpsMgr series. Previously on this series:
 
-* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
-* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
-* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
-* [Automating OpsMgr Part 4:Creating New Empty Groups](http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
-* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](http://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
-* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](http://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
-* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
-* [Automating OpsMgr Part 8: Adding Management Pack References](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/)
-* [Automating OpsMgr Part 9: Updating Group Discoveries](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-9-updating-group-discoveries/)
-* [Automating OpsMgr Part 10: Deleting Groups](http://blog.tyang.org/2015/07/27/automating-opsmgr-part-10-deleting-groups/)
+* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](https://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
+* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](https://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
+* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](https://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
+* [Automating OpsMgr Part 4:Creating New Empty Groups](https://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
+* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](https://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
+* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](https://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
+* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
+* [Automating OpsMgr Part 8: Adding Management Pack References](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/)
+* [Automating OpsMgr Part 9: Updating Group Discoveries](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-9-updating-group-discoveries/)
+* [Automating OpsMgr Part 10: Deleting Groups](https://blog.tyang.org/2015/07/27/automating-opsmgr-part-10-deleting-groups/)
 
 Since I have already covered how to create, update and delete OpsMgr groups using the **OpsMgrExtended** module, the last thing I want to cover on this topic is how to configure health rollup for the groups.
 
-The runbook I'm demonstrating today was based on the PowerShell script in the <a href="http://blog.tyang.org/2015/07/28/opsmgr-group-health-rollup-configuration-task-management-pack/" target="_blank">OpsMgr Group Health Rollup Configuration Task MP</a> which I published yesterday. As I explained in the previous post, because instance groups do not inherit any dependency monitors for their base class, when OpsMgr admins creating groups in the console (which can only be instance groups), they are shown as "Not monitored":
+The runbook I'm demonstrating today was based on the PowerShell script in the <a href="https://blog.tyang.org/2015/07/28/opsmgr-group-health-rollup-configuration-task-management-pack/" target="_blank">OpsMgr Group Health Rollup Configuration Task MP</a> which I published yesterday. As I explained in the previous post, because instance groups do not inherit any dependency monitors for their base class, when OpsMgr admins creating groups in the console (which can only be instance groups), they are shown as "Not monitored":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLaf5f001.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLaf5f001" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLaf5f001_thumb.png" alt="SNAGHTMLaf5f001" width="626" height="198" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLaf5f001.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLaf5f001" src="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLaf5f001_thumb.png" alt="SNAGHTMLaf5f001" width="626" height="198" border="0" /></a>
 
 By creating an agent task to create health rollup dependency monitors (in the OpsMgr Group Health Rollup Configuration Task MP), I have provided a more user friendly way for OpsMgr users to configure health rollup for groups, but this task won't help us when we are designing an automation solution. Therefore, I have written a SMA runbook based on the script I developed for the MP.
 
@@ -336,23 +336,23 @@ This runbook requires the following input parameters:
 
 Before executing the runbook:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image44.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb44.png" alt="image" width="329" height="233" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image44.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb44.png" alt="image" width="329" height="233" border="0" /></a>
 
 Executing the runbook:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image45.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb45.png" alt="image" width="447" height="395" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image45.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb45.png" alt="image" width="447" height="395" border="0" /></a>
 
 After runbook execution:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image46.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb46.png" alt="image" width="409" height="474" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image46.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb46.png" alt="image" width="409" height="474" border="0" /></a>
 
 Dependency monitor health rollup policy:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image47.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb47.png" alt="image" width="398" height="426" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image47.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb47.png" alt="image" width="398" height="426" border="0" /></a>
 
 ## Conclusion
 
-In this post, I have demonstrated how to configure OpsMgr group health rollup by creating dependency monitors using a SMA runbook. As I mentioned in <a href="http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/" target="_blank">part 4</a>, I was going to dedicate few post for a creating and managing groups mini series. This post would be the last post for this managing groups mini series. To summarise, on managing groups, I have covered the following aspects:
+In this post, I have demonstrated how to configure OpsMgr group health rollup by creating dependency monitors using a SMA runbook. As I mentioned in <a href="https://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/" target="_blank">part 4</a>, I was going to dedicate few post for a creating and managing groups mini series. This post would be the last post for this managing groups mini series. To summarise, on managing groups, I have covered the following aspects:
 
 * Creating new empty groups (Part 4)
 * Adding Computers to computer groups (Part 5)

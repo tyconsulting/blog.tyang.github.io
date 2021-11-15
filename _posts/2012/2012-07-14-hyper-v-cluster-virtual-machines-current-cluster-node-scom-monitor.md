@@ -4,7 +4,7 @@ title: Hyper-V Cluster Virtual Machines Current Cluster Node SCOM Monitor
 date: 2012-07-14T13:35:41+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1278
+guid: https://blog.tyang.org/?p=1278
 permalink: /2012/07/14/hyper-v-cluster-virtual-machines-current-cluster-node-scom-monitor/
 categories:
   - SCOM
@@ -12,7 +12,7 @@ tags:
   - MP Authoring
   - SCOM
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2012/07/HyperV.jpg"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; float: left; padding-top: 0px; border: 0px;" title="HyperV" src="http://blog.tyang.org/wp-content/uploads/2012/07/HyperV_thumb.jpg" alt="HyperV" width="244" height="101" align="left" border="0" /></a>First of all, apologies for not updating this blog for over a months. Life has been pretty busy outside of work. My wife gave birth to our first child a months ago and I’ve been flat out looking after our little girl Rosie <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2012/07/wlEmoticon-smile.png" alt="Smile" />.
+<a href="https://blog.tyang.org/wp-content/uploads/2012/07/HyperV.jpg"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; float: left; padding-top: 0px; border: 0px;" title="HyperV" src="https://blog.tyang.org/wp-content/uploads/2012/07/HyperV_thumb.jpg" alt="HyperV" width="244" height="101" align="left" border="0" /></a>First of all, apologies for not updating this blog for over a months. Life has been pretty busy outside of work. My wife gave birth to our first child a months ago and I’ve been flat out looking after our little girl Rosie <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="https://blog.tyang.org/wp-content/uploads/2012/07/wlEmoticon-smile.png" alt="Smile" />.
 
 Apart from enjoying every moment with the little one while I’m at home, At work, I have been asked to provide a solution to an issue that bothers our infrastructure support team on daily basis.
 
@@ -79,4 +79,4 @@ During the development of this Management Pack, this TechNet blog post really he
 
 <span style="font-size: medium;"><strong>Management Pack Download:</strong></span>
 
-Download Both sealed and unsealed versions <a title="Hyper-V Cluster Management Pack" href="http://blog.tyang.org/wp-content/uploads/2012/07/HyperV.zip">HERE</a>.
+Download Both sealed and unsealed versions <a title="Hyper-V Cluster Management Pack" href="https://blog.tyang.org/wp-content/uploads/2012/07/HyperV.zip">HERE</a>.

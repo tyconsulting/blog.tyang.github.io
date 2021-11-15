@@ -4,7 +4,7 @@ title: Extending Your OpsMgr Power BI Dashboards to Power BI Sites
 date: 2015-12-14T17:30:11+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4979
+guid: https://blog.tyang.org/?p=4979
 permalink: /2015/12/14/extending-your-opsmgr-power-bi-dashboards-to-power-bi-sites/
 categories:
   - Power BI
@@ -27,7 +27,7 @@ In this post, I will go through the process of setting up this solution so you c
 
 In order to create a Power BI dataset in your cloud based Power BI sites which is based on the on-prem OpsMgr Data Warehouse DB, we will need to install a component called <a href="https://powerbi.microsoft.com/en-us/documentation/powerbi-gateway-enterprise/">Power BI Enterprise Gateway</a> (Currently in preview) on a server in your on-prem data center. As shown in the diagram below, once the dataset is created for the OpsMgr Data Warehouse DB, the Power BI Site will query the OpsMgr DW DB through the Power BI Enterprise Gateway.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/PowerBI-OpsMgr-Dashboard-Connection.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="PowerBI OpsMgr Dashboard Connection" src="http://blog.tyang.org/wp-content/uploads/2015/12/PowerBI-OpsMgr-Dashboard-Connection_thumb.png" alt="PowerBI OpsMgr Dashboard Connection" width="558" height="228" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/PowerBI-OpsMgr-Dashboard-Connection.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="PowerBI OpsMgr Dashboard Connection" src="https://blog.tyang.org/wp-content/uploads/2015/12/PowerBI-OpsMgr-Dashboard-Connection_thumb.png" alt="PowerBI OpsMgr Dashboard Connection" width="558" height="228" border="0" /></a>
 
 
 
@@ -46,25 +46,25 @@ The install process for the Power BI Enterprise Gateway is very straightforward.
 
 Once it is installed and connected to your Power BI account, you will be able to manage the gateway after you’ve logged on to the Power BI Site (<a title="https://app.powerbi.com/" href="https://app.powerbi.com/">https://app.powerbi.com/</a>):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-1.png" alt="image" width="325" height="247" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-1.png" alt="image" width="325" height="247" border="0" /></a>
 
 And you can use "Add Data Source" to establish connection to a data base via the gateway:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML8d5b281.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8d5b281" src="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML8d5b281_thumb.png" alt="SNAGHTML8d5b281" width="582" height="360" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML8d5b281.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8d5b281" src="https://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML8d5b281_thumb.png" alt="SNAGHTML8d5b281" width="582" height="360" border="0" /></a>
 
 I have created a data source for my OpsMgr DW DB:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-2.png" alt="image" width="575" height="454" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-2.png" alt="image" width="575" height="454" border="0" /></a>
 
 After the data source is created for the OpsMgr DW DB, I then need to create a dataset based on the OpsMgr DW DB. We must create this dataset in Power BI Desktop.
 
 As Cameron already demonstrated in his post, in Power BI Desktop, we create a new document, and select SQL Server Database:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-3.png" alt="image" width="600" height="331" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-3.png" alt="image" width="600" height="331" border="0" /></a>
 
 We then specify the SQL server name and database name for the OpsMgr DW DB:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-4.png" alt="image" width="407" height="170" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-4.png" alt="image" width="407" height="170" border="0" /></a>
 
 >**<span style="color: #ff0000;">Note:</span> Please make sure the server name and database name entered here is IDENTICAL as what you have entered for the OpsMgr DW DB Data Source you have created under the Power BI Enterprise Gateway.**
 
@@ -74,47 +74,47 @@ Please make sure you have select ALL the tables and views that you need. Once we
 
 Once we have selected all required tables and views, click "Load":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-5.png" alt="image" width="431" height="344" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-5.png" alt="image" width="431" height="344" border="0" /></a>
 
 Please make sure you choose "DirectQuery" when prompted:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-6.png" alt="image" width="406" height="237" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-6.png" alt="image" width="406" height="237" border="0" /></a>
 
 Power BI will then create the connections to each table and view you have selected. Depending on the number of tables and views you have selected, this process may take a while:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-7.png" alt="image" width="382" height="302" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-7.png" alt="image" width="382" height="302" border="0" /></a>
 
 You can now see all the tables and views you have selected in Power BI Desktop:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-8.png" alt="image" width="670" height="373" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-8.png" alt="image" width="670" height="373" border="0" /></a>
 
 Now, we can save this empty Power BI report:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-9.png" alt="image" width="668" height="372" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-9.png" alt="image" width="668" height="372" border="0" /></a>
 
 After it is saved, we can go back to the Power BI Site, and import the newly created report by clicking "Get Data":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML8fb7716.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8fb7716" src="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML8fb7716_thumb.png" alt="SNAGHTML8fb7716" width="584" height="343" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML8fb7716.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8fb7716" src="https://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML8fb7716_thumb.png" alt="SNAGHTML8fb7716" width="584" height="343" border="0" /></a>
 
 Then choose "Files:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-10.png" alt="image" width="500" height="293" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image-10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-10.png" alt="image" width="500" height="293" border="0" /></a>
 
 Select Local File, and choose the empty report we’ve just created in Power BI Desktop
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-11.png" alt="image" width="504" height="304" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image-11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-11.png" alt="image" width="504" height="304" border="0" /></a>
 
 Then, you should be able to the new dataset appeared under "Datasets":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image-12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-12.png" alt="image" width="147" height="335" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image-12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb-12.png" alt="image" width="147" height="335" border="0" /></a>
 
 And we can create a new report in Power BI Site, same way as what Cameron has demonstrated in his post:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML9038b23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML9038b23" src="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML9038b23_thumb.png" alt="SNAGHTML9038b23" width="673" height="370" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML9038b23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML9038b23" src="https://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML9038b23_thumb.png" alt="SNAGHTML9038b23" width="673" height="370" border="0" /></a>
 
 In my lab, I have created the dataset and imported the Power BI report file to Power BI Site few days ago. From the above screenshot, you can see the performance data collected today (as highlighted in red). This means the Power BI Site is directly quering my On-Prem OpsMgr DW DB in real time via the Power BI Enterprise gateway. And when I checked my usage, the OpsMgr DW DB dataset has only consumed 1MB of data:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML9083664.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML9083664" src="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML9083664_thumb.png" alt="SNAGHTML9083664" width="661" height="388" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML9083664.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML9083664" src="https://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML9083664_thumb.png" alt="SNAGHTML9083664" width="661" height="388" border="0" /></a>
 
 ## Summary
 

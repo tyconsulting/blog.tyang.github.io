@@ -4,7 +4,7 @@ title: PowerShell DSC Resource for Managing Repositories and Modules
 date: 2016-09-15T19:59:42+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5621
+guid: https://blog.tyang.org/?p=5621
 permalink: /2016/09/15/powershell-dsc-resource-for-managing-repositories-and-modules/
 categories:
   - PowerShell
@@ -13,7 +13,7 @@ tags:
   - PowerShell
 ---
 
-## <a href="http://blog.tyang.org/wp-content/uploads/2016/09/256x256.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="256x256" src="http://blog.tyang.org/wp-content/uploads/2016/09/256x256_thumb.png" alt="256x256" width="151" height="151" align="left" border="0" /></a>Introduction
+## <a href="https://blog.tyang.org/wp-content/uploads/2016/09/256x256.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="256x256" src="https://blog.tyang.org/wp-content/uploads/2016/09/256x256_thumb.png" alt="256x256" width="151" height="151" align="left" border="0" /></a>Introduction
 
 PowerShell version 5 has introduced a new feature that allows you to install packages (such as PowerShell modules) from NuGet repositories. If you have used cmdlets such as Find-Module, Install-Module or Uninstall-Module, then you have already taken advantage of this awesome feature.
 
@@ -91,7 +91,7 @@ When not specified, the InstallationPolicy field default value is "Untrusted". I
 
 **<span style="color: #ff0000;">Note:</span>** since the repository registration is based on each user (as opposed to machine based settings) and DSC configuration is executed under LocalSystem context. you will not be able to see the repository added by this resource if you run Get-PSRepository cmdlet under your own user account. If you start PowerShell under LocalSystem by using PsExec (run psexec /i /s /d powershell.exe), you will be able to see the repository:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/09/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/09/image_thumb.png" alt="image" width="354" height="102" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/09/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/09/image_thumb.png" alt="image" width="354" height="102" border="0" /></a>
 
 **cPowerShellModuleManagement**
 
@@ -118,7 +118,7 @@ cPowerShellModuleManagement [String] #ResourceName
  * **PSModuleVersion **– This is an optional field. when used, only the specified version will be installed (or uninstalled). If not specified, the latest version of the module from the repository will be used. This field will not impact other versions that are already installed on the computer (i.e. when installing the latest version, earlier versions will not be uninstalled).
  * **MaintenanceStartHour, MaintenanceStartMinute and MaintenanceLengthMinute** – Since the LCM will run the DSC configuration on a pre-configured interval, you may not want to install / uninstall modules during business hours. Therefore, you can set the maintenance start hour (0-23) and start minute (0-59) to specify the start time of the maintenance window. MaintenanceLengthMinute represents the length of the maintenance window in minutes. These fields are optional, when specified, module installation and uninstallation will only take place when the LCM runs the configuration within the maintenance window. Note: Please make sure the MaintenanceLengthMinute is greater than the value configured for the LCM ConfigurationModeFrequencyMins property.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/09/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/09/image_thumb-1.png" alt="image" width="428" height="220" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/09/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/09/image_thumb-1.png" alt="image" width="428" height="220" border="0" /></a>
 
 ## Sample Configuration
 

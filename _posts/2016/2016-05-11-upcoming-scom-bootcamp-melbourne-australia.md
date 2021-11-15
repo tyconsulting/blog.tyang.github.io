@@ -4,7 +4,7 @@ title: Upcoming SCOM Bootcamp-Melbourne Australia
 date: 2016-05-11T19:37:36+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5395
+guid: https://blog.tyang.org/?p=5395
 permalink: /2016/05/11/upcoming-scom-bootcamp-melbourne-australia/
 categories:
   - SCOM
@@ -18,7 +18,7 @@ This bootcamp is designed for SCOM administrators and operators. If you are runn
 
 Here’s the detail of this training event:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/05/SCOMBootcamp.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SCOMBootcamp" src="http://blog.tyang.org/wp-content/uploads/2016/05/SCOMBootcamp_thumb.png" alt="SCOMBootcamp" width="585" height="205" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/05/SCOMBootcamp.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SCOMBootcamp" src="https://blog.tyang.org/wp-content/uploads/2016/05/SCOMBootcamp_thumb.png" alt="SCOMBootcamp" width="585" height="205" border="0" /></a>
 
 ## SCOM 2012 Bootcamp – Australia
 

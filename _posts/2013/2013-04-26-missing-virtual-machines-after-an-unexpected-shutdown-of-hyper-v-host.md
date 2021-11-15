@@ -4,7 +4,7 @@ title: Missing Virtual Machines After An Unexpected Shutdown of Hyper-V Host
 date: 2013-04-26T00:14:16+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1916
+guid: https://blog.tyang.org/?p=1916
 permalink: /2013/04/26/missing-virtual-machines-after-an-unexpected-shutdown-of-hyper-v-host/
 categories:
   - Hyper-V
@@ -25,9 +25,9 @@ On this Hyper-V server (named HYPERV01), there are 3 SATA disks and 2 SSDs hosti
 
 I checked <em><strong>C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines</strong></em> and all the symbolic links for VM’s are still there. Below errors were logged in the event log:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb20.png" width="580" height="249" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/04/image_thumb20.png" width="580" height="249" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb21.png" width="580" height="191" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/04/image_thumb21.png" width="580" height="191" border="0" /></a>
 
 According to <a href="http://support.microsoft.com/kb/2249906">http://support.microsoft.com/kb/2249906</a>, It could be caused by insufficient NTFS permissions. I double, triple checked NTFS permissions, and used icacls command to assign virtual machine SID permission to VHDs and XMLs (as suggested in the KB), it didn’t help.
 
@@ -41,23 +41,23 @@ After reboot, nothing’s changed. Still not fixed. I then spent next 5-6 hours 
 
 I also found in VMM console, the 2 problematic disks (D:\ and E:\) did not show up in the Hyper-V server properties:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb22.png" width="427" height="634" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/04/image_thumb22.png" width="427" height="634" border="0" /></a>
 
 Under the Storage tab, it showed these 2 drives have 0 GB available but in fact, both of them only have around 200 GB data on the 1 TB drives.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb23.png" width="580" height="429" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/04/image_thumb23.png" width="580" height="429" border="0" /></a>
 
 I tried to re-import the missing VM’s back, but I got this error:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/image24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb24.png" width="470" height="416" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/image24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/04/image_thumb24.png" width="470" height="416" border="0" /></a>
 
 Finally, at 11:00pm, I managed to fix the issue. I uninstalled "Windows Firewall Configuration Provider" from Programs and Features
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb25.png" width="580" height="263" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/04/image_thumb25.png" width="580" height="263" border="0" /></a>
 
 According to some Google search results, it is a part of SCEP client. After uninstallation and a reboot, all my VM’s appeared in the Hyper-V console:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/image26.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb26.png" width="467" height="372" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/image26.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/04/image_thumb26.png" width="467" height="372" border="0" /></a>
 
 For those VMs that were copied back to the formatted drive, I had to configure NTFS permission as per KB2249906 before they could be started (because during the copying processes, the VM SID has lost access). (Tip: use /T switch in icacls command to apply the permission to all files and folders below).
 

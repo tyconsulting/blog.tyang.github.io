@@ -4,7 +4,7 @@ title: 'Management Pack for ConfigMgr 2012 Clients &#8211; Testers Wanted!!'
 date: 2013-08-31T01:13:16+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2122
+guid: https://blog.tyang.org/?p=2122
 permalink: /2013/08/31/management-pack-configmgr-2012-clients-testers-wanted/
 categories:
   - SCCM
@@ -14,7 +14,7 @@ tags:
   - SCCM
   - SCOM
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2013/08/SCCM-Client-Monitor.png"><img class="alignleft size-medium wp-image-2124" alt="ConfigMgr 2012 Client MP Icon" src="http://blog.tyang.org/wp-content/uploads/2013/08/SCCM-Client-Monitor-300x300.png" width="300" height="300" /></a>I’ve written a OpsMgr management pack to monitor ConfigMgr 2007 clients in the past. The MP was published in <a href="http://blog.tyang.org/2012/03/04/system-center-configuration-manager-sccm-2007-client-management-pack-for-scom/">this blog</a>. Over the last month or so, as part of a project that I’m working on, I have written a Management Pack to monitor ConfigMgr 2012 Clients via OpsMgr 2012. This MP provides individualised monitoring for ConfigMgr 2012 clients, where the Microsoft ConfigMgr 2012 management pack does not.
+<a href="https://blog.tyang.org/wp-content/uploads/2013/08/SCCM-Client-Monitor.png"><img class="alignleft size-medium wp-image-2124" alt="ConfigMgr 2012 Client MP Icon" src="https://blog.tyang.org/wp-content/uploads/2013/08/SCCM-Client-Monitor-300x300.png" width="300" height="300" /></a>I’ve written a OpsMgr management pack to monitor ConfigMgr 2007 clients in the past. The MP was published in <a href="https://blog.tyang.org/2012/03/04/system-center-configuration-manager-sccm-2007-client-management-pack-for-scom/">this blog</a>. Over the last month or so, as part of a project that I’m working on, I have written a Management Pack to monitor ConfigMgr 2012 Clients via OpsMgr 2012. This MP provides individualised monitoring for ConfigMgr 2012 clients, where the Microsoft ConfigMgr 2012 management pack does not.
 
 To be honest, I wasn’t really happy with the ConfigMgr 2007 Client MP that I wrote almost 2 years ago. I think there are a lot of areas that needs improvement. So when I’m writting this MP for 2012 clients, I started from scratch and completely re-written it.
 
@@ -61,9 +61,9 @@ Detect if business hours and service windows are configured
 
 These monitors detects if the business hours and service windows are configured:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb.png" width="334" height="150" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb.png" width="334" height="150" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_3.png" width="283" height="298" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_3.png" width="283" height="298" border="0" /></a>
 
 <strong>Detect if the client is assigned to the correct ConfigMgr primary site</strong>
 
@@ -81,21 +81,21 @@ CcmEval is a new component in ConfigMgr 2012 client. this consecutive samples mo
 
 The MP also provides various Agent Tasks that can be executed against ConfigMgr 2012 client (or client agents). i.e.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_4.png" width="494" height="319" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_4.png" width="494" height="319" border="0" /></a>
 
 By design, OpsMgr allows users to trigger an agent task on up to 10 managed objects at once. The figures below illustrates OpsMgr operators can multi-select up to 10 Software Update Agent objects from the state view and trigger the "Software Update Assignments Evaluation Cycle" agent task and task results for each selected node:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_5.png" width="286" height="376" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_5.png" width="286" height="376" border="0" /></a>
 
 <strong>Class Diagram</strong>
 
 The ConfigMgr 2012 Client class is defined as a local application and each client agent is defined as an application component (as shown below):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/ConfigMgr-2012-client-Class-Diagram.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="ConfigMgr 2012 client Class Diagram" alt="ConfigMgr 2012 client Class Diagram" src="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/ConfigMgr-2012-client-Class-Diagram_thumb.png" width="580" height="196" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/ConfigMgr-2012-client-Class-Diagram.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="ConfigMgr 2012 client Class Diagram" alt="ConfigMgr 2012 client Class Diagram" src="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/ConfigMgr-2012-client-Class-Diagram_thumb.png" width="580" height="196" border="0" /></a>
 
 The health state of each client agent is rolled up to the parent class of "ConfigMgr 2012 Client", as indicated below:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_6.png" width="211" height="369" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_6.png" width="211" height="369" border="0" /></a>
 
 <span style="font-size: large;"><strong>Design Considerations</strong></span>
 
@@ -120,7 +120,7 @@ Although System Center 2012 R2 RTM is just around corner, I don’t have any R2 
 
 An error will occur when try to create an override to an unsealed management pack that is created in the OpsMgr operational console:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_7.png" width="323" height="179" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/08/Management-Pack-for-ConfigMgr-2012-Clien_13D2C/image_thumb_7.png" width="323" height="179" border="0" /></a>
 
 The cause of this issue is the same as my recent OpsMgr Self Maintenance MP: OpsMgr doesn’t like "2012" as part of the ID of the management pack. The workaround is documented in the MP documentation.
 
@@ -136,4 +136,4 @@ The MP and the documentation can be downloaded below. To help with anyone who’
 
 For those who’s willing to help and test this MP, <strong>THANK YOU!</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/08/ConfigMgr-2012-Client-Monitoring-0.2.0.0.zip"><strong>DOWNLOAD HERE</strong></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/08/ConfigMgr-2012-Client-Monitoring-0.2.0.0.zip"><strong>DOWNLOAD HERE</strong></a>

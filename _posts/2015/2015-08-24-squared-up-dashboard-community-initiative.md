@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/08/kablam3.jpg
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4411
+guid: https://blog.tyang.org/?p=4411
 permalink: /2015/08/24/squared-up-dashboard-community-initiative/
 categories:
   - SCOM

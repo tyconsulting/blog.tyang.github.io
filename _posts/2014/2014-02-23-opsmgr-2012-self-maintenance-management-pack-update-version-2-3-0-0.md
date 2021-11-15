@@ -4,7 +4,7 @@ title: OpsMgr 2012 Self Maintenance Management Pack Update (Version 2.3.0.0)
 date: 2014-02-23T09:44:29+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2368
+guid: https://blog.tyang.org/?p=2368
 permalink: /2014/02/23/opsmgr-2012-self-maintenance-management-pack-update-version-2-3-0-0/
 categories:
   - SCOM
@@ -21,17 +21,17 @@ What’s new?
 
 Awhile back, someone suggested me to add a comment to the alert when it’s being closed by this rule. I think it’s a good idea, so I’ve updated this rule. now any alerts closed by this rule will have a comment "Closed by OpsMgr 2012 Self Maintenance Management Pack":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image5.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb5.png" width="565" height="299" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image5.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb5.png" width="565" height="299" border="0" /></a>
 
 <strong>New Agent Task: Get Management Groups configured on an agent</strong>
 
 This new task is targeting the agent class, it displays the management groups that are configured on the OpsMgr 2012 agents:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image6.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb6.png" width="397" height="483" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image6.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb6.png" width="397" height="483" border="0" /></a>
 
 <strong><span style="color: #ff0000;">Note:</span></strong> Since there is already a state view for agents built-in in OpsMgr 2012, I did not bother to create such a view in this management pack. You can find the "Agents By Version" state view under Operations Manager\Agent Details:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image7.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb7.png" width="580" height="376" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image7.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb7.png" width="580" height="376" border="0" /></a>
 
 <strong>New Rule: Auto approve manually installed agents if their computer names and domain names match configurable regular expressions</strong>
 
@@ -60,11 +60,11 @@ This rule will approve manually installed agents (up to the number configured fo
 
 An information alert is generated if the rule has approved at least one (1) agent(s).
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image8.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb8.png" width="580" height="448" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image8.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb8.png" width="580" height="448" border="0" /></a>
 
 The list of approved agents is shown in Alert Context:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image9.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb9.png" width="580" height="258" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image9.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb9.png" width="580" height="258" border="0" /></a>
 
 As shown in above alert, in my lab, I have configured the rule to approve any agents that have "CLIENT" as part of the computer name and the the domain name is exactly "corp.tyang.org". It found 2 agents pending approval, since MaxToApprove value is set to 2, both agents are approved.
 
@@ -94,40 +94,40 @@ As the standard for the Self Maintenance MP, all workflows are disabled by defau
 
 Object Discovery:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image10.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb10.png" width="580" height="220" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image10.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb10.png" width="580" height="220" border="0" /></a>
 
 Monitor:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image11.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb11.png" width="580" height="230" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image11.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb11.png" width="580" height="230" border="0" /></a>
 
 Recovery Task:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image12.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb12.png" width="580" height="566" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image12.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb12.png" width="580" height="566" border="0" /></a>
 
 <strong><span style="color: #ff0000;">Note:</span></strong> I purposely did not create a state view for the Maintenance Mode Watcher objects. I don’t want normal operators to see these objects (so they can place the watcher objects into maintenance mode directly).
 
 When I placed All 3 management servers in my lab into maintenance mode:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image13.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb13.png" width="535" height="154" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image13.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb13.png" width="535" height="154" border="0" /></a>
 
 The maintenance mode watcher objects became unhealthy:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image14.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb14.png" width="580" height="150" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image14.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb14.png" width="580" height="150" border="0" /></a>
 
 An alert was generated for each management server:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image15.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb15.png" width="580" height="177" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image15.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb15.png" width="580" height="177" border="0" /></a>
 
 From the screenshot above, you can see that other alerts were generated for various resource pools heartbeat failures because all management servers are in maintenance mode. In this scenario, the old monitor that targets the "All Management Servers Resource Pool" would not work.
 
 When I enabled the recovery task, the management server has been taken out of maintenance mode automatically:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image16.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb16.png" width="580" height="522" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image16.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb16.png" width="580" height="522" border="0" /></a>
 
 As shown in above screenshot, I placed a management server into maintenance mode for 30 minutes (as shown in the MaintModeDetails), because I configured the monitor to run every 1 minute, on 11:57PM local time, (within 1 minute of the maintenance mode start time), the monitor detected the management server was in maintenance mode, and the recovery task has ended the maintenance mode.
 
 <strong><span style="color: #ff0000;">Note:</span></strong> Please enable this recovery task with caution. i.e. If the monitor is configured to run every 5 minutes, you will never be able to place a management server into maintenance mode for more than 5 minutes. It may not always be desired.
 
-The updated MP and documentation can be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2014/02/OpsMgr.2012.Self_.Maintenance.MP_.2.3.0.01.zip">HERE</a>.
+The updated MP and documentation can be downloaded <a href="https://blog.tyang.org/wp-content/uploads/2014/02/OpsMgr.2012.Self_.Maintenance.MP_.2.3.0.01.zip">HERE</a>.
 
 As always, please feel free to contact me if you have any feedbacks.

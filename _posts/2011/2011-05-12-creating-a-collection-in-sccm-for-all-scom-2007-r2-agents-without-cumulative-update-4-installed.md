@@ -4,7 +4,7 @@ title: 'Creating a collection in SCCM for &#8220;all SCOM 2007 R2 agents without
 date: 2011-05-12T17:59:27+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=507
+guid: https://blog.tyang.org/?p=507
 permalink: /2011/05/12/creating-a-collection-in-sccm-for-all-scom-2007-r2-agents-without-cumulative-update-4-installed/
 categories:
   - SCCM
@@ -42,11 +42,11 @@ Below is the result in my test environment:
 
 <strong>Collection Membership in SCCM:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/05/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/05/image_thumb1.png" border="0" alt="image" width="383" height="159" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/05/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/05/image_thumb1.png" border="0" alt="image" width="383" height="159" /></a>
 
 <strong>State View of Agent List with Patch List from SCOM:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/05/image2.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/05/image_thumb2.png" border="0" alt="image" width="580" height="213" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/05/image2.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/05/image_thumb2.png" border="0" alt="image" width="580" height="213" /></a>
 
 &nbsp;
 

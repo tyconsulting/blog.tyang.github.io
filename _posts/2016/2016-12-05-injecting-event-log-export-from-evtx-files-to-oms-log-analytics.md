@@ -4,7 +4,7 @@ title: Injecting Event Log Export from .evtx Files to OMS Log Analytics
 date: 2016-12-05T19:51:30+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5793
+guid: https://blog.tyang.org/?p=5793
 permalink: /2016/12/05/injecting-event-log-export-from-evtx-files-to-oms-log-analytics/
 categories:
   - Uncategorized
@@ -13,7 +13,7 @@ tags:
   - OMS
   - PowerShell
 ---
-Over the last few days, I had an requirement injecting events from .evtx files into OMS Log Analytics. A typical .evtx file that I need to process contains over 140,000 events. Since the Azure Automation runbook have the maximum execution time of 3 hours, in order to make the runbook more efficient, I also had to update my OMSDataInjection PowerShell module to support bulk insert (<a title="http://blog.tyang.org/2016/12/05/omsdatainjection-powershell-module-updated/" href="http://blog.tyang.org/2016/12/05/omsdatainjection-powershell-module-updated/">http://blog.tyang.org/2016/12/05/omsdatainjection-powershell-module-updated/</a>).
+Over the last few days, I had an requirement injecting events from .evtx files into OMS Log Analytics. A typical .evtx file that I need to process contains over 140,000 events. Since the Azure Automation runbook have the maximum execution time of 3 hours, in order to make the runbook more efficient, I also had to update my OMSDataInjection PowerShell module to support bulk insert (<a title="https://blog.tyang.org/2016/12/05/omsdatainjection-powershell-module-updated/" href="https://blog.tyang.org/2016/12/05/omsdatainjection-powershell-module-updated/">https://blog.tyang.org/2016/12/05/omsdatainjection-powershell-module-updated/</a>).
 
 I have publish the runbook on [GitHub Gist](https://gist.github.com/tyconsulting/72a19595246938ae0fb435a42afa4185):
 
@@ -126,10 +126,10 @@ You can further customise the runbook and choose which fields from the evtx even
 
 Lastly, sometimes you will get events that their formatted description cannot be displayed. i.e.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/12/image-11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/12/image_thumb-11.png" alt="image" width="416" height="148" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/12/image-11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/12/image_thumb-11.png" alt="image" width="416" height="148" border="0" /></a>
 
 When the runbook cannot get the formatted description of event, it will use the XML content as the event description instead.
 
 Sample event injected by this runbook:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/12/image-12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/12/image_thumb-12.png" alt="image" width="706" height="299" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/12/image-12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/12/image_thumb-12.png" alt="image" width="706" height="299" border="0" /></a>

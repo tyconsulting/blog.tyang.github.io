@@ -4,7 +4,7 @@ title: 'My Home Test Lab &#8211; Part 2'
 date: 2012-10-05T22:41:35+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1506
+guid: https://blog.tyang.org/?p=1506
 permalink: /2012/10/05/my-home-test-lab-part-2/
 categories:
   - Hyper-V
@@ -16,7 +16,7 @@ tags:
 ---
 This is the part 2 of my 2-part series on how my home test lab is configured.
 
-Part 1 can be found <a href="http://blog.tyang.org/2012/10/04/my-home-test-lab-part-1/">here</a>.
+Part 1 can be found <a href="https://blog.tyang.org/2012/10/04/my-home-test-lab-part-1/">here</a>.
 
 In this second part, I’m going to talk about my previous experience with <a href="http://www.vyatta.org/">vyatta virtual router appliance</a> and how I replaced vyatta with <a href="https://www.centos.org/">CentOS</a>.
 
@@ -71,7 +71,7 @@ save
 ```
 So why am I moving away from Vyatta? the short answer is: Vyatta does not officially support Hyper-V:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb9.png" alt="image" width="574" height="277" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb9.png" alt="image" width="574" height="277" border="0" /></a>
 
 Read between the lines, Hyper-V is not supported.
 
@@ -90,9 +90,9 @@ So long story short, I’m hopeless when comes to Linux / Unix. I haven’t real
 
 You’ve probably already seen the network diagram for my lab from Part 1. Here’s a logical diagram for the 3 Hyper-V hosts and the CentOS router in each host:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/Hyper-V-Logical-View.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Hyper-V Logical View" src="http://blog.tyang.org/wp-content/uploads/2012/10/Hyper-V-Logical-View_thumb.png" alt="Hyper-V Logical View" width="580" height="424" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/Hyper-V-Logical-View.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Hyper-V Logical View" src="https://blog.tyang.org/wp-content/uploads/2012/10/Hyper-V-Logical-View_thumb.png" alt="Hyper-V Logical View" width="580" height="424" border="0" /></a>
 
-The Visio diagram of the above view can be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2012/10/Hyper-V-Logical-View.zip">here</a>.
+The Visio diagram of the above view can be downloaded <a href="https://blog.tyang.org/wp-content/uploads/2012/10/Hyper-V-Logical-View.zip">here</a>.
 
 Now, I’ll use **HyperVRT01** (the router on HyperV01) as an example and go through the steps of setting it up.
 
@@ -128,7 +128,7 @@ Now, let’s start…
 * #4: 192.168.9.0
 
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb10.png" alt="image" width="274" height="181" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb10.png" alt="image" width="274" height="181" border="0" /></a>
 
 **2. Mount the CentOS-6.3-x86_64-bin-DVD1.iso to the VM**
 
@@ -136,7 +136,7 @@ Now, let’s start…
 
 * Choose "Install system with basic video driver"
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb11.png" alt="image" width="525" height="396" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb11.png" alt="image" width="525" height="396" border="0" /></a>
 
 <span style="color: #ff0000;">*Note:</span> if you choose the first option to use the GUI based install wizard, you’ll need to assign minimum 1GB of memory to the VM. GUI based install won’t run on 512MB RAM.
 
@@ -187,7 +187,7 @@ GATEWAYDEV=eth0
 GATEWAY=192.168.1.1
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb12.png" alt="image" width="427" height="138" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb12.png" alt="image" width="427" height="138" border="0" /></a>
 
 **8. Set IP Address:**
 
@@ -221,7 +221,7 @@ TYPE="Ethernet"
 IPV6INIT=no
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb13.png" alt="image" width="398" height="380" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb13.png" alt="image" width="398" height="380" border="0" /></a>
 
 <span style="color: #ff0000;">*Hint:</span> Configure the first NIC eth0, then you can use Putty to connect via SSH. once in Putty, you can copy & paste commands.
 
@@ -297,7 +297,7 @@ service network restart
 
 Make sure all NICs start up OK:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb14.png" alt="image" width="580" height="194" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb14.png" alt="image" width="580" height="194" border="0" /></a>
 
 **9. OS Update**
 
@@ -327,7 +327,7 @@ vi /etc/sysctl.conf
 net.ipv4.ip_forward = 1
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/SNAGHTMLf993100.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLf993100" src="http://blog.tyang.org/wp-content/uploads/2012/10/SNAGHTMLf993100_thumb.png" alt="SNAGHTMLf993100" width="580" height="304" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/SNAGHTMLf993100.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLf993100" src="https://blog.tyang.org/wp-content/uploads/2012/10/SNAGHTMLf993100_thumb.png" alt="SNAGHTMLf993100" width="580" height="304" border="0" /></a>
 
 **11. Configure Route:**
 
@@ -345,7 +345,7 @@ vi /etc/sysconfig/network-scripts/route-eth0
 192.168.6.0/24 via 192.168.1.254 dev eth0
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb15.png" alt="image" width="504" height="133" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb15.png" alt="image" width="504" height="133" border="0" /></a>
 
 <span style="color: #ff0000;">*Note:</span> above list represent all subnets in the other 2 Hyper-V servers in my lab.
 
@@ -375,7 +375,7 @@ INTERFACES="eth0 eth1 eth2 eth3"
 DHCPSERVERS="192.168.4.10" 
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/SNAGHTMLf9fb07b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLf9fb07b" src="http://blog.tyang.org/wp-content/uploads/2012/10/SNAGHTMLf9fb07b_thumb.png" alt="SNAGHTMLf9fb07b" width="512" height="300" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/SNAGHTMLf9fb07b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLf9fb07b" src="https://blog.tyang.org/wp-content/uploads/2012/10/SNAGHTMLf9fb07b_thumb.png" alt="SNAGHTMLf9fb07b" width="512" height="300" border="0" /></a>
 
 * **Start DHCP Relay service (dhcrelay)**
 
@@ -444,7 +444,7 @@ mirrorlist=http://download.webmin.com/download/yum/mirrorlist
 enabled=1
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb16.png" alt="image" width="580" height="126" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb16.png" alt="image" width="580" height="126" border="0" /></a>
 
 * **update the repos:**
 
@@ -465,17 +465,17 @@ http://ipaddress:10000
 
 After setup, check system status via webmin:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb17.png" alt="image" width="580" height="342" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb17.png" alt="image" width="580" height="342" border="0" /></a>
 
 As you can see, after everything is configured, it only uses 136MB of memory and 3GB of disk space.
 
 **Routing and Gateways:**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/SNAGHTMLfafef30.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLfafef30" src="http://blog.tyang.org/wp-content/uploads/2012/10/SNAGHTMLfafef30_thumb.png" alt="SNAGHTMLfafef30" width="580" height="381" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/SNAGHTMLfafef30.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLfafef30" src="https://blog.tyang.org/wp-content/uploads/2012/10/SNAGHTMLfafef30_thumb.png" alt="SNAGHTMLfafef30" width="580" height="381" border="0" /></a>
 
 **NIC configurations:**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb18.png" alt="image" width="574" height="282" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb18.png" alt="image" width="574" height="282" border="0" /></a>
 
 Additional, I made sure a windows client OS could obtain an IP address from the DHCP server (which is located on another Hyper-V host). and I was able to ping / trace route other VMs in other Hyper-V servers (I have already demonstrated it in part 1).
 

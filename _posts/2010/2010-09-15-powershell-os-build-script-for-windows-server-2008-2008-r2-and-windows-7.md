@@ -4,7 +4,7 @@ title: 'PowerShell: OS Build Script for Windows Server 2008, 2008 R2 and Windows
 date: 2010-09-15T17:32:02+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=193
+guid: https://blog.tyang.org/?p=193
 permalink: /2010/09/15/powershell-os-build-script-for-windows-server-2008-2008-r2-and-windows-7/
 Featured:
   - Featured
@@ -23,7 +23,7 @@ Around 2 years ago, I originally written a set of script to configure newly buil
 
 Over the time, I have updated them many times and now they also support Windows 2008 R2 and Windows 7.
 
-<strong>You can download the scripts </strong><a href="http://blog.tyang.org/wp-content/uploads/2010/09/Windows-Build-Script.zip"><strong>HERE</strong></a><strong>.</strong>
+<strong>You can download the scripts </strong><a href="https://blog.tyang.org/wp-content/uploads/2010/09/Windows-Build-Script.zip"><strong>HERE</strong></a><strong>.</strong>
 
 <strong>Purpose:</strong>
 

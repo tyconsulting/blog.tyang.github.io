@@ -4,7 +4,7 @@ title: OpsLogix VMware Management Pack Quick Overview
 date: 2016-02-23T10:05:35+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5200
+guid: https://blog.tyang.org/?p=5200
 permalink: /2016/02/23/opslogix-vmware-management-pack-quick-overview/
 categories:
   - SCOM
@@ -19,21 +19,21 @@ Recently, I have had chance to evaluate the <a href="http://www.opslogix.com/vmw
 
 Once the MP files are imported , you will be able to import the license from the licensing dashboard in the monitoring pane under the OpsLogix folder.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1ef419e2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1ef419e2" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1ef419e2_thumb.png" alt="SNAGHTML1ef419e2" width="486" height="373" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1ef419e2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1ef419e2" src="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1ef419e2_thumb.png" alt="SNAGHTML1ef419e2" width="486" height="373" border="0" /></a>
 
 Once the license is imported, you can manually add the VMware vCenter server from the "VMWare IMP COnfiguration dashboard" located under OpsLogix\VMware folder:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1efa0d33.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1efa0d33" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1efa0d33_thumb.png" alt="SNAGHTML1efa0d33" width="482" height="371" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1efa0d33.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1efa0d33" src="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1efa0d33_thumb.png" alt="SNAGHTML1efa0d33" width="482" height="371" border="0" /></a>
 
 I have create a service account in AD and give it admin rights in vCenter. I used this account to connect to vCenter on this dashboard.
 
 **<span style="color: #ff0000;">Note:</span>** Please do not use an account with administrative privilege in your production environment. a normal user with top level read-only access will suffice.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f02320a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1f02320a" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f02320a_thumb.png" alt="SNAGHTML1f02320a" width="525" height="212" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f02320a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1f02320a" src="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f02320a_thumb.png" alt="SNAGHTML1f02320a" width="525" height="212" border="0" /></a>
 
 The OpsLogix VMware MP also has defined a resource pool that you can use for monitoring vCenter:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f046620.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1f046620" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f046620_thumb.png" alt="SNAGHTML1f046620" width="495" height="254" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f046620.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1f046620" src="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f046620_thumb.png" alt="SNAGHTML1f046620" width="495" height="254" border="0" /></a>
 
 By default, the resource pool membership is set Automatic (which means all management servers are a member of). you can change it to Manual membership and hand pick the management servers you want to be a member of this resource pool.
 
@@ -54,17 +54,17 @@ This MP discovers and monitors the following components:
 
 Here’s the sample diagram view from my lab environment:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2f09d40.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2f09d40" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2f09d40_thumb.png" alt="SNAGHTML2f09d40" width="678" height="338" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2f09d40.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2f09d40" src="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2f09d40_thumb.png" alt="SNAGHTML2f09d40" width="678" height="338" border="0" /></a>
 
 The MP ships with a top level Alert view for all alerts generated by the MP:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML305e30d.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML305e30d" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML305e30d_thumb.png" alt="SNAGHTML305e30d" width="688" height="340" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML305e30d.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML305e30d" src="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML305e30d_thumb.png" alt="SNAGHTML305e30d" width="688" height="340" border="0" /></a>
 
 The MP collects data and queries the health state of the VMware components via the vCenter <a href="https://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.wssdk.pg.doc_50%2FPG_ChB_Using_MOB.20.1.html">Managed Object Browser</a> (MOB). I was impressed about how many performance counters are being collected by the MP. It also comes with a performance dashboard which you can view from the OpsMgr console:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/02/image_thumb-1.png" alt="image" width="659" height="362" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/02/image_thumb-1.png" alt="image" width="659" height="362" border="0" /></a>
 
-I have been asked many times before that what exactly does this MP monitor / collect? To answer the question, I’ve used MPViewer and exported all the monitoring MPs to Excel and make <a href="http://blog.tyang.org/wp-content/uploads/2016/02/VMWareMPExtract.xlsx">this SpreadSheet</a> that contains all the rules and unit monitors.
+I have been asked many times before that what exactly does this MP monitor / collect? To answer the question, I’ve used MPViewer and exported all the monitoring MPs to Excel and make <a href="https://blog.tyang.org/wp-content/uploads/2016/02/VMWareMPExtract.xlsx">this SpreadSheet</a> that contains all the rules and unit monitors.
 
 This MP does not require any additional servers to monitor the VMware infrastructure as it leverages a resource pool to query vCenter. In my lab environment, since I have installed vCenter server on a Windows server, I also installed the OpsMgr agent on the vCenter server, so the server itself is monitored by OpsMgr.
 
@@ -86,27 +86,27 @@ This covers all the essential fabric components (Compute, Network and Storage), 
 
 Temperature
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2fd6410.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2fd6410" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2fd6410_thumb.png" alt="SNAGHTML2fd6410" width="524" height="229" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2fd6410.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2fd6410" src="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2fd6410_thumb.png" alt="SNAGHTML2fd6410" width="524" height="229" border="0" /></a>
 
 Storage:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2ff2661.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2ff2661" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2ff2661_thumb.png" alt="SNAGHTML2ff2661" width="524" height="249" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2ff2661.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2ff2661" src="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2ff2661_thumb.png" alt="SNAGHTML2ff2661" width="524" height="249" border="0" /></a>
 
 Processors:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2ffe462.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2ffe462" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2ffe462_thumb.png" alt="SNAGHTML2ffe462" width="524" height="256" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2ffe462.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2ffe462" src="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML2ffe462_thumb.png" alt="SNAGHTML2ffe462" width="524" height="256" border="0" /></a>
 
 ## Reporting
 
 The reporting MP provides several availability reports for different VMware components:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f58ed68.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1f58ed68" src="http://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f58ed68_thumb.png" alt="SNAGHTML1f58ed68" width="459" height="335" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f58ed68.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1f58ed68" src="https://blog.tyang.org/wp-content/uploads/2016/02/SNAGHTML1f58ed68_thumb.png" alt="SNAGHTML1f58ed68" width="459" height="335" border="0" /></a>
 
 i.e. ESX host availability report:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/02/image_thumb-2.png" alt="image" width="626" height="530" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/02/image_thumb-2.png" alt="image" width="626" height="530" border="0" /></a>
 
-I’ve created a sample ESX host availability report, you can download it from <a href="http://blog.tyang.org/wp-content/uploads/2016/02/VMware-ESX-host-availability-report.xlsx">HERE</a>.
+I’ve created a sample ESX host availability report, you can download it from <a href="https://blog.tyang.org/wp-content/uploads/2016/02/VMware-ESX-host-availability-report.xlsx">HERE</a>.
 
 Note: all the reports shipped in this MP are <a href="http://blogs.msdn.com/b/eugenebykov/archive/2007/05/21/linked-reports.aspx">linked reports</a>, So if they don’t meet your requirements, you can always use other  existing reports in your management group (i.e. the performance reports from Microsoft Generic Report Library).
 
@@ -114,7 +114,7 @@ Note: all the reports shipped in this MP are <a href="http://blogs.msdn.com/b/eu
 
 I have created a Squared Up dashboard for this the OpsLogix VMware MP.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/OpsLogix-VMware-Dashboard.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="OpsLogix VMware Dashboard" src="http://blog.tyang.org/wp-content/uploads/2016/02/OpsLogix-VMware-Dashboard_thumb.png" alt="OpsLogix VMware Dashboard" width="649" height="332" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/OpsLogix-VMware-Dashboard.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="OpsLogix VMware Dashboard" src="https://blog.tyang.org/wp-content/uploads/2016/02/OpsLogix-VMware-Dashboard_thumb.png" alt="OpsLogix VMware Dashboard" width="649" height="332" border="0" /></a>
 
 If you are also Squared Up in your OpsMgr environment, you can download this dashboard and import this dashboard from Squared Up’s community site: <a title="https://community.squaredup.com/browse/download-info/opslogix-vmware/" href="https://community.squaredup.com/browse/download-info/opslogix-vmware/">https://community.squaredup.com/browse/download-info/opslogix-vmware/</a>
 

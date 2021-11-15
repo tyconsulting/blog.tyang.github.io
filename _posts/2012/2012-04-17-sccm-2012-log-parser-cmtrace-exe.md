@@ -4,7 +4,7 @@ title: 'SCCM 2012 Log Parser: cmtrace.exe'
 date: 2012-04-17T19:35:19+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1114
+guid: https://blog.tyang.org/?p=1114
 permalink: /2012/04/17/sccm-2012-log-parser-cmtrace-exe/
 categories:
   - SCCM
@@ -23,10 +23,10 @@ I have also found that trace32.exe actually does not correct parse SCCM 2012 log
 
 <strong>trace32.exe:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/04/image8.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb8.png" alt="image" width="580" height="410" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/04/image8.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/04/image_thumb8.png" alt="image" width="580" height="410" border="0" /></a>
 
 <strong>cmtrace.exe:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/04/image9.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb9.png" alt="image" width="580" height="467" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/04/image9.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/04/image_thumb9.png" alt="image" width="580" height="467" border="0" /></a>
 
 So, if you are working with SCCM 2012, make sure you use cmtrace.exe rather than the good old trace32.exe. And maybe like me, copy cmtrace32.exe to your local machine and use it from there rather than using it on the server.

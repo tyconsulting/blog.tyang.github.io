@@ -4,7 +4,7 @@ title: 'SCOM MP Authoring Example: Generate alerts based on entries from SQL Dat
 date: 2012-01-04T19:12:02+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=779
+guid: https://blog.tyang.org/?p=779
 permalink: /2012/01/04/scom-mp-authoring-example-generate-alerts-based-on-entries-from-sql-database-part-1-of-2/
 categories:
   - SCOM
@@ -15,7 +15,7 @@ tags:
 This is probably going to be a bit too long for one single blog post. I’ll separate this topic into <strong>2 articles</strong>:
 <ol>
 	<li>Part 1 includes the background and overview of the rule and it’s workflow</li>
-	<li><a href="http://blog.tyang.org/2012/01/05/scom-mp-authoring-example-generate-alerts-based-on-entries-from-sql-database-part-2-of-2/">Part 2</a> documents all the steps to create all the module types and the rule itself.</li>
+	<li><a href="https://blog.tyang.org/2012/01/05/scom-mp-authoring-example-generate-alerts-based-on-entries-from-sql-database-part-2-of-2/">Part 2</a> documents all the steps to create all the module types and the rule itself.</li>
 </ol>
 <strong>This article is the first part of the 2-part series.</strong>
 
@@ -27,7 +27,7 @@ The the record is added to the database, the application also adds the time stam
 
 Below is a snapshot of a subset of the database. I’ve highlighted the records that I’m interested in:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/01/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb.png" alt="image" width="580" height="419" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/01/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/01/image_thumb.png" alt="image" width="580" height="419" border="0" /></a>
 
 To achieve this goal, I’ve written some custom modules and created a rule using these modules.
 
@@ -39,11 +39,11 @@ As usual, the rule contains 3 modules:
 	<li>Condition Detection</li>
 	<li>Actions</li>
 </ol>
-<a href="http://blog.tyang.org/wp-content/uploads/2012/01/Rule.jpg"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="Rule" src="http://blog.tyang.org/wp-content/uploads/2012/01/Rule_thumb.jpg" alt="Rule" width="304" height="441" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/01/Rule.jpg"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="Rule" src="https://blog.tyang.org/wp-content/uploads/2012/01/Rule_thumb.jpg" alt="Rule" width="304" height="441" border="0" /></a>
 
 Below is the flow chat for the entire workflow:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/01/workflow.jpg"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="workflow" src="http://blog.tyang.org/wp-content/uploads/2012/01/workflow_thumb.jpg" alt="workflow" width="397" height="779" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/01/workflow.jpg"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="workflow" src="https://blog.tyang.org/wp-content/uploads/2012/01/workflow_thumb.jpg" alt="workflow" width="397" height="779" border="0" /></a>
 
 To explain the workflow in details:
 <ol>
@@ -82,4 +82,4 @@ I’ll go through how to create each module types and the rule itself in part 2 
 
 <strong>To be continued…</strong>
 
-<a href="http://blog.tyang.org/2012/01/05/scom-mp-authoring-example-generate-alerts-based-on-entries-from-sql-database-part-2-of-2/">Part 2</a>
+<a href="https://blog.tyang.org/2012/01/05/scom-mp-authoring-example-generate-alerts-based-on-entries-from-sql-database-part-2-of-2/">Part 2</a>

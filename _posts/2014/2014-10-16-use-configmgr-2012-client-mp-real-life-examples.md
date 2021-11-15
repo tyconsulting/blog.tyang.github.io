@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2014/10/Compliance.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=3258
+guid: https://blog.tyang.org/?p=3258
 permalink: /2014/10/16/use-configmgr-2012-client-mp-real-life-examples/
 categories:
   - SCCM
@@ -106,22 +106,22 @@ $bDuplicateFound
 ```
 In order for the CI to be compliant, the return value from the script needs to be "False" (no duplicate accounts found).
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb7.png" alt="image" width="431" height="447" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/10/image_thumb7.png" alt="image" width="431" height="447" border="0" /></a>
 
 ## Distribution Point Configuration Baseline
 
 This baseline also only contain 1 CI. Since it contains application setting, I used a very simple script to detect the existence of the ConfigMgr DP:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb8.png" alt="image" width="485" height="480" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/10/image_thumb8.png" alt="image" width="485" height="480" border="0" /></a>
 
 The compliant condition for the CI is set to:
 <ul>
 	<li>Reg value "HKLM\SOFTWARE\Microsoft\SMS\DP\IsPXE" must exist and set to 1</li>
 	<li>Reg value "HKLM\SOFTWARE\Microsoft\SMS\DP\PXEInstalled" must exist and set to 1</li>
 </ul>
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e005e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML62e005e" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e005e_thumb.png" alt="SNAGHTML62e005e" width="498" height="235" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e005e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML62e005e" src="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e005e_thumb.png" alt="SNAGHTML62e005e" width="498" height="235" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e9fb8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML62e9fb8" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e9fb8_thumb.png" alt="SNAGHTML62e9fb8" width="499" height="223" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e9fb8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML62e9fb8" src="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML62e9fb8_thumb.png" alt="SNAGHTML62e9fb8" width="499" height="223" border="0" /></a>
 
 ## Alerting through OpsMgr
 
@@ -129,9 +129,9 @@ Once I’ve setup and deployed these 2 baselines to appropriate collections, eve
 
 So what do I need to configure now in OpsMgr for the alerts to go through? The answer is: Nothing! Since the ConfigMgr 2012 Client MP (version 1.2.0.0) has already been implemented in the OpsMgr management group, I don’t need to put on the OpsMgr admin hat because there’s nothing else I need to do. Within few hours, the newly created baselines will be discovered in OpsMgr, and start being monitored:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML635de7c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML635de7c" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML635de7c_thumb.png" alt="SNAGHTML635de7c" width="558" height="367" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML635de7c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML635de7c" src="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML635de7c_thumb.png" alt="SNAGHTML635de7c" width="558" height="367" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML6373dbb.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6373dbb" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML6373dbb_thumb.png" alt="SNAGHTML6373dbb" width="554" height="302" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML6373dbb.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6373dbb" src="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML6373dbb_thumb.png" alt="SNAGHTML6373dbb" width="554" height="302" border="0" /></a>
 
 ## Conclusion
 

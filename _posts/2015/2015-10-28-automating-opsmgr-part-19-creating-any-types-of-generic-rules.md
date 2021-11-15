@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4834
+guid: https://blog.tyang.org/?p=4834
 permalink: /2015/10/28/automating-opsmgr-part-19-creating-any-types-of-generic-rules/
 categories:
   - Azure
@@ -28,24 +28,24 @@ tags:
 
 This is the 19th instalment of the Automating OpsMgr series. Previously on this series:
 
-* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
-* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
-* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
-* [Automating OpsMgr Part 4:Creating New Empty Groups](http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
-* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](http://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
-* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](http://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
-* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
-* [Automating OpsMgr Part 8: Adding Management Pack References](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/)
-* [Automating OpsMgr Part 9: Updating Group Discoveries](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-9-updating-group-discoveries/)
-* [Automating OpsMgr Part 10: Deleting Groups](http://blog.tyang.org/2015/07/27/automating-opsmgr-part-10-deleting-groups/)
-* [Automating OpsMgr Part 11: Configuring Group Health Rollup](http://blog.tyang.org/2015/07/29/automating-opsmgr-part-11-configuring-group-health-rollup/)
-* [Automating OpsMgr Part 12: Creating Performance Collection Rules](http://blog.tyang.org/2015/08/08/automating-opsmgr-part-12-creating-performance-collection-rules/)
-* [Automating OpsMgr Part 13: Creating 2-State Performance Monitors](http://blog.tyang.org/2015/08/24/automating-opsmgr-part-13-creating-2-state-performance-monitors/)
-* [Automating OpsMgr Part 14: Creating Event Collection Rules](http://blog.tyang.org/2015/08/31/automating-opsmgr-part-14-creating-event-collection-rules/)
-* [Automating OpsMgr Part 15: Creating 2-State Event Monitors](http://blog.tyang.org/2015/09/25/automating-opsmgr-part-15-creating-2-state-event-monitors/)
-* [Automating OpsMgr Part 16: Creating Windows Service Monitors](http://blog.tyang.org/2015/10/02/automating-opsmgr-part-16-creating-windows-service-monitors/)
-* [Automating OpsMgr Part 17: Creating Windows Service Management Pack Template Instance](http://blog.tyang.org/2015/10/04/automating-opsmgr-part-17-creating-windows-service-management-pack-template-instance/)
-* [Automating OpsMgr Part 18: Second Update to the OpsMgrExtended Module (v1.2)](http://blog.tyang.org/2015/10/14/automating-opsmgr-part-18-second-update-to-the-opsmgrextended-module-v1-2/)
+* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](https://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
+* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](https://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
+* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](https://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
+* [Automating OpsMgr Part 4:Creating New Empty Groups](https://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
+* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](https://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
+* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](https://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
+* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
+* [Automating OpsMgr Part 8: Adding Management Pack References](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/)
+* [Automating OpsMgr Part 9: Updating Group Discoveries](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-9-updating-group-discoveries/)
+* [Automating OpsMgr Part 10: Deleting Groups](https://blog.tyang.org/2015/07/27/automating-opsmgr-part-10-deleting-groups/)
+* [Automating OpsMgr Part 11: Configuring Group Health Rollup](https://blog.tyang.org/2015/07/29/automating-opsmgr-part-11-configuring-group-health-rollup/)
+* [Automating OpsMgr Part 12: Creating Performance Collection Rules](https://blog.tyang.org/2015/08/08/automating-opsmgr-part-12-creating-performance-collection-rules/)
+* [Automating OpsMgr Part 13: Creating 2-State Performance Monitors](https://blog.tyang.org/2015/08/24/automating-opsmgr-part-13-creating-2-state-performance-monitors/)
+* [Automating OpsMgr Part 14: Creating Event Collection Rules](https://blog.tyang.org/2015/08/31/automating-opsmgr-part-14-creating-event-collection-rules/)
+* [Automating OpsMgr Part 15: Creating 2-State Event Monitors](https://blog.tyang.org/2015/09/25/automating-opsmgr-part-15-creating-2-state-event-monitors/)
+* [Automating OpsMgr Part 16: Creating Windows Service Monitors](https://blog.tyang.org/2015/10/02/automating-opsmgr-part-16-creating-windows-service-monitors/)
+* [Automating OpsMgr Part 17: Creating Windows Service Management Pack Template Instance](https://blog.tyang.org/2015/10/04/automating-opsmgr-part-17-creating-windows-service-management-pack-template-instance/)
+* [Automating OpsMgr Part 18: Second Update to the OpsMgrExtended Module (v1.2)](https://blog.tyang.org/2015/10/14/automating-opsmgr-part-18-second-update-to-the-opsmgrextended-module-v1-2/)
 
 Although I have written number of functions in the current version of the OpsMgrExtended module that allows you to  create some popular types of rules in OpsMgr (i.e. perf collection rules and event collection rules). Sometimes, you still need to create other types of rules, such as WMI event collection rules, or rules based on module types written by yourself. In this post, I will demonstrate how to create any types of rules using the **New-OMRule** function.
 
@@ -72,7 +72,7 @@ When I was writing the New-OMRule function, I have realised in order to capture 
 
 i.e. in the example below, I have high lighted the information required in a member module of a rule.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image32.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb26.png" alt="image" width="668" height="142" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image32.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb26.png" alt="image" width="668" height="142" border="0" /></a>
 
 Other than the information listed above, if we are writing an alert-generating rule, we would also need the following information for the alert configuration:
 
@@ -84,7 +84,7 @@ Other than the information listed above, if we are writing an alert-generating r
 
 I needed to figure out a way to enforce users to supply all required information listed above. In order to do that, I think the best way is to define a class for member module configurations and another class for alert configurations. However, since class definition is a new concept only been introduced in PowerShell version 5 (which still in preview other than Windows 10 machines at the time of this writing), I could not do this natively in PowerShell. In order to work around this limitation, I have defined these two classes in OpsMgrExtended.Types.dll using C#. This DLL is shipped as part of the OpsMgrExtended module.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image33.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb27.png" alt="image" width="471" height="193" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image33.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb27.png" alt="image" width="471" height="193" border="0" /></a>
 
 The OM-Rule is expecting instances of these classes defined in OpsMgrExtended.Types.dll as input parameters. You will see how I used these classes in the sample runbooks.
 
@@ -189,7 +189,7 @@ As you can see, this runbook requires the following input parameters:
 
 The first step of this runbook is to retrieve a connection object named "OpsMgrSDK_Home" from my Azure Automation account (or SMA). This connection object is pre-configured, which contains the computer name of one of my OpsMgr management servers, and the credential of a service account which has OpsMgr admin privilege in my management group.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLddea7c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLddea7c" src="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLddea7c_thumb.png" alt="SNAGHTMLddea7c" width="193" height="435" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLddea7c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLddea7c" src="https://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLddea7c_thumb.png" alt="SNAGHTMLddea7c" width="193" height="435" border="0" /></a>
 
 The runbook also needs to explicitly import the OpsMgrExtended module. During the test, I found for this PowerShell runbook, I must manually import the module using **Import-Module** cmdlet in order to load the assemblies defined in the <strong>OpsMgrExtended.Types.dll</strong>. Since we are going to be using hybrid workers, you must manually deploy this module to your hybrid workers because at the time of this writing, Azure Automation is not able to automatically deploy required modules to hybrid workers.
 
@@ -226,9 +226,9 @@ I have placed the module type name, module configuration and the member module n
 
 Since a rule can have multiple data source modules and multiple write action modules, the **New-OMRule** function is expecting the array type of input for data source modules and write action modules. This is why even there is only going to be one data source member module or write action member module, we still need to place them into separate arrays before passing into the OM-Rule function:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image34.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb28.png" alt="image" width="427" height="145" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image34.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb28.png" alt="image" width="427" height="145" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image35.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb29.png" alt="image" width="629" height="111" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image35.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb29.png" alt="image" width="629" height="111" border="0" /></a>
 
 On the other hand, since the condition detection member module is optional, and you can only have maximum one condition detection member module, you do not need to place the module configuration object for the condition detection module into an array.
 
@@ -246,13 +246,13 @@ Now, it’s time to take this runbook for a test run. I’m using the following 
 
 And I have specified to run on a hybrid worker group:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLd3df42.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd3df42" src="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLd3df42_thumb.png" alt="SNAGHTMLd3df42" width="610" height="693" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLd3df42.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd3df42" src="https://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTMLd3df42_thumb.png" alt="SNAGHTMLd3df42" width="610" height="693" border="0" /></a>
 
 The hybrid worker will pick up this job very soon, and during this test run, the job was completed around 2 minutes. after the job finishes, I’m able to find this rule in OpsMgr console:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image36.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb30.png" alt="image" width="418" height="437" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image36.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb30.png" alt="image" width="418" height="437" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image37.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb31.png" alt="image" width="419" height="439" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image37.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb31.png" alt="image" width="419" height="439" border="0" /></a>
 
 ## Sample PowerShell Workflow Runbook: New-WindowsEventAlertRule
 
@@ -446,19 +446,19 @@ I am not going to explain the member module configurations again, because I’ve
 
 As you can see, since the write action member module for the rules created by this runbook would be "System.Health.GenerateAlert", and we are defining <AlertMessageId> and &lt;AlertParameters&gt; in the write action member module configuration:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image38.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb32.png" alt="image" width="559" height="161" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image38.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb32.png" alt="image" width="559" height="161" border="0" /></a>
 
 The String Resource must match the AlertMessageId:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image39.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb33.png" alt="image" width="462" height="208" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image39.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb33.png" alt="image" width="462" height="208" border="0" /></a>
 
 And if you have previously authored OpsMgr management packs, you’d probably already know how to define the <AlertParameters> section for the alert description. Basically, any variables you are using in the alert description must be defined in the &lt;AlertParameters&gt; section, then in the alert description, you’d reference them using "{}" and a number inside. &lt;AlertParameter1&gt; becomes {0}, &lt;AlertParameter2&gt; becomes {1}, and so on. You can up to define 10 alert parameters:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image40.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb34.png" alt="image" width="527" height="187" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image40.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb34.png" alt="image" width="527" height="187" border="0" /></a>
 
 Since you can define multiple alert messages (for multiple language packs), when you are creating alert generating rules, the **New-OMRule** function would expect you to pass in an array that contains OpsMgrExtended.AlertConfiguration objects. So, even if you are only defining the alert in one language pack, please still place it into an array before passing to the New-OMRule function:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image41.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb35.png" alt="image" width="526" height="52" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image41.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb35.png" alt="image" width="526" height="52" border="0" /></a>
 
 OK, now, let’s give this runbook a test run with the following parameters:
 
@@ -473,17 +473,17 @@ OK, now, let’s give this runbook a test run with the following parameters:
   * AlertSeverity: Critical
   * AlertPriority: High
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML1055790.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1055790" src="http://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML1055790_thumb.png" alt="SNAGHTML1055790" width="516" height="575" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML1055790.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1055790" src="https://blog.tyang.org/wp-content/uploads/2015/10/SNAGHTML1055790_thumb.png" alt="SNAGHTML1055790" width="516" height="575" border="0" /></a>
 
 After the hybrid worker in my lab executed the runbook, I am able to see the rule created in OpsMgr console:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image42.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb36.png" alt="image" width="314" height="329" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image42.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb36.png" alt="image" width="314" height="329" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image43.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb37.png" alt="image" width="587" height="354" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image43.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb37.png" alt="image" width="587" height="354" border="0" /></a>
 
 and the raw XML (once I’ve exported the MP):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image44.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb38.png" alt="image" width="697" height="587" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image44.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb38.png" alt="image" width="697" height="587" border="0" /></a>
 
 ## Hybrid Worker Configuration
 
@@ -491,11 +491,11 @@ Since the samples in this post are all based on Azure Automation and Hybrid work
 
 Also as I mentioned earlier, you will need to deploy OpsMgrExtended module manually on to the hybrid workers by yourself. When copying the OpsMgrExtended module to your hybrid workers, make sure you copy to a folder that’s listed in the PSModulePath environment variable. During my testing with a PowerShell runbook, I initially placed it under "C:\Program Files\WindowsPowerShell\Modules" folder, as it was listed in the PSModulePath environment variable when I checked in a PowerShell console on the hybrid worker. However, I got error messages telling me the runbook could not find commands defined in the OpsMgrExtended module. To troubleshoot, I wrote a simple PowerShell runbook:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image45.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb39.png" alt="image" width="636" height="275" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image45.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb39.png" alt="image" width="636" height="275" border="0" /></a>
 
 and based on the output, the folder in "C:\Program Files" is not listed!
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/image46.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/10/image_thumb40.png" alt="image" width="700" height="147" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/image46.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/10/image_thumb40.png" alt="image" width="700" height="147" border="0" /></a>
 
 Therefore, I had to move the module to another location (C:\Windows\System32\WindowsPowerShell\v1.0\Modules). after the move, the runbook started working.
 

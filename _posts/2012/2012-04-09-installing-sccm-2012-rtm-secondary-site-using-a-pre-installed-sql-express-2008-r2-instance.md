@@ -4,7 +4,7 @@ title: Installing SCCM 2012 RTM Secondary Site using A Pre-Installed SQL Express
 date: 2012-04-09T00:15:46+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1100
+guid: https://blog.tyang.org/?p=1100
 permalink: /2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/
 categories:
   - SCCM
@@ -37,7 +37,7 @@ After the install, I applied CU4 and all went pretty smoothly.
 
 Now, I tried to push Secondary Site install from the primary site. Under SQL Server setting step, I selected "<strong>Use an existing SQL Server instance</strong>" option and enter the secondary site server’s FQDN under "<strong>SQL server fully qualified domain name</strong>" and "CONFIGMGRSEC" under "<strong>SQL server instance name, if applicable</strong>". After finishing the wizard, the secondary site install failed during prerequisite checks. I got few errors in regards to the SQL collation is not set to SQL_Latin1_General_CP1_CI-AS:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/04/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb.png" alt="image" width="580" height="167" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/04/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/04/image_thumb.png" alt="image" width="580" height="167" border="0" /></a>
 
 This is very strange because all my SQL instances in this hierarchy are set to this collation, and because of this, the setup did not even get kicked off.
 
@@ -50,19 +50,19 @@ Additionally, I also found the following:
 	<li>I could use the SQL management studio from Secondary site server to connect to the SQL express instance, but I couldn’t use the SQL management studio from a remote machine to connect to it:</li>
 </ul>
 </ul>
-<a href="http://blog.tyang.org/wp-content/uploads/2012/04/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb1.png" alt="image" width="574" height="177" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/04/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/04/image_thumb1.png" alt="image" width="574" height="177" border="0" /></a>
 
 After spending some time troubleshooting, I got it going. Below is what I have done on the SQL Express instance:
 
 1. I’ve assign "ConfigMgr2012 Servers" group (which I created myself and it contains the primary site server’s computer account) "<strong>dbcreator</strong>" role on top of sysadmin role it already had.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/04/image2.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb2.png" alt="image" width="244" height="210" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/04/image2.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/04/image_thumb2.png" alt="image" width="244" height="210" border="0" /></a>
 
 2. I realised by default, after I installed SQL express, TCP/IP protocol is disabled. So I went to<strong> SQL Server Configuration Manager</strong>, under SQL <strong>Server Network Connection</strong> —&gt; Protocols for CONFIGMGRSEC—&gt;TCP/IP, enabled it. I also had to configure the ports for this connection:
 
 I removed 0 from "TCP Dynamic Ports" for each IP and added static port 1433 under "TCP Port"
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/04/image3.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb3.png" alt="image" width="454" height="502" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/04/image3.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/04/image_thumb3.png" alt="image" width="454" height="502" border="0" /></a>
 
 After you enabled TCP/IP and changed the port, you will be prompted that you have to restart SQL server service for the change to take effect, so I restarted the SQL service.
 
@@ -87,21 +87,21 @@ In summary below are the steps I took to pre-configure a SQL Express instance fo
 	<li>During setup wizard, choose "Use an existing SQL Server instance", enter secondary site server’s FQDN and SQL instance name ("CONFIGMGRSEC"). leave site database name and SQL broker port as default.</li>
 	<li>monitor install status using the SCCM console:</li>
 </ol>
-<a href="http://blog.tyang.org/wp-content/uploads/2012/04/image4.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb4.png" alt="image" width="580" height="474" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/04/image4.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/04/image_thumb4.png" alt="image" width="580" height="474" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/04/image5.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb5.png" alt="image" width="580" height="405" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/04/image5.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/04/image_thumb5.png" alt="image" width="580" height="405" border="0" /></a>
 
 You can also check:
 <ul>
 	<li>C:\ConfigMgrSetup.log on Primary Site server (contains details for Secondary Site install’s prerequisite checks).</li>
 	<li>C:\ConfigMgrSetup.log on Secondary Site server (contains details for the actual setup).</li>
 </ul>
-Now, instead of having SQL Express installed and configured by SCCM, I have more control of it so I can align the configuration with my organisation’s standard (if it’s in a real production environment <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2012/04/wlEmoticon-smile.png" alt="Smile" />).
+Now, instead of having SQL Express installed and configured by SCCM, I have more control of it so I can align the configuration with my organisation’s standard (if it’s in a real production environment <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="https://blog.tyang.org/wp-content/uploads/2012/04/wlEmoticon-smile.png" alt="Smile" />).
 
 In this case, I have my SQL data file located under F:\SQL_Data\Microsoft SQL Server\MSSQL10_50.CONFIGMGRSEC\MSSQL\DATA:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/04/image6.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb6.png" alt="image" width="580" height="275" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/04/image6.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/04/image_thumb6.png" alt="image" width="580" height="275" border="0" /></a>
 
 And log files under G:\SQL_Logs\Microsoft SQL Server\MSSQL10_50.CONFIGMGRSEC\MSSQL\Data:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/04/image7.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/04/image_thumb7.png" alt="image" width="580" height="239" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/04/image7.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/04/image_thumb7.png" alt="image" width="580" height="239" border="0" /></a>

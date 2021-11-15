@@ -4,7 +4,7 @@ title: System Center Configuration Manager (SCCM) 2007 Client Management Pack fo
 date: 2012-03-04T20:58:44+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1057
+guid: https://blog.tyang.org/?p=1057
 permalink: /2012/03/04/system-center-configuration-manager-sccm-2007-client-management-pack-for-scom/
 categories:
   - SCCM
@@ -14,9 +14,9 @@ tags:
   - SCCM
   - SCOM
 ---
-![](http://blog.tyang.org/wp-content/uploads/2012/03/systemcenter1.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/03/systemcenter1.png)
 
-**<span style="color: #ff0000;">12/08/2012:</span>** This MP has been updated. Please refer to <a title="SCCM 2007 Client Management Pack Updated" href="http://blog.tyang.org/2012/08/12/sccm-2007-client-management-pack-updated/">this post</a> for more details of the update. The download link in this post has also been updated.
+**<span style="color: #ff0000;">12/08/2012:</span>** This MP has been updated. Please refer to <a title="SCCM 2007 Client Management Pack Updated" href="https://blog.tyang.org/2012/08/12/sccm-2007-client-management-pack-updated/">this post</a> for more details of the update. The download link in this post has also been updated.
 
 ## Background
 
@@ -121,15 +121,15 @@ Below is a comparison of the properties that SCCM Client Center can check VS. SC
 
 **SCCM Client Center 2.0.4.0:**
 
-![](http://blog.tyang.org/wp-content/uploads/2012/03/image.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/03/image.png)
 
 **System Center Configuration Manager 2007 Client Management Pack v2.0.0.0:**
 
-![](http://blog.tyang.org/wp-content/uploads/2012/03/image1.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/03/image1.png)
 
 **Microsoft Official Configuration Manager 2007 SP2 Management Pack v6.0.6000.3:**
 
-![](http://blog.tyang.org/wp-content/uploads/2012/03/image2.png)
+![](https://blog.tyang.org/wp-content/uploads/2012/03/image2.png)
 
 ### SCOM Agent Actions for SCCM Clients
 
@@ -147,7 +147,7 @@ A number of SCCM Client actions have been built into this management pack. The f
 
 ## More information
 
-The detailed guide for this MP can be downloaded [HERE](http://blog.tyang.org/wp-content/uploads/2012/03/System-Center-Configuration-Manager-2007-Client-MP.pdf).
+The detailed guide for this MP can be downloaded [HERE](https://blog.tyang.org/wp-content/uploads/2012/03/System-Center-Configuration-Manager-2007-Client-MP.pdf).
 
 Management Pack Downloads:
 
@@ -159,6 +159,6 @@ From below link, you can download a zip file which contains:
 
 The reason I’m offering the unsealed version of TYANG System Center Configuration Manager 2007 Monitoring management pack is that if you wish to create additional monitors / rules using the workflows in the library MP, you can just build them into the unsealed MP without creating a separate MP (and saves you time to unseal it).
 
-Management Pack Download [HERE](http://blog.tyang.org/wp-content/uploads/2012/08/TYANG.System.Center.Configuration.Manager.2007.Client.MP_.zip).
+Management Pack Download [HERE](https://blog.tyang.org/wp-content/uploads/2012/08/TYANG.System.Center.Configuration.Manager.2007.Client.MP_.zip).
 
 As always, if you have any issues / questions / concerns or suggestions, email me! I’ll try to get back to you as soon as I can (even though recently I’ve been pretty busy at work and in my personal life. And that’s why it took me so long to write a blog article for this management pack!)

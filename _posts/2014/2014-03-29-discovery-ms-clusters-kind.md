@@ -4,7 +4,7 @@ title: Discovery for MS Clusters of Any Kind
 date: 2014-03-29T23:32:42+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2436
+guid: https://blog.tyang.org/?p=2436
 permalink: /2014/03/29/discovery-ms-clusters-kind/
 categories:
   - SCOM
@@ -31,17 +31,17 @@ For example, I have a 2-node SQL cluster configured as below:
 * DTC Cluster Resource Access Name: **blablablaSQL01D**
 * SQL Server Cluster Resource Access Name: **blablablaSQL01E**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/03/image7.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb7.png" width="580" height="254" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/03/image7.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/03/image_thumb7.png" width="580" height="254" border="0" /></a>
 
 After installing the OpsMgr agent on both cluster nodes and enabled Agent-Proxy for them, totally 5 Windows Server objects will be discovered, one for each name mentioned above:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/03/image8.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb8.png" width="580" height="174" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/03/image8.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/03/image_thumb8.png" width="580" height="174" border="0" /></a>
 
 As shown above, other than the 2 cluster nodes, other 3 instances have "IsVirtualNode" property set to "True".
 
 When I looked at the "Computer" state view in the Microsoft SQL management pack, all 5 "Windows Server" are listed as the computer which has SQL installed:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/03/image9.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb9.png" width="580" height="280" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/03/image9.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/03/image_thumb9.png" width="580" height="280" border="0" /></a>
 
 If I create a discovery for SQL Clusters based on any computers have SQL DB Engine installed and is a virtual node, I would have discovered 3 instances (SQL01C, SQL01D and SQL 01E) for the same cluster.
 
@@ -51,7 +51,7 @@ If I only want to discover the cluster itself (blablablaSQL01C), I believe the d
 
 After a bit of digging, I found the "Windows Clustering Discovery" from Windows Cluster Library MP sets "IsVirtualNode" to True:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/03/image10.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb10.png" width="397" height="304" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/03/image10.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/03/image_thumb10.png" width="397" height="304" border="0" /></a>
 
 **02. The existence of Cluster Service**
 
@@ -85,7 +85,7 @@ In my sample MP, I created a class based on Microsoft.Windows.ComputerRole for m
 
 Again, using SQL clusters as an example, I created a class called "SQL Server Cluster", and only the actual clusters (name ends with letter "C") are discovered:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/03/image11.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb11.png" width="580" height="182" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/03/image11.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/03/image_thumb11.png" width="580" height="182" border="0" /></a>
 
 In order to re-use the code, I have create a snippet template in VSAE. This snippet template includes the class definition, discovery workflow and associated language pack (ENU) display strings.
 
@@ -208,18 +208,18 @@ oAPI.Return oDiscoveryData
 
 When using this template, for each cluster that you want to define and discover in your MP, simply supply the following information:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/03/image12.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb12.png" width="580" height="114" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/03/image12.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/03/image_thumb12.png" width="580" height="114" border="0" /></a>
 
 * **MP Id:** the ID (or the prefix) of your MP. this is going to be used as the prefix for all the items defined in the snippet.
 * **Cluster Type:** the type (or common name) of your cluster. i.e. SQL, Hyper-V, etc.
 * **Cluster Resource Type:** The value of the "Type" property of the MSCluster_Resource WMI instance.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/03/image13.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb13.png" width="580" height="395" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/03/image13.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/03/image_thumb13.png" width="580" height="395" border="0" /></a>
 
 * **Cluster Resource Name Search String:** the search string for the cluster resource name.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/03/image14.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb14.png" width="562" height="348" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/03/image14.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/03/image_thumb14.png" width="562" height="348" border="0" /></a>
 
 The "SQL Server Cluster" discovered in the previous screenshot is created using this snippet template.
 
-You can also download the snippet template <a href="http://blog.tyang.org/wp-content/uploads/2014/03/Cluster.templatesnippet.zip">here</a>.
+You can also download the snippet template <a href="https://blog.tyang.org/wp-content/uploads/2014/03/Cluster.templatesnippet.zip">here</a>.

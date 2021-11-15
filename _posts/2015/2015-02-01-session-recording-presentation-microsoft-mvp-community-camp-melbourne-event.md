@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/02/image.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=3693
+guid: https://blog.tyang.org/?p=3693
 permalink: /2015/02/01/session-recording-presentation-microsoft-mvp-community-camp-melbourne-event/
 categories:
   - MVP
@@ -30,7 +30,7 @@ I have uploaded the session recording to YouTube. You can either watch it here:
 
 Or on YouTube: <a title="https://www.youtube.com/watch?v=QW99bVFKg80" href="https://www.youtube.com/watch?v=QW99bVFKg80">https://www.youtube.com/watch?v=QW99bVFKg80</a>
 
-You can also download the presentation deck from <strong><a href="http://blog.tyang.org/wp-content/uploads/2015/02/Automating-SCOM-Tasks-Using-SMA.pdf">HERE</a></strong>.
+You can also download the presentation deck from <strong><a href="https://blog.tyang.org/wp-content/uploads/2015/02/Automating-SCOM-Tasks-Using-SMA.pdf">HERE</a></strong>.
 
 And Here’s the sample script I used in my presentation when I explained how to connect to SCOM management group via SDK:
 ```powershell

@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2016/01/SCU-Australia.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=5132
+guid: https://blog.tyang.org/?p=5132
 permalink: /2016/01/18/presenting-in-system-center-universe-asia-pacific-events/
 categories:
   - Others
@@ -29,4 +29,4 @@ You can find more details about SCU APAC here:
 
 Event website: <a href="http://systemcenteruniverse.asia/">http://systemcenteruniverse.asia/</a>
 
-For those who will attend these events, I’m looking forward to seeing you there. <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2016/01/wlEmoticon-smile.png" alt="Smile" />
+For those who will attend these events, I’m looking forward to seeing you there. <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="https://blog.tyang.org/wp-content/uploads/2016/01/wlEmoticon-smile.png" alt="Smile" />

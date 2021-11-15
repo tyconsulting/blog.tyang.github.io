@@ -4,7 +4,7 @@ title: My Experience of Using Silect MP Studio During Management Pack Update Pro
 date: 2015-02-25T21:33:32+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3755
+guid: https://blog.tyang.org/?p=3755
 permalink: /2015/02/25/my-experience-of-using-silect-mp-studio-during-management-pack-update-process/
 categories:
   - SCOM
@@ -16,7 +16,7 @@ Thanks to Silect’s generosity, I have been given a NFR (Not For Resell) licens
 
 Today, one of my colleagues came to me seeking help on an error logged in the Operations Manager log on all our DPM 2012 R2 servers (where SQL is locally installed):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb10.png" alt="image" width="506" height="355" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb10.png" alt="image" width="506" height="355" border="0" /></a>
 
 It’s obvious the offending script(GetSQL2012SPNState.vbs) is from the SQL 2012 MP, and we can tell the error is that the computer FQDN where WMI is trying to connect to is incorrect. In the pixelated area, the FQDN contains the NetBIOS computer name plus **2** domain names from the same forest.
 
@@ -26,37 +26,37 @@ Therefore, as I always do, I firstly went through the change logs in the MP guid
 
 <span style="text-decoration: underline;">SPN monitor now has overridable ‘search scope’ which allows the end user to choose between LDAP and Global Catalog</span>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb11.png" alt="image" width="454" height="184" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb11.png" alt="image" width="454" height="184" border="0" /></a>
 
 I’m not really sure if the new MP is going to fix the issue, and no, I don’t have time to unseal and read the raw XML code to figure it out because this version of the SQL 2012 monitoring MP has 49,723 lines of code!
 
 At this stage, I thought MP Studio might be able to help (by comparing 2 MPs). So I remoted back to my home lab and quickly loaded all versions of SQL MP that I have into MP Studio.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/SNAGHTML10c3cde7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML10c3cde7" src="http://blog.tyang.org/wp-content/uploads/2015/02/SNAGHTML10c3cde7_thumb.png" alt="SNAGHTML10c3cde7" width="269" height="266" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/SNAGHTML10c3cde7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML10c3cde7" src="https://blog.tyang.org/wp-content/uploads/2015/02/SNAGHTML10c3cde7_thumb.png" alt="SNAGHTML10c3cde7" width="269" height="266" border="0" /></a>
 
 I then chose to compare version 6.5.4.0 (the latest version) with version 6.4.1.0 (the version loaded in my production environment):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb12.png" alt="image" width="244" height="148" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb12.png" alt="image" width="244" height="148" border="0" /></a>
 
 It took MP Studio few seconds to generate the comparison result, and I was surprised how many items have been updated!
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb13.png" alt="image" width="684" height="421" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb13.png" alt="image" width="684" height="421" border="0" /></a>
 
 Unfortunately, there is no search function in the comparison result window, but fortunately, I am able to export the result to Excel. When I exported to Excel, there are 655 rows! when I searched the script name mentioned in the Error log (GetSQL2012SPNState.vbs), I found the script was actually updated:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb14.png" alt="image" width="686" height="209" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb14.png" alt="image" width="686" height="209" border="0" /></a>
 
 Because the script is too long and it’s truncated in the Excel spreadsheet, I had to go back to MP Studio and find this entry (luckily entries are sorted alphabetically).
 
 Once the change is located, I can copy both parent value and the child value into clipboard:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb15.png" alt="image" width="694" height="84" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb15.png" alt="image" width="694" height="84" border="0" /></a>
 
 I pasted the value into Notepad++, as it contains some XML headers / footers and both versions of script, I removed headers and footers, and separated the scripts into 2 files.
 
 Lastly, I used the Compare Plugin from NotePad++ to compare the differences in both scripts, and I found an additional section in the new MP (6.5.4.0) may be related to the error that we are getting (as it has something to do with generating the domain FQDN):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb16.png" alt="image" width="700" height="277" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb16.png" alt="image" width="700" height="277" border="0" /></a>
 
 After seeing this, I took an educated guess that this could be the fix to our issue and asked my colleague to load MP version 6.5.4.0 into our Test management group to see if it fixes the issue. When we went to load the MP, we found out that I have already loaded it in Test (I’ve been extremely busy lately and I forgot I did it!). So my colleague checked couple of DPM servers in our test environment and confirmed the error does not exist in Test. It seems we have nailed this issue.
 
@@ -82,10 +82,10 @@ Lastly, There are many other features MP Studio provides, I have only spent a li
 
 P.S. Coming back to the bug in the Server OS MP 6.0.7294 that I have mentioned above, I ran a comparison between 6.0.7294 and previous version 6.0.7292, I can see a lot of perf collection rules have been changed:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb17.png" alt="image" width="609" height="433" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb17.png" alt="image" width="609" height="433" border="0" /></a>
 
 and if I export the result in Excel, I can actually see the issue described by Daniele (highlighted in yellow):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb18.png" alt="image" width="598" height="316" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb18.png" alt="image" width="598" height="316" border="0" /></a>
 
 Oh, one last word before I call it the day, to Silect – would it be possible to provide search function in the comparison result window (so I don’t have to rely on Excel export)?

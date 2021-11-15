@@ -4,7 +4,7 @@ title: 'PowerShell Script: Remove All Packages From A SCCM Distribution Point'
 date: 2012-02-19T19:19:58+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1015
+guid: https://blog.tyang.org/?p=1015
 permalink: /2012/02/19/powershell-script-remove-all-packages-from-a-sccm-distribution-point/
 categories:
   - PowerShell
@@ -24,7 +24,7 @@ I have a central site (Site Code: CEN, Site Server: ConfigMgr00), a primary site
 
 I created a package called "Configure Windows Firewall Service" on my central site CEN. The Package ID is CEN00013:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/02/image.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb.png" alt="image" width="580" height="254" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/02/image.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="https://blog.tyang.org/wp-content/uploads/2012/02/image_thumb.png" alt="image" width="580" height="254" border="0" /></a>
 
 This package has been assigned to 2 distribution points:
 
@@ -32,25 +32,25 @@ This package has been assigned to 2 distribution points:
 
 <strong>MGMT02\Packages$</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/02/image1.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb1.png" alt="image" width="580" height="191" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/02/image1.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="https://blog.tyang.org/wp-content/uploads/2012/02/image_thumb1.png" alt="image" width="580" height="191" border="0" /></a>
 
 Notice that there is a pad lock symbol next to ConfigMgr01. If you right click <a href="//\\MGMT02\Packages$">\\MGMT02\Packages$</a>, there is a "Delete" option:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/02/image2.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb2.png" alt="image" width="563" height="318" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/02/image2.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="https://blog.tyang.org/wp-content/uploads/2012/02/image_thumb2.png" alt="image" width="563" height="318" border="0" /></a>
 
 When right click CONFIGMGR01, "Delete" option is not available:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/02/image3.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb3.png" alt="image" width="580" height="280" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/02/image3.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="https://blog.tyang.org/wp-content/uploads/2012/02/image_thumb3.png" alt="image" width="580" height="280" border="0" /></a>
 
 This is because even though the package was created on the central site CEN, but this package was assigned to the DP CONFIGMGR01 on the child primary site TAO.
 
 If I get to the package on Child Primary site TAO, there is no pad lock on CONFIGMGR01 and the "Delete" option is available:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/02/image4.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb4.png" alt="image" width="580" height="302" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/02/image4.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="https://blog.tyang.org/wp-content/uploads/2012/02/image_thumb4.png" alt="image" width="580" height="302" border="0" /></a>
 
 If I use the same way as DPClean.vbs (only in PowerShell this time):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/02/image5.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb5.png" alt="image" width="580" height="388" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/02/image5.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="https://blog.tyang.org/wp-content/uploads/2012/02/image_thumb5.png" alt="image" width="580" height="388" border="0" /></a>
 
 I Firstly locate the package distribution from the central site CEN’s SMSProvider, then use delete() method to remove it, I get a "Generic failure" error.
 
@@ -58,7 +58,7 @@ Notice that the properties of the package distribution object, the SourceSite va
 
 Now, if I repeat above PowerShell commands on site "TAO":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/02/image6.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb6.png" alt="image" width="580" height="292" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/02/image6.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="https://blog.tyang.org/wp-content/uploads/2012/02/image_thumb6.png" alt="image" width="580" height="292" border="0" /></a>
 
 No errors returned as it was successfully deleted.
 
@@ -66,11 +66,11 @@ Now, on the SCCM console:
 
 On TAO:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/02/image7.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb7.png" alt="image" width="500" height="279" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/02/image7.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="https://blog.tyang.org/wp-content/uploads/2012/02/image_thumb7.png" alt="image" width="500" height="279" border="0" /></a>
 
 On CEN:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/02/image9.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb9.png" alt="image" width="499" height="270" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/02/image9.png"><img style="padding-left: 0px; padding-right: 0px; padding-top: 0px; border: 0px;" src="https://blog.tyang.org/wp-content/uploads/2012/02/image_thumb9.png" alt="image" width="499" height="270" border="0" /></a>
 
 The DP was deleted on both sites.
 
@@ -107,7 +107,7 @@ I ran the script to delete all packages off a DP located on my secondary site S0
 
 This is why I configured the script to display instructions on how to remove them from site database (unsupported way).
 
-The script can be downloaded here: <a href="http://blog.tyang.org/wp-content/uploads/2012/02/Clean-DP.zip">Clean-DP.PS1</a>
+The script can be downloaded here: <a href="https://blog.tyang.org/wp-content/uploads/2012/02/Clean-DP.zip">Clean-DP.PS1</a>
 
 <span style="color: #ff0000;"><strong>*Note:</strong></span> This script DOES NOT remove the actual packages from the hard disks of distribution points. The script does not actually connect to the DP at all. it can run AFTER the DP is decommissioned.
 

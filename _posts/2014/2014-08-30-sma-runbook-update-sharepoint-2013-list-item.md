@@ -4,7 +4,7 @@ title: 'SMA Runbook: Update A SharePoint 2013 List Item'
 date: 2014-08-30T21:48:44+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3138
+guid: https://blog.tyang.org/?p=3138
 permalink: /2014/08/30/sma-runbook-update-sharepoint-2013-list-item/
 categories:
   - PowerShell
@@ -116,7 +116,7 @@ Unlike Ryan’s code, which also monitors the SP list, my runbook **ONLY** updat
 
 Prior to using this runbook, you will need to save a credential in SMA which has  access to the SharePoint site
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML7ebadf0.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7ebadf0" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML7ebadf0_thumb.png" alt="SNAGHTML7ebadf0" width="299" height="411" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML7ebadf0.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7ebadf0" src="https://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML7ebadf0_thumb.png" alt="SNAGHTML7ebadf0" width="299" height="411" border="0" /></a>
 
 The runbook is expecting the following parameters:
 
@@ -129,21 +129,21 @@ The runbook is expecting the following parameters:
 
 Note: The list Item ID is the reference number for the item within the list. If you point the mouse cursor to the item, you will find the list item ID in the URL.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML90254b7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML90254b7" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML90254b7_thumb.png" alt="SNAGHTML90254b7" width="671" height="393" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML90254b7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML90254b7" src="https://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML90254b7_thumb.png" alt="SNAGHTML90254b7" width="671" height="393" border="0" /></a>
 
 ## Putting it into Test
 
 To test, I’ve created a new list as shown in the above screenshot, I have kicked off the runbook with the the following parameters:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/08/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/08/image_thumb8.png" alt="image" width="379" height="354" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/08/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/08/image_thumb8.png" alt="image" width="379" height="354" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/08/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/08/image_thumb9.png" alt="image" width="383" height="389" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/08/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/08/image_thumb9.png" alt="image" width="383" height="389" border="0" /></a>
 
 Here’s the result:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fd5d4a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8fd5d4a" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fd5d4a_thumb.png" alt="SNAGHTML8fd5d4a" width="588" height="406" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fd5d4a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8fd5d4a" src="https://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fd5d4a_thumb.png" alt="SNAGHTML8fd5d4a" width="588" height="406" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fed515.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8fed515" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fed515_thumb.png" alt="SNAGHTML8fed515" width="580" height="383" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fed515.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8fed515" src="https://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML8fed515_thumb.png" alt="SNAGHTML8fed515" width="580" height="383" border="0" /></a>
 
 
 ## Using It Together With Orchestrator SharePoint IP
@@ -152,7 +152,7 @@ Since this SMA runbook requires the List Item ID to locate the specific list ite
 
 If you are also using SC Orchestrator and have deployed the SharePoint IP, you can use the "Monitor List Items" activity, and the List Item ID is published by this activity:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/08/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/08/image_thumb10.png" alt="image" width="385" height="333" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/08/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/08/image_thumb10.png" alt="image" width="385" height="333" border="0" /></a>
 
 ## Conclusion
 

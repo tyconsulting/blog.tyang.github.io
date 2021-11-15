@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2017/01/el_au_logo.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=5830
+guid: https://blog.tyang.org/?p=5830
 permalink: /2017/01/06/speaking-at-expertslive-australia-in-april/
 categories:
   - Others

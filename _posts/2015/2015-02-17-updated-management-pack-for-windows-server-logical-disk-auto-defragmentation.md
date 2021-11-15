@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/02/defrag.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=3714
+guid: https://blog.tyang.org/?p=3714
 permalink: /2015/02/17/updated-management-pack-for-windows-server-logical-disk-auto-defragmentation/
 categories:
   - SCOM
@@ -79,7 +79,7 @@ This rule is targeting the RMS / RMS Emulator, it runs every Monday at 12:00 and
 
 This report lists all auto defragmentation events collected by the event collection rule within a specified time period
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb1.png" alt="image" width="641" height="458" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb1.png" alt="image" width="641" height="458" border="0" /></a>
 
 **Windows Server Fragmentation Level Performance Collection Rule**
 
@@ -87,7 +87,7 @@ This rule collects the File Percent Fragmentation counter via WMI for Windows se
 
 If a logical drive has been placed into all 3 above groups as I mentioned above, you’d probably see a performance graph similar to this:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb2.png" alt="image" width="638" height="157" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb2.png" alt="image" width="638" height="157" border="0" /></a>
 
 As shown in above figure, Number 1 indicates the monitor has just ran and the defrag recovery task was executed, the drive has been defragmented. Number 2, 3 and 4 indicates the fragmentation level is slowly building up over the week and hopefully you’ll see this similar pattern on a weekly interval (because the fragmentation level monitor runs once a week by default).
 
@@ -95,7 +95,7 @@ As shown in above figure, Number 1 indicates the monitor has just ran and the de
 
 The MP also contains various views under the "Windows Server Logical Drive Auto Defragment" folder:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb3.png" alt="image" width="332" height="142" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb3.png" alt="image" width="332" height="142" border="0" /></a>
 
 ## What’s Changed from the Original AutoDefrag MP?
 
@@ -156,21 +156,21 @@ In this case, if you want to simply collect the fragmentation level as perf data
 
 By default, I have configured these groups to have a discovery rule to discover nothing on purpose:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb4.png" alt="image" width="601" height="266" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb4.png" alt="image" width="601" height="266" border="0" /></a>
 
 As you can see, the default group discoveries are looking for any logical drives with the device name (drive letter) matches regular expression **^$**. "^$" represent blank / null value. Since all the discovered logical device would have a device name, these groups will be empty. You will need to modify the group memberships to suit your needs.
 
 For example, if you want to include C: drive of all the physical servers, the group membership could be something like this:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/grouppop.png"><img class="alignnone  wp-image-3718" src="http://blog.tyang.org/wp-content/uploads/2015/02/grouppop.png" alt="grouppop" width="602" height="590" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/grouppop.png"><img class="alignnone  wp-image-3718" src="https://blog.tyang.org/wp-content/uploads/2015/02/grouppop.png" alt="grouppop" width="602" height="590" /></a>
 <!--EndFragment-->
 <span style="color: #ff0000;">Note:</span> In SCOM, only Hyper-V VMs are discovered as virtual machines. if you are running other hypervisors, the "virtual machine" property probably wont work.
 
 ## MP Download
 
-There are 2 management pack files included in this solution. You can download them <a href="http://blog.tyang.org/wp-content/uploads/2015/02/Windows.Server.Auto_.Defrag.zip">HERE</a>.
+There are 2 management pack files included in this solution. You can download them <a href="https://blog.tyang.org/wp-content/uploads/2015/02/Windows.Server.Auto_.Defrag.zip">HERE</a>.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/02/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/02/image_thumb6.png" alt="image" width="543" height="85" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/02/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/02/image_thumb6.png" alt="image" width="543" height="85" border="0" /></a>
 
 ## Credit
 

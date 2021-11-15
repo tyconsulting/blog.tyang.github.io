@@ -4,7 +4,7 @@ title: New Blogger in the Family
 date: 2017-01-08T22:51:49+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5838
+guid: https://blog.tyang.org/?p=5838
 permalink: /2017/01/08/new-blogger-in-the-family/
 categories:
   - Others
@@ -28,8 +28,8 @@ For those who know me and my partner well on a personal level, hopefully you all
 
 Here are some of her most recent dishes (all photos were taken by herself), there are few more on her blog:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/01/DSC_1641-1.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="DSC_1641-1" src="http://blog.tyang.org/wp-content/uploads/2017/01/DSC_1641-1_thumb.jpg" alt="DSC_1641-1" width="387" height="259" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/01/DSC_1641-1.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="DSC_1641-1" src="https://blog.tyang.org/wp-content/uploads/2017/01/DSC_1641-1_thumb.jpg" alt="DSC_1641-1" width="387" height="259" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/01/DSC_1710.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="DSC_1710" src="http://blog.tyang.org/wp-content/uploads/2017/01/DSC_1710_thumb.jpg" alt="DSC_1710" width="391" height="262" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/01/DSC_1710.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="DSC_1710" src="https://blog.tyang.org/wp-content/uploads/2017/01/DSC_1710_thumb.jpg" alt="DSC_1710" width="391" height="262" border="0" /></a>
 
 Lastly, if you have any questions, feel free to contact her directly. She will be more than happy to answer them.

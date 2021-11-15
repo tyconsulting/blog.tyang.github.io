@@ -4,7 +4,7 @@ title: OpsMgr Alerts Push Notification to iOS (And Android, And Windows Phone) D
 date: 2013-04-07T00:11:26+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1869
+guid: https://blog.tyang.org/?p=1869
 permalink: /2013/04/07/opsmgr-alerts-push-notification-to-ios-and-android-and-windows-phone-devices/
 categories:
   - SCOM
@@ -12,7 +12,7 @@ tags:
   - SCOM
   - SCOM Notifications
 ---
-Last week, I’ve posted a solution for <a href="http://blog.tyang.org/2013/03/30/opsmgr-alerts-push-notification-to-android-devices/">OpsMgr alerts push notification to Android devices</a>, which was inspired by Stefan Stranger’s post for push notification for Windows Phone devices. Few iPhone lovers at work asked me, "what about iphones?" My response was, "Do I really care?? Why would I spend my time polishing a turd?"
+Last week, I’ve posted a solution for <a href="https://blog.tyang.org/2013/03/30/opsmgr-alerts-push-notification-to-android-devices/">OpsMgr alerts push notification to Android devices</a>, which was inspired by Stefan Stranger’s post for push notification for Windows Phone devices. Few iPhone lovers at work asked me, "what about iphones?" My response was, "Do I really care?? Why would I spend my time polishing a turd?"
 
 But then I thought, I might as well do it, just to close the circle. Al though I hate any Apple products (except the old 160GB iPod Classic, which I still use), I’ve spent some time to work out how to do the same for iOS devices - Because iOS is still the most popular mobile devices out there…
 
@@ -26,13 +26,13 @@ I’ll now go through the steps to setup Prowl first, the command notification c
 
 1. Firstly, buy and download Prowl from Apple App Store for $2.99: <a href="https://itunes.apple.com/us/app/prowl-growl-client/id320876271?mt=8&ign-mpt=uo%3D4">https://itunes.apple.com/us/app/prowl-growl-client/id320876271?mt=8&ign-mpt=uo%3D4</a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/IMG_0004.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="IMG_0004" alt="IMG_0004" src="http://blog.tyang.org/wp-content/uploads/2013/04/IMG_0004_thumb.jpg" width="391" height="294" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/IMG_0004.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="IMG_0004" alt="IMG_0004" src="https://blog.tyang.org/wp-content/uploads/2013/04/IMG_0004_thumb.jpg" width="391" height="294" border="0" /></a>
 
 2. Go to Prowl’s website and register an account: <a title="https://www.prowlapp.com/register.php" href="https://www.prowlapp.com/register.php">https://www.prowlapp.com/register.php</a>
 
 3. Logon with the account and generate an API Key:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb15.png" width="456" height="368" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/04/image_thumb15.png" width="456" height="368" border="0" /></a>
 
 4. Logon to Prowl on your iOS device.
 
@@ -91,7 +91,7 @@ $response = [System.Net.WebRequest]::Create($uri)
 $response.GetResponse()
 ```
 
-The script can also be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2013/04/MobileDevicesPushNotifications.zip">here</a>.
+The script can also be downloaded <a href="https://blog.tyang.org/wp-content/uploads/2013/04/MobileDevicesPushNotifications.zip">here</a>.
 
 I have made the following changes to the script:
 
@@ -156,11 +156,11 @@ The script takes the following parameters (in the correct order):
 
 On my iPad, when an alert has arrived:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/IMG_0007.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="IMG_0007" alt="IMG_0007" src="http://blog.tyang.org/wp-content/uploads/2013/04/IMG_0007_thumb.jpg" width="399" height="300" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/IMG_0007.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="IMG_0007" alt="IMG_0007" src="https://blog.tyang.org/wp-content/uploads/2013/04/IMG_0007_thumb.jpg" width="399" height="300" border="0" /></a>
 
 And I can also see the details once I opened Prowl:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/IMG_0008.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="IMG_0008" alt="IMG_0008" src="http://blog.tyang.org/wp-content/uploads/2013/04/IMG_0008_thumb.jpg" width="511" height="384" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/IMG_0008.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="IMG_0008" alt="IMG_0008" src="https://blog.tyang.org/wp-content/uploads/2013/04/IMG_0008_thumb.jpg" width="511" height="384" border="0" /></a>
 
 Similar to the Android and Windows phone APIs, Prowl has a limitation of 1000 notifications per hour from an IP address. I wouldn’t think any healthy OpsMgr environments would hit that limit.
 

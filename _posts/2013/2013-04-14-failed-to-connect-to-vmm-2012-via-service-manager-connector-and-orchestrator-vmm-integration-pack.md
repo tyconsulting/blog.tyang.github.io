@@ -4,7 +4,7 @@ title: Failed to Connect to VMM 2012 via Service Manager Connector and Orchestra
 date: 2013-04-14T12:48:11+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1887
+guid: https://blog.tyang.org/?p=1887
 permalink: /2013/04/14/failed-to-connect-to-vmm-2012-via-service-manager-connector-and-orchestrator-vmm-integration-pack/
 categories:
   - SC Orchestrator
@@ -19,13 +19,13 @@ I was thinking about how I can make my study room quieter and cooler as I had 4 
 
 HP Proliant N54L:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/712969-375.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="712969-375" alt="712969-375" src="http://blog.tyang.org/wp-content/uploads/2013/04/712969-375_thumb.png" width="179" height="204" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/712969-375.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="712969-375" alt="712969-375" src="https://blog.tyang.org/wp-content/uploads/2013/04/712969-375_thumb.png" width="179" height="204" border="0" /></a>
 
 &nbsp;
 
 Yesterday, I was going through the labs for Microsoft exam <a href="http://www.microsoft.com/learning/en/us/exam.aspx?id=70-246">70-246: Minotoring and Operating a Private Cloud with System Center 2012</a><em></em> and I ran into issues that I could not create a VMM connector to connect to my new VMM server from Service Manager. I got a very simple error message: <em>"Cannot connect to VMM server &lt;vmm server name&gt;"</em>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb16.png" width="515" height="360" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/04/image_thumb16.png" width="515" height="360" border="0" /></a>
 
 While I was troubleshooting it, I realised 2 other issues:
 

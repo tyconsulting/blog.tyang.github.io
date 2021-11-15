@@ -4,7 +4,7 @@ title: Passed MCTS SCOM Exam (70-400) today!
 date: 2010-07-23T11:07:07+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=139
+guid: https://blog.tyang.org/?p=139
 permalink: /2010/07/23/passed-mcts-scom-exam-70-400-today/
 categories:
   - Others

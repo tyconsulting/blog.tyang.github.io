@@ -4,7 +4,7 @@ title: Free OMS Workshops in Sydney and Melbourne
 date: 2015-11-23T16:53:13+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4863
+guid: https://blog.tyang.org/?p=4863
 permalink: /2015/11/23/free-oms-workshops-in-sydney-and-melbourne/
 categories:
   - OMS
@@ -24,4 +24,4 @@ We will deep dive into different aspects of OMS and demonstrate some existing an
 
 <a href="https://journeytohybridcloud2-melbourne.eventbrite.com">https://journeytohybridcloud2-melbourne.eventbrite.com</a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/11/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/11/image_thumb2.png" alt="image" width="702" height="382" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/11/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/11/image_thumb2.png" alt="image" width="702" height="382" border="0" /></a>

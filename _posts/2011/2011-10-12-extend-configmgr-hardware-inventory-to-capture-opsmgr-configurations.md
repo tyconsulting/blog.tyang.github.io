@@ -4,7 +4,7 @@ title: Extend ConfigMgr Hardware Inventory to capture OpsMgr configurations
 date: 2011-10-12T18:40:52+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=730
+guid: https://blog.tyang.org/?p=730
 permalink: /2011/10/12/extend-configmgr-hardware-inventory-to-capture-opsmgr-configurations/
 categories:
   - SCCM
@@ -14,7 +14,7 @@ tags:
   - SCCM
   - SCOM
 ---
-<strong>Download</strong>: <a href="http://blog.tyang.org/wp-content/uploads/2011/10/OpsMgr-2007-MOF.zip">MOF Extension for OpsMgr Configurations</a>
+<strong>Download</strong>: <a href="https://blog.tyang.org/wp-content/uploads/2011/10/OpsMgr-2007-MOF.zip">MOF Extension for OpsMgr Configurations</a>
 
 I’ve been wanting to do this for a while now and finally found some spare time for it. I want to be able to target OpsMgr (SCOM) agents and servers in ConfigMgr (SCCM) in a more granular way (i.e. all OpsMgr agents that are reporting to a OpsMgr Management Server, or all OpsMgr agents within a OpsMgr management group or All OpsMgr management servers)
 
@@ -24,15 +24,15 @@ Once loaded in to ConfigMgr and after clients have retrieved new policy and perf
 
 <strong>For OpsMgr Agents:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image13.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb13.png" alt="image" width="580" height="429" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image13.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb13.png" alt="image" width="580" height="429" border="0" /></a>
 
 <strong>For OpsMgr Servers:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image14.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb14.png" alt="image" width="580" height="407" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image14.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb14.png" alt="image" width="580" height="407" border="0" /></a>
 
 <strong>Note:</strong> As always, make sure backup both mof files before editing them. once saved, monitor dataldr.log to make sure they are successfully compiled.
 
-Please refer to my <a href="http://blog.tyang.org/2011/10/09/clean-up-old-hardware-inventory-data/">previous blog </a>if you decide to remove this mof extention from your ConfigMgr environment.
+Please refer to my <a href="https://blog.tyang.org/2011/10/09/clean-up-old-hardware-inventory-data/">previous blog </a>if you decide to remove this mof extention from your ConfigMgr environment.
 
 <strong>More Reading about ConfigMgr Hinv (Hardware Inventory):</strong>
 

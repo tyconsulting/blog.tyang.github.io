@@ -4,7 +4,7 @@ title: 'OpsMgr Dashboard Fun: Server Details Using SquaredUp'
 date: 2014-08-22T20:06:11+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3117
+guid: https://blog.tyang.org/?p=3117
 permalink: /2014/08/22/opsmgr-dashboard-fun-server-details-using-squaredup/
 categories:
   - PowerShell
@@ -14,13 +14,13 @@ tags:
   - SCOM
   - SquaredUp
 ---
-After my <a href="http://blog.tyang.org/2014/08/05/opsmgr-dashboard-fun-performance-widget-using-squaredup/">previous post</a> on how to create a performance view using SquaredUp, the founder of SquaredUp, Richard Benwell told me that I can also use "&embed=true" parameter in the URL to get rid of the headers. I also managed to create another widget to display server details. Combined with the performance view, I create a dashboard like this:
+After my <a href="https://blog.tyang.org/2014/08/05/opsmgr-dashboard-fun-performance-widget-using-squaredup/">previous post</a> on how to create a performance view using SquaredUp, the founder of SquaredUp, Richard Benwell told me that I can also use "&embed=true" parameter in the URL to get rid of the headers. I also managed to create another widget to display server details. Combined with the performance view, I create a dashboard like this:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/08/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/08/image_thumb7.png" alt="image" width="696" height="445" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/08/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/08/image_thumb7.png" alt="image" width="696" height="445" border="0" /></a>
 
 The bottom left is the improved version of the performance view (using embed parameter), and the right pane is the server details page:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML2d6fce9d.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2d6fce9d" src="http://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML2d6fce9d_thumb.png" alt="SNAGHTML2d6fce9d" width="469" height="966" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML2d6fce9d.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML2d6fce9d" src="https://blog.tyang.org/wp-content/uploads/2014/08/SNAGHTML2d6fce9d_thumb.png" alt="SNAGHTML2d6fce9d" width="469" height="966" border="0" /></a>
 
 This server detail view contains the following information:
 

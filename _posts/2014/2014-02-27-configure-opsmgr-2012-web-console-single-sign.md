@@ -4,7 +4,7 @@ title: How To Configure OpsMgr 2012 Web Console Single Sign-On
 date: 2014-02-27T21:07:12+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2386
+guid: https://blog.tyang.org/?p=2386
 permalink: /2014/02/27/configure-opsmgr-2012-web-console-single-sign/
 categories:
   - SCOM
@@ -21,7 +21,7 @@ Long story short, since I couldn’t manage to find a clear instruction / requir
 
 Make sure the SPN’s for the management servers Data Access Service is correctly configured. SPN’s are also required for the NLB addresses:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image17.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb17.png" width="580" height="196" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image17.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb17.png" width="580" height="196" border="0" /></a>
 
 <strong>2. Web Console config file Web.Config</strong>
 
@@ -36,7 +36,7 @@ In &lt;OpsMgr 2012 R2 Install Dir&gt;\WebConsole\WebHost\Web.config, the connect
 
 i.e.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image18.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb18.png" width="580" height="98" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image18.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb18.png" width="580" height="98" border="0" /></a>
 
 <strong><span style="color: #ff0000;">Note:</span></strong> I also configured autoSignOutInterval="0" so the web console doesn’t time out.
 
@@ -44,11 +44,11 @@ further down in the web.config file, make sure authentication mode is set to "Wi
 
 <strong>&lt;authentication mode="Windows" /&gt;</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image19.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb19.png" width="580" height="194" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image19.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb19.png" width="580" height="194" border="0" /></a>
 
 <strong><span style="color: #ff0000;">Note:</span></strong> According to the note shown above, the Anonymous authentication should be disabled and Windows Authentication should be enabled for the OperationsManager vroot in IIS
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image20.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb20.png" width="580" height="225" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image20.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb20.png" width="580" height="225" border="0" /></a>
 
 <strong>3. Constraint Delegation on the Web Console computer account</strong>
 
@@ -56,7 +56,7 @@ While I was trying to make it work before calling Microsoft, I followed the guid
 
 I added the MSOMSdkSvc service for all management servers to the list as instructed on the last page of this document:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image21.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb21.png" width="396" height="458" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image21.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb21.png" width="396" height="458" border="0" /></a>
 
 Above screenshot was taken from the guide. However, it turned out it doesn’t seem like the guide is 100% correct for OpsMgr 2012 (I can’t confirm for 2007 as I don’t have a 2007 management group in my lab anymore).
 
@@ -64,7 +64,7 @@ Instead of choosing "Use Kerberos Only", we should choose the other option <stro
 
 I also had to add the NLB address to the list because my web console is configured to use NLB:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/02/image22.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/02/image_thumb22.png" width="460" height="523" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/02/image22.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/02/image_thumb22.png" width="460" height="523" border="0" /></a>
 
 This is all that’s required for Single Sign On. After I reboot the web console server, I managed to open the console without getting prompted for credentials.
 

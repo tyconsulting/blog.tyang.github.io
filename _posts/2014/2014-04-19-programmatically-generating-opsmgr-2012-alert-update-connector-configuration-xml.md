@@ -4,7 +4,7 @@ title: Programmatically Generating the OpsMgr 2012 Alert Update Connector Config
 date: 2014-04-19T22:55:17+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2555
+guid: https://blog.tyang.org/?p=2555
 permalink: /2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/
 categories:
   - SCOM
@@ -30,7 +30,7 @@ Because of these two excellent blog posts, It was very easy for me to setup the 
 
 In my opinion, based on my requirements, the only place that I think that needs improvement is how the configuration XML file is populated using the GUI tool(ConnectorConfiguration.exe):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image13.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb13.png" alt="image" width="516" height="362" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image13.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb13.png" alt="image" width="516" height="362" border="0" /></a>
 
 <strong>Improvements required in my opinion:</strong>
 
@@ -38,11 +38,11 @@ In my opinion, based on my requirements, the only place that I think that needs 
 
 02. Although I can select multiple workflows at once, and specify the fields to update, it’s still a manual process and very time consuming if I want to configure all alerts in a management group. Also, being manual means the process is prone to human error. I would love to be able to configure all alerts at once, in bulk. it’s like cherry picking using hands VS. harvesting the entire field using a harvester.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML11522d3b.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML11522d3b" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML11522d3b_thumb.png" alt="SNAGHTML11522d3b" width="552" height="196" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML11522d3b.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML11522d3b" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML11522d3b_thumb.png" alt="SNAGHTML11522d3b" width="552" height="196" border="0" /></a>
 
 03. It’s hard to find workflows in the configuration xml which this GUI tool populated:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image14.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb14.png" alt="image" width="535" height="331" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image14.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb14.png" alt="image" width="535" height="331" border="0" /></a>
 
 I’ve quickly generated a XML using ConnectorConfiguration.exe as shown above. I can’t really identify the workflow by just reading it.
 
@@ -54,7 +54,7 @@ This script (called "<strong>ConfigAlertUpdateConnector.ps1</strong>") is expect
 
 Let’s look at the finishing piece first. The output of this script looks like this:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image15.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb15.png" alt="image" width="580" height="453" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image15.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb15.png" alt="image" width="580" height="453" border="0" /></a>
 
 As you can see, not only every eligible rule / monitor has been populated according to the policies I defined, I added a comment line (highlighted) that contains the following information:
 <ul>
@@ -68,17 +68,17 @@ it would be so much easier to search for a particular alert in this XML than the
 
 Display name from the Operations console:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML16816481.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML16816481" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML16816481_thumb.png" alt="SNAGHTML16816481" width="412" height="368" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML16816481.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML16816481" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML16816481_thumb.png" alt="SNAGHTML16816481" width="412" height="368" border="0" /></a>
 
 Search in XML:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML16828dce.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML16828dce" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML16828dce_thumb.png" alt="SNAGHTML16828dce" width="580" height="395" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML16828dce.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML16828dce" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML16828dce_thumb.png" alt="SNAGHTML16828dce" width="580" height="395" border="0" /></a>
 
 In the script, I have also filtered out all rules and monitors that do not generate alerts so they won’t appear in the output XML.
 
 Now let’s take a look at the "ConfigAlertUpdateConnector.xml":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image16.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb16.png" alt="image" width="580" height="537" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image16.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb16.png" alt="image" width="580" height="537" border="0" /></a>
 
 Each Policy is defined within a <strong>&lt;AlertUpdateRule&gt;</strong> tag. Under &lt;AlertUpdateRule&gt;, There is a <strong>&lt;ClassSearchPhrase&gt;</strong> tag. you can specify the search phrase for either target class name or display name, or both. When both name and display name are specified, both criteria must be true during search. For any classes that have returned from the search result, the alerts generated by any workflows targeting these classes will have the properties updated as what’s defined in the <strong>&lt;PropertiesToModify&gt;</strong> tag. Note, the schema within &lt;PropertiesToModify&gt; is same as the Alert Update Connector configuration file (the output).
 
@@ -86,11 +86,11 @@ Each Policy is defined within a <strong>&lt;AlertUpdateRule&gt;</strong> tag. Un
 
 The Name refers to the actual class ID from the management pack where the target class is defined. i.e. Some classes defined in VMM 2012 MP:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image17.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb17.png" alt="image" width="498" height="364" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image17.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb17.png" alt="image" width="498" height="364" border="0" /></a>
 
 The Display Name is what you see in the Operations Console.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1699fb1e.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML1699fb1e" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1699fb1e_thumb.png" alt="SNAGHTML1699fb1e" width="467" height="405" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1699fb1e.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML1699fb1e" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1699fb1e_thumb.png" alt="SNAGHTML1699fb1e" width="467" height="405" border="0" /></a>
 
 As you can see, normally, all classes defined in a particular MP will have the same prefix. in this case, with SCVMM 2012, the prefix is <em>"Microsoft.SystemCenter.VirtualMachineMananager.2012".</em>
 
@@ -107,25 +107,25 @@ This leads to another issue. I thought I had everything covered, until I configu
 
 If I open up Fujitsu MP version 6.0.0.5 in MP Viewer, there are many server components have been defined, such Network component:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image18.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb18.png" alt="image" width="580" height="366" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image18.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb18.png" alt="image" width="580" height="366" border="0" /></a>
 
 But when I looked at the rules in this MP, all the ones related to the network component are targeting the top level Fujitsu PRIMERGY Server class rather than the Network component:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image19.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb19.png" alt="image" width="580" height="287" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image19.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb19.png" alt="image" width="580" height="287" border="0" /></a>
 
 In fact, all the rules in this MP are targeting the Server class. I’m not sure how many MPs out there are targeting workflows in "less-appropriate" classes, so in order to work around this issue, I have coded my script to also process exceptions. This is why in my screenshot for "ConfigAlertConnector.xml" above, in the Fujitsu section, I have a lot of exceptions defined:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image20.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb20.png" alt="image" width="579" height="687" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image20.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb20.png" alt="image" width="579" height="687" border="0" /></a>
 
 As shown above, by default, any Fujitsu alerts will have CustomField1 updated to "FUJ_MISC", which is the default value. However, if the <strong>workflow’s (rule / monitor) Display Name</strong> contains the phrase "network", the value for CustomField1 will be set to "FUJ_NIC". The other 2 default properties defined (ResolutionState and Owner") will remain the same. In the output xml file, it looks like this:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image21.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb21.png" alt="image" width="580" height="182" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image21.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb21.png" alt="image" width="580" height="182" border="0" /></a>
 
 The first one have the "network" exception applied so the value has set to "FUJ_NIC". the second one does not have any exceptions applied so it has the default value of "FUJ_MISC".
 
 <strong><span style="color: #ff0000;">Note:</span></strong> When exceptions are specified in the policies, the script will only apply an exception if both property <strong>name</strong> and <strong>GroupIdFilter</strong> match the default value:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image22.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb22.png" alt="image" width="580" height="208" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image22.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb22.png" alt="image" width="580" height="208" border="0" /></a>
 
 <strong>Executing "ConfigAlertUpdateConnector.ps1"</strong>
 
@@ -133,6 +133,6 @@ Once all the policies have been configured in "ConfigAlertUpdateConnector.xml", 
 
 In future, when we add new management packs or update / delete existing management packs, we can simply make minor modifications to the existing policies in "ConfigAlertUpdateConnector.xml" and re-run this script to generate the config file for Alert Update Connector.
 
-You can download the script, the sample "ConfigAlertUpdateConnector.xml" and the sample output file <a href="http://blog.tyang.org/wp-content/uploads/2014/06/ConfigAlertUpdateConnector.zip">HERE</a>.
+You can download the script, the sample "ConfigAlertUpdateConnector.xml" and the sample output file <a href="https://blog.tyang.org/wp-content/uploads/2014/06/ConfigAlertUpdateConnector.zip">HERE</a>.
 
 Lastly, I encourage anyone using the OpsMgr 2012 Alert Update Connector to try this script and any feedbacks are welcome. I believe I have covered everything in terms of how to configure the input xml ("ConfigAlertUpdateConnector.xml"). If I have missed anything, please feel free to drop me an email.

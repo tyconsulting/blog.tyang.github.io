@@ -4,7 +4,7 @@ title: 'PowerShell Script: Get SCCM Management Point server name from AD'
 date: 2012-02-16T10:23:05+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=990
+guid: https://blog.tyang.org/?p=990
 permalink: /2012/02/16/powershell-script-get-sccm-management-point-server-name-from-ad/
 categories:
   - PowerShell
@@ -34,4 +34,4 @@ Function Get-MPFromAD ($SiteCode)
 }
 ```
 
-Note: This function uses another function called Get-AllDomains, which I've blogged before here: <a href="http://blog.tyang.org/2011/08/05/powershell-function-get-alldomains-in-a-forest/">http://blog.tyang.org/2011/08/05/powershell-function-get-alldomains-in-a-forest/</a> So make sure you include BOTH functions in your script.
+Note: This function uses another function called Get-AllDomains, which I've blogged before here: <a href="https://blog.tyang.org/2011/08/05/powershell-function-get-alldomains-in-a-forest/">https://blog.tyang.org/2011/08/05/powershell-function-get-alldomains-in-a-forest/</a> So make sure you include BOTH functions in your script.

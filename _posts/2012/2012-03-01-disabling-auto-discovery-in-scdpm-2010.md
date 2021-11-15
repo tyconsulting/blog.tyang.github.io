@@ -4,7 +4,7 @@ title: Disabling Auto Discovery in SCDPM 2010
 date: 2012-03-01T19:28:34+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1043
+guid: https://blog.tyang.org/?p=1043
 permalink: /2012/03/01/disabling-auto-discovery-in-scdpm-2010/
 categories:
   - SCDPM
@@ -27,8 +27,8 @@ I have made 3 modifications from the original SQL scripts from TechNet forum:
 </ol>
 Below is the SQL Script and the PowerShell script after my modifications.
 
-<a title="SQL Script" href="http://blog.tyang.org/wp-content/uploads/2012/03/DPM.zip">SQL Script</a>
+<a title="SQL Script" href="https://blog.tyang.org/wp-content/uploads/2012/03/DPM.zip">SQL Script</a>
 
-<a title="PowerShell Script" href="http://blog.tyang.org/wp-content/uploads/2012/03/Create-DisableDPMAutoDiscoverySQLJob.zip">PowerShell Script</a>
+<a title="PowerShell Script" href="https://blog.tyang.org/wp-content/uploads/2012/03/Create-DisableDPMAutoDiscoverySQLJob.zip">PowerShell Script</a>
 
 <strong><span style="color: #ff0000; font-size: small;">Note:</span></strong> Both SQL script and Powershell script assume the DPM database is configured as default (which is located locally on the DPM server and the SQL instance name is left as default of ‘MSDPM2010’). If your DPM server is located elsewhere, please modify the SQL script and the SQL connection string in the Powershell script accordingly.

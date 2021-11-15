@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/08/spending.jpg
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4322
+guid: https://blog.tyang.org/?p=4322
 permalink: /2015/08/07/spend-your-money-wisely/
 categories:
   - Others
@@ -23,9 +23,9 @@ First of all, I’m just going to put it out there, I am not upset, and this is 
 
 I started working on System Center around 2007-2008 (ConfigMgr and OpsMgr at that time) . I started working on OpsMgr because my then colleague and now fellow SCCDM MVP (like I mentioned, not going to mention names) has left the company we were working for and I had to pick up the MOM 2005 to OpsMgr 2007 project he left behind. The very first task for me was to figure out a way to pass the server’s NetBIOS name to the help desk ticketing system and I managed to achieve this by creating a PowerShell script and utilised the command notification channel to execute the script when alerts were raised. I then used the same concept and developed a PowerShell script to be used in the command notification to send content rich notification emails which covered many information not available from native email notification channel.
 
-When I started blogging 5 years ago, this script was one of the very first posts I published here. I named this solution [Enhanced SCOM Alert Notification Emails](http://blog.tyang.org/2010/07/19/enhanced-scom-alerts-notification-emails). Since it was published, it has received many positive feedbacks and recommendations. I have since published the updated version (2.0) here:
+When I started blogging 5 years ago, this script was one of the very first posts I published here. I named this solution [Enhanced SCOM Alert Notification Emails](https://blog.tyang.org/2010/07/19/enhanced-scom-alerts-notification-emails). Since it was published, it has received many positive feedbacks and recommendations. I have since published the updated version (2.0) here:
 
-[http://blog.tyang.org/2012/08/16/scom-enhanced-email-notification-script-version-2/](http://blog.tyang.org/2012/08/16/scom-enhanced-email-notification-script-version-2/)
+[https://blog.tyang.org/2012/08/16/scom-enhanced-email-notification-script-version-2/](https://blog.tyang.org/2012/08/16/scom-enhanced-email-notification-script-version-2/)
 
 After version 2.0 was published, a fellow member in the System Center community, Mr. Tyson Paul has contacted me, told me he has updated my script. I was really happy to see my work got carried on by other members in the community and since then, Tyson has already made several updates to this script and published it on his blog (for free of course):
 
@@ -40,7 +40,7 @@ Well, to be fair, on their website, they did mention a limitation of running com
 So, do I think someone took my idea and work from Tyson and myself? It is pretty obvious, make your own judgement. Am I upset? not really. If I want to make a profit from this solution, I wouldn’t have published out on my blog in the first place. And believe me, there are many solutions and proof-of-concepts I have developed in the past that I sincerely hope some software vendors can pickup and develop a commercial solution for the community – simply I don’t have the time and resources to do all these by myself (i.e. my recently published post on managing ConfigMgr log files using OMS would be a good commercial solution).
 In the past, I have also seen people took scripts I published on my blog, replaced my name with theirs from the comment section and published it on social media without mentioning me whatsoever. I knew it was my script because other comments in the script are identical to my initial version. When I saw it, I have decided not to let these kind behaviour get under my skin, and I believe the best way to handle it is to let it go. So, I am not upset when I read this email today. Instead, I laughed! Hey, if this organisation can make people to pay $2 per OpsMgr agent per year (which means for a fully loaded OpsMgr management group would cost $30k per year for "sexy" notification emails), all I’m going to say is:
 
-![](http://blog.tyang.org/wp-content/uploads/2015/08/good-for-you.jpg)
+![](https://blog.tyang.org/wp-content/uploads/2015/08/good-for-you.jpg)
 
 However, I do want to advise the broader System Center community: **Please spend your money wisely!**
 

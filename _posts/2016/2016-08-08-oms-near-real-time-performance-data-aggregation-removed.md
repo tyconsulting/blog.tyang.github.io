@@ -4,7 +4,7 @@ title: OMS Near Real Time Performance Data Aggregation Removed
 date: 2016-08-08T21:47:44+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5479
+guid: https://blog.tyang.org/?p=5479
 permalink: /2016/08/08/oms-near-real-time-performance-data-aggregation-removed/
 categories:
   - OMS
@@ -95,6 +95,6 @@ The sample OpsMgr management pack below collects the "Log Cache Hit Ratio" count
 ```
 As you can see from the above sample MP, the rule that collects aggregated data is no longer required.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/08/image-6.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-6.png" alt="image" width="658" height="332" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/08/image-6.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-6.png" alt="image" width="658" height="332" border="0" /></a>
 
 So if you have written some rules collecting NRT perf data for OMS in the past, you may want to revisit what you’ve done in the past and remove the aggreated data collection rules.

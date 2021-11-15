@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4062
+guid: https://blog.tyang.org/?p=4062
 permalink: /2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/
 categories:
   - OMS
@@ -28,9 +28,9 @@ tags:
 
 This is the 2nd instalment of the Automating OpsMgr series. Previously on this series:
 
-* <a href="http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/" target="_blank">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a>
+* <a href="https://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/" target="_blank">Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module</a>
 
-Few weeks ago, I have also published a post: <a href="http://blog.tyang.org/2015/06/10/collecting-configmgr-logs-to-microsoft-operation-management-suite-the-nice-way/" target="_blank">Collecting ConfigMgr Logs To Microsoft Operation Management Suite – The NiCE Way</a>, which demonstrated how to use an OpInsights integrated OpsMgr management group and NiCE Log File MP to collect ConfigMgr client and server logs into <a href="http://www.microsoft.com/oms" target="_blank">Microsoft Operation Management Suite</a>.
+Few weeks ago, I have also published a post: <a href="https://blog.tyang.org/2015/06/10/collecting-configmgr-logs-to-microsoft-operation-management-suite-the-nice-way/" target="_blank">Collecting ConfigMgr Logs To Microsoft Operation Management Suite – The NiCE Way</a>, which demonstrated how to use an OpInsights integrated OpsMgr management group and NiCE Log File MP to collect ConfigMgr client and server logs into <a href="http://www.microsoft.com/oms" target="_blank">Microsoft Operation Management Suite</a>.
 
 The solution I provided in that post included few sealed management packs and a demo management pack which includes few actual event collection rules for ConfigMgr log files. However, it requires some manual XML editing outside of whatever MP authoring tool that you might be using, which could be a bit complicated for IT Pros and non management pack developers. The manual XML editing is necessary because the log collection rules use a Write Action module called "**Microsoft.SystemCenter.CollectCloudGenericEvent**" to send the event data to the OpInsights workspace. This write action module is located in the "<strong>Microsoft.IntelligencePacks.Types</strong>" sealed management pack. This management pack is automatically pushed to your OpsMgr management group once you’ve configured the OpInsights connection.
 
@@ -48,7 +48,7 @@ I am going to demonstrate how to create these event collection rules using a SMA
 * The ConfigMgr components of which you need to collect the logs from must be monitored by the OpsMgr (including ConfigMgr servers and clients). These computers must be agent monitored. Agentless monitoring is not going to work in this scenario.
 * <a href="http://www.nice.de/log-file-monitoring-scom-nice-logfile-mp" target="_blank">NiCE Log File MP</a> imported in your OpsMgr management group
 * OpsMgrExtended module imported into SMA and an "Operations Manager SDK" SMA connection object is created for your OpsMgr management group – Please refer to Part 1 of this series for details
-* The "ConfigMgr Logs Collection Library Management Pack" must also be imported into your OpsMgr management group – Download link provided in my <a href="http://blog.tyang.org/2015/06/10/collecting-configmgr-logs-to-microsoft-operation-management-suite-the-nice-way/" target="_blank">previous post</a>.
+* The "ConfigMgr Logs Collection Library Management Pack" must also be imported into your OpsMgr management group – Download link provided in my <a href="https://blog.tyang.org/2015/06/10/collecting-configmgr-logs-to-microsoft-operation-management-suite-the-nice-way/" target="_blank">previous post</a>.
 
 
 ## Runbook: New-ConfigMgrLogCollectionRule
@@ -230,11 +230,11 @@ When executing this runbook, the user must specify the following parameters:
 
 On line 16 of the runbook, I’ve coded the runbook to retrieve a SMA connection object called "OpsMgrSDK_TYANG":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb17.png" alt="image" width="585" height="57" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb17.png" alt="image" width="585" height="57" border="0" /></a>
 
 This is because my SMA connection object for my OpsMgr management group is named "OpsMgrSDK_TYANG". You will need to change this line according to how you’ve created your SMA connection:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML10a57cfa.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML10a57cfa" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML10a57cfa_thumb.png" alt="SNAGHTML10a57cfa" width="333" height="487" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML10a57cfa.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML10a57cfa" src="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML10a57cfa_thumb.png" alt="SNAGHTML10a57cfa" width="333" height="487" border="0" /></a>
 
 You can also further simplify the runbook in the following possible areas:
 
@@ -243,7 +243,7 @@ You can also further simplify the runbook in the following possible areas:
 * Create a switch statement for the target class, so instead entering "Microsoft.SystemCenter2012.ConfigurationManager.Client", users can simply enter "Client" for example.
 * Create a switch statement for the LogDirectory parameter. for example, when the target class of "Client" is specified, set LogDirectory variable to "C:\Windows\CCM\Logs".
 * Automatically populate Rule name and display name based on the target class and the log file name.
-* Build a user’s request portal using System Center Service Manager or SharePoint List (This would be a separate topic for another day, but Please refer to my <a href="http://blog.tyang.org/2015/02/01/session-recording-presentation-microsoft-mvp-community-camp-melbourne-event/" target="_blank">previous MVP Community Camp presentation recording</a> for some samples I’ve created in the past using SharePoint Lists).
+* Build a user’s request portal using System Center Service Manager or SharePoint List (This would be a separate topic for another day, but Please refer to my <a href="https://blog.tyang.org/2015/02/01/session-recording-presentation-microsoft-mvp-community-camp-melbourne-event/" target="_blank">previous MVP Community Camp presentation recording</a> for some samples I’ve created in the past using SharePoint Lists).
 
 Lastly, needless to say, you can also execute this PowerShell workflow in a standalone PowerShell environment (or convert this PowerShell workflow into a regular PowerShell script). When running it outside of SMA, you will need to use another Parameter Set for the "New-OMManagementPackReference" and "New-OMRule" activities. So instead of using –SDKConnection Parameter, you will have to use –SDK (and optionally –Username and –Password) to connect to your OpsMgr management group. To Change it, please modify the following lines:
 
@@ -255,7 +255,7 @@ $SDK = "<Your OpsMgr management server>"
 
 Change Line 47 to:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb18.png" alt="image" width="511" height="38" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb18.png" alt="image" width="511" height="38" border="0" /></a>
 
 ```powershell
 $NewMPRef = New-OMManagementPackReference -SDK $SDK -ReferenceMPName "Microsoft.Windows.Library" -Alias "Windows" -UnsealedMPName $ManagementPackName
@@ -263,7 +263,7 @@ $NewMPRef = New-OMManagementPackReference -SDK $SDK -ReferenceMPName "Microsoft.
 
 Change Line 117 to:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb19.png" alt="image" width="566" height="51" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb19.png" alt="image" width="566" height="51" border="0" /></a>
 
 ```powershell
 New-OMRule -SDK $USING:SDK -MPName $USING:ManagementPackName -RuleName $USING:RuleName -RuleDisplayName $USING:RuleDisplayName -Category "EventCollection" -ClassName $USING:ClassName -DataSourceModules $USING:arrDataSourceModules -WriteActionModules $USING:arrWriteActionModules -Remotable $false
@@ -273,23 +273,23 @@ New-OMRule -SDK $USING:SDK -MPName $USING:ManagementPackName -RuleName $USING:Ru
 
 After I filled out all the parameters:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb20.png" alt="image" width="512" height="442" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb20.png" alt="image" width="512" height="442" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb21.png" alt="image" width="512" height="443" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb21.png" alt="image" width="512" height="443" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb22.png" alt="image" width="513" height="443" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb22.png" alt="image" width="513" height="443" border="0" /></a>
 
 And executed the runbook:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb23.png" alt="image" width="615" height="567" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb23.png" alt="image" width="615" height="567" border="0" /></a>
 
 The rule was successfully created:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb24.png" alt="image" width="641" height="389" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb24.png" alt="image" width="641" height="389" border="0" /></a>
 
 And shortly after it, you should start seeing the log entries in your OMS workspace:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb25.png" alt="image" width="789" height="431" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb25.png" alt="image" width="789" height="431" border="0" /></a>
 
 ## Conclusion
 

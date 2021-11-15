@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4650
+guid: https://blog.tyang.org/?p=4650
 permalink: /2015/09/25/automating-opsmgr-part-15-creating-2-state-event-monitors/
 categories:
   - PowerShell
@@ -25,20 +25,20 @@ tags:
 
 This is the 15th instalment of the Automating OpsMgr series. Previously on this series:
 
-* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
-* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
-* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
-* [Automating OpsMgr Part 4:Creating New Empty Groups](http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
-* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](http://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
-* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](http://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
-* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
-* [Automating OpsMgr Part 8: Adding Management Pack References](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/)
-* [Automating OpsMgr Part 9: Updating Group Discoveries](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-9-updating-group-discoveries/)
-* [Automating OpsMgr Part 10: Deleting Groups](http://blog.tyang.org/2015/07/27/automating-opsmgr-part-10-deleting-groups/)
-* [Automating OpsMgr Part 11: Configuring Group Health Rollup](http://blog.tyang.org/2015/07/29/automating-opsmgr-part-11-configuring-group-health-rollup/)
-* [Automating OpsMgr Part 12: Creating Performance Collection Rules](http://blog.tyang.org/2015/08/08/automating-opsmgr-part-12-creating-performance-collection-rules/)
-* [Automating OpsMgr Part 13: Creating 2-State Performance Monitors](http://blog.tyang.org/2015/08/24/automating-opsmgr-part-13-creating-2-state-performance-monitors/)
-* [Automating OpsMgr Part 14: Creating Event Collection Rules](http://blog.tyang.org/2015/08/31/automating-opsmgr-part-14-creating-event-collection-rules/)
+* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](https://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
+* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](https://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
+* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](https://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
+* [Automating OpsMgr Part 4:Creating New Empty Groups](https://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
+* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](https://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
+* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](https://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
+* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
+* [Automating OpsMgr Part 8: Adding Management Pack References](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/)
+* [Automating OpsMgr Part 9: Updating Group Discoveries](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-9-updating-group-discoveries/)
+* [Automating OpsMgr Part 10: Deleting Groups](https://blog.tyang.org/2015/07/27/automating-opsmgr-part-10-deleting-groups/)
+* [Automating OpsMgr Part 11: Configuring Group Health Rollup](https://blog.tyang.org/2015/07/29/automating-opsmgr-part-11-configuring-group-health-rollup/)
+* [Automating OpsMgr Part 12: Creating Performance Collection Rules](https://blog.tyang.org/2015/08/08/automating-opsmgr-part-12-creating-performance-collection-rules/)
+* [Automating OpsMgr Part 13: Creating 2-State Performance Monitors](https://blog.tyang.org/2015/08/24/automating-opsmgr-part-13-creating-2-state-performance-monitors/)
+* [Automating OpsMgr Part 14: Creating Event Collection Rules](https://blog.tyang.org/2015/08/31/automating-opsmgr-part-14-creating-event-collection-rules/)
 
 It’s been almost a month since the last post on this series, partially because I was working on the OpsMgr Self Maintenance MP v2.5. Previously on Part 14, I have demonstrated how to create an event collection rule using the OpsMgrExtended module. Today, I’ll show you how to create a 2-State event monitor using the New-OM2StateEventMonitor function from the OpsMgrExtended module.
 
@@ -46,7 +46,7 @@ Like all other functions in this module, it has been fully documented, with few 
 
 **Get-Help New-OM2StateEventMonitor –Full**
 
-![](http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb9099e1.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb9099e1.png)
 
 ## Runbook: New-2StateEventMonitor
 
@@ -126,29 +126,29 @@ This runbook takes the following input parameters:
 
 Runbook Execution Result:
 
-![](http://blog.tyang.org/wp-content/uploads/2015/09/image24.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/09/image24.png)
 
 Monitor Properties from the OpsMgr operations console:
 
 General:
 
-![](http://blog.tyang.org/wp-content/uploads/2015/09/image25.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/09/image25.png)
 
 Unhealthy Event:
 
-![](http://blog.tyang.org/wp-content/uploads/2015/09/image26.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/09/image26.png)
 
-![](http://blog.tyang.org/wp-content/uploads/2015/09/image27.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/09/image27.png)
 
 Healthy Event:
 
-![](http://blog.tyang.org/wp-content/uploads/2015/09/image28.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/09/image28.png)
 
-![](http://blog.tyang.org/wp-content/uploads/2015/09/image29.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/09/image29.png)
 
 Alert Setting:
 
-![](http://blog.tyang.org/wp-content/uploads/2015/09/image30.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/09/image30.png)
 
 ## Conclusion
 

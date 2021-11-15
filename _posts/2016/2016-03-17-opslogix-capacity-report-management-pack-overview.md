@@ -4,7 +4,7 @@ title: OpsLogix Capacity Report Management Pack Overview
 date: 2016-03-17T13:15:58+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5252
+guid: https://blog.tyang.org/?p=5252
 permalink: /2016/03/17/opslogix-capacity-report-management-pack-overview/
 categories:
   - SCOM
@@ -13,13 +13,13 @@ tags:
   - SCOM
   - SCOM Management Pack
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/capacity-banner-bg.jpg"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="capacity-banner-bg" src="http://blog.tyang.org/wp-content/uploads/2016/03/capacity-banner-bg_thumb.jpg" alt="capacity-banner-bg" width="196" height="195" align="left" border="0" /></a>Just over a month ago, I have <a href="http://blog.tyang.org/2016/01/07/capacity-planning-oms-vs-opslogix-capacity-reportsmp/">blogged</a> and presented a webcast comparing the <a href="http://www.opslogix.com/capacity-planning-reports-management-pack/">OpsLogix Capacity Report</a> Management Pack and the OMS Capacity solution. Since then, an update was released on this management pack and I’d like to take a moment to provide a proper overview for this MP. For those who have not used this management pack and are looking for a solution for capacity forecasting and management, I hope you will have some ideas on the capabilities this management pack provides.
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/capacity-banner-bg.jpg"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="capacity-banner-bg" src="https://blog.tyang.org/wp-content/uploads/2016/03/capacity-banner-bg_thumb.jpg" alt="capacity-banner-bg" width="196" height="195" align="left" border="0" /></a>Just over a month ago, I have <a href="https://blog.tyang.org/2016/01/07/capacity-planning-oms-vs-opslogix-capacity-reportsmp/">blogged</a> and presented a webcast comparing the <a href="http://www.opslogix.com/capacity-planning-reports-management-pack/">OpsLogix Capacity Report</a> Management Pack and the OMS Capacity solution. Since then, an update was released on this management pack and I’d like to take a moment to provide a proper overview for this MP. For those who have not used this management pack and are looking for a solution for capacity forecasting and management, I hope you will have some ideas on the capabilities this management pack provides.
 
 ## Management Pack Introduction
 
 The OpsLogix Capacity Report MP provides OpsMgr reports that can be used to forecast trending of any existing performance data collected by OpsMgr. Same as any other OpsMgr reports, the reports provided by this MP can be accessed from the reporting pane in the OpsMgr console, under "OpsLogix IMP – Capacity trending reports" folder:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-5.png" alt="image" width="378" height="316" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-5.png" alt="image" width="378" height="316" border="0" /></a>
 
 ## Installing and Configuring Management Pack
 
@@ -42,7 +42,7 @@ I will now go through these reports.
 
 This report allows you to run a forecast report over any performance counters stored in the OpsMgr data warehouse DB. This report requires the following parameters:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-6.png" alt="image" width="639" height="147" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-6.png" alt="image" width="639" height="147" border="0" /></a>
 
 * **From:** The start date for the forecast analysis. The default value is Today – 30 days
 * **To:** the number of forecast days. default value is 30 days from today
@@ -56,7 +56,7 @@ This report allows you to run a forecast report over any performance counters st
 
 The report looks something like this:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-7.png" alt="image" width="643" height="310" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-7.png" alt="image" width="643" height="310" border="0" /></a>
 
 as shown in the screenshot above, the light blue line indicates forecasted future trending for the particular counter that you have chosen. The report also shows the forecasted change and value for the perf counter.
 
@@ -64,17 +64,17 @@ as shown in the screenshot above, the light blue line indicates forecasted futur
 
 This report is very similar to the "Absolute value Report – Single instance" report. the only difference is, we can choose multiple instances in this report:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-8.png" alt="image" width="626" height="144" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-8.png" alt="image" width="626" height="144" border="0" /></a>
 
 As shown in the screenshot above, we are able to choose multiple instances in the "Instance" section (whereas in the single instance report, we can only choose one from the drop down list). The report output displays all instances that you have selected:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-9.png" alt="image" width="595" height="437" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-9.png" alt="image" width="595" height="437" border="0" /></a>
 
 ### Percentage value Report – Single Instance
 
 When performance counters are being collected by OpsMgr, some counter values are absolute values (such as logical disk free space in MB). However, some the counter values are percentage based (i.e. % logical disk free space).the percentage value based reports are designed for the percentage based performance counters. Let’s take a look at the "Percentage value Report – Single Instance" report first. This report requires the following parameters:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-10.png" alt="image" width="598" height="160" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-10.png" alt="image" width="598" height="160" border="0" /></a>
 
 
 * **From:** The start date for the forecast analysis. The default value is Today – 30 days
@@ -93,7 +93,7 @@ When performance counters are being collected by OpsMgr, some counter values are
 
 <!--EndFragment-->
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-11.png" alt="image" width="610" height="491" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-11.png" alt="image" width="610" height="491" border="0" /></a>
 
 As you can see from the screenshot above, I have chosen a perf collection rule that collects the % logical disk space for Windows Server 2012. Because this is the single instance report, we are only able to select one instance from the drop down list – in this case, the instance for the perf counter represents the drive letter of Windows Server 2012 logical disks. I have chosen D: drive as the instance, and selected all the D: drives on my Hyper-V hosts from the Managed Entity section.
 
@@ -105,17 +105,17 @@ For the last item (the 4th) on the report, the forecast indicates it will run ou
 
 This report is similar to the "Percentage value Report – Single Instance", but it allows you to select multiple instances for the perf counter you have chosen:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-12.png" alt="image" width="640" height="171" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-12.png" alt="image" width="640" height="171" border="0" /></a>
 
 In the example above, I have chosen the "% Logical Disk Free Space Windows Server 2012" perf collection rule, which collects the % Free Space counter for Logical disks on Windows Server 2012 computers. In this case, the instance represents each logical disk’s drive letter (as highlighted). Comparing with the single instance report, we are not only able to choose a specific drive (such as C: drive), but also any other drives (as shown below).
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-13.png" alt="image" width="592" height="489" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-13.png" alt="image" width="592" height="489" border="0" /></a>
 
 ### Percentage value Report – Multi / Single instance Critical Only Reports
 
 The last two reports from this MP are the "Percentage value Report – Multi instance Critical Only" and "Percentage value Report – Single instance Critical Only" reports. The only differences with these two reports comparing to the previously mentioned percentage value reports is, they filter out any items with healthy and warning forecasted capacity state, and only list the critical items:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-14.png" alt="image" width="611" height="535" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-14.png" alt="image" width="611" height="535" border="0" /></a>
 
 So if you don’t really care about the healthy and warning items, and only want to concentrate on critical items, you may find these 2 reports handy.
 

@@ -4,7 +4,7 @@ title: Start A Child Runbook From Azure Automation Hybrid Worker on the Same Hyb
 date: 2015-11-25T15:03:15+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4880
+guid: https://blog.tyang.org/?p=4880
 permalink: /2015/11/25/start-a-child-runbook-from-azure-automation-hybrid-worker-on-the-same-hybrid-worker-group/
 categories:
   - Azure
@@ -32,7 +32,7 @@ Function Get-HybridWorkerConfig
 }
 ```
 
-![](http://blog.tyang.org/wp-content/uploads/2015/11/SNAGHTML2f76e97b.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/11/SNAGHTML2f76e97b.png)
 
 **Code Sample:**
 

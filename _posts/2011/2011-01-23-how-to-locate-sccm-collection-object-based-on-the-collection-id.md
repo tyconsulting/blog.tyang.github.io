@@ -4,7 +4,7 @@ title: How to locate SCCM Collection Object based on the Collection ID
 date: 2011-01-23T21:07:45+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=367
+guid: https://blog.tyang.org/?p=367
 permalink: /2011/01/23/how-to-locate-sccm-collection-object-based-on-the-collection-id/
 categories:
   - PowerShell
@@ -14,15 +14,15 @@ tags:
   - PowerShell
   - SCCM
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2011/01/path.jpg"><img class="alignleft size-thumbnail wp-image-368" title="path" src="http://blog.tyang.org/wp-content/uploads/2011/01/path-150x150.jpg" alt="" width="150" height="150" /></a>Often, I found it’s hard to locate the Collection object in the SCCM console if you only know the Collection ID. Couple of weeks ago I ran into a situation where I need to modify the settings of a bunch of collection objects and all I knew was the Collection ID.
+<a href="https://blog.tyang.org/wp-content/uploads/2011/01/path.jpg"><img class="alignleft size-thumbnail wp-image-368" title="path" src="https://blog.tyang.org/wp-content/uploads/2011/01/path-150x150.jpg" alt="" width="150" height="150" /></a>Often, I found it’s hard to locate the Collection object in the SCCM console if you only know the Collection ID. Couple of weeks ago I ran into a situation where I need to modify the settings of a bunch of collection objects and all I knew was the Collection ID.
 
 I wrote a script called <strong>Get-CollectionPath</strong> that identifies all possible paths to a particular collection (as a collection can be linked to multiple places).
 
 The Syntax is: .\Get-CollectionPath &lt;SCCM Central Site Server Name&gt; &lt;Collection ID&gt;
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/01/image5.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/01/image_thumb5.png" border="0" alt="image" width="580" height="38" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/01/image5.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/01/image_thumb5.png" border="0" alt="image" width="580" height="38" /></a>
 
-Download the script <a title="Get-CollectionPath" href="http://blog.tyang.org/wp-content/uploads/2011/01/Get-CollectionPath.zip">here</a>.
+Download the script <a title="Get-CollectionPath" href="https://blog.tyang.org/wp-content/uploads/2011/01/Get-CollectionPath.zip">here</a>.
 
 ```powershell
 param([string]$CentralSiteServer,[string[]]$CollectionID)

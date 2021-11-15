@@ -4,7 +4,7 @@ title: 'PowerShell Functions: Get OpsMgr Alert Generating Rules and Monitors'
 date: 2014-04-12T23:35:37+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2517
+guid: https://blog.tyang.org/?p=2517
 permalink: /2014/04/12/powershell-functions-get-opsmgr-alert-generating-rules-monitors/
 categories:
   - PowerShell
@@ -159,7 +159,7 @@ $MonitoringClasses
 
 as the name suggests, **Load-SDK** function loads OpsMgr SDK, when can then create the connection to the management group. **Get-MonitoringClass** function gets the Monitoring Class object based on it’s display name (the name you see in the Operations Console), such as this one:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1f11d89.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1f11d89.png)
 
 Here’s an example of how to these functions:
 
@@ -192,7 +192,7 @@ $AlertMonitors = Get-AlertMonitors $MG $MonitoringClassName
 $AlertMonitors.Count
 ```
 
-![](http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1f339a2.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML1f339a2.png)
 
 **Logics in these 2 functions:**
 
@@ -206,4 +206,4 @@ This function is much easier to write than Get-AlertRules. I’ simply search fo
 
 Both functions return a "System.Collections.ArrayList" containing the rules / monitors. Since I used the OpsMgr SDK directly, instead of it's PowerShell snapin or module. these functions should work in both 2007 and 2012. - And this is one of the reasons why I always just use SDK, hardly use the snapin or the module :smiley:
 
-I've also zipped up all the code used in this article. You can download them [**HERE**](http://blog.tyang.org/wp-content/uploads/2014/04/GetAlertRulesAndMonitors.zip). I know it's a bit hard to read the code on this post :smiley:
+I've also zipped up all the code used in this article. You can download them [**HERE**](https://blog.tyang.org/wp-content/uploads/2014/04/GetAlertRulesAndMonitors.zip). I know it's a bit hard to read the code on this post :smiley:

@@ -4,14 +4,14 @@ title: System Center Universe Coming to Melbourne in 2016
 date: 2015-12-20T16:03:48+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4996
+guid: https://blog.tyang.org/?p=4996
 permalink: /2015/12/20/system-center-universe-coming-to-melbourne-in-2016/
 categories:
   - Others
 tags:
   - Community Events
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/SCU-Australia.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SCU Australia" src="http://blog.tyang.org/wp-content/uploads/2015/12/SCU-Australia_thumb.png" alt="SCU Australia" width="642" height="161" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/SCU-Australia.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SCU Australia" src="https://blog.tyang.org/wp-content/uploads/2015/12/SCU-Australia_thumb.png" alt="SCU Australia" width="642" height="161" border="0" /></a>
 
 The biggest community event for System Center would have to be System Center Universe (SCU). This conference is currently conducted in 3 different continent: North America, Europe and Asia Pacific. Next year, it is coming down to Melbourne as part of the SCU APAC event. The SCU Australia event is going to take place on the <strong>11th March 2016</strong> at Crown Casino, Melbourne.
 

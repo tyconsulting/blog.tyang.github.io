@@ -4,7 +4,7 @@ title: Installing SCCM 2012 SP1 Secondary Site with a Pre-Configured SQL 2012 In
 date: 2013-01-23T11:09:01+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1694
+guid: https://blog.tyang.org/?p=1694
 permalink: /2013/01/23/installing-sccm-2012-sp1-secondary-site-with-a-pre-configured-sql-2012-instance/
 categories:
   - SCCM
@@ -14,7 +14,7 @@ tags:
 ---
 Over the last week, I’ve been re-installing my SCCM lab environment to SCCM 2012 SP1. I’m using Windows Server 2012 as the base OS for all site system roles and all database engines and SQL reporting server run on SQL 2012.
 
-I got stuck few days ago when I was building my first secondary site. I was trying to use a pre-installed SQL 2012 Express With SP1 instance for the secondary site database. I followed the instruction that I have previously blogged for SQL Express 2008 R2: <a title="http://blog.tyang.org/2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/" href="http://blog.tyang.org/2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/">http://blog.tyang.org/2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/</a>
+I got stuck few days ago when I was building my first secondary site. I was trying to use a pre-installed SQL 2012 Express With SP1 instance for the secondary site database. I followed the instruction that I have previously blogged for SQL Express 2008 R2: <a title="https://blog.tyang.org/2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/" href="https://blog.tyang.org/2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/">https://blog.tyang.org/2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/</a>
 
 After I installed and configured the SQL express instance for the secondary site, I started the secondary site install (from the parent primary site). However, I was keep getting this error during the prerequisites check:
 
@@ -24,11 +24,11 @@ After I installed and configured the SQL express instance for the secondary site
 
 <span style="color: #000000;">Prerequisite check result:</span>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/01/clip_image001.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="clip_image001" alt="clip_image001" src="http://blog.tyang.org/wp-content/uploads/2013/01/clip_image001_thumb.png" width="580" height="397" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/01/clip_image001.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="clip_image001" alt="clip_image001" src="https://blog.tyang.org/wp-content/uploads/2013/01/clip_image001_thumb.png" width="580" height="397" border="0" /></a>
 
 <span style="color: #000000;">ConfigMgrPrereq.log:</span>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/01/clip_image0016.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="clip_image001[6]" alt="clip_image001[6]" src="http://blog.tyang.org/wp-content/uploads/2013/01/clip_image0016_thumb.png" width="580" height="321" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/01/clip_image0016.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="clip_image001[6]" alt="clip_image001[6]" src="https://blog.tyang.org/wp-content/uploads/2013/01/clip_image0016_thumb.png" width="580" height="321" border="0" /></a>
 
 The error suggested that my account does not have sysadmin rights. In fact, both my user account and the site server computer account have sysadmin and dbcreator rights in that SQL 2012 instance.
 
@@ -40,12 +40,12 @@ During SQL 2012 install, the sysadmin rights was not granted to the local system
 
 i.e. system event log entry for one of the services installed by prerequisites check:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/01/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/01/image_thumb.png" width="578" height="403" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/01/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/01/image_thumb.png" width="578" height="403" border="0" /></a>
 
 <strong><span style="text-decoration: underline;">So to fix the issue, I simply gave "NT AUTHORITY\SYSTEM" account the same access in SQL 2012 as in SQL 2008 R2:</span></strong>
 
 <strong>sysadmin</strong> and <strong>securityadmin</strong> role:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/01/clip_image0018.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="clip_image001[8]" alt="clip_image001[8]" src="http://blog.tyang.org/wp-content/uploads/2013/01/clip_image0018_thumb.png" width="541" height="490" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/01/clip_image0018.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="clip_image001[8]" alt="clip_image001[8]" src="https://blog.tyang.org/wp-content/uploads/2013/01/clip_image0018_thumb.png" width="541" height="490" border="0" /></a>
 
-To summarise, when installing SCCM 2012 SP1 secondary site on a pre-configured SQL 2012 instance regardless which SQL edition is being used, "NT AUTHORITY\SYSTEM" account needs to be given <strong>securityadmin </strong>and <strong>sysadmin</strong> rights. If SQL Express is used, there are few additional steps need to be carried out to configure the SQL TCP connection as documented in my previous blog: <a title="http://blog.tyang.org/2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/" href="http://blog.tyang.org/2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/">http://blog.tyang.org/2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/</a>
+To summarise, when installing SCCM 2012 SP1 secondary site on a pre-configured SQL 2012 instance regardless which SQL edition is being used, "NT AUTHORITY\SYSTEM" account needs to be given <strong>securityadmin </strong>and <strong>sysadmin</strong> rights. If SQL Express is used, there are few additional steps need to be carried out to configure the SQL TCP connection as documented in my previous blog: <a title="https://blog.tyang.org/2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/" href="https://blog.tyang.org/2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/">https://blog.tyang.org/2012/04/09/installing-sccm-2012-rtm-secondary-site-using-a-pre-installed-sql-express-2008-r2-instance/</a>

@@ -4,7 +4,7 @@ title: Adding Images to OpsMgr 2012 Management Packs in VSAE
 date: 2013-09-03T22:41:17+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2138
+guid: https://blog.tyang.org/?p=2138
 permalink: /2013/09/03/adding-images-opsmgr-2012-management-pack-vsae/
 categories:
   - SCOM
@@ -18,7 +18,7 @@ It wasn’t too hard to figure out how to do this for OpsMgr MPs, all I had to d
 
 1. Adding the big (80x80) and small (16x16) images to the MP as Embedded Resource
 
-![](http://blog.tyang.org/wp-content/uploads/2013/09/image.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/09/image.png)
 
 {:start="2"}
 2. Add the below XML code into a MP fragment file (IDs and file names needs to be updated accordingly):
@@ -40,7 +40,7 @@ It wasn’t too hard to figure out how to do this for OpsMgr MPs, all I had to d
 </Resources>
 ```
 
-![](http://blog.tyang.org/wp-content/uploads/2013/09/image1.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/09/image1.png)
 
 So the difference between the OpsMgr MP and the Service Manager MP is that in OpsMgr MP, there’s an additional section <Categories> that defines the linkages between image references and the image resources.
 
@@ -50,8 +50,8 @@ The finishing piece in OpsMgr operational console looks like below:
 
 **16x16 Icon:**
 
-![](http://blog.tyang.org/wp-content/uploads/2013/09/image2.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/09/image2.png)
 
 **80x80 Diagram:**
 
-![](http://blog.tyang.org/wp-content/uploads/2013/09/image3.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/09/image3.png)

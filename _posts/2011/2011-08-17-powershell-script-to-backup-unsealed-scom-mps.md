@@ -4,7 +4,7 @@ title: PowerShell script to backup unsealed SCOM MPs
 date: 2011-08-17T09:40:49+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=668
+guid: https://blog.tyang.org/?p=668
 permalink: /2011/08/17/powershell-script-to-backup-unsealed-scom-mps/
 categories:
   - SCOM
@@ -26,7 +26,7 @@ I have scheduled it to run daily on RMS via Windows Task Scheduler.
 
 Modify line 21-23 to suit your environment
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/08/image14.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/08/image_thumb14.png" alt="image" width="580" height="81" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/08/image14.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/08/image_thumb14.png" alt="image" width="580" height="81" border="0" /></a>
 
 <strong>$backuproot</strong> – local folder where MPs are backed up to.
 
@@ -36,4 +36,4 @@ Modify line 21-23 to suit your environment
 
 Finally, make sure you the account scheduled task runs under has appropriate rights in SCOM.
 
-Download the script <a href="http://blog.tyang.org/wp-content/uploads/2011/08/Backup-UnsealedMPs.zip">HERE</a>.
+Download the script <a href="https://blog.tyang.org/wp-content/uploads/2011/08/Backup-UnsealedMPs.zip">HERE</a>.

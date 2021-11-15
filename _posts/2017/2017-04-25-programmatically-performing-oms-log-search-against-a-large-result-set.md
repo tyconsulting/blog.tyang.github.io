@@ -4,7 +4,7 @@ title: Programmatically Performing OMS Log Search Against a Large Result Set
 date: 2017-04-25T00:44:54+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5957
+guid: https://blog.tyang.org/?p=5957
 permalink: /2017/04/25/programmatically-performing-oms-log-search-against-a-large-result-set/
 categories:
   - OMS
@@ -17,7 +17,7 @@ When performing OMS log search programmatically, you will encounter an API limit
 
 The return response you get from either the Get-AzureRmOperationalInsightsSearchResults cmdlet or the Log Search API, you will get the total number of logs contained in the result set from the response metadata (as shown below), but you will only able to receive up to 5000 records. Natively, there is no way to receive anything over the first 5000 records from a single request.
 
-![](http://blog.tyang.org/wp-content/uploads/2017/04/image.png)
+![](https://blog.tyang.org/wp-content/uploads/2017/04/image.png)
 
 Last month, I was working on a solution where I needed to retrieve all results from search queries, so I reached out to the OMS product group and other CDM MVPs. My buddy and the fellow co-author of the Inside OMS book Stanislav Zhelyazkov provided a work around. Basically, the work around is to use the "skip" command in subsequent request calls until you have retrieved everything. For example, if you want to retrieve all agent heartbeat events using query ```Type=Heartbeat```, you could perform multiple queries until you have retrieved all the log entries as shown below:
 
@@ -131,4 +131,4 @@ $arrResults[0] | Format-List
 
 Here’s the script output based on my lab environment:
 
-![](http://blog.tyang.org/wp-content/uploads/2017/04/image-1.png)
+![](https://blog.tyang.org/wp-content/uploads/2017/04/image-1.png)

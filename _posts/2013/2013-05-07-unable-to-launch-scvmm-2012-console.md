@@ -4,7 +4,7 @@ title: Unable to Launch SCVMM 2012 Console
 date: 2013-05-07T00:34:03+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1931
+guid: https://blog.tyang.org/?p=1931
 permalink: /2013/05/07/unable-to-launch-scvmm-2012-console/
 categories:
   - SCVMM
@@ -15,7 +15,7 @@ I was planning to continue on my 70-247 exam preparation tonight, but I couldn't
 
 When I tried to launch VMM using an account with Full Administrator rights, the console got stuck on below screen during load and would not go any further:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/05/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/05/image_thumb.png" width="480" height="311" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/05/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/05/image_thumb.png" width="480" height="311" border="0" /></a>
 
 I also found out if I use an account which is a member of a Delegated Admin role that I’ve created called "Cloud Admin", although it also got stuck on this screen, but the console would eventually load after 10-15 minutes.
 
@@ -37,7 +37,7 @@ In order to get VMM consoles fixed as soon as possible, I’ve taken the followi
 
 3. Use PowerShell cmdlet <strong>Remove-SCOpsMgrConnetion –force</strong> to remove the OpsMgr connection
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/05/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/05/image_thumb2.png" width="468" height="202" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/05/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/05/image_thumb2.png" width="468" height="202" border="0" /></a>
 
 {:start="4"}
 4. Confirm the OpsMgr connection is removed from the database by running below SQL query:
@@ -49,6 +49,6 @@ SELECT * FROM tbl_MOM_OMConnection
 {:start="5"}
 5. I restarted VMM service again just to be safe
 
-Now I can open VMM console from any computers on my network <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" alt="Smile" src="http://blog.tyang.org/wp-content/uploads/2013/05/wlEmoticon-smile.png" />
+Now I can open VMM console from any computers on my network <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" alt="Smile" src="https://blog.tyang.org/wp-content/uploads/2013/05/wlEmoticon-smile.png" />
 
 I’ll try to add OpsMgr connection back in later. It’s bed time now…

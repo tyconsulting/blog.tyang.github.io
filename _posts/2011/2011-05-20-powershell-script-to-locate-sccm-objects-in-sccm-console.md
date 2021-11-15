@@ -4,7 +4,7 @@ title: PowerShell Script to locate SCCM objects in SCCM console
 date: 2011-05-20T16:24:44+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=517
+guid: https://blog.tyang.org/?p=517
 permalink: /2011/05/20/powershell-script-to-locate-sccm-objects-in-sccm-console/
 categories:
   - PowerShell
@@ -15,7 +15,7 @@ tags:
 ---
 There are many object types in SCCM that supports folders in the console. Even though the object can be easily located using the search function, often we need to find out which folder does a particular object (i.e. package, advertisement, etc) reside.  At work, we use folders to separate objects for different business units and differnet IT service providers. Therefore, there are many times I need to find out where exactly is the object located.
 
-I wrote this script today called <a href="http://blog.tyang.org/wp-content/uploads/2011/05/Locate-SCCMObject.zip">Locate-SCCMObject.PS1</a>
+I wrote this script today called <a href="https://blog.tyang.org/wp-content/uploads/2011/05/Locate-SCCMObject.zip">Locate-SCCMObject.PS1</a>
 
 <strong>Syntax</strong>: .\Locate-SCCMObject &lt;SCCM Central Site Server&gt; &lt;SCCM Object ID&gt;:
 
@@ -23,11 +23,11 @@ I wrote this script today called <a href="http://blog.tyang.org/wp-content/uploa
 
 Using the script:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/05/image3.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/05/image_thumb3.png" border="0" alt="image" width="796" height="67" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/05/image3.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/05/image_thumb3.png" border="0" alt="image" width="796" height="67" /></a>
 
 From SCCM Console:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/05/image4.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/05/image_thumb4.png" border="0" alt="image" width="878" height="151" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/05/image4.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/05/image_thumb4.png" border="0" alt="image" width="878" height="151" /></a>
 
 The output of the script shows the object type and the path in the console, in this case, it’s a software package located under <strong>Application\Microsoft Office folder</strong>.
 
@@ -110,4 +110,4 @@ Write-Host "Console Path`: $strConsolePath" -ForegroundColor Yellow
 }
 ```
 
-<strong>This script should work for all objects that support folders. However, it does not work for collections. Collections do not support folders, but you can have sub collections and linked collections. I have written another script to locate collections. It is posted <a title="Get-CollectionPath" href="http://blog.tyang.org/2011/01/23/how-to-locate-sccm-collection-object-based-on-the-collection-id/">here</a>.</strong>
+<strong>This script should work for all objects that support folders. However, it does not work for collections. Collections do not support folders, but you can have sub collections and linked collections. I have written another script to locate collections. It is posted <a title="Get-CollectionPath" href="https://blog.tyang.org/2011/01/23/how-to-locate-sccm-collection-object-based-on-the-collection-id/">here</a>.</strong>

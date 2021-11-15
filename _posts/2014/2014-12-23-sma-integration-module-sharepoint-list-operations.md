@@ -4,7 +4,7 @@ title: A SMA Integration Module For SharePoint List Operations
 date: 2014-12-23T14:38:49+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3611
+guid: https://blog.tyang.org/?p=3611
 permalink: /2014/12/23/sma-integration-module-sharepoint-list-operations/
 categories:
   - PowerShell
@@ -26,9 +26,9 @@ Integrating SharePoint with Orchestrator and SMA is not something new, many peop
 
 In my opinion, SharePoint (especially SharePoint lists) provides a quick and easy way to setup a web based end user portal for orchestration runbooks. I have also blogged my experiences in the past:
 
-[My Experience Manipulating MDT Database Using SMA, SCORCH and SharePoint](http://blog.tyang.org/2014/11/20/experience-manipulating-mdt-database-using-sma-scorch-sharepoint/)
+[My Experience Manipulating MDT Database Using SMA, SCORCH and SharePoint](https://blog.tyang.org/2014/11/20/experience-manipulating-mdt-database-using-sma-scorch-sharepoint/)
 
-[SMA Runbook: Update A SharePoint 2013 List Item](http://blog.tyang.org/2014/08/30/sma-runbook-update-sharepoint-2013-list-item/)
+[SMA Runbook: Update A SharePoint 2013 List Item](https://blog.tyang.org/2014/08/30/sma-runbook-update-sharepoint-2013-list-item/)
 
 To me, not only I am using SharePoint 2013 in my lab; SharePoint Online from my Office 365 subscription, I also have no choice but using SharePoint 2010 in real life.
 
@@ -36,9 +36,9 @@ In my opinion, it is complicated to write SMA runbooks to interact with SharePoi
 
 Earlier this month, I was developing solutions to use SMA and Azure Automation to create OpsMgr Management Packs catalog on SharePoint 2013 / SharePoint Online sites. I have blogged the 2 solutions here:
 
-[On-Premise Solution (SMA + SharePoint 2013)](http://blog.tyang.org/2014/12/09/using-sma-building-microsoft-opsmgr-management-pack-catalog-sharepoint-2013/)
+[On-Premise Solution (SMA + SharePoint 2013)](https://blog.tyang.org/2014/12/09/using-sma-building-microsoft-opsmgr-management-pack-catalog-sharepoint-2013/)
 
-[Cloud Based Solution (Azure Automation + SharePoint Online)](http://blog.tyang.org/2014/12/10/using-azure-automation-build-microsoft-opsmgr-mp-catalog-sharepoint-online/)
+[Cloud Based Solution (Azure Automation + SharePoint Online)](https://blog.tyang.org/2014/12/10/using-azure-automation-build-microsoft-opsmgr-mp-catalog-sharepoint-online/)
 
 As I mentioned in the previous posts, I had to write a separate SMA module to be used in Azure Automation to interact with SharePoint Online because SharePoint Online sites require a different type of credential (SharePointOnlineCredential) that the PowerShell cmdlet Invoke-RESTMethod does not support. I called that module SharePointOnline back in the previous post and it utilises assemblies from the SharePoint Client Component SDK. I think the SharePoint people also refer to this SDK as Client-Side Object Model (CSOM)
 
@@ -49,7 +49,7 @@ After couple of weeks of coding and testing, I’m pleased to announce the new m
 ## SharePointSDK Module Introduction
 The SharePointSDK module contains the following functions:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image40.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image40.png)
 
 **CRUD Operations for SharePoint List items:**
 
@@ -97,7 +97,7 @@ I’d like to point out  that the **Add-SPListItemAttachment** function not onl
 
 The module zip file should consist the following 5 files:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image41.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image41.png)
 
 * **Microsoft.SharePoint.Client.dll** – One of required DLLs from the SDK
 * **Microsoft.SharePoint.Client.Runtime.dll** – One of required DLLs from the SDK
@@ -105,7 +105,7 @@ The module zip file should consist the following 5 files:
 * **SharePointSDK.psm1** – PowerShell module file
 * **SharePointSDK-Automation.json** – SMA Integration Module Meta File (where the connection asset is defined).
 
-[**Download SharePointSDK Module**](http://blog.tyang.org/wp-content/uploads/2014/12/SharePointSDK.zip)
+[**Download SharePointSDK Module**](https://blog.tyang.org/wp-content/uploads/2014/12/SharePointSDK.zip)
 
 > **Note:** The zip file you’ve downloaded from the link above **<em>DOES NOT</em>** contain the 2 DLL files. I am not sure if Microsoft is OK with me distributing their software / intellectual properties. So, just to cover myself, you will need to download the SDK (64-bit version) from Microsoft directly ([https://www.microsoft.com/en-us/download/details.aspx?id=35585](https://www.microsoft.com/en-us/download/details.aspx?id=35585)), install it on a 64-bit computer, and copy above mentioned 2 DLLs into the SharePointOnline module folder.
 
@@ -119,13 +119,13 @@ Once the DLLs are placed into the folder, zip the SharePointSDK folder to ShareP
 
 Once the DLLs are zipped into the module zip file, import the module into SMA by using the Import Module button under Assets tab
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image111.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image111.png)
 
 **Create a Connection object to the SharePoint site**
 
 After the module has been successfully, a connection to SharePoint Site must be created. The Connection type is "SharePointSDK"
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image42.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image42.png)
 
 The following fields must be filled out:
 
@@ -139,14 +139,14 @@ The following fields must be filled out:
 
 i.e. the connection to a SharePoint site in my lab:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image43.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image43.png)
 
 ## Sample Runbooks
 In order to better demonstrate this module, I have also created 10 sample runbooks:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/12/image44.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb44.png" alt="image" width="704" height="290" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/12/image44.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/12/image_thumb44.png" alt="image" width="704" height="290" border="0" /></a>
 
-[**Download Sample runbooks**](http://blog.tyang.org/wp-content/uploads/2014/12/Sample-Runbooks.zip)
+[**Download Sample runbooks**](https://blog.tyang.org/wp-content/uploads/2014/12/Sample-Runbooks.zip)
 
 I’ll now go through each sample runbook.
 
@@ -159,17 +159,17 @@ This runbook is expecting 2 input parameters:
 * ListName: The Display Name that you’d like to name the new users requests list (i.e. New Users OnBoarding Requests).
 * SPConnection: The name of the SharePointSDK connection that you’ve created previously (i.e. Based on the connection I’ve created in my lab as shown previously, it is "RequestsSPSite"
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image45.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image45.png)
 
 This runbook creates a list with the following fields:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image46.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image46.png)
 
 **Runbook: Sample-SPGetListFields**
 
 This runbook demonstrates how to retrieve all the fields of a particular list.
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image47.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image47.png)
 
 **Runbook: Sample-SPAddListItem**
 
@@ -189,15 +189,15 @@ It is expecting the following inputs:
 
 i.e.
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image48.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image48.png)
 
 The list item is created on SharePoint:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML1d5a6df8.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/SNAGHTML1d5a6df8.png)
 
 Attachment content:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image49.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image49.png)
 
 **Runbook: Sample-SPUpdateListItem**
 
@@ -207,13 +207,13 @@ This runbook can be used to update fields of an existing list item on the New Us
 
 This runbook can be used to retrieve ALL items from a list. Each list item are presented as a hash table.
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image50.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image50.png)
 
 **Runbook: Sample-SPGetListItem**
 
 This runbook can be used to retrieve a single item from a list.
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image51.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image51.png)
 
 **Runbook: Sample-SPDeleteListItem**
 
@@ -228,7 +228,7 @@ This runbook demonstrates 2 scenarios:
 
 ![](ttp://blog.tyang.org/wp-content/uploads/2014/12/image52.png)
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image53.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image53.png)
 
 **Runbook: Sample-SPDeleteListItemAttachments**
 
@@ -238,11 +238,11 @@ This runbook demonstrates how to delete an attachment from a list item (by speci
 
 This runbook demonstrates how to download all files attached to a list item:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image54.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image54.png)
 
 Files downloaded to the destination folder:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image55.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image55.png)
 
 ## Benefit of Using the SharePointSDK Module
 
@@ -290,15 +290,15 @@ During testing, I noticed the 3 attachments related functions in the SharePointS
 
 After a bit of research, looks like it is a known issue. I didn’t think it too much a big deal because all the core functions (CRUD operations for the list items) work with SharePoint 2010. Therefore, in these 3 functions, I’ve coded a validation step to exit if the SharePoint Server version is below version 15 (SharePoint 2013):
 
-![](http://blog.tyang.org/wp-content/uploads/2014/12/image56.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/12/image56.png)
 
 ## Conclusion
 If you are using SMA and SharePoint together, I strongly recommend you to download this module and the sample runbooks and give it a try. If you have a look at the sample runbooks, I’m sure you will realise how easy it is to write PowerShell code interacting with SharePoint.
 
 In case you didn’t see the download links, you can download them here:
 
-[**Download SharePointSDK Module**](http://blog.tyang.org/wp-content/uploads/2014/12/SharePointSDK.zip)
+[**Download SharePointSDK Module**](https://blog.tyang.org/wp-content/uploads/2014/12/SharePointSDK.zip)
 
-[**Download Sample Runbooks**](http://blog.tyang.org/wp-content/uploads/2014/12/Sample-Runbooks.zip)
+[**Download Sample Runbooks**](https://blog.tyang.org/wp-content/uploads/2014/12/Sample-Runbooks.zip)
 
 Lastly, I’m not a SharePoint specialist. If you believe I’ve made any mistakes in my code, or there is room for improvement, I’d like to hear from you. Please feel free to drop me an email :smiley:.

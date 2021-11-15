@@ -4,7 +4,7 @@ title: Using an External Knowledge Base for OpsMgr
 date: 2014-07-06T22:28:44+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2918
+guid: https://blog.tyang.org/?p=2918
 permalink: /2014/07/06/using-external-knowledge-base-opsmgr/
 categories:
   - SCOM
@@ -26,17 +26,17 @@ In OpsMgr, knowledge base (KB) articles can exist in 2 places: Product Knowledge
 
 Operators can access product knowledge from either the alert view or the property window of the workflow:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb1.png" alt="image" width="554" height="393" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/07/image_thumb1.png" alt="image" width="554" height="393" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb2.png" alt="image" width="358" height="413" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/07/image_thumb2.png" alt="image" width="358" height="413" border="0" /></a>
 
 **Company Knowledge:** Written my someone internally within your organisation. Consider it as an "Addendum" to the product knowledge. Generally OpsMgr operators use this functionality to store any organisation-specific information about the particular alert or workflow.
 
 Company Knowledge articles can be added into the OpsMgr management group from a computer which has Operations Console, Microsoft Visual Studio Runtime for Office, and 32-bit Microsoft Word 2010 installed. These articles are saved into unsealed management packs. They can be viewed same way as product knowledge":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb3.png" alt="image" width="580" height="323" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/07/image_thumb3.png" alt="image" width="580" height="323" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb4.png" alt="image" width="352" height="404" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/07/image_thumb4.png" alt="image" width="352" height="404" border="0" /></a>
 
 <span style="color: #ff0000;">**Note:**</span> One thing I’ve picked up while writing this article is once the company knowledge for a particular alert is created and saved into an unsealed management pack, the alert view in Operations console will show the company knowledge article instead of the original product knowledge article. – Something I’ve never noticed in the past.
 
@@ -51,7 +51,7 @@ In my opinion, using Company Knowledge in OpsMgr has the following Pros and Cons
 
 **03. Company Knowledge can be retrieved programmatically using OpsMgr SDK**
 
-i.e. <a href="http://blog.tyang.org/2012/08/16/scom-enhanced-email-notification-script-version-2/">SCOM Enhanced Email Notification Script</a> created by myself.
+i.e. <a href="https://blog.tyang.org/2012/08/16/scom-enhanced-email-notification-script-version-2/">SCOM Enhanced Email Notification Script</a> created by myself.
 
 ### Cons:
 
@@ -71,7 +71,7 @@ Sorry, you can’t attach a script / Word documents / Visio diagrams / Pictures 
 
 There’s a 1-to-1 relationship between KB articles and OpsMgr workflows (if the Company KB is created in the operations console). It is possible that you have many very similar monitors in your environments. i.e. In my environment, I have two (2) "Average Wait Time" monitors for SQL DB engines:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb5.png" alt="image" width="580" height="285" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/07/image_thumb5.png" alt="image" width="580" height="285" border="0" /></a>
 
 One of these monitor is targeting SQL 2008 and the other one is targeting SQL 2012. If you are to write a company KB, you will need to write 2 separate ones – One for each monitor, although the content could be exactly the same.
 
@@ -129,7 +129,7 @@ Sharepoint Example: <a href="http://www.systemcentercentral.com/use-sharepoint-w
 
 In my lab, I have setup a SharePoint 2013 Enterprise Wiki site as per Stefan Koell’s post.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/07/image_thumb6.png" alt="image" width="580" height="357" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/07/image_thumb6.png" alt="image" width="580" height="357" border="0" /></a>
 
 Additionally I created a management pack which contains 4 tasks:
 
@@ -141,11 +141,11 @@ Additionally I created a management pack which contains 4 tasks:
 
 The reason I didn’t use ResearchThis MP is because tasks in ResearchThis! MP only launches Internet Explorer (as Shown below):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTML1bf56eb.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1bf56eb" src="http://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTML1bf56eb_thumb.png" alt="SNAGHTML1bf56eb" width="418" height="275" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTML1bf56eb.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1bf56eb" src="https://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTML1bf56eb_thumb.png" alt="SNAGHTML1bf56eb" width="418" height="275" border="0" /></a>
 
 And I created same tasks that launches user’s default web browser:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTML1c1dab8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1c1dab8" src="http://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTML1c1dab8_thumb.png" alt="SNAGHTML1c1dab8" width="418" height="308" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTML1c1dab8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1c1dab8" src="https://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTML1c1dab8_thumb.png" alt="SNAGHTML1c1dab8" width="418" height="308" border="0" /></a>
 
 I have created this MP in VSAE and sealed it with a key. In a real life environment, I’d probably do the same and included this MP as a standard MP which should be imported into all the management groups within an organisation.
 

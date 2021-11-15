@@ -4,7 +4,7 @@ title: 'My Home Test Lab &#8211; Part 1'
 date: 2012-10-04T23:57:55+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1466
+guid: https://blog.tyang.org/?p=1466
 permalink: /2012/10/04/my-home-test-lab-part-1/
 categories:
   - Hyper-V
@@ -38,9 +38,9 @@ First of all, every piece of hardware in my lab is considered consumer grade pro
 Secondly, All the Microsoft software I use are licensed through my TechNet subscription. For around $400 AUD a year, I get to use pretty much everything I need from Microsoft (almost everything, Visual Studio and SQL Developer edition is not covered in TechNet subscription). I know that in other countries, TechNet subscriptions are significantly cheaper than Australia. i.e. the price in USA is almost half of what we pay here! It’s good investment. not to mention you get your money back during tax return every year anyway.
 
 ## Lab Diagram:
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/Home-Network-Diagram.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Home Network Diagram" src="http://blog.tyang.org/wp-content/uploads/2012/10/Home-Network-Diagram_thumb.png" alt="Home Network Diagram" width="580" height="539" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/Home-Network-Diagram.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Home Network Diagram" src="https://blog.tyang.org/wp-content/uploads/2012/10/Home-Network-Diagram_thumb.png" alt="Home Network Diagram" width="580" height="539" border="0" /></a>
 
-Above is roughly how everything hangs together at home. The original Visio diagram can be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2012/10/Home-Network-Diagram.zip">here</a> if you can’t see the details in this small picture.
+Above is roughly how everything hangs together at home. The original Visio diagram can be downloaded <a href="https://blog.tyang.org/wp-content/uploads/2012/10/Home-Network-Diagram.zip">here</a> if you can’t see the details in this small picture.
 
 ## Computers
 
@@ -112,13 +112,13 @@ The original 2 Hyper-V hosts were running on the ASUS P6X58D-E motherboard with 
 
 I have to say, I’m really impressed with the new motherboard that I’ve just got: <a href="http://www.intel.com/content/www/us/en/motherboards/desktop-motherboards/desktop-board-dx79sr.html">Intel DX79SR</a>. it has 8 memory slots, 4xUSB 3 ports on the back panel and 1 for the front. 2xIntel onboard GB NICs, 4x6Gb/s SATA connectors, 4x3Gb/s SATA connectors. It even comes with a WiFi/bluethooth module which you can optionally attach to the case (connected to a USB 2 connector on the motherboard). It has pretty much everything I need for the Hyper-V box. There’s no need to connect the WiFi and bluetooth module to the Hyper-V server. Since it’s connecting to the motherboard using a USB port, I’ve connected this to my desktop machine:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb.png" alt="image" width="580" height="83" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb.png" alt="image" width="580" height="83" border="0" /></a>
 
 **Hard Disks**
 
 I’ve got 3 traditional SATA drives on each Hyper-V host to spread the Disk I/O for virtual machines. I’ve also added a 120GB SSD for each host to host VHDs used for SQL databases. for example, when I created a VM to run SQL for SCOM, I’ve created 2 separate VHDs on the SSD drive to host the SQL data and log files.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb1.png" alt="image" width="580" height="150" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb1.png" alt="image" width="580" height="150" border="0" /></a>
 
 **Video Card**
 
@@ -130,13 +130,13 @@ In HyperV01, I’ve configured 4 virtual switches. one virtual switch (192.168.1
 
 **Hyperv01:**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb2.png" alt="image" width="429" height="303" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb2.png" alt="image" width="429" height="303" border="0" /></a>
 
-In Hyperv02, it’s very similar to Hyperv01. However I have 2 external connections. 192.168.1.0 is my physical network shared with the rest of home network. 192.168.6.0 network is connected to a physical NIC which is connected to the 5-Port Lab GB switch. I’ve configured it this way so I can physically connect my laptops to the lab using this connection and play with PXE boot and OSD in SCCM <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2012/10/wlEmoticon-smile.png" alt="Smile" />. I’ve also connected a WiFi access point to 5-port switch so I can connect the laptop wirelessly.
+In Hyperv02, it’s very similar to Hyperv01. However I have 2 external connections. 192.168.1.0 is my physical network shared with the rest of home network. 192.168.6.0 network is connected to a physical NIC which is connected to the 5-Port Lab GB switch. I’ve configured it this way so I can physically connect my laptops to the lab using this connection and play with PXE boot and OSD in SCCM <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="https://blog.tyang.org/wp-content/uploads/2012/10/wlEmoticon-smile.png" alt="Smile" />. I’ve also connected a WiFi access point to 5-port switch so I can connect the laptop wirelessly.
 
 **Hyperv02:**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb3.png" alt="image" width="443" height="256" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb3.png" alt="image" width="443" height="256" border="0" /></a>
 
 <span style="color: #ff0000;">***Note:** At the time of writing this article, Hyperv02 is still running bare metal Hyper-V 2008 R2. thus above screenshot looks a little bit different.</span>
 
@@ -148,7 +148,7 @@ In my study PC, I’ve only configured 2 internal networks:
 
 **Study:**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb4.png" alt="image" width="472" height="232" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb4.png" alt="image" width="472" height="232" border="0" /></a>
 
 So all up, I’ve got 9 subnets: 192.168.1.0 – 192.168.9.0
 
@@ -156,11 +156,11 @@ Now, here is where the virtual routers come in. I need to be able to route the n
 
 In each Hyper-V host, I’ve also configured a virtual router device (I used to use vyatta but now I’ve switched to CentOS. This is going to be covered in part 2). Take Hyperv01 for example, there’s a virtual machine called HyperVRT01, which is the virtual router for this host (running CentOS):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb5.png" alt="image" width="580" height="227" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb5.png" alt="image" width="580" height="227" border="0" /></a>
 
 For each virtual switch on HyperV01, I’ve configured a Network Adapter for the router HyperVRT01:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb6.png" alt="image" width="264" height="477" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb6.png" alt="image" width="264" height="477" border="0" /></a>
 
 Since I have 3 virtual hosts in total, I now have 3 CentOS instances running, each of them has been configured one connection to 192.168.1.0 (which is my physical network). each of these 3 connections has been given an IP address:
 
@@ -176,13 +176,13 @@ I then configure the static routes within CentOS (again, to be explained in Part
 
 Additionally, I’ve configured static routes in my ADSL router:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb7.png" alt="image" width="580" height="182" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb7.png" alt="image" width="580" height="182" border="0" /></a>
 
 This allows the rest of the home network to communicate to the lab (via IP address).
 
 *Note: The network speed on the 4-Port switch on the ADSL router is only 100MB. However, since I’ve configured the static routes in each CentOS instance, traffic between each Hyper-V host does not go over the ADSL router (192.168.1.1). i.e. if I trace route from a VM from HyperV01 to a VM in Study:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb8.png" alt="image" width="580" height="450" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb8.png" alt="image" width="580" height="450" border="0" /></a>
 
 As shown above, the traffic went straight from one CentOS router to the other CentOS router.
 
@@ -196,4 +196,4 @@ If you are working in IT infrastructure space, you are probably that’s it’s 
 
 OK, this is pretty much all I have for part 1 of the series. In part 2, I’ll go through the background and experience on why I went away from vyatta and steps I setup each CentOS instances as virtual routers. Stay tuned!
 
-05/10/2012: [Continue to Part 2](http://blog.tyang.org/2012/10/05/my-home-test-lab-part-2/!
+05/10/2012: [Continue to Part 2](https://blog.tyang.org/2012/10/05/my-home-test-lab-part-2/!

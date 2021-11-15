@@ -4,7 +4,7 @@ title: '&ldquo;Cannot initialize report&rdquo; Error When Running SCOM Reports'
 date: 2012-10-24T19:52:05+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1552
+guid: https://blog.tyang.org/?p=1552
 permalink: /2012/10/24/cannot-initialize-report-error-when-running-scom-reports/
 categories:
   - SCOM
@@ -16,11 +16,11 @@ Yesterday, I noticed I get this error when I tried to run some reports in the <a
 
 <span style="color: #ff0000;"><em>"Value of 01-Jan-01 12:00:00 AM" is not valid for ‘value’. ‘Value’ should be between ‘MinDate’ and ‘MaxDate’.</em></span>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb19.png" alt="image" width="580" height="383" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb19.png" alt="image" width="580" height="383" border="0" /></a>
 
 I then realised I get exactly the same error on any reports which contain datetime pickers in the report.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb20.png" alt="image" width="580" height="107" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb20.png" alt="image" width="580" height="107" border="0" /></a>
 
 Long story short, after spending some time troubleshooting this issue, including updating my SCOM 2007 R2 environment from CU5 to CU6 as this blog post has suggested:
 
@@ -32,10 +32,10 @@ I live in Australia, so normally, I would set the language format to English (Au
 
 <strong>Default English (United States) formats:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb21.png" alt="image" width="351" height="403" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb21.png" alt="image" width="351" height="403" border="0" /></a>
 
 <strong>Modified formats:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/10/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/10/image_thumb22.png" alt="image" width="348" height="401" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/10/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/10/image_thumb22.png" alt="image" width="348" height="401" border="0" /></a>
 
 After I changed the format back to default on my SCOM server, the reports started running! Since all the SCOM server roles are on the same box, I can’t confirm if which components (i.e. RMS, SSRS etc.) relies on the default language formats.

@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2014/07/mia.jpg
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=2984
+guid: https://blog.tyang.org/?p=2984
 permalink: /2014/07/21/location-location-location-part-2/
 categories:
   - SCOM
@@ -24,7 +24,7 @@ This is the 2nd part of the 3-part series. In this post, I will demonstrate how 
 
 I created a custom class based on "Windows Client 8 Computer" class. I needed to create this class instead of just using existing Windows Client 8 Computer class because I need to store 2 additional property values: "Home Latitude" and "Home Longitude". Once been discovered, these 2 values will be passed to the monitor workflow so the script within the monitor can calculate the distance between current location and configured home location.
 
-![](http://blog.tyang.org/wp-content/uploads/2014/07/image12.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/07/image12.png)
 
 I created the following registry keys and values for this custom class:
 
@@ -32,21 +32,21 @@ Key: **HKLM\SOFTWARE\TYANG\MonitorLocation**
 
 REG_SZ values: **HomeLatitude** & **HomeLongitude**
 
-![](http://blog.tyang.org/wp-content/uploads/2014/07/image13.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/07/image13.png)
 
 ## Discovery
 
 I created a registry discovery targeting Windows Client 8 Computer class to discover the class (Location Aware Windows Client Computer) and the 2 properties I defined.
 
-![](http://blog.tyang.org/wp-content/uploads/2014/07/image14.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/07/image14.png)
 
 It is configured to run every 6 hours by default. This can be overridden.
 
 ## Location Aware Device Missing In Action Monitor
 
-![](http://blog.tyang.org/wp-content/uploads/2014/07/image15.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/07/image15.png)
 
-![](http://blog.tyang.org/wp-content/uploads/2014/07/image16.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/07/image16.png)
 
 To create this monitor, I firstly wrote a script to detect the current location and calculate the distance between the current location and home location (based on the registry value discovered).
 
@@ -54,7 +54,7 @@ To create this monitor, I firstly wrote a script to detect the current location 
 
 When the script runs, it logs an informational event (event ID 10003) if the current location is successfully detected:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTMLb37b568.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTMLb37b568.png)
 
 Or a warning event (event ID 10002) if the location data retrieved is not valid.
 
@@ -62,10 +62,10 @@ I then created Probe Action, Data Source modules and monitor type for this monit
 
 As I have shown in the 1st and 2nd screenshots, I have configured required registry keys and values on my wife’s Dell XPS ultrabook (running Windows 8.1). The Home Latitude and Longitude coordinates are the location of my office. Because I configured the warning threshold to 5,000 metres (5km) and critical threshold to 10,000 metres (10km), a critical alert was generated against this XPS laptop:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTMLb381a0e.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTMLb381a0e.png)
 
 For my Surface Pro 2, I configured the home location to be my home, therefore, currently as I’m home writing this blog post and it is right next to me, the health state for my Surface is healthy:
 
 ![](ttp://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTMLb3e690c.png)
 
-This concludes the 2nd part of the series. Please continue to [Part 3](http://blog.tyang.org/2014/07/21/location-location-location-part-3/).
+This concludes the 2nd part of the series. Please continue to [Part 3](https://blog.tyang.org/2014/07/21/location-location-location-part-3/).

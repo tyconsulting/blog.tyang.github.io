@@ -4,7 +4,7 @@ title: Migrating OpsMgr 2012 RTM to OpsMgr 2012 SP1
 date: 2013-01-08T10:33:36+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1680
+guid: https://blog.tyang.org/?p=1680
 permalink: /2013/01/08/migrating-opsmgr-2012-rtm-to-opsmgr-2012-sp1/
 categories:
   - SCOM

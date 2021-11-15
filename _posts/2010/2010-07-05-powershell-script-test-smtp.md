@@ -4,7 +4,7 @@ title: 'PowerShell Script: Test-SMTP'
 date: 2010-07-05T13:46:34+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/2010/07/05/powershell-script-test-smtp/
+guid: https://blog.tyang.org/2010/07/05/powershell-script-test-smtp/
 permalink: /2010/07/05/powershell-script-test-smtp/
 categories:
   - PowerShell
@@ -12,7 +12,7 @@ tags:
   - PowerShell
   - SMTP
 ---
-I wrote <a href="http://blog.tyang.org/wp-content/uploads/2010/07/Test-SMTP.zip">this simple script</a> last week to test SMTP server by sending a testing email.
+I wrote <a href="https://blog.tyang.org/wp-content/uploads/2010/07/Test-SMTP.zip">this simple script</a> last week to test SMTP server by sending a testing email.
 
 Usage:
 
@@ -21,7 +21,7 @@ Usage:
 ```
 If the email is successfully, the recipient will receive an email similar to this:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2010/07/image.png"><img style="border-width: 0px;" src="http://blog.tyang.org/wp-content/uploads/2010/07/image_thumb.png" border="0" alt="image" width="452" height="316" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2010/07/image.png"><img style="border-width: 0px;" src="https://blog.tyang.org/wp-content/uploads/2010/07/image_thumb.png" border="0" alt="image" width="452" height="316" /></a>
 
 The email contains the following information:
 

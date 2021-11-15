@@ -4,7 +4,7 @@ title: Using Azure Key Vault as the Password Repository For You and Your Team
 date: 2017-03-03T19:16:36+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5930
+guid: https://blog.tyang.org/?p=5930
 permalink: /2017/03/03/using-azure-key-vault-as-the-password-repository-for-you-and-your-team/
 categories:
   - Azure
@@ -42,7 +42,7 @@ This module requires AzureRm.Profile, AzureRm.Resources and AzureRm.KeyVault mod
 
 When it is launched, it will detect if you are currently Signed in to Azure and ask you if you want to keep using the same account if you are currently signed in.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/03/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb.png" alt="image" width="628" height="98" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/03/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/03/image_thumb.png" alt="image" width="628" height="98" border="0" /></a>
 
 you have the option to keep using the current account or sign in to Azure using another account.
 
@@ -50,15 +50,15 @@ Then the app will prompt you to use the current Azure subscription that’s set 
 
 When running it for the first time, you will need to create a new Key Vault from the menu. You can choose an existing resource group, or create a new resource group in your azure region of your choice
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-1.png" alt="image" width="637" height="513" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/03/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-1.png" alt="image" width="637" height="513" border="0" /></a>
 
 Once the key vault is created, you will need to assign full access to an Azure AD account. This is done by searching Azure AD using a search string and select an user account from the search result list.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-2.png" alt="image" width="613" height="88" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/03/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-2.png" alt="image" width="613" height="88" border="0" /></a>
 
 Once the permission is assigned, everything is ready to go. you will be presented with the main menu:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-3.png" alt="image" width="602" height="228" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/03/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-3.png" alt="image" width="602" height="228" border="0" /></a>
 
 >**Note:** It is by design that this app does not use any existing key vaults that you may already have in your subscription. You have to create a new one. Any existing key vaults that are not created by this app will not appear on the list for you to choose.
 
@@ -66,13 +66,13 @@ Once the permission is assigned, everything is ready to go. you will be presente
 
 In order to make you access this key vault as fast as possible in the future, the first thing I’d suggest you to do is to select option 4 and save the Azure subscription Id and Key Vault name in your profile. this profile is stored in Windows Registry under HKEY_CURRENT_USER\SOFTWARE\TYConsulting\AzureKeyVaultPasswordRepo\Profiles\<your Azure account name>.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-4.png" alt="image" width="547" height="361" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/03/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-4.png" alt="image" width="547" height="361" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-5.png" alt="image" width="527" height="200" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/03/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-5.png" alt="image" width="527" height="200" border="0" /></a>
 
 Once the profile is saved, when you launch this app next time, it will automatically use the Azure subscription and the Key Vault that’s stored in the profile.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/03/SNAGHTML6c6b2b3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6c6b2b3" src="http://blog.tyang.org/wp-content/uploads/2017/03/SNAGHTML6c6b2b3_thumb.png" alt="SNAGHTML6c6b2b3" width="523" height="125" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/03/SNAGHTML6c6b2b3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6c6b2b3" src="https://blog.tyang.org/wp-content/uploads/2017/03/SNAGHTML6c6b2b3_thumb.png" alt="SNAGHTML6c6b2b3" width="523" height="125" border="0" /></a>
 
 ### Creating Credentials
 
@@ -80,7 +80,7 @@ From the main menu, you have the option to:
 
 1. Create new credential (user name and password). you also have the option to generate random password by not entering a password. if you choose to use this app to generate a random password, the password will be copied to the computer’s clipboard once the credential is created (so you can use Ctrl-V to paste it to wherever you need to).
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-6.png" alt="image" width="553" height="208" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/03/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-6.png" alt="image" width="553" height="208" border="0" /></a>
 
 ### List, Retrieve, Update and Delete Credentials
 
@@ -91,7 +91,7 @@ You can use Option 2 to list, retrieve, update and delete existing credentials. 
 3. Update credential (username / password)
 4. Delete Credential
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/03/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-7.png" alt="image" width="640" height="431" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/03/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/03/image_thumb-7.png" alt="image" width="640" height="431" border="0" /></a>
 
 ### Search Credential
 

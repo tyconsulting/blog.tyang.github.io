@@ -4,7 +4,7 @@ title: Clean Up Old Hardware Inventory Data
 date: 2011-10-09T18:42:30+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=720
+guid: https://blog.tyang.org/?p=720
 permalink: /2011/10/09/clean-up-old-hardware-inventory-data/
 categories:
   - SCCM
@@ -20,7 +20,7 @@ If you decide to clean them up, MyITForum.com has a great <a href="http://www.my
 
 I have tried the free <a href="http://www.sccmexpert.com/site_sweeper.aspx">SiteSweeper</a> tool from SCCMExpert.com which was mentioned in the WIKI page. It’s easy to use and you can remove multiple classes from site database at once:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image12.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb12.png" alt="image" width="580" height="378" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image12.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb12.png" alt="image" width="580" height="378" border="0" /></a>
 
 Other than removing the data from site databases throughout the hierarchy, the WMI class which you defined in the configuration.mof still exists in the client. I didn’t bother to look further to find tools/utilities to delete WMI classes, but simple found a sample vbscript from MSDN to modify WMI classes, and modified a little bit:
 

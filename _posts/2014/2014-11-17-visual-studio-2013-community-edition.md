@@ -4,7 +4,7 @@ title: Visual Studio 2013 Community Edition
 date: 2014-11-17T13:53:57+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3306
+guid: https://blog.tyang.org/?p=3306
 permalink: /2014/11/17/visual-studio-2013-community-edition/
 categories:
   - Visual Studio
@@ -20,23 +20,23 @@ I tested all the features and extensions that I care about, I have to say I’m 
 
 <strong>Visual Studio Online:</strong> I am able to connect to my Visual Studio Online and retrieved a Management Pack project that I’m currently working on.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML730a5e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML730a5e" src="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML730a5e_thumb.png" alt="SNAGHTML730a5e" width="451" height="326" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML730a5e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML730a5e" src="https://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML730a5e_thumb.png" alt="SNAGHTML730a5e" width="451" height="326" border="0" /></a>
 
 &nbsp;
 
 <strong>Visual Studio Authoring Extension (VSAE):</strong> I installed VSAE version 1.1.0.0, same as the previous installation on my laptop, all MP related options are still there:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb.png" alt="image" width="419" height="291" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb.png" alt="image" width="419" height="291" border="0" /></a>
 
 I tried to build the MP in the solution I’m working on, and it was built successfully:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML7680c5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7680c5" src="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML7680c5_thumb.png" alt="SNAGHTML7680c5" width="649" height="209" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML7680c5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7680c5" src="https://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML7680c5_thumb.png" alt="SNAGHTML7680c5" width="649" height="209" border="0" /></a>
 
 &nbsp;
 
 <strong>PowerShell Tools for Visual Studio 2013:</strong> This is a community extension developed by PowerShell MVP Adam Driscoll (More information can be found <a href="http://adamdriscoll.github.io/poshtools/">here</a>). This extension enables Visual Studio as a PowerShell script editor. As expected, it works in the Community edition and my PowerShell script is nicely laid out:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML7b8c49.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7b8c49" src="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML7b8c49_thumb.png" alt="SNAGHTML7b8c49" width="593" height="390" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML7b8c49.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7b8c49" src="https://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML7b8c49_thumb.png" alt="SNAGHTML7b8c49" width="593" height="390" border="0" /></a>
 
 &nbsp;
 

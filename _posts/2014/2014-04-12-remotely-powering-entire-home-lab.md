@@ -4,7 +4,7 @@ title: Remotely Powering On and Off My Entire Home Lab
 date: 2014-04-12T17:45:16+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2503
+guid: https://blog.tyang.org/?p=2503
 permalink: /2014/04/12/remotely-powering-entire-home-lab/
 categories:
   - PowerShell
@@ -12,7 +12,7 @@ tags:
   - PowerShell
   - PowerShell Web Access
 ---
-My home lab consists of 3 PCs running Hyper-V and a HP Proliant Microserver N54L running SCVMM. I have previously blogged the lab setup in a 2-part blog posts (<a href="http://blog.tyang.org/2012/10/04/my-home-test-lab-part-1/">Part 1</a>, <a href="http://blog.tyang.org/2012/10/05/my-home-test-lab-part-2/">Part 2</a>). These 2 blog articles was written back in October 2012, although there are few changes in the current setup (new hardware, etc), but the overall setup is pretty much the same.
+My home lab consists of 3 PCs running Hyper-V and a HP Proliant Microserver N54L running SCVMM. I have previously blogged the lab setup in a 2-part blog posts (<a href="https://blog.tyang.org/2012/10/04/my-home-test-lab-part-1/">Part 1</a>, <a href="https://blog.tyang.org/2012/10/05/my-home-test-lab-part-2/">Part 2</a>). These 2 blog articles was written back in October 2012, although there are few changes in the current setup (new hardware, etc), but the overall setup is pretty much the same.
 
 All 4 machines in my lab have been constantly running 24x7, except when we go on holidays or there’s a power outage (which doesn’t happen very often). This is largely because I just can’t be bothered to spend time start and shutdown all the physicals and virtuals every time I use the lab, not to mention I often access my lab when I’m in the office via RDP using my Surface Pro 2 with an external monitor. Because all of the computers are PC grade hardware, there are no out-of-band management cards (i.e. iLo, DRAC, etc.) on these boxes, I had no way to remotely start them when I was in the office.
 
@@ -24,7 +24,7 @@ Because one of the PCs in my lab is my main desktop (running Windows 8.1 with Hy
 
 I installed a freeware called <a href="http://aquilawol.sourceforge.net/">AquilaWOL</a> on my "Study" PC, made sure I can WOL all other computers.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image10.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb10.png" width="398" height="364" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image10.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb10.png" width="398" height="364" border="0" /></a>
 
 During my testing, the HP Microserver and one of the Hyper-V box (HyperV01, the one with the Intel motherboard) had no problem at all. However, the other HyperV box HyperV02, would not WOL. after some research, it seemed like a known issue with the motherboard that only be able to WOL when the computer is at sleep, not when it’s powered off. Luckily other than the on-board Marvell NIC, I also have a dual port Intel GB NIC and a single port Intel desktop GB NIC on this computer. the dual port NIC also wouldn’t work. but the desktop NIC worked :smiley:
 
@@ -34,13 +34,13 @@ I named this VM "JUMP01" because I intend to use this as a jump box. I connected
 
 <strong>3. Installed and configured PowerShell Web Access on the Jump server.</strong>
 
-So I don’t have to RDP to the jump server to run the scripts. This also enables me to power on / off the lab from any mobile devices with a browser. I have followed <a href="http://blog.tyang.org/2012/11/10/my-first-impression-on-powershell-web-access/">my previous blog post</a> to install and configure PSWA. I also wrote a <a href="http://blog.tyang.org/2014/04/08/powershell-module-resize-console-updated/">PowerShell module</a> to resize PowerShell console size to make PSWA more user-friendly for mobile devices.
+So I don’t have to RDP to the jump server to run the scripts. This also enables me to power on / off the lab from any mobile devices with a browser. I have followed <a href="https://blog.tyang.org/2012/11/10/my-first-impression-on-powershell-web-access/">my previous blog post</a> to install and configure PSWA. I also wrote a <a href="https://blog.tyang.org/2014/04/08/powershell-module-resize-console-updated/">PowerShell module</a> to resize PowerShell console size to make PSWA more user-friendly for mobile devices.
 
 <strong>4. Developed PowerShell scripts to power on and power off the physical and virtuals.</strong>
 
 I wrote 2 scripts: start-lab.ps1 and stop-lab.ps1. both scripts read required information from a XML file (labconfig.xml). this XML file contains all required information for my lab environment.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML6bd3b2.png"><img style="display: inline; border: 0px;" title="SNAGHTML6bd3b2" alt="SNAGHTML6bd3b2" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML6bd3b2_thumb.png" width="514" height="538" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML6bd3b2.png"><img style="display: inline; border: 0px;" title="SNAGHTML6bd3b2" alt="SNAGHTML6bd3b2" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML6bd3b2_thumb.png" width="514" height="538" border="0" /></a>
 
 The PowerShell scripts utilise WinRM and CredSSP to interact with each physical computers (using PSSessions and Invoke-Command).
 
@@ -81,7 +81,7 @@ Stop-Lab.ps1:
 
 On the jump server, I created a powershell module called "LabAdmin", which contains 2 functions that simply execute the powershell script:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image11.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb11.png" width="456" height="330" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image11.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb11.png" width="456" height="330" border="0" /></a>
 
 <strong>6. Configured port forwarding on my ADSL router to allow me to access the PSWA site from the Internet</strong>
 
@@ -89,7 +89,7 @@ This allows me to manage my lab even when I’m not home.
 
 i.e. starting the lab via my mobile phone (over 4G):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image12.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb12.png" width="580" height="328" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image12.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb12.png" width="580" height="328" border="0" /></a>
 
 Here are the live demos for both scripts:
 
@@ -102,7 +102,7 @@ Here are the live demos for both scripts:
 <iframe src="//www.youtube.com/embed/bjEnAi3tWEk" height="375" width="640" allowfullscreen="" frameborder="0"></iframe>
 
 
-For your reference, the scripts can be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2014/04/LabAdmin.zip">HERE</a>.
+For your reference, the scripts can be downloaded <a href="https://blog.tyang.org/wp-content/uploads/2014/04/LabAdmin.zip">HERE</a>.
 
 <strong>Conclusion</strong>
 

@@ -4,7 +4,7 @@ title: My Experience Migrating Hyper-V Clusters Using System Center Orchestrator
 date: 2014-04-21T23:58:07+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2580
+guid: https://blog.tyang.org/?p=2580
 permalink: /2014/04/21/experience-migrating-hyper-v-clusters-using-system-center-orchestrator-2012/
 categories:
   - Hyper-V
@@ -46,27 +46,27 @@ In my prototype, there are 6 runbooks in total. The migration process would go f
 
 01. Data Gathering
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image23.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb23.png" alt="image" width="580" height="441" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image23.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb23.png" alt="image" width="580" height="441" border="0" /></a>
 
 02. Prerequisites Checks
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image24.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb24.png" alt="image" width="580" height="282" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image24.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb24.png" alt="image" width="580" height="282" border="0" /></a>
 
 03. Export HyperV Config
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image25.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb25.png" alt="image" width="580" height="410" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image25.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb25.png" alt="image" width="580" height="410" border="0" /></a>
 
 04. Move Cluster Resources
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image26.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb26.png" alt="image" width="580" height="441" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image26.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb26.png" alt="image" width="580" height="441" border="0" /></a>
 
 05. Import HyperV Config
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image27.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb27.png" alt="image" width="580" height="354" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image27.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb27.png" alt="image" width="580" height="354" border="0" /></a>
 
 06. Add VMs to the Destination Cluster
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image28.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb28.png" alt="image" width="580" height="326" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image28.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb28.png" alt="image" width="580" height="326" border="0" /></a>
 
 <strong>Runbooks Prerequisites</strong>
 
@@ -80,7 +80,7 @@ These runbooks require the following prerequisites:
 
 The purpose of the first runbook "Data Gathering" is to connect to both cluster nodes and gather few information for the subsequent runbooks. The only information that the operator needs to provide is the server names for both nodes.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML5dd4ff.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML5dd4ff" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML5dd4ff_thumb.png" alt="SNAGHTML5dd4ff" width="470" height="330" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML5dd4ff.png"><img style="display: inline; border-width: 0px;" title="SNAGHTML5dd4ff" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML5dd4ff_thumb.png" alt="SNAGHTML5dd4ff" width="470" height="330" border="0" /></a>
 
 It doesn’t matter which node is node 1 and which one is node 2, the runbooks will figure out the source and destination clusters by comparing the OS versions.
 
@@ -132,7 +132,7 @@ This runbook exports the HyperV configurations on the source cluster using Serve
 
 <strong>Note:</strong> for all file copy activities in my runbooks, I couldn’t run them within a Powershell remote session because I am not using CredSSP in my runbooks so I can’t connect to a remote UNC path within a PS remote session – because of the second-hop constraint. Therefore I’m simply running the robocopy command:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image29.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb29.png" alt="image" width="464" height="370" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image29.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb29.png" alt="image" width="464" height="370" border="0" /></a>
 
 I remember I read somewhere that Orchestrator uses PsExec.exe under the hood when running a command against a remote computer. PSExec.exe uses RPC rather than WinRM.
 
@@ -186,18 +186,18 @@ The purpose of this post is to share my experience of designing this specific "c
 
 Both versions of the runbooks can be downloaded from the links below:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/Hyper-VClusterMigrationForWin2012.zip">Windows Server 2012 version using Server Migration Tool</a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/Hyper-VClusterMigrationForWin2012.zip">Windows Server 2012 version using Server Migration Tool</a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/Hyper-VClusterMigrationForWin2012R2.zip">Windows Server 2012 R2 version without Server Migration Tool</a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/Hyper-VClusterMigrationForWin2012R2.zip">Windows Server 2012 R2 version without Server Migration Tool</a>
 
 <strong><span style="color: #ff0000;">Note:</span></strong> I have removed all the email activities from the runbooks exports from the links above.
 
 Just another quick note about the runbooks – When I created these runbooks, I created a folder called "HYPER-WEE", as a joke. After all the runbooks were finalised, I realised it’s too hard to rename this folder because it’s hardcoded in each Invoke Runbook activity:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image30.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb30.png" alt="image" width="450" height="313" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image30.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb30.png" alt="image" width="450" height="313" border="0" /></a>
 
 I didn’t bother to rename the folder and update all the runbooks. So if you have downloaded and imported the runbook, you’ll see it:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML10c527d.png"><img style="display: inline; border: 0px;" title="SNAGHTML10c527d" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML10c527d_thumb.png" alt="SNAGHTML10c527d" width="206" height="244" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML10c527d.png"><img style="display: inline; border: 0px;" title="SNAGHTML10c527d" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML10c527d_thumb.png" alt="SNAGHTML10c527d" width="206" height="244" border="0" /></a>
 
 Lastly, as always, please feel free to contact me for any questions or issues.

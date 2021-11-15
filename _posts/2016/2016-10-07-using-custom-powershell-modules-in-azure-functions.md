@@ -4,7 +4,7 @@ title: Using Custom PowerShell Modules in Azure Functions
 date: 2016-10-07T15:31:46+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5679
+guid: https://blog.tyang.org/?p=5679
 permalink: /2016/10/07/using-custom-powershell-modules-in-azure-functions/
 categories:
   - Azure
@@ -26,29 +26,29 @@ Save-Module Gac –repository PSGallery –path C:\temp
 {:start="2"}
 2.  Make sure the Azure Functions App Service has the deployment credential configured
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb.png" alt="image" width="343" height="205" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb.png" alt="image" width="343" height="205" border="0" /></a>
 
 {:start="3"}
 3. FTP to the App Service using the deployment credential configured in the preview step, create a "bin" folder under the Azure Functions folder ("/site/wwwroot/&lt;Azure Functions Name&gt;") and upload the module folder:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-1.png" alt="image" width="384" height="316" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-1.png" alt="image" width="384" height="316" border="0" /></a>
 
 {:start="4"}
 4. In Azure Functions, launch the Kudu console
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-2.png" alt="image" width="327" height="231" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-2.png" alt="image" width="327" height="231" border="0" /></a>
 
 {:start="5"}
 5. Identify the PowerShell module file system path in Kudu. The path is <strong>D:\home\site\wwwroot\&lt;Azure Function Name&gt;\bin\&lt;PS module name&gt;\&lt;PS module version&gt;</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-3.png" alt="image" width="437" height="318" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-3.png" alt="image" width="437" height="318" border="0" /></a>
 
 {:start="6"}
 6. By default, the PowerShell runtime is configured to run on 32-bit platform. If the custom module requires 64-bit platform, you will need to configure the app setting and set the Platform to 64-bit
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-4.png" alt="image" width="426" height="282" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-4.png" alt="image" width="426" height="282" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-5.png" alt="image" width="352" height="285" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-5.png" alt="image" width="352" height="285" border="0" /></a>
 
 Now that the module is uploaded, and because the module is not located in a folder that’s listed in the PSModulePath environment variable, we have to explicitly import the module manifest (.psd1 file) before using it. For example, I have created a function with only 2 lines of code as shown below:
 
@@ -58,9 +58,9 @@ Get-GacAssembly
 ```
 The "Get-GacAssembly" cmdlet comes from the Gac PowerShell module. As the name suggests, it lists all the assemblies located in the Gac (Global Assemblies Cache). When I call the HTTP trigger function using Invoke-WebRequest, you’ll see the assemblies listed in the logs window:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-6.png" alt="image" width="696" height="120" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-6.png" alt="image" width="696" height="120" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-7.png" alt="image" width="698" height="459" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-7.png" alt="image" width="698" height="459" border="0" /></a>
 
 I have also tested stopping and restarting the Azure App Service, and I can confirm the module files stayed at the original location after the restart based on my tests.
 

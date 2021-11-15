@@ -4,7 +4,7 @@ title: This Blog Gets A Major Facelift
 date: 2014-07-26T17:31:00+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3062
+guid: https://blog.tyang.org/?p=3062
 permalink: /2014/07/26/blog-gets-major-facelift/
 categories:
   - Others
@@ -17,6 +17,6 @@ Special thanks to my wife – The background picture was taken by her using her 
 
 Bye bye to the old look,
 
-![](http://blog.tyang.org/wp-content/uploads/2014/07/image23.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/07/image23.png)
 
 Sometimes I wish there are more artistic gene in me. I’m still not 100% satisfied with the look, but this is the best I can do for now.

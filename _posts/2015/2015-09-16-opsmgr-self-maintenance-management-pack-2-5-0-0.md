@@ -4,7 +4,7 @@ title: OpsMgr Self Maintenance Management Pack 2.5.0.0
 date: 2015-09-16T22:15:32+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4625
+guid: https://blog.tyang.org/?p=4625
 permalink: /2015/09/16/opsmgr-self-maintenance-management-pack-2-5-0-0/
 categories:
   - SCOM
@@ -14,13 +14,13 @@ tags:
   - MP Authoring
   - SCOM
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/OMSelfMaintMPIcon.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px none;" title="OMSelfMaintMPIcon" src="http://blog.tyang.org/wp-content/uploads/2015/09/OMSelfMaintMPIcon_thumb.png" alt="OMSelfMaintMPIcon" width="125" height="122" align="left" border="0" /></a><span style="color: #ff0000;">26/10/2015 Update: It has been identified the unsealed override MP was not included in the download, and also there was a small error in "Known Issue" section (section 8) of the MP guide. Therefore I have just updated the download which now included the override MP and updated MP guide. However, if you have already downloaded the version 2.5.0.1, and only after the override MP, you can download it from <a href="http://blog.tyang.org/wp-content/uploads/2015/10/OpsMgr.2012.Self_.Maintenance.Overrides.zip">HERE</a>.</span>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/OMSelfMaintMPIcon.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px none;" title="OMSelfMaintMPIcon" src="https://blog.tyang.org/wp-content/uploads/2015/09/OMSelfMaintMPIcon_thumb.png" alt="OMSelfMaintMPIcon" width="125" height="122" align="left" border="0" /></a><span style="color: #ff0000;">26/10/2015 Update: It has been identified the unsealed override MP was not included in the download, and also there was a small error in "Known Issue" section (section 8) of the MP guide. Therefore I have just updated the download which now included the override MP and updated MP guide. However, if you have already downloaded the version 2.5.0.1, and only after the override MP, you can download it from <a href="https://blog.tyang.org/wp-content/uploads/2015/10/OpsMgr.2012.Self_.Maintenance.Overrides.zip">HERE</a>.</span>
 
 <span style="color: #ff0000;">18/09/2015 Update: A bug has been identified in version 2.5.0.0, where the newly added Data Warehouse DB staging tables row count performance collection rules is causing issues with the Exchange Correlation service from the of Exchange MP (Please refer to the comment section of this post) because the rule category is set to "None". I have updated the category of these performance collection rules in both the Self Maintenance MP and the OMS Add-On MP. Please re-download the MP (version 2.5.0.1) if you have already downloaded it and you are using Exchange MP in your environment.</span>
 
 ## Introduction
 
-I can’t believe it has been 1 year and 3 month since the OpsMgr Self Maintenance MP was lastly updated. This is partially because over the last year or so, I have been spending a lot of time developing the OpsMgr PowerShell / SMA module OpsMgrExtended and am stilling working on the <a href="http://blog.tyang.org/tag/automating-opsmgr/">Automating OpsMgr blog series</a>.  But I think one of the main reasons is that I did not get too many new ideas for the next release. I have decided to start working on version 2.5 of the Self Maintenance MP few weeks ago, when I realised I have collected enough resources for a new release. So, after few weeks of development and testing, I’m pleased to announce the version 2.5 is ready for the general public.
+I can’t believe it has been 1 year and 3 month since the OpsMgr Self Maintenance MP was lastly updated. This is partially because over the last year or so, I have been spending a lot of time developing the OpsMgr PowerShell / SMA module OpsMgrExtended and am stilling working on the <a href="https://blog.tyang.org/tag/automating-opsmgr/">Automating OpsMgr blog series</a>.  But I think one of the main reasons is that I did not get too many new ideas for the next release. I have decided to start working on version 2.5 of the Self Maintenance MP few weeks ago, when I realised I have collected enough resources for a new release. So, after few weeks of development and testing, I’m pleased to announce the version 2.5 is ready for the general public.
 
 ## What’s new in version 2.5?
 
@@ -43,7 +43,7 @@ I will now briefly go though each item from the list above. The detailed documen
 
 In previous version, the PowerShell script used by the "Collect All Management Server SDK Connection Count Rule" had a bug, where the incorrect count could be collected when there are gateway servers in the management group. i.e.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb11.png" alt="image" width="493" height="214" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb11.png" alt="image" width="493" height="214" border="0" /></a>
 
 As shown above, when I installed a gateway server in my management group, the counter value has become incorrect and has increased significantly. This issue is now fixed.
  
@@ -61,11 +61,11 @@ In this release, the MP comes with a performance collection rule and a 2-state p
 
 The performance collection rules collect the row count as performance data and store the data in both operational DB and the Data Warehouse DB:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML23ed92.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML23ed92" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML23ed92_thumb.png" alt="SNAGHTML23ed92" width="554" height="382" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML23ed92.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML23ed92" src="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML23ed92_thumb.png" alt="SNAGHTML23ed92" width="554" height="382" border="0" /></a>
 
 The 2-State performance threshold monitors will generate critical alerts when the row count over 1000.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML26712f.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML26712f" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML26712f_thumb.png" alt="SNAGHTML26712f" width="563" height="183" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML26712f.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML26712f" src="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML26712f_thumb.png" alt="SNAGHTML26712f" width="563" height="183" border="0" /></a>
  
 ### Managing OpsMgr Update Rollup Patch Level 
 
@@ -87,37 +87,37 @@ In order to address some of these issues, and helping OpsMgr administrators to b
  
 #### **State view for Health Service which also displays the patch list:** 
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML48f742.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML48f742" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML48f742_thumb.png" alt="SNAGHTML48f742" width="677" height="360" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML48f742.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML48f742" src="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML48f742_thumb.png" alt="SNAGHTML48f742" width="677" height="360" border="0" /></a>
  
 #### An agent task targeting Health Service to list OpsMgr components patch level: 
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML49c996.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML49c996" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML49c996_thumb.png" alt="SNAGHTML49c996" width="672" height="372" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML49c996.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML49c996" src="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML49c996_thumb.png" alt="SNAGHTML49c996" width="672" height="372" border="0" /></a>
 
 Because the "Patch List" property is populated by an object discovery, which only runs infrequently, in order to check the up-to-date information(of the patch list), I have created a task called "Get Current Patch List", which is targeting the Health Service class. This task will display the patch list for any of the following OpsMgr components installed on the selected health service:
 
 Management Servers | Gateway Servers:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb12.png" alt="image" width="347" height="407" border="0" /></a><a href="http://blog.tyang.org/wp-content/uploads/2015/09/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb13.png" alt="image" width="323" height="405" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb12.png" alt="image" width="347" height="407" border="0" /></a><a href="https://blog.tyang.org/wp-content/uploads/2015/09/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb13.png" alt="image" width="323" height="405" border="0" /></a>
 
 Agents | Web Console (also has agent installed):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb14.png" alt="image" width="347" height="435" border="0" /></a><a href="http://blog.tyang.org/wp-content/uploads/2015/09/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb15.png" alt="image" width="331" height="433" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb14.png" alt="image" width="347" height="435" border="0" /></a><a href="https://blog.tyang.org/wp-content/uploads/2015/09/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb15.png" alt="image" width="331" height="433" border="0" /></a>
  
 #### Object Discovery: OpsMgr 2012 Self Maintenance Management Server and Agent Patch List Discovery 
 
 Natively in OpsMgr, the agent patch list is discovered by an object discovery called "Discovers the list of patches installed on Agents":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb16.png" alt="image" width="412" height="409" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb16.png" alt="image" width="412" height="409" border="0" /></a>
 
 As the name suggests, this discovery discovers the patch list for agents, and nothing else. It does not discover the patch list for OpsMgr management servers, gateway servers, and SCSM management servers (if they are also monitored by OpsMgr using the version of the Microsoft Monitoring Agent that is a part of the Service Manager 2012). On the other hand, this discovery provided by the OpsMgr 2012 Self Maintenance MP (Version 2.5.0.0) is designed to replace the native patch list discovery. Instead of only discovering agent patch list, it also discovers the patch list for OpsMgr management servers, gateway servers, SCSM management servers and SCSM Data Warehouse management servers.
 
 Same as all other workflows in the Self Maintenance MP, this discovery is disabled by default. In order to start using this discovery, please disable the built-in discovery "Discovers the list of patches installed on Agents" BEFORE enabling "OpsMgr 2012 Self Maintenance Management Server and Agent Patch List Discovery":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb17.png" alt="image" width="687" height="315" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb17.png" alt="image" width="687" height="315" border="0" /></a>
 
 Shortly after the built-in discovery has been disabled and the "OpsMgr 2012 Self Maintenance Management Server and Agent Patch List Discovery" has been enabled for the Health Service class, the patch list for the OpsMgr management servers, gateway servers and SCSM management servers (including Data Warehouse management server) will be populated (as shown in the screenshot below):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML51edc1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML51edc1" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML51edc1_thumb.png" alt="SNAGHTML51edc1" width="668" height="374" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML51edc1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML51edc1" src="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML51edc1_thumb.png" alt="SNAGHTML51edc1" width="668" height="374" border="0" /></a>
 
 **<span style="background-color: #ffff00;">Note:</span>**
 
@@ -133,25 +133,25 @@ This consecutive sample monitor is targeting the "All Management Servers Resourc
 
 In order to utilise this monitor, WinRM must be enabled and configured to accept connections from other management servers. The quickest way to do so is to run "Winrm QuickConfig" on these servers. The account that is running the script in the monitor must also have OS administrator privilege on all management servers (by default, it is running under the management server’s default action account). If the default action account does not have Windows OS administrator privilege on all management servers, a Run-As profile can be configured for this monitor:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML53a46a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML53a46a" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML53a46a_thumb.png" alt="SNAGHTML53a46a" width="671" height="423" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML53a46a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML53a46a" src="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML53a46a_thumb.png" alt="SNAGHTML53a46a" width="671" height="423" border="0" /></a>
 
 In addition to the optional Run-As profile, if WinRM on management servers are listening to a non-default port, the port number can also be modified via override:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb18.png" alt="image" width="322" height="354" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb18.png" alt="image" width="322" height="354" border="0" /></a>
 
 > **<Note:** All management servers must be configured to use the same WinRM port. Using different WinRM port is not supported by the script used by the monitor.
 
 If the monitor detected inconsistent patch level among management servers in 3 consecutive samples, a Critical alert will be raised:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb19.png" alt="image" width="688" height="309" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb19.png" alt="image" width="688" height="309" border="0" /></a>
 
 The number of consecutive sample can be modified via override (Match Count) parameter.
  
 ### Agent Task: Configure group Health Rollup 
 
-This task has been previously released in the <a href="http://blog.tyang.org/2015/07/28/opsmgr-group-health-rollup-configuration-task-management-pack/">OpsMgr Group Health Rollup Task Management Pack</a>. I originally wrote this task in response to Squared Up’s customers feedback. When I was developing the original MP (for Squared Up), Squared Up has agreed for me to release it to the public free of charge, as well as making this as a part of the new Self Maintenance MP.
+This task has been previously released in the <a href="https://blog.tyang.org/2015/07/28/opsmgr-group-health-rollup-configuration-task-management-pack/">OpsMgr Group Health Rollup Task Management Pack</a>. I originally wrote this task in response to Squared Up’s customers feedback. When I was developing the original MP (for Squared Up), Squared Up has agreed for me to release it to the public free of charge, as well as making this as a part of the new Self Maintenance MP.
 
-Therefore, this agent task is now part of the Self Maintenance MP, kudos Squared Up <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/09/wlEmoticon-smile.png" alt="Smile" />.
+Therefore, this agent task is now part of the Self Maintenance MP, kudos Squared Up <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="https://blog.tyang.org/wp-content/uploads/2015/09/wlEmoticon-smile.png" alt="Smile" />.
  
 ### Auditing Agent Tasks Execution Status 
 
@@ -163,7 +163,7 @@ In OpsMgr, the task history is stored in the operational DB, which has a relativ
 
 Having ability to automatically reset health state for manually closed monitor alerts must be THE most popular suggestion I have received for the Self Maintenance MP. I get this suggestions all the time, from the community, and also from MVPs. Originally, my plan was to write a brand new rule for this purpose. I then realised I already have created a rule to detect any manually closed monitor alerts. So instead of creating something brand new, I have updated the existing rule "OpsMgr 2012 Self Maintenance Detect Manually Closed Monitor Alerts Rule". In this release, this rule now has an additional overrideable parameter called "ResetUnitMonitors". This parameter is set to "false" by default. But when it is set to "true" via overrides, the script used by this rule will also reset the health state of the monitor of which generated the alert if the monitor is a unit monitor and its’ current health state is either warning or error:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb20.png" alt="image" width="480" height="228" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb20.png" alt="image" width="480" height="228" border="0" /></a>
 
 ## OpsMgr Self Maintenance OMS Add On MP
 
@@ -192,13 +192,13 @@ The heartbeat events can be accessed via the the OMS web portal (as well as usin
 
 i.e. the AMSRP heartbeat events for the last 15 minutes:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb21.png" alt="image" width="665" height="362" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb21.png" alt="image" width="665" height="362" border="0" /></a>
 
 Dashboard tile with threshold:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb630de.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLb630de" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb630de_thumb.png" alt="SNAGHTMLb630de" width="558" height="447" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb630de.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLb630de" src="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTMLb630de_thumb.png" alt="SNAGHTMLb630de" width="558" height="447" border="0" /></a>
 
->**Note:** For the heartbeat event rule targeting the health service, I have configured it to continue sending the heartbeat even when the Windows computer has been placed into maintenance mode (not that management servers should ever been placed in maintenance mode in the first place <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2015/09/wlEmoticon-smile.png" alt="Smile" />).
+>**Note:** For the heartbeat event rule targeting the health service, I have configured it to continue sending the heartbeat even when the Windows computer has been placed into maintenance mode (not that management servers should ever been placed in maintenance mode in the first place <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="https://blog.tyang.org/wp-content/uploads/2015/09/wlEmoticon-smile.png" alt="Smile" />).
 
 I’m not going to take all the credit for this one. Monitoring the monitor using OMS was an idea from my friend and fellow MVP Cameron Fuller. as the result of this discussion with Cameron and other CDM MVPs, I ended up developed a management pack which sends heartbeat events from AMSRP and selected health service (management servers for example) to OMS. This management pack has never been published to the public, but I believe Cameron has recently demonstrated it in the Minnesota System Center User Group meeting (<a title="http://blogs.catapultsystems.com/cfuller/archive/2015/08/14/summary-from-the-mnscug-august-2015-meeting/" href="http://blogs.catapultsystems.com/cfuller/archive/2015/08/14/summary-from-the-mnscug-august-2015-meeting/">http://blogs.catapultsystems.com/cfuller/archive/2015/08/14/summary-from-the-mnscug-august-2015-meeting/</a>)
 
@@ -218,11 +218,11 @@ The above listed data are already being generated by the OpsMgr 2012 Self Mainte
 
 i.e. Agent Task Results Audit Event:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb22.png" alt="image" width="633" height="499" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb22.png" alt="image" width="633" height="499" border="0" /></a>
 
 SDK Connection Count Perf Data:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb23.png" alt="image" width="623" height="396" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb23.png" alt="image" width="623" height="396" border="0" /></a>
 
 Please refer to the MP guide section 7.2 for more information (and sample search queries) about these OMS data collection rules.
 

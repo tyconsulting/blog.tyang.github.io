@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4036
+guid: https://blog.tyang.org/?p=4036
 permalink: /2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/
 categories:
   - PowerShell
@@ -44,7 +44,7 @@ An OpsMgr native component that can be installed on any computers running PowerS
 
 Microsoft has released a version of this IP for every release of OpsMgr 2012. However, the functionalities this IP provides is very limited.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb10.png" alt="image" width="178" height="176" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb10.png" alt="image" width="178" height="176" border="0" /></a>
 
 As you can see, it only offer 8 activities. It also requires the corresponding version of the OpsMgr operational console to be manually installed on each Orchestrator runbook server and runbook designer computer before you can executing runbooks which utilise these activities. The requirement for the operations console introduces some limitations:
 
@@ -55,11 +55,11 @@ As you can see, it only offer 8 activities. It also requires the corresponding v
 
 When SMA was released as part of System Center 2012 R2, it was shipped with an OperationsManager portable module built-in to the product.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLa03ddea.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLa03ddea" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLa03ddea_thumb.png" alt="SNAGHTMLa03ddea" width="361" height="430" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLa03ddea.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLa03ddea" src="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLa03ddea_thumb.png" alt="SNAGHTMLa03ddea" width="361" height="430" border="0" /></a>
 
 The <a href="http://blogs.technet.com/b/orchestrator/archive/2013/11/04/service-management-automation-portable-modules-what-why-and-how.aspx" target="_blank">portable modules</a> are not real modules. They are like the middle man between your runbooks and the "real" Integration Modules. It takes your input parameters and call the activities from the real module for you. i.e.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb11.png" alt="image" width="649" height="106" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb11.png" alt="image" width="649" height="106" border="0" /></a>
 
 In order to use the OperationsManager-Portable module in SMA, you must firstly manually install the "real" OpsMgr 2012 PowerShell module on all the SMA runbook servers. One of the great feature that SMA offers is being able to automatically deploy Integration Modules to all runbook servers once been imported into SMA. But for the portable modules, this is not the case, as you must manually install the "real" modules by yourself. The other limitation is, it still only just offers whatever is available in the native OpsMgr 2012 PowerShell module.
 
@@ -67,7 +67,7 @@ With all these limitations in mind, I have developed a brand new custom OpsMgr P
 
 ## OpsMgrExtended Introduction
 
-Back in January 2015, I have presented a work-in-progress version of this module in the Melbourne MVP Community Camp. At that time, I said it was going to be released in few weeks time. Unfortunately, I just couldn’t dedicate enough time on this project and I wanted to add few additional functions in this module, I only managed to finalise it now (5 months later). My presentation has been recorded, you can watch it and download the slide deck from my previous post: <a title="http://blog.tyang.org/2015/01/23/microsoft-mvp-community-camp-2015-session-sma-integration-module-opsmgrextended/" href="http://blog.tyang.org/2015/01/23/microsoft-mvp-community-camp-2015-session-sma-integration-module-opsmgrextended/">http://blog.tyang.org/2015/01/23/microsoft-mvp-community-camp-2015-session-sma-integration-module-opsmgrextended/</a>
+Back in January 2015, I have presented a work-in-progress version of this module in the Melbourne MVP Community Camp. At that time, I said it was going to be released in few weeks time. Unfortunately, I just couldn’t dedicate enough time on this project and I wanted to add few additional functions in this module, I only managed to finalise it now (5 months later). My presentation has been recorded, you can watch it and download the slide deck from my previous post: <a title="https://blog.tyang.org/2015/01/23/microsoft-mvp-community-camp-2015-session-sma-integration-module-opsmgrextended/" href="https://blog.tyang.org/2015/01/23/microsoft-mvp-community-camp-2015-session-sma-integration-module-opsmgrextended/">https://blog.tyang.org/2015/01/23/microsoft-mvp-community-camp-2015-session-sma-integration-module-opsmgrextended/</a>
 
 ### OpsMgr SDK Assemblies
 
@@ -79,7 +79,7 @@ To make OpsMgrExtended module TRULLY portable and independent, I have placed the
 
 "If you think you will do a task twice – **automate it!**"
 
-When comes to automation, this is my favourite quote, from Joe Levy, a program manager in the System Center Orchestrator team. I have been managing large OpsMgr environments for many years. At my last job, I was pretty much the single point of contact for OpsMgr. Based on my own personal experience, there are a lot of repetitive tasks when managing OpsMgr infrastructures. This is why few years ago I spent few months of my spare time and developed the <a href="http://blog.tyang.org/2014/06/30/opsmgr-2012-self-maintenance-management-pack-2-4-0-0/" target="_blank">OpsMgr Self Maintenance MP</a>. This MP was targeting the administrative workflows which normally carried out by OpsMgr admins.
+When comes to automation, this is my favourite quote, from Joe Levy, a program manager in the System Center Orchestrator team. I have been managing large OpsMgr environments for many years. At my last job, I was pretty much the single point of contact for OpsMgr. Based on my own personal experience, there are a lot of repetitive tasks when managing OpsMgr infrastructures. This is why few years ago I spent few months of my spare time and developed the <a href="https://blog.tyang.org/2014/06/30/opsmgr-2012-self-maintenance-management-pack-2-4-0-0/" target="_blank">OpsMgr Self Maintenance MP</a>. This MP was targeting the administrative workflows which normally carried out by OpsMgr admins.
 
 Other than the day-to-day tasks the Self Maintenance MP has already covered, I still find a lot of repetitive tasks that do not fall into that category. for example, management packs development. I have been writing management packs for few years. Based on my own experience and the feedbacks I got from the community, I believe a lot of OpsMgr customers, or the broader community are facing the following challenges:
 
@@ -216,9 +216,9 @@ The monitors created by **New-OMTCPPortMonitoring** supports On-Demand detection
 
 When using this module in SMA, you may create a connection object to your OpsMgr management group.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb12.png" alt="image" width="396" height="252" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb12.png" alt="image" width="396" height="252" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb13.png" alt="image" width="402" height="256" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb13.png" alt="image" width="402" height="256" border="0" /></a>
 
 * **Connection Type:** Operations Manager SDK
 * **Name:** Name of this SMA connection object
@@ -241,13 +241,13 @@ I have included help information for every function in this module. You can acce
 
 i.e. **Get-help New-OMRule –Full**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeaa1c1f.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLeaa1c1f" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeaa1c1f_thumb.png" alt="SNAGHTMLeaa1c1f" width="417" height="435" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeaa1c1f.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLeaa1c1f" src="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeaa1c1f_thumb.png" alt="SNAGHTMLeaa1c1f" width="417" height="435" border="0" /></a>
 
 Once imported in SMA, you can also see the description for each function in the WAP Admin portal:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeaf2cd0.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLeaf2cd0" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeaf2cd0_thumb.png" alt="SNAGHTMLeaf2cd0" width="498" height="411" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeaf2cd0.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLeaf2cd0" src="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeaf2cd0_thumb.png" alt="SNAGHTMLeaf2cd0" width="498" height="411" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeb0d60c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLeb0d60c" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeb0d60c_thumb.png" alt="SNAGHTMLeb0d60c" width="443" height="340" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeb0d60c.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLeb0d60c" src="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTMLeb0d60c_thumb.png" alt="SNAGHTMLeb0d60c" width="443" height="340" border="0" /></a>
 
 ## Getting Started
 
@@ -273,7 +273,7 @@ I’m releasing this module under <a href="http://www.apache.org/licenses/LICENS
 
 Because this module requires OpsMgr 2012 SDK DLLs, and I am not allowed to distribute these DLLs (refer to System Center 2012 R2 Operations Manager EULA Section 7 Scope of License, which can be located on the OpsMgr 2012 R2 DVD under Licenses folder).
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb14.png" alt="image" width="381" height="375" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb14.png" alt="image" width="381" height="375" border="0" /></a>
 
 Therefore, once you’ve downloaded this module, you will need to manually copy the following 3 DLLs into the module folder:
 
@@ -283,14 +283,14 @@ Therefore, once you’ve downloaded this module, you will need to manually copy 
 
 These DLLs can be found on your OpsMgr management server, under **<OpsMgr Install Dir>\Server\SDK Binaries**:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb15.png" alt="image" width="532" height="129" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb15.png" alt="image" width="532" height="129" border="0" /></a>
 
 Copy them into the module folder:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb16.png" alt="image" width="537" height="273" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb16.png" alt="image" width="537" height="273" border="0" /></a>
 
 If it’s intended to be used in SMA, you will need to zip the folder back after DLLs been copied to the folder, then import the module in SMA.
 
 Looking back, this has has been a very long journey - I have written around 6,800 lines of code for this module alone, not including all the sample runbooks that I'm going to publish for this blog series. I hope the community would find it useful, and please feel free to contact me if you have any new ideas or suggestions.
 
-This is all I have for the Part 1 of this new series. In the next couple of days, I will discuss how to use the OpsMgrExtended module to create ConfigMgr log collections rules for OMS (As I previously blogged <a href="http://blog.tyang.org/2015/06/10/collecting-configmgr-logs-to-microsoft-operation-management-suite-the-nice-way/" target="_blank">here</a>.)
+This is all I have for the Part 1 of this new series. In the next couple of days, I will discuss how to use the OpsMgrExtended module to create ConfigMgr log collections rules for OMS (As I previously blogged <a href="https://blog.tyang.org/2015/06/10/collecting-configmgr-logs-to-microsoft-operation-management-suite-the-nice-way/" target="_blank">here</a>.)

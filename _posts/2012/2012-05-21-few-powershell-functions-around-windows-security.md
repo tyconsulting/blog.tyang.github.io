@@ -4,7 +4,7 @@ title: Few PowerShell Functions Around Windows Security
 date: 2012-05-21T20:51:23+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1240
+guid: https://blog.tyang.org/?p=1240
 permalink: /2012/05/21/few-powershell-functions-around-windows-security/
 categories:
   - PowerShell

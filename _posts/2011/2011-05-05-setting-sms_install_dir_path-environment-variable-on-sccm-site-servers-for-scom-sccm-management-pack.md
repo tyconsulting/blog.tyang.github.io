@@ -4,7 +4,7 @@ title: Setting SMS_INSTALL_DIR_PATH Environment variable on SCCM site servers fo
 date: 2011-05-05T18:25:36+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=477
+guid: https://blog.tyang.org/?p=477
 permalink: /2011/05/05/setting-sms_install_dir_path-environment-variable-on-sccm-site-servers-for-scom-sccm-management-pack/
 categories:
   - SCCM
@@ -20,7 +20,7 @@ According to the [Configuration Manager 2007 SP2 Management Pack User’s Guide 
 
 I had to do this on 80+ site servers, so I thought why not do this using a script and let SCCM to push it out to all site servers?
 
-Therefore, I wrote a VBScript [Set-EnvirVar-For-SCOM.vbs](http://blog.tyang.org/wp-content/uploads/2011/05/Set-EnvirVar-For-SCOM.zip) (I didn’t use PowerShell this time because it is easier to push out VBScripts via SCCM).
+Therefore, I wrote a VBScript [Set-EnvirVar-For-SCOM.vbs](https://blog.tyang.org/wp-content/uploads/2011/05/Set-EnvirVar-For-SCOM.zip) (I didn’t use PowerShell this time because it is easier to push out VBScripts via SCCM).
 
 Source Code:
 ```vb

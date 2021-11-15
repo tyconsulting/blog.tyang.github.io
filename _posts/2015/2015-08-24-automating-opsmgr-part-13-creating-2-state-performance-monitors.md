@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4431
+guid: https://blog.tyang.org/?p=4431
 permalink: /2015/08/24/automating-opsmgr-part-13-creating-2-state-performance-monitors/
 categories:
   - PowerShell
@@ -25,24 +25,24 @@ tags:
 
 This is the 13th instalment of the Automating OpsMgr series. Previously on this series:
 
-* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
-* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
-* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
-* [Automating OpsMgr Part 4:Creating New Empty Groups](http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
-* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](http://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
-* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](http://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
-* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
-* [Automating OpsMgr Part 8: Adding Management Pack References](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/)
-* [Automating OpsMgr Part 9: Updating Group Discoveries](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-9-updating-group-discoveries/)
-* [Automating OpsMgr Part 10: Deleting Groups](http://blog.tyang.org/2015/07/27/automating-opsmgr-part-10-deleting-groups/)
-* [Automating OpsMgr Part 11: Configuring Group Health Rollup](http://blog.tyang.org/2015/07/29/automating-opsmgr-part-11-configuring-group-health-rollup/)
-* [Automating OpsMgr Part 12: Creating Performance Collection Rules](http://blog.tyang.org/2015/08/08/automating-opsmgr-part-12-creating-performance-collection-rules/)
+* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](https://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
+* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](https://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
+* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](https://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
+* [Automating OpsMgr Part 4:Creating New Empty Groups](https://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
+* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](https://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
+* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](https://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
+* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
+* [Automating OpsMgr Part 8: Adding Management Pack References](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/)
+* [Automating OpsMgr Part 9: Updating Group Discoveries](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-9-updating-group-discoveries/)
+* [Automating OpsMgr Part 10: Deleting Groups](https://blog.tyang.org/2015/07/27/automating-opsmgr-part-10-deleting-groups/)
+* [Automating OpsMgr Part 11: Configuring Group Health Rollup](https://blog.tyang.org/2015/07/29/automating-opsmgr-part-11-configuring-group-health-rollup/)
+* [Automating OpsMgr Part 12: Creating Performance Collection Rules](https://blog.tyang.org/2015/08/08/automating-opsmgr-part-12-creating-performance-collection-rules/)
 
 In the previous post (Part 12), I have demonstrated how to create performance collection rules using the **OpsMgrExtended** module. In this post, I will demonstrate how to create a 2-State performance monitor.
 
 OpsMgrExtended module provides a function called **New-OM2StatePerformanceMonitor**. It has been documented in the embedded help within the module. you can access it via the Get-Help cmdlet:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image31.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb31.png" alt="image" width="670" height="212" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image31.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb31.png" alt="image" width="670" height="212" border="0" /></a>
 
 Same as the previous posts, I’m going to show a sample runbook which utilise this function.
 
@@ -107,7 +107,7 @@ So, before I can kick off this runbook, I need to firstly create the MP. This ca
 New-OMManagementPack -SDK OMMS01 -Name "TYANG.SMA.Automation.Perf.Monitor.Demo" -DisplayName "TYANG SMA Automation Perf Monitor Demo" –Verbose
 
 ```
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image32.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb32.png" alt="image" width="613" height="192" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image32.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb32.png" alt="image" width="613" height="192" border="0" /></a>
 
 After the test MP is created, I can then execute the runbook. This runbook takes the following input parameters:
 
@@ -123,19 +123,19 @@ After the test MP is created, I can then execute the runbook. This runbook takes
 
 Runbook Execution Result:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image33.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb33.png" alt="image" width="643" height="655" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image33.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb33.png" alt="image" width="643" height="655" border="0" /></a>
 
 Monitor created by the runbook:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image34.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb34.png" alt="image" width="364" height="376" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image34.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb34.png" alt="image" width="364" height="376" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image35.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb35.png" alt="image" width="366" height="378" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image35.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb35.png" alt="image" width="366" height="378" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image36.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb36.png" alt="image" width="367" height="380" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image36.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb36.png" alt="image" width="367" height="380" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image37.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb37.png" alt="image" width="368" height="380" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image37.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb37.png" alt="image" width="368" height="380" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image38.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb38.png" alt="image" width="368" height="380" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image38.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb38.png" alt="image" width="368" height="380" border="0" /></a>
 
 ## Conclusion
 

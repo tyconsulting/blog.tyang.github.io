@@ -4,7 +4,7 @@ title: Squared Up Dashboards Community
 date: 2015-10-01T19:04:27+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4676
+guid: https://blog.tyang.org/?p=4676
 permalink: /2015/10/01/squared-up-dashboards-community/
 categories:
   - SCOM
@@ -13,7 +13,7 @@ tags:
   - SCOM
   - SquaredUp
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2015/10/2015-10-01_16-58-17.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="2015-10-01_16-58-17" src="http://blog.tyang.org/wp-content/uploads/2015/10/2015-10-01_16-58-17_thumb.png" alt="2015-10-01_16-58-17" width="215" height="227" align="left" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/10/2015-10-01_16-58-17.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="2015-10-01_16-58-17" src="https://blog.tyang.org/wp-content/uploads/2015/10/2015-10-01_16-58-17_thumb.png" alt="2015-10-01_16-58-17" width="215" height="227" align="left" border="0" /></a>
 
 Squared Up has recently established a brand new web site: <a href="https://community.squaredup.com">https://community.squaredup.com</a>. This is where everyone in the community is able to share Squared Up dashboards. So, it’s pretty similar to TechNet Gallery, but only for Squared Up dashboards.
 
@@ -54,7 +54,7 @@ Download from: <a title="https://community.squaredup.com/browse/download-info/sc
 
 <strong><span style="color: #ff0000;">Note:</span></strong>
 
-This dashboard requires the modified version of MPAuthor’s Orchestrator MP, which can be found from this blog: <a href="http://blog.tyang.org/2015/09/14/updated-mp-authors-system-center-2012-orchestrator-management-pack/">http://blog.tyang.org/2015/09/14/updated-mp-authors-system-center-2012-orchestrator-management-pack/</a>
+This dashboard requires the modified version of MPAuthor’s Orchestrator MP, which can be found from this blog: <a href="https://blog.tyang.org/2015/09/14/updated-mp-authors-system-center-2012-orchestrator-management-pack/">https://blog.tyang.org/2015/09/14/updated-mp-authors-system-center-2012-orchestrator-management-pack/</a>
 
 ### SMA 2012 R2
 

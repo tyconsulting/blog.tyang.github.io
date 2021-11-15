@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4156
+guid: https://blog.tyang.org/?p=4156
 permalink: /2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/
 categories:
   - PowerShell
@@ -25,16 +25,16 @@ tags:
 
 This is the 5th instalment of the Automating OpsMgr series. Previously on this series:
 
-* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
-* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
-* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
-* [Automating OpsMgr Part 4:Creating New Empty Groups](http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
+* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](https://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
+* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](https://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
+* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](https://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
+* [Automating OpsMgr Part 4:Creating New Empty Groups](https://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
 
 In the previous post (part 4), I have demonstrated a runbook creating new empty instance groups and computer groups using the **OpsMgrExtended** module. As I also mentioned in Part 4, I will dedicate few posts on creating and managing OpsMgr groups. So, this post is the 2nd one on this topic.
 
 In OpsMgr, groups can be populated via Explicit memberships (static) or Dynamic Memberships (query based), or combination of both:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd397dca.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd397dca" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd397dca_thumb.png" alt="SNAGHTMLd397dca" width="466" height="206" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd397dca.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd397dca" src="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd397dca_thumb.png" alt="SNAGHTMLd397dca" width="466" height="206" border="0" /></a>
 
 In this post, I will demonstrate how to use a runbook to add a Windows computer object to a computer group via Explicit membership.
 
@@ -189,17 +189,17 @@ Workflow Add-ComputerToComputerGroup
 
 When using this runbook, you will need to update line 9 of the runbook, and replace the SMA connection name with the one you've used in your SMA environment:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd3cc63e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd3cc63e" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd3cc63e_thumb.png" alt="SNAGHTMLd3cc63e" width="688" height="488" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd3cc63e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd3cc63e" src="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd3cc63e_thumb.png" alt="SNAGHTMLd3cc63e" width="688" height="488" border="0" /></a>
 
 This runbook requires 2 mandatory parameters:
 
 * Windows computer principal name (FQDN) - which is the key property of the Windows Computer object
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb17.png" alt="image" width="400" height="291" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb17.png" alt="image" width="400" height="291" border="0" /></a>
 
 * The group name - it's the internal name, not the display name. I did not use the display name because it is not unique. i.e.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd5db064.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd5db064" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd5db064_thumb.png" alt="SNAGHTMLd5db064" width="453" height="144" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd5db064.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd5db064" src="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd5db064_thumb.png" alt="SNAGHTMLd5db064" width="453" height="144" border="0" /></a>
 
 **<span style="color: #ff0000; font-size: small;">Note:</span>**
 
@@ -223,17 +223,17 @@ Since the OpsMgrExtended module does not (yet) have a function to add a computer
 
 Group membership before execution:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd56ca18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd56ca18" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd56ca18_thumb.png" alt="SNAGHTMLd56ca18" width="437" height="152" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd56ca18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd56ca18" src="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd56ca18_thumb.png" alt="SNAGHTMLd56ca18" width="437" height="152" border="0" /></a>
 
 Executing runbook:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb18.png" alt="image" width="430" height="372" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb18.png" alt="image" width="430" height="372" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb19.png" alt="image" width="429" height="415" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb19.png" alt="image" width="429" height="415" border="0" /></a>
 
 Group membership after execution:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd586a6a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd586a6a" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd586a6a_thumb.png" alt="SNAGHTMLd586a6a" width="457" height="95" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd586a6a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTMLd586a6a" src="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTMLd586a6a_thumb.png" alt="SNAGHTMLd586a6a" width="457" height="95" border="0" /></a>
 
 ## Conclusion
 

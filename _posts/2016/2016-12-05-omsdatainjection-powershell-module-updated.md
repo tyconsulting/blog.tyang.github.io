@@ -4,7 +4,7 @@ title: OMSDataInjection PowerShell Module Updated
 date: 2016-12-05T09:52:44+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5786
+guid: https://blog.tyang.org/?p=5786
 permalink: /2016/12/05/omsdatainjection-powershell-module-updated/
 categories:
   - OMS

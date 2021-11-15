@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2017/01/EZAlert.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=5861
+guid: https://blog.tyang.org/?p=5861
 permalink: /2017/01/11/opsmgr-alert-tuning-using-opslogix-ezalert/
 categories:
   - SCOM
@@ -22,31 +22,31 @@ OpsLogix has recently released a new product to the market called "EZalert". It 
 
 Once installed, I could see a new dashboard view added in the monitoring pane, and this is where we tune all the alerts:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/01/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/01/image_thumb.png" alt="image" width="682" height="450" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/01/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/01/image_thumb.png" alt="image" width="682" height="450" border="0" /></a>
 
 From this view, I can see all the active alerts, and I can start tuning then either one at a time, or I can multiple select and set desired state in bulk. Once I have gone through all the alerts on the list, I can choose to save the configuration under the Settings tab:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/01/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-1.png" alt="image" width="631" height="479" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/01/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-1.png" alt="image" width="631" height="479" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/01/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-2.png" alt="image" width="349" height="395" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/01/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-2.png" alt="image" width="349" height="395" border="0" /></a>
 
 Once this is done, any new alerts that have previously been trained will be updated automatically when it was generated. i.e. I have created a test alert and trained EZalert to set the resolution state to Closed, as you can see below, it was created at 9:44:57AM and modified by EZalert 2 seconds later:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/01/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-3.png" alt="image" width="700" height="149" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/01/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-3.png" alt="image" width="700" height="149" border="0" /></a>
 
 Once the initial training process is completed and saved, the training tab will become empty. Any new alerts generated will show up in the training tab, and you can see if there’s a suggested state assigned, and you can also modify it by assigning another state:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/01/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-4.png" alt="image" width="411" height="196" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/01/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-4.png" alt="image" width="411" height="196" border="0" /></a>
 
 And all previously trained alerts can be found in the history tab:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/01/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-5.png" alt="image" width="683" height="469" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/01/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-5.png" alt="image" width="683" height="469" border="0" /></a>
 
 You can also create exclusions. if you want EZalert to skip certain alerts for certain monitoring object (i.e. Disk space alert generated on C:\ on Server A), you can do so by creating exclusions:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/01/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-6.png" alt="image" width="417" height="474" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/01/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-6.png" alt="image" width="417" height="474" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/01/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-7.png" alt="image" width="410" height="385" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/01/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/01/image_thumb-7.png" alt="image" width="410" height="385" border="0" /></a>
 
 In my opinion, this is a very good practice when tuning alerts. when setting alert resolution states, you only need to do it once, and EZalert learns your behaviour and repeat your action for you in the future. It will be a huge time saver for all your OpsMgr operators over the time. It will also become very handy for alert tuning in the follow situations:
 
@@ -56,7 +56,7 @@ In my opinion, this is a very good practice when tuning alerts. when setting ale
 
 ## EZalert vs Alert Update Connector
 
-Before EZalert’s time, I have been using the OpsMgr Alert Update Connector (AUC) from Microsoft (<a title="https://blogs.technet.microsoft.com/kevinholman/2012/09/29/opsmgr-public-release-of-the-alert-update-connector/" href="https://blogs.technet.microsoft.com/kevinholman/2012/09/29/opsmgr-public-release-of-the-alert-update-connector/">https://blogs.technet.microsoft.com/kevinholman/2012/09/29/opsmgr-public-release-of-the-alert-update-connector/</a>). I was really struggling when configuring AUC so I developed my own solution to configure AUC in an automated fashion  (<a title="http://blog.tyang.org/2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/" href="http://blog.tyang.org/2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/">http://blog.tyang.org/2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/</a>) and I have also developed a management pack to monitor it (<a title="http://blog.tyang.org/2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/" href="http://blog.tyang.org/2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/">http://blog.tyang.org/2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/</a>). In my opinion, AUC  is a solid solution. It’s been around for many years and being used by many customers. But I do find it has some limitations:
+Before EZalert’s time, I have been using the OpsMgr Alert Update Connector (AUC) from Microsoft (<a title="https://blogs.technet.microsoft.com/kevinholman/2012/09/29/opsmgr-public-release-of-the-alert-update-connector/" href="https://blogs.technet.microsoft.com/kevinholman/2012/09/29/opsmgr-public-release-of-the-alert-update-connector/">https://blogs.technet.microsoft.com/kevinholman/2012/09/29/opsmgr-public-release-of-the-alert-update-connector/</a>). I was really struggling when configuring AUC so I developed my own solution to configure AUC in an automated fashion  (<a title="https://blog.tyang.org/2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/" href="https://blog.tyang.org/2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/">https://blog.tyang.org/2014/04/19/programmatically-generating-opsmgr-2012-alert-update-connector-configuration-xml/</a>) and I have also developed a management pack to monitor it (<a title="https://blog.tyang.org/2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/" href="https://blog.tyang.org/2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/">https://blog.tyang.org/2014/05/31/updated-opsmgr-2012-alert-update-connector-management-pack/</a>). In my opinion, AUC  is a solid solution. It’s been around for many years and being used by many customers. But I do find it has some limitations:
 
  * Configuration process is really hard
  * Configuration is based on rules and monitors, not alerts. So it’s easy to incorrectly configure rules and monitors that don’t generate alerts (i.e. perf / event collection rules, aggregate / dependency monitors, etc).

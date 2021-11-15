@@ -4,7 +4,7 @@ title: Using Computers And Health Service Watchers Groups in a Management Group 
 date: 2014-04-23T00:50:37+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2598
+guid: https://blog.tyang.org/?p=2598
 permalink: /2014/04/23/using-computers-health-service-watchers-groups-management-group-containing-clusters/
 categories:
   - SCOM
@@ -19,29 +19,29 @@ It’s very common for OpsMgr administrators to create instance groups contain w
 
 Please keep in mind, if there are clusters monitored in your environment, and you’d like to include cluster alerts in the subscriptions you’ve setup, these groups do not contain windows clusters so subscriptions will not process some of the cluster alerts. I noticed it last week when I was configuring Alert Update Connectors using such groups, some of the cluster alerts are not processed such as this one:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/ClusterAlert.png"><img style="display: inline; border: 0px;" title="Cluster Alert" src="http://blog.tyang.org/wp-content/uploads/2014/04/ClusterAlert_thumb.png" alt="Cluster Alert" width="580" height="167" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/ClusterAlert.png"><img style="display: inline; border: 0px;" title="Cluster Alert" src="https://blog.tyang.org/wp-content/uploads/2014/04/ClusterAlert_thumb.png" alt="Cluster Alert" width="580" height="167" border="0" /></a>
 
 This is because clusters are actually groups.
 
 Class Definition in Windows Cluster Management MP:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image31.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb31.png" alt="image" width="580" height="158" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image31.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb31.png" alt="image" width="580" height="158" border="0" /></a>
 
 In Operations console:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image32.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb32.png" alt="image" width="580" height="386" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image32.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb32.png" alt="image" width="580" height="386" border="0" /></a>
 
 As you can see each discovered Windows cluster is a group, and it contains all cluster resources:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML66a977a.png"><img style="display: inline; border: 0px;" title="SNAGHTML66a977a" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML66a977a_thumb.png" alt="SNAGHTML66a977a" width="580" height="294" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML66a977a.png"><img style="display: inline; border: 0px;" title="SNAGHTML66a977a" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML66a977a_thumb.png" alt="SNAGHTML66a977a" width="580" height="294" border="0" /></a>
 
 So in order for the "Computer and Health Service Watcher" instance groups to include clusters, the GroupPopulator in the group discovery data source needs to be updated to include an additional <MemberShipRule> segment. in the example below, I’ve created a group that contains all computers with the NetBIOS name starts with the letter "S", associated health service watcher objects, and all clusters with the name starts with letter "S" as well:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image33.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb33.png" alt="image" width="580" height="570" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image33.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb33.png" alt="image" width="580" height="570" border="0" /></a>
 
 Of course, in order to add highlighted section in the discovery, I also added the Microsoft.Windows.Cluster.Library as a reference (with alias "Cluster"):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image34.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb34.png" alt="image" width="407" height="402" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image34.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb34.png" alt="image" width="407" height="402" border="0" /></a>
 
 Here’s the XML code for the group discovery if you want to copy and paste:
 ```xml
@@ -107,6 +107,6 @@ Here’s the XML code for the group discovery if you want to copy and paste:
 ```
 Once the additional <MembershipRule> segement is added to the GroupPopulator module, all windows clusters will be shown as child groups for both my custom defined group and the "Windows Clusters" group:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML67d6784.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTML67d6784.png)
 
 Lastly, if you are updating a existing group, don’t forget to change the display name to something like "Computers, Clusters and Health Service Watchers Group" :smiley:

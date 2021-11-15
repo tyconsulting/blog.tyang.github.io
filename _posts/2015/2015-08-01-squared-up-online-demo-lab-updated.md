@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/08/logo-on-white_smaller.jpg
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4315
+guid: https://blog.tyang.org/?p=4315
 permalink: /2015/08/01/squared-up-online-demo-lab-updated/
 categories:
   - SCOM

@@ -4,7 +4,7 @@ title: My Observation on SCCM Clients BITS Settings
 date: 2012-05-05T00:41:49+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1197
+guid: https://blog.tyang.org/?p=1197
 permalink: /2012/05/05/my-observation-on-sccm-clients-bits-settings/
 categories:
   - SCCM
@@ -20,11 +20,11 @@ We found when the BITS bandwidth throttling settings are configured for a SCCM p
 
 <strong>SCCM Computer Client Agent BITS Settings:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/05/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/05/image_thumb.png" alt="image" width="367" height="463" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/05/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/05/image_thumb.png" alt="image" width="367" height="463" border="0" /></a>
 
 <strong>BITS Settings from SCCM Client’s Windows local policy (</strong>Local Policy –&gt;Computer Configuration –&gt;Administrative Templates –&gt;Network –&gt;Background Intelligent Transfer Service (BITS) –&gt;Limit the maximum network bandwidth for BITS background transfers<strong>):</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/05/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/05/image_thumb1.png" alt="image" width="580" height="448" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/05/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/05/image_thumb1.png" alt="image" width="580" height="448" border="0" /></a>
 
 As you can see, the SCCM site setting is identical to SCCM client’s local policy. SCCM 2007 Unleashed has explained the client BITS settings. You can read about it on Google Books <a href="http://books.google.com.au/books?id=dYYKG44dGHQC&pg=PT414&dq=sccm+client+BITS+setting&hl=en&sa=X&ei=qd-jT8_ZCq7vmAWG0qWbCQ&ved=0CDkQ6AEwAA#v=onepage&q&f=false">HERE</a>.
 

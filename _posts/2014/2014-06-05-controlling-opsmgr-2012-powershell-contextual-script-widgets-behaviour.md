@@ -4,7 +4,7 @@ title: Controlling OpsMgr 2012 PowerShell Contextual Script Widgets Behaviour
 date: 2014-06-05T22:15:56+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2833
+guid: https://blog.tyang.org/?p=2833
 permalink: /2014/06/05/controlling-opsmgr-2012-powershell-contextual-script-widgets-behaviour/
 categories:
   - SCOM
@@ -12,15 +12,15 @@ tags:
   - Dashboard
   - SCOM
 ---
-Few days ago I posted an <a href="http://blog.tyang.org/2014/05/24/opsmgr-dashboard-fun-google-maps/">OpsMgr 2012 dashboard using Google Maps</a>. After it’s been posted, I noticed there is a minor issue with the dashboard.
+Few days ago I posted an <a href="https://blog.tyang.org/2014/05/24/opsmgr-dashboard-fun-google-maps/">OpsMgr 2012 dashboard using Google Maps</a>. After it’s been posted, I noticed there is a minor issue with the dashboard.
 
 When I click on a monitoring object from the top left "Remote Computers" state widget, the "Map" widget on the right refreshes and loaded the map based on the location property values of the remote computer class:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb.png" alt="image" width="562" height="336" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb.png" alt="image" width="562" height="336" border="0" /></a>
 
 But when I click on an object in the bottom left "Component" widget (which is a list of related objects of remote computer class), the map refreshes again. Only this time, because the locations cannot be found from object properties, it passed an empty string to Google Map:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image1.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb1.png" alt="image" width="556" height="333" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image1.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb1.png" alt="image" width="556" height="333" border="0" /></a>
 
 This is because the "Map" widget uses a contextual PowerShell Web Browser Widget. a contextual widget gets data from other widgets within the dashboard and it is updated when objects of another widget is selected.
 
@@ -89,11 +89,11 @@ If ($bAllValid)
 
 The highlighted sections are what’s changed from the original script:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image2.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb2.png" alt="image" width="580" height="548" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image2.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb2.png" alt="image" width="580" height="548" border="0" /></a>
 
 Now, I created another dashboard using the code above, when clicked on a related object from bottom left widget, nothing happens on the map widget. the map remains the same:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/06/image3.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/06/image_thumb3.png" alt="image" width="580" height="378" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/06/image3.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/06/image_thumb3.png" alt="image" width="580" height="378" border="0" /></a>
 
 I put the code for the validation into a separate function <strong>Validate-ObjectClass</strong> so this function can be reused in other widgets and dashboard. You may use this function when there are more than 2 widgets in a dashboard and you only want a PowerShell contextual widget to refresh when a specific type of object is selected from other widgets.
 

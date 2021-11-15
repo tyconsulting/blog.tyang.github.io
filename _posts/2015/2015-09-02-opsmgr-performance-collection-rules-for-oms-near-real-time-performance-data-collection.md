@@ -4,7 +4,7 @@ title: OpsMgr Performance Collection Rules for OMS Near Real-Time Performance Da
 date: 2015-09-02T23:31:16+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4500
+guid: https://blog.tyang.org/?p=4500
 permalink: /2015/09/02/opsmgr-performance-collection-rules-for-oms-near-real-time-performance-data-collection/
 categories:
   - OMS
@@ -28,29 +28,29 @@ I won’t repeat what’s already been discussed in these 2 posts, but I’ll ta
 
 By default, OMS has 8 performance counters configured for near-real time perf collection. You can see them in the settings section of your workspace:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb.png" alt="image" width="655" height="373" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb.png" alt="image" width="655" height="373" border="0" /></a>
 
 As explained in both the official blog post from the OMS product team as well as Stan’s blog, you can add additional perf counters on this page, and it will be pushed to the OpsMgr management groups that are connected to this OMS workspace. I am fairly certain, the sample interval range is **between 10-1800 seconds** (minimum 10 seconds, maximum 30 minutes).
 
 All the counters configured on this page are stored in an Unsealed management pack called "Microsoft System Center Advisor Log Management Collection" in your OpsMgr management group.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6943086.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6943086" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6943086_thumb.png" alt="SNAGHTML6943086" width="624" height="301" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6943086.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6943086" src="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6943086_thumb.png" alt="SNAGHTML6943086" width="624" height="301" border="0" /></a>
 
 If you export this MP and open it using MPViewer, you will see there are 2 rules for each counter:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6a306af.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6a306af" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6a306af_thumb.png" alt="SNAGHTML6a306af" width="690" height="319" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6a306af.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6a306af" src="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6a306af_thumb.png" alt="SNAGHTML6a306af" width="690" height="319" border="0" /></a>
 
 **Microsoft.IntelligencePack.LogManagement.Collection.PerformanceCounter.xxxxxxxxxx:**
 
 These rules are collecting the raw real time perf data:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb1.png" alt="image" width="648" height="243" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb1.png" alt="image" width="648" height="243" border="0" /></a>
 
 **Microsoft.IntelligencePack.LogManagement.Collection.PerformanceCounterAggregation.xxxxxxxxxx:**
 
 As the name suggested, these rules are collecting the 30-minute aggregated data (As stated in the official blog post, the raw data retention is 14 days and the 30-minute aggregated data retention is same as your OMS data plan).
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb2.png" alt="image" width="651" height="306" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb2.png" alt="image" width="651" height="306" border="0" /></a>
 
 After Examining these 2 rules closely,  we can see the following:
 
@@ -66,7 +66,7 @@ After Examining these 2 rules closely,  we can see the following:
 
 06. Since both rules are disabled by default, the MP also comes with overrides to enable these rules for the OMS managed computers:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6c32a96.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6c32a96" src="http://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6c32a96_thumb.png" alt="SNAGHTML6c32a96" width="671" height="351" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6c32a96.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6c32a96" src="https://blog.tyang.org/wp-content/uploads/2015/09/SNAGHTML6c32a96_thumb.png" alt="SNAGHTML6c32a96" width="671" height="351" border="0" /></a>
 
 ## Write Your own OMS Near-Real Time Perf Collection Rules
 
@@ -80,14 +80,14 @@ Based on my testing, I found in order to submit near-real time perf data to OMS,
 
 The rule must use the data source module "Microsoft.IntelligencePacks.Performance.DataProvider", which is defined in management pack "Microsoft System Center Advisor Types Library" (Microsoft.IntelligencePacks.Types). This data source module consists of 2 member modules:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb3.png" alt="image" width="689" height="447" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb3.png" alt="image" width="689" height="447" border="0" /></a>
 
 * Data Source: System.Performance.DataProvider
 * Condition Detection: System.Performance.DataGenericMapper
 
 I have tried to use System.Performance.DataProvider module directly in both raw and aggregation data collection rules, unfortunately this configuration does not seem to work. additionally, many 4502 events were logged in the Operations Manager log on the OpsMgr agent computer indicating the configuration for the aggregation data collection rule is incorrect.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb4.png" alt="image" width="565" height="533" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb4.png" alt="image" width="565" height="533" border="0" /></a>
 
 **03. The Rule target must be Windows Computer class (Microsoft.Windows.Computer).**
 
@@ -103,13 +103,13 @@ I have created a MP during my experiments today. In the end, I have deleted all 
   * Target: Microsoft.Windows.Computer
   * Perf Counter: Processor(_Total)\% Privileged Time
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb5.png" alt="image" width="729" height="366" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb5.png" alt="image" width="729" height="366" border="0" /></a>
 
 * Set #2:
   * Target: Microsoft.Windows.Server.Computer
   * Perf Counter: SQLServer:Memory Manager(*)\Free Memory (KB)
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/09/image_thumb6.png" alt="image" width="718" height="254" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/09/image_thumb6.png" alt="image" width="718" height="254" border="0" /></a>
 
 You can download my demo MP from the link below:
 

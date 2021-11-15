@@ -4,7 +4,7 @@ title: Issues with OpsMgr 2012 R2 Upgrade When Management Servers are Load-Balan
 date: 2013-10-30T15:44:43+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2161
+guid: https://blog.tyang.org/?p=2161
 permalink: /2013/10/30/issues-opsmgr-2012-r2-upgrade-management-servers-load-balanced/
 categories:
   - SCOM
@@ -19,13 +19,13 @@ I just came back to work this week after a 4-week holiday in China. Today I have
 
 I firstly upgraded all 3 management servers, they all went smoothly without problems. but when I tried to run the upgrade for the Report Server and Web Console server (2 separate servers), both servers failed the prerequisites check with the same error:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/10/image_thumb1.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image_thumb[1]" alt="image_thumb[1]" src="http://blog.tyang.org/wp-content/uploads/2013/10/image_thumb1_thumb.png" width="512" height="389" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/10/image_thumb1.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image_thumb[1]" alt="image_thumb[1]" src="https://blog.tyang.org/wp-content/uploads/2013/10/image_thumb1_thumb.png" width="512" height="389" border="0" /></a>
 
 It’s saying that the management server the report server / web console server is pointing to has not been upgraded.
 
 We have setup a F5 NLB VIP for all 3 management servers, and all management servers are indeed upgraded successfully. The Report Server and the Web Console server are pointing to the NLB for the default SDK (DAS) service. The <strong>OpsMgrSetupWizard.log</strong> on the report server shows the prerequisite checker cannot connect to the management server:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/10/image_thumb4.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image_thumb[4]" alt="image_thumb[4]" src="http://blog.tyang.org/wp-content/uploads/2013/10/image_thumb4_thumb.png" width="580" height="318" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/10/image_thumb4.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image_thumb[4]" alt="image_thumb[4]" src="https://blog.tyang.org/wp-content/uploads/2013/10/image_thumb4_thumb.png" width="580" height="318" border="0" /></a>
 
 To workaround this problem, I had to point the report server and the web console server to a particular management server (instead of a NLB address), run the upgrade and then point them back to the NLB address. To do so:
 
@@ -49,11 +49,11 @@ To workaround this problem, I had to point the report server and the web console
 
 <span style="color: #ff0000;">2. Edit "&lt;SQL SSRS Install Dir&gt;\Reporting Services\ReportServer\rsreportserver.config" file, change the "ServerName" value under the &lt;Security&gt; and &lt;Authentication&gt; tags to the NLB address.</span>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/10/SSRS.jpg"><img class="alignnone size-full wp-image-2323" alt="SSRS" src="http://blog.tyang.org/wp-content/uploads/2013/10/SSRS.jpg" width="904" height="389" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/10/SSRS.jpg"><img class="alignnone size-full wp-image-2323" alt="SSRS" src="https://blog.tyang.org/wp-content/uploads/2013/10/SSRS.jpg" width="904" height="389" /></a>
 
 2. Edit "<strong><span style="color: #ff0000;">&lt;OpsMgr 2012 SP1 Install Dir&gt;</span>\WebConsole\WebHost\Web.Config"</strong> file, change the "managementserver name" value within the &lt;connection&gt; tag from the NLB address to a management server FQDN
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/10/image_thumb6.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image_thumb[6]" alt="image_thumb[6]" src="http://blog.tyang.org/wp-content/uploads/2013/10/image_thumb6_thumb.png" width="580" height="165" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/10/image_thumb6.png"><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image_thumb[6]" alt="image_thumb[6]" src="https://blog.tyang.org/wp-content/uploads/2013/10/image_thumb6_thumb.png" width="580" height="165" border="0" /></a>
 
 3. Open a command prompt as administrator and run "iisreset" to restart IIS.
 

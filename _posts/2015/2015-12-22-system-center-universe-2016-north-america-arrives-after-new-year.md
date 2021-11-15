@@ -4,14 +4,14 @@ title: System Center Universe 2016 North America Arrives After New Year
 date: 2015-12-22T21:59:13+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5001
+guid: https://blog.tyang.org/?p=5001
 permalink: /2015/12/22/system-center-universe-2016-north-america-arrives-after-new-year/
 categories:
   - Others
 tags:
   - Community Events
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/SCU-2016-376x500.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SCU-2016-376x500" src="http://blog.tyang.org/wp-content/uploads/2015/12/SCU-2016-376x500_thumb.png" alt="SCU-2016-376x500" width="298" height="396" align="left" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/SCU-2016-376x500.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SCU-2016-376x500" src="https://blog.tyang.org/wp-content/uploads/2015/12/SCU-2016-376x500_thumb.png" alt="SCU-2016-376x500" width="298" height="396" align="left" border="0" /></a>
 
 As the holiday season is fast approaching, 2015 has only around 10 days left. The first big System Center community event in 2016 would probably be System Center Universe North America, which is going to take place at Dallas, Taxes.
 

@@ -4,7 +4,7 @@ title: 'Microsoft MVP Community Camp 2015 and My Session for SMA Integration Mod
 date: 2015-01-23T21:15:53+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3683
+guid: https://blog.tyang.org/?p=3683
 permalink: /2015/01/23/microsoft-mvp-community-camp-2015-session-sma-integration-module-opsmgrextended/
 categories:
   - MVP
@@ -15,7 +15,7 @@ tags:
   - SCOM
   - SMA
 ---
-<p align="left"><a href="http://blog.tyang.org/wp-content/uploads/2015/01/141215_comcamp2015_Melbourne_01.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="141215_comcamp2015_Melbourne_01" src="http://blog.tyang.org/wp-content/uploads/2015/01/141215_comcamp2015_Melbourne_01_thumb.jpg" alt="141215_comcamp2015_Melbourne_01" width="553" height="313" border="0" /></a></p>
+<p align="left"><a href="https://blog.tyang.org/wp-content/uploads/2015/01/141215_comcamp2015_Melbourne_01.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="141215_comcamp2015_Melbourne_01" src="https://blog.tyang.org/wp-content/uploads/2015/01/141215_comcamp2015_Melbourne_01_thumb.jpg" alt="141215_comcamp2015_Melbourne_01" width="553" height="313" border="0" /></a></p>
 On next Friday (30th Jan, 2015), I will be speaking at the Microsoft MVP Community Camp Day in Melbourne. I am pretty excited about this event as this is going to be my first presentation since I have become a System Center MVP in July 2014.
 
 My session is titled "Automating SCOM tasks using SMA". Although this name sounds a little bit boring, let me assure you, it won’t be boring at all! The stuff I’m going to demonstrate is something I’ve been working on during my spare time over the last 6 month, and so far I’ve already written over 6,000 lines of PowerShell code. Basically, I have created a module called "OpsMgrExtended". this module can be used as a SMA Integration Module as well as a standalone PoewrShell module. It directly interact with OpsMgr SDKs, and can be used by SMA runbooks or PowerShell scripts to perform some advanced tasks in OpsMgr such as configuring management groups, creating rules, monitors, groups, overrides, etc.
@@ -34,4 +34,4 @@ I’ve uploaded the recording to YouTube, you can watch from <a href="https://ww
 
 If you like what you saw and would like to see more and find out what’s under the hood, please come to this free event next Friday. You can register from <a href="https://msevents.microsoft.com/CUI/EventDetail.aspx?EventID=1032610277&Culture=en-AU&community=0">here</a>.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/01/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/01/image_thumb8.png" alt="image" width="646" height="696" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/01/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/01/image_thumb8.png" alt="image" width="646" height="696" border="0" /></a>

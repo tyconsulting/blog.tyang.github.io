@@ -4,7 +4,7 @@ title: 'SCCM Report: Site Boundaries'
 date: 2012-02-02T08:34:48+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=978
+guid: https://blog.tyang.org/?p=978
 permalink: /2012/02/02/sccm-report-site-boundaries/
 categories:
   - SCCM

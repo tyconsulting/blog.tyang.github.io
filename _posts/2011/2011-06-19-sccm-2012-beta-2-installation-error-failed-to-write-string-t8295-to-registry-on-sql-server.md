@@ -4,7 +4,7 @@ title: 'SCCM 2012 Beta 2 Installation error "Failed to write string -T8295 to re
 date: 2011-06-19T22:14:08+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=563
+guid: https://blog.tyang.org/?p=563
 permalink: /2011/06/19/sccm-2012-beta-2-installation-error-failed-to-write-string-t8295-to-registry-on-sql-server/
 categories:
   - SCCM
@@ -17,7 +17,7 @@ Today I started installing SCCM 2012 Beta 2 in my test environment. while I was 
 
 <strong>ERROR: Failed to write string "-T4199" to registry on SQL Server</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/06/image2.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/06/image_thumb2.png" border="0" alt="image" width="580" height="62" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/06/image2.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/06/image_thumb2.png" border="0" alt="image" width="580" height="62" /></a>
 
 This is because the SQL Server service is not running under Local System. After I changed the SQL Server service to run under Local System, restarted SQL Server service, the SCCM 2012 setup went successful!
 

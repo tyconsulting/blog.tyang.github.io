@@ -4,7 +4,7 @@ title: 'Haven&#8217;t been able to blog lately'
 date: 2010-11-24T15:02:03+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=294
+guid: https://blog.tyang.org/?p=294
 permalink: /2010/11/24/havent-been-able-to-blog-lately/
 categories:
   - Others

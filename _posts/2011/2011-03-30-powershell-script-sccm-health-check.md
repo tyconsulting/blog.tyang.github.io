@@ -4,7 +4,7 @@ title: 'PowerShell Script: SCCM Health Check'
 date: 2011-03-30T10:37:07+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=407
+guid: https://blog.tyang.org/?p=407
 permalink: /2011/03/30/powershell-script-sccm-health-check/
 image: /wp-content/uploads/2011/03/healthCheck1.jpg
 categories:
@@ -16,15 +16,15 @@ tags:
   - PowerShell
   - SCCM
 ---
-<span style="color: #ff0000;"><strong>30/01/2012:</strong></span> This script has been updated to version 3.5. Details can be found <a title="SCCM Health Check Script v3.5" href="http://blog.tyang.org/2012/01/31/sccm-health-check-script-updated-version-3-5/">HERE</a>. The download link on this article has also been updated to version 3.5.
+<span style="color: #ff0000;"><strong>30/01/2012:</strong></span> This script has been updated to version 3.5. Details can be found <a title="SCCM Health Check Script v3.5" href="https://blog.tyang.org/2012/01/31/sccm-health-check-script-updated-version-3-5/">HERE</a>. The download link on this article has also been updated to version 3.5.
 
-<span style="color: #ff0000;"><strong><strong>26/05/2011:</strong> </strong><em><span style="color: #000000;">Version 3.3 has been posted <a href="http://blog.tyang.org/2011/05/26/sccm-health-check-powershell-script-updated-to-version-3-3/">here</a>. The download link to the script on this post is also updated to the new version 3.3.</span></em></span>
+<span style="color: #ff0000;"><strong><strong>26/05/2011:</strong> </strong><em><span style="color: #000000;">Version 3.3 has been posted <a href="https://blog.tyang.org/2011/05/26/sccm-health-check-powershell-script-updated-to-version-3-3/">here</a>. The download link to the script on this post is also updated to the new version 3.3.</span></em></span>
 
-<span style="color: #ff0000;"><strong>21/04/2011:</strong></span> <em>Please be advised that I have posted a newer version of the script <a href="http://blog.tyang.org/2011/04/21/updated-sccm-health-check-powershell-script/">here</a>. The existing script download link on this page has also been updated to point to the newer version. For the chanages in newer version, please refer to my <a href="http://blog.tyang.org/2011/04/21/updated-sccm-health-check-powershell-script/">updated post</a>.</em>
+<span style="color: #ff0000;"><strong>21/04/2011:</strong></span> <em>Please be advised that I have posted a newer version of the script <a href="https://blog.tyang.org/2011/04/21/updated-sccm-health-check-powershell-script/">here</a>. The existing script download link on this page has also been updated to point to the newer version. For the chanages in newer version, please refer to my <a href="https://blog.tyang.org/2011/04/21/updated-sccm-health-check-powershell-script/">updated post</a>.</em>
 
 Over the last few months, I have been working on a PowerShell script to perform some health check activities for a customer’s entire SCCM environment. This is to provide a snapshot of health state of some elements of SCCM environment at a point of time since there is no SCOM in that environment to monitor SCCM at this stage.
 
-<strong><a href="http://blog.tyang.org/wp-content/uploads/2012/01/SCCM-Health-Check-v3.5.zip">Download the script here</a></strong>
+<strong><a href="https://blog.tyang.org/wp-content/uploads/2012/01/SCCM-Health-Check-v3.5.zip">Download the script here</a></strong>
 
 <strong>The script checks the following:</strong>
 <ol>
@@ -53,7 +53,7 @@ Over the last few months, I have been working on a PowerShell script to perform 
 </ol>
 <strong>What’s included in this script:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/03/image.png"><img style="display: block; float: none; margin-left: auto; margin-right: auto; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/03/image_thumb.png" alt="image" width="182" height="81" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/03/image.png"><img style="display: block; float: none; margin-left: auto; margin-right: auto; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/03/image_thumb.png" alt="image" width="182" height="81" border="0" /></a>
 <ol>
 	<li><strong>SCCM-HealthCheck.ps1: </strong>the actual PowerShell script</li>
 	<li><strong>Health-Check.xml:</strong> contains all configuration settings for the script. this file needs to be modified to suit your environment before running the script.</li>
@@ -63,9 +63,9 @@ Over the last few months, I have been working on a PowerShell script to perform 
 
 The health check script reads all the settings from Health-Check.xml which is located in the same folder as the script.
 
-You’ll need to Configure the XML according to the following:<a href="http://blog.tyang.org/wp-content/uploads/2011/03/image1.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/03/image_thumb1.png" alt="image" width="885" height="441" border="0" /></a>
+You’ll need to Configure the XML according to the following:<a href="https://blog.tyang.org/wp-content/uploads/2011/03/image1.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/03/image_thumb1.png" alt="image" width="885" height="441" border="0" /></a>
 
-Note: If you are having trouble reading the text on above image, this image can be download <strong><a title="SCCM-HealthCheck XML Readme" href="http://blog.tyang.org/wp-content/uploads/2011/03/Health-Check-xml-ReadMe.jpg">here</a></strong>
+Note: If you are having trouble reading the text on above image, this image can be download <strong><a title="SCCM-HealthCheck XML Readme" href="https://blog.tyang.org/wp-content/uploads/2011/03/Health-Check-xml-ReadMe.jpg">here</a></strong>
 
 <strong>Output:</strong>
 <ol>
@@ -75,7 +75,7 @@ Note: If you are having trouble reading the text on above image, this image can 
 </ol>
 Below is a sample HTML email body generated from my test environment:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/03/emailreport.jpg"><img style="display: inline; border: 0px;" title="email report" src="http://blog.tyang.org/wp-content/uploads/2011/03/emailreport_thumb.jpg" alt="email report" width="786" height="1575" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/03/emailreport.jpg"><img style="display: inline; border: 0px;" title="email report" src="https://blog.tyang.org/wp-content/uploads/2011/03/emailreport_thumb.jpg" alt="email report" width="786" height="1575" border="0" /></a>
 
 <strong>Security Requirement:</strong>
 <ol>

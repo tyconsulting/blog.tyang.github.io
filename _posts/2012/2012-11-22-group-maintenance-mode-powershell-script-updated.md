@@ -4,7 +4,7 @@ title: Group Maintenance Mode PowerShell Script Updated
 date: 2012-11-22T13:41:47+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1652
+guid: https://blog.tyang.org/?p=1652
 permalink: /2012/11/22/group-maintenance-mode-powershell-script-updated/
 categories:
   - PowerShell
@@ -12,7 +12,7 @@ categories:
 tags:
   - SCOM
 ---
-<em><span style="color: #ff0000;"><strong>Update</strong></span> - 07, Dec, 2012: the script in this post has been updated to address 2 bugs explained here: <a href="http://blog.tyang.org/2012/12/07/bug-fixes-for-the-group-maintenance-mode-script/">Bug Fixes for the Group Maintenance Mode Script</a></em>
+<em><span style="color: #ff0000;"><strong>Update</strong></span> - 07, Dec, 2012: the script in this post has been updated to address 2 bugs explained here: <a href="https://blog.tyang.org/2012/12/07/bug-fixes-for-the-group-maintenance-mode-script/">Bug Fixes for the Group Maintenance Mode Script</a></em>
 
 Steve Rachui has posted a wonderful PowerShell script to place a group into maintenance mode in SCOM: <a href="http://blogs.msdn.com/b/steverac/archive/2010/08/09/place-a-group-in-maintenance-mode-with-powershell.aspx">Place a Group in Maintenance Mode with PowerShell</a> back in 2010.
 
@@ -103,4 +103,4 @@ If ($GroupMOnitoringClasses)
 }
 ```
 
-Or download the script <a href="http://blog.tyang.org/wp-content/uploads/2012/12/GroupMaintenanceMode.zip">HERE</a>.
+Or download the script <a href="https://blog.tyang.org/wp-content/uploads/2012/12/GroupMaintenanceMode.zip">HERE</a>.

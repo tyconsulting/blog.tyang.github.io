@@ -4,7 +4,7 @@ title: SCCM Health Check PowerShell Script Updated to Version 3.3
 date: 2011-05-26T16:40:40+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=524
+guid: https://blog.tyang.org/?p=524
 permalink: /2011/05/26/sccm-health-check-powershell-script-updated-to-version-3-3/
 categories:
   - SCCM
@@ -13,7 +13,7 @@ tags:
   - PowerShell
   - SCCM
 ---
-I have updated the <a href="http://blog.tyang.org/2011/03/30/powershell-script-sccm-health-check/">SCCM Health Check Script </a>again. The latest version is now <strong>3.3</strong>.
+I have updated the <a href="https://blog.tyang.org/2011/03/30/powershell-script-sccm-health-check/">SCCM Health Check Script </a>again. The latest version is now <strong>3.3</strong>.
 
 Below is what’s been updated since my last post for version 3.1:
 <ol>
@@ -28,8 +28,8 @@ The script package now contains an additional file <a href="http://sharpdevelop.
 
 The script now contains the following files:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/05/image5.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/05/image_thumb5.png" border="0" alt="image" width="407" height="269" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/05/image5.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/05/image_thumb5.png" border="0" alt="image" width="407" height="269" /></a>
 
 I’ve also been told the DNS check does not work well when SQL DB is on a cluster. I don’t have access to a SQL cluster where I can diagnose the problem. So please just be aware.
 
-The script can be downloaded <a href="http://blog.tyang.org/wp-content/uploads/2011/05/SCCM-Health-Check-v3.3.zip"><strong>here</strong></a>. Please remember to customise the "Health-Check.XML" file before running it.
+The script can be downloaded <a href="https://blog.tyang.org/wp-content/uploads/2011/05/SCCM-Health-Check-v3.3.zip"><strong>here</strong></a>. Please remember to customise the "Health-Check.XML" file before running it.

@@ -4,7 +4,7 @@ title: Creating OpsMgr Instance Group for All Computers Running an Application a
 date: 2015-01-18T19:09:07+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3665
+guid: https://blog.tyang.org/?p=3665
 permalink: /2015/01/18/creating-opsmgr-instance-group-computers-running-application-health-service-watchers/
 categories:
   - SCOM
@@ -79,7 +79,7 @@ So in this step, we need to find the root / seed class for this application. Bas
 
 
 
-Tip: you can use MPViewer to easily check what classes are defined in a sealed MP. Use SQL as example again, in the Microsoft.SQLServer.Library:<a href="http://blog.tyang.org/wp-content/uploads/2015/01/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/01/image_thumb4.png" alt="image" width="843" height="424" border="0" /></a>
+Tip: you can use MPViewer to easily check what classes are defined in a sealed MP. Use SQL as example again, in the Microsoft.SQLServer.Library:<a href="https://blog.tyang.org/wp-content/uploads/2015/01/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/01/image_thumb4.png" alt="image" width="843" height="424" border="0" /></a>
 
 You can easily identify that "SQL Role" is the seed class because it is based on Microsoft.Windows.ComputerRole and other classes use this class as the base class. You can get the actual name (not the display name) from the "Raw XML" tab.
 
@@ -87,13 +87,13 @@ You can easily identify that "SQL Role" is the seed class because it is based on
 
 Your MP will need to reference the instance group library, as well as the MP of which the application seed class is defined (i.e. SQL library):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/01/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/01/image_thumb5.png" alt="image" width="623" height="546" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/01/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/01/image_thumb5.png" alt="image" width="623" height="546" border="0" /></a>
 
 ## Step 4: Create the group discovery
 
 The last component we need to create is the group discovery.The Data Source module for the group discovery is Microsoft.SystemCenter.GroupPopulator, and there will be 2 <MembershipRule> sections.i.e. For the SQL group:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/01/image6.png"><img class=" alignnone" style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/01/image_thumb6.png" alt="image" width="580" height="556" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/01/image6.png"><img class=" alignnone" style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/01/image_thumb6.png" alt="image" width="580" height="556" border="0" /></a>
 
 As shown above, I’ve translated each membership rule to plain English. And the XML is listed below. If you want to reuse my code, simply change the line I highlighted in above screenshot to suit your needs.
 
@@ -148,4 +148,4 @@ As shown above, I’ve translated each membership rule to plain English. And the
 
 After I imported the MP into my lab management group, all the SQL computer and Health Service Watcher objects are listed as members of this group:
 
-![](http://blog.tyang.org/wp-content/uploads/2015/01/image7.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/01/image7.png)

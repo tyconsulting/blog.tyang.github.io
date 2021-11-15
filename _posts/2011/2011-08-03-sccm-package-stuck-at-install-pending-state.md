@@ -4,7 +4,7 @@ title: 'SCCM Package stuck at &ldquo;Install Pending&rdquo; state'
 date: 2011-08-03T10:02:10+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=618
+guid: https://blog.tyang.org/?p=618
 permalink: /2011/08/03/sccm-package-stuck-at-install-pending-state/
 categories:
   - SCCM
@@ -18,7 +18,7 @@ I noticed below error was logged in <strong>distmgr.log</strong> every few minut
 
 <strong>Cannot update the package server &lt;site server NAL path&gt; for package &lt;package ID&gt;, error = 8</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/08/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/08/image_thumb.png" alt="image" width="580" height="196" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/08/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/08/image_thumb.png" alt="image" width="580" height="196" border="0" /></a>
 
 No other errors were found in despool.log or sender.log. I have tried refreshing DP, manually copying the .PCK and .PKG files from parent primary site, update DPs, restarting SMS Site Component service, taking the DP out from the package and put it back in after a weekend, none of them fixed the problem.
 
@@ -30,7 +30,7 @@ In the end, I have taken a more brutal method to fix the problem:
 
 3. manually deleted the following files from secondary site server:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/08/image1.png"><img style="border: 0px currentColor; padding-top: 0px; padding-right: 0px; padding-left: 0px; display: inline; background-image: none;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/08/image_thumb1.png" alt="image" width="626" height="142" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/08/image1.png"><img style="border: 0px currentColor; padding-top: 0px; padding-right: 0px; padding-left: 0px; display: inline; background-image: none;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/08/image_thumb1.png" alt="image" width="626" height="142" border="0" /></a>
 
 4.  deleted from PkgStatus table from both central and parent primary site (this is a 3-tier environment): <strong>DELETE FROM PkgStatus WHERE ID=’&lt;Package ID&gt;’ AND SiteCode = ‘&lt;Secondary site code&gt;’</strong>
 

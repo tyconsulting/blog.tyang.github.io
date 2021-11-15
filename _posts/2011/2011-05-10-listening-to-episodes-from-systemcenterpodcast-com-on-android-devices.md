@@ -4,7 +4,7 @@ title: Listening to episodes from SystemCenterPodcast.com on Android devices
 date: 2011-05-10T17:28:49+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=495
+guid: https://blog.tyang.org/?p=495
 permalink: /2011/05/10/listening-to-episodes-from-systemcenterpodcast-com-on-android-devices/
 categories:
   - Others
@@ -13,7 +13,7 @@ tags:
   - google listen
   - systemcenterpodcast.com
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2011/05/systemcenterpodcast.png"><img class="alignleft size-full wp-image-496" title="systemcenterpodcast" src="http://blog.tyang.org/wp-content/uploads/2011/05/systemcenterpodcast.png" alt="" width="200" height="200" /></a>An old colleague of mine, <a href="http://opsm.gr/">Dan Kregor</a> has started a new site <a href="http://systemcenterpodcast.com/">systemcenterpodcast.com</a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/05/systemcenterpodcast.png"><img class="alignleft size-full wp-image-496" title="systemcenterpodcast" src="https://blog.tyang.org/wp-content/uploads/2011/05/systemcenterpodcast.png" alt="" width="200" height="200" /></a>An old colleague of mine, <a href="http://opsm.gr/">Dan Kregor</a> has started a new site <a href="http://systemcenterpodcast.com/">systemcenterpodcast.com</a>
 
 As the name suggests, it provides podcasts for Microsoft System Center related topics.
 
@@ -30,6 +30,6 @@ You can stream podcasts or download the episodes and store them on your android 
 
 For your convenience, here’s the QR code for Google Listen:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/05/GoogleListen.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="GoogleListen" src="http://blog.tyang.org/wp-content/uploads/2011/05/GoogleListen_thumb.png" border="0" alt="GoogleListen" width="184" height="184" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/05/GoogleListen.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="GoogleListen" src="https://blog.tyang.org/wp-content/uploads/2011/05/GoogleListen_thumb.png" border="0" alt="GoogleListen" width="184" height="184" /></a>
 
 <span style="color: #000000;"><strong>Dan, thanks for your effort and I hope to see more episodes coming!</strong></span>

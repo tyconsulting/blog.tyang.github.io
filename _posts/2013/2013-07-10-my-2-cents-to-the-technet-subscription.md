@@ -4,7 +4,7 @@ title: My 2 Cents to the TechNet Subscription
 date: 2013-07-10T23:19:01+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2006
+guid: https://blog.tyang.org/?p=2006
 permalink: /2013/07/10/my-2-cents-to-the-technet-subscription/
 categories:
   - Others
@@ -48,7 +48,7 @@ Well, I run the following products in my lab:
 </ul>
 In order to use all of these products, I will need either a "Visual Studio Premium with MSDN" or "Visual Studio Ultimate with MSDN" subscriptions. and Here’s the costs of these 2 subscriptions in Australia:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/07/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/07/image_thumb8.png" width="398" height="367" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/07/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/07/image_thumb8.png" width="398" height="367" border="0" /></a>
 
 Hey, If I’m a millionaire, I wouldn’t even be writing this article. To renew my TechNet subscription, I pay around $400 AUD every year and I always renew when there’s a discount promotion code. But if this whole thing is because of Software Piracy, what difference does it make if you make everyone to pay 10 times more than what they used to? People will probably buy a subscription and sell the keys on eBay to get the money back!
 

@@ -4,7 +4,7 @@ title: 'PowerShell Script: Setting NTFS Permissions in Bulk'
 date: 2010-07-01T20:39:37+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=64
+guid: https://blog.tyang.org/?p=64
 permalink: /2010/07/01/powershell-script-setting-ntfs-permissions-in-bulk/
 categories:
   - PowerShell
@@ -12,7 +12,7 @@ tags:
   - NTFS Permission
   - PowerShell
 ---
-Today I wrote [**this**](http://blog.tyang.org/wp-content/uploads/2010/07/BulkSet-NTFSPermissions.zip) PowerShell script to apply a same set of NTFS permission for a particular user or group to a list of folders. It reads the list of folders from a file that is specified from a parameter, apply the permission which is also specified  from parameters. The useage is as follow:
+Today I wrote [**this**](https://blog.tyang.org/wp-content/uploads/2010/07/BulkSet-NTFSPermissions.zip) PowerShell script to apply a same set of NTFS permission for a particular user or group to a list of folders. It reads the list of folders from a file that is specified from a parameter, apply the permission which is also specified  from parameters. The useage is as follow:
 
 ```powershell
 .\BulkSet-NTFSPermissions.ps1 -FolderListFile x:\xxxx\xxxx.txt -SecIdentity "Domain\Group" -AccessRights "FullControl" -AccessControlType "Allow"

@@ -4,7 +4,7 @@ title: OpsMgr 2012 Data Warehouse Health Check Script Updated
 date: 2015-06-19T21:43:04+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4009
+guid: https://blog.tyang.org/?p=4009
 permalink: /2015/06/19/opsmgr-2012-data-warehouse-health-check-script-updated/
 categories:
   - PowerShell
@@ -13,7 +13,7 @@ tags:
   - Health Check
   - SCOM
 ---
-Since I published the <a href="http://blog.tyang.org/2015/06/11/opsmgr-2012-data-warehouse-health-check-script/" target="_blank">OpsMgr 2012 Data Warehouse Health Check Script</a> last week, the responses I have received from the community have been overwhelming!
+Since I published the <a href="https://blog.tyang.org/2015/06/11/opsmgr-2012-data-warehouse-health-check-script/" target="_blank">OpsMgr 2012 Data Warehouse Health Check Script</a> last week, the responses I have received from the community have been overwhelming!
 
 As I mentioned the the post that there might be potential issues when executing the script for an environment where the Data Warehouse DB is hosted on a named SQL instance, man people have reached out to me and confirmed this is indeed the case.
 

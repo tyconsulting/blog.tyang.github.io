@@ -4,7 +4,7 @@ title: Using Squared Up As an Universal Dashboard Solution
 date: 2015-03-13T18:19:17+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3847
+guid: https://blog.tyang.org/?p=3847
 permalink: /2015/03/13/using-squared-up-as-an-universal-dashboard-solution/
 categories:
   - SCOM
@@ -38,11 +38,11 @@ Since the SQL connection string used by this plugin is stored in clear text, Squ
 
 Since the SquaredUp IIS Application pool is running using the local NetworkService account, I must grant the SquaredUp web server’s computer account datareader access to the database that’s going to be used as the data source. i.e. for my ConfigMgr primary site DB:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb24.png" alt="image" width="419" height="378" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb24.png" alt="image" width="419" height="378" border="0" /></a>
 
 and for the OpsMgr operational DB:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb25.png" alt="image" width="421" height="380" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb25.png" alt="image" width="421" height="380" border="0" /></a>
 
 **Installing Squared Up SQL Plugin**
 
@@ -50,7 +50,7 @@ You will need to install the **<span style="text-decoration: underline;">latest<
 
 ## ConfigMgr Package Distribution Dashboard
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML421df2f8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML421df2f8" src="http://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML421df2f8_thumb.png" alt="SNAGHTML421df2f8" width="670" height="375" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML421df2f8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML421df2f8" src="https://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML421df2f8_thumb.png" alt="SNAGHTML421df2f8" width="670" height="375" border="0" /></a>
 
 This dashboard contains 3 parts (two parts on the top, one on the bottom). the top 2 parts displays the a single number (how many package distributions are in error and retrying states). the bottom part is a list for all the distributions that are in these 2 states.
 
@@ -60,7 +60,7 @@ Data Source=<ConfigMgr DB Server>;Initial Catalog=&lt;ConfigMgr Site DB&gt;;Inte
 
 the top 2 parts are configured like this:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image26.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb26.png" alt="image" width="671" height="307" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image26.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb26.png" alt="image" width="671" height="307" border="0" /></a>
 
 **Pkg Dist - Error State part (Top left):**
 
@@ -81,7 +81,7 @@ Other parameters:
 
 **Pkg Dist – List (Bottom):**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image27.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb27.png" alt="image" width="592" height="276" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image27.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb27.png" alt="image" width="592" height="276" border="0" /></a>
 
 SQL query string:
 
@@ -94,7 +94,7 @@ other parameters:
 
 ## Active Alerts Dashboard for a foreign OpsMgr MG
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb28.png" alt="image" width="695" height="364" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb28.png" alt="image" width="695" height="364" border="0" /></a>
 
 Similar to the previous sample, there are 2 parts on the top displaying scalar values. In this case, I’ve chosen to display the active alerts count for critical and warning alerts. Followed by the 2 big scalar numbers, I added 2 lists for active critical & warning alerts.
 
@@ -148,10 +148,10 @@ SELECT Case a.[MonitoringObjectHealthState] When 0 Then 'Not Monitored' When 1 T
 
 As shown in the dashboard screenshot above, currently I have 9 critical and 12 warning alerts in the MG on the cloud, this figure matches what’s showing in the Operations console:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML4252316b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML4252316b" src="http://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML4252316b_thumb.png" alt="SNAGHTML4252316b" width="696" height="463" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML4252316b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML4252316b" src="https://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML4252316b_thumb.png" alt="SNAGHTML4252316b" width="696" height="463" border="0" /></a>
 
 ## Conclusion
 
-By using the Squared Up SQL plugin, you can potentially turn Squared UP into a dashboard for any systems (not just OpsMgr). The limit is your imagination :smiley:. I have also written few posts on Squared Up before, you can find them here: <a title="http://blog.tyang.org/tag/squaredup/" href="http://blog.tyang.org/tag/squaredup/">http://blog.tyang.org/tag/squaredup/</a>
+By using the Squared Up SQL plugin, you can potentially turn Squared UP into a dashboard for any systems (not just OpsMgr). The limit is your imagination :smiley:. I have also written few posts on Squared Up before, you can find them here: <a title="https://blog.tyang.org/tag/squaredup/" href="https://blog.tyang.org/tag/squaredup/">https://blog.tyang.org/tag/squaredup/</a>
 
 Lastly, I encourage you to share your brilliant ideas with the rest of us, and I will for sure keep posting on this topic if I come up with something cool in the future.

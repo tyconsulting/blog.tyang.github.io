@@ -4,7 +4,7 @@ title: OpsMgr Alerts Push Notification to Android Devices
 date: 2013-03-30T23:56:13+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1816
+guid: https://blog.tyang.org/?p=1816
 permalink: /2013/03/30/opsmgr-alerts-push-notification-to-android-devices/
 categories:
   - PowerShell
@@ -13,7 +13,7 @@ tags:
   - SCOM
   - SCOM Notifications
 ---
-<span style="color: #ff0000;">**Update 07 April 2013:**</span> I've updated this script again to support iOS devices and removed the requirements for PowerShell version 3. The updated script can be found here <a href="http://blog.tyang.org/2013/04/07/opsmgr-alerts-push-notification-to-ios-and-android-and-windows-phone-devices/">here</a>.
+<span style="color: #ff0000;">**Update 07 April 2013:**</span> I've updated this script again to support iOS devices and removed the requirements for PowerShell version 3. The updated script can be found here <a href="https://blog.tyang.org/2013/04/07/opsmgr-alerts-push-notification-to-ios-and-android-and-windows-phone-devices/">here</a>.
 <h2>Background</h2>
 Stefan Stranger has written a 2-part blog post on how to use Windows Phone push notification for OpsMgr alerts. Stefan’s posts can be found here:
 
@@ -23,7 +23,7 @@ Stefan Stranger has written a 2-part blog post on how to use Windows Phone push 
 
 I got so excited about this idea, but I’m a big fan for Android when comes to mobile devices. I am currently using a Samsung Galaxy Nexus phone and a Samsung Galaxy Tab 2 10.1 tablet – both of them are Android devices. So I’ve spent some time to see if I can do the same for Android devices.
 
-It turned out, there is also an app for Android devices, called "<a href="https://www.notifymyandroid.com/">Notify My Android</a>" <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" alt="Smile" src="http://blog.tyang.org/wp-content/uploads/2013/03/wlEmoticon-smile1.png" />. And the API’s for both apps are the same.
+It turned out, there is also an app for Android devices, called "<a href="https://www.notifymyandroid.com/">Notify My Android</a>" <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" alt="Smile" src="https://blog.tyang.org/wp-content/uploads/2013/03/wlEmoticon-smile1.png" />. And the API’s for both apps are the same.
 <h2>Setup Instructions</h2>
 It’s pretty much the same way to get this setup for Android devices. I’ll now go through the steps to configure push notification for Android devices (and also for Windows Phones):
 
@@ -33,7 +33,7 @@ It’s pretty much the same way to get this setup for Android devices. I’ll no
 
 3. Generate an API key from <a href="https://notifymyandroid.com">https://notifymyandroid.com</a>, under "My Account"
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/03/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/03/image_thumb17.png" width="580" height="381" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/03/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/03/image_thumb17.png" width="580" height="381" border="0" /></a>
 
 <span style="color: #ff0000;">**Note:**</span>
 
@@ -41,7 +41,7 @@ It’s pretty much the same way to get this setup for Android devices. I’ll no
 
 <em>As I have 2 Android devices, I don’t need to create multiple accounts or generate multiple API keys. Once I’ve logged in on both devices using my premium account, the push notifications get delivered to both devices at the same time.</em>
 
-4. copy <a href="http://blog.tyang.org/wp-content/uploads/2013/03/MobileDevicesPushNotifications.zip">this script</a> to a unique location on all OpsMgr management servers in the Notifications Resource Pool (by default, this resource pool contains all management servers). In my lab, I have copied the script to <em>**D:\Scripts\MobileDevices-Notification**</em> on all my management servers. Below is what my updated script look like:
+4. copy <a href="https://blog.tyang.org/wp-content/uploads/2013/03/MobileDevicesPushNotifications.zip">this script</a> to a unique location on all OpsMgr management servers in the Notifications Resource Pool (by default, this resource pool contains all management servers). In my lab, I have copied the script to <em>**D:\Scripts\MobileDevices-Notification**</em> on all my management servers. Below is what my updated script look like:
 
 ```powershell
 #Requires -Version 3
@@ -132,13 +132,13 @@ The script takes the following parameters (in the correct order):
 
 The command line parameter can be populated by using pre-defined OpsMgr variables:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/03/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/03/image_thumb18.png" width="580" height="429" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/03/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/03/image_thumb18.png" width="580" height="429" border="0" /></a>
 
 6. Follow <a href="http://blogs.technet.com/b/stefan_stranger/archive/2013/01/07/windows-phone-push-notifications-for-your-opsmgr-alerts-part-2.aspx">Part 2</a> of Stefan’s original post to setup Subscriber and Subscriptions.
 
 I cannot test my version of the script against Windows phones because I don’t have one. But I’m fairly confident it should work. From what I can see, the API’s for both apps are exactly the same. Well, the only difference is the URL’s for API calls:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/03/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/03/image_thumb19.png" width="580" height="83" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/03/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/03/image_thumb19.png" width="580" height="83" border="0" /></a>
 
 I think in real world, this is a very cost effective solution for alerts notification to mobile devices. According to the API documentations, multiple API keys can be used in a single API call. When using multiple API keys, the API keys needs to be separated by comma. Again, I have not tested this scenario against my script because I don’t really want to spend another $4.99 for another premium account.
 
@@ -148,11 +148,11 @@ Below are what I get on my Android devices:
 
 On the phone:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/03/Screenshot_2013-03-31-00-33-07.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Screenshot_2013-03-31-00-33-07" alt="Screenshot_2013-03-31-00-33-07" src="http://blog.tyang.org/wp-content/uploads/2013/03/Screenshot_2013-03-31-00-33-07_thumb.png" width="413" height="731" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/03/Screenshot_2013-03-31-00-33-07.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Screenshot_2013-03-31-00-33-07" alt="Screenshot_2013-03-31-00-33-07" src="https://blog.tyang.org/wp-content/uploads/2013/03/Screenshot_2013-03-31-00-33-07_thumb.png" width="413" height="731" border="0" /></a>
 
 On the tablet:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/03/Screenshot_2013-03-31-00-37-03.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Screenshot_2013-03-31-00-37-03" alt="Screenshot_2013-03-31-00-37-03" src="http://blog.tyang.org/wp-content/uploads/2013/03/Screenshot_2013-03-31-00-37-03_thumb.png" width="580" height="364" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/03/Screenshot_2013-03-31-00-37-03.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Screenshot_2013-03-31-00-37-03" alt="Screenshot_2013-03-31-00-37-03" src="https://blog.tyang.org/wp-content/uploads/2013/03/Screenshot_2013-03-31-00-37-03_thumb.png" width="580" height="364" border="0" /></a>
 <h2>Limitations</h2>
 According the the FAQ pages on both websites, there are some limitations that are worth mentioning:
 

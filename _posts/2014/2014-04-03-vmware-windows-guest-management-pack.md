@@ -4,7 +4,7 @@ title: VMware Windows Guest Management Pack
 date: 2014-04-03T12:50:05+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2447
+guid: https://blog.tyang.org/?p=2447
 permalink: /2014/04/03/vmware-windows-guest-management-pack/
 categories:
   - SCOM
@@ -20,11 +20,11 @@ So I spent some time this week and quickly wrote a very simple management pack t
 
 * VMware Guest Windows Computer Role
   * Based on Microsoft.Windows.ComputerRole
-	![](http://blog.tyang.org/wp-content/uploads/2014/04/image.pn)
+	![](https://blog.tyang.org/wp-content/uploads/2014/04/image.pn)
 * VMware Tools
   * Based on Microsoft Windows.ApplicationComponent
   * Hosted by VMware Guest Windows Computer Role
-	![](http://blog.tyang.org/wp-content/uploads/2014/04/image1.png)
+	![](https://blog.tyang.org/wp-content/uploads/2014/04/image1.png)
 
 **Discoveries for above mentioned classes**
 
@@ -37,8 +37,8 @@ So I spent some time this week and quickly wrote a very simple management pack t
   * Target: VMware Guest Windows Computer Role
 * Dependency monitors to rollup VMware Tools health to it’s hosting class "VMware Guest Windows Computer Role".
 
-![](http://blog.tyang.org/wp-content/uploads/2014/04/image2.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/04/image2.png)
 
-This MP is written using OpsMgr 2007 MP schema so it should work on both 2007 and 2012 versions. It can be downloaded [HERE](http://blog.tyang.org/wp-content/uploads/2014/04/VMware.Guest_.Monitoring.zip).
+This MP is written using OpsMgr 2007 MP schema so it should work on both 2007 and 2012 versions. It can be downloaded [HERE](https://blog.tyang.org/wp-content/uploads/2014/04/VMware.Guest_.Monitoring.zip).
 
 Since it’s a pretty simple MP, I didn’t bother to spend time writing a documentation. If you have questions or issues, please feel free to contact me.

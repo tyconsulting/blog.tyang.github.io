@@ -4,7 +4,7 @@ title: 'What&rsquo;s New in SCCM 2012'
 date: 2011-06-07T15:52:20+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/2011/06/07/whats-new-in-sccm-2012/
+guid: https://blog.tyang.org/2011/06/07/whats-new-in-sccm-2012/
 permalink: /2011/06/07/whats-new-in-sccm-2012/
 categories:
   - SCCM

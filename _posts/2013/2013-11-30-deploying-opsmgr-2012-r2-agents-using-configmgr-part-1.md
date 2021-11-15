@@ -4,7 +4,7 @@ title: 'Deploying OpsMgr 2012 R2 Agents Using ConfigMgr - Part 1'
 date: 2013-11-30T10:33:19+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2194
+guid: https://blog.tyang.org/?p=2194
 permalink: /2013/11/30/deploying-opsmgr-2012-r2-agents-using-configmgr-part-1/
 categories:
   - SCCM
@@ -46,11 +46,11 @@ I tested the script using a command prompt running under LocalSystem account (th
 
 This command opens a new command prompt window
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb.png" width="498" height="442" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb.png" width="498" height="442" border="0" /></a>
 
 and In task manager, I can confirm it is running under local system:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML1ffa713f.png"><img style="display: inline; border: 0px;" title="SNAGHTML1ffa713f" alt="SNAGHTML1ffa713f" src="http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML1ffa713f_thumb.png" width="580" height="232" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML1ffa713f.png"><img style="display: inline; border: 0px;" title="SNAGHTML1ffa713f" alt="SNAGHTML1ffa713f" src="https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML1ffa713f_thumb.png" width="580" height="232" border="0" /></a>
 
 The script ran successfully within the command prompt window under LocalSystem account, the agent was upgraded, new MG configuration is added and the old MG is removed. I then created the package, program in SCCM, and created an advertisement targeting a test collection. After few test runs, I found out the the package only works on Windows Server 2003 or Windows XP machines. any Windows Server 2008 R2 and Windows Server 2012 machines would fail.
 
@@ -69,7 +69,7 @@ Wscript.Echo Err
 
 I then ran it within a 32-bit command prompt window running under LocalSystem account (to simulate the runtime environment in ConfigMgr 2007 client). To do so, again, I used PsExec by using "Psexec.exe –s –d –i C:\Windows\SysWow64\cmd.exe"
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image1.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb1.png" width="580" height="297" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image1.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb1.png" width="580" height="297" border="0" /></a>
 
 and my guess is right:
 
@@ -77,11 +77,11 @@ Here’s the error:
 
 <em><span style="color: #ff0000;">Microsoft VBScript runtime error: ActiveX component can't create object: 'AgentConfigManager.MgmtSvcCfg'</span></em>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image2.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb2.png" width="580" height="167" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image2.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb2.png" width="580" height="167" border="0" /></a>
 
 If I run this script in 64-bit command window, there are no errors because Err variable equals 0:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image3.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb3.png" width="580" height="136" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image3.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb3.png" width="580" height="136" border="0" /></a>
 
 So now, I’ve identified the problem being the 64-bit "AgentConfigManager.MgmtSvcCfg" object cannot be called by 32-bit applications. the workaround is fairly simple: I split the original script into 2 scripts. the first script firstly detects the OS architecture and install the appropriate version of MOMAGENT.msi. It then calls the second script to configure the agent using "AgentConfigManager.MgmtSvcCfg" object. The first script detects if itself is running in a 32-bit shell on a 64-bit OS. if so, it would bypass the 32-bit redirection and call the native 64-bit scripting engine cscript.exe using the <strong>%Windir%\sysnative\Cscript.exe</strong> to execute the second script. So the second script would never be executed within the 32-bit redirection mode.
 
@@ -317,7 +317,7 @@ END IF
 
 When creating the package in ConfigMgr, These 2 scripts need to be copied to the OpsMgr 2012 R2 agent install root folder:
 
-![](http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML22520a61.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML22520a61.png)
 
 The syntax for OM12AgentMigration.vbs is:
 
@@ -331,7 +331,7 @@ Both scripts log to a log file located at C:\Temp\OM12AgentInstall.log. When the
 
 The OM12AgentInstall.log looks like this:
 
-![](http://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML225046c7.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/11/SNAGHTML225046c7.png)
 
 I have also created an uninstall script called **OM12AgentUninstall.vbs**, which will work on both 32-bit and 64-bit Operating Systems. This script is also placed on the same folder as the other install scripts.
 
@@ -398,27 +398,27 @@ Cscript /nologo OM12AgentUnisntall.vbs
 
 I have shown the package source folder structure in previous screenshot. Because only English version of the agent is required in my enviornment, I have removed all the MST's for other languages in both amd64 and i386 folders. Each folder should only contain 3 files:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/agent-folder.jpg"><img class="alignleft size-medium wp-image-2205" alt="agent folder" src="http://blog.tyang.org/wp-content/uploads/2013/11/agent-folder-300x95.jpg" width="300" height="95" /></a><img alt="" src="file:///C:/Users/Tao/AppData/Local/Temp/SNAGHTML228f60b6.PNG" width="772" height="247" border="0" />
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/agent-folder.jpg"><img class="alignleft size-medium wp-image-2205" alt="agent folder" src="https://blog.tyang.org/wp-content/uploads/2013/11/agent-folder-300x95.jpg" width="300" height="95" /></a><img alt="" src="file:///C:/Users/Tao/AppData/Local/Temp/SNAGHTML228f60b6.PNG" width="772" height="247" border="0" />
 
 Because the management group information is passed into the script as parameters, I don’t have to create separate scripts for each OpsMgr 2012 R2 management groups. I created one package for OpsMgr 2012 R2 agents, and then created one install program for each management group and one generic uninstall program:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image4.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb4.png" width="580" height="138" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image4.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb4.png" width="580" height="138" border="0" /></a>
 
 With the install program, here’s how I configured it:
 
 The command line is same as what I mentioned above.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image5.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb5.png" width="415" height="478" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image5.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb5.png" width="415" height="478" border="0" /></a>
 
 Because the script can detect the OS architecture, this program can run on any platform. Also, although the actual size for really small, once the agent start working with the management group, more space is required for the health service stores, downloaded management packs, etc. in my work’s production environment, I checked and the current 2007 R2 agents are using approx. 350MB space. So I specified the estimated disk space to 500MB.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image6.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb6.png" width="415" height="478" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image6.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb6.png" width="415" height="478" border="0" /></a>
 
 The rest of the program properties are pretty normal:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image7.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb7.png" width="424" height="489" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image7.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb7.png" width="424" height="489" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/11/image8.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/11/image_thumb8.png" width="433" height="506" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/11/image8.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/11/image_thumb8.png" width="433" height="506" border="0" /></a>
 
 Note: because this package will be used in OSD task sequences later, I ticked the checkbox as shown above.
 
@@ -436,4 +436,4 @@ By configuring the OpsMgr 2012 R2 agent package this way in ConfigMgr 2007, I ha
 </ul>
 <strong><span style="color: #ff0000;">Note: DO NOT use my approach on multi-homing OpsMgr agents.</span></strong>
 
-<a title="Deploying OpsMgr 202 R2 Agents Using ConfigMgr – Part 2" href="http://blog.tyang.org/2013/11/30/deploying-opsmgr-202-r2-agents-using-configmgr-part-2/">Continue on to Part 2</a>….
+<a title="Deploying OpsMgr 202 R2 Agents Using ConfigMgr – Part 2" href="https://blog.tyang.org/2013/11/30/deploying-opsmgr-202-r2-agents-using-configmgr-part-2/">Continue on to Part 2</a>….

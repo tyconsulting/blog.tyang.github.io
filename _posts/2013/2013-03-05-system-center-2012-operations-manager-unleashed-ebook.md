@@ -4,7 +4,7 @@ title: System Center 2012 Operations Manager Unleashed ebook
 date: 2013-03-05T23:09:13+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1752
+guid: https://blog.tyang.org/?p=1752
 permalink: /2013/03/05/system-center-2012-operations-manager-unleashed-ebook/
 categories:
   - SCOM
@@ -14,7 +14,7 @@ tags:
 ---
 We’ve all been waited for so long for this book:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/03/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/03/image_thumb3.png" width="218" height="284" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/03/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/03/image_thumb3.png" width="218" height="284" border="0" /></a>
 
 You might have heard that this book is already available in ebook formats from Amazon and Barnes & Noble.
 
@@ -28,4 +28,4 @@ Currently the price is $38.39, but for the limited time, if you use the promo co
 
 So for those who are getting the ebook and hasn’t made the purchase yet, I’d recommend to get from the above mentioned site as you’ll get all 3 formats:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/03/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/03/image_thumb4.png" width="533" height="295" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/03/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/03/image_thumb4.png" width="533" height="295" border="0" /></a>

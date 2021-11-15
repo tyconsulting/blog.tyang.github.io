@@ -4,7 +4,7 @@ title: Use of Disable Operations Manager alerts option in ConfigMgr
 date: 2014-04-24T02:00:40+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2621
+guid: https://blog.tyang.org/?p=2621
 permalink: /2014/04/24/use-disable-operations-manager-alerts-option-configmgr/
 categories:
   - SCCM
@@ -15,17 +15,17 @@ tags:
 ---
 In System Center Configuration Manager, there is an option "<em>Disable Operations manager alerts while this program runs</em>" in the program within a package:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8938c7.png"><img style="display: inline; border: 0px;" title="SNAGHTMLb8938c7" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8938c7_thumb.png" alt="SNAGHTMLb8938c7" width="435" height="288" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8938c7.png"><img style="display: inline; border: 0px;" title="SNAGHTMLb8938c7" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8938c7_thumb.png" alt="SNAGHTMLb8938c7" width="435" height="288" border="0" /></a>
 
 There are also same options in the deployment of ConfigMgr 2012 applications and Software update groups:
 
 Application Deployment:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8d0495.png"><img style="display: inline; border: 0px;" title="SNAGHTMLb8d0495" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8d0495_thumb.png" alt="SNAGHTMLb8d0495" width="449" height="412" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8d0495.png"><img style="display: inline; border: 0px;" title="SNAGHTMLb8d0495" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8d0495_thumb.png" alt="SNAGHTMLb8d0495" width="449" height="412" border="0" /></a>
 
 Software Update Groups Deployment:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8bc86b.png"><img style="display: inline; border: 0px;" title="SNAGHTMLb8bc86b" src="http://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8bc86b_thumb.png" alt="SNAGHTMLb8bc86b" width="450" height="400" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8bc86b.png"><img style="display: inline; border: 0px;" title="SNAGHTMLb8bc86b" src="https://blog.tyang.org/wp-content/uploads/2014/04/SNAGHTMLb8bc86b_thumb.png" alt="SNAGHTMLb8bc86b" width="450" height="400" border="0" /></a>
 
 Most of seasoned System Center specialists must already know that these tick boxes do not make the computers enter maintenance mode in OpsMgr. It’s suppressing alerts by pausing the OpsMgr healthservice. As far as I know, there is no way to initiate maintenance mode from an agent. Maintenance mode can only be started from the management server (via Consoles or any scripts / runbooks / applications via SDK).
 
@@ -35,7 +35,7 @@ The OpsMgr 2012 R2 management group running in my lab consists of 3 management s
 
 I created a simple batch file to wait 15 minutes and does nothing:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image35.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb35.png" alt="image" width="355" height="207" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image35.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb35.png" alt="image" width="355" height="207" border="0" /></a>
 
 I then created a package and a program in my lab’s ConfigMgr 2012 R2 site, distributed the package to all the distribution points, made sure the "Disable Operations Manager alerts while this program runs" is ticked.
 
@@ -45,11 +45,11 @@ I performed 4 series of the test by deploying this program to different manageme
 
 In OpsMgrMS02, there is one agent that hasn’t had failover management servers configured. so I firstly <span style="text-decoration: line-through;">advertised</span> I meant deployed this program to it. When the deployment kicked off, the HealthService entered pause state:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image36.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb36.png" alt="image" width="580" height="225" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image36.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb36.png" alt="image" width="580" height="225" border="0" /></a>
 
 And Event 1217 was logged to the Operations Manager log:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image37.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb37.png" alt="image" width="514" height="312" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image37.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb37.png" alt="image" width="514" height="312" border="0" /></a>
 
 I then waited 15 minutes, I was happy to see that no alerts were logged during this period. I checked few agents who are reporting to OpsMgrMS02, including the one without failover management servers configured. none of them complained about not able to contact the primary management server and no one has failed over to the secondary management servers.
 
@@ -59,19 +59,19 @@ I deleted the execution history from OpsMgrMS02’s registry, added the other 2 
 
 3 minutes after the deployment has kicked off on all management servers, I got an alert told me  that the All Management Servers Resource Pool is not available:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image38.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb38.png" alt="image" width="580" height="251" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image38.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb38.png" alt="image" width="580" height="251" border="0" /></a>
 
 I then powered off 2 virtual machines that are monitored in OpsMgr. As expected, I did not get any alerts for these 2 computers while the ConfigMgr deployment was running (because HealthService on all 3 management servers were paused). after 10 minutes or so, they are still not greyed out in the state view:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image39.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb39.png" alt="image" width="556" height="250" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image39.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb39.png" alt="image" width="556" height="250" border="0" /></a>
 
 Soon after the ConfigMgr deployment has finished, the healthservice on all management servers were running again, I got the alerts for the 2 offline agents very shortly because they were still off at that point of time.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image40.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb40.png" alt="image" width="541" height="286" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image40.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb40.png" alt="image" width="541" height="286" border="0" /></a>
 
 I also had a look at a performance view from the Windows Server MP:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image41.png"><img style="display: inline; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb41.png" alt="image" width="580" height="403" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image41.png"><img style="display: inline; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb41.png" alt="image" width="580" height="403" border="0" /></a>
 
 I picked a memory counter, the perf collection rule is configured to run every 10 minutes. As you can see from above figure, during the package deployment, the performance data was not collected because there’s 20 minutes apart between 2 readings (supposed to be 10) and the 15-minute deployment falls into the this time window.
 

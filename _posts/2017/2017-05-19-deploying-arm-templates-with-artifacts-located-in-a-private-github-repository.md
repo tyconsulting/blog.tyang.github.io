@@ -4,7 +4,7 @@ title: Deploying ARM Templates with Artifacts Located in a Private GitHub Reposi
 date: 2017-05-19T16:59:59+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=6025
+guid: https://blog.tyang.org/?p=6025
 permalink: /2017/05/19/deploying-arm-templates-with-artifacts-located-in-a-private-github-repository/
 categories:
   - Azure
@@ -20,21 +20,21 @@ I have spent the last few days authoring an Azure Resource Manager (ARM) templat
 
 Nested Templates:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/05/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb.png" alt="image" width="451" height="123" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/05/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/05/image_thumb.png" alt="image" width="451" height="123" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-1.png" alt="image" width="459" height="292" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/05/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-1.png" alt="image" width="459" height="292" border="0" /></a>
 
 Azure Automation runbook:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-2.png" alt="image" width="458" height="99" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/05/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-2.png" alt="image" width="458" height="99" border="0" /></a>
 
 As you can see from the examples above, the template is referencing these artifacts as the raw file content in github (located in https://raw.githubusercontent.com). This method works well when your templates and artifacts are stored in a public GitHub repository, but it won’t work when they are stored in a private repository. For example, if I click on the "Raw" button for a file stored in a private repo like shown below:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-3.png" alt="image" width="341" height="194" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/05/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-3.png" alt="image" width="341" height="194" border="0" /></a>
 
 you will see a token was added to the raw file content URI:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-4.png" alt="image" width="660" height="242" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/05/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-4.png" alt="image" width="660" height="242" border="0" /></a>
 
 This token was generated for your current session once you’ve logged in to GitHub. Although as most of you guys already know that you can generate Personal Access token in GitHub, you can not replace this token in the URL with the Personal Access Token you have generated. The personal access token must be added as part of the authorization header in the HTTP request, and you also need to add another header "Accept": "application/vnd.github.VERSION.raw". Obviously we cannot add HTTP headers in ARM templates, therefore we cannot reference artifacts located in a private GitHub repositories out of the box. Someone has already started a thread in the MSDN forum: <a title="https://social.msdn.microsoft.com/Forums/sqlserver/en-US/54876f00-4bf4-4d84-81af-e7a1128ac6f7/linking-arm-templates-in-private-github-repo?forum=windowsazurewebsitespreview" href="https://social.msdn.microsoft.com/Forums/sqlserver/en-US/54876f00-4bf4-4d84-81af-e7a1128ac6f7/linking-arm-templates-in-private-github-repo?forum=windowsazurewebsitespreview">https://social.msdn.microsoft.com/Forums/sqlserver/en-US/54876f00-4bf4-4d84-81af-e7a1128ac6f7/linking-arm-templates-in-private-github-repo?forum=windowsazurewebsitespreview</a>. the workaround they came up with was building a HTTP proxy server and add the required headers in the proxy server. This to me seems awfully complicated and it also brings limitations that you can only deploy the templates in the network that you can access such a proxy server.
 
@@ -55,7 +55,7 @@ This function requires 2 parameters to be passed in from the URL:
 
 Since the function does not contain any sensitive information, and I’d like to ensure the function URI is not too long, I have configured the function Authorization level to Anonymous so I don't have to use an authorization code to invoke the Azure Function.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-5.png" alt="image" width="535" height="320" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/05/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-5.png" alt="image" width="535" height="320" border="0" /></a>
 
 To call this function, you need to construct the URL as the following:
 
@@ -71,7 +71,7 @@ https://myfunctionapp.azurewebsites.net/api/GitHubPrivateRepoFileFecher?githubur
 
 Before start using the GitHubPrivateRepoFileFetcher function, you will firstly need to generate a GitHub personal access token if you don’t already have one. The token must have access to repo as shown below:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-6.png" alt="image" width="449" height="501" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/05/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-6.png" alt="image" width="449" height="501" border="0" /></a>
 
 ### Constructing ARM Templates 
 
@@ -150,7 +150,7 @@ For the Azure Automation runbook resource, use the variable defined above in the
 
 Most of the ARM template repositories contains the "Deploy to Azure" and "Visualize" buttons as shown below:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-7.png" alt="image" width="329" height="164" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/05/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-7.png" alt="image" width="329" height="164" border="0" /></a>
 
 To add the "Deploy to Azure" button to your README.md markdown file, you will need to add the following code to the markdown (modify the URL to suit your environment):
 
@@ -169,11 +169,11 @@ Basically, add the Azure Function URL with required parameters as the parameter 
 
 When you click the "Deploy to Azure" button, you will be redirected to the Azure portal:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-8.png" alt="image" width="306" height="518" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/05/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-8.png" alt="image" width="306" height="518" border="0" /></a>
 
 When the deployment is completed, the resources defined in the ARM templates are created:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/05/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-9.png" alt="image" width="407" height="202" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/05/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/05/image_thumb-9.png" alt="image" width="407" height="202" border="0" /></a>
 
 ### Conclusion 
 

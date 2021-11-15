@@ -4,14 +4,14 @@ title: 'Free E-book: Inside the Microsoft Operations Management Suite'
 date: 2016-01-06T08:47:38+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5010
+guid: https://blog.tyang.org/?p=5010
 permalink: /2016/01/06/free-e-book-inside-the-microsoft-operations-management-suite/
 categories:
   - OMS
 tags:
   - OMS
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/OMS-Book-Cover.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="OMS Book Cover" src="http://blog.tyang.org/wp-content/uploads/2016/01/OMS-Book-Cover_thumb.png" alt="OMS Book Cover" width="191" height="244" align="left" border="0" /></a>This is my first post in 2016, so happy new year everyone! Over the last few months, I have been a bit quiet on this blog, because I was involved in a book project together with Pete Zerger (<a href="https://twitter.com/pzerger">@pzerger</a>), Stanislav Zhelyazkov (<a href="https://twitter.com/StanZhelyazkov">@StanZhelyazkov</a>) and Anders Bengtsson (<a title="http://contoso.se/blog/" href="http://contoso.se/blog/">http://contoso.se/blog/</a>).
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/OMS-Book-Cover.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="OMS Book Cover" src="https://blog.tyang.org/wp-content/uploads/2016/01/OMS-Book-Cover_thumb.png" alt="OMS Book Cover" width="191" height="244" align="left" border="0" /></a>This is my first post in 2016, so happy new year everyone! Over the last few months, I have been a bit quiet on this blog, because I was involved in a book project together with Pete Zerger (<a href="https://twitter.com/pzerger">@pzerger</a>), Stanislav Zhelyazkov (<a href="https://twitter.com/StanZhelyazkov">@StanZhelyazkov</a>) and Anders Bengtsson (<a title="http://contoso.se/blog/" href="http://contoso.se/blog/">http://contoso.se/blog/</a>).
 
 The book is titled **Inside the Microsoft Operations Management Suite**, and we have made it freely available to the community.
 

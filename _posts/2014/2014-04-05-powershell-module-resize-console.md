@@ -4,7 +4,7 @@ title: 'PowerShell Module: Resize-Console'
 date: 2014-04-05T21:55:35+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2466
+guid: https://blog.tyang.org/?p=2466
 permalink: /2014/04/05/powershell-module-resize-console/
 categories:
   - PowerShell
@@ -14,11 +14,11 @@ tags:
 ---
 I’m currently working on a solution that relies on PowerShell Web Access (Hopefully I can finish tonight and blog it in next couple of days).
 
-I have been a bit hesitate to use use PWSA every since I firstly tried it out briefly back in 2012 (and blogged my experience [here](http://blog.tyang.org/2012/11/10/my-first-impression-on-powershell-web-access)).
+I have been a bit hesitate to use use PWSA every since I firstly tried it out briefly back in 2012 (and blogged my experience [here](https://blog.tyang.org/2012/11/10/my-first-impression-on-powershell-web-access)).
 
 Why am I hesitated? this is why:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/04/image6.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/04/image6.png)
 
 The interface is just not that user-friendly with such a small window and that much useless space. There is no way to easily resize the window.
 
@@ -133,7 +133,7 @@ Function Resize-Console
 }
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/04/image7.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/04/image_thumb7.png" width="580" height="874" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/04/image7.png"><img style="display: inline; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/04/image_thumb7.png" width="580" height="874" border="0" /></a>
 
 I have copied the folder containing this module to **C:\Windows\System32\PowerShell\v1.0\Modules** folder on the server hosting PSWA site so it is available for everyone.
 
@@ -141,4 +141,4 @@ Here’s a screen video capture if you want to see it in action:
 <iframe src="//www.youtube.com/embed/HwS20Ahe2lc" height="375" width="640" allowfullscreen="" frameborder="0"></iframe>
 <span style="color: #ff0000;">**Note:**</span> Please watch this video in full screen (by double-clicking the video) and choose 720P if you can. Otherwise you might not see much in such a small window.
 
-This module also works on normal PowerShell prompt windows. You can download this PSConsole module [HERE](http://blog.tyang.org/wp-content/uploads/2014/04/PSConsole.zip). to set it up, simply copy to the folder I mentioned above.
+This module also works on normal PowerShell prompt windows. You can download this PSConsole module [HERE](https://blog.tyang.org/wp-content/uploads/2014/04/PSConsole.zip). to set it up, simply copy to the folder I mentioned above.

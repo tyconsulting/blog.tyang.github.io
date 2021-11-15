@@ -4,7 +4,7 @@ title: Various Ways to Find the ID of a Monitoring Object in OpsMgr
 date: 2015-03-11T20:02:36+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3802
+guid: https://blog.tyang.org/?p=3802
 permalink: /2015/03/11/various-ways-to-find-the-id-of-a-monitoring-object-in-opsmgr/
 categories:
   - PowerShell
@@ -28,7 +28,7 @@ In the demonstrations, I will show how to retrieve the monitoring object ID for 
 * DB Engine: **MSSQLSERVER**
 * SQL Server: **SQLDB01.corp.tyang.org**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb4.png" alt="image" width="479" height="527" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb4.png" alt="image" width="479" height="527" border="0" /></a>
 
 **<span style="color: #ff0000;">Note: </span>**Before I start digging into this topic, if you are not very PowerShell savvy, and only want a simple GUI based solution, please go straight to the last method (using SCSM Entity Explorer).
 
@@ -63,7 +63,7 @@ $MonitoringClasses = Get-SCOMClass -DisplayName $ClassDisplayName
 
 However, in my management group, there are 2 classes with the same name "SQL Database":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb5.png" alt="image" width="565" height="88" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb5.png" alt="image" width="565" height="88" border="0" /></a>
 
 As you can see, the first item in the array $MonitoringClasses is the correct one in this case. We will reference it as **$MonitoringClasses[0]**.
 
@@ -75,11 +75,11 @@ $MonitoringObject = Get-SCOMClassInstance -Class $MonitoringClasses[0] | Where-o
 
 The Get-SCOMClassInstance cmdlet does not take any criteria, therefore, the command above retrieves all instances of the SQL Database class, then filter the result based on the database name, SQL server name and SQL DB instance name to locate the particlar database that we are looking for.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb6.png" alt="image" width="554" height="513" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb6.png" alt="image" width="554" height="513" border="0" /></a>
 
 The monitoring object ID is highlighted as above.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb7.png" alt="image" width="473" height="221" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb7.png" alt="image" width="473" height="221" border="0" /></a>
 
 The type for the ID field is Guid. You can also convert it to a string as shown above.
 
@@ -118,11 +118,11 @@ $mcCriteria = New-Object Microsoft.EnterpriseManagement.Configuration.Monitoring
 $MonitoringClass = $MG.GetMonitoringClasses($mcCriteria)
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb8.png" alt="image" width="674" height="328" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb8.png" alt="image" width="674" height="328" border="0" /></a>
 
 As you can see, since the display name is not unique, 2 classes are returned from the search (this is same as the first method), except this time, the type for $MonitoringClass varible is a ReadOnlyCollection. However, we can still reference the correct monitoring class using $MonitoringClass[0]
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb9.png" alt="image" width="637" height="170" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb9.png" alt="image" width="637" height="170" border="0" /></a>
 
 **03. Get the monitoring object for the particular database:**
 
@@ -138,11 +138,11 @@ $MonitoringObject = $MG.GetMonitoringObjects($MOCriteria, $MonitoringClass[0])
 
 As you can see, unlike the first method using the built-in module, we can specify a more granular search criteria to locate the monitoring object (as result, the command execution should be much faster). However, please keep in mind although there is only one monitoring object returned from the search result, the $MonitoirngObject variable is still a ReadOnlyCollection:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb10.png" alt="image" width="579" height="212" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb10.png" alt="image" width="579" height="212" border="0" /></a>
 
 And you can access the particular SQL Database (Monitoring Object) using $MonitoringObject[0]:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb11.png" alt="image" width="588" height="350" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb11.png" alt="image" width="588" height="350" border="0" /></a>
 
 
 ## Using SCSM Entity Explorer
@@ -153,7 +153,7 @@ Although as the name suggested, it was developed for SCSM, it also works with Op
 
 **01. Connect to an OpsMgr management server and search the monitoring class using display name**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb12.png" alt="image" width="612" height="390" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb12.png" alt="image" width="612" height="390" border="0" /></a>
 
 As shown above, there are 2 classes returned when searching the display name "SQL Database". You can find the correct one from the full name on the right.
 
@@ -161,11 +161,11 @@ As shown above, there are 2 classes returned when searching the display name "SQ
 
 Go to the objects class and click on "Load Objects" button to load all instances.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb13.png" alt="image" width="678" height="378" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb13.png" alt="image" width="678" height="378" border="0" /></a>
 
 Unfortunately, the we cannot modify what properties to be displayed on the objects list, and the display name does not contain the SQL server and DB instance name. In this scenario, the only way to find the correct instance is to open each one using the "View Details" button.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb14.png" alt="image" width="249" height="300" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb14.png" alt="image" width="249" height="300" border="0" /></a>
 
 Once you’ve located the correct instance, the monitoring object ID is displayed on the objects list.
 
@@ -173,11 +173,11 @@ Having said that, if you are looking for a monitoring object from a singleton cl
 
 i.e. When I’m looking for a group I created for the Hyper-V servers and their health service watchers, there is only instance:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb15.png" alt="image" width="589" height="331" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb15.png" alt="image" width="589" height="331" border="0" /></a>
 
 Also, for certain monitoring objects (such as Windows Server), you can easily locate the correct instance based on the display name:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb16.png" alt="image" width="578" height="322" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb16.png" alt="image" width="578" height="322" border="0" /></a>
 
 ## Conclusion
 

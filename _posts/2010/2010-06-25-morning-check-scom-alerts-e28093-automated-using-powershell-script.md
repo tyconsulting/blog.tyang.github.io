@@ -5,7 +5,7 @@ date: 2010-06-25T11:47:18+10:00
 author: Tao Yang
 excerpt: A Powershell script to assist server BAU team to perform morning check using SCOM...
 #layout: post
-guid: http://blog.tyang.org/?p=12
+guid: https://blog.tyang.org/?p=12
 permalink: '/2010/06/25/morning-check-scom-alerts-%e2%80%93-automated-using-powershell-script/'
 categories:
   - SCOM
@@ -31,4 +31,4 @@ As my knowledge in SQL reporting is very limited, I achieved the task using belo
 
 Note: a SCOM group is required to include all servers in the scope (in this case, all production servers from the particular domain).
 
-Here’s the <a title="Script" href="http://blog.tyang.org/wp-content/uploads/2010/06/SCOM-MorningCheck.zip" target="_blank">script</a>.
+Here’s the <a title="Script" href="https://blog.tyang.org/wp-content/uploads/2010/06/SCOM-MorningCheck.zip" target="_blank">script</a>.

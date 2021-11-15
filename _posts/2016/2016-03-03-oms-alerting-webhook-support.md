@@ -4,7 +4,7 @@ title: OMS Alerting Webhook Support
 date: 2016-03-03T14:32:58+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5222
+guid: https://blog.tyang.org/?p=5222
 permalink: /2016/03/03/oms-alerting-webhook-support/
 categories:
   - OMS
@@ -17,11 +17,11 @@ tags:
 
 Few weeks ago, OMS Alerting has introduced a new feature that enables the alert to trigger a webhook:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb.png" alt="image" width="340" height="433" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb.png" alt="image" width="340" height="433" border="0" /></a>
 
 This feature can be enabled with or without the existing 2 actions (email and Azure Automation runbook remediation).
 
-As we all know, the existing Azure Automation runbook remediation also leverages webhooks to trigger Azure Automation runbooks. I have previously posted a blog on <a href="http://blog.tyang.org/2015/12/03/oms-alerting-walkthrough/">OMS Alerting Walkthrough</a>, and also presented Introduction to OMS Alerting in Windows Management User Group Netherlands, you can watch the recording on YouTube: <a title="https://www.youtube.com/watch?v=JEZZzIj66uU" href="https://www.youtube.com/watch?v=JEZZzIj66uU">https://www.youtube.com/watch?v=JEZZzIj66uU</a>
+As we all know, the existing Azure Automation runbook remediation also leverages webhooks to trigger Azure Automation runbooks. I have previously posted a blog on <a href="https://blog.tyang.org/2015/12/03/oms-alerting-walkthrough/">OMS Alerting Walkthrough</a>, and also presented Introduction to OMS Alerting in Windows Management User Group Netherlands, you can watch the recording on YouTube: <a title="https://www.youtube.com/watch?v=JEZZzIj66uU" href="https://www.youtube.com/watch?v=JEZZzIj66uU">https://www.youtube.com/watch?v=JEZZzIj66uU</a>
 
 So, why do we need this new webhook feature? Comparing with the Azure Automation runbook remediation, I believe it has the following benefits:
 
@@ -41,13 +41,13 @@ As I mentioned in the previous post, when OMS Alerting triggers an Azure Automat
 
 In my opinion, sometimes depending on specific scenarios, this may not be enough. i.e. when I create an alert and specify the alert threshold to be less than 1 (which means 0). the value (OMS search result) will be null.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-1.png" alt="image" width="244" height="221" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-1.png" alt="image" width="244" height="221" border="0" /></a>
 
 and since the actual search query used by the OMS alert rule is not passed to the Azure Automation runbook, this makes our life a little bit harder when coding the runbooks.
 
 Let me use a real example to explain this limitation again. For example, if I am creating an OMS alert for a computer that has not sent data to OMS in 15 minutes – which is equivalent to the "missing heartbeat" alert in SCOM, I’d use a simple OMS search query such as "Computer=’<Computer-FQDN>’" and set the threshold to "Less Than 1":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-2.png" alt="image" width="458" height="303" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-2.png" alt="image" width="458" height="303" border="0" /></a>
 
 In this case, a critical piece of information we need for the runbook - the computer name only exists in the search query used by the OMS alert rule. When the OMS alert is raised and the runbook is triggered, since the webhook request body does not contain the search query and only contains an empty OMS search result in "Values" property. The computer name is not passed into the runbook as part of the input parameters. The runbook will not be able to know the computer name that is missing the heartbeat, thus difficult to design the runbook for alert remediation. The only walk around I can think of is to create a separate OMS alert rule and a separate runbook for each computer that you want to detect the missing heartbeat.
 
@@ -68,11 +68,11 @@ With the new webhook support, I’d glad that we are able to pass additional par
 
 i.e. this is what’s been passed via the webhook:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-3.png" alt="image" width="691" height="485" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-3.png" alt="image" width="691" height="485" border="0" /></a>
 
 If I copy and paste this to Notepad++ and format it using the JSON plugin, we can easily identify the additional information been passed into the runbook:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/03/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-4.png" alt="image" width="601" height="607" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/03/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/03/image_thumb-4.png" alt="image" width="601" height="607" border="0" /></a>
 
 Additionally, we are also able to customize the JSON payload if we only want to send a subset of above listed information through the webhook. I have reached out to the OMS product team, and I was told the syntax is:
 

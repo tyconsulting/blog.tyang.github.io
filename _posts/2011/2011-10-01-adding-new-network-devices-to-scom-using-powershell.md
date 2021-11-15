@@ -4,7 +4,7 @@ title: Adding New Network Devices to SCOM Using PowerShell
 date: 2011-10-01T23:16:18+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=704
+guid: https://blog.tyang.org/?p=704
 permalink: /2011/10/01/adding-new-network-devices-to-scom-using-powershell/
 categories:
   - PowerShell
@@ -22,15 +22,15 @@ So, to add a new network device using SCOM console, it’s pretty easy:
 
 2. Enter the network device information
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb.png" alt="image" width="580" height="551" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb.png" alt="image" width="580" height="551" border="0" /></a>
 
 3. Select the device from discovery result and choose a <strong>proxy agent</strong> for this network device
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb1.png" alt="image" width="489" height="465" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb1.png" alt="image" width="489" height="465" border="0" /></a>
 
 Please note the default proxy agent is set to the management server from previous step. it can be changed by click on Change button
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image2.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb2.png" alt="image" width="449" height="449" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image2.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb2.png" alt="image" width="449" height="449" border="0" /></a>
 
 It lists all possible proxy agents. There are 3 management servers in my test environment, <strong>SCOM01</strong> is my RMS, <strong>SCOM02</strong> is a management server and <strong>SCOMGW01</strong> is a gateway server located in another untrusted forest. I have highlighted these 3 servers, notice the icon for management servers is different than other normal agents.
 
@@ -89,23 +89,23 @@ Well, here’s the issue:
 
 <strong><span style="color: #ff0000;">if you use the Add-RemotelyManagedDevice cmdlet, you have to use a SCOM AGENT as the proxy agent. You CANNOT choose a management server as the proxy agent for the network devices you are about to add.</span></strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image3.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb3.png" alt="image" width="580" height="268" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image3.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb3.png" alt="image" width="580" height="268" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image4.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb4.png" alt="image" width="580" height="160" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image4.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb4.png" alt="image" width="580" height="160" border="0" /></a>
 
 The management server is not an agent, get-agent cmdlet does not return management servers:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image5.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb5.png" alt="image" width="580" height="122" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image5.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb5.png" alt="image" width="580" height="122" border="0" /></a>
 
 And if I use the management server in Add-RemotelyManagedDevice cmdlet, it will fail:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image6.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb6.png" alt="image" width="580" height="208" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image6.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb6.png" alt="image" width="580" height="208" border="0" /></a>
 
 Basically, object type mismatch...
 
 So, if we want to use a management server as the proxy agent for network devices, we <strong>CANNOT</strong> use Add-RemotelyManagedDevice cmdlet. It is a limitation in SCOM PowerShell snap-in. Instead, There is a method in the management server object called "<span style="color: #ff0000;"><strong>InsertRemotelymanagedDevices</strong></span>":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image7.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb7.png" alt="image" width="450" height="565" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image7.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb7.png" alt="image" width="450" height="565" border="0" /></a>
 
 we have to use this method to add network devices.  Therefore, the script for step 7 should be:
 
@@ -118,8 +118,8 @@ $NWDeviceMS.InsertRemotelyManagedDevices($DiscoveryResult.custommonitoringobject
 
 8. Check result:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image8.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb8.png" alt="image" width="580" height="266" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image8.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb8.png" alt="image" width="580" height="266" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/10/image9.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/10/image_thumb9.png" alt="image" width="579" height="303" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/10/image9.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/10/image_thumb9.png" alt="image" width="579" height="303" border="0" /></a>
 
 As you can see, the device has been successfully added.

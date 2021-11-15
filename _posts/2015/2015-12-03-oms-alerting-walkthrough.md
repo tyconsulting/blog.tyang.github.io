@@ -4,7 +4,7 @@ title: OMS Alerting Walkthrough
 date: 2015-12-03T22:52:16+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4934
+guid: https://blog.tyang.org/?p=4934
 permalink: /2015/12/03/oms-alerting-walkthrough/
 categories:
   - Azure
@@ -22,7 +22,7 @@ Earlier today, the OMS product team has <a href="http://blogs.technet.com/b/momt
 
 Few months ago, I have lost my lab OpsMgr management group completely due to hardware failures. After I replaced faulty hardware and built a brand new management group, I re-configured all the servers in my lab reported to the new management group. However, I then started getting many "Failed to enable Advisor Connector on the computer" alerts in my OpsMgr environment:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb1.png" alt="image" width="637" height="371" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb1.png" alt="image" width="637" height="371" border="0" /></a>
 
 These alerts were raised because I did not unregister these agent computers from the previous management group (I couldn’t because it was dead), as explained in <a href="https://social.msdn.microsoft.com/Forums/azure/en-US/8e0ffa61-68a0-4669-a729-ae4cd67cffbc/advisor-connector-enable-status-monitor-failed-to-enable-advisor-connector?forum=opinsights">this</a> forum thread. To fix this issue, on each OpsMgr agent, I must delete several registry keys, reset a regkey  values and then restart the health service.
 
@@ -176,11 +176,11 @@ Write-Output "Done."
 
 Now, let’s fast forward a little bit and explain what does the input parameter from OMS alert look like. When we have configured Alert remediation during the OMS alert creation, a webhook for the runbook is automatically created. OMS uses this webhook to start the runbook. It passes a parameter called "WEBHOOKDATA", which is in JSON format into the runook. You can see the actual input by clicking on the INPUT tile in the runbook job execution history:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb2.png" alt="image" width="674" height="390" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb2.png" alt="image" width="674" height="390" border="0" /></a>
 
 If you copy and paste this input into a text editor such as Notepad++ and format it as a JSON document, it looks like this:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb3.png" alt="image" width="701" height="548" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb3.png" alt="image" width="701" height="548" border="0" /></a>
 
 As you can see, the "SearchResults" contains 3 elements:
 
@@ -198,7 +198,7 @@ The search query that I’m using for this alert is:
 
 **<span style="background-color: #ffff00;">Type=Alert AlertState=New AlertName="Failed to enable Advisor Connector on the computer."</span>**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb4.png" alt="image" width="690" height="441" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb4.png" alt="image" width="690" height="441" border="0" /></a>
 
 I’m creating the alert with the following parameters:
 
@@ -212,17 +212,17 @@ I’m creating the alert with the following parameters:
 * **Enable Remediation:** Yes
 * **Remediation Runbook:** Remove-SCAdvisorRegistration
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML1a29c296.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1a29c296" src="http://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML1a29c296_thumb.png" alt="SNAGHTML1a29c296" width="230" height="364" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML1a29c296.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1a29c296" src="https://blog.tyang.org/wp-content/uploads/2015/12/SNAGHTML1a29c296_thumb.png" alt="SNAGHTML1a29c296" width="230" height="364" border="0" /></a>
 
 After the alert is saved, you will be able to see it in the Settings/Alerts page:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb5.png" alt="image" width="518" height="257" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb5.png" alt="image" width="518" height="257" border="0" /></a>
 
 ## Reconfiguring Runbook Webhook
 
 In this example, because the runbook must be executed against a Hybrid Worker group (as we are targeting computers in on-prem network), I must reconfigure the webhook (created by OMS alert) to target a Hybrid Worker group (instead of the default config of targeting Azure workers). You can do so by going to the webhook parameters section, and choose Hybrid Worker group from the drop down list:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb6.png" alt="image" width="618" height="278" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb6.png" alt="image" width="618" height="278" border="0" /></a>
 
 **<span style="color: #ff0000; font-size: medium;">Note:</span>**
 
@@ -230,11 +230,11 @@ Please do not modify any other input parameters for the webhooks created by OMS 
 
 From now on, this alert will be executed every 15 minutes, and search for the result (based on the search query) created within the last 15 minutes. If the number of records returned from the search is greater than 0 (as we configured), you will get an email similar to this one:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb7.png" alt="image" width="643" height="569" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb7.png" alt="image" width="643" height="569" border="0" /></a>
 
 The OMS alert will also kick off the remediation runbook via the webhook. Because I have enabled verbose logging for this runbook, I was able to see some additional verbose messages:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/12/image_thumb8.png" alt="image" width="697" height="423" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/12/image_thumb8.png" alt="image" width="697" height="423" border="0" /></a>
 
 ## Additional Resources
 
@@ -247,4 +247,4 @@ I have also written a test runbook called Test-OMSAlertRemediation that you can 
 
 Over the last few months, I have been working with Pete Zerger, Stanislav Zhelyazkov and Anders Bengtsson on a free ebook for OMS. OMS Alerting is also explained in more details in this book. It will be released very soon, so stay tuned!
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/12/OMS_Book_Anncmt.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="OMS_Book_Anncmt" src="http://blog.tyang.org/wp-content/uploads/2015/12/OMS_Book_Anncmt_thumb.png" alt="OMS_Book_Anncmt" width="676" height="383" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/12/OMS_Book_Anncmt.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="OMS_Book_Anncmt" src="https://blog.tyang.org/wp-content/uploads/2015/12/OMS_Book_Anncmt_thumb.png" alt="OMS_Book_Anncmt" width="676" height="383" border="0" /></a>

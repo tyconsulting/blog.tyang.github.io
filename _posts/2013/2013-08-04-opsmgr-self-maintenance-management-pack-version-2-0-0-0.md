@@ -4,7 +4,7 @@ title: OpsMgr Self Maintenance Management Pack Version 2.0.0.0
 date: 2013-08-04T16:04:09+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2041
+guid: https://blog.tyang.org/?p=2041
 permalink: /2013/08/04/opsmgr-self-maintenance-management-pack-version-2-0-0-0/
 categories:
   - SCOM
@@ -13,20 +13,20 @@ tags:
   - MP Authoring
   - SCOM
 ---
-I have published the <a href="http://blog.tyang.org/2013/03/03/opsmgr-self-maintenance-management-pack/">OpsMgr Self Maintenance Management Pack Version 1.0</a> on this blog few months ago. Over the last couple of month, I’ve been working on the version 2.0.0.0 of this MP during my spare time.
+I have published the <a href="https://blog.tyang.org/2013/03/03/opsmgr-self-maintenance-management-pack/">OpsMgr Self Maintenance Management Pack Version 1.0</a> on this blog few months ago. Over the last couple of month, I’ve been working on the version 2.0.0.0 of this MP during my spare time.
 
 It has taken a lot longer than I thought because it was hard for me to find blocks of spare time to sit down and work on it. It is now complete and the list below is what has been added / changed in the version 2.0.0.0:
 
 * A rule that detects user-defined overrides in the Default MP
 
-![](http://blog.tyang.org/wp-content/uploads/2013/08/image.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/08/image.png)
 
 * A rule that configures failover management servers for Windows agents.
 * Agent Task: Check Data Warehouse Retention
 
-![](http://blog.tyang.org/wp-content/uploads/2013/08/image1.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/08/image1.png)
 
-![](http://blog.tyang.org/wp-content/uploads/2013/08/image2.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/08/image2.png)
 
 * 2 monitors that monitor Data Warehouse Hourly and Daily aggregation process. (Adopted from [Michel Kamp’s blog post](http://michelkamp.wordpress.com/2013/03/24/get-a-grip-on-the-dwh-aggregations/))
 * Data Warehouse Database Aggregation Process Performance Collection Rule. This rule collects number of outstanding data sets that are yet to be processed by DW hourly and daily aggregation process. (This rule uses the same data source as above mentioned monitors.)
@@ -37,7 +37,7 @@ It has taken a lot longer than I thought because it was hard for me to find bloc
 
 * Updated the Close Aged Rule Generated Alerts Rule with an additional configurable option. The original rule uses the TimeRaised property of the alert. It now can be configured to use LastModified date if desired.
 
-![](http://blog.tyang.org/wp-content/uploads/2013/08/image3.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/08/image3.png)
 
 * State Views:
 
@@ -48,7 +48,7 @@ It has taken a lot longer than I thought because it was hard for me to find bloc
 
 * Performance View for the performance collection rule mentioned above for Data Warehouse Data sets.
 
-![](http://blog.tyang.org/wp-content/uploads/2013/08/image4.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/08/image4.png)
 
 Due to time constrains and the age of OpsMgr 2007 R2, I have decided not to update the OpsMgr 2007 version of the MP. However, the bug in the balancing agent rule mentioned above has been fixed in the OpsMgr 2007 R2 version. Other than this bug fix, all of above mentioned changes have only been updated in the 2012 version.
 

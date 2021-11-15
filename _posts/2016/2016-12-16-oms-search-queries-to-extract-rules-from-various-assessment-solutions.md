@@ -4,7 +4,7 @@ title: OMS Search Queries to Extract Rules from Various Assessment Solutions
 date: 2016-12-16T15:09:19+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5799
+guid: https://blog.tyang.org/?p=5799
 permalink: /2016/12/16/oms-search-queries-to-extract-rules-from-various-assessment-solutions/
 categories:
   - OMS

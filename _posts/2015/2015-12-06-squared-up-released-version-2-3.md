@@ -4,7 +4,7 @@ title: Squared Up Released version 2.3
 date: 2015-12-06T18:19:29+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4940
+guid: https://blog.tyang.org/?p=4940
 permalink: /2015/12/06/squared-up-released-version-2-3/
 categories:
   - SCOM
@@ -21,7 +21,7 @@ When I was reading the feature intro that Squared Up sent me, the one feature th
 
 So basically, once you’ve made necessary configurations to support this feature and enabled Open Access on a dashboard, the IIS that’s hosting Squared Up would generate an image of the specific dashboard (in .png format), which you can open in any browsers without having to login to Squared Up. This image will be regenerated every 60 seconds, and the URL to this image uses a randomly generated GUID (in order to hide the URL of the full blown version of the dashboard).
 
-![](http://blog.tyang.org/wp-content/uploads/2015/12/SQUPOpenAccess.png)
+![](https://blog.tyang.org/wp-content/uploads/2015/12/SQUPOpenAccess.png)
 
 In the past, I’ve worked in environments where people had to create a read-only operator in OpsMgr for having Squared Up dashboards on big LCD screens on the wall. It is an admin overhead to manage this account and the password, not to mention that I’ve also seen it many times that when managers walk past, the dashboard is sitting at the login screen on the wall LCD screens because the session was expired. It doesn’t make the team look good :worried:.
 

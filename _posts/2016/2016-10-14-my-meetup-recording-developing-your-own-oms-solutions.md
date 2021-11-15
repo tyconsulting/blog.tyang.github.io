@@ -4,7 +4,7 @@ title: 'My Meetup Recording&ndash;Developing Your OWN OMS Solutions'
 date: 2016-10-14T14:46:03+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5740
+guid: https://blog.tyang.org/?p=5740
 permalink: /2016/10/14/my-meetup-recording-developing-your-own-oms-solutions/
 categories:
   - OMS
@@ -18,4 +18,4 @@ If you are interested, you can watch the recording here (<a href="https://www.yo
 
 <iframe src="//www.youtube.com/embed/zUzI31iIcTk" height="375" width="640" allowfullscreen="" frameborder="0"></iframe>
 
-And you can also download the slide deck<a href="http://blog.tyang.org/wp-content/uploads/2016/10/2016-Sept-MEL-CDM-Developing-Your-Own-OMS-Solutions.pdf"> HERE</a>.
+And you can also download the slide deck<a href="https://blog.tyang.org/wp-content/uploads/2016/10/2016-Sept-MEL-CDM-Developing-Your-Own-OMS-Solutions.pdf"> HERE</a>.

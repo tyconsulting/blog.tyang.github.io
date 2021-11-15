@@ -4,7 +4,7 @@ title: 'Powershell: Prevent Users To View and Change Input or Config Files That 
 date: 2012-05-16T22:07:10+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1230
+guid: https://blog.tyang.org/?p=1230
 permalink: /2012/05/16/powershell-prevent-users-to-view-and-change-input-or-config-files-that-are-used-by-a-script/
 categories:
   - PowerShell
@@ -51,7 +51,7 @@ $xml.configuration
 
 The script extracts and reads the health-check.xml file and deletes health-check.xml straightaway, it happens so fast, it won’t be possible for end users to access the file. Below is the output from above sample code (content of my XML file):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/05/image10.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/05/image_thumb10.png" alt="image" width="580" height="402" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/05/image10.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/05/image_thumb10.png" alt="image" width="580" height="402" border="0" /></a>
 
 One thing to keep in mind: in most of my scripts, I use
 

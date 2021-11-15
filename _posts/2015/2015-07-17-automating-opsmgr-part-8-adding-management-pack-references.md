@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4241
+guid: https://blog.tyang.org/?p=4241
 permalink: /2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/
 categories:
   - PowerShell
@@ -25,13 +25,13 @@ tags:
 
 This is the 8th instalment of the Automating OpsMgr series. Previously on this series:
 
-* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
-* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
-* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
-* [Automating OpsMgr Part 4:Creating New Empty Groups](http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
-* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](http://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
-* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](http://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
-* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
+* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](https://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
+* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](https://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
+* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](https://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
+* [Automating OpsMgr Part 4:Creating New Empty Groups](https://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
+* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](https://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
+* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](https://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
+* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
 
 In part 4-6, I have demonstrated how to create and add static members to both instance groups and computer groups. In Part 7, I have released the updated **OpsMgrExtended** module (version 1.1), and demonstrated simplified runbooks for adding static members to groups. In this post, I will demonstrate how to add a management pack reference to an unsealed MP. In the next module, I will demonstrate how to update a group discovery (how groups are populated). But in order for me to demonstrate how to update group discoveries, I will need to cover adding MP references first.
 
@@ -41,17 +41,17 @@ Management packs often use elements defined in other management packs. i.e. a di
 
 Because OpsMgr needs to ensure the referencing management pack does not change in a way that may impact all other management packs that are referencing this pack, only sealed management packs (or Management Pack bundles in OpsMgr 2012) can be referenced in other management packs because sealed MPs must comply with a set of rules when being upgraded. Unsealed management packs can reference other sealed management packs, but they cannot be referenced in other MPs.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb28.png" alt="image" width="481" height="600" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb28.png" alt="image" width="481" height="600" border="0" /></a>
 
 As shown above, in OpsMgr console, by opening the property page of a management pack, you can easily find out which management packs is this particular MP is referencing (the top section), and what other management packs are referencing this MP (the bottom section).
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML11b42e4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML11b42e4" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML11b42e4_thumb.png" alt="SNAGHTML11b42e4" width="657" height="423" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML11b42e4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML11b42e4" src="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML11b42e4_thumb.png" alt="SNAGHTML11b42e4" width="657" height="423" border="0" /></a>
 
 When reading the management pack XML (as shown above), you'll notice the references are defined in the beginning of the MP. When defining a MP reference, the following information must be supplied:
 
 * Alias - This alias must be unique within the MP itself, and it is used by other elements within this MP, followed by an exclamation mark("!")
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML11f5dbc.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML11f5dbc" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML11f5dbc_thumb.png" alt="SNAGHTML11f5dbc" width="572" height="134" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML11f5dbc.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML11f5dbc" src="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML11f5dbc_thumb.png" alt="SNAGHTML11f5dbc" width="572" height="134" border="0" /></a>
 
 * ID - The internal name of the referencing MP
 * Version - The **<u>minimum</u>** required version of the referencing MP.
@@ -98,13 +98,13 @@ This runbook takes 3 input parameters:
 * ReferenceMPAlias: The alias of the referencing MP
 * ReferenceMPName: The name of the referencing MP (must be a sealed MP).
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image29.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb29.png" alt="image" width="379" height="327" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image29.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb29.png" alt="image" width="379" height="327" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image30.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb30.png" alt="image" width="391" height="383" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image30.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb30.png" alt="image" width="391" height="383" border="0" /></a>
 
 After the execution, the reference is created in the unsealed MP:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image31.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb31.png" alt="image" width="513" height="146" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image31.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb31.png" alt="image" width="513" height="146" border="0" /></a>
 
 ## Conclusion
 

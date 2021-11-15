@@ -4,7 +4,7 @@ title: SCCM Site Systems and Components Summarizer Reports
 date: 2012-02-23T14:18:47+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1035
+guid: https://blog.tyang.org/?p=1035
 permalink: /2012/02/23/sccm-site-systems-and-components-summarizer-reports/
 categories:
   - SCCM
@@ -12,7 +12,7 @@ tags:
   - SCCM
   - SCCM Reports
 ---
-I received an email today from someone who downloaded my <a href="http://blog.tyang.org/2012/01/31/sccm-health-check-script-updated-version-3-5/">SCCM Health Check Script 3.5</a>. He asked me if I can help to modify the script to only display Site Systems and Components status.
+I received an email today from someone who downloaded my <a href="https://blog.tyang.org/2012/01/31/sccm-health-check-script-updated-version-3-5/">SCCM Health Check Script 3.5</a>. He asked me if I can help to modify the script to only display Site Systems and Components status.
 
 I thought this can be easily achieved by creating few simple reports inside SCCM. If you are running SCCM 2007 R3 and have Reporting Service Point configured, you can publish these reports to SQL Reporting Services and create some schedules to email out daily.
 
@@ -127,14 +127,14 @@ Order By ComponentName
 <h2>Report Sample Screenshots:</h2>
 <strong>Site Status Overview Report</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/02/image10.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb10.png" alt="image" width="580" height="160" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/02/image10.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/02/image_thumb10.png" alt="image" width="580" height="160" border="0" /></a>
 
 <strong>Site System Status Report</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/02/image11.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb11.png" alt="image" width="580" height="489" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/02/image11.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/02/image_thumb11.png" alt="image" width="580" height="489" border="0" /></a>
 
 <strong>Site Components Status Since 12:00AM Report:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/02/image12.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/02/image_thumb12.png" alt="image" width="580" height="383" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/02/image12.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/02/image_thumb12.png" alt="image" width="580" height="383" border="0" /></a>
 
-I’ve exported these reports into a .mof file, which can be downloaded <a title="Site Reports" href="http://blog.tyang.org/wp-content/uploads/2012/02/SiteReports.zip">HERE</a>.
+I’ve exported these reports into a .mof file, which can be downloaded <a title="Site Reports" href="https://blog.tyang.org/wp-content/uploads/2012/02/SiteReports.zip">HERE</a>.

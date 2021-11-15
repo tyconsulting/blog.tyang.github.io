@@ -4,7 +4,7 @@ title: An Alternative for Surface Pro Docking Stations
 date: 2014-07-24T21:38:00+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3038
+guid: https://blog.tyang.org/?p=3038
 permalink: /2014/07/24/alternative-surface-pro-docking-stations/
 categories:
   - Others
@@ -24,11 +24,11 @@ For me, a power keyboard is a nice-to-have, but I really want a docking station!
 
 <a href="http://www.toshiba.com/us/accessories/Docking-and-Stands/Port-Replicators/Docking-Station/PA3927U-1PRP">Toshiba Dynadock U3.0</a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/to_pa3927u_300.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="to_pa3927u_300" src="http://blog.tyang.org/wp-content/uploads/2014/07/to_pa3927u_300_thumb.png" alt="to_pa3927u_300" width="244" height="244" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/to_pa3927u_300.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="to_pa3927u_300" src="https://blog.tyang.org/wp-content/uploads/2014/07/to_pa3927u_300_thumb.png" alt="to_pa3927u_300" width="244" height="244" border="0" /></a>
 
 <a href="http://targus.com/au/product_details.asp?sku=ACP70AU">Targus USB3.0 SuperSpeed Dual Video Docking Station</a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/ACP70USZ_accessories_b.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="ACP70USZ_accessories_b" src="http://blog.tyang.org/wp-content/uploads/2014/07/ACP70USZ_accessories_b_thumb.jpg" alt="ACP70USZ_accessories_b" width="244" height="206" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/ACP70USZ_accessories_b.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="ACP70USZ_accessories_b" src="https://blog.tyang.org/wp-content/uploads/2014/07/ACP70USZ_accessories_b_thumb.jpg" alt="ACP70USZ_accessories_b" width="244" height="206" border="0" /></a>
 
 Both of them have similar specs, The local retail price for the Toshiba one is around AUD $160 and Targus is around $180 (currently $1 AUD = $0.94 USD). I’ve decided to go for the Tagus one simply because the Toshiba dock is vertical with a stand, it will be harder to carry around (if I want to). The Targus dock seems to be more portable to me.
 
@@ -82,15 +82,15 @@ The Targus dock also comes with a DVI-To-VGA adapter and a HDMI-To-DVI adapter t
 
 Here’s the back view:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/Targus-Back.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Targus Back" src="http://blog.tyang.org/wp-content/uploads/2014/07/Targus-Back_thumb.jpg" alt="Targus Back" width="492" height="492" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/Targus-Back.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Targus Back" src="https://blog.tyang.org/wp-content/uploads/2014/07/Targus-Back_thumb.jpg" alt="Targus Back" width="492" height="492" border="0" /></a>
 
 Using it with my Surface Pro 2:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/20140724_210144.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="20140724_210144" src="http://blog.tyang.org/wp-content/uploads/2014/07/20140724_210144_thumb.jpg" alt="20140724_210144" width="580" height="329" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/20140724_210144.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="20140724_210144" src="https://blog.tyang.org/wp-content/uploads/2014/07/20140724_210144_thumb.jpg" alt="20140724_210144" width="580" height="329" border="0" /></a>
 
 Physical size comparing with Surface Pro 2:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/07/20140724_212815.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="20140724_212815" src="http://blog.tyang.org/wp-content/uploads/2014/07/20140724_212815_thumb.jpg" alt="20140724_212815" width="580" height="326" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/07/20140724_212815.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="20140724_212815" src="https://blog.tyang.org/wp-content/uploads/2014/07/20140724_212815_thumb.jpg" alt="20140724_212815" width="580" height="326" border="0" /></a>
 
 ## Drivers
 
@@ -110,4 +110,4 @@ So it is definitely a cheaper option to get the dock instead, not to mention you
 
 So now, even if Surface docking station has been made available in Australian market, I’d still stick with this Targus dock, simply because I can connect 2 external monitors.
 
-The only thing I haven’t tried is testing PXE through the NIC port on this dock. If someone has already tried it, please let me know <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2014/07/wlEmoticon-smile4.png" alt="Smile" />.
+The only thing I haven’t tried is testing PXE through the NIC port on this dock. If someone has already tried it, please let me know <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="https://blog.tyang.org/wp-content/uploads/2014/07/wlEmoticon-smile4.png" alt="Smile" />.

@@ -4,7 +4,7 @@ title: OMSDataInjection Updated to Version 1.2.0
 date: 2016-12-17T13:41:45+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5809
+guid: https://blog.tyang.org/?p=5809
 permalink: /2016/12/17/omsdatainjection-updated-to-version-1-2-0/
 categories:
   - OMS
@@ -17,7 +17,7 @@ The OMSDataInjection module was only updated to v1.1.1  less than 2 weeks ago. 
 
 I only found out last night after been made aware people started getting errors using this module that the HTTP response code for a successful injection has changed from 202 to 200. The documentation for the API was updated few days ago (as I can see from GitHub):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/12/image-14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/12/image_thumb-14.png" alt="image" width="712" height="376" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/12/image-14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/12/image_thumb-14.png" alt="image" width="712" height="376" border="0" /></a>
 
 This is what’s been updated in this release:
 

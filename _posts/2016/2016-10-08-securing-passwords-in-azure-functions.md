@@ -4,7 +4,7 @@ title: Securing Passwords in Azure Functions
 date: 2016-10-08T00:08:09+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5690
+guid: https://blog.tyang.org/?p=5690
 permalink: /2016/10/08/securing-passwords-in-azure-functions/
 categories:
   - Azure
@@ -22,7 +22,7 @@ Obviously, Azure Key Vault would be an ideal candidate for storing credentials f
 
 I cam across 2 feature requests on both <a href="https://github.com/Azure/azure-webjobs-sdk/issues/746">Github</a> and <a href="https://feedback.azure.com/forums/355860-azure-functions/suggestions/14634717-add-binding-to-key-vault">UserVoice</a> suggesting a way to access Key Vault from Azure Functions, so I hope this capability will be added at later stage. But for now, I’ve come up a simple way to encrypt the password in the Azure Functions code so it is not stored in clear text. I purposely want to keep the solution as simple as possible because one of the big advantage of using Azure Functions is being really quick, therefore I believe the less code I have to write the better. I’ll use a PowerShell example to explain what I have done.
 
-I needed to write a function to retrieve Azure VMs from a subscription – and I’ll blog the complete solution next time. Sticking with the language that I know the best, I’m using PowerShell. I have already explained how to use custom PowerShell modules in my <a href="http://blog.tyang.org/2016/10/07/using-custom-powershell-modules-in-azure-functions/">last post</a>. In order to retrieve the Azure VMs information, we need two modules:
+I needed to write a function to retrieve Azure VMs from a subscription – and I’ll blog the complete solution next time. Sticking with the language that I know the best, I’m using PowerShell. I have already explained how to use custom PowerShell modules in my <a href="https://blog.tyang.org/2016/10/07/using-custom-powershell-modules-in-azure-functions/">last post</a>. In order to retrieve the Azure VMs information, we need two modules:
 
  * AzureRM.Profile
  * AzureRM.Compute
@@ -45,7 +45,7 @@ Set-Content C:\Temp\PassEncryptKey.key $AESKey
 ```
 I then uploaded the key to the Azure Functions folder – I’ve already uploaded the PowerShell modules to the "bin" folder, I created a sub-folder under "bin" called Keys:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-8.png" alt="image" width="467" height="307" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-8.png" alt="image" width="467" height="307" border="0" /></a>
 
 I wrote a little PowerShell function (that runs on my PC, where a copy of the key file is stored) to encrypt the password.
 
@@ -71,7 +71,7 @@ $encryptedpass = Get-EncryptedPassword -KeyPath C:\temp\PassEncryptKey.key -Pass
 $encryptedpass | clip
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-9.png" alt="image" width="691" height="90" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-9.png" alt="image" width="691" height="90" border="0" /></a>
 
 I then created two app settings in Azure Functions Application settings:
 
@@ -80,13 +80,13 @@ I then created two app settings in Azure Functions Application settings:
 
 The AzureCredUserName has the value of the user name of the service account and AzureCredPassword is the encrypted string that we prepared in the previous step.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-17.png" alt="image" width="370" height="382" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-17.png" alt="image" width="370" height="382" border="0" /></a>
 
 <span style="text-decoration: line-through;"><span style="background-color: #ffff00;">I then paste the encrypted password string to my Azure Functions code (line 24):
 
 The app settings are exposed to the Azure functions as environment variables, so we can reference them in the script as $env:AzureCredUserName and $env:AzureCredPassword (line 23 and 24)
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-18.png" alt="image" width="582" height="334" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-18.png" alt="image" width="582" height="334" border="0" /></a>
 
 As shown above, to decrypt the password from the encrypted string to the SecureString, the PowerShell code reads the content of the key file and use it as the key to convert the encrypted password to the SecureString (line 26-27). After the password has been converted to the SecureString, we can then create a PSCredential object and use it to login to Azure (line 28-29).
 

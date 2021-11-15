@@ -4,7 +4,7 @@ title: 'SCOM: Process Performance Collection Rule for Services'
 date: 2012-01-27T12:28:08+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=888
+guid: https://blog.tyang.org/?p=888
 permalink: /2012/01/27/scom-process-performance-collection-rule-for-services/
 categories:
   - SCOM
@@ -19,15 +19,15 @@ Process performance collections rules are straightforward to setup, as long as t
 
 The problem with that is, if I need to collect performance counters for a particular service, i.e. Server Service (lanmanserver) or a particular SQL server instance (when there are multiple SQL instances running on the same server) , I will not be able to do so using the default performance collection module "System.Performance.OptimizedDataProvider" because server service runs under the generic service host svchost.exe. Typically, there are many instances of svchost.exe running for various services:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/01/image31.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb31.png" alt="image" width="580" height="756" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/01/image31.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/01/image_thumb31.png" alt="image" width="580" height="756" border="0" /></a>
 
 According to above screen capture, there are 10 instances of svchost.exe running on my computer. And when selecting performance counter in SCOM consoles, there are 10 instances of svchost:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/01/image32.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb32.png" alt="image" width="537" height="428" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/01/image32.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/01/image_thumb32.png" alt="image" width="537" height="428" border="0" /></a>
 
 It’s the same if I simply run perfmon on the computer: there are 10 instances of svchost:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/01/image33.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb33.png" alt="image" width="580" height="426" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/01/image33.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/01/image_thumb33.png" alt="image" width="580" height="426" border="0" /></a>
 
 There’s actually a blog article on TechNet explaining this issue with perfmon: <a href="http://blogs.technet.com/b/askperf/archive/2010/03/30/perfmon-identifying-processes-by-pid-instead-of-instance.aspx">Perfmon: Identifying processes by PID instead of instance</a>
 
@@ -52,32 +52,32 @@ Now that I’ve created all the required modules, I can then create a SINGLE rul
 
 1. In Authoring console, create a Custom Rule:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/01/image34.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb34.png" alt="image" width="311" height="236" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/01/image34.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/01/image_thumb34.png" alt="image" width="311" height="236" border="0" /></a>
 
 2. Give the rule a name and choose the target:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/01/image35.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb35.png" alt="image" width="580" height="578" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/01/image35.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/01/image_thumb35.png" alt="image" width="580" height="578" border="0" /></a>
 
 3. Add the data source module I previously created and configure the variables (service name is the actual service name, <span style="color: #ff0000;"><strong>NOT</strong></span> service display name):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/01/image36.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb36.png" alt="image" width="580" height="534" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/01/image36.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/01/image_thumb36.png" alt="image" width="580" height="534" border="0" /></a>
 
 <strong><span style="color: #ff0000; font-size: medium;">Note:</span></strong> The <strong>Computername</strong> variable from above example is "$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$", this is correct because I’m targeting the rule to Windows Computer. You will have to change it if you are targeting other classes. The best way is to use the prompt and choose the host’s principal name. Below is an example if I target the rule to Windows Operating System:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/01/image37.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb37.png" alt="image" width="580" height="525" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/01/image37.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/01/image_thumb37.png" alt="image" width="580" height="525" border="0" /></a>
 
 4. Add 2 Actions module (don’t need to configure them):
 <ol>
     <li>Microsoft.SystemCenter.CollectionPerformanceData (WriteToDB)</li>
     <li>Microsoft.SystemCenter.DataWarehouse.PublishPerformanceData (WriteToDW)</li>
 </ol>
-<a href="http://blog.tyang.org/wp-content/uploads/2012/01/image38.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb38.png" alt="image" width="580" height="455" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/01/image38.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/01/image_thumb38.png" alt="image" width="580" height="455" border="0" /></a>
 
 <strong><span style="color: #ff0000; font-size: medium;">Note:</span></strong> The 2nd action module WriteToDW is from Microsoft.SystemCenter.DataWarehouse.Library. you will have to add this library as a reference of your management pack.
 
 Now, the rule is created, you can create a performance view for the rule and make sure it is collecting data:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/01/image39.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/01/image_thumb39.png" alt="image" width="580" height="479" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/01/image39.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/01/image_thumb39.png" alt="image" width="580" height="479" border="0" /></a>
 
 Below is the VBScript I’ve used in probe action module:
 
@@ -198,6 +198,6 @@ You will need to modify the script if you are collecting different counters. for
 
 I’ve attached the script and the sample unsealed management pack at the bottom of this article. You can modify or recreate your own based on the samples. don’t forget to seal the management pack if you want to use the modules in other MPs.
 
-VBScript: <a href="http://blog.tyang.org/wp-content/uploads/2012/01/ProcessPerfMonData.txt">ProcessPerfMonData.txt</a>
+VBScript: <a href="https://blog.tyang.org/wp-content/uploads/2012/01/ProcessPerfMonData.txt">ProcessPerfMonData.txt</a>
 
-Unsealed MP: <a href="http://blog.tyang.org/wp-content/uploads/2012/01/TYANG.Custom.Performance.Monitoring.zip">TYANG.Custom.Performance.Monitoring.xml</a>
+Unsealed MP: <a href="https://blog.tyang.org/wp-content/uploads/2012/01/TYANG.Custom.Performance.Monitoring.zip">TYANG.Custom.Performance.Monitoring.xml</a>

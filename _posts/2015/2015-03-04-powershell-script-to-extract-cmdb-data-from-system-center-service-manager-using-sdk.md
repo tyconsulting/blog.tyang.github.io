@@ -4,7 +4,7 @@ title: PowerShell Script to Extract CMDB Data From System Center Service Manager
 date: 2015-03-04T20:48:46+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3770
+guid: https://blog.tyang.org/?p=3770
 permalink: /2015/03/04/powershell-script-to-extract-cmdb-data-from-system-center-service-manager-using-sdk/
 categories:
   - PowerShell
@@ -16,7 +16,7 @@ tags:
 
 ## Background
 
-In my previous post <a href="http://blog.tyang.org/2015/02/22/writing-powershell-modules-that-interact-with-various-sdk-assemblies/">Writing PowerShell Module That Interact With Various SDK Assemblies</a>, I’ve explained how to create a PowerShell module that embeds various SDK DLLs and I’ve used System Center Service Manager SDK as an example. Well, the reason that I created the module for Service Manager SDK is because I needed to write a script to extract CMDB data from Service Manager. In this post, I’ll go through what’ I’ve done and the script can also be downloaded at the end of the article.
+In my previous post <a href="https://blog.tyang.org/2015/02/22/writing-powershell-modules-that-interact-with-various-sdk-assemblies/">Writing PowerShell Module That Interact With Various SDK Assemblies</a>, I’ve explained how to create a PowerShell module that embeds various SDK DLLs and I’ve used System Center Service Manager SDK as an example. Well, the reason that I created the module for Service Manager SDK is because I needed to write a script to extract CMDB data from Service Manager. In this post, I’ll go through what’ I’ve done and the script can also be downloaded at the end of the article.
 
 So, I needed to write a script to export configuration items from Service Manager, I have the following requirements:
 
@@ -36,7 +36,7 @@ As I just mentioned, this script requires the SMSDK module I have created previo
 
 In order to make the script generic while being extendable, I’ve used a XML file to define various configurations for the script:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb.png" alt="image" width="691" height="596" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb.png" alt="image" width="691" height="596" border="0" /></a>
 
 I have added a lot of comments in this XML file so it should be very self-explanatory. Just few notes here:
 
@@ -46,7 +46,7 @@ I have added a lot of comments in this XML file so it should be very self-explan
   * Both <PropertyName> and &lt;CIClassName&gt; are the internal names, Please do not use the display names.
   * You can use the SCSM Entity Explorer (Free download from <a href="https://gallery.technet.microsoft.com/SCSM-Entity-Explorer-68b86bd2">TechNet Gallery</a>) to identify what are the internal names for the class and property that you wish to export.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb1.png" alt="image" width="678" height="440" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb1.png" alt="image" width="678" height="440" border="0" /></a>
 
 
 
@@ -266,16 +266,16 @@ To execute the script, simply pass the service management server name (user name
 
 This script will create a separate CSV file for each CI class that’s configured in the XML. It will also create a single CSV file for ALL relationships export:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb2.png" alt="image" width="488" height="103" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb2.png" alt="image" width="488" height="103" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML1484a713.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1484a713" src="http://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML1484a713_thumb.png" alt="SNAGHTML1484a713" width="687" height="223" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML1484a713.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML1484a713" src="https://blog.tyang.org/wp-content/uploads/2015/03/SNAGHTML1484a713_thumb.png" alt="SNAGHTML1484a713" width="687" height="223" border="0" /></a>
 
 The script also writes the execution time stamp to the config.xml under <LastSyncFileDateUTC>. When the script runs next time, it will retrieve this value and only export the configuration items that have been changed after this time stamp. If you need to force a full sync, please manually remove the value in this tag:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/03/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/03/image_thumb3.png" alt="image" width="463" height="124" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/03/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/03/image_thumb3.png" alt="image" width="463" height="124" border="0" /></a>
 
 ## Download
 
-You can download the prerequisite SMSDK PowerShell module <a href="http://blog.tyang.org/wp-content/uploads/2015/02/SMSDK.zip">HERE</a>.
+You can download the prerequisite SMSDK PowerShell module <a href="https://blog.tyang.org/wp-content/uploads/2015/02/SMSDK.zip">HERE</a>.
 
-You can download the script and the config.xml file <a href="http://blog.tyang.org/wp-content/uploads/2015/03/SCSMCIExport.zip">HERE</a>.
+You can download the script and the config.xml file <a href="https://blog.tyang.org/wp-content/uploads/2015/03/SCSMCIExport.zip">HERE</a>.

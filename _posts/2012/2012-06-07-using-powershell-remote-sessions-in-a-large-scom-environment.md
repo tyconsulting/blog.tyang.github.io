@@ -4,7 +4,7 @@ title: Using PowerShell Remote Sessions in a large SCOM environment
 date: 2012-06-07T20:18:44+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1262
+guid: https://blog.tyang.org/?p=1262
 permalink: /2012/06/07/using-powershell-remote-sessions-in-a-large-scom-environment/
 categories:
   - PowerShell
@@ -14,7 +14,7 @@ tags:
   - PowerShell Remoting
   - SCOM
 ---
-I have previously blogged <a href="http://blog.tyang.org/2012/05/09/using-scom-powershell-snap-in-and-sdk-client-with-a-powershell-remote-session/">using SCOM PowerShell snap-in and SDK client in a PowerShell remote session</a> to avoid maintain a consistent SDK connection to RMS server.
+I have previously blogged <a href="https://blog.tyang.org/2012/05/09/using-scom-powershell-snap-in-and-sdk-client-with-a-powershell-remote-session/">using SCOM PowerShell snap-in and SDK client in a PowerShell remote session</a> to avoid maintain a consistent SDK connection to RMS server.
 
 I just found out there might be a potential issue when using this technique to run scripts against a reasonably large SCOM management group.
 
@@ -24,7 +24,7 @@ By default, the maximum amount of memory a PowerShell remote session can use is 
 winrm get winrm/config
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/06/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/06/image_thumb.png" alt="image" width="409" height="795" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/06/image.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/06/image_thumb.png" alt="image" width="409" height="795" border="0" /></a>
 
 Depending on how much data the remote session has to process, you might running into problems.
 
@@ -97,11 +97,11 @@ Here’s what happened when I tried to run both scripts:
 
 **#1:**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/06/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/06/image_thumb1.png" alt="image" width="580" height="270" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/06/image1.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/06/image_thumb1.png" alt="image" width="580" height="270" border="0" /></a>
 
 **#2:**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/06/image2.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/06/image_thumb2.png" alt="image" width="580" height="469" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/06/image2.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/06/image_thumb2.png" alt="image" width="580" height="469" border="0" /></a>
 
 As you can see, script #2 worked as expected but script #1 throws an exception:
 
@@ -139,7 +139,7 @@ $agent
 
 The management group I have connected to has around 5000 agents at the moment, so it’s a reasonable size. Below is what happened:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/06/image3.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2012/06/image_thumb3.png" alt="image" width="580" height="302" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/06/image3.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2012/06/image_thumb3.png" alt="image" width="580" height="302" border="0" /></a>
 
 PowerShell threw an exception:
 
@@ -157,7 +157,7 @@ winrm set winrm/config/winrs `@`{MaxMemoryPerShellMB=`"512`"`}
 
 After the increase, my get-agent script ran successfully:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2012/06/image41.png"><img class="alignleft size-full wp-image-1271" title="image4" src="http://blog.tyang.org/wp-content/uploads/2012/06/image41.png" alt="" width="929" height="768" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2012/06/image41.png"><img class="alignleft size-full wp-image-1271" title="image4" src="https://blog.tyang.org/wp-content/uploads/2012/06/image41.png" alt="" width="929" height="768" /></a>
 
 **Conclusion:**
 

@@ -4,7 +4,7 @@ title: A Free Management Pack Catalog for Everyone
 date: 2014-12-12T19:17:20+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3516
+guid: https://blog.tyang.org/?p=3516
 permalink: /2014/12/12/free-management-pack-catalog-everyone/
 categories:
   - SCOM
@@ -20,9 +20,9 @@ As I mentioned at the end of the second post, I was working with my SCCDM MVP fr
 
 I am pleased to announce, everyone can now access this catalog from this URL:
 <h2><a title="http://sharepoint.sparqconsulting.com.au/mpcatalog" href="http://sharepoint.sparqconsulting.com.au/mpcatalog">http://sharepoint.sparqconsulting.com.au/mpcatalog</a></h2>
-<a href="http://blog.tyang.org/wp-content/uploads/2014/12/image23.png"><img class="" style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/12/image_thumb23.png" alt="image" width="693" height="380" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/12/image23.png"><img class="" style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/12/image_thumb23.png" alt="image" width="693" height="380" border="0" /></a>
 
-This catalog is publicly available, no login is required. Consider it as a Christmas gift from us <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://blog.tyang.org/wp-content/uploads/2014/12/wlEmoticon-smile2.png" alt="Smile" />.
+This catalog is publicly available, no login is required. Consider it as a Christmas gift from us <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="https://blog.tyang.org/wp-content/uploads/2014/12/wlEmoticon-smile2.png" alt="Smile" />.
 
 This catalog is hosted on SharePoint Online, and I have scheduled the Azure Automation runbook to run daily at 9:00pm of my local time to Synchronise with Microsoft’s MP Catalog (It’s Australia Eastern Standard Tiime).
 

@@ -4,7 +4,7 @@ title: New PowerShell Module HybridWorkerToolkit
 date: 2016-04-20T20:39:07+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5346
+guid: https://blog.tyang.org/?p=5346
 permalink: /2016/04/20/new-powershell-module-hybridworkertoolkit/
 categories:
   - Azure
@@ -15,7 +15,7 @@ tags:
   - OMS
   - PowerShell
 ---
-**<a href="http://blog.tyang.org/wp-content/uploads/2016/04/HybridWorkerToolkit.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px none;" title="HybridWorkerToolkit" src="http://blog.tyang.org/wp-content/uploads/2016/04/HybridWorkerToolkit_thumb.png" alt="HybridWorkerToolkit" width="172" height="171" align="left" border="0" /></a><span style="color: #ff0000;">23/04/2016 Update:</span>** released version 1.0.3 to GitHub and PowerShell gallery. New additions documented in <a href="http://blog.tyang.org/2016/04/23/hybridworkertoolkit-powershell-module-updated-to-version-1-0-3/">this blog post</a>.
+**<a href="https://blog.tyang.org/wp-content/uploads/2016/04/HybridWorkerToolkit.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px none;" title="HybridWorkerToolkit" src="https://blog.tyang.org/wp-content/uploads/2016/04/HybridWorkerToolkit_thumb.png" alt="HybridWorkerToolkit" width="172" height="171" align="left" border="0" /></a><span style="color: #ff0000;">23/04/2016 Update:</span>** released version 1.0.3 to GitHub and PowerShell gallery. New additions documented in <a href="https://blog.tyang.org/2016/04/23/hybridworkertoolkit-powershell-module-updated-to-version-1-0-3/">this blog post</a>.
 
 <span style="color: #ff0000;">**21/04/2016 Update:**</span> updated GitHub and PowerShell gallery and released version 1.0.2 with minor bug fix and updated help file.
 
@@ -141,19 +141,19 @@ As you can see, the way to call these functions between PowerShell and PowerShel
 
 Hybrid Worker Configuration output:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML40e35ad.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML40e35ad" src="http://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML40e35ad_thumb.png" alt="SNAGHTML40e35ad" width="449" height="199" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML40e35ad.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML40e35ad" src="https://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML40e35ad_thumb.png" alt="SNAGHTML40e35ad" width="449" height="199" border="0" /></a>
 
 Hybrid Worker Job Runtime Info output:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML40f4d28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML40f4d28" src="http://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML40f4d28_thumb.png" alt="SNAGHTML40f4d28" width="455" height="179" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML40f4d28.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML40f4d28" src="https://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML40f4d28_thumb.png" alt="SNAGHTML40f4d28" width="455" height="179" border="0" /></a>
 
 Event generated (with basic information / without setting –LogHybridWorkerConfig to $true):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML4159a604.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML4159a60[4]" src="http://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML4159a604_thumb.png" alt="SNAGHTML4159a60[4]" width="624" height="342" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML4159a604.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML4159a60[4]" src="https://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML4159a604_thumb.png" alt="SNAGHTML4159a60[4]" width="624" height="342" border="0" /></a>
 
 Event generated (whensetting –LogHybridWorkerConfig to $true):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML4150515.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML4150515" src="http://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML4150515_thumb.png" alt="SNAGHTML4150515" width="620" height="381" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML4150515.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML4150515" src="https://blog.tyang.org/wp-content/uploads/2016/04/SNAGHTML4150515_thumb.png" alt="SNAGHTML4150515" width="620" height="381" border="0" /></a>
 
 ## Consuming collected events in OMS
 
@@ -167,7 +167,7 @@ i.e. I can use this query to get all events logged by a particular runbook:
 Type=Event "RunbookName: Test-HybridWorkerOutput-PSW"
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/04/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/04/image_thumb.png" alt="image" width="555" height="346" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/04/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/04/image_thumb.png" alt="image" width="555" height="346" border="0" /></a>
 
 or use this query to get all events for a particular job:
 
@@ -175,7 +175,7 @@ or use this query to get all events for a particular job:
 Type=Event "JobId: 73A3827D-73F8-4ECC-9DE1-B9340FB90744"
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/04/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/04/image_thumb-1.png" alt="image" width="567" height="366" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/04/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/04/image_thumb-1.png" alt="image" width="567" height="366" border="0" /></a>
 
 ### OMS Alerts
 
@@ -185,9 +185,9 @@ i.e. if I want to create an OMS alert for any Error events logged by New-HybridW
 Type=Event Source=AzureAutomation?Job* EventLevelName=Error
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/04/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/04/image_thumb-2.png" alt="image" width="606" height="423" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/04/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/04/image_thumb-2.png" alt="image" width="606" height="423" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/04/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/04/image_thumb-3.png" alt="image" width="483" height="369" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/04/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/04/image_thumb-3.png" alt="image" width="483" height="369" border="0" /></a>
 
 ## Download / Deploy this module
 

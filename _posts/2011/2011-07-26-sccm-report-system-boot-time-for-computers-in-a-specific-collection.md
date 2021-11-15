@@ -4,7 +4,7 @@ title: 'SCCM Report: &ldquo;System Boot Time for Computers in a Specific Collect
 date: 2011-07-26T11:28:13+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=610
+guid: https://blog.tyang.org/?p=610
 permalink: /2011/07/26/sccm-report-system-boot-time-for-computers-in-a-specific-collection/
 categories:
   - SCCM

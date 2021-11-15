@@ -4,7 +4,7 @@ title: Unresponsive SCOM 2007 R2 Console
 date: 2011-05-27T19:18:25+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=547
+guid: https://blog.tyang.org/?p=547
 permalink: /2011/05/27/unresponsive-scom-2007-r2-console/
 categories:
   - SCOM
@@ -25,15 +25,15 @@ After a bit digging around I noticed there are some messeges logged in the event
 
 <strong>From Security Log</strong>:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/05/image6.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/05/image_thumb6.png" border="0" alt="image" width="655" height="456" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/05/image6.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/05/image_thumb6.png" border="0" alt="image" width="655" height="456" /></a>
 
 Windows Filtering Platform is blocking SQL traffic from RMS to SQL server.
 
 <strong>From Operations Manager log:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/05/image7.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/05/image_thumb7.png" border="0" alt="image" width="682" height="474" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/05/image7.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/05/image_thumb7.png" border="0" alt="image" width="682" height="474" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/05/image8.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/05/image_thumb8.png" border="0" alt="image" width="689" height="476" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/05/image8.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/05/image_thumb8.png" border="0" alt="image" width="689" height="476" /></a>
 
 After googling around "Windows Filtering Platform", I found this post: <a href="http://social.msdn.microsoft.com/Forums/en-US/wfp/thread/774026e6-a771-418a-b531-22183ef399f8/">http://social.msdn.microsoft.com/Forums/en-US/wfp/thread/774026e6-a771-418a-b531-22183ef399f8/</a>
 
@@ -49,9 +49,9 @@ There is one response in this post:
 
 My problem was that the Windows Firewall Service is disabled:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/05/image9.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/05/image_thumb9.png" border="0" alt="image" width="704" height="244" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/05/image9.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/05/image_thumb9.png" border="0" alt="image" width="704" height="244" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2011/05/image10.png"><img style="display: inline; border-width: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2011/05/image_thumb10.png" border="0" alt="image" width="699" height="66" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2011/05/image10.png"><img style="display: inline; border-width: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2011/05/image_thumb10.png" border="0" alt="image" width="699" height="66" /></a>
 
 <strong>This is what I did to fix the issue</strong>:
 <ol>

@@ -4,7 +4,7 @@ title: Small Bug Fix in OpsMgr Self Maintenance MP V2.5.0.0
 date: 2015-09-18T10:48:08+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4630
+guid: https://blog.tyang.org/?p=4630
 permalink: /2015/09/18/small-bug-fix-in-opsmgr-self-maintenance-mp-v2-5-0-0/
 categories:
   - SCOM
@@ -13,7 +13,7 @@ tags:
   - MP Authoring
   - SCOM
 ---
-Last night, someone left a comment on the my <a href="http://blog.tyang.org/2015/09/16/opsmgr-self-maintenance-management-pack-2-5-0-0/">post for the OpsMgr Self Maintenance MP V2.5.0.0</a> and advised a configuration in the Data Warehouse staging tables row count performance collection rules is causing issues with the Exchange Correlation service – which is a part of the Exchange MP. This issue was previously identified for other MPs: <a title="https://social.technet.microsoft.com/Forums/en-US/f724545d-90a3-42e6-950e-72e14ac0bd9d/exchange-correlation-service-cannot-connect-to-rms?forum=operationsmanagermgmtpacks" href="https://social.technet.microsoft.com/Forums/en-US/f724545d-90a3-42e6-950e-72e14ac0bd9d/exchange-correlation-service-cannot-connect-to-rms?forum=operationsmanagermgmtpacks">https://social.technet.microsoft.com/Forums/en-US/f724545d-90a3-42e6-950e-72e14ac0bd9d/exchange-correlation-service-cannot-connect-to-rms?forum=operationsmanagermgmtpacks</a>
+Last night, someone left a comment on the my <a href="https://blog.tyang.org/2015/09/16/opsmgr-self-maintenance-management-pack-2-5-0-0/">post for the OpsMgr Self Maintenance MP V2.5.0.0</a> and advised a configuration in the Data Warehouse staging tables row count performance collection rules is causing issues with the Exchange Correlation service – which is a part of the Exchange MP. This issue was previously identified for other MPs: <a title="https://social.technet.microsoft.com/Forums/en-US/f724545d-90a3-42e6-950e-72e14ac0bd9d/exchange-correlation-service-cannot-connect-to-rms?forum=operationsmanagermgmtpacks" href="https://social.technet.microsoft.com/Forums/en-US/f724545d-90a3-42e6-950e-72e14ac0bd9d/exchange-correlation-service-cannot-connect-to-rms?forum=operationsmanagermgmtpacks">https://social.technet.microsoft.com/Forums/en-US/f724545d-90a3-42e6-950e-72e14ac0bd9d/exchange-correlation-service-cannot-connect-to-rms?forum=operationsmanagermgmtpacks</a>
 
 In a nutshell, looks like the Exchange Correlation service does not like rules that have category set to "None".
 

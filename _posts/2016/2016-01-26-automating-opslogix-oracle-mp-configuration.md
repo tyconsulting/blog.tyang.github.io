@@ -4,7 +4,7 @@ title: Automating OpsLogix Oracle MP Configuration
 date: 2016-01-26T10:09:51+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5153
+guid: https://blog.tyang.org/?p=5153
 permalink: /2016/01/26/automating-opslogix-oracle-mp-configuration/
 categories:
   - PowerShell
@@ -33,7 +33,7 @@ This template allows you to create a monitor that will check the health of an el
 
 Like any other OpsMgr management pack templates, the above mentioned templates can be found in the Authoring pane of the OpsMgr console, under "Management Pack Templates":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-12.png" alt="image" width="589" height="408" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-12.png" alt="image" width="589" height="408" border="0" /></a>
 
 ## Some Background on Management Pack Templates
 
@@ -49,7 +49,7 @@ So what other options do we have? Fortunately, the management pack template inst
 
 ## Automating MP Template Instance Creation
 
-If you have been following my blog series "<a href="http://blog.tyang.org/blog.tyang.org/tag/automating-opsmgr/">Automating OpsMgr</a>", you may have already read <a href="http://blog.tyang.org/2015/10/04/automating-opsmgr-part-17-creating-windows-service-management-pack-template-instance/">Part 17 of this series: Creating Windows Service Management Pack Template Instance</a>, where I demonstrated a runbook leveraging the <a href="http://www.tyconsulting.com.au/portfolio/opsmgrextended-powershell-and-sma-module/">OpsMgrExtended PowerShell module</a> and enabled people to create a management pack template instance (in this case, the Windows Service template) using one line of PowerShell script. This was a great example on how to create the template instances in mass scales.
+If you have been following my blog series "<a href="https://blog.tyang.org/blog.tyang.org/tag/automating-opsmgr/">Automating OpsMgr</a>", you may have already read <a href="https://blog.tyang.org/2015/10/04/automating-opsmgr-part-17-creating-windows-service-management-pack-template-instance/">Part 17 of this series: Creating Windows Service Management Pack Template Instance</a>, where I demonstrated a runbook leveraging the <a href="http://www.tyconsulting.com.au/portfolio/opsmgrextended-powershell-and-sma-module/">OpsMgrExtended PowerShell module</a> and enabled people to create a management pack template instance (in this case, the Windows Service template) using one line of PowerShell script. This was a great example on how to create the template instances in mass scales.
 
 OK, let’s go back to the OpsLogix Oracle MP… Just to put it out there, my experience with Oracle DB is very limited. Throughout the years I spent in IT, I’ve only been dealing with Microsoft’s SQL servers. Based on my experience with SQL, I know that every DBA will have a set of queries they regularly use to monitor their SQL environments. I assume this is also the case for Oracle. So, one of the first concerns I had when I started playing with this MP is, creating user defined monitoring scenarios could be very time consuming when using the management pack template wizards. Therefore, I spent few hours today, and produced 3 separate PowerShell functions that people can use to create instances for the 3 templates mentioned above. These functions are:
 
@@ -74,31 +74,31 @@ Firstly, I’ll create a test MP using the **New-OMManagementPack** command from
 ```powershell
 New-OMManagementPack -SDK "OMMS01" -Name "TYANG.OpsLogix.Test" -DisplayName "TYANG OpsLogix Test MP" -Description "Custom MP for OpsLogix test MP" -Version 1.0.0.0 –Verbose
 ```
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-13.png" alt="image" width="651" height="131" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-13.png" alt="image" width="651" height="131" border="0" /></a>
 
 **02. Create an instance for the alert rule template (using PowerShell Splatting)**
 
 Calling the New-OpsLogixOracleAlertTemplateInstance function:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-14.png" alt="image" width="650" height="460" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-14.png" alt="image" width="650" height="460" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML7af883b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7af883b" src="http://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML7af883b_thumb.png" alt="SNAGHTML7af883b" width="528" height="318" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML7af883b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7af883b" src="https://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML7af883b_thumb.png" alt="SNAGHTML7af883b" width="528" height="318" border="0" /></a>
 
 **03. Create an instance for the performance collection template**
 
 Calling the New-OpsLogixOraclePerfTemplateInstance function:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-15.png" alt="image" width="650" height="386" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-15.png" alt="image" width="650" height="386" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML7b050da.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7b050da" src="http://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML7b050da_thumb.png" alt="SNAGHTML7b050da" width="526" height="315" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML7b050da.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7b050da" src="https://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML7b050da_thumb.png" alt="SNAGHTML7b050da" width="526" height="315" border="0" /></a>
 
 **04. Create an instance for the Two-State Monitor template**
 
 Calling the New-OpsLogixOracle2StateMonitorTemplateInstance function:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-16.png" alt="image" width="650" height="467" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-16.png" alt="image" width="650" height="467" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML7b1236d.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7b1236d" src="http://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML7b1236d_thumb.png" alt="SNAGHTML7b1236d" width="538" height="322" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML7b1236d.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML7b1236d" src="https://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML7b1236d_thumb.png" alt="SNAGHTML7b1236d" width="538" height="322" border="0" /></a>
 
 **Note:** There is also a test.ps1 script in this Github repository. It contains the test parameters used as shown in the screenshots above.
 

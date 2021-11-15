@@ -4,7 +4,7 @@ title: 'OMSSearch Module Sample Runbook: Invoke-OMSSavedSearch'
 date: 2015-07-10T22:38:00+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4173
+guid: https://blog.tyang.org/?p=4173
 permalink: /2015/07/10/omssearch-module-sample-runbook-invoke-omssavedsearch/
 categories:
   - OMS
@@ -72,21 +72,21 @@ workflow Invoke-OMSSavedSearch
 
 This runbook expects 3 input parameters:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb20.png" alt="image" width="473" height="409" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb20.png" alt="image" width="473" height="409" border="0" /></a>
 
 * **OMSConnectionName:** the name of the OMS Connection object defined in SMA or Azure Automation
 * **SavedSearchCategory:** the saved search category you specified when you saved the search query
 * **SavedSearchName:** the display name of the saved search you specified when you saved the search query
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML23f6a166.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML23f6a166" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML23f6a166_thumb.png" alt="SNAGHTML23f6a166" width="501" height="375" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML23f6a166.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML23f6a166" src="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML23f6a166_thumb.png" alt="SNAGHTML23f6a166" width="501" height="375" border="0" /></a>
 
 Runbook Result in SMA:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML23f938da.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML23f938da" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML23f938da_thumb.png" alt="SNAGHTML23f938da" width="680" height="578" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML23f938da.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML23f938da" src="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML23f938da_thumb.png" alt="SNAGHTML23f938da" width="680" height="578" border="0" /></a>
 
 Same event in OMS:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb21.png" alt="image" width="986" height="646" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb21.png" alt="image" width="986" height="646" border="0" /></a>
 
 **Pre-Requisite:**
 

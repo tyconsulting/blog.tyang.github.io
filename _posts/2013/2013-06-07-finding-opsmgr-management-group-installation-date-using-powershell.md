@@ -4,7 +4,7 @@ title: Finding OpsMgr Management Group Installation Date Using PowerShell
 date: 2013-06-07T14:47:29+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1955
+guid: https://blog.tyang.org/?p=1955
 permalink: /2013/06/07/finding-opsmgr-management-group-installation-date-using-powershell/
 categories:
   - SCOM
@@ -30,7 +30,7 @@ $MG.GetManagementGroupMonitoringObject()
 
 **TimeAdded** property indicates the MG initial installation date.
 
-![](http://blog.tyang.org/wp-content/uploads/2013/06/image.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/06/image.png)
 
 **Using OperationsManager PowerShell module:**
 
@@ -40,4 +40,4 @@ $mg = Get-SCOMManagementGroup
 $mg.GetManagementGroupMonitoringObject() | format-list
 ```
 
-![](http://blog.tyang.org/wp-content/uploads/2013/06/image1.png)
+![](https://blog.tyang.org/wp-content/uploads/2013/06/image1.png)

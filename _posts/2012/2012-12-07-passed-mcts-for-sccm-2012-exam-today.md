@@ -4,7 +4,7 @@ title: Passed MCTS for SCCM 2012 Exam today
 date: 2012-12-07T18:15:22+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1662
+guid: https://blog.tyang.org/?p=1662
 permalink: /2012/12/07/passed-mcts-for-sccm-2012-exam-today/
 categories:
   - SCCM

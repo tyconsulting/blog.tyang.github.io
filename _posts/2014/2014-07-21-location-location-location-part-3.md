@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2014/07/location-graphic.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=3000
+guid: https://blog.tyang.org/?p=3000
 permalink: /2014/07/21/location-location-location-part-3/
 categories:
   - SCOM
@@ -26,19 +26,19 @@ I often see people post of Facebook or Twitter that he or she has checked in at 
 
 So, I firstly need to collect the location data periodically. Therefore, I created an event collection rule targeting the "Location Aware Windows Client Computer" class I created (explained in Part 2 of this series). This rule uses the same data source module as the "Location Aware Device Missing In Action Monitor" which I also explained in Part 2. I have configured this rule to pass the exact same data to the data source module as what the monitor does, – so we can utilise [Cook Down](http://technet.microsoft.com/en-us/library/ff381335.aspx) (basically the data source only execute once and feed the output data to both the rule and the monitor).
 
-![](http://blog.tyang.org/wp-content/uploads/2014/07/image17.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/07/image17.png)
 
 >**Note:** Although this rule does not require the home latitude and longitude and these 2 inputs are optional for the data source module, I still pass these 2 values in. Because in order to use Cook Down, both workflows need to pass the exact same data to the data source module. By not doing this, the same script will run twice in each scheduling cycle.
 
 This rule maps the data collected from the data source module to event data, and stores the data in both Ops DB and DW DB. I’ve created a event view in the management pack, you can see the events created:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTMLb60c734.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTMLb60c734.png)
 
 ## Location History Dashboard
 
 Now, that the data has been captured and stored in OpsMgr databases as event data, we can consume this data in a dashboard:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTMLb65f9e4.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/07/SNAGHTMLb65f9e4.png)
 
 As shown above, there are 3 widgets in this Location History dashboard:
 
@@ -50,7 +50,7 @@ The last 50 known locations for the selected devices are listed on bottom left s
 
 >**Note:** the location shown in above screenshot is my office. I took my Surface to work, powered it on and connected to a 4G device, it automatically connected to my lab network using DirectAccess.
 
-![](http://blog.tyang.org/wp-content/uploads/2014/07/Surface-in-car.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/07/Surface-in-car.png)
 
 Since this event was collected over 2 days ago, for demonstration purpose, I had to modify the PowerShell grid widget to list a lot more than 50 previous locations.
 
@@ -141,7 +141,7 @@ Also, when I was trying to setup DirectAccess to get my lab ready for this exper
 
 ## Download
 
-You can download the actual monitoring MP and dashboard MP, as well as all the scripts I used in the MP and dashboards [**HERE**](http://blog.tyang.org/wp-content/uploads/2014/07/Location-Location-Location.zip).
+You can download the actual monitoring MP and dashboard MP, as well as all the scripts I used in the MP and dashboards [**HERE**](https://blog.tyang.org/wp-content/uploads/2014/07/Location-Location-Location.zip).
 
 >**Note:** For the monitoring MP (Location.Aware.Devices.Monitoring), I’ve also included the unsealed version in the zip file for your convenience (so you don’t have to unseal it if you want to look inside). Please do not import it into your management group because the dashboard MP is referencing it, therefore it has to be sealed.
 

@@ -4,7 +4,7 @@ title: Recordings Available for the VSAE MP Authoring Webinar with Squared Up
 date: 2016-04-29T18:57:59+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5384
+guid: https://blog.tyang.org/?p=5384
 permalink: /2016/04/29/recordings-available-for-the-vsae-mp-authoring-webinar-with-squared-up/
 categories:
   - SCOM

@@ -4,7 +4,7 @@ title: Unable to Select VMM Server in Assign Cloud Resources Wizard in Service M
 date: 2013-04-18T22:16:08+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1898
+guid: https://blog.tyang.org/?p=1898
 permalink: /2013/04/18/unable-to-select-vmm-server-in-assign-cloud-resources-wizard-in-service-manager/
 categories:
   - SCOM
@@ -18,7 +18,7 @@ In the last few days, I’ve been going through the labs from Microsoft’s cour
 
 Last night, I created a Cloud Resources Subscription Request, and then tried to assign the cloud resources to this request. While I was going through the "Assign Cloud Resources" wizard, I got stuck because my VMM server does not show up in the drop down list:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb17.png" width="580" height="407" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/04/image_thumb17.png" width="580" height="407" border="0" /></a>
 
 This has really annoyed me as it’s hard for me to find time to study and prepare for the exam with all the stuff going on at work. The only time I can study is from 9:30pm to 1:00am – after my daughter went to bed… the last thing I want to see at 12:00 mid night is an error stop me from going through the lab.
 
@@ -36,10 +36,10 @@ I also found out the VMM 2012 management pack on Microsoft’s management pack c
 
 After I imported version 3.1.6011.0 to Service Manager (because it’s the latest version and it’s the version in OpsMgr), I was able to select VMM 2012 Discovery MP in the OpsMgr CI connector:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb18.png" width="556" height="391" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/04/image_thumb18.png" width="556" height="391" border="0" /></a>
 
 I went to bed after I manually kicked off the connector synchronisation, this morning, the VMM server address appeared in the wizard:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/04/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/04/image_thumb19.png" width="580" height="410" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/04/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/04/image_thumb19.png" width="580" height="410" border="0" /></a>
 
 Well, I guess it’s all part of the learning. Since I’m still pretty new to Service Manager, I’m not sure how many people in System Center community already know this issue. This post is more like a note to myself. I’m not sure why Microsoft included a very old version of the VMM MP in the most recent release of the Cloud Service Process Pack (which was only released last month).

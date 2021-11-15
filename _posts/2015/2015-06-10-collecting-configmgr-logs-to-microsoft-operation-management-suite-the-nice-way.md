@@ -4,7 +4,7 @@ title: 'Collecting ConfigMgr Logs To Microsoft Operation Management Suite &#8211
 date: 2015-06-10T01:25:25+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3979
+guid: https://blog.tyang.org/?p=3979
 permalink: /2015/06/10/collecting-configmgr-logs-to-microsoft-operation-management-suite-the-nice-way/
 categories:
   - OMS
@@ -58,11 +58,11 @@ A line of ConfigMgr log entry consists of many piece of information. And the ser
 
 **Server Log file:**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML9a32655.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML9a32655" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML9a32655_thumb.png" alt="SNAGHTML9a32655" width="685" height="271" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML9a32655.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML9a32655" src="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML9a32655_thumb.png" alt="SNAGHTML9a32655" width="685" height="271" border="0" /></a>
 
 **Client Log File:**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML9aee440.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML9aee440" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML9aee440_thumb.png" alt="SNAGHTML9aee440" width="686" height="320" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML9aee440.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML9aee440" src="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML9aee440_thumb.png" alt="SNAGHTML9aee440" width="686" height="320" border="0" /></a>
 
 Before sending the information to OMS, we firstly must capture only the useful information from each entry, transform them into a more structured way (such as Windows Event log format), so these fields would become searchable once been stored and indexed in your OMS workspace.
 
@@ -104,7 +104,7 @@ Execute query exec [sp_CP_GetPushRequestMachine] 2097152112~  $$<SMS_CLIENT_CON
 
 RegEx Match:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb.png" alt="image" width="711" height="457" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb.png" alt="image" width="711" height="457" border="0" /></a>
 
 ### Client Log entry:
 
@@ -121,13 +121,13 @@ Sample Log entry:
 
 RegEx Match:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb1.png" alt="image" width="715" height="464" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb1.png" alt="image" width="715" height="464" border="0" /></a>
 
 ### NiCE Log MP Regular Expression Tester
 
 The NiCE Log MP also provides a Regular Expression Tester UI in the management pack. The good thing about this RegEx tester is, it also shows you what the management pack module output would be (in XML and XPath):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb2.png" alt="image" width="600" height="609" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb2.png" alt="image" width="600" height="609" border="0" /></a>
 
 Now, I hope you get the bigger picture of what I want to achieve now. I want to use OpsMgr 2012, NiCE Log File MP to collect various ConfigMgr 2012 log files (both client and server logs), and then send over to OMS via OpsMgr. It is now time to talk about the management packs.
 
@@ -169,7 +169,7 @@ To map the rule structure into our requirement, the rules we are going to author
 
 Unfortunately, we cannot build our rules 100% from the OpsMgr operations console. The NiCE Log File MP does not provide any event collection rules in the UI. There are only alert rules and performance collection rules to choose from:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb3.png" alt="image" width="596" height="512" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb3.png" alt="image" width="596" height="512" border="0" /></a>
 
 This is OK, because as I explained before, rules consists of 3 types of modules. An alert rule generated in this UI would have 2 member modules:
 
@@ -213,11 +213,11 @@ This sealed management pack is optional, you do not have to use it.
 
 As I mentioned earlier, you will need to specify the log directory when creating the rule. The problem with this is, when you are creating a rule for a ConfigMgr server log file, it’s probably not ideal if you have to specify a static value because in a large environment where there are multiple ConfigMgr sites, the ConfigMgr install directory on each site server could be different. Unfortunately, the ConfigMgr 2012 management pack from Microsoft does not define and discovery the install folder or log folder as a property of the site server:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb4.png" alt="image" width="618" height="390" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb4.png" alt="image" width="618" height="390" border="0" /></a>
 
 To demonstrate how we can overcome this problem, I have created this management pack. In this management pack, I have defined a new class called "ConfigMgr 2012 Site Server Extended", it is based on the existing class defined from the Microsoft ConfigMgr 2012 MP. I have defined and discovered an additional property called "Log Folder":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb5.png" alt="image" width="588" height="415" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb5.png" alt="image" width="588" height="415" border="0" /></a>
 
 By doing so, we can variablise the "LogDirectory" parameter when creating the rules by passing the value of this property to the rule (I’ll demonstrate later).
 
@@ -233,7 +233,7 @@ This rule is targeting the "ConfigMgr 2012 Site Server Extended" class defined i
 
 **Collect ConfigMgr Client ContentTransferManager.Log to OpsMgr Data Warehouse and OMS rule**
 
-This rule targets the "System Center ConfigMgr 2012 Client" class which is defined in the <a href="http://blog.tyang.org/2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/">ConfigMgr 2012 (R2) Client Management Pack Version 1.2.0.0</a> (which is also developed by myself).
+This rule targets the "System Center ConfigMgr 2012 Client" class which is defined in the <a href="https://blog.tyang.org/2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/">ConfigMgr 2012 (R2) Client Management Pack Version 1.2.0.0</a> (which is also developed by myself).
 
 This rule collects the ContentTransferManager.log only to Data Warehouse DB and OMS.
 
@@ -254,11 +254,11 @@ You will then be able to search the events:
 
 Client Log Example:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb6.png" alt="image" width="704" height="426" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb6.png" alt="image" width="704" height="426" border="0" /></a>
 
 Server Log Example:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb7.png" alt="image" width="703" height="408" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb7.png" alt="image" width="703" height="408" border="0" /></a>
 
 As you can see, each field identified by the Regular Expression in NiCE data source module are structured in different parameters in the OMS log entry. You can also perform more complex searches. Please refer to the articles listed below for more details:
 
@@ -289,7 +289,7 @@ You may download all 3 management packs from TY Consulting’s web site: [http:/
 
 ## What’s Next?
 
-I understand writing management packs is not a task for everyone, currently, you will need to write your own MP to capture the log files of your choice. I am working on an automated solution. I am getting very close in releasing the [OpsMgrExtended PowerShell / SMA module](http://blog.tyang.org/2015/02/01/session-recording-presentation-microsoft-mvp-community-camp-melbourne-event) that I’ve been working since August last year. In this module, I will provide a way to automate OpsMgr rule creation using PowerShell. I will write a follow-up post after the release of OpsMgrExtended module to go through how to use PowerShell to create these ConfigMgr log collection rules. So, please stay tuned :smiley:
+I understand writing management packs is not a task for everyone, currently, you will need to write your own MP to capture the log files of your choice. I am working on an automated solution. I am getting very close in releasing the [OpsMgrExtended PowerShell / SMA module](https://blog.tyang.org/2015/02/01/session-recording-presentation-microsoft-mvp-community-camp-melbourne-event) that I’ve been working since August last year. In this module, I will provide a way to automate OpsMgr rule creation using PowerShell. I will write a follow-up post after the release of OpsMgrExtended module to go through how to use PowerShell to create these ConfigMgr log collection rules. So, please stay tuned :smiley:
 
 **Note: **I’d like to warn everyone who’s going to implement this solution: Please do not leave these rules enabled by default when you’ve just created it. You need to have a better understanding on how much data is sending to OMS as there is a cost associated in how much data is sending to it, as well as the impact to your link to the Internet. So please make them disabled by default, start with a smaller group.
 

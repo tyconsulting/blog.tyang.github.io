@@ -4,7 +4,7 @@ title: Making PowerShell Based Azure Functions to Produce HTML Outputs
 date: 2016-10-13T20:53:52+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5735
+guid: https://blog.tyang.org/?p=5735
 permalink: /2016/10/13/making-powershell-based-azure-functions-to-produce-html-outputs/
 categories:
   - Azure
@@ -42,15 +42,15 @@ Today we ran into an issue while preparing for our next blog posts, after some d
 
 If I use Invoke-WebRequest cmdlet in Powershell to trigger this PowerShell function, I am able to get the HTML output in the request output content and everything looks good:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-19.png" alt="image" width="650" height="104" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-19.png" alt="image" width="650" height="104" border="0" /></a>
 
 However, if we simply invoke this function from a browser, although the output is in HTML format, the browser does not display the HTML page. it displays the HTML source code instead:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-20.png" alt="image" width="522" height="183" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-20.png" alt="image" width="522" height="183" border="0" /></a>
 
 after some research, we found the cause of this issue – the content type returned by the PowerShell function is always set to "text/plain":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-21.png" alt="image" width="373" height="242" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-21.png" alt="image" width="373" height="242" border="0" /></a>
 
 I suspect this is because for PowerShell based functions, we have to output to a file ($res variable by default). I have tried to construct a proper HTTP response message (System.Net.Http.HttpResponseMessage), but it didn’t work in the PowerShell functions. Based on my testing results, it seems PowerShell functions cannot handle complex types.
 
@@ -103,11 +103,11 @@ https://\<Your Azure Function Account\>.azurewebsites.net/api/HttpTriggerProxy?c
 
 Now if I use this wrapper to invoke the sample GetCars PowerShell function, the HTML page is displayed in the browser as expected:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-22.png" alt="image" width="646" height="132" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-22.png" alt="image" width="646" height="132" border="0" /></a>
 
 and you can see the content type is now set as "text/html":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/10/image-23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-23.png" alt="image" width="692" height="256" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/10/image-23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/10/image_thumb-23.png" alt="image" width="692" height="256" border="0" /></a>
 
 **<span style="background-color: #ffff00;">Note:</span>**
 

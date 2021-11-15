@@ -4,7 +4,7 @@ title: Updated ConfigMgr 2012 (R2) Client Management Pack Version 1.2.0.0
 date: 2014-10-04T18:41:56+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3225
+guid: https://blog.tyang.org/?p=3225
 permalink: /2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/
 categories:
   - SCCM
@@ -79,7 +79,7 @@ Version 1.2.0.0 has introduced a new feature that can monitor assigned DCM Compl
 
 By default, the discovery for DCM Baselines is disabled. It needs to be enabled on manually via overrides before DCM baselines can be monitored individually.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb.png" alt="image" width="698" height="261" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/10/image_thumb.png" alt="image" width="698" height="261" border="0" /></a>
 
 There are several groups can be used for overriding the DCM Baseline discovery:
 
@@ -94,13 +94,13 @@ There are several groups can be used for overriding the DCM Baseline discovery:
 
 Once the DCM baselines are discovered, their compliance status is monitored individually:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb1.png" alt="image" width="700" height="387" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/10/image_thumb1.png" alt="image" width="700" height="387" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML44656c89.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML44656c89" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML44656c89_thumb.png" alt="SNAGHTML44656c89" width="694" height="366" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML44656c89.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML44656c89" src="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML44656c89_thumb.png" alt="SNAGHTML44656c89" width="694" height="366" border="0" /></a>
 
 Additionally, the DCM Baselines have an agent task called "Evaluate DCM Baseline", which can be used to manually evaluate the baseline. This agent task performs the same action as the "Evaluate" button in the ConfigMgr 2012 client:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML44665daf.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML44665daf" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML44665daf_thumb.png" alt="SNAGHTML44665daf" width="667" height="321" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML44665daf.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML44665daf" src="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML44665daf_thumb.png" alt="SNAGHTML44665daf" width="667" height="321" border="0" /></a>
 
 <a name="_Toc400202277"></a><strong><span style="color: #000000;">ConfigMgr 2012 Client Enhanced Compliance Monitoring Management Pack</span></strong>
 
@@ -126,17 +126,17 @@ Separate RunAs accounts can be created and assigned to the "ConfigMgr 2012 Clien
 
 RunAs Account Example:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb2.png" alt="image" width="371" height="380" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/10/image_thumb2.png" alt="image" width="371" height="380" border="0" /></a>
 
 RunAs Profile:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML446ddb3a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML446ddb3a" src="http://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML446ddb3a_thumb.png" alt="SNAGHTML446ddb3a" width="473" height="432" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML446ddb3a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML446ddb3a" src="https://blog.tyang.org/wp-content/uploads/2014/10/SNAGHTML446ddb3a_thumb.png" alt="SNAGHTML446ddb3a" width="473" height="432" border="0" /></a>
 
 For More information about OpsMgr RunAs account and profile, please refer to: <a href="http://technet.microsoft.com/en-us/library/hh212714.aspx">http://technet.microsoft.com/en-us/library/hh212714.aspx</a>
 
 <b>Note:</b> When assigning a RunAs Account to the "ConfigMgr 2012 Client Local Administrator RunAs Account" profile, you will receive an error as below:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb3.png" alt="image" width="500" height="407" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/10/image_thumb3.png" alt="image" width="500" height="407" border="0" /></a>
 
 Please refer to the MP documentation section "14.3 Error Received when Adding RunAs Account to the RunAs Profile" for instruction on fixing this error.
 
@@ -144,13 +144,13 @@ Please refer to the MP documentation section "14.3 Error Received when Adding Ru
 
 This rule runs every 4 hours by default and checks if any registered ConfigMgr 2012 Client cache content has been deleted from the file system. When obsolete cache content is detected, this rule will remove the cache content entry from ConfigMgr 2012 client via WMI and generates an informational alert with the details of the missing cache content:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb4.png" alt="image" width="635" height="399" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/10/image_thumb4.png" alt="image" width="635" height="399" border="0" /></a>
 
 ## Additional Icons:
 
 Prior to this release, only the top level class ConfigMgr 2012 Client has its dedicated icons. I have spent a lot of time looking for icons for all other classes, I managed to produce icons for each monitoring classes in this release:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/10/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/10/image_thumb5.png" alt="image" width="650" height="359" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/10/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/10/image_thumb5.png" alt="image" width="650" height="359" border="0" /></a>
 
 >**Note:** I only managed to find high res icons for the Software Distribution Agent and the Software Update Agent (extracted from various DLLs and EXEs). I couldn’t find a way to extract icons from AdminUI.UIResources.DLL – where all the icons used by SCCM are stored. So for other icons, I had to use SnagIt to take screenshots of these icons. You may notice the quality is not that great, but after few days effort trying to find these icons, this is the best I can do. If you have a copy of these icons (res higher than 80x80), or know a way to extract these icons from AdminUI.UIResources.dll, please contact me and I’ll update them in the next release.
 
@@ -158,6 +158,6 @@ Prior to this release, only the top level class ConfigMgr 2012 Client has its de
 
 **BIG** thank you to David Allen for his work on the SCCM Compliance MP, and also helping me test this release!
 
-You can download the ConfigMgr 2012 Client MP Version 1.2.0.0 [**HERE**](http://blog.tyang.org/wp-content/uploads/2014/10/ConfigMgr-2012-Client-MP-V1.2.0.0.zip).
+You can download the ConfigMgr 2012 Client MP Version 1.2.0.0 [**HERE**](https://blog.tyang.org/wp-content/uploads/2014/10/ConfigMgr-2012-Client-MP-V1.2.0.0.zip).
 
 Until next time, happy SCOMMING!

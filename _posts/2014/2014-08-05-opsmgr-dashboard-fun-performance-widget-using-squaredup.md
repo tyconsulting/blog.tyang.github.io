@@ -4,7 +4,7 @@ title: 'OpsMgr Dashboard Fun: Performance Widget Using SquaredUp'
 date: 2014-08-05T22:45:22+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3106
+guid: https://blog.tyang.org/?p=3106
 permalink: /2014/08/05/opsmgr-dashboard-fun-performance-widget-using-squaredup/
 categories:
   - PowerShell
@@ -20,13 +20,13 @@ One of my favourite features is that SquaredUp has the capability to directly re
 
 I had some spare time today so I have installed the latest version in my home lab today. And I managed to create a dashboard using the PowerShell Web Browser widget for less than 10 minutes:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/08/image5.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/08/image5.png)
 
 This dashboard contains 2 widgets. the left one is a state widget targeting Windows Server class. the widget on the right is a PowerShell Web Browser widget which has been made available since OpsMgr 2012 SP1 UR6 and SP2 UR2.
 
 The script behind this widget is very simple. If you access the performance data of a server. the monitoring object ID and the timeframe are variables as part of the URL. so all I did is to pass these 2 variables. In this sample, I used the default timeframe of last 12 hours. you can specify other values if you like.
 
-![](http://blog.tyang.org/wp-content/uploads/2014/08/image6.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/08/image6.png)
 
 And here’s the script:
 

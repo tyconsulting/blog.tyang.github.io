@@ -4,7 +4,7 @@ title: Calculating SQL Database DTU for Azure SQL DB Using PowerShell
 date: 2016-07-17T18:58:50+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5418
+guid: https://blog.tyang.org/?p=5418
 permalink: /2016/07/17/calculating-sql-database-dtu-for-azure-sql-db-using-powershell/
 categories:
   - Azure
@@ -71,10 +71,10 @@ $DTUCalculationResult = Get-AzureSQLDBDTU -Core $Cores -apiPerformanceItems $api
 
 The recommended Azure SQL DB service tier and coverage % can be retrieved in the **‘Recommendations’** property of the result:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/07/image.png"><img style="padding-top: 0px; padding-left: 0px; margin: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/07/image_thumb.png" alt="image" width="244" height="90" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/07/image.png"><img style="padding-top: 0px; padding-left: 0px; margin: 0px; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/07/image_thumb.png" alt="image" width="244" height="90" border="0" /></a>
 
 the raw reading for each perf sample can be retrieved in the **‘SelectedServiceTiers’** property of the result:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/07/image-1.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/07/image_thumb-1.png" alt="image" width="689" height="164" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/07/image-1.png"><img style="padding-top: 0px; padding-left: 0px; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/07/image_thumb-1.png" alt="image" width="689" height="164" border="0" /></a>
 
 Lastly, thanks Justin for developing the DTU calculator and the web service, and pointing me to the right direction.

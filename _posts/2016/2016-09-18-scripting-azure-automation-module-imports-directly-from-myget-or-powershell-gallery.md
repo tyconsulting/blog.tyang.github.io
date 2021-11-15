@@ -4,7 +4,7 @@ title: Scripting Azure Automation Module Imports Directly from MyGet or PowerShe
 date: 2016-09-18T21:23:15+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5634
+guid: https://blog.tyang.org/?p=5634
 permalink: /2016/09/18/scripting-azure-automation-module-imports-directly-from-myget-or-powershell-gallery/
 categories:
   - Azure
@@ -17,11 +17,11 @@ There are few ways to add PowerShell modules to Azure Automation accounts:
 
 **1. Via the Azure Portal by uploading the module zip file from local computer.**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/09/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/09/image_thumb-2.png" alt="image" width="277" height="229" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/09/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/09/image_thumb-2.png" alt="image" width="277" height="229" border="0" /></a>
 
 **2. If the module is located in PowerShell Gallery, you can push it to your Automation Account directly from PowerShell Gallery.**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/09/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/09/image_thumb-3.png" alt="image" width="260" height="202" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/09/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/09/image_thumb-3.png" alt="image" width="260" height="202" border="0" /></a>
 
 **3. Use PowerShell cmdlet <a href="https://msdn.microsoft.com/en-us/library/mt603494.aspx">New-AzureRmAutomationModule</a> from the AzureRM.Automation module.**
 
@@ -49,7 +49,7 @@ New-AzureRmAutomationModule -ResourceGroupName $ResourceGroupName -AutomationAcc
 
 For a private MyGet feed, you can access it by embedding the API key into the URL:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/09/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/09/image_thumb-4.png" alt="image" width="662" height="577" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/09/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/09/image_thumb-4.png" alt="image" width="662" height="577" border="0" /></a>
 
 The URL for my module would be: **"http://www.myget.org/F/\<Your MyGet feed name\>/auth/\<MyGet API Key\>/api/v2/package/\<Module Name\>\<Module Version\>"**
 

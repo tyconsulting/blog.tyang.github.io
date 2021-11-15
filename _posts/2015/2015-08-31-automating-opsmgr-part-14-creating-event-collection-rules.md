@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4472
+guid: https://blog.tyang.org/?p=4472
 permalink: /2015/08/31/automating-opsmgr-part-14-creating-event-collection-rules/
 categories:
   - PowerShell
@@ -25,19 +25,19 @@ tags:
 
 This is the 14th installment of the Automating OpsMgr series. Previously on this series:
 
-* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
-* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
-* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
-* [Automating OpsMgr Part 4:Creating New Empty Groups](http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
-* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](http://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
-* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](http://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
-* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
-* [Automating OpsMgr Part 8: Adding Management Pack References](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/)
-* [Automating OpsMgr Part 9: Updating Group Discoveries](http://blog.tyang.org/2015/07/17/automating-opsmgr-part-9-updating-group-discoveries/)
-* [Automating OpsMgr Part 10: Deleting Groups](http://blog.tyang.org/2015/07/27/automating-opsmgr-part-10-deleting-groups/)
-* [Automating OpsMgr Part 11: Configuring Group Health Rollup](http://blog.tyang.org/2015/07/29/automating-opsmgr-part-11-configuring-group-health-rollup/)
-* [Automating OpsMgr Part 12: Creating Performance Collection Rules](http://blog.tyang.org/2015/08/08/automating-opsmgr-part-12-creating-performance-collection-rules/)
-* [Automating OpsMgr Part 13: Creating 2-State Performance Monitors](http://blog.tyang.org/2015/08/24/automating-opsmgr-part-13-creating-2-state-performance-monitors/)
+* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](https://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
+* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](https://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
+* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](https://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
+* [Automating OpsMgr Part 4:Creating New Empty Groups](https://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
+* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](https://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
+* [Automating OpsMgr Part 6: Adding Monitoring Objects to Instance Groups](https://blog.tyang.org/2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/)
+* [Automating OpsMgr Part 7: Updated OpsMgrExtended Module](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-7-updated-opsmgrextended-module/)
+* [Automating OpsMgr Part 8: Adding Management Pack References](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-8-adding-management-pack-references/)
+* [Automating OpsMgr Part 9: Updating Group Discoveries](https://blog.tyang.org/2015/07/17/automating-opsmgr-part-9-updating-group-discoveries/)
+* [Automating OpsMgr Part 10: Deleting Groups](https://blog.tyang.org/2015/07/27/automating-opsmgr-part-10-deleting-groups/)
+* [Automating OpsMgr Part 11: Configuring Group Health Rollup](https://blog.tyang.org/2015/07/29/automating-opsmgr-part-11-configuring-group-health-rollup/)
+* [Automating OpsMgr Part 12: Creating Performance Collection Rules](https://blog.tyang.org/2015/08/08/automating-opsmgr-part-12-creating-performance-collection-rules/)
+* [Automating OpsMgr Part 13: Creating 2-State Performance Monitors](https://blog.tyang.org/2015/08/24/automating-opsmgr-part-13-creating-2-state-performance-monitors/)
 
 Previously in part 12 and 13, I have demonstrated how to create performance related workflows using the OpsMgrExtended module. Today, I will start discussing event data, in this post, I will demonstrate how to create an event collection rule.
 
@@ -45,11 +45,11 @@ In the **OpsMgrExtended** module, there is a function called <strong>New-OMEvent
 
 **Get-Help New-OMEventCollectionRule**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML8b917c0.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8b917c0" src="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML8b917c0_thumb.png" alt="SNAGHTML8b917c0" width="585" height="338" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML8b917c0.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML8b917c0" src="https://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML8b917c0_thumb.png" alt="SNAGHTML8b917c0" width="585" height="338" border="0" /></a>
 
 A side note here, Last week, I received an email asked me if the OpsMgrExtended module can be used outside of SMA and Azure Automation. The answer is yes, it can be used as a normal PowerShell module. for all the functions included in the module, you can access the examples by using the Get-Help cmdlet with –Full or –Example switch:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image43.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb43.png" alt="image" width="674" height="520" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image43.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb43.png" alt="image" width="674" height="520" border="0" /></a>
 
 ## Runbook: New-EventCollectionRule
 
@@ -128,33 +128,33 @@ This runbook takes the following input parameters:
 
 Runbook Execution Result:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image44.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb44.png" alt="image" width="517" height="552" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image44.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb44.png" alt="image" width="517" height="552" border="0" /></a>
 
 Viewing the rule properties in OpsMgr operations console:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image45.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb45.png" alt="image" width="398" height="417" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image45.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb45.png" alt="image" width="398" height="417" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image46.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb46.png" alt="image" width="402" height="421" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image46.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb46.png" alt="image" width="402" height="421" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image47.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb47.png" alt="image" width="403" height="418" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image47.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb47.png" alt="image" width="403" height="418" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image48.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb48.png" alt="image" width="404" height="419" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image48.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb48.png" alt="image" width="404" height="419" border="0" /></a>
 
 ## What if I don’t want to use SMA or Azure Automation?
 
 Like I mentioned before, you don’t have to if you don’t want to. You can simply modify the runbook demonstrated above to run in a standalone PowerShell console by changing the PowerShell workflow to pass the OpsMgr management server name to the OpsMgrExtended functions (instead of SMA connection objects):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image49.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb49.png" alt="image" width="640" height="385" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image49.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb49.png" alt="image" width="640" height="385" border="0" /></a>
 
 After updated the script (which contains the PS Workflow), firstly run the workflow in PowerShell, then call / execute the workflow:
 
 Load the workflow:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML93cdde2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML93cdde2" src="http://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML93cdde2_thumb.png" alt="SNAGHTML93cdde2" width="675" height="542" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML93cdde2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML93cdde2" src="https://blog.tyang.org/wp-content/uploads/2015/08/SNAGHTML93cdde2_thumb.png" alt="SNAGHTML93cdde2" width="675" height="542" border="0" /></a>
 
 Execute the workflow:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/08/image50.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/08/image_thumb50.png" alt="image" width="695" height="212" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/08/image50.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/08/image_thumb50.png" alt="image" width="695" height="212" border="0" /></a>
 
 ## Conclusion
 

@@ -4,7 +4,7 @@ title: EventID 28001 and 29112 on SCOM 2012 Management Server after Operational 
 date: 2013-01-25T21:58:57+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1708
+guid: https://blog.tyang.org/?p=1708
 permalink: /2013/01/25/eventid-28001-and-29112-on-scom-2012-management-server-after-operational-database-move/
 categories:
   - SCOM
@@ -12,13 +12,13 @@ tags:
   - SCOM
   - SCOM Migration
 ---
-Recently I’ve moved databases for my lab SCOM 2012 management group to a new SQL 2012 server as part of of my <a href="http://blog.tyang.org/2013/01/08/migrating-opsmgr-2012-rtm-to-opsmgr-2012-sp1/">RTM to SP1 migration</a>.
+Recently I’ve moved databases for my lab SCOM 2012 management group to a new SQL 2012 server as part of of my <a href="https://blog.tyang.org/2013/01/08/migrating-opsmgr-2012-rtm-to-opsmgr-2012-sp1/">RTM to SP1 migration</a>.
 
 I followed the <a href="http://technet.microsoft.com/en-us/library/hh278848.aspx">How to Move the Operational Database guide</a> from TechNet. After the migration, I have noticed that on one of my management servers, I kept getting a warning event 28001 and an error event 29112 every couple of minutes in the OperationsManager event log.
 
 <strong>Event 28001:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/01/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/01/image_thumb1.png" width="580" height="359" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/01/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/01/image_thumb1.png" width="580" height="359" border="0" /></a>
 
 <em><span style="color: #ff0000;">The Root connector received an exception from the Config Service on StateSyncRequest: </span></em>
 
@@ -38,7 +38,7 @@ at Microsoft.EnterpriseManagement.Mom.Internal.IConfigService.OnStateSyncRequest
 
 <strong>Event 29112:</strong>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/01/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/01/image_thumb2.png" width="580" height="359" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/01/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/01/image_thumb2.png" width="580" height="359" border="0" /></a>
 
 <span style="color: #ff0000;"><em>OpsMgr Management Configuration Service failed to execute bootstrap work item 'ConfigurationStoreInitializeWorkItem' due to the following exception</em></span>
 
@@ -68,10 +68,10 @@ This particular management server did not get rebuilt to Windows 2012, all other
 
 In the step 7 of the <a href="http://technet.microsoft.com/en-us/library/hh278848.aspx">guide from TechNet</a>, it mentioned updating the &lt;Category Name="Cmdb"&gt; tag in the <strong>%ProgramFiles%\System Center 2012\Operations Manager\Server\ConfigService.config</strong> file.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/01/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/01/image_thumb3.png" width="580" height="95" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/01/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/01/image_thumb3.png" width="580" height="95" border="0" /></a>
 
 However, the old DB server name also exists in the <strong>&lt;Category Name="ConfigStore"&gt;</strong> tag in the same file. this was not mentioned in the guide:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/01/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/01/image_thumb4.png" width="580" height="155" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/01/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/01/image_thumb4.png" width="580" height="155" border="0" /></a>
 
 After I updated &lt;Category Name="ConfigStore"&gt; section and restarted all the SCOM services on the management server, the error went away.

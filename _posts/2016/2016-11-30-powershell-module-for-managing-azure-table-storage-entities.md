@@ -4,7 +4,7 @@ title: PowerShell Module for Managing Azure Table Storage Entities
 date: 2016-11-30T12:32:15+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5751
+guid: https://blog.tyang.org/?p=5751
 permalink: /2016/11/30/powershell-module-for-managing-azure-table-storage-entities/
 categories:
   - Azure
@@ -66,7 +66,7 @@ This function can be used to remove a single entity or bulk remove up to 100 ent
 
 To simply leveraging this module in Azure Automation or SMA, I have included a connection object in the module:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/11/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/11/image_thumb.png" alt="image" width="206" height="307" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/11/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/11/image_thumb.png" alt="image" width="206" height="307" border="0" /></a>
 
 Once you have created the connection objects, instead of specifying storage account, table name and storage account access key, you can simply specify the connection object using ‘-TableConnection’ parameter for all four functions.
 

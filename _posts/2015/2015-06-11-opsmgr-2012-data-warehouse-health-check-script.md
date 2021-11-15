@@ -4,7 +4,7 @@ title: OpsMgr 2012 Data Warehouse Health Check Script
 date: 2015-06-11T14:46:41+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3995
+guid: https://blog.tyang.org/?p=3995
 permalink: /2015/06/11/opsmgr-2012-data-warehouse-health-check-script/
 categories:
   - PowerShell
@@ -13,7 +13,7 @@ tags:
   - Health Check
   - SCOM
 ---
-**<span style="color: #ff0000;">Note (19/06/2015): This script has been updated to version 1.1. You can find the details of version 1.1 here: <a href="http://blog.tyang.org/2015/06/19/opsmgr-2012-data-warehouse-health-check-script-updated/">http://blog.tyang.org/2015/06/19/opsmgr-2012-data-warehouse-health-check-script-updated/</a>. The download link at the end of this post has been updated too.</span>**
+**<span style="color: #ff0000;">Note (19/06/2015): This script has been updated to version 1.1. You can find the details of version 1.1 here: <a href="https://blog.tyang.org/2015/06/19/opsmgr-2012-data-warehouse-health-check-script-updated/">https://blog.tyang.org/2015/06/19/opsmgr-2012-data-warehouse-health-check-script-updated/</a>. The download link at the end of this post has been updated too.</span>**
 
 I’m sure you all would agree with me that the OpsMgr database performance is a very common issue in many OpsMgr deployments – when it has not been designed and configured properly. The folks at Squared Up certainly feels the pain – when the OpsMgr Data Warehouse database is not performing at the optimal level, it would certainly impact the performance of Squared Up dashboard since Squared Up is heavily relied on the Data Warehouse database.
 
@@ -23,7 +23,7 @@ So Squared Up asked me to build a Health Check tool specific to OpsMgr data war
 
 Before I dive into the details,  I’d like to show you what the report looks like. You can access the sample report generated against my lab MG here:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/DWHealthCheckResult-2015-Jun-04.html" target="_blank">CLICK HERE TO LAUNCH THE HTML REPORT</a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/DWHealthCheckResult-2015-Jun-04.html" target="_blank">CLICK HERE TO LAUNCH THE HTML REPORT</a>
 
 As shown in this sample, the report consists of the following sections:
 
@@ -116,7 +116,7 @@ $password = ConvertTo-SecureString –String "password12345" –AsPlainText –F
 .\SCOMDWHealthCheck.ps1 –SDK "OpsMgrMS01" –Username "domain\SCOM.Admin" –Password $Password –OpenReport –Verbose
 ```
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML43ec987.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML43ec987" src="http://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML43ec987_thumb.png" alt="SNAGHTML43ec987" width="675" height="671" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML43ec987.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML43ec987" src="https://blog.tyang.org/wp-content/uploads/2015/06/SNAGHTML43ec987_thumb.png" alt="SNAGHTML43ec987" width="675" height="671" border="0" /></a>
 
 The report outputs the following files:
 
@@ -129,7 +129,7 @@ The report outputs the following files:
 
 The script writes the list of the file it generated as output:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb8.png" alt="image" width="561" height="197" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb8.png" alt="image" width="561" height="197" border="0" /></a>
 
 <del>**Possible Areas for Improvement**</del>
 
@@ -151,7 +151,7 @@ I'd also like to thank for all the people who has indirectly contributed to this
 
 You can download the script from the link below. Please place the 2 files in the zip file in the same directory:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/06/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/06/image_thumb9.png" alt="image" width="549" height="158" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/06/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/06/image_thumb9.png" alt="image" width="549" height="158" border="0" /></a>
 
 [DOWNLOAD](../../../../wp-content/uploads/2015/06/DW-HealthCheck-Script-v1.1.zip)
 

@@ -4,7 +4,7 @@ title: PowerShell Module for OMS HTTP Data Collector API
 date: 2016-08-31T23:45:18+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5610
+guid: https://blog.tyang.org/?p=5610
 permalink: /2016/08/31/powershell-module-for-oms-http-data-collector-api/
 categories:
   - OMS
@@ -67,7 +67,7 @@ This PS module comes with the following features:
 
 Once imported into your Azure Automation account (or SMA for the ‘old skool’ folks), you will be able to create connection objects that contains your OMS workspace Id, primary key and secondary key (optional):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/08/image-53.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-53.png" alt="image" width="215" height="326" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/08/image-53.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-53.png" alt="image" width="215" height="326" border="0" /></a>
 
 And as shown in Example 2 listed above, in your runbook, you can retrieve this connection object and use it when calling the New-OMSDataInjection function.
 
@@ -174,11 +174,11 @@ Once the data is injected into OMS, if you are using a new data type,  it can t
 
 i.e. the data injected by the sample script and Azure Automation runbook (executed on Azure):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/08/image-54.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-54.png" alt="image" width="573" height="419" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/08/image-54.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-54.png" alt="image" width="573" height="419" border="0" /></a>
 
 all the fields that you have defined are stored as custom fields in your OMS workspace:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/08/image-55.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-55.png" alt="image" width="512" height="324" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/08/image-55.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/08/image_thumb-55.png" alt="image" width="512" height="324" border="0" /></a>
 
 Please keep in mind, since the Custom Fields feature is still at the preview phase, there’s a limit of 100 custom fields per workspace at this stage (<a title="https://azure.microsoft.com/en-us/documentation/articles/log-analytics-custom-fields/" href="https://azure.microsoft.com/en-us/documentation/articles/log-analytics-custom-fields/">https://azure.microsoft.com/en-us/documentation/articles/log-analytics-custom-fields/</a>), so please be mindful of this limitation when you are building your custom solutions using the HTTP Data Collector API.
 

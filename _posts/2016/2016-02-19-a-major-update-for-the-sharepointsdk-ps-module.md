@@ -4,7 +4,7 @@ title: A Major Update for the SharePointSDK PS Module
 date: 2016-02-19T12:42:42+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5171
+guid: https://blog.tyang.org/?p=5171
 permalink: /2016/02/19/a-major-update-for-the-sharepointsdk-ps-module/
 categories:
   - Azure
@@ -19,11 +19,11 @@ tags:
   - SMA
 ---
 
-## <a href="http://blog.tyang.org/wp-content/uploads/2016/02/Sharepoint-2013-Logo.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Sharepoint-2013-Logo" src="http://blog.tyang.org/wp-content/uploads/2016/02/Sharepoint-2013-Logo_thumb.png" alt="Sharepoint-2013-Logo" width="178" height="178" align="left" border="0" /></a>Introduction
+## <a href="https://blog.tyang.org/wp-content/uploads/2016/02/Sharepoint-2013-Logo.png"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Sharepoint-2013-Logo" src="https://blog.tyang.org/wp-content/uploads/2016/02/Sharepoint-2013-Logo_thumb.png" alt="Sharepoint-2013-Logo" width="178" height="178" align="left" border="0" /></a>Introduction
 
 This blog has been a bit quiet over the last few weeks. This is because I have been really really busy. I have spent a lot of time working on an updated version of the SharePointSDK PS module. Just in case you have not played with this module, here’s some background info:
 
-Just over a year ago, I posted a PowerShell / SMA / Azure Automation module on <a href="http://blog.tyang.org/2014/12/23/sma-integration-module-sharepoint-list-operations/">this blog</a> called SharePointSDK. Few months ago, I have also published this module on <a href="https://github.com/tyconsulting/SharePointSDK_PowerShellModule">Github</a> and <a href="https://www.powershellgallery.com/packages/SharePointSDK">PowerShell Gallery</a>. This module was designed to help automate operations around SharePoint lists (i.e. CRUD operations for SharePoint list items). Coupling SharePoint (both On-prem version or SharePoint Online) with Azure Automation (or even SMA) is becoming more and more common in the community when designing automation solutions. This module provides ways for your automation runbooks to interact with SharePoint list items.
+Just over a year ago, I posted a PowerShell / SMA / Azure Automation module on <a href="https://blog.tyang.org/2014/12/23/sma-integration-module-sharepoint-list-operations/">this blog</a> called SharePointSDK. Few months ago, I have also published this module on <a href="https://github.com/tyconsulting/SharePointSDK_PowerShellModule">Github</a> and <a href="https://www.powershellgallery.com/packages/SharePointSDK">PowerShell Gallery</a>. This module was designed to help automate operations around SharePoint lists (i.e. CRUD operations for SharePoint list items). Coupling SharePoint (both On-prem version or SharePoint Online) with Azure Automation (or even SMA) is becoming more and more common in the community when designing automation solutions. This module provides ways for your automation runbooks to interact with SharePoint list items.
 
 However, I believe the original 1.0 release was really basic, and there are still a lot I’d like to cover in this module. Now I’m pleased to announce the new major release (version 2.0.1) is now available on both Github and PowerShell Gallery.
 
@@ -233,7 +233,7 @@ The table below lists all the functions that are shipped in the current release 
 </table>
 As you can see, the previous version has shipped 11 functions, and <span style="background-color: #ffff00;">26 additional functions</span> have been added to the current release (2.0.1). With this release, other than the SharePoint list items, we are also able to manage SharePoint lists, list fields, groups, group members, and even subsites. I have included functions to create what I believe the most common list fields (as highlighted below):
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/02/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/02/image_thumb.png" alt="image" width="373" height="324" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/02/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/02/image_thumb.png" alt="image" width="373" height="324" border="0" /></a>
 
 ## Future Plans
 
@@ -246,7 +246,7 @@ In the second week of March, I will be presenting at SCU APAC (<a href="systemce
 </ul>
 As part of the demos I have prepared for the Azure Automation session with Pete, I will cover how I’m using this module as part of my automation solutions.
 
-After SCU, I am planning to write another blog post for my <a href="http://blog.tyang.org/tag/automating-opsmgr/">Automating OpsMgr series</a> which will cover one of the our SCU demos (I know, it has been a long time since my last post for that series). I will also cover this module in more details in this upcoming blog post.
+After SCU, I am planning to write another blog post for my <a href="https://blog.tyang.org/tag/automating-opsmgr/">Automating OpsMgr series</a> which will cover one of the our SCU demos (I know, it has been a long time since my last post for that series). I will also cover this module in more details in this upcoming blog post.
 
 ## Download the Module
 

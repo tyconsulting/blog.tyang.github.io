@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/04/Full-Logo-Raw-Long-White-Background.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=3880
+guid: https://blog.tyang.org/?p=3880
 permalink: /2015/04/19/next-step-in-my-career/
 categories:
   - Others

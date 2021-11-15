@@ -4,7 +4,7 @@ title: ConfigMgr 2012 (R2) Client Management Pack Updated to Version 1.1.0.0
 date: 2014-09-19T21:46:30+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3156
+guid: https://blog.tyang.org/?p=3156
 permalink: /2014/09/19/configmgr-2012-r2-client-management-pack-updated-version-1-1-0-0/
 categories:
   - SCOM
@@ -14,7 +14,7 @@ tags:
   - SCCM
   - SCOM
 ---
-<span style="color: #ff0000;">**4th October, 2014: This MP has been updated to Version 1.2.0.0. Please download the latest version from this page: <a href="http://blog.tyang.org/2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/">http://blog.tyang.org/2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/</a>.**</span>
+<span style="color: #ff0000;">**4th October, 2014: This MP has been updated to Version 1.2.0.0. Please download the latest version from this page: <a href="https://blog.tyang.org/2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/">https://blog.tyang.org/2014/10/04/updated-configmgr-2012-r2-client-management-pack-version-1-2-0-0/</a>.**</span>
 
 OK, after few weeks of hard work, the updated version of the ConfigMgr 2012 (R2) Client MP is finally here.
 
@@ -30,7 +30,7 @@ The changes since previous version (v1.0.1.0) are listed below:
 * The "All ConfigMgr 2012 Client computer group" population is incorrect. It includes all windows computers, not just the ones with ConfigMgr 2012 client installed.
 * Many warning alerts "Operations Manager failed to start a process" generated against various scripts used in this MP. It has been identified the issue is caused by the OpsMgr agent executing the workflows when the SMS Agent Host service is not running. This typically happened right after computer startup or reboot because SMS Agent Host service is set to Automatic (Delayed). All the scripts that query root\ccm WMI namespace have been re-written to wait up to 3 minutes for the SMS Agent Host to start (if it’s not already started). Hopefully this will reduce the number of these warning alerts. The updated scripts will also try to catch such condition so the alert indicates the actual issue:
 
-	![](http://blog.tyang.org/wp-content/uploads/2014/09/clip_image002.jpg)
+	![](https://blog.tyang.org/wp-content/uploads/2014/09/clip_image002.jpg)
 
 ## Additional Items:
 
@@ -58,7 +58,7 @@ The changes since previous version (v1.0.1.0) are listed below:
 
 This version is in-place upgradable from the previous version. However, since there are additional input parameters introduced to the scripts used by monitors and rule, you may experience a large number of "Operations Manager failed to start a process" warning alert right after the updated MPs have been imported and distributed to the OpsMgr agents. To workaround this issue, I strongly recommend to place the "All ConfigMgr 2012 Clients" group into maintenance mode for 1 hour before importing the updated MPs. To do so, simply go the the "Discovered Inventory" view, and change the target type to "All ConfigMgr 2012 Clients", and place the selected group into maintenance mode.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTML30b0e7ee.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML30b0e7ee" src="http://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTML30b0e7ee_thumb.png" alt="SNAGHTML30b0e7ee" width="661" height="494" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTML30b0e7ee.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML30b0e7ee" src="https://blog.tyang.org/wp-content/uploads/2014/09/SNAGHTML30b0e7ee_thumb.png" alt="SNAGHTML30b0e7ee" width="661" height="494" border="0" /></a>
 
 ## Special Thanks
 
@@ -66,4 +66,4 @@ I’d like to thank all the people who has provided the feedback since the last 
 
 ## Download
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/09/ConfigMgr-2012-Client-MP-V1.1.0.0.zip">Download ConfigMgr 2012 (R2) Client Management Pack 1.1.0.0</a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/09/ConfigMgr-2012-Client-MP-V1.1.0.0.zip">Download ConfigMgr 2012 (R2) Client Management Pack 1.1.0.0</a>

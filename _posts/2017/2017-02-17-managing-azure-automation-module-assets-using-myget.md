@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2017/02/SNAGHTML2756703.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=5906
+guid: https://blog.tyang.org/?p=5906
 permalink: /2017/02/17/managing-azure-automation-module-assets-using-myget/
 categories:
   - Azure
@@ -37,7 +37,7 @@ If you are using Hybrid Workers, you must also manage the modules separately. Un
 
 Since managing modules in your Azure Automation accounts and hybrid workers are two separate processes, it is hard to make sure the versions of your module assets are consistent between your automation account and hybrid worker computers.
 
-Over the past few months, I have invested lot of my time on MyGet and looking for ways to close these gaps. Few months ago, I have released a PowerShell DSC Resource module called cPowerShellPackageManagement (<a title="http://blog.tyang.org/2016/09/15/powershell-dsc-resource-for-managing-repositories-and-modules/" href="http://blog.tyang.org/2016/09/15/powershell-dsc-resource-for-managing-repositories-and-modules/">http://blog.tyang.org/2016/09/15/powershell-dsc-resource-for-managing-repositories-and-modules/</a>). By using this DSC resource module, we can easily develop DSC configurations for computers (such as Hybrid Workers) to automatically install modules from a PowerShell module repository (i.e. a MyGet feed). This approach closes the gaps of managing Hybrid Worker computers (item #2 on the list above). Today, I am going to discuss how we can tackle item #1 and #3. Before I start talking about my solutions, let me quickly introduce MyGet first.
+Over the past few months, I have invested lot of my time on MyGet and looking for ways to close these gaps. Few months ago, I have released a PowerShell DSC Resource module called cPowerShellPackageManagement (<a title="https://blog.tyang.org/2016/09/15/powershell-dsc-resource-for-managing-repositories-and-modules/" href="https://blog.tyang.org/2016/09/15/powershell-dsc-resource-for-managing-repositories-and-modules/">https://blog.tyang.org/2016/09/15/powershell-dsc-resource-for-managing-repositories-and-modules/</a>). By using this DSC resource module, we can easily develop DSC configurations for computers (such as Hybrid Workers) to automatically install modules from a PowerShell module repository (i.e. a MyGet feed). This approach closes the gaps of managing Hybrid Worker computers (item #2 on the list above). Today, I am going to discuss how we can tackle item #1 and #3. Before I start talking about my solutions, let me quickly introduce MyGet first.
 
 ## What is MyGet? 
 
@@ -67,7 +67,7 @@ Name: **ModuleFeedLocation**
 
 Value: **<the source location URI to your repository feed>**
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/02/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/02/image_thumb.png" alt="image" width="165" height="244" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/02/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/02/image_thumb.png" alt="image" width="165" height="244" border="0" /></a>
 
 **Note:** if you are not sure what is the source location URI for your feed, check out this help document from MyGet website: <a title="http://docs.myget.org/docs/how-to/publish-a-powershell-module-to-myget" href="http://docs.myget.org/docs/how-to/publish-a-powershell-module-to-myget">http://docs.myget.org/docs/how-to/publish-a-powershell-module-to-myget</a>. However, I don’t believe the documentation is 100% accurate. Based on my experience, no matter if you are using private or public feeds, the Source location URI should be:
 
@@ -75,39 +75,39 @@ Value: **<the source location URI to your repository feed>**
 
 The API key is available on the MyGet portal:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/02/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-1.png" alt="image" width="344" height="353" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/02/image-1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-1.png" alt="image" width="344" height="353" border="0" /></a>
 
 if  you have connected to the feed as a PowerShell repository, you can also check using Get-PSRepository cmdlet:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/02/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-2.png" alt="image" width="598" height="61" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/02/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-2.png" alt="image" width="598" height="61" border="0" /></a>
 
 Other than the automation variable, you will also need to make sure you have the AzureRunAsConnection connection asset and associated certificate asset created. these assets are created automatically by default when you created your Azure Automation account:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/02/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-3.png" alt="image" width="168" height="244" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/02/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-3.png" alt="image" width="168" height="244" border="0" /></a>
 
 If you don’t have this connection asset, you can manually create it using PowerShell – this process is documented here: <a title="https://docs.microsoft.com/en-au/azure/automation/automation-sec-configure-azure-runas-account" href="https://docs.microsoft.com/en-au/azure/automation/automation-sec-configure-azure-runas-account">https://docs.microsoft.com/en-au/azure/automation/automation-sec-configure-azure-runas-account</a>
 
 Once the runbook and all required assets are in place, you will also need to create a webhook for the runbook. It is OK to configure the webhook to target Azure workers (although targeting hybrid worker group is also OK, but not necessary).
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/02/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-4.png" alt="image" width="371" height="216" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/02/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-4.png" alt="image" width="371" height="216" border="0" /></a>
 
 Once the webhook is created, go to MyGet portal, go to your feed then go to the Webhook section and add a HTTP POST webhook
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/02/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-5.png" alt="image" width="329" height="296" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/02/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-5.png" alt="image" width="329" height="296" border="0" /></a>
 
 then enter a description and paste the runbook webhook URL. for the webhook trigger, only tick "Package Added":
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/02/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-6.png" alt="image" width="321" height="276" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/02/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-6.png" alt="image" width="321" height="276" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/02/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-7.png" alt="image" width="323" height="278" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/02/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-7.png" alt="image" width="323" height="278" border="0" /></a>
 
 Once the webhook trigger is created, everything is good to go. when next time you add a PowerShell module or update an existing module on your MyGet feed, it will automatically trigger the Azure Automation runbook, which will find the modules need to be imported and updated, and attempt to import them one a time.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2017/02/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-8.png" alt="image" width="693" height="573" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2017/02/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2017/02/image_thumb-8.png" alt="image" width="693" height="573" border="0" /></a>
 
 **Tips:**
 
-Once you have configured your MyGet feed as a PowerShell repository on a computer running PowerShell v 5 or later, you can publish modules located on your local computer to the feed using **Publish-Module** cmdlet. You can also configure MyGet to get modules from another repository such as PowerShell Gallery. I have blogged this previously: <a title="http://blog.tyang.org/2016/09/20/pushing-powershell-modules-from-powershell-gallery-to-your-myget-feeds-directly/" href="http://blog.tyang.org/2016/09/20/pushing-powershell-modules-from-powershell-gallery-to-your-myget-feeds-directly/">http://blog.tyang.org/2016/09/20/pushing-powershell-modules-from-powershell-gallery-to-your-myget-feeds-directly/</a>
+Once you have configured your MyGet feed as a PowerShell repository on a computer running PowerShell v 5 or later, you can publish modules located on your local computer to the feed using **Publish-Module** cmdlet. You can also configure MyGet to get modules from another repository such as PowerShell Gallery. I have blogged this previously: <a title="https://blog.tyang.org/2016/09/20/pushing-powershell-modules-from-powershell-gallery-to-your-myget-feeds-directly/" href="https://blog.tyang.org/2016/09/20/pushing-powershell-modules-from-powershell-gallery-to-your-myget-feeds-directly/">https://blog.tyang.org/2016/09/20/pushing-powershell-modules-from-powershell-gallery-to-your-myget-feeds-directly/</a>
 
 If you want to configure multiple Automation accounts to sync with a single MyGet feed, you can simply create the runbook and required assets in each automation account, and add a webhook trigger for each instance of the runbook within your MyGet feed.
 

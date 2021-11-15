@@ -4,7 +4,7 @@ title: Discoveries in Fujitsu PRIMERGY Server Management Pack
 date: 2014-03-19T13:38:28+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2413
+guid: https://blog.tyang.org/?p=2413
 permalink: /2014/03/19/discoveries-fujitsu-primergy-server-management-pack/
 categories:
   - SCOM
@@ -16,7 +16,7 @@ I have been dealing this the Fujitsu PRIMERGY Server MP from Fujitsu ever since 
 
 Other than the group populators, there is only one discovery workflow that discovers PRIMERGY servers as well as all other server components. This discovery runs a long VBScript (I counted, it has 5798 lines of code) on all Windows Server computers, every 1 hour by default. It breaks almost all the MP discovery best practices that I can think of.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/03/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb4.png" width="580" height="263" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/03/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/03/image_thumb4.png" width="580" height="263" border="0" /></a>
 
 <strong>Discoveries are not staged</strong>
 
@@ -34,7 +34,7 @@ In the previous version of MP (version 4), the script also discovers the actual 
 
 In the current version (version 6), looks like they’ve kept this modification in the script:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/03/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb5.png" width="580" height="210" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/03/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/03/image_thumb5.png" width="580" height="210" border="0" /></a>
 
 <strong>Script based discovery runs too frequent (once an hour)</strong>
 
@@ -46,7 +46,7 @@ In order to overcome these issues, I have created an additional addendum MP. Bel
 
 2. Create a registry based discovery for the "Fujitsu Server Computer (Addendum MP)". This discovery is based on "<strong>HKLM\System\CurrentControlSet\Control\SystemInformation\SystemManufacturer</strong>" regkey value.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/03/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2014/03/image_thumb6.png" width="580" height="244" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/03/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2014/03/image_thumb6.png" width="580" height="244" border="0" /></a>
 
 3. Created a group for all instances of "Fujitsu Server Computer (Addendum MP)" class.
 
@@ -56,6 +56,6 @@ In order to overcome these issues, I have created an additional addendum MP. Bel
 
 6. Created an override to change the interval from 3600 seconds (1 hour) to 43200 seconds (12 hours).
 
-This addendum MP can be downloaded <strong><a href="http://blog.tyang.org/wp-content/uploads/2014/03/Fujitsu.Servers.PRIMERGY.Addendum.xml_.zip">HERE</a></strong>. I recommend anyone who’s using the Fujitsu PRIMERGY Server MP to take a look.
+This addendum MP can be downloaded <strong><a href="https://blog.tyang.org/wp-content/uploads/2014/03/Fujitsu.Servers.PRIMERGY.Addendum.xml_.zip">HERE</a></strong>. I recommend anyone who’s using the Fujitsu PRIMERGY Server MP to take a look.
 
 Lastly, the intention of this blog post is not to criticise Fujitsu, but rather making effort to make this MP better. Honestly, based on my own experience, Fujitsu has been pretty good listening to their customers and I am happy that they have rolled up the temperature sensor discovery changes to the new MP.

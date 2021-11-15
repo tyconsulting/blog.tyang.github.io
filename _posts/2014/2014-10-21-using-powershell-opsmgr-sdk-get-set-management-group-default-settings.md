@@ -4,7 +4,7 @@ title: Using PowerShell and OpsMgr SDK to Get and Set Management Group Default s
 date: 2014-10-21T14:44:46+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3269
+guid: https://blog.tyang.org/?p=3269
 permalink: /2014/10/21/using-powershell-opsmgr-sdk-get-set-management-group-default-settings/
 categories:
   - PowerShell
@@ -120,7 +120,7 @@ This function returns an arraylist which contains **ALL** the default settings 
 
 $DefaultSettings = Get-MGDefaultSettings -SDK "OpsMgrMS01" –verbose
 
-![](http://blog.tyang.org/wp-content/uploads/2014/10/image9.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/10/image9.png)
 
 As you can see, this function retrieves ALL default settings of a management group. It returns the following properties:
 
@@ -132,7 +132,7 @@ As you can see, this function retrieves ALL default settings of a management gro
 
 If you want to retrieve a particular setting, you can always use pipe ("\|") and where-object to filter to the particular setting:
 
-![](http://blog.tyang.org/wp-content/uploads/2014/10/image10.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/10/image10.png)
 
 ## Set-MGDefaultSetting
 
@@ -228,6 +228,6 @@ Function Set-MGDefaultSetting
 Set-MGDefaultSetting -SDK "OpsMgrMS01" -SettingType Microsoft.EnterpriseManagement.Administration.Settings+ManagementGroup+AlertResolution -FieldName AlertAutoResolveDays -Value 3 –verbose
 ```
 
-![](http://blog.tyang.org/wp-content/uploads/2014/10/image11.png)
+![](https://blog.tyang.org/wp-content/uploads/2014/10/image11.png)
 
 I think these two functions are particularly useful when managing multiple management groups. they can be used in automation products such as SC Orchestrator and SMA, to synchronise settings among multiple management groups (i.e. Test vs Dev vs Prod).

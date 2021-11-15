@@ -4,7 +4,7 @@ title: Command Line Parameters for SCOM Command Notification Channel
 date: 2012-01-29T16:53:17+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=962
+guid: https://blog.tyang.org/?p=962
 permalink: /2012/01/29/command-line-parameters-for-scom-command-notification-channel/
 categories:
   - PowerShell
@@ -13,7 +13,7 @@ tags:
   - Command Notification
   - SCOM
 ---
-Few years ago, I wrote the Enhanced SCOM Alert Notification script and I blogged it <a href="http://blog.tyang.org/2010/07/19/enhanced-scom-alerts-notification-emails/">here</a>.
+Few years ago, I wrote the Enhanced SCOM Alert Notification script and I blogged it <a href="https://blog.tyang.org/2010/07/19/enhanced-scom-alerts-notification-emails/">here</a>.
 
 In all the environments that I implemented this script in command notification channel, there were always some random alerts not been processed.
 

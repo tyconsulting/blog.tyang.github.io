@@ -4,7 +4,7 @@ title: 'Capacity Planning &#8211; OMS Vs. OpsLogix Capacity Reports MP'
 date: 2016-01-07T19:08:14+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=5116
+guid: https://blog.tyang.org/?p=5116
 permalink: /2016/01/07/capacity-planning-oms-vs-opslogix-capacity-reportsmp/
 categories:
   - OMS
@@ -46,41 +46,41 @@ Because of the nature of this solution, it collects **a specific set** of perfor
 
 It provides some charts and diagrams which gives you a high level overview of your fabric.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-2.png" alt="image" width="436" height="198" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-2.png" alt="image" width="436" height="198" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-3.png" alt="image" width="453" height="419" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-3.png" alt="image" width="453" height="419" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-4.png" alt="image" width="630" height="252" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-4.png" alt="image" width="630" height="252" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-5.png" alt="image" width="623" height="249" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-5.png" alt="image" width="623" height="249" border="0" /></a>
 
 You can also access the performance data collected by this solution via Search (Type=Perf)
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-6.png" alt="image" width="667" height="261" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-6.png" alt="image" width="667" height="261" border="0" /></a>
 
 ## OpsLogix Capacity Report MP Overview
 
 Unlike OMS Capacity Planning solution, the OpsLogix Capacity Report MP is not a hybrid solution. It does not require integrations with any products. Once you have imported the Capacity Report MP and the license MP, you should soon see the number of reports deployed in your OpsMgr management group.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML15da8eb9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML15da8eb9" src="http://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML15da8eb9_thumb.png" alt="SNAGHTML15da8eb9" width="651" height="422" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML15da8eb9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML15da8eb9" src="https://blog.tyang.org/wp-content/uploads/2016/01/SNAGHTML15da8eb9_thumb.png" alt="SNAGHTML15da8eb9" width="651" height="422" border="0" /></a>
 
 As the names suggest, with the two absolute value reports, you can pick any performance collection rules for the language that you have selected (default to "English").
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-7.png" alt="image" width="469" height="244" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-7.png" alt="image" width="469" height="244" border="0" /></a>
 
 and the report lists each instance you have selected.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-8.png" alt="image" width="697" height="504" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-8.png" alt="image" width="697" height="504" border="0" /></a>
 
 The 2 columns on the left shows the forecasted changes and the forecasted value for each instance based on the time frame you have selected.
 
 The percentage value reports are designed for the performance collection rules that are collecting percentage values. You can also specify warning and critical thresholds (in number of days) for the forecasted data.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-9.png" alt="image" width="676" height="548" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-9.png" alt="image" width="676" height="548" border="0" /></a>
 
 Or, if you only want to see the critical ones, you can use "Critical Only" reports.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-10.png" alt="image" width="573" height="198" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-10.png" alt="image" width="573" height="198" border="0" /></a>
 
 ## Comparison
 
@@ -88,7 +88,7 @@ Although both solutions provide forecasting capabilities for your infrastructure
 
 OMS Capacity Planning solution collects **a specific set** of performance counters around the compute and storage fabric, and provides a high level view on what is the current and future capacity for the fabric in your **Hyper-V** environment. If you want to take a look at what counters are being collected by the Capacity Planning solution, you can export the following MPs from your OpsMgr management group and take a look using MPViewer.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2016/01/image-11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-11.png" alt="image" width="428" height="163" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2016/01/image-11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2016/01/image_thumb-11.png" alt="image" width="428" height="163" border="0" /></a>
 
 The OpsLogix Capacity Report MP provides a set of generic reports that can be used to forecast pretty much any **existing counters** that are being currently collected in your OpsMgr environment. This is purely a reporting MP, it does not collect any performance counters by itself.
 

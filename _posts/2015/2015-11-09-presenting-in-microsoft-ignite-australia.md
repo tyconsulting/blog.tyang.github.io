@@ -4,7 +4,7 @@ title: Presenting in Microsoft Ignite Australia
 date: 2015-11-09T15:11:57+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4845
+guid: https://blog.tyang.org/?p=4845
 permalink: /2015/11/09/presenting-in-microsoft-ignite-australia/
 categories:
   - Others

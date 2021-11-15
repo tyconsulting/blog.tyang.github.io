@@ -4,7 +4,7 @@ title: Installing VMM 2012 R2 Cluster in My Lab
 date: 2014-11-19T21:45:50+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=3346
+guid: https://blog.tyang.org/?p=3346
 permalink: /2014/11/19/installing-vmm-2012-r2-cluster-lab/
 categories:
   - SCVMM
@@ -22,17 +22,17 @@ I pre-staged 4 computer accounts in the existing OU where my existing VMM infra
 * VMMCL01 – VMM cluster
 * HAVMM – Cluster Resource for VMM cluster
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML14878767.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML14878767" src="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML14878767_thumb.png" alt="SNAGHTML14878767" width="598" height="252" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML14878767.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML14878767" src="https://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML14878767_thumb.png" alt="SNAGHTML14878767" width="598" height="252" border="0" /></a>
 
 I assign VMMCL01 full control permission to the HAVMM (Cluster resource) computer AD account:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML148c6725.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML148c6725" src="http://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML148c6725_thumb.png" alt="SNAGHTML148c6725" width="342" height="381" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML148c6725.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML148c6725" src="https://blog.tyang.org/wp-content/uploads/2014/11/SNAGHTML148c6725_thumb.png" alt="SNAGHTML148c6725" width="342" height="381" border="0" /></a>
 
 ## IP Addresses:
 
 I allocated 4 IP addresses, one for each computer account listed above:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb1.png" alt="image" width="592" height="75" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb1.png" alt="image" width="592" height="75" border="0" /></a>
 
 ## Guest VMs for Cluster Nodes
 
@@ -42,15 +42,15 @@ I created 2 identical VMs (VMM01 and VMM02) located in the same VLAN. There is n
 
 I installed failover cluster role on both VMs and created a cluster.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb2.png" alt="image" width="432" height="238" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb2.png" alt="image" width="432" height="238" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb3.png" alt="image" width="442" height="179" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb3.png" alt="image" width="442" height="179" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb4.png" alt="image" width="443" height="234" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb4.png" alt="image" width="443" height="234" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb5.png" alt="image" width="452" height="249" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb5.png" alt="image" width="452" height="249" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb6.png" alt="image" width="455" height="218" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb6.png" alt="image" width="455" height="218" border="0" /></a>
 
 ## VMM 2012 R2 Installation
 
@@ -58,27 +58,27 @@ When installing VMM management server on a cluster node, the installation will p
 
 DB Configuration
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb7.png" alt="image" width="518" height="389" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb7.png" alt="image" width="518" height="389" border="0" /></a>
 
 Cluster Configuration
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb8.png" alt="image" width="518" height="389" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb8.png" alt="image" width="518" height="389" border="0" /></a>
 
 DKM Configuration
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb9.png" alt="image" width="516" height="391" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb9.png" alt="image" width="516" height="391" border="0" /></a>
 
 Port configuration (left as default)
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb10.png" alt="image" width="512" height="390" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb10.png" alt="image" width="512" height="390" border="0" /></a>
 
 Library configuration (need to configure manually later)
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb11.png" alt="image" width="511" height="387" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb11.png" alt="image" width="511" height="387" border="0" /></a>
 
 Completion
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb12.png" alt="image" width="498" height="377" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb12.png" alt="image" width="498" height="377" border="0" /></a>
 
 Run VMM install again on the second cluster node.
 
@@ -86,7 +86,7 @@ As instructed in the completion window, run ConfigureSCPTool**.exe –AddNode HA
 
 Cluster Role is now created and can be started:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb13.png" alt="image" width="528" height="168" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb13.png" alt="image" width="528" height="168" border="0" /></a>
 
 ## OpsMgr components
 
@@ -106,7 +106,7 @@ After OpsMgr components are installed, I then installed the following updates fr
 
 I configured OpsMgr connection in VMM console:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/2014-11-19_22-29-43.jpg"><img class="alignnone  wp-image-3350" src="http://blog.tyang.org/wp-content/uploads/2014/11/2014-11-19_22-29-43.jpg" alt="2014-11-19_22-29-43" width="537" height="399" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/2014-11-19_22-29-43.jpg"><img class="alignnone  wp-image-3350" src="https://blog.tyang.org/wp-content/uploads/2014/11/2014-11-19_22-29-43.jpg" alt="2014-11-19_22-29-43" width="537" height="399" /></a>
 
 ## Conclusion
 
@@ -114,10 +114,10 @@ The intention of this post is simply to dump all the screenshots that I’ve tak
 
 The biggest hold up for me was without realising I need to create a separate computer account and allocate a separate IP address for the cluster role (HAVMM). I was using the cluster name (VMMCL01) and its IP address in the cluster configuration screen and the installation failed:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb15.png" alt="image" width="477" height="361" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb15.png" alt="image" width="477" height="361" border="0" /></a>
 
 After going to through the install log, I realised I couldn’t use the existing cluster name:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2014/11/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2014/11/image_thumb16.png" alt="image" width="547" height="225" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2014/11/image16.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2014/11/image_thumb16.png" alt="image" width="547" height="225" border="0" /></a>
 
 When I ran the install again using different name and IP address for the cluster role, the installation completed successfully.

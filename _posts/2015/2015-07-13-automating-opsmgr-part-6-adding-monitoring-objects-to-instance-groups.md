@@ -8,7 +8,7 @@ excerpt: ""
 header:
   overlay_image: /wp-content/uploads/2015/06/OpsMgrExnteded-banner.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-guid: http://blog.tyang.org/?p=4193
+guid: https://blog.tyang.org/?p=4193
 permalink: /2015/07/13/automating-opsmgr-part-6-adding-monitoring-objects-to-instance-groups/
 categories:
   - PowerShell
@@ -25,11 +25,11 @@ tags:
 
 This is the 6th instalment of the Automating OpsMgr series. Previously on this series:
 
-* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](http://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
-* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](http://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
-* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](http://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
-* [Automating OpsMgr Part 4:Creating New Empty Groups](http://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
-* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](http://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
+* [Automating OpsMgr Part 1: Introducing OpsMgrExtended PowerShell / SMA Module](https://blog.tyang.org/2015/06/24/automating-opsmgr-part-1-introducing-opsmgrextended-powershell-sma-module/)
+* [Automating OpsMgr Part 2: SMA Runbook for Creating ConfigMgr Log Collection Rules](https://blog.tyang.org/2015/06/28/automating-opsmgr-part-2-sma-runbook-for-creating-configmgr-log-collection-rules/)
+* [Automating OpsMgr Part 3: New Management Pack Runbook via SMA and Azure Automation](https://blog.tyang.org/2015/06/30/automating-opsmgr-part-3-new-management-pack-runbook-via-sma-and-azure-automation/)
+* [Automating OpsMgr Part 4:Creating New Empty Groups](https://blog.tyang.org/2015/07/02/automating-opsmgr-part-4-create-new-empty-groups/)
+* [Automating OpsMgr Part 5: Adding Computers to Computer Groups](https://blog.tyang.org/2015/07/06/automating-opsmgr-part-5-adding-computers-to-computer-groups/)
 
 In part 4, I have demonstrated how to create empty instance groups and computer groups using the **OpsMgrExtended** module and in part 5, I've demonstrated how to add a Windows Computer object to a Computer Group as an explicit member. In this post, I will share a runbook that adds a monitoring object to an Instance Group. As I mentioned in Part 4, I will dedicated few posts on creating and managing OpsMgr groups, this post would be the 3rd post on this topic.
 
@@ -292,38 +292,38 @@ Workflow Add-ObjectToInstanceGroup
 
 In order for you to use this runbook, you will need to modify line 9 with the name of the SMA connection you've created in your environment.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML325a4b96.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML325a4b96" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML325a4b96_thumb.png" alt="SNAGHTML325a4b96" width="458" height="329" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML325a4b96.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML325a4b96" src="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML325a4b96_thumb.png" alt="SNAGHTML325a4b96" width="458" height="329" border="0" /></a>
 
 This runbook requires 2 input parameters:
 
 * **GroupName:** The internal name of the group. I did not use the display name because it is not unique.
 * **Monitoring Object ID:** The ID of the monitoring object that you wish to add to the instance group.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb22.png" alt="image" width="514" height="444" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image22.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb22.png" alt="image" width="514" height="444" border="0" /></a>
 
 **<span style="color: #ff0000;">Note:</span>**
 
-Since the monitoring object ID is not visible in the Operations Console, I have previously posted an article and demonstrated several ways to find this Id for monitoring objects: <a href="http://blog.tyang.org/2015/03/11/various-ways-to-find-the-id-of-a-monitoring-object-in-opsmgr/" target="_blank">Various Ways to Find the ID of a Monitoring Object in OpsMgr</a>. If you are also using <a href="http://squaredup.com/" target="_blank">Squared Up dashboard</a>, you can also use Squared Up to lookup and export the Monitoring Object ID as demonstrated in <a href="https://www.youtube.com/watch?v=RJj-c2hjSus" target="_blank">this YouTube video</a>.
+Since the monitoring object ID is not visible in the Operations Console, I have previously posted an article and demonstrated several ways to find this Id for monitoring objects: <a href="https://blog.tyang.org/2015/03/11/various-ways-to-find-the-id-of-a-monitoring-object-in-opsmgr/" target="_blank">Various Ways to Find the ID of a Monitoring Object in OpsMgr</a>. If you are also using <a href="http://squaredup.com/" target="_blank">Squared Up dashboard</a>, you can also use Squared Up to lookup and export the Monitoring Object ID as demonstrated in <a href="https://www.youtube.com/watch?v=RJj-c2hjSus" target="_blank">this YouTube video</a>.
 
 In the screenshot above, I've entered the Monitoring Object of a Hyper-V Host which is defined in the VMM 2012 management pack:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb23.png" alt="image" width="697" height="152" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image23.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb23.png" alt="image" width="697" height="152" border="0" /></a>
 
 I have added a lot of comments and verbose messages in this runbook, therefore I don't feel I need to explain how it works. If you'd like to know what it does step-by-step, please read the code.
 
 After the runbook execution is completed, the monitoring object is added to the group:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb24.png" alt="image" width="511" height="444" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image24.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb24.png" alt="image" width="511" height="444" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML326cba18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML326cba18" src="http://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML326cba18_thumb.png" alt="SNAGHTML326cba18" width="488" height="228" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML326cba18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML326cba18" src="https://blog.tyang.org/wp-content/uploads/2015/07/SNAGHTML326cba18_thumb.png" alt="SNAGHTML326cba18" width="488" height="228" border="0" /></a>
 
 Runbook Execution result:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb25.png" alt="image" width="392" height="335" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image25.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb25.png" alt="image" width="392" height="335" border="0" /></a>
 
 Verbose messages:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image26.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb26.png" alt="image" width="657" height="669" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image26.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb26.png" alt="image" width="657" height="669" border="0" /></a>
 
 **Adding an Existing Member to the Group:**
 
@@ -331,7 +331,7 @@ I have coded the runbook to also check if the monitoring object that you want to
 
 i.e.
 
-<a href="http://blog.tyang.org/wp-content/uploads/2015/07/image27.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://blog.tyang.org/wp-content/uploads/2015/07/image_thumb27.png" alt="image" width="608" height="173" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/07/image27.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="https://blog.tyang.org/wp-content/uploads/2015/07/image_thumb27.png" alt="image" width="608" height="173" border="0" /></a>
 
 *ce2dd108-0129-4fc0-842b-347311cb9107:[localhost]:The Monitoring Object 'Microsoft.SystemCenter.VirtualMachineManager.201 2.HyperVHost:HYPERV03.corp.tyang.org;2541ebea-50ae-4d4b-8755-5b77a50cd32b' (ID:'fabfe649-921c-cf17-d198-0fba29cee9ff') is already a member of the instance group Group.Creation.Demo.Demo.Instance.Group. No need to add it again. Aborting.*
 

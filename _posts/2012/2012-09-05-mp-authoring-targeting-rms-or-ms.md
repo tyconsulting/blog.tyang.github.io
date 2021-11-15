@@ -4,7 +4,7 @@ title: 'MP Authoring: Targeting RMS or MS?'
 date: 2012-09-05T23:43:32+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=1397
+guid: https://blog.tyang.org/?p=1397
 permalink: /2012/09/05/mp-authoring-targeting-rms-or-ms/
 categories:
   - SCOM

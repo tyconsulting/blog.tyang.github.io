@@ -4,7 +4,7 @@ title: Squared Up Hit The Road
 date: 2015-09-11T09:04:42+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=4561
+guid: https://blog.tyang.org/?p=4561
 permalink: /2015/09/11/squared-up-hit-the-road/
 categories:
   - Others
@@ -12,7 +12,7 @@ tags:
   - Community Events
   - SquaredUp
 ---
-<a href="http://blog.tyang.org/wp-content/uploads/2015/09/htrh_darth_vader_rolling_luggage_inuse.jpg"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="htrh_darth_vader_rolling_luggage_inuse" src="http://blog.tyang.org/wp-content/uploads/2015/09/htrh_darth_vader_rolling_luggage_inuse_thumb.jpg" alt="htrh_darth_vader_rolling_luggage_inuse" width="244" height="211" align="left" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2015/09/htrh_darth_vader_rolling_luggage_inuse.jpg"><img style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="htrh_darth_vader_rolling_luggage_inuse" src="https://blog.tyang.org/wp-content/uploads/2015/09/htrh_darth_vader_rolling_luggage_inuse_thumb.jpg" alt="htrh_darth_vader_rolling_luggage_inuse" width="244" height="211" align="left" border="0" /></a>
 
 Recently Squared Up has announced they will be travelling around Europe to meet their customers in person: <a title="https://squaredup.com/squared-up-hit-the-road/" href="https://squaredup.com/squared-up-hit-the-road/">https://squaredup.com/squared-up-hit-the-road/</a>
 

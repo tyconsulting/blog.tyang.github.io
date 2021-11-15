@@ -4,7 +4,7 @@ title: Event 18054 Logged by SQL After OpsMgr Data Warehouse DB Move/Restore
 date: 2013-12-24T10:39:36+10:00
 author: Tao Yang
 #layout: post
-guid: http://blog.tyang.org/?p=2311
+guid: https://blog.tyang.org/?p=2311
 permalink: /2013/12/24/event-18054-logged-sql-opsmgr-data-warehouse-db-moverestore/
 categories:
   - SCOM
@@ -14,7 +14,7 @@ tags:
 ---
 Couple of weeks ago, we had to completely rebuild a SQL server hosting OpsMgr 2012 R2 Data Warehouse DB (reinstall OS, SQL, etc). After I restored the OperationsManagerDW database from the backup, the following error was logged to the Application Event log by SQL every minute:
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/12/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://blog.tyang.org/wp-content/uploads/2013/12/image_thumb12.png" width="572" height="394" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/12/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="https://blog.tyang.org/wp-content/uploads/2013/12/image_thumb12.png" width="572" height="394" border="0" /></a>
 
 <span style="color: #ff0000;"><em>Error 777971002, severity 14, state 10 was raised, but no message with that error number was found in sys.messages. If error is larger than 50000, make sure the user-defined message is added using sp_addmessage.</em></span>
 
@@ -36,9 +36,9 @@ the SQL script is located at: <strong>"&lt;Install media&gt;\setup\AMD64\Datawar
 
 the section I need to run is at the very end of this long SQL script (starting from line 17931 to the end of the script, which is line 18055)
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/12/SNAGHTML65dd07.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML65dd07" alt="SNAGHTML65dd07" src="http://blog.tyang.org/wp-content/uploads/2013/12/SNAGHTML65dd07_thumb.png" width="580" height="627" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/12/SNAGHTML65dd07.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML65dd07" alt="SNAGHTML65dd07" src="https://blog.tyang.org/wp-content/uploads/2013/12/SNAGHTML65dd07_thumb.png" width="580" height="627" border="0" /></a>
 
-<a href="http://blog.tyang.org/wp-content/uploads/2013/12/SNAGHTML6bc0d0.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6bc0d0" alt="SNAGHTML6bc0d0" src="http://blog.tyang.org/wp-content/uploads/2013/12/SNAGHTML6bc0d0_thumb.png" width="580" height="627" border="0" /></a>
+<a href="https://blog.tyang.org/wp-content/uploads/2013/12/SNAGHTML6bc0d0.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="SNAGHTML6bc0d0" alt="SNAGHTML6bc0d0" src="https://blog.tyang.org/wp-content/uploads/2013/12/SNAGHTML6bc0d0_thumb.png" width="580" height="627" border="0" /></a>
 
 I copied and pasted this section into SQL management studio and executed it against the <strong>master</strong> database. This has stopped the Event 18054 in the application log.
 
