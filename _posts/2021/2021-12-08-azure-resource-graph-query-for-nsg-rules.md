@@ -1,9 +1,9 @@
 ---
-title: Azure Resource Graph Query For Network Security Rules
+title: Azure Resource Graph Query For Network Security Group Rules
 date: 2021-12-08 16:00
 author: Tao Yang
 permalink: /2021/12/08/azure-resource-graph-query-for-nsg-rules
-summary: Azure Resource Graph Query For Documenting Network Security Rules
+summary: Azure Resource Graph Query For Documenting Network Security Group Rules
 categories:
   - Azure
 tags:
