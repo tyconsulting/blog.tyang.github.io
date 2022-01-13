@@ -165,6 +165,10 @@ If Windows Firewall is in use, make sure all required SQL ports (i.e. 1433 for D
 
 Azure SQL VM only supports 1 DB engine instance per VM and it is the default instance (MSSQLServer).
 
+**Anti-Virus Exclusions**
+
+For SQL servers, certain files and folders need to be excluded in the AV client. If you happen to use the Microsoft Antimalware VM extension on your Azure VMs, I have previously posted a solution to configure AV exclusions for SQL VMs via Azure Policy. You can find my solution here: [Azure Policy for Deploy Anti-malware VM Extension for SQL VMs](https://blog.tyang.org/2021/10/03/azure-policy-deploy-ms-antimalware-ext-for-sql-vm/)
+
 ## Troubleshooting Tips
 
 **Ext_SqlIaaSExtensionError: Error: 'Healthy'**
