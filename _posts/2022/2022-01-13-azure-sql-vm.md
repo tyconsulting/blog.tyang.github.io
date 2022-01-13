@@ -203,7 +203,7 @@ I honestly think it is difficult to implement Azure SQL VMs to say the least. I 
 
 * ARM / Bicep Documentation
     * [SQL VM](https://docs.microsoft.com/en-us/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines?tabs=bicep)
-    *[SQL VM Group](https://docs.microsoft.com/en-us/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachinegroups?tabs=bicep)
+    * [SQL VM Group](https://docs.microsoft.com/en-us/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachinegroups?tabs=bicep)
     * [Availability Group Listener](https://docs.microsoft.com/en-us/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachinegroups/availabilitygrouplisteners?tabs=bicep)
 
 * [Quickstart template for creating AoAG for existing SQL VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-aglistener-setup) - I used this as a starting point for the SQL listener component of my bicep template. thanks to the contributors of this template.
