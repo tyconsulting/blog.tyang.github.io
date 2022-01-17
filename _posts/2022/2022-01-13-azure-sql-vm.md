@@ -127,21 +127,21 @@ During my previous engagements, I have participated in many discussions with eng
 
 **Azure Key Vault Integration (EKM)**
 
-If there is a requirement that the database also needs to be hosted outside of Azure (i.e. other public cloud on on-prem), using Azure Key Vault for TDE may not be the best option. This is because the encryption key is created within Azure Key Vault, you cannot export the private key from KV if the key is created within the KV. One of my customers decided to use certificates for TDE and abandoned this feature.
+If there is a requirement that the database also needs to be hosted outside of Azure (i.e. other public cloud or on-prem), using Azure Key Vault for TDE may not be the best option. This is because the encryption key is created within Azure Key Vault, you cannot export the private key from KV if the key is created within the KV. One of my customers decided to use certificates for TDE and abandoned this feature.
 
 **Disk size and performance**
 
 As the size increases, Azure Premium data disks can be very expensive. I have experienced many cases that the data disks on SQL VMs need to be re-sized due to the size and performance requirements. It is very painful if you need to add additional disks to SQL VMs (especially via code), because of the following factors:
 
-1. The data, log and tempDB drives created by the Azure SQL VM resource provider are based on Windows Server Storage Pools. A dedicated pool is created for each drive. When you add additional drives to an existing pool, you cannot change the column count of the pool because it can only be set at the creation time. For example, if you start with 2 data disks for SQL data drive and later on add 2 additional disks, the performance will not be as good as having 4 data disks to begin with.
+* The data, log and tempDB drives created by the Azure SQL VM resource provider are based on Windows Server Storage Pools. A dedicated pool is created for each drive. When you add additional drives to an existing pool, you cannot change the column count of the pool because it can only be set at the creation time. For example, if you start with 2 data disks for SQL data drive and later on add 2 additional disks, the performance will not be as good as having 4 data disks to begin with.
 
-2. Maximum number of data disks are bound to the VM SKU limit. Often when you try to add additional disks, you also had to change the VM SKU
+* Maximum number of data disks are bound to the VM SKU limit. Often when you try to add additional disks, you also had to change the VM SKU
 
-3. Drives cannot be extended via code when the SQL VMs are clustered. The Azure SQL VM resource provider does not support extending clustered VMs. Although it can be done within Windows (by adding additional disks, extending the pool, and logical drives manully). It is very convoluted process, maybe I will cover it in another post.
+* Drives cannot be extended via code when the SQL VMs are clustered. The Azure SQL VM resource provider does not support extending clustered VMs. Although it can be done within Windows (by adding additional disks, extending the pool, and logical drives manully). It is very convoluted process, maybe I will cover it in another post.
 
 ![4](../../../../assets/images/2022/01/azure-sql-vm-04.jpg)
 
-4. Difficult to implement via Terraform. To add additional disks to SQL VMs via code, you must create an Azure SQL VM resource with disk configuration type set to "EXTEND" (Reference: [ARM/Bicep](https://docs.microsoft.com/en-us/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines?tabs=bicep#storageconfigurationsettings), [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_virtual_machine#disk_type)). If you are updating the existing Terraform code that you used to intially create the SQL VM resource, you will get an error when executing the TF code because the resource name for the disk extension is the same as the initial SQL VM. In Terraform you cannot define 2 resources with the same name. When I developed the SQL VM disk extension Terraform module for a customer, I had to wrap an ARM template within Terraform to work around this issue. Again, it's a convoluted process.
+* Difficult to implement via Terraform. To add additional disks to SQL VMs via code, you must create an Azure SQL VM resource with disk configuration type set to "EXTEND" (Reference: [ARM/Bicep](https://docs.microsoft.com/en-us/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines?tabs=bicep#storageconfigurationsettings), [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_virtual_machine#disk_type)). If you are updating the existing Terraform code that you used to intially create the SQL VM resource, you will get an error when executing the TF code because the resource name for the disk extension is the same as the initial SQL VM. In Terraform you cannot define 2 resources with the same name. When I developed the SQL VM disk extension Terraform module for a customer, I had to wrap an ARM template within Terraform to work around this issue. Again, it's a convoluted process.
 
 If you ask me what is the number 1 advice I can give based on my past experience, I'd say pay special attention to the disk size and performance requirements and be generous when sizing the disks. Also pay attention to the tempdb IOPS requirements, don't just look at the disk size. For premium data disks, the size and IOPS are tied together in different SKUs - the bigger the disk is, the higher the IOPS allowance is assigned. Premium disks are charged by the tier you choose. You wont get a discount if you specify a smaller size for a tier. So there is no point to use custom sizes for these disks. Always go for the maximum size that the tier supports.
 
@@ -165,15 +165,19 @@ If Windows Firewall is in use, make sure all required SQL ports (i.e. 1433 for D
 
 Azure SQL VM only supports 1 DB engine instance per VM and it is the default instance (MSSQLServer).
 
+**Anti-Virus Exclusions**
+
+For SQL servers, certain files and folders need to be excluded in the AV client. If you happen to use the Microsoft Antimalware VM extension on your Azure VMs, I have previously posted a solution to configure AV exclusions for SQL VMs via Azure Policy. You can find my solution here: [Azure Policy for Deploy Anti-malware VM Extension for SQL VMs](https://blog.tyang.org/2021/10/03/azure-policy-deploy-ms-antimalware-ext-for-sql-vm/)
+
 ## Troubleshooting Tips
 
 **Ext_SqlIaaSExtensionError: Error: 'Healthy'**
 
 ![5](../../../../assets/images/2022/01/azure-sql-vm-05.png)
 
-I have seen this error returned from the ARM deployment many times. Although I have raised with ARM Product Team and they forwarded to the SQL team many months ago, I have received no feedback or acknowledgement so far. It is still happening to me yesterday. However I believe I know the cause of this issue and managed to fix it.
+I have seen this error returned from the ARM deployment many times. Although I have raised it with ARM Product Team and they forwarded to the SQL team many months ago, I have received no feedback or acknowledgement so far. It is still happening to me yesterday. However I believe I know the cause of this issue and managed to fix it.
 
-This error can occur when you update an existing Azure SQL VM where Azure Key Vault integration is enabled. When AKV integration is enabled, a credential object is created in SQL using the service principal provided in the template. When the Azure SQL VM object (essentially the SQL IaaS VM extension) is removed, this credential object is not removed in SQL. When the SQL VM resource is being installed again when this obsolete credential object still exists in SQL, you will receive this "Healthy" error. The fix is easy: delete the credential object and rerun the template:
+This error can occur when you update an existing Azure SQL VM where Azure Key Vault integration is enabled. When AKV integration is enabled, a credential object is created in SQL using the service principal provided in the template. When the Azure SQL VM object (essentially the SQL IaaS VM extension) is removed, this credential object is not removed from SQL. When the SQL VM resource is being installed again with this obsolete credential object still exists in SQL, you will receive this "Healthy" error. The fix is easy: delete the credential object and rerun the template:
 
 find the credential:
 
