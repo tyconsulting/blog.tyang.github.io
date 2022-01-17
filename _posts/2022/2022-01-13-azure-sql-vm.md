@@ -153,7 +153,7 @@ It's recommended to set the [storageWorkloadType](https://docs.microsoft.com/en-
 
 When creating SQL VM clusters, consider placing cluster nodes in different Availability Zones in the Azure region. This capability is already coded in the Bicep template I shared, it automatically spread the VMs into different availability zones.
 
-**Widnows Firewall configuration**
+**Windows Firewall configuration**
 
 If Windows Firewall is in use, make sure all required SQL ports (i.e. 1433 for DB engine, 443 for SSRS and 59999 for AOAG, etc) are allowed in the Windows firewall rules. This can be overlooked when troubleshooting connectivity issues if you only focus on the Azure aspect (NSGs, Azure Firewall, etc.)
 
