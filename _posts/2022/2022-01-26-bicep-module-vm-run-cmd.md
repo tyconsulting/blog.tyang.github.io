@@ -107,7 +107,7 @@ Hence it is very important that you use a storage account to store the err and s
 
 ![4](../../../../assets/images/2022/01/bicep-vm-run-cmd-04.jpg)
 
-### Reusing same blob in mutiple deployments**
+### Reusing same blob in multiple deployments
 
 I had an issue where the output blob does not get updated when I re-deployed the Bicep template. I realised the issue was that I used a fixed name for the blob and once the blob was initially created, any subsequent template deployments would not overwrite it. To work around this behaviour, I generate a unique blob name based on the VM name and current UTC time stamp:
 
