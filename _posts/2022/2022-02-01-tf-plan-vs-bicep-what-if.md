@@ -22,13 +22,13 @@ Few years ago Microsoft has started developing a new capability for ARM aiming t
 
 It is hard to say which one is better between `terraform plan' and ARM What-If. In this article, I will try to compare the two based on the following scenarios from my past experiences:
 
-* [Azure Policy Evaluation](#azure-policy-evaulation)
+* [Azure Policy Evaluation](#azure-policy-evaluation)
 * [Evaluating Subscription Quota](#evaluating-subscription-quota)
 * [Network Security Group Rules Validation](#network-security-group-rules-validation)
 * [Use of Module Outputs](#use-of-module-outputs)
 * [Parsing Outputs](#parsing-outputs)
 
->**NOTE:** All the sample Bicep and Terraform templates I have used in this blog post can be found on my GitHub repository [HERE](https://github.com/tyconsulting/tf.vs.bicep).
+>**NOTE:** All the sample Bicep and Terraform templates I have used in this blog post can be found on my GitHub repository [**HERE**](https://github.com/tyconsulting/tf.vs.bicep).
 
 The following tools and software are used. All of these should be at the latest version at the time writing this article:
 
@@ -44,7 +44,7 @@ The following tools and software are used. All of these should be at the latest 
 ### Azure Policy Evaluation
 
 | Tool | Capable |
-| :--- | :------ |
+| :--- | :-----: |
 | Terraform | No |
 | Bicep and ARM What-If | Yes |
 
@@ -67,7 +67,7 @@ When I invoked ARM What-If against the Bicep template using `az deployment group
 ### Evaluating Subscription Quota
 
 | Tool | Capable |
-| :--- | :------ |
+| :--- | :-----: |
 | Terraform | No |
 | Bicep and ARM What-If | Yes |
 
@@ -94,9 +94,9 @@ In the past when we create Azure landing zones, NSG rules can be very complicate
 #### Overlapping IPs
 
 | Tool | Capable |
-| :--- | :------ |
+| :--- | :-----: |
 | Terraform | No |
-| Bicep and ARM What-If | NO |
+| Bicep and ARM What-If | No |
 
 **[Sample templates](https://github.com/tyconsulting/tf.vs.bicep/tree/master/NSG-Rules-Overlapping-IPs)**
 
@@ -113,7 +113,7 @@ Bicep What-If:
 #### Duplicate Rule Priority Numbers
 
 | Tool | Capable |
-| :--- | :------ |
+| :--- | :-----: |
 | Terraform | No |
 | Bicep and ARM What-If | No |
 
@@ -170,10 +170,10 @@ Code:
 
 This is most likely a bug with the What-If API. I will try to reach out to the ARM product team and report this error.
 
-### Parsing Output
+### Parsing Outputs
 
 | Tool | Capable |
-| :--- | :------ |
+| :--- | :-----: |
 | Terraform | Yes |
 | Bicep and ARM What-If | Yes |
 
