@@ -206,8 +206,12 @@ I honestly think it is difficult to implement Azure SQL VMs to say the least. I 
 ## References
 
 * ARM / Bicep Documentation
-    * [SQL VM](https://docs.microsoft.com/en-us/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines?tabs=bicep)
-    * [SQL VM Group](https://docs.microsoft.com/en-us/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachinegroups?tabs=bicep)
-    * [Availability Group Listener](https://docs.microsoft.com/en-us/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachinegroups/availabilitygrouplisteners?tabs=bicep)
+  * [SQL VM](https://docs.microsoft.com/en-us/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines?tabs=bicep)
+  * [SQL VM Group](https://docs.microsoft.com/en-us/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachinegroups?tabs=bicep)
+  * [Availability Group Listener](https://docs.microsoft.com/en-us/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachinegroups/availabilitygrouplisteners?tabs=bicep)
 
 * [Quickstart template for creating AoAG for existing SQL VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-aglistener-setup) - I used this as a starting point for the SQL listener component of my bicep template. thanks to the contributors of this template.
+
+**[2022-02-27 Update]:** Microsoft's Cloud Developer Advocate [@JorgeArteiro](https://twitter.com/JorgeArteiro) and I have produced a video for this blog article, and published on his [@AzureTar](https://twitter.com/azuretar) YouTube Channel:
+
+<iframe src="//www.youtube.com/embed/3Sew_7KqUBo" height="375" width="640" allowfullscreen="" frameborder="0"></iframe>

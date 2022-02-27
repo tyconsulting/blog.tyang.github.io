@@ -134,14 +134,14 @@ My pipeline contains the following stages and jobs
 ![7](../../../../assets/images/2021/12/image07.png)
 
 * Stage: **Test and Build**
-    * Job: **Lint Tests** - Lint test using GitHub Super Linter (more info on [my previous blog post](https://blog.tyang.org/2020/06/27/use-github-super-linter-in-azure-pipelines/))
-    * Job: **ARM Deployment Validation** - Performing template validation and collect what-if results for Bicep templates using Azure CLI
-    * Job: **Build Function App** - Build the Python function
-    * Job **Publish Pattern** - Publish artifacts
+  * Job: **Lint Tests** - Lint test using GitHub Super Linter (more info on [my previous blog post](https://blog.tyang.org/2020/06/27/use-github-super-linter-in-azure-pipelines/))
+  * Job: **ARM Deployment Validation** - Performing template validation and collect what-if results for Bicep templates using Azure CLI
+  * Job: **Build Function App** - Build the Python function
+  * Job **Publish Pattern** - Publish artifacts
 * Stage: **Deploy Dev Stage**
-    * Job: **Deploy Function App to Dev Management Subscription** - Deploying the Function app and the python function to Dev Mgmt subscription
-    * Job: **Deploy Event Grid Topic and Subscription to Dev Management Subscription** - Deploy the Event Grid system topic nad subscription to Dev Mgmt subscription
-    * Job: **Deploy Event Grid Topic and Subscription to Dev Landing Zone #1 Subscription** - Deploy the Event Grid system topic nad subscription to Dev Landing Zone #1 subscription
+  * Job: **Deploy Function App to Dev Management Subscription** - Deploying the Function app and the python function to Dev Mgmt subscription
+  * Job: **Deploy Event Grid Topic and Subscription to Dev Management Subscription** - Deploy the Event Grid system topic nad subscription to Dev Mgmt subscription
+  * Job: **Deploy Event Grid Topic and Subscription to Dev Landing Zone #1 Subscription** - Deploy the Event Grid system topic nad subscription to Dev Landing Zone #1 subscription
 * Stage: **Deploy Prod Stage** - repeat the Dev stage on prod environment. However this stage will only be deployed from the main branch of the Git repo.
 
 >**NOTE**: You will need to modify the condition for the *Deploy Prod Stage* if your default branch name is not main or you prefer using another branch for production deployments.
@@ -203,3 +203,7 @@ Alert Email Example:
 ## Potential Improvements
 
 Due to time constraints, I have not tested this solution in a more secured environments. Most of the resources deployed can be connected to Azure Private Link. i.e. App Service Plan with a Premium SKU, storage account, key vault and even the Log Analytics workspace used to store the logs can all be configured to use Azure Private Link. If your security requirements mandate the use of Private Endpoints, you may consider configuring these resources to use Azure Private Link. However, I have not tested it in my lab at this stage.
+
+**[2022-02-27 Update]:** Microsoft's Cloud Developer Advocate [@JorgeArteiro](https://twitter.com/JorgeArteiro) and I have produced a video for this blog article, and published on his [@AzureTar](https://twitter.com/azuretar) YouTube Channel:
+
+<iframe src="//www.youtube.com/embed/mFJkSW4z8Jo" height="375" width="640" allowfullscreen="" frameborder="0"></iframe>
