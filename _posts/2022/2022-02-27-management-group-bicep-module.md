@@ -9,6 +9,7 @@ categories:
 tags:
   - Azure
   - Azure Bicep
+  - Azure Governance
 
 ---
 
