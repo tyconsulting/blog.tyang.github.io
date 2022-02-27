@@ -1,6 +1,6 @@
 ---
 title: Azure Bicep Module for Management Group Hierarchy
-date: 2022-02-27 16:00
+date: 2022-02-27 11:00
 author: Tao Yang
 permalink: /2022/02/27/management-group-bicep-module
 summary:
