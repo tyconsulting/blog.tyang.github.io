@@ -1,6 +1,6 @@
 ---
 title: Updated PowerShell Modules - PSPesterTest and TestJsonSchema
-date: 2022-03-21 22:00
+date: 2022-03-01 22:00
 author: Tao Yang
 permalink: /2022/03/01/updated-ps-module-pspestertest-testjsonschema
 summary:
