@@ -2,7 +2,7 @@
 title: Testing Bicep Code Using PSRule in Azure Pipeline
 date: 2022-03-20 20:00
 author: Tao Yang
-permalink: /2022/03/30/azure-pipeline-psrule-bicep-test
+permalink: /2022/03/20/azure-pipeline-psrule-bicep-test
 summary:
 categories:
   - Azure
