@@ -16,6 +16,6 @@ I wrote an Azure Policy definition today to audit or deny VMs that are not using
 
 This policy will block or generate audit log if the Virtual Machine has either disabled boot diagnostic or configured to use Microsoft-Managed storage account.
 
-![01](../../../../assets/images/2022/03/vm-boot-diag-policy-01.jpg.jpg)
+![01](../../../../assets/images/2022/03/vm-boot-diag-policy-01.jpg)
 
 The policy definition can be found in my **AzurePolicy** GitHub repo [HERE](https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/vm-without-customer-managed-boot-diag-storage-account).
