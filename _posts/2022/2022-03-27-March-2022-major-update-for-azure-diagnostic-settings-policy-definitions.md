@@ -76,7 +76,3 @@ The log category for Azure App Service is different between `Standard` and `Prem
 2. At the time of writing, the Log Category Groups are not supported for the Azure App Service Diagnostic Settings
 
 Due to these limitations, only the common logs that are available for both `Standard` and `Premium` SKUs are selected.
-
-**[2022-03-30 Update]:** Jorge Arteiro ([@JorgeArteiro](https://twitter.com/JorgeArteiro)), Bernie White ([@BernieAWhite](https://twitter.com/BernieAWhite)) and I have produced a video for PSRule, and published on his [@AzureTar](https://twitter.com/azuretar) YouTube Channel:
-
-<iframe src="//www.youtube.com/embed/3697rG8tkOI" height="375" width="640" allowfullscreen="" frameborder="0"></iframe>

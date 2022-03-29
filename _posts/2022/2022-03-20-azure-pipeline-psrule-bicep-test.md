@@ -56,3 +56,7 @@ The pipeline YAML template accepts a parameter called [`psRuleBaselineName`](htt
 on the root folder of your Git repository, you can create a `ps-rule.yaml` file and set [various options](https://microsoft.github.io/PSRule/v2/concepts/PSRule/en-US/about_PSRule_Options/) in this file. Options configured in this file will be applied to everything within the repo.
 
 Please feel free to give it a try, the [rules for Azure](https://azure.github.io/PSRule.Rules.Azure/en/baselines/Azure.Default/) are updated quarterly. PSRule also provides capability to integrate with Azure Monitor so you can send test results to Azure Monitor via the supplement module [PSRule.Monitor](https://github.com/microsoft/PSRule.Monitor). I have not tried it myself, but it's definitely on my to-do list. Although the sample pipeline is designed for Azure DevOps, PSRule also provides an [action for GitHub Action](https://github.com/marketplace/actions/psrule).
+
+**[2022-03-30 Update]:** Jorge Arteiro ([@JorgeArteiro](https://twitter.com/JorgeArteiro)), Bernie White ([@BernieAWhite](https://twitter.com/BernieAWhite)) and I have produced a video for PSRule, and published on his [@AzureTar](https://twitter.com/azuretar) YouTube Channel:
+
+<iframe src="//www.youtube.com/embed/3697rG8tkOI" height="375" width="640" allowfullscreen="" frameborder="0"></iframe>
