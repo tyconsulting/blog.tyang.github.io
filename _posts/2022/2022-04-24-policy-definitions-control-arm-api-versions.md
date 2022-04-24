@@ -17,6 +17,6 @@ In a previous engagement, we had requirements to control ARM API versions used t
 2. [Required minimum Azure Resource Manager REST API version for a resource type](https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/arm-api-versions/required-minimum-api-version)
 3. [Restrict to specific Azure Resource Manager REST API versions for a resource type](https://github.com/tyconsulting/azurepolicy/tree/master/policy-definitions/arm-api-versions/restrict-to-specific-api-version)
 
-With new features added the newer ARM API versions all the time, you may have requirements to enforce users only only approved versions for particular resource types, or limit users from using preview API versions.
+With new features added the newer ARM API versions all the time, you may have requirements to enforce users only use approved versions for particular resource types, or limit users from using preview API versions.
 
 I totally forgot about these policy definitions that I wrote almost 2 years ago. I thought I should publish them.
