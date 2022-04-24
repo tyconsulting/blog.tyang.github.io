@@ -1,6 +1,6 @@
 ---
 title: Azure Policy Definitions for Controlling ARM API versions
-date: 2022-04-24 16:30
+date: 2022-04-24 16:00
 author: Tao Yang
 permalink: /2022/04/24/policy-definitions-control-arm-api-versions/
 summary:
