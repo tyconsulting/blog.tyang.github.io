@@ -13,9 +13,7 @@ tags:
   - DevOps
 ---
 
-## Introduction
-
-This is the part 2 of the 2-part series on *Programmatically Generate Cloud Resource Names*. If you haven't read the [Part 1]((programmatically-generate-cloud-resource-names-part-`)), make sure you read it first.
+This is the part 2 of the 2-part series on *Programmatically Generate Cloud Resource Names*. If you haven't read the [Part 1](https://blog.tyang.org/2022/09/10/programmatically-generate-cloud-resource-names-part-1/), make sure you read it first.
 
 In this post, I will show you how to use the `CloudNaming` module to programmatically generate cloud resource names as part of your Infrastructure as Code (IaC) pipelines. I will use Azure DevOps YAML pipelines to demonstrate the process.
 
