@@ -114,7 +114,7 @@ The `instance` parameter is optional, and if not provided, the default starting 
 To generate the name, you can use the following command:
 
 
-```PowerShell
+```powershell
 GetCloudResourceName -cloud 'azure' -type 'sa' -company 'ty' -environment 'p01' -appIdentifier 'test' -location 'aue' -configFilePath 'C:\Temp\CustomCloudNaming.json' | ConvertFrom-Json
 ```
 
@@ -134,8 +134,7 @@ To simplify the process, you can generate multiple names for multiple resources 
 
 Firstly, let's find out what parameters are required:
 
-
-```PowerShell
+```powershell
 #Get all defined resource types for AWS in the custom configuration file and then filter the output to only show S3 buckets and EC2 instances
 GetCloudNamingSupportedTypes -cloud 'aws' -configFilePath C:\temp\customCloudNaming.json | ConvertFrom-Json | where {$_.description -imatch "s3" -or $_.description -imatch "ec2"}
 ```
@@ -173,7 +172,7 @@ To generate names for multiple resource types, simply aggregate all required par
 
 In addition to the above listed parameters, EC2 also requires the `workloadType` parameter and S3 requires the `location parameter. To generate 2 names for S3 buckets and EC2 instances, you can provide all required parameters by using the following command:
 
-```PowerShell
+```powershell
 GetCloudResourceName -cloud 'aws' -type 's3', 'ec2' `
 -company 'ty' -environment 'p01' -appIdentifier 'test' `
 -workload 'app' -location 'aue' `
@@ -194,7 +193,7 @@ names                                            description                    
 
 the output is an array, each item represents a resource type. To access the names for each resource type:
 
-```PowerShell
+```powershell
 #stores output in a variable
 $names = GetCloudResourceName -cloud 'aws' -type 's3', 'ec2' `
 -company 'ty' -environment 'p01' -appIdentifier 'test' `
