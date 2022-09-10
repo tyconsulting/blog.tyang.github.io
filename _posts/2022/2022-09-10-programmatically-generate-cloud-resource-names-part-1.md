@@ -100,7 +100,7 @@ leadingZeros : True
 pattern      : {resourceType}{company}{environment}{location}{appIdentifier}{instance}
 ```
 
-![01](../../assets/images/2022/09/cloudNaming-01.jpg)
+![01](../../../../assets/images/2022/09/cloudNaming-01.jpg)
 
 As shown in the screenshot above, to generate names for Azure Storage Accounts, the `-type` value (resource type abbreviate) is `sa`, and it requires you to pass in the following values:
 
@@ -126,7 +126,7 @@ names              description     type
 {satyp01auetest01} Storage Account sa
 ```
 
-![02](../../assets/images/2022/09/cloudNaming-02.jpg)
+![02](../../../../assets/images/2022/09/cloudNaming-02.jpg)
 
 #### Example 2: Generate 2 names for multiple resource types using a custom config file
 
@@ -162,7 +162,7 @@ leadingZeros : True
 pattern      : {resourceType}-{company}-{environment}-{location}-{appIdentifier}-{instance}
 ```
 
-![03](../../assets/images/2022/09/cloudNaming-03.jpg)
+![03](../../../../assets/images/2022/09/cloudNaming-03.jpg)
 
 To generate names for multiple resource types, simply aggregate all required parameters. in this case, both S3 buckets and EC2 instances require the following common parameters:
 
@@ -190,7 +190,7 @@ names                                            description                    
 {s3-ty-p01-aue-test-01, s3-ty-p01-aue-test-02}   S3 Bucket                            s3
 ```
 
-![04](../../assets/images/2022/09/cloudNaming-04.jpg)
+![04](../../../../assets/images/2022/09/cloudNaming-04.jpg)
 
 the output is an array, each item represents a resource type. To access the names for each resource type:
 

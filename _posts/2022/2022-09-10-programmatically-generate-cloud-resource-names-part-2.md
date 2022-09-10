@@ -13,14 +13,15 @@ tags:
   - DevOps
 ---
 
-This is the part 2 of the 2-part series on *Programmatically Generate Cloud Resource Names*. If you haven't read the [Part 1](https://blog.tyang.org/2022/09/10/programmatically-generate-cloud-resource-names-part-1/), make sure you read it first.
+This is the part 2 of the 2-part series on *Programmatically Generate Cloud Resource Names*.
+
+If you haven't read the [Part 1](https://blog.tyang.org/2022/09/10/programmatically-generate-cloud-resource-names-part-1/), make sure you read it first.
 
 In this post, I will show you how to use the `CloudNaming` module to programmatically generate cloud resource names as part of your Infrastructure as Code (IaC) pipelines. I will use Azure DevOps YAML pipelines to demonstrate the process.
 
 As you have seen in the previous post, I have decoupled the naming patterns from the actual PowerShell code. This allows you to easily change the naming patterns without having to change the PowerShell code. It also means that you should be confident to install the latest version of the `CloudNaming` module from a public repository such as [PowerShell Gallery](https://www.powershellgallery.com/packages/CloudNaming/) without worrying about breaking your pre-defined naming patterns.
 
 However, if your organization prefers to have everything in 1 place, you can always choose to modify the built-in naming patterns in the `CloudNaming` module by editing the `CloudNaming.json` file inside the module directory. You can then publish your "forked" version of the module in a private PowerShell repository such as [Azure Artifacts](https://docs.microsoft.com/en-us/azure/devops/artifacts/tutorials/private-powershell-library?view=azure-devops) for your organization to use.
-
 
 In this post, I am going to demonstrate 2 use cases:
 
@@ -42,7 +43,7 @@ You will make sure that you have given the following identities the contributor 
 1. (*project-name*) Build Service (*organization name*)
 2. Project Collection Build Service (*organization name*)
 
-![05](../../assets/images/2022/09/cloudNaming-05.jpg)
+![05](../../../../assets/images/2022/09/cloudNaming-05.jpg)
 
 Also make sure when every time the module is updated, the version number is increased in the module manifest `CloudNaming.psd1` file.
 
@@ -52,11 +53,11 @@ This pipeline will perform the following tasks:
 2. package the module into a NuGet package
 3. push the NuGet package to the Azure Artifacts feed
 
-![06](../../assets/images/2022/09/cloudNaming-06.jpg)
+![06](../../../../assets/images/2022/09/cloudNaming-06.jpg)
 
 ### Sample pipeline for consuming the customized version from Azure Artifacts
 
-![07](../../assets/images/2022/09/cloudNaming-07.jpg)
+![07](../../../../assets/images/2022/09/cloudNaming-07.jpg)
 
 The code for this sample pipeline can be found [HERE](https://github.com/tyconsulting/CloudNaming-Module/blob/master/pipeline-examples/pipelines/azure-pipelines-demo-1.yaml)
 
@@ -69,11 +70,11 @@ Scenario:
 * Publish updated parameter file
 * Deploy the Bicep template with the updated parameter file to an Azure subscription
 
-![08](../../assets/images/2022/09/cloudNaming-08.jpg)
+![08](../../../../assets/images/2022/09/cloudNaming-08.jpg)
 
 ## Consuming Public Version From PowerShell Gallery
 
-![09](../../assets/images/2022/09/cloudNaming-09.jpg)
+![09](../../../../assets/images/2022/09/cloudNaming-09.jpg)
 
 In this example, I am using the public version of the `CloudNaming` module from the PowerShell Gallery. I have also created a customized configuration file to configure my organization's internally approved naming standard.
 
@@ -88,7 +89,7 @@ Scenario:
 * Publish updated parameter file
 * Deploy the Bicep template with the updated parameter file to an Azure subscription
 
-![10](../../assets/images/2022/09/cloudNaming-10.jpg)
+![10](../../../../assets/images/2022/09/cloudNaming-10.jpg)
 
 
 ### Configuration File Location
