@@ -3,7 +3,7 @@ title: March 2022 Major Update for Azure Diagnostic Settings Policy Definitions
 date: 2022-03-27 18:30
 author: Tao Yang
 permalink: /2022/03/27/march-2022-major-update-for-azure-diagnostic-settings-policy-definitions/
-summary:
+summary: Updates to the Azure Diagnostic Settings policy definit
 categories:
   - Azure
 tags:
