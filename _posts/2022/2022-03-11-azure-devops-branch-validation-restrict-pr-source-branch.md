@@ -3,7 +3,7 @@ title: Using Azure DevOps Branch Policy To Restrict PR Source Branch
 date: 2022-03-11 08:00
 author: Tao Yang
 permalink: /2022/03/11/ado-branch-policy-restrict-pr-source-branch
-summary:
+summary: Restricting PR source branch with Azure DevOps Branch Policy
 categories:
   - Azure DevOps
 tags:
@@ -54,7 +54,7 @@ stages:
           }
         displayName: "Check Build Source Branch"
         errorActionPreference: Stop
-      
+
 ```
 
 **Build Validation Pipeline**
