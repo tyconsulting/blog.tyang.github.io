@@ -1,5 +1,5 @@
 ---
-title:
+title: Azure policy to Audit Storage Account without Lifecycle Management Rule
 date: 2022-09-16 00:00
 author: Tao Yang
 permalink: /2022/09/16/azure-policy-audit-storage-account-lifecycle-management-rule/
