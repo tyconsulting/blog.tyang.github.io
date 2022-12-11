@@ -105,7 +105,7 @@ output tagPolicySetDefinition object = tagPolicySetDefinition
 
 ```
 
-In this example, I'm deploying a policy initiative defined in the [`polset-tags.json`](https://github.com/tyconsulting/azurepolicy/blob/master/bicep/templates/policySetDefinitions/polset-tags.json file. The `loadTextContent()` function is used to read the JSON file.
+In this example, I'm deploying a policy initiative defined in the [polset-tags.json](https://github.com/tyconsulting/azurepolicy/blob/master/bicep/templates/policySetDefinitions/polset-tags.json file. The `loadTextContent()` function is used to read the JSON file.
 
 In the Policy Initiative definition JSON file, I have defined the member policy location as below:
 
