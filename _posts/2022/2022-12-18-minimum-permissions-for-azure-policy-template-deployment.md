@@ -119,8 +119,9 @@ Once I have the `Lab Service Reader` role assigned, my template deployed started
 ![03](../../../../assets/images/2022/12/policyPermissions03.jpg)
 
 **TL;DR:**
+
 In order to deploy Azure Policy resources via ARM or Bicep templates, the Azure AD identity that performs the deployment needs to have the following built-in roles assigned as a minimum:
 
-- Resource Policy Contributor (/providers/Microsoft.Authorization/roleDefinitions/36243c78-bf99-498c-9df9-86d9f8d28608)
-- User Access Administrator (/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9)
-- Lab Services Reader (/providers/Microsoft.Authorization/roleDefinitions/2a5c394f-5eb7-4d4f-9c8e-e8eae39faebc) or any additional role that has the `Microsoft.Resources/deployments/*` permission in the `Microsoft.Resources` namespace.
+- **Resource Policy Contributor** (`/providers/Microsoft.Authorization/roleDefinitions/36243c78-bf99-498c-9df9-86d9f8d28608`)
+- **User Access Administrator** (`/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`)
+- **Lab Services Reader** (`/providers/Microsoft.Authorization/roleDefinitions/2a5c394f-5eb7-4d4f-9c8e-e8eae39faebc`) or any additional role that has the `Microsoft.Resources/deployments/*` permission in the `Microsoft.Resources` namespace.
