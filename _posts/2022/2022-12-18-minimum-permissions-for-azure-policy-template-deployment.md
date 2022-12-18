@@ -83,7 +83,7 @@ The reason for this error is because there is a gap in the built-in `Resource Po
 
 ![01](../../../../assets/images/2022/12/policyPermissions01.jpg)
 
-I'm not exactly sure what is the reason behind this design decision, it's strange to me this is missing even when some reader roles have this permission. Since most of the time we will be deploying Policy resources to a Management Group scope and at the time of writing this article, assigning custom role definitions on a Management Group scope is still in preview, we had to stick with only using built-in roles in customer's environments. When we firstly discovered this limitation at a customer's environment, my friend and colleague [Ahmad Abdalla](https://github.com/ahmadabdalla) and I have decided to add another role definition into the mix. We have picked the `Lab Service Reader` role because it has the missing piece of the puzzle. Here's the role definition in JSON:
+I'm not exactly sure what is the reason behind this design decision, it's strange to me this is missing even when some reader roles have this permission. Since most of the time we will be deploying Policy resources to a Management Group scope and at the time of writing this article, assigning custom role definitions on a Management Group scope is still in preview, we had to stick with only using built-in roles in customer's environments. When we firstly discovered this limitation at a customer's environment, my friend and colleague [Ahmad Abdalla](https://github.com/ahmadabdalla) and I have decided to add another role definition into the mix. We have picked the `Lab Service Reader` role to fill the missing piece of the puzzle. Here's the role definition in JSON:
 
 ```json
 {
