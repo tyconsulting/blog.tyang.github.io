@@ -98,7 +98,7 @@ author:
   name             : "Tao Yang"
   avatar           : "/assets/avatar/avatar.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am a Microsoft Azure MVP based in Melbourne, Australia."
-  location         : 
+  location         :
   email            :
   links:
     - label: "Email"
@@ -297,5 +297,4 @@ defaults:
       share: true
       related: true
       sidebar:
-        - text: "[![NiCE](/assets/sponsors/Nice.png)](https://www.nice.de/nice-active-365-monitor-for-azure/)"
         - text: "[![GripMatix](/assets/sponsors/MetrixInsight.png)](https://www.gripmatix.com/gripmatix-citrix-sbc-vdi-scom-management-packs)"
