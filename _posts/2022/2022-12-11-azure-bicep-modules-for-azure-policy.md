@@ -53,7 +53,7 @@ output policies array = [for (definition, i) in PolicyDefinitions: {
 
 ```
 
->>NOTE: This sample template above is located [here](https://github.com/tyconsulting/azurepolicy/tree/master/bicep/templates/policyDefinitions)
+>**NOTE**: This sample template above is located [here](https://github.com/tyconsulting/azurepolicy/tree/master/bicep/templates/policyDefinitions)
 
 ## Policy Initiative (Policy Set) Module
 
@@ -113,7 +113,7 @@ In the Policy Initiative definition JSON file, I have defined the member policy 
 
 The Bicep template uses the `replace()` function to replace the `{policyLocationResourceId}` placeholder with the management group Id (in this example, assuming the member policies are located at the same management group as the policy initiative).
 
->>NOTE: The sample template above is located [here](https://github.com/tyconsulting/azurepolicy/blob/master/bicep/templates/policySetDefinitions/main.bicep)
+>**NOTE**: The sample template above is located [here](https://github.com/tyconsulting/azurepolicy/blob/master/bicep/templates/policySetDefinitions/main.bicep)
 
 ## Policy Assignment Module
 
@@ -207,7 +207,7 @@ output tagAssignmentResourceId string = tagAssignment.outputs.resourceId
 
 This sample bicep template requires parameter inputs, which can be defined in a parameter file. It adds the `assignedBy` metadata to existing assignment metadata, and similar to the Policy Initiative sample, it replaces the `{policyLocationResourceId}` token with the `definitionSourceManagementGroupId` parameter.
 
->>NOTE: The sample template above is located [here](https://github.com/tyconsulting/azurepolicy/blob/master/bicep/templates/PolicyAssignments/main.bicep)
+>**NOTE**: The sample template above is located [here](https://github.com/tyconsulting/azurepolicy/blob/master/bicep/templates/PolicyAssignments/main.bicep)
 
 ## Conclusion
 

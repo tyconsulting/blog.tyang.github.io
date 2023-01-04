@@ -20,7 +20,7 @@ I have created a sample Bicep template to create an Azure Storage Account, a Pri
 
 In this template, I have defined 2 separate Private Endpoint resources for the same Storage Account. The static IP addresses for each PE are passed in as parameters (as shown in the code sample below).
 
->>NOTE: Private Endpoints have a unique `groupId` for each resource type. For example, the `groupId` for the Storage Account blob service is `blob`, ADLS Gen2 is `dfs`, and Azure Key Vault is `vault`, etc. You can find the full list [HERE](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview#private-link-resource).
+>**NOTE**: Private Endpoints have a unique `groupId` for each resource type. For example, the `groupId` for the Storage Account blob service is `blob`, ADLS Gen2 is `dfs`, and Azure Key Vault is `vault`, etc. You can find the full list [HERE](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview#private-link-resource).
 
 ```hcl
 resource blobPe 'Microsoft.Network/privateEndpoints@2022-07-01' = {
