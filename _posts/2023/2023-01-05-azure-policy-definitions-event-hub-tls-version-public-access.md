@@ -9,7 +9,7 @@ categories:
 tags:
   - Azure
   - Azure Policy
-
+  - Azure Event Hub
 ---
 
 Azure Event Hub Namespace has added support for 2 additional properties in the latest API version `2022-01-01-preview`:
