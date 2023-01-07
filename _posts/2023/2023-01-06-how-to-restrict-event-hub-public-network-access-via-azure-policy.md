@@ -16,7 +16,7 @@ Yesterday I [published a policy definition](https://blog.tyang.org/2023/01/05/az
 
 ![1](../../../../assets/images/2023/01/event-hub-public-network-access-01.jpg)
 
-After some investigation, I found that in the Activity Log that my update on the Azure portal was actually targeted the `Microsoft.EventHub/Namespace/NetworkRuleSets` instead of the `Microsoft.EventHub/Namespace resource` type.
+After some investigation, I found that in the Activity Log that my update on the Azure portal was actually targeted the `Microsoft.EventHub/Namespace/NetworkRuleSets` instead of the `Microsoft.EventHub/Namespace` resource type.
 
 ![2](../../../../assets/images/2023/01/event-hub-public-network-access-02.jpg)
 
