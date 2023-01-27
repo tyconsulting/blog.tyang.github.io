@@ -33,7 +33,7 @@ I have configured the feed as following:
 
  * Visibility: Member of your Azure Active Directory
  * Disabled Upstream sources
- * Scope" Organization (it doesn't matter if you choose the Project scope as long as the pipeline for uploading pip packages is in the same project)
+ * Scope: Organization (it doesn't matter if you choose the Project scope as long as the pipeline for uploading pip packages is in the same project)
 
 For the feed permissions, I have given the `Project Collection Build Service (<your-ADO-organization>)` and `<your-ADO-project> Build Service (<your-ADO-Organization>)` contributor role. This is to allow the Azure pipelines to upload pip packages to the feed.
 
