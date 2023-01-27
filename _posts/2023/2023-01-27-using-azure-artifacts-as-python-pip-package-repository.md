@@ -1,6 +1,6 @@
 ---
 title:
-date: 2023-01-27 22:00
+date: 2023-01-26 23:30
 author: Tao Yang
 permalink: /2023/01/26/using-azure-artifacts-as-python-pip-package-repository
 summary:
