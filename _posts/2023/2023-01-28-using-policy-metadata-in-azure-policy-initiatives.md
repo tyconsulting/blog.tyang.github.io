@@ -51,7 +51,6 @@ I often get asked by customer's security team how to query all non-compliant res
 policyresources
 | where type == "microsoft.policyinsights/policystates"
 | where properties.complianceState =~ "NonCompliant"
-| where properties.policyDefinitionAction =~ 'DeployIfNotExists' or properties.policyDefinitionAction =~ 'Modify'
 | project resourceId = properties.resourceId, subscriptionId = properties.subscriptionId, policyDefinitionId = properties.policyDefinitionId, policyDefinitionName=properties.policyDefinitionName, policyAssignmentId = properties.policyAssignmentId, policyDefinitionReferenceId=properties.policyDefinitionReferenceId, policyDefinitionGroupNames = properties.policyDefinitionGroupNames
 | where policyDefinitionGroupNames contains "iso27001-2013_a.12.4.1"
 ```
