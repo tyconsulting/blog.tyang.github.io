@@ -16,7 +16,7 @@ tags:
 
 ## Introduction
 
-[PSDocs](https://github.com/microsoft/PSDocs) is a tool developed by Microsoft's [Bernie White](https://github.com/BernieWhite), who is also the creator of my favourite tool [PSRules](https://github.com/microsoft/PSRule). PSDocs is a PowerShell module that you can use to generate `README.md` files for your Azure Resource Manager (ARM) templates. I have used it in several projects, to make sure all my bicep templates and modules are documented. I have created a script that use `PSDocs` to generate README files for any bicep files, all you need is a `metadata.json` file in the same folder as your bicep file. The script will generate a `README.md` file for the bicep file you have specified.
+[PSDocs](https://github.com/microsoft/PSDocs) is a tool developed by Microsoft's [Bernie White](https://github.com/BernieWhite), who is also the creator of my favourite tool [PSRules](https://github.com/microsoft/PSRule). PSDocs is a PowerShell module that you can use to generate `README.md` files for your Azure Resource Manager (ARM) templates. I have used it in several projects, to make sure all my bicep templates and modules are documented. I have created a script that uses `PSDocs` to generate README files for any bicep files, all you need is a `metadata.json` file in the same folder as your bicep file. The script will generate a `README.md` file for the bicep file you have specified.
 
 You can find the script `generateBicepReadme.ps1`[here](https://github.com/tyconsulting/BlogPosts/blob/master/Scripts/psDocs/generateBicepReadme.ps1)
 
@@ -41,7 +41,6 @@ To generate the `README.md` file, simply run the script with the following param
 
 ```PowerShell
 ./generateBicepReadme.ps1 -templatePath .<path-to-bicep-file> -verbose
-
 ```
 
 ![1](../../../../assets/images/2023/02/psdocs-01.jpg)
