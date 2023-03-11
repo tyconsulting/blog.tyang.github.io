@@ -1,6 +1,6 @@
 ---
 title: Script to Create Azure Purview Integration Runtimes
-date: 2023-03-11 11:00
+date: 2023-03-11 09:00
 author: Tao Yang
 permalink: /2023/03/11/purview-integration-runtime-script
 summary:
