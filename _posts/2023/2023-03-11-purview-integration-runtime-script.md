@@ -9,7 +9,7 @@ categories:
   - PowerShell
 tags:
   - Azure
-
+  - Azure Purview
 ---
 
 I needed to create Azure Purview with a Self-Hosted Integration Runtime (SHIR) as part of a Infrastructure as Code (IaC) pipeline. Having previously created Azure Data Factory (ADF) with SHIR and I was told by our data engineers the creation process is pretty much the same, I thought it would be fairly easy, just an Integration Runtime resource in my Bicep template. But it turned out although the portal experience is almost identical to ADF, unlike ADF, Purview Integration Runtimes (IR) is not a resource type in Azure Resource Manager.
