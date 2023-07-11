@@ -1,8 +1,8 @@
 ---
 title: AzureTar YouTube Video Series - Infra as Code with CARML Bicep Modules
-date: 2023-07-11 21:00
+date: 2023-07-11 20:00
 author: Tao Yang
-permalink: /2023/07/07/azuretar-carml-series/
+permalink: /2023/07/11/azuretar-carml-series/
 summary:
 categories:
   - Azure
