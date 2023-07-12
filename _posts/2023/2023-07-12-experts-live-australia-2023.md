@@ -21,4 +21,4 @@ The sessions have been shortlisted, we have started announcing the sessions and 
 For me, I will be presenting 2 sessions:
 
 1. Co-presenting with Microsoft's [Ahmad Abdalla](https://twitter.com/ahmadkabdalla): **Introduction to [CARML](https://aka.ms/carml) and how it can help your organization adopt Azure Bicep and Infrastructure as Code (Level 300)**.
-2. Solo session: Back to the basics - **Sharing my Tips and Tricks for using ARM REST APIs (Level 300)**
+2. Solo session: **Back to the basics - Sharing my Tips and Tricks for using ARM REST APIs (Level 300)**
