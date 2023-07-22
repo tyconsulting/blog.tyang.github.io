@@ -1,6 +1,6 @@
 ---
 title: Azure Pipeline for Self-Hosted Linux Agent Validation
-date: 2023-07-33 17:00
+date: 2023-07-22 17:00
 author: Tao Yang
 permalink: /2023/07/33/ado-pipeline-linux-agent-validation
 summary:
