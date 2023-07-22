@@ -30,11 +30,11 @@ You can find the code in my GitHub repo **[ado-agent-validation](https://github.
 
 As shown below, I have 2 agent pools in my lab ADO organisation, both have few Ubuntu VMs provisioned as agents. I have configured 2 agent instances per VM. In total, I have 2 VMs running total of 4 agents in the "dev" agent pool, and 1 VM running 2 agents in the "prod" agent pool.
 
-![01](../../assets/images/2023/07/ado-agent-validation-01.jpg)
+![01](../../../../assets/images/2023/07/ado-agent-validation-01.jpg)
 
 The agent validation jobs are executed in parallel within each stage. It ensures all agents must be validated before completing the stage. If an agent is offline for some reason, the pipeline will wait for the agent to come back online and run the tasks.
 
-![02](../../assets/images/2023/07/ado-agent-validation-02.jpg)
+![02](../../../../assets/images/2023/07/ado-agent-validation-02.jpg)
 
 In the agent validation script used by the pipeline ([linux-agent-check.sh](https://github.com/tyconsulting/ado-agent-validation/blob/main/scripts/linux-agent-check.sh)), I have included the following checks:
 
@@ -65,11 +65,11 @@ You must allow the pipeline to read the agent pool information from your Azure D
 
 1. In your Azure DevOps project where the pipeline is located, make sure the setting `Limit job authorization scope to current project for non-release pipelines` is **turned off**:
 
-![03](../../assets/images/2023/07/ado-agent-validation-03.jpg)
+![03](../../../../assets/images/2023/07/ado-agent-validation-03.jpg)
 
 2. For each agent pool you want to validate, you need to grant the `Project Collection Build Service (your organisation name)` account the `Reader` role. This is done in the **Organization Settings** --> **Agent pools** --> Select the pool--> Under the **Security** tab of the agent pool, grant the reader role to the account.
 
-![04](../../assets/images/2023/07/ado-agent-validation-04.jpg)
+![04](../../../../assets/images/2023/07/ado-agent-validation-04.jpg)
 
 ## Prepare the code
 
@@ -77,7 +77,7 @@ When you are preparing the pipeline code in a git repository, you need to make s
 
 Secondly, configure the pipeline YAML file [azure-pipelines-linux-ado-agent-validation.yaml](https://github.com/tyconsulting/ado-agent-validation/blob/main/pipelines/azure-pipelines-linux-ado-agent-validation.yaml) to have a stage for each agent pool you want to validate. The `poolName` value is from the variable defined in the previous step. For example, in my sample code, I have 2 agent pools (dev and prod), so I have 2 stages in the pipeline YAML file:
 
-![05](../../assets/images/2023/07/ado-agent-validation-05.jpg)
+![05](../../../../assets/images/2023/07/ado-agent-validation-05.jpg)
 
 Lastly, update the agent validation script [linux-agent-check.sh](https://github.com/tyconsulting/ado-agent-validation/blob/main/scripts/linux-agent-check.sh) according to your requirements. You can add or remove checks as you wish. I have tested this script on both Ubuntu and RHEL agents.
 
@@ -91,4 +91,4 @@ When you are ready, create a new pipeline from the existing YAML file **pipeline
 
 3. During the URL tests, the script determines the result based on the [HTTP response status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). Any code in 2xx and 4xx ranges are considered passed (although 4xx codes indicate client errors.) Some of the URLs I'm testing will return 403 (Forbidden), 404 (Not Found), 405 (Method Not allowed) codes, but I still consider them as passed. This is because These URLs we have requested customers to whitelist would be for a site, not specific pages. If the site is accessible, I consider the test passed. A different message in yellow colour will be displayed for any URLs that return 4xx codes.
 
-![06](../../assets/images/2023/07/ado-agent-validation-06.jpg)
+![06](../../../../assets/images/2023/07/ado-agent-validation-06.jpg)
