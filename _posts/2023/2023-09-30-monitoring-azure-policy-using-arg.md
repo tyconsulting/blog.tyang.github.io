@@ -31,8 +31,7 @@ I have codified the solution into an Azure Bicep template and published it to my
 Before deploying the solution, here's a list of pre-requisites:
 
 1. **An existing Log Analytics workspace**
-2. **The identity you use to deploy this template must have either the owner or User Access Administrator role on the tenant root level.** This is because the template will create an User Assigned Managed Identity for the alert rule and this managed identity must have the reader role on the tenant root level to be able to query the Azure Resource Graph for all policy compliance states within the entire tenant.
-The Bicep template create the following resources:
+2. **The identity you use to deploy this template must have either the owner or User Access Administrator role on the tenant root level.** This is because the template will create an User Assigned Managed Identity for the alert rule and this managed identity must have the reader role on the tenant root level to be able to query the Azure Resource Graph for all policy compliance states within the entire tenant. **You must assign the permission using Azure CLI or PowerShell. Role Assignments to tenant root cannot be created in the portal. You may use PowerShell command `Add-AzRoleAssignment -ObjectId <add-object-id> -scope / -RoleDefinitionName Owner`.***
 
 The Bicep template creates the following resources:
 
