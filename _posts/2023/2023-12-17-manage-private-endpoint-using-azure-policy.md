@@ -1,9 +1,9 @@
 ---
 title: Managing Azure Private Endpoints using Azure Policy
-date: 2023-12-17 13:00
+date: 2023-12-17 3:00
 author: Tao Yang
 permalink: /2023/12/17/manage-private-endpoint-using-azure-policy/
-summary:
+summary: Managing Private Endpoints using Azure Policy
 categories:
   - Azure
 tags:
