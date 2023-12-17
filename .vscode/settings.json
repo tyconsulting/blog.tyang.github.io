@@ -15,5 +15,6 @@
     "markdown",
     "latex",
     "plaintext"
-  ]
+  ],
+  "sarif-viewer.connectToGithubCodeScanning": "off"
 }
