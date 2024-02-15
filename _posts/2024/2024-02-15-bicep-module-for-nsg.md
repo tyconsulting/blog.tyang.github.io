@@ -16,7 +16,7 @@ tags:
 
 Most of my work over the last couple of years has been focused on Azure Bicep and more specifically, [CARML](https://aka.ms/carml)(Common Azure Resource Modules Library). I have presented this topic in various occasions (i.e. on the [AzureTar's YouTube Channel](https://blog.tyang.org/2023/07/11/azuretar-carml-series/), and at [Experts Live Australia 2023](https://github.com/tyconsulting/ExpertsLiveAU2023-CARML)). I have also made several contributions to the CARML project.
 
-In the YouTube videos and the Experts Live talk, I have teamed up with Ahmad Abdalla ([@ahmadkabdalla](https://twitter.com/ahmadkabdalla)) and Jorge Arteiro ([@JorgeArteiro](https://twitter.com/JorgeArteiro)) and covered the concept of benefits of developing your own "overlay" Bicep modules based on CARML modules.
+In the YouTube videos and the Experts Live talk, I have teamed up with Ahmad Abdalla ([@ahmadkabdalla](https://twitter.com/ahmadkabdalla)) and Jorge Arteiro ([@JorgeArteiro](https://twitter.com/JorgeArteiro)) and covered the concept and benefits of developing your own "overlay" Bicep modules based on CARML modules.
 
 The CARML projects have been superseded by the new [Azure Verified Modules (AVM)](https://aka.ms/avm) initiative, and to date, 86 CARML modules have already been migrated to AVM. AVM is a collection of fully tested and verified Azure Bicep modules that can be used to deploy Azure resources. The source code of these modules are located in the [Azure Bicep Registry Modules GitHub repo](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res).
 
@@ -28,7 +28,7 @@ Now having the AVM modules in the picture, it has become even easier to develop 
 
 ![01](../../../../assets/images/2024/02/nsg-module-01.jpg)
 
-When comes to creating Network Security Group (NSG) rules, I actually think the Azure portal UI is pretty simple and easy to use.However, when it comes to creating them in Bicep / ARM or the API, it can be a bit tricky. There are many different parameters for the source and destination all depending on the use cases. Based on the [Bicep documentation for NSG](https://learn.microsoft.com/en-us/azure/templates/microsoft.network/networksecuritygroups?pivots=deployment-language-bicep), the following parameters are available for the `securityRules` property:
+When comes to creating Network Security Group (NSG) rules, I actually think the Azure portal UI is pretty simple and easy to use. However, when it comes to creating them in Bicep / ARM or the API, it can be a bit tricky. There are many different parameters for the source and destination all depending on the use cases. Based on the [Bicep documentation for NSG](https://learn.microsoft.com/en-us/azure/templates/microsoft.network/networksecuritygroups?pivots=deployment-language-bicep), the following parameters are available for the `securityRules` property:
 
 * **sourceAddressPrefix** and **destinationAddressPrefix** - Used when the source or destination is a **single** IP address / CIDR range, or an Azure `Service Tag`.
 * **sourceAddressPrefixes** and **destinationAddressPrefixes** - Used when the source or destination is **multiple** IP addresses / CIDR ranges, or a combination of both.
