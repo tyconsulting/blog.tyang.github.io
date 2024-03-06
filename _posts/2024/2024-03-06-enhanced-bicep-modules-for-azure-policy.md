@@ -1,6 +1,6 @@
 ---
 title: Enhanced Azure Bicep Modules for Azure Policy Resources
-date: 2024-03-06 21:00
+date: 2024-03-06 18:00
 author: Tao Yang
 permalink: /2024/03/06/enhanced-bicep-modules-for-azure-policy/
 summary: A collection of enhanced Azure Bicep modules for Azure Policy resources based on CARML.
