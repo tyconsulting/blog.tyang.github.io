@@ -69,7 +69,7 @@ I firstly import the JSON content of each policy file into an array variable usi
 ```bicep
 var policyDefinitions = [
   loadJsonContent('relative-path-to-the-json-file-1.json')
-  loadJsonContent('relative-path-to-the-json-file-1.json')
+  loadJsonContent('relative-path-to-the-json-file-2.json')
 
 ]
 ```
@@ -112,7 +112,7 @@ Again, I firstly load the json content of all the policy initiative files into a
 ```bicep
 var policySetDefinitions = [
   loadJsonContent('relative-path-to-the-json-file-1.json')
-  loadJsonContent('relative-path-to-the-json-file-1.json')
+  loadJsonContent('relative-path-to-the-json-file-2.json')
 ]
 ```
 
