@@ -127,7 +127,7 @@ The following Tests are included in the module:
 * Each member policy must have a `groupNames` element
 * The `groupNames` element for each member policy must have at least one item
 
-** Json File Tests:**
+**Json File Tests:**
 
 * The specified value for the `path` parameter must contain at least one Json file
 * The Json file can be correctly parsed
@@ -135,6 +135,9 @@ The following Tests are included in the module:
 ## Conclusion
 
 I have also bumped the minimum required PowerShell version to v7.0.0 and Pester module version to v5.5.0. Therefore you will no longer be able to use this module in the legacy Windows PowerShell (v5) environment (and if you are still using Windows PowerShell, you should really stop doing that!).
+
+I have in included few policy and initiative definitions that I used for testing the PowerShell module. you can find them in the GitHub repo under the [test_definitions](https://github.com/tyconsulting/AzPolicyTest/tree/master/test_definitions) folder.
+
 
 Lastly, I wanted to mention that I was thinking about adding additional tests to validate the policy definition json file against the official JSON schema for Azure policy definitions. However I quickly scrapped the idea because of view limitations:
 
