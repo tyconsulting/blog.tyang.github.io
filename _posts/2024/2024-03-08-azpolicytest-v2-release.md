@@ -27,7 +27,7 @@ I have manage to spend a day to update the module to use Pester v5 and also adde
 Install-Module -Name AzPolicyTest -Force
 ```
 
-The run the tests, you can use the following command:
+You can use the following commands to run the tests:
 
 Invoke tests for Policy Definitions:
 
