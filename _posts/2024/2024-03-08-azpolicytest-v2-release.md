@@ -139,9 +139,9 @@ I have also bumped the minimum required PowerShell version to v7.0.0 and Pester 
 I have in included few policy and initiative definitions that I used for testing the PowerShell module. you can find them in the GitHub repo under the [test_definitions](https://github.com/tyconsulting/AzPolicyTest/tree/master/test_definitions) folder.
 
 
-Lastly, I wanted to mention that I was thinking about adding additional tests to validate the policy definition json file against the official JSON schema for Azure policy definitions. However I quickly scrapped the idea because of view limitations:
+Lastly, I wanted to mention that I was thinking about adding additional tests to validate the policy definition json file against the official JSON schema for Azure policy definitions. However I quickly scrapped the idea due to few limitations:
 
-1. The last official schema I was able to find dated back to Oct 2020, and it was created using Json schema draft-4 format. Starting for the most recent PowerShell release (v7.4.1), the `Test-Json` cmdlet has been updated to use the latest Json schema draft-7 format. Therefore, the official schema for Azure policy definitions is no longer compatible with the latest `Test-Json` cmdlet.
+1. The [latest official schema I was able to find](https://github.com/Azure/azure-resource-manager-schemas/blob/main/schemas/2020-10-01/policyDefinition.json) was dated back to Oct 2020, and it was created using Json schema draft-4 format. Starting for the most recent PowerShell release (v7.4.1), the `Test-Json` cmdlet has been updated to use the latest Json schema draft-7 format ([breaking changes in PowerShell 7.4.1](https://learn.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-74?view=powershell-7.4#breaking-changes)). Therefore the official schema for Azure policy definitions is no longer compatible with the latest `Test-Json` cmdlet.
 2. The official schema only covered the `policyRule` section of the policy definition, and there is no schema for the policy initiatives.
 3. The Json schema is useless when you have parameterised values (such as policy effects). For example, the effect value `[parameters('effect')]` is not a valid value according to the schema, but it is a valid in the policy definition as long as the respective parameter is correctly defined.
 
