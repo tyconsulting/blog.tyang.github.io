@@ -1,5 +1,5 @@
 ---
-title: Azure Policies for Allowed Service Tags in Network Security Groups
+title: Azure Policy for Allowed Service Tags in Network Security Groups
 date: 2024-09-21 11:00
 author: Tao Yang
 permalink: /2024/09/21/azure-policy-definition-allowed-nsg-service-tags
