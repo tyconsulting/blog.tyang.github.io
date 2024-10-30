@@ -21,11 +21,11 @@ The query can be found in [my GitHub repo HERE](https://github.com/tyconsulting/
 
 Query Results:
 
-![01](../../assets/images/2024/10/arg-sub-owner-01.jpg)
+![01](../../../../assets/images/2024/10/arg-sub-owner-01.jpg)
 
 Portal:
 
-![02](../../assets/images/2024/10/arg-sub-owner-02.jpg)
+![02](../../../../assets/images/2024/10/arg-sub-owner-02.jpg)
 
 If you want to see the details of each role assignment, just remove the last `summarize` line from the query.
 
