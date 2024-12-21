@@ -2,7 +2,7 @@
 title: Azure Policies for Restricting Cross-Subscription Private Endpoints
 date: 2024-12-21 21:00
 author: Tao Yang
-permalink: /2024/12/21/azure-policy-definitions-restrict-service-tag-in-nsg
+permalink: /2024/12/21/azure-policy-definitions-restrict-cross-sub-pe
 summary: Azure policy definitions for restricting cross-subscription private endpoints
 categories:
   - Azure
