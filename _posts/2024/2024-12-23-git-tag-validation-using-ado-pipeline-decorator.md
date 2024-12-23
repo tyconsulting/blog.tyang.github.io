@@ -50,9 +50,11 @@ I have added conditional logic to the pipeline decorator to only run for a small
 ### How it works
 
 The `Git Tag Validation` pipeline decorator is configured to run immediately after each `checkout` task in the pipeline, with the following conditions:
+
 <!-- {% raw %} -->
 >```${{ if and(eq(variables['System.CollectionUri'], 'https://dev.azure.com/contoso/'), eq(variables['System.TeamProject'], 'MyProject'), eq(resources.repositories['self'].name, 'my-repo'), or(eq(variables['System.DefinitionId'], '1'), eq(variables['System.DefinitionId'], '2'), eq(variables['System.DefinitionId'], '3')), startsWith(variables['Build.SourceBranch'], 'refs/tags/')) }}:```
 <!-- {% endraw %} -->
+
 This configuration ensures the decorator task only gets executed when the pipeline meets the following conditions:
 
 1. The ADO organization URI must be `https://dev.azure.com/contoso/` (`eq(variables['System.CollectionUri'], 'https://dev.azure.com/contoso/')`) - You will need to update this value to the URI of your ADO organization.
