@@ -51,7 +51,7 @@ I have added conditional logic to the pipeline decorator to only run for a small
 
 The `Git Tag Validation` pipeline decorator is configured to run immediately after each `checkout` task in the pipeline, with the following conditions:
 
-`${{ if and(eq(variables['System.CollectionUri'], 'https://dev.azure.com/contoso/'), eq(variables['System.TeamProject'], 'MyProject'), eq(resources.repositories['self'].name, 'my-repo'), or(eq(variables['System.DefinitionId'], '1'), eq(variables['System.DefinitionId'], '2'), eq(variables['System.DefinitionId'], '3')), startsWith(variables['Build.SourceBranch'], 'refs/tags/')) }}:`
+>```${{ if and(eq(variables['System.CollectionUri'], 'https://dev.azure.com/contoso/'), eq(variables['System.TeamProject'], 'MyProject'), eq(resources.repositories['self'].name, 'my-repo'), or(eq(variables['System.DefinitionId'], '1'), eq(variables['System.DefinitionId'], '2'), eq(variables['System.DefinitionId'], '3')), startsWith(variables['Build.SourceBranch'], 'refs/tags/')) }}:```
 
 This configuration ensures the decorator task only gets executed when the pipeline meets the following conditions:
 
