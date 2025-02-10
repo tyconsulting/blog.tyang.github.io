@@ -71,8 +71,8 @@ As you can see, basically what I have done is converting string such as `TLS1_2`
 
 To test, I have set the policy to `TLS1_2` and created a storage account with `TLS1_3` minimum TLS version.
 
-![04](../../../../assets/images/2025/02/storage-tls-policy-03.jpg)
+![04](../../../../assets/images/2025/02/storage-tls-policy-04.jpg)
 
 The What-If result shows the policy is not blocking the deployment.
 
-![05](../../../../assets/images/2025/02/storage-tls-policy-04.jpg)
+![05](../../../../assets/images/2025/02/storage-tls-policy-05.jpg)
