@@ -1,6 +1,6 @@
 ---
 title: Log Analytics Queries for Billable Data per Subscription
-date: 2025-02-24 HH:MM
+date: 2025-02-24 12:00
 author: Tao Yang
 permalink: /2025/02/24/og-analytics-queries-for-billable-data-per-sub
 summary: Log Analytics Queries for Billable Data per Subscription that can be used to calculate and charge back the data usage to different subscriptions.
