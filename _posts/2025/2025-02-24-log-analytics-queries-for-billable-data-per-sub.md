@@ -48,7 +48,7 @@ arg("").ResourceContainers
 
 ```
 
-~[1](../../../../assets/images/2025/02/law-queries-01.jpg)
+![01](../../../../assets/images/2025/02/law-queries-01.jpg)
 
 **Daily ingestion volume over last month for a specific subscription**
 
@@ -69,6 +69,6 @@ arg("").ResourceContainers
 | project SubscriptionName, subscriptionId, SolutionId, DataIngestedInGB, IngestionDate
 ```
 
-~[2](../../../../assets/images/2025/02/law-queries-02.jpg)
+![02](../../../../assets/images/2025/02/law-queries-02.jpg)
 
 The billable price can be then easily calculated based on the ingested volume and price per GB.
