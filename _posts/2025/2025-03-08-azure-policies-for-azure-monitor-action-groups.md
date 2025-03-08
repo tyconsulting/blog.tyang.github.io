@@ -21,12 +21,14 @@ When creating an action group, you can configure zero or more notifications as w
 We need to make sure when alerts are triggered, The following controls should be put in place to prevent data exfiltration and enhance network transport security.
 
 **Emails are only sent to authorised email addresses.**
+
 Only email domains managed by your organisation should be used. Personal email addresses or emails of another organisation should be prohibited.
 
 **SMS messages are only sent to authorised mobile phone numbers.**
 The phone numbers used to receive SMS messages should belong to appropriate personnel. Phone numbers external to your organisation or numbers of other countries should be restricted.
 
 **Actions that trigger another Azure resource (Azure Automation Runbook, Event Hub Namspace, Azure Function App and Azure Logic App) are only triggering resources within the same subscription or been explicitly added to the allowed list of targets.**
+
 When the organisation does not separate Azure environments into different Entra ID tenants, this will ensure we are not potentially sending production alert data to non-production environments.
 
 It will also allow the organisation to control which azure resources can be used to receive alert data if they are indeed located in different subscriptions of the action group.
