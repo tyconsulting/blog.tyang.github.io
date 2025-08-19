@@ -75,7 +75,7 @@ Here are some sample queries you can use:
 
 **Get all module usage**
 
-```oql
+```kusto
 resources
 | where tags['hidden-module_name'] matches regex '.'
 | extend module_name = tostring(tags['hidden-module_name'])
@@ -89,7 +89,7 @@ resources
 
 **List all storage accounts deployed by the storage module with module version, `owner` and `environment` tag values**
 
-```oql
+```kusto
 resources
 | where type =~ "microsoft.storage/storageAccounts"
 | where tags['hidden-module_name'] contains 'storage'
