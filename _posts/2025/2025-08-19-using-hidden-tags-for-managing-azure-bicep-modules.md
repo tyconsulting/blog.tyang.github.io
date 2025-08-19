@@ -17,10 +17,10 @@ Many customers have gone down the route of developing, publishing and sharing in
 
 The process is typically as follows:
 
-Develop the module locally.
-Publish a “beta” or preview version of the module into a registry.
-Test the module in a staging environment before promoting it to production.
-Bump the version number and publish the final module.
+1. Develop the module locally.
+2. Publish a “beta” or preview version of the module into a registry.
+3. Test the module in a staging environment before promoting it to production.
+4. Bump the version number and publish the final module.
 
 We have implemented internal Bicep module libraries leveraging existing now retired [Azure CARML](https://aka.ms/carml) and it's successor [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/) (AVM) library for several customers over the last few years.
 
