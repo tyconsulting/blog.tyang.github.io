@@ -190,7 +190,7 @@ We need to update the pipeline to write back the full version number to this fil
 
 This is what we have done:
 
-1. Updated the [Get-ModulesToPublish.ps1](https://github.com/Azure/ResourceModules/blob/main/utilities/pipelines/resourcePublish/Get-ModulesToPublish.ps1) and added a new function and placed it before the `Get-ModulesToPublish` function::
+Firstly updated the [Get-ModulesToPublish.ps1](https://github.com/Azure/ResourceModules/blob/main/utilities/pipelines/resourcePublish/Get-ModulesToPublish.ps1) and added a new function and placed it before the `Get-ModulesToPublish` function::
 
 ```PowerShell
 function Set-ModuleVersionFile {
@@ -213,10 +213,9 @@ function Set-ModuleVersionFile {
 
 ```
 
-2. Added a step to call this function and update the `version.json` file before returning the `$modulesToPublish` variable in the `Get-ModulesToPublish` function at the end of the file:
+Then added a step to call this function and update the `version.json` file before returning the `$modulesToPublish` variable in the `Get-ModulesToPublish` function at the end of the file:
 
 ```PowerShell
-# Update the version files for the module
 foreach ($TemplateFileToPublish in $TemplateFilesToPublish) {
     $ModuleVersion = Get-NewModuleVersion -TemplateFilePath $TemplateFileToPublish.FullName -Verbose
     Set-ModuleVersionFile -TemplateFilePath $TemplateFileToPublish -Version $ModuleVersion -Verbose
