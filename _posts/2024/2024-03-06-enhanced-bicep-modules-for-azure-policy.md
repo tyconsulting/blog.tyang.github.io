@@ -66,7 +66,7 @@ As the standard, the Azure policy definitions are defined in JSON files. I have 
 
 I firstly import the JSON content of each policy file into an array variable using the [`loadJsonContent()` funciton](https://github.com/tyconsulting/BlogPosts/blob/master/Azure-Bicep/policy-definitions/main.bicep#L4-L20) in Bicep.
 
-```bicep
+```terraform
 var policyDefinitions = [
   loadJsonContent('relative-path-to-the-json-file-1.json')
   loadJsonContent('relative-path-to-the-json-file-2.json')
@@ -76,7 +76,7 @@ var policyDefinitions = [
 
 Then I created another array variable to format the json object into the user-defined type for the policy definition which is defined in the module. This is done using the [lambda function `map()`](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions-lambda#map):
 
-```bicep
+```terraform
 var mappedPolicyDefinitions = map(range(0, length(policyDefinitions)), i => {
     name: policyDefinitions[i].name
     displayName: contains(policyDefinitions[i].properties, 'displayName') ? policyDefinitions[i].properties.displayName : null
@@ -90,7 +90,7 @@ var mappedPolicyDefinitions = map(range(0, length(policyDefinitions)), i => {
 
 Lastly, I simply [called the Policy Definition module](https://github.com/tyconsulting/BlogPosts/blob/master/Azure-Bicep/policy-definitions/main.bicep#L34-L39) using the formatted array `mappedPolicyDefinitions` as the parameter:
 
-```bicep
+```terraform
 module policyDefs '../../BicepModules/authorization/policy-definition/main.bicep' = {
   name: take('policyDef-${deploymentNameSuffix}', 64)
   params: {
@@ -109,7 +109,7 @@ I have included couple of sample policy initiatives that are made up using some 
 
 Again, I firstly load the json content of all the policy initiative files into an array variable using the [`loadJsonContent()` function](https://github.com/tyconsulting/BlogPosts/blob/master/Azure-Bicep/policy-initiatives/main.bicep#L8-L11):
 
-```bicep
+```terraform
 var policySetDefinitions = [
   loadJsonContent('relative-path-to-the-json-file-1.json')
   loadJsonContent('relative-path-to-the-json-file-2.json')
@@ -118,7 +118,7 @@ var policySetDefinitions = [
 
 then following the same practice, I used the lambda function `map()` to format the json object into the user-defined type for the policy initiative which is defined in the module. However, in this case, I had to [nest another `map()` function](https://github.com/tyconsulting/BlogPosts/blob/master/Azure-Bicep/policy-initiatives/main.bicep#L20-L25) to replace the token string `{policyLocationResourceId}` with the management group Id in the policy initiative definitions:
 
-```bicep
+```terraform
 var mappedPolicySetDefinitions = map(range(0, length(policySetDefinitions)), i => {
     name: policySetDefinitions[i].name
     displayName: contains(policySetDefinitions[i].properties, 'displayName') ? policySetDefinitions[i].properties.displayName : null
@@ -137,7 +137,7 @@ var mappedPolicySetDefinitions = map(range(0, length(policySetDefinitions)), i =
 
 Lastly, same as the policy definition template, I called the [Policy Initiative module](https://github.com/tyconsulting/BlogPosts/blob/master/Azure-Bicep/policy-initiatives/main.bicep#L29-L34) using the formatted array `mappedPolicySetDefinitions` as the parameter:
 
-```bicep
+```terraform
 module policyInitiatives '../../BicepModules/authorization/policy-set-definition/main.bicep' = {
   name: take('policySetDef-${deploymentNameSuffix}', 64)
   params: {
