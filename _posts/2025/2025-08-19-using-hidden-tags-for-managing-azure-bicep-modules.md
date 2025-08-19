@@ -75,9 +75,9 @@ Here are some sample queries you can use:
 
 **Get all module usage**
 
-```kusto
+```OQL
 resources
-| where tags['hidden-module_name']  matches regex '.'
+| where tags['hidden-module_name'] matches regex '.'
 | extend module_name = tostring(tags['hidden-module_name'])
 | extend module_version = tostring(tags['hidden-module_version'])
 | summarize resource_count = count() by type, module_name, module_version
@@ -85,11 +85,11 @@ resources
 
 ![03](../../../../assets/images/2025/08/bicep-hidden-tags-03.jpg)
 
->Note: repeat this query for other Azure Resource Graph queries because not everything is stored in the `resources` table. Refer to [this article](https://learn.microsoft.com/en-us/azure/governance/resource-graph/reference/supported-tables-resources) for the details on ARG tables.
+>Note: repeat this query for other Azure Resource Graph tables because not everything is stored in the `resources` table. Refer to [this article](https://learn.microsoft.com/en-us/azure/governance/resource-graph/reference/supported-tables-resources) for the details on ARG tables.
 
 **List all storage accounts deployed by the storage module with module version, `owner` and `environment` tag values**
 
-```kusto
+```OQL
 resources
 | where type =~ "microsoft.storage/storageAccounts"
 | where tags['hidden-module_name'] contains 'storage'
