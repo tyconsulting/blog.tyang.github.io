@@ -226,8 +226,8 @@ foreach ($TemplateFileToPublish in $TemplateFilesToPublish) {
 
 ## Conclusion
 
-Over time I’ve raised a feature request (see https://github.com/Azure/bicep-registry-modules/issues/2503 ) so that the AVM team might support similar functionality natively. It has been almost a while since then, and the AVM team have not decided to implement this.
+Over time I’ve raised a [feature request](https://github.com/Azure/bicep-registry-modules/issues/2503) so that the AVM team might support similar functionality natively. It has been a while since I raised the request and the AVM team have not committed to implementing this.
 
-So I documented this pattern so that if we fork the AVM or CARML modules for our internal use, we can "inject" our own hidden tags (both the module name and version) into the ARM payload.
+Therefore I have decided to document this pattern so that if we fork the AVM or CARML modules for our internal use, we can "inject" our own hidden tags (both the module name and version) into the ARM payload.
 
 Although the sample code above is specific to Bicep modules and our AVM/CARML fork, the same concept can be applied – for example, in Terraform modules when you need to track which version of a module was deployed.
