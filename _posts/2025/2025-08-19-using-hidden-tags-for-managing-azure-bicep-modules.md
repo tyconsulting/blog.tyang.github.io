@@ -75,7 +75,7 @@ Here are some sample queries you can use:
 
 **Get all module usage**
 
-```OQL
+```oql
 resources
 | where tags['hidden-module_name'] matches regex '.'
 | extend module_name = tostring(tags['hidden-module_name'])
@@ -89,7 +89,7 @@ resources
 
 **List all storage accounts deployed by the storage module with module version, `owner` and `environment` tag values**
 
-```OQL
+```oql
 resources
 | where type =~ "microsoft.storage/storageAccounts"
 | where tags['hidden-module_name'] contains 'storage'
@@ -192,7 +192,7 @@ This is what we have done:
 
 Firstly updated the [Get-ModulesToPublish.ps1](https://github.com/Azure/ResourceModules/blob/main/utilities/pipelines/resourcePublish/Get-ModulesToPublish.ps1) and added a new function and placed it before the `Get-ModulesToPublish` function::
 
-```PowerShell
+```powershell
 function Set-ModuleVersionFile {
     [CmdletBinding()]
     param (
@@ -215,7 +215,7 @@ function Set-ModuleVersionFile {
 
 Then added a step to call this function and update the `version.json` file before returning the `$modulesToPublish` variable in the `Get-ModulesToPublish` function at the end of the file:
 
-```PowerShell
+```powershell
 foreach ($TemplateFileToPublish in $TemplateFilesToPublish) {
     $ModuleVersion = Get-NewModuleVersion -TemplateFilePath $TemplateFileToPublish.FullName -Verbose
     Set-ModuleVersionFile -TemplateFilePath $TemplateFileToPublish -Version $ModuleVersion -Verbose
