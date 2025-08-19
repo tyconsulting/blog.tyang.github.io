@@ -43,7 +43,7 @@ We created two hidden tags for every resource module. The `hidden-module_name` t
 
 To implement this in the bicep modules, we added the following code to the module (using storage account as an example):
 
-```bicep
+```terraform
 //tags parameter
 @description('Optional. Tags of the resource.')
 param tags object?
@@ -75,7 +75,7 @@ Here are some sample queries you can use:
 
 **Get all module usage**
 
-```kusto
+```ocl
 resources
 | where tags['hidden-module_name'] matches regex '.'
 | extend module_name = tostring(tags['hidden-module_name'])
@@ -89,7 +89,7 @@ resources
 
 **List all storage accounts deployed by the storage module with module version, `owner` and `environment` tag values**
 
-```kusto
+```ocl
 resources
 | where type =~ "microsoft.storage/storageAccounts"
 | where tags['hidden-module_name'] contains 'storage'
